@@ -107,3 +107,13 @@ Literaturwache, dann A-02, A-08, A-09.
 - Yang v3 nennt auf S. 1 das Format 4×2×5 „one away“ von der oberen Schranke. In Charakteristik 2 stimmt das nicht (Rang 31 bis 33). Der Orchestrator hat Justus die Auslegung von Abbruchregel 4 vorgelegt. Justus hat entschieden: kein Fundamentfehler, die Arbeit geht weiter.
 - Merge-Stand: PR #2 (aa2ed0d), PR #3 (c00ccea) und PR #4 (c498f9b) liegen auf `main`.
 - Die drei zugehörigen Zweige ließen sich nicht löschen, die Plattform hat es verweigert.
+
+---
+
+## 25.11.2026 · Budgetänderung durch Justus (zählt nicht zum Budget)
+
+Justus hat am 25.11.2026 um 00:54 Uhr (MEZ) geschrieben:
+
+> Freigabe zu weiteren Runden nach deinem Ermessen
+
+Damit gibt Justus weitere Runden über das Startbudget von Stufe 0 hinaus frei, nach Ermessen des Orchestrators. Das ist eine Budgetänderung durch Justus nach Abschnitt 6, keine Verlängerung durch einen Agenten. Die Tabelle in Abschnitt 6 von PROTOKOLL.md bleibt unverändert.

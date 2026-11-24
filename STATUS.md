@@ -7,6 +7,7 @@ Zuletzt geändert: 25.11.2026 (nach Runde 1)
 **Stufe 0: Nachbau und Bestandsaufnahme**
 
 - Runden verbraucht: 1 von 2
+- Budget: Justus hat am 25.11.2026 weitere Runden über das Startbudget hinaus nach Ermessen des Orchestrators freigegeben (siehe LOG.md). Die Tabelle in PROTOKOLL.md Abschnitt 6 ist unverändert
 - Runde 2 läuft: Literaturwache, dann A-02, A-08, A-09
 - Stufenwechsel 0 → 1 → 2: durch den Orchestrator, sobald das Fertig-Kriterium erfüllt ist (Protokoll Abschnitt 3 und 11)
 - Stufe 3: erst nach Budget von Justus
