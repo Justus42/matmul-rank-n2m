@@ -101,3 +101,9 @@ Abbruchregel 4 ist nicht ausgelöst. Keine Quelle enthält einen Fehler, unschar
 **Entscheidung für Runde 2**
 
 Literaturwache, dann A-02, A-08, A-09.
+
+**Nachtrag zu Runde 1 (Angaben des Orchestrators)**
+
+- Yang v3 nennt auf S. 1 das Format 4×2×5 „one away“ von der oberen Schranke. In Charakteristik 2 stimmt das nicht (Rang 31 bis 33). Der Orchestrator hat Justus die Auslegung von Abbruchregel 4 vorgelegt. Justus hat entschieden: kein Fundamentfehler, die Arbeit geht weiter.
+- Merge-Stand: PR #2 (aa2ed0d), PR #3 (c00ccea) und PR #4 (c498f9b) liegen auf `main`.
+- Die drei zugehörigen Zweige ließen sich nicht löschen, die Plattform hat es verweigert.
