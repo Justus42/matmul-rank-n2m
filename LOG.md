@@ -29,3 +29,27 @@ Aufbau eines Eintrags: Datum, Rundennummer, Aufträge, gelieferte Dateien, neuer
 **Entscheidung**
 
 Stufe 0 ist freigegeben. Nächste Runde beginnt mit Literaturwache und den Aufträgen A-01, A-04, A-05, A-06, A-07.
+
+---
+
+## 25.11.2026 · Regeländerung durch Justus (Protokoll Version 0.2, zählt nicht zum Budget)
+
+**Anlass**
+
+Der erste Lauf blieb an zwei Stellen stehen: Threads fragten vor dem Commit nach, und Pull Requests warteten auf den Merge durch Justus.
+
+**Geändert**
+
+- Threads committen ihre Zieldatei ohne Rückfrage und öffnen einen Pull Request
+- Der Orchestrator merged Pull Requests selbst, beantwortet Rückfragen der Threads und wechselt die Stufen 0 → 1 → 2 selbst
+- Aufträge einer Runde hängen nie voneinander ab
+- Lizenzfragen entscheidet der Orchestrator nach fester Regel
+- Neu: Abschnitt 11 im Protokoll
+
+**Unverändert bei Justus**
+
+Budgets, Abbruchregeln, Änderungen an Protokoll und CLAUDE.md, Veröffentlichung, Budget für Stufe 3.
+
+**Hinweis**
+
+Das ist ein Test. Ob die Plattform dem Orchestrator das Mergen erlaubt, ist offen und im nächsten Logbuch-Eintrag festzuhalten.

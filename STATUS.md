@@ -7,8 +7,8 @@ Zuletzt geändert: 25.11.2026
 **Stufe 0: Nachbau und Bestandsaufnahme**
 
 - Runden verbraucht: 0 von 2
-- Freigabe durch Justus: erteilt für Stufe 0
-- Nächste Stufe (1) beginnt erst nach neuer Freigabe
+- Stufenwechsel 0 → 1 → 2: durch den Orchestrator, sobald das Fertig-Kriterium erfüllt ist (Protokoll Abschnitt 3 und 11)
+- Stufe 3: erst nach Budget von Justus
 
 ## Offene Aufträge für Stufe 0
 
@@ -35,5 +35,5 @@ Zuletzt geändert: 25.11.2026
 
 ## Sperren
 
-- Keine Arbeit an Stufe 1 bis 3 vor Freigabe
-- Keine Übernahme fremden Codes vor Abschluss von A-01
+- Keine Arbeit an Stufe 3 ohne Budget von Justus
+- Fremder Code nur nach der Lizenzregel (Protokoll Abschnitt 11.3)

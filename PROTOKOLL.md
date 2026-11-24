@@ -1,6 +1,6 @@
 # Protokoll: Exakter Rang kleiner Matrixmultiplikations-Formate
 
-Stand: 25.11.2026 · Version 0.1 · Diese Datei ist das Gedächtnis des Projekts. Jeder Chat und jeder Subagent liest sie zuerst.
+Stand: 25.11.2026 · Version 0.2 · Diese Datei ist das Gedächtnis des Projekts. Jeder Chat und jeder Subagent liest sie zuerst.
 
 ---
 
@@ -53,6 +53,8 @@ Alle Zahlen dieser Tabelle gelten als **ungeprüft übernommen**, bis Stufe 0 si
 
 Jede Stufe hat ein Fertig-Kriterium, das eine Maschine entscheidet. Eine Stufe gilt erst als erreicht, wenn die Prüfung nach Abschnitt 5 bestanden ist.
 
+**Stufenwechsel:** Der Orchestrator wechselt von Stufe 0 zu 1 und von Stufe 1 zu 2 selbst, sobald das Fertig-Kriterium erfüllt und im Logbuch belegt ist. Stufe 3 beginnt erst, wenn Justus ein Budget dafür festgelegt hat.
+
 ### Stufe 0: Nachbau und Bestandsaufnahme
 
 - Lean-Repo zu 3×2×5 klonen und bauen
@@ -83,13 +85,13 @@ Zwei Spuren laufen parallel und gleichberechtigt:
 
 ### Stufe 3: 3×2×7 (34 oder 35?)
 
-Wie Stufe 2. Beginnt erst nach Entscheidung von Justus.
+Wie Stufe 2. Beginnt erst, wenn Justus ein Budget dafür festgelegt hat.
 
 ---
 
 ## 4. Rollen
 
-**Orchestrator** (der Chat): plant Runden, vergibt Aufträge, führt das Logbuch, entscheidet über Fortsetzen oder Abbruch nach Abschnitt 6. Er beweist und prüft nicht selbst.
+**Orchestrator** (der Chat): plant Runden, vergibt Aufträge, führt das Logbuch, entscheidet über Fortsetzen oder Abbruch nach Abschnitt 6. Er führt das Projekt ohne Rückfragen; seine Rechte und Grenzen stehen in Abschnitt 11. Er beweist und prüft nicht selbst.
 
 **Subagenten** bekommen genau einen Auftrag und liefern genau eine Datei:
 
@@ -106,7 +108,7 @@ Pro Runde läuft mindestens ein Blind-Sucher, sobald Stufe 2 begonnen hat. Prüf
 
 **Fremdmodell:** Vor jeder Formalisierung eines neuen Prosa-Beweises und bei jedem Aussagen-Abgleich liest ein Modell einer anderen Familie gegen (über die Gemini Bridge oder von Justus selbst weitergereicht).
 
-**Justus:** gibt Stufen frei, entscheidet über Veröffentlichung, kann jederzeit stoppen.
+**Justus:** legt Budgets fest, ändert Protokoll und CLAUDE.md, entscheidet über Veröffentlichung und Kontakt nach außen, kann jederzeit stoppen.
 
 ---
 
@@ -145,7 +147,7 @@ Die Wörter „bewiesen" und „gelöst" stehen nur bei Status **geprüft**.
 
 ## 6. Budget und Abbruch
 
-Eine **Runde** ist ein Orchestrator-Durchgang mit höchstens 4 Subagenten. Rechenblöcke dauern höchstens 30 Minuten auf 4 Kernen. Nichts läuft im Hintergrund weiter, was nicht im Logbuch steht.
+Eine **Runde** ist ein Orchestrator-Durchgang mit höchstens 4 Subagenten. Aufträge einer Runde hängen nie voneinander ab; Abhängigkeiten gibt es nur zwischen Runden. Rechenblöcke dauern höchstens 30 Minuten auf 4 Kernen. Nichts läuft im Hintergrund weiter, was nicht im Logbuch steht.
 
 | Stufe | Rundenbudget |
 |---|---|
@@ -163,7 +165,7 @@ Die Zahlen sind Startwerte. Nur Justus ändert sie.
 3. **Überholt:** Der Literaturwächter findet das Ziel anderswo gelöst: Arbeit stoppt sofort. Der Rest der Runde prüft das fremde Ergebnis nach
 4. **Fundamentfehler:** Stufe 0 oder 1 findet einen Fehler in einer Quelle: Stopp, Bericht an Justus, keine Weiterarbeit auf dem fehlerhaften Fundament
 
-Kein Agent verlängert ein Budget oder setzt eine Abbruchregel aus.
+Kein Agent verlängert ein Budget oder setzt eine Abbruchregel aus. Das gilt auch für den Orchestrator.
 
 ---
 
@@ -213,4 +215,56 @@ Ein Logbuch-Eintrag enthält: Datum, Rundennummer, Aufträge, gelieferte Dateien
 
 ## 10. Startauftrag für den Orchestrator-Chat
 
-> Lies PROTOKOLL.md, STATUS.md und LOG.md im Repo. Führe zuerst die Literaturwache nach Abschnitt 7 aus. Arbeite dann die aktuelle Stufe in Runden nach Abschnitt 6 ab: höchstens 4 Subagenten pro Runde, jeder mit genau einem Auftrag und einer Zieldatei. Prüfe nichts selbst, sondern vergib Prüfaufträge nach Abschnitt 5. Schreibe nach jeder Runde LOG.md und STATUS.md und pushe. Halte an, sobald eine Abbruchregel greift oder das Fertig-Kriterium der Stufe erfüllt ist, und berichte in fünf Sätzen. Beginne keine neue Stufe ohne meine Freigabe.
+> Lies PROTOKOLL.md, STATUS.md und LOG.md im Repo. Du bist der Orchestrator mit den Rechten aus Abschnitt 11. Führe zuerst die Literaturwache nach Abschnitt 7 aus. Arbeite dann die aktuelle Stufe in Runden nach Abschnitt 6 ab: höchstens 4 Subagenten pro Runde, jeder mit genau einem Auftrag und einer Zieldatei, keine Abhängigkeiten innerhalb einer Runde. Prüfe nichts selbst, sondern vergib Prüfaufträge nach Abschnitt 5. Beantworte Rückfragen der Threads selbst und merge ihre Pull Requests nach Abschnitt 11.2. Schreibe nach jeder Runde LOG.md und STATUS.md und stelle sie ein. Wechsle die Stufe nach Abschnitt 3 selbst. Halte nur in den Fällen aus Abschnitt 11.4 an und berichte dann in fünf Sätzen.
+
+---
+
+## 11. Git-Regeln und Rechte des Orchestrators
+
+Testweise seit 25.11.2026: Der Orchestrator führt das Projekt ohne Rückfragen an Justus.
+
+### 11.1 Für jeden Thread und Subagenten
+
+- Committe deine Zieldatei ohne Rückfrage, pushe auf deinen eigenen Zweig und öffne einen Pull Request. Der Titel beginnt mit der Auftragsnummer
+- Ändere nur Dateien deines Auftrags
+- Kein Force-Push, keine Änderung an der Historie
+- Rückfragen gehen an den Orchestrator, nicht an Justus
+
+### 11.2 Rechte des Orchestrators
+
+- Pull Requests der Threads mergen, schließen oder zur Nacharbeit zurückgeben
+- Rückfragen der Threads selbst beantworten
+- Aufträge anlegen, ändern, neu vergeben oder streichen
+- STATUS.md, LOG.md und die Übersicht in `behauptungen/` pflegen und direkt einstellen
+- Stufenwechsel nach Abschnitt 3
+- Lizenzfragen nach 11.3 entscheiden
+- GitHub Actions einrichten, Zweige nach dem Merge löschen
+
+**Merge-Bedingungen:** Der Pull Request ändert nur Dateien seines Auftrags. Er ändert weder PROTOKOLL.md noch CLAUDE.md. LOG.md wird höchstens ergänzt.
+
+**Ein Merge ändert keinen Status.** Was auf `main` liegt, ist damit nicht geprüft. Den Status ändert allein die Prüfung nach Abschnitt 5.
+
+**Falls die Plattform das Mergen verweigert:** Pull Requests der Runde sammeln, Justus einmal pro Runde um den Merge bitten, im Logbuch vermerken.
+
+### 11.3 Lizenzregel
+
+- Fremder Code mit klarer offener Lizenz (Apache 2.0, MIT, BSD): Übernahme erlaubt, mit Quelle und Lizenz in `lit/LIZENZEN.md` und im Kopf der Datei
+- Keine oder unklare Lizenz: keine Kopie ins Repo. Stattdessen als externe Abhängigkeit einbinden (Verweis statt Kopie) oder aus dem Paper neu schreiben
+- Im Zweifel gilt die zweite Regel
+
+### 11.4 Grenzen
+
+Auch der Orchestrator darf nicht:
+
+- ein Budget verlängern oder eine Abbruchregel aussetzen (Abschnitt 6)
+- PROTOKOLL.md oder CLAUDE.md ändern
+- selbst beweisen oder prüfen (Abschnitte 4 und 5)
+- etwas veröffentlichen oder nach außen Kontakt aufnehmen (Abschnitt 9)
+- Stufe 3 ohne Budget von Justus beginnen
+
+Er hält an und berichtet an Justus, wenn:
+
+- eine Abbruchregel greift
+- das Fertig-Kriterium von Stufe 2 erfüllt ist
+- die Plattform eine nötige Aktion verweigert und es keinen Ausweg nach diesem Protokoll gibt
+- eine Regel dieses Protokolls geändert werden müsste, um weiterzukommen
