@@ -2,7 +2,7 @@
 
 Hier liegen Multiplikationsverfahren als Datendateien, eine Datei pro Verfahren. Diese Datei legt das Datenformat fest (Auftrag A-07). Die Prüfprogramme aus A-08 und A-09 lesen genau dieses Format und nichts sonst.
 
-Stand: erste Fassung, Formatversion 1, 25.11.2026. Annahmen, die Justus bestätigen oder ändern sollte, sind mit **[Annahme]** markiert und am Ende gesammelt.
+Stand: erste Fassung, Formatversion 1, 25.11.2026. Annahmen, die der Orchestrator bestätigen oder ändern sollte (Protokoll 11.1 und 11.2), sind mit **[Annahme]** markiert und am Ende gesammelt.
 
 ---
 
@@ -175,7 +175,7 @@ Status dieses Beispiels: **behauptet**. Der Verfasser dieser Datei hat es mit ei
 
 ## 8. Gesammelte Annahmen
 
-Diese Punkte hat der Verfasser selbst entschieden. Sie gelten, bis Justus sie bestätigt oder ändert.
+Diese Punkte hat der Verfasser selbst entschieden. Sie gelten als vorläufig, bis der Orchestrator sie bestätigt oder ändert. Rückfragen dazu gehen an den Orchestrator (Protokoll 11.1).
 
 1. JSON statt eines eigenen Textformats. Grund: beide Prüfsprachen haben fertige JSON-Leser, das senkt die Fehlerquelle „eigener Parser".
 2. Englische Schlüssel, deutsche Freitexte in `notes` und `origin`.
