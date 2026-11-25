@@ -286,7 +286,8 @@ variable (R : Matrix (Fin 4) (Fin 4) L) (hR : IsUnit R.det)
 /-- `a′_t = -Rᵀ b_t`. -/
 theorem transNF_avecs (t : Fin r) (i : Fin 4) :
     SatzB444.avecs (transNF alg R hR) t i = -(bvecs alg t ⬝ᵥ fun x => R x i) := by
-  show alg.beta t ((Mrot : Matrix (Fin 2) (Fin 2) L) * (R * unitMatrix i 0 * 1)ᵀ) = _
+  show alg.beta t ((Mrot : Matrix (Fin 2) (Fin 2) L) *
+    (R * (unitMatrix i 0 : Matrix (Fin 4) (Fin 2) L) * (1 : Matrix (Fin 2) (Fin 2) L))ᵀ) = _
   rw [mul_unitMatrix_mul, Mrot_outer]
   have e : outer ((Mrot : Matrix (Fin 2) (Fin 2) L) *ᵥ fun y => (1 : Matrix (Fin 2) (Fin 2) L) 0 y)
       (fun x => R x i) =
@@ -524,6 +525,8 @@ theorem TgL_inv_mul_emb (u : Fin 4 → GBar K) : (TgL K)⁻¹ * emb u = outer (v
   ext i k
   simp [Matrix.mul_apply, Fin.sum_univ_two, emb_apply_zero, emb_apply_one, vTL, outer_apply]
 
+set_option synthInstance.maxHeartbeats 400000 in
+set_option maxHeartbeats 800000 in
 /-- `M p = -(det T) v`: the inner point of the `B`-side is the image of the generic point. -/
 theorem Mrot_prowL :
     (Mrot : Matrix (Fin 2) (Fin 2) (GBar K)) *ᵥ (prowL : Fin 2 → GBar K) =
@@ -548,6 +551,8 @@ theorem Mrot_prowL :
     congr 1
     field_simp
 
+set_option synthInstance.maxHeartbeats 400000 in
+set_option maxHeartbeats 800000 in
 /-- **`TransN2` for the generic normal form** (every length): `genInjL` of the bridge applied to
 the transposed decomposition. -/
 theorem transN2_genAlgL {r : ℕ} (alg : BilinearAlgorithm K 4 2 4 r) : TransN2 (genAlgL alg) := by
