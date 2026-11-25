@@ -966,3 +966,13 @@ Verbraucht in Stufe 2: 7 von 12.
 - S2-33 (Blind-Sucher): Zieldatei `versuche/s2-blind-r8.md`
 
 Geplant für Runde 9: Lean für B-014, der Übergang vom generischen Punkt zum algebraischen Abschluss und das Zusammensetzen, Aussagen-Abgleich für Lemma P, Blind-Sucher.
+
+**Nachtrag zu Stufe 2, Runde 7: Zählerstand (Lesart des Orchestrators)**
+
+1. Runde 7 zählt nicht als Fortschritt nach b). Der Prüfer von S2-28 hat vor der Prüfung frühere Prüfurteile gesehen, eingeblendet aus dem Projektgedächtnis. Die Bestätigung von B-014 ist damit nicht unabhängig im Sinn von Abschnitt 6. Bei zwei Lesarten nimmt der Orchestrator die strengere.
+   - Zähler Spur A: **1 von 3**.
+   - Die Frist „Ende Runde 9“ für B-014 entfällt.
+   - In Runde 9 prüfen ein unbeeinflusster Prüfer und GPT 6.2 Sol B-014 neu. Bestätigen beide, wäre das Fortschritt in Runde 9.
+   - Der Orchestrator hat die Übersicht des Projektgedächtnisses bereinigt. Dort stehen keine Verweise auf S2-Einträge und keine Urteile mehr, dafür die Anweisung, keine Prüfurteile und Befunde einzutragen. Die verlinkten Einzeleinträge kann der Orchestrator nicht löschen.
+2. S2-30 benennt genau, welcher Teil von B-012 geprüft werden kann und ob die generische Fassung für die Kette reicht. Hält nur ein Teil von B-012 oder B-013 die Frist (Ende Runde 8), trägt dieser Teil den Fortschritt aus Runde 6, solange er einen benannten Fall ausschließt. In Runde 8 wird dadurch nichts neu gezählt, denn dieselbe Aussage zählt nur einmal. Ohne anderes Ergebnis steht Spur A nach Runde 8 bei **2 von 3**.
+3. Die SORRY-Zeile von Lauf 45658431578 lesen die Prüfer S2-30 und S2-31 selbst nach. Vorher wechselt kein Status.

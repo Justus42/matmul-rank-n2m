@@ -8,7 +8,7 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 8 läuft)
 
 - Runden verbraucht: 7 von 12 (beide Spuren zusammen)
 - Runde 8 läuft: S2-30, S2-31, S2-32, S2-33
-- Abbruchregel 2 (Protokoll 0.3), Spur A: Runde 6 und Runde 7 bringen Fortschritt nach b) (Lesart des Orchestrators, siehe LOG.md). Zähler: **0 von 3**. Fristen: B-012 und B-013 geprüft bis Ende Runde 8 (hält B-013 nur in Satz E, trägt B-012 allein Runde 6), B-014 geprüft bis Ende Runde 9. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
+- Abbruchregel 2 (Protokoll 0.3), Spur A: Runde 6 bringt Fortschritt nach b), Runde 7 nicht, weil der Prüfer von B-014 frühere Prüfurteile gesehen hat (Lesart des Orchestrators, siehe LOG.md). Zähler: **1 von 3**. Frist: B-012 und B-013 geprüft bis Ende Runde 8; hält nur ein Teil, trägt dieser Teil Runde 6, solange er einen benannten Fall ausschließt. Runde 8 zählt nichts neu; ohne anderes Ergebnis steht Spur A danach bei 2 von 3. B-014 wird in Runde 9 von einem unbeeinflussten Prüfer und GPT neu geprüft. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
 
