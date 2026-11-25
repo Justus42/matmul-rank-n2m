@@ -17,3 +17,7 @@ Since S1-17 no proof is open; an occurrence of `sorryAx` here would be an error.
 #print axioms YangBounds.SatzB444.satzB_unbedingt
 #print axioms YangBounds.SatzB444.satzB_symm_unbedingt
 #print axioms YangBounds.SatzB444.satzB_global_unbedingt
+#print axioms YangBounds.SatzE444.satzE
+#print axioms YangBounds.SatzE444.satzE_global
+#print axioms YangBounds.SatzE444Buendel.nur_unterfallB
+#print axioms YangBounds.SatzE444Buendel.nur_unterfallB_global

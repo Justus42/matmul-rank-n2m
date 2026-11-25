@@ -32,6 +32,9 @@ MAIN_THEOREMS = [
     ("Satz B <4,2,4>, length 25, unconditional (SatzB444Final.lean)", "YangBounds.SatzB444.satzB_unbedingt"),
     ("Satz B <4,2,4>, symmetric case, unconditional (SatzB444Final.lean)", "YangBounds.SatzB444.satzB_symm_unbedingt"),
     ("Satz B <4,2,4>, every field, unconditional (SatzB444Final.lean)", "YangBounds.SatzB444.satzB_global_unbedingt"),
+    ("Satz E <4,2,4>, case (5,8): no sub-case A (SatzE444.lean)", "YangBounds.SatzE444.satzE"),
+    ("Satz E <4,2,4>, every field (SatzE444.lean)", "YangBounds.SatzE444.satzE_global"),
+    ("Only sub-case B, assuming Lemma P and non-symmetry (SatzE444Buendel.lean)", "YangBounds.SatzE444Buendel.nur_unterfallB"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 
