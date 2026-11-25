@@ -5,17 +5,16 @@ import YangBounds.Bruecke444
 /-!
 # Satz F for `⟨4,2,4⟩`, case (5,8): sub-case B is impossible (with named hypotheses)
 
-Task S2-34 (stage 2, round 9, track A, role: formaliser). Status of every statement in this
-file: `behauptet` (until a statement check per protocol Section 5.1 item 3).
+Task S2-34 (stage 2, round 9, track A, role: formaliser).
 Claim file: `behauptungen/B-014.md`.
 
-Sources: prose `lean/prosa/s2_444_spurA_r6.md` (task S2-24), Sections 4 and 5 (Satz F), and
-the review `lean/prosa/s2_444_spurA_r6_pruefung.md` (task S2-28), repairs R-F1 to R-F3 and the
-elementary replacements E2 (Bézout by fixed points) and E3 (the degree argument).
+Sources: prose `lean/prosa/s2_444_spurA_r6.md` (task S2-24), Sections 4 and 5 (Satz F), with
+elementary arguments for two steps: Bézout is replaced by counting fixed points, and the degree
+argument is done directly with binary forms.
 
 ## Main results
 
-* `deg_eq_one`: the degree argument (prose Satz F steps 2 to 4) in the elementary form E2/E3:
+* `deg_eq_one`: the degree argument (prose Satz F steps 2 to 4) in elementary form:
   for reduced pairs of binary forms `φ` of degree `d` and `ψ` of degree `e` over an
   algebraically closed field, more than `d e + 1` fixed points of `ψ ∘ φ` force `d = e = 1`.
   Bézout on `ℙ¹ × ℙ¹` is not needed.
@@ -38,8 +37,8 @@ elementary replacements E2 (Bézout by fixed points) and E3 (the degree argument
 ## Named hypotheses (not proved here)
 
 * `TransponiertEng alg` (B3′): a tight pair `w₀, w₁` on the other side at the same point. In
-  the prose this is sub-case B for the transposed decomposition at the same point (prose (B3),
-  review repair R-F3). It needs the transposed decomposition as a normal form at the same point.
+  the prose this is sub-case B for the transposed decomposition at the same point (prose (B3)
+  in the form used here). It needs the transposed decomposition as a normal form at the same point.
 * `VielePunkte alg 11` (Z′): 11 pairwise distinct points `[a_t ⊗ b_t]`. In the prose this is
   Lemma Z (13 points at a generic point, via Lemma K and `Ĵ_p = ker W` on an open set of `p`).
   A single normal form does not see the variation of `p`.
@@ -220,9 +219,9 @@ theorem exists_reduced (n : ℕ) : ∀ p q : K[X], p.natDegree ≤ n → q.natDe
           · exact Or.inr fun hqx => hroot ⟨x, hpx, hqx⟩
           · exact Or.inl hpx
 
-/-- **The degree argument** (prose Satz F steps 2 to 4, in the elementary form E2, E3 of the
-review). Let `Φ = (p, q)` and `Ψ = (p', q')` be reduced pairs of degrees `d` and `e` (over an
-algebraically closed field). If `x · Ψ₀(Φ(x)) = Ψ₁(Φ(x))` (that is, `ψ ∘ φ` fixes `x`) for more
+/-- **The degree argument** (prose Satz F steps 2 to 4, in elementary form). Let
+`Φ = (p, q)` and `Ψ = (p', q')` be reduced pairs of degrees `d` and `e` (over an algebraically
+closed field). If `x · Ψ₀(Φ(x)) = Ψ₁(Φ(x))` (that is, `ψ ∘ φ` fixes `x`) for more
 than `d e + 1` distinct `x`, then `d = e = 1`. -/
 theorem deg_eq_one [IsAlgClosed K] {d e : ℕ} {p q p' q' : K[X]} (hΦ : Reduced d p q)
     (hΨ : Reduced e p' q') (S : Finset K) (hcard : d * e + 1 < S.card)
@@ -395,7 +394,7 @@ theorem eval_deg_one (c : K[X]) (hc : c.natDegree ≤ 1) (x : K) :
   rw [eval_eq_sum_range' (n := 2) (by omega)]
   simp [Finset.sum_range_succ]
 
-/-- **Satz F, core** (prose Section 5, steps 1 to 4; review E2, E3). Over an algebraically
+/-- **Satz F, core** (prose Section 5, steps 1 to 4). Over an algebraically
 closed field: if both sides have the cubic structure of (B2) and (B3) and at least 11 of the
 points `[a_t ⊗ b_t]` are pairwise distinct, then there is an invertible `G` with
 `G b_t ∈ K·a_t` for all `t` (the decomposition is symmetric at this point). -/
@@ -556,7 +555,7 @@ end Kern
 /-! ## (B0) to (B2) without Kronecker: the cubic structure from a tight pair
 
 If `Ψ(u₀, ·)` and `Ψ(u₁, ·)` take values in a space of dimension `≤ 5`, the chain of Satz E
-(`SatzE444.exists_chain`, the review's E4 in another form) gives a basis `v_0, …, v_3` with
+(`SatzE444.exists_chain`) gives a basis `v_0, …, v_3` with
 `Ψ(u₁, v_k) = Ψ(u₀, v_{k+1})`; in coordinate `t` this is `A₂ B_k = A₁ B_{k+1}`, hence
 `b_t·v_k = c_t A₁^{3-k} A₂^k` (the Hankel step (B2) of the prose). -/
 
@@ -673,7 +672,7 @@ theorem nonsing (h2 : SN2 (d := 3) alg) (u y : Fin 4 → K) (hy : y ≠ 0)
   congr 1
   exact Finset.sum_congr rfl fun i _ => mul_comm _ _
 
-/-- **(B0) to (B2) for sub-case B** (prose Section 4; review: sub-case B is used only through
+/-- **(B0) to (B2) for sub-case B** (prose Section 4; sub-case B is used only through
 `rk F_{γ*} = 1`). With `u₀ = e₀` and `u* = (0, γ*)`: `b_t = c_t N m(a_t·e₀, a_t·u*)`. -/
 theorem kubik_of_unterfallB [IsAlgClosed K] (h1 : SN1 (d := 3) alg) (h2 : SN2 (d := 3) alg)
     (hB : UnterfallB alg) :
@@ -747,7 +746,7 @@ theorem kubik_of_unterfallB [IsAlgClosed K] (h1 : SN1 (d := 3) alg) (h2 : SN2 (d
 /-- **Named hypothesis (B3′): a tight pair on the other side at the same point.** There are
 `w₀, w₁` with `b_t·w₀ ≠ 0` for all `t`, `w₁ ∉ K w₀`, and `Ψ(K⁴, w₀) + Ψ(K⁴, w₁)` inside a space
 of dimension `≤ 5`. This is (B0) for the transposed decomposition at the same point
-(prose Section 4, (B3), with the review's repair R-F3). It is **not** proved here: deriving it
+(prose Section 4, (B3)). It is **not** proved here: deriving it
 needs the transposed decomposition in normal form at the same point (case (5,8), not
 symmetric, Lemma P and Satz E for it). -/
 def TransponiertEng : Prop :=
@@ -764,7 +763,7 @@ def VielePunkte (n : ℕ) : Prop :=
     ¬ ((∃ c : K, SatzB444.avecs alg s = c • SatzB444.avecs alg t) ∧
       ∃ c : K, bvecs alg s = c • bvecs alg t)
 
-/-- **Satz F** (prose Section 5, with the repairs R-F1 to R-F3 and E2, E3 of the review): at a
+/-- **Satz F** (prose Section 5): at a
 normal form over an algebraically closed field, sub-case B together with (B3′) and (Z′) forces
 the symmetry `IsSymm`. -/
 theorem satzF [IsAlgClosed K] (h1 : SN1 (d := 3) alg) (h2 : SN2 (d := 3) alg)

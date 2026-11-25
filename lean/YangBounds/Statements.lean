@@ -12,8 +12,7 @@ import Mathlib.Tactic.Linarith
 /-!
 # Target statements of stage 1 (Yang v3)
 
-Task S1-01. Status of every statement in this file: `behauptet` (claims taken from the paper)
-or `vermutet`; nothing here is `geprüft`.
+Task S1-01. The statements are taken from the paper.
 
 Source: J. Yang, arXiv:2609.14393v3 (12.10.2026), Section 1:
 

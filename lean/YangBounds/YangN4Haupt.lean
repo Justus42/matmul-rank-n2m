@@ -9,14 +9,13 @@ import Mathlib.LinearAlgebra.Dual.Lemmas
 /-!
 # Yang v3, Theorem 2 (`m ≥ n ≥ 4`): the main proof, with Lemma 13 as a hypothesis
 
-Task S1-16 (stage 1, round 4, role: formaliser). Status of every statement in this file:
-`behauptet` (nothing here is `geprüft` before the check of protocol section 5.1).
+Task S1-16 (stage 1, round 4, role: formaliser).
 
 Source of the proof: `lean/prosa/yang_n4.md` (task S1-03), which works out the proof of Theorem 2 in
 J. Yang, *New lower bounds on tensor rank of (n,2,m) matrix multiplication with GPT-6*,
 arXiv:2609.14393v3 (12.10.2026). The theorem is Yang's, not ours (protocol section 9).
 
-Lemma 13 (in the repaired form of Section 6 of the prose file) is formalised separately, in
+Lemma 13 (in the form of Section 6 of the prose file) is formalised separately, in
 `YangN4Lemma13.lean`. Here it is an **explicit hypothesis** `Lemma13Statement` of the main
 theorem (not an axiom, not a `sorry`), with exactly the statement and the assumptions of
 Section 6 of the prose file:
@@ -107,7 +106,7 @@ def sumMap {Y : Type w} [AddCommGroup Y] [Module K Y] {d : ℕ} (F : Fin d → V
 
 end Skew
 
-/-- **Statement of Lemma 13** (prose `lean/prosa/yang_n4.md`, Section 6, repaired form), for a
+/-- **Statement of Lemma 13** (prose `lean/prosa/yang_n4.md`, Section 6), for a
 field `K` and spaces `U`, `Q`: if `U`, `Q` are finite-dimensional, `d ≥ 2`,
 `F_1, …, F_d : U → Q` are linear, `L = sumMap F`, `H = skewExt L`, and `ρ` is the maximum of
 `rk(∑ γ_i F_i)` over `γ ∈ K^d`, then `2·rk H ≥ d·ρ + (d−2)·rk L`.

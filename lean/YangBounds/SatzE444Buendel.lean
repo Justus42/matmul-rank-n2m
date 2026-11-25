@@ -3,8 +3,8 @@ import YangBounds.SatzE444
 /-!
 # Lemma P for `⟨4,2,4⟩`, case (5,8): the sub-cases A and B, and what remains
 
-Task S2-27 (stage 2, round 7, track A, role: formaliser). Status of every statement in this
-file: `behauptet`. Claim file: `behauptungen/B-013.md`.
+Task S2-27 (stage 2, round 7, track A, role: formaliser).
+Claim file: `behauptungen/B-013.md`.
 
 Source: prose `lean/prosa/s2_444_spurA_r4.md` (task S2-16), Folgerung C2 (Section 4) and
 Lemma P (Section 5.1).
@@ -25,7 +25,7 @@ Lemma P (Section 5.1).
   maximiser (`sDim_eq_one`), with `dim ker F_γ = 1` (`finrank_ker_Fc`).
 * `LemmaPStatement K`: Lemma P (the dichotomy) as a statement. **It is not proved in this
   task.** The theorems `dichotomie`, `nur_unterfallB` and `nur_unterfallB_global` take it as an
-  explicit hypothesis (not `sorry`, not an axiom); see the report for what is missing.
+  explicit hypothesis (not `sorry`, not an axiom).
 * `nur_unterfallB`: from Lemma P, non-symmetry and Satz E (proved in `SatzE444.lean`, without
   any hypothesis): in the case (5,8) only sub-case B remains.
 

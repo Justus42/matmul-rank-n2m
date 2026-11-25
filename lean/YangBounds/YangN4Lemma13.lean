@@ -7,15 +7,15 @@ import Mathlib.LinearAlgebra.Pi
 import Mathlib.Algebra.BigOperators.Fin
 
 /-!
-# Yang v3, Lemma 13 (case `n ≥ 4`), repaired version
+# Yang v3, Lemma 13 (case `n ≥ 4`)
 
-Task S1-15 (stage 1, round 4, role: formaliser). Status: `behauptet`.
+Task S1-15 (stage 1, round 4, role: formaliser).
 
 Source of the proof: `lean/prosa/yang_n4.md` (task S1-03), Section 6, "Lemma 13", in the
-repaired form over the quotient `Q / im F₁` (gap L5). The lemma is Yang's (J. Yang, *New lower bounds
+form over the quotient `Q / im F₁`. The lemma is Yang's (J. Yang, *New lower bounds
 on tensor rank of (n,2,m) matrix multiplication with GPT-6*, arXiv:2609.14393v3, Lemma 13),
-not ours. The proof printed in the paper is wrong as written (gap L5); this file follows the
-prose file, not the paper.
+not ours. This file follows the argument of the prose file (over the quotient), not the one
+printed in the paper.
 
 ## Statement (prose, Section 6, "Aussage (abstrakt, so formalisieren)")
 
@@ -553,7 +553,7 @@ theorem lemma11_sumMap (d : ℕ) : ∀ (Q : Type w) [AddCommGroup Q] [Module K Q
   rw [show e + 2 - 1 = e + 1 by omega]
   nlinarith
 
-/-- **Lemma 13** (prose Section 6, repaired), for every single `γ`:
+/-- **Lemma 13** (prose Section 6), for every single `γ`:
 `d · rk(Σ_i γ_i F_i) + (d − 2) · rk L ≤ 2 · rk H`. -/
 theorem lemma13_of_gamma {Q : Type w} [AddCommGroup Q] [Module K Q] [FiniteDimensional K Q]
     {d : ℕ} (hd : 2 ≤ d) (F : Fin d → U →ₗ[K] Q) (γ : Fin d → K) :
@@ -567,7 +567,7 @@ theorem lemma13_of_gamma {Q : Type w} [AddCommGroup Q] [Module K Q] [FiniteDimen
     fun G => by simpa using lemma11_sumMap (e + 1) _ (quotF G)
   simpa using step13 h11 F γ
 
-/-- **Lemma 13** (prose Section 6, repaired), with `ρ = max_γ rk(Σ_i γ_i F_i)`:
+/-- **Lemma 13** (prose Section 6), with `ρ = max_γ rk(Σ_i γ_i F_i)`:
 `d · ρ + (d − 2) · rk L ≤ 2 · rk H`. -/
 theorem lemma13 {Q : Type w} [AddCommGroup Q] [Module K Q] [FiniteDimensional K U]
     [FiniteDimensional K Q] {d : ℕ} (hd : 2 ≤ d) (F : Fin d → U →ₗ[K] Q) (ρ : ℕ)

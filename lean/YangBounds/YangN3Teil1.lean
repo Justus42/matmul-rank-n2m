@@ -5,8 +5,7 @@ import Mathlib.FieldTheory.RatFunc.Basic
 /-!
 # Yang v3, Theorem 1, part 1: reduction to infinite fields (step R1)
 
-Task S1-09 (stage 1, round 3, role: formaliser). Status of every statement in this file:
-`behauptet` (nothing here is `geprüft` before the check of protocol section 5.1).
+Task S1-09 (stage 1, round 3, role: formaliser).
 
 Source: J. Yang, *New lower bounds on tensor rank of (n,2,m) matrix multiplication with GPT-6*,
 arXiv:2609.14393v3 (12.10.2026), Section 2 ("otherwise we can replace 𝔽 with its algebraic

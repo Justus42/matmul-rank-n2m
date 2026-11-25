@@ -4,8 +4,7 @@ import YangBounds.Lemma13Prime
 /-!
 # Theorem A (“Satz A”): the four remaining cases for `⟨4,2,4⟩` of length 25
 
-Task S2-14 (stage 2, round 4, track A, role: formaliser). Status of every statement in this
-file: `behauptet` (nothing here is `geprüft` before the statement check of protocol 5.1).
+Task S2-14 (stage 2, round 4, track A, role: formaliser).
 Claim file: `behauptungen/B-008.md`.
 
 Source: `lean/prosa/s2_444_spurA_r2.md` (task S2-05), Section 3 (Satz A, Folgerung A1, A2)

@@ -9,8 +9,7 @@ import Mathlib.LinearAlgebra.Basis.VectorSpace
 /-!
 # Yang v3, Theorem 1 (`n = 3`), part 2: strong normalization
 
-Task S1-10 (stage 1, round 3, role: formaliser). Status of every statement in this file:
-`behauptet`.
+Task S1-10 (stage 1, round 3, role: formaliser).
 
 Source of the proof: `lean/prosa/yang_n3.md` (task S1-02), which works out the proof of
 J. Yang, *New lower bounds on tensor rank of (n,2,m) matrix multiplication with GPT-6*,

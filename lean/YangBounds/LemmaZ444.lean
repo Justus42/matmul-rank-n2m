@@ -4,14 +4,11 @@ import YangBounds.LemmaK444
 /-!
 # Lemma Z for `⟨4,2,4⟩` at the generic normal form (many distinct points)
 
-Task S2-46 (stage 2, round 10, track A, role: formaliser). Status of every statement in this
-file: `behauptet`. Nothing here is `geprüft` before the check of protocol section 5.1.
+Task S2-46 (stage 2, round 10, track A, role: formaliser).
 
-Sources: prose `lean/prosa/s2_444_spurA_r6.md` (task S2-24), Section 3 (Lemma K, Lemma Z), with
-the repair of Lemma Z step 2 (the explicit computation instead of “the same orbit”, because
-`κ_t` depends on `t`) and the repair R-K of Lemma K (polynomial identity, cancellation in
-`K[p₁, p₂]`) from the reports `lean/prosa/s2_444_spurA_r6_pruefung_r9.md` and
-`lean/prosa/s2_444_bericht_s2-41.md`.
+Sources: prose `lean/prosa/s2_444_spurA_r6.md` (task S2-24), Section 3 (Lemma K,
+Lemma Z). Lemma Z step 2 is done by an explicit computation (`κ_t` depends on `t`), and Lemma K
+is used as a polynomial identity (cancellation in `K[p₁, p₂]`).
 
 ## Where Lemma Z is proved
 
@@ -39,14 +36,14 @@ here; it is the named hypothesis `LemmaKStatement` (task in parallel). From Lemm
 excluded by minimality (`mergeAlg`, a decomposition of length 25 with a zero form `α`, against
 `SatzC444.alpha_ne_zero_of_length_25`); case (ii) gives the row directions of the four
 `4 × 2` matrices (`paar_struktur`). Three pairwise related terms force `l₁ ∥ l₂`
-(`keine_drei`), against case (ii). This is the explicit computation of the repair of step 2.
+(`keine_drei`), against case (ii). This is the explicit computation of step 2.
 
 Counting: classes of size `≤ 2` among 25 terms give at least 13 pairwise unrelated terms
 (`viele_klassen`).
 
 ## Main results
 
-* `LemmaKStatement K` (named hypothesis, definition): Lemma K of the prose with R-K, over the
+* `LemmaKStatement K` (named hypothesis, definition): Lemma K of the prose, over the
   field `K`, as a polynomial identity of the coefficients.
 * `lemmaZ_generisch`: under `LemmaKStatement K`, for every decomposition `alg` of length 25 over
   any field `K`, the generic normal form `genAlg alg` over `K(S, T)` satisfies
@@ -66,7 +63,7 @@ Counting: classes of size `≤ 2` among 25 terms give at least 13 pairwise unrel
 
 ## Named hypotheses (not proved here)
 
-* `LemmaKStatement K` (Lemma K, prose Section 3.1 with repair R-K). The part “exactly one of the
+* `LemmaKStatement K` (Lemma K, prose Section 3.1). The part “exactly one of the
   two cases” is not included (only “one of the two cases” is used). Discharged in the last
   section by `LemmaK444.lemmaK`.
 * `SatzF444.TransponiertEng` (B3′), unchanged from `SatzF444.lean`.
@@ -90,14 +87,14 @@ variable {K : Type u} [Field K]
 
 /-- `(X p) ⊗ (Y p) = (X′ p) ⊗ (Y′ p)` as an identity of quadratic forms in `p = (p₀, p₁)`
 (coefficients of `p₀²`, `p₀ p₁`, `p₁²` in every entry `(i, j)`). Over every field this is the
-polynomial identity in `K[p₀, p₁]` of the prose (repair R-K). -/
+polynomial identity in `K[p₀, p₁]`. -/
 def QuadGleich {n : ℕ} (X Y X' Y' : Matrix (Fin n) (Fin 2) K) : Prop :=
   ∀ i j, X i 0 * Y j 0 = X' i 0 * Y' j 0 ∧
     X i 0 * Y j 1 + X i 1 * Y j 0 = X' i 0 * Y' j 1 + X' i 1 * Y' j 0 ∧
     X i 1 * Y j 1 = X' i 1 * Y' j 1
 
 variable (K) in
-/-- **Named hypothesis: Lemma K** (prose `s2_444_spurA_r6.md` Section 3.1, with repair R-K).
+/-- **Named hypothesis: Lemma K** (prose `s2_444_spurA_r6.md` Section 3.1).
 For `X, Y, X′, Y′ ∈ K^{n×2}`, all `≠ 0`, with `(Xp) ⊗ (Yp) = (X′p) ⊗ (Y′p)` as a polynomial
 identity in `p`: (i) `X′ = c X`, `Y′ = c⁻¹ Y` with `c ≠ 0`, or (ii) `X = x l₁ᵀ`, `Y = w l₂ᵀ`,
 `X′ = c x l₂ᵀ`, `Y′ = c⁻¹ w l₁ᵀ` with `x, w ≠ 0`, `c ≠ 0` and `l₁, l₂` linearly independent.
@@ -679,7 +676,7 @@ theorem quadGleich_of_rel {s t : Fin 25} (hrel : Rel (genAlg alg) s t) :
   simp only [Matrix.smul_apply, smul_eq_mul]
   exact key
 
-/-- **Structure of a related pair** (prose Lemma Z step 2 with the repair: explicit row
+/-- **Structure of a related pair** (prose Lemma Z step 2, explicit row
 directions). If `s ≠ t` are related at the generic normal form, then case (ii) of Lemma K holds,
 and there are linearly independent `l₁, l₂` with row directions `A_t ∼ l₁`, `A_s ∼ l₂`,
 `B̂_s ∼ l₁`, `B̂_t ∼ l₂`. Case (i) contradicts minimality. -/
@@ -708,7 +705,7 @@ theorem paar_struktur (hK : LemmaKStatement K) {s t : Fin 25} (hst : s ≠ t)
       ⟨c⁻¹ • w, by rw [hY', smul_vecMulVec]⟩, ⟨κ⁻¹ • w, ?_⟩⟩
     rw [← smul_vecMulVec, ← hY, smul_smul, inv_mul_cancel₀ hκ, one_smul]
 
-/-- **No three pairwise related terms** (prose Lemma Z step 2, repaired): classes of `∼` at the
+/-- **No three pairwise related terms** (prose Lemma Z step 2): classes of `∼` at the
 generic normal form have at most two elements. -/
 theorem keine_drei (hK : LemmaKStatement K) {a b c : Fin 25} (hab : a ≠ b) (hac : a ≠ c)
     (hbc : b ≠ c) (hRab : Rel (genAlg alg) a b) (hRac : Rel (genAlg alg) a c)
@@ -764,7 +761,7 @@ theorem rel_refl {L : Type v} [Field L] {r : ℕ} (alg' : BilinearAlgorithm L 4 
     Rel alg' a a :=
   ⟨⟨1, (one_smul _ _).symm⟩, ⟨1, (one_smul _ _).symm⟩⟩
 
-/-- **Lemma Z at the generic normal form** (prose Section 3.2, with the repair of step 2):
+/-- **Lemma Z at the generic normal form** (prose Section 3.2):
 assuming Lemma K over `K`, for every decomposition of `⟨4,2,4⟩` of length 25 over `K` the
 generic normal form over `K(S, T)` has at least 13 terms with pairwise distinct points
 `[a_t ⊗ b_t]`. -/

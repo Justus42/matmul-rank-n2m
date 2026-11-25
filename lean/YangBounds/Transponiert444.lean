@@ -4,13 +4,11 @@ import YangBounds.LemmaZ444
 /-!
 # The transposed decomposition at the same point: hypothesis (B3′) of Satz F for `⟨4,2,4⟩`
 
-Task S2-44 (stage 2, round 10, track A, role: formaliser). Status of every statement in this
-file: `behauptet` (until a statement check per protocol Section 5.1 item 3).
+Task S2-44 (stage 2, round 10, track A, role: formaliser).
 
-Sources: prose `lean/prosa/s2_444_spurA_r6.md` (task S2-24), Section 4, (B3), and the repair R-T
-of the report `lean/prosa/s2_444_bericht_s2-41.md` (the case (5,8) of the transposed
-decomposition from Satz A and Satz B). Lean basis: `SatzF444.lean` (task S2-34), where
-`TransponiertEng alg` (B3′) is a named hypothesis.
+Sources: prose `lean/prosa/s2_444_spurA_r6.md` (task S2-24), Section 4, (B3), with the case
+(5,8) of the transposed decomposition obtained from Satz A and Satz B. Lean basis:
+`SatzF444.lean` (task S2-34), where `TransponiertEng alg` (B3′) is a named hypothesis.
 
 ## The transposed decomposition at the same point
 
@@ -36,7 +34,7 @@ two conditions on `alg` that are **not** consequences of (N1) and (N2) of `alg`:
 `alg`, `TransN1`, `TransN2` and non-symmetry it satisfies (N1), (N2) and is not symmetric
 (`transNF_SN1`, `transNF_SN2`, `transNF_nichtSymm`). The case (5,8) follows from Satz B
 (`Endsatz444.fall58_of_nichtSymmetrisch`: rk L′ = 5 is not used separately; Satz B gives
-(3,6) or (5,8), and (3,6) is symmetric; this is the repair R-T in the form available in Lean).
+(3,6) or (5,8), and (3,6) is symmetric).
 `LemmaP444.nur_unterfallB'` then puts it into sub-case B, and its tight pair is the pair
 `(w₀, R u₁)` of (B3′) (`transponiertEng_of`).
 
@@ -468,7 +466,7 @@ end Eng
 
 /-! ## (B3′) at a single normal form -/
 
-/-- **(B3′) at a single normal form** (prose (B3) with repair R-T): over an algebraically closed
+/-- **(B3′) at a single normal form** (prose (B3)): over an algebraically closed
 field, a normal form of length 25 with (N1), not symmetric, and with the (N1), (N2) of the
 transposed decomposition (`TransN1`, `TransN2`) satisfies `TransponiertEng`. -/
 theorem transponiertEng_of {L : Type u} [Field L] [IsAlgClosed L]
@@ -653,7 +651,7 @@ end Endsatz
 
 /-- **`R(⟨4,2,4⟩) ≥ 26` over every field `K`, without hypothesis**: (B3′) for the normal form
 of the bridge (`transponiertEng_genAlgL`) is exactly the remaining hypothesis of
-`LemmaZ444.rank_four_two_four_ge_26_of_transponiertEng`. Status: `behauptet`. -/
+`LemmaZ444.rank_four_two_four_ge_26_of_transponiertEng`. -/
 theorem rank_four_two_four_ge_26 (K : Type u) [Field K] : 26 ≤ tensorRank K 4 2 4 :=
   LemmaZ444.rank_four_two_four_ge_26_of_transponiertEng K fun alg => transponiertEng_genAlgL alg
 

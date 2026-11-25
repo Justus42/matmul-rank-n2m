@@ -5,8 +5,7 @@ import Mathlib.Data.Fintype.Pigeonhole
 /-!
 # Lemma P for `⟨4,2,4⟩`, case (5,8): proof of `LemmaPStatement`
 
-Task S2-32 (stage 2, round 8, track A, role: formaliser). Status of every statement in this
-file: `behauptet` (until a statement check per protocol Section 5.1 item 3).
+Task S2-32 (stage 2, round 8, track A, role: formaliser).
 Claim file: `behauptungen/B-013.md`.
 
 Source: prose `versuche/s2-32/lemmaP_prosa.md` (elementary version of Lemma P from

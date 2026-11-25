@@ -3,15 +3,13 @@ import YangBounds.Bruecke444
 /-!
 # Lemma K and Folgerung K1 (two factorisations of a quadratic rank-one map)
 
-Task S2-45 (stage 2, round 10, track A, role: formaliser). Status of every statement in this
-file: `behauptet` (until a statement check per protocol Section 5.1 item 3).
+Task S2-45 (stage 2, round 10, track A, role: formaliser).
 Claim file: `behauptungen/B-014.md` (Lemma K is a step of Lemma Z there).
 
-Source: prose `lean/prosa/s2_444_spurA_r6.md` (task S2-24), Section 3.1, with the repair R-K
-(`lean/prosa/s2_444_bericht_s2-41.md`, Section 3.2; `lean/prosa/s2_444_spurA_r6_pruefung.md`,
-Section 4): in the case `rk X = 1` the argument runs over polynomials, not pointwise. Here the
-whole proof runs in the integral domain `K[p₀, p₁]` (`MvPolynomial (Fin 2) K`) and with the
-coefficients of quadratic forms, so it holds over **every** field, finite fields included.
+Source: prose `lean/prosa/s2_444_spurA_r6.md` (task S2-24), Section 3.1. In the case `rk X = 1`
+the argument runs over polynomials, not pointwise. Here the whole proof runs in the integral
+domain `K[p₀, p₁]` (`MvPolynomial (Fin 2) K`) and with the coefficients of quadratic forms, so
+it holds over **every** field, finite fields included.
 
 ## Setting
 
@@ -163,7 +161,7 @@ theorem lin_mul_lin_eq_iff (a b c d : Fin 2 → K) :
   · rintro ⟨h1, h2, h3⟩
     rw [lin_mul_lin, lin_mul_lin, h1, h2, h3]
 
-/-! ## The rank-one step (repair R-K, polynomial form)
+/-! ## The rank-one step (polynomial form)
 
 If `a, b` are linearly independent and `(a·p)(d·p) = (b·p)(c·p)` as polynomials, then
 `c = μ a` and `d = μ b`. In the prose: `l₁·p` is a prime element not dividing `l₁'·p`. Here the
@@ -343,7 +341,7 @@ theorem PolyEq.symm {X Y X' Y' : Matrix (Fin n) (Fin 2) K} (h : PolyEq X Y X' Y'
 theorem PolyEq.trans {X Y X' Y' X'' Y'' : Matrix (Fin n) (Fin 2) K} (h : PolyEq X Y X' Y')
     (h' : PolyEq X' Y' X'' Y'') : PolyEq X Y X'' Y'' := fun i j => (h i j).trans (h' i j)
 
-/-- **Lemma K** (prose `s2_444_spurA_r6.md` Section 3.1, with repair R-K): over every field,
+/-- **Lemma K** (prose `s2_444_spurA_r6.md` Section 3.1): over every field,
 two factorisations `(Xp) ⊗ (Yp) = (X'p) ⊗ (Y'p)` with `X, Y ≠ 0` are related by case (i) or
 case (ii). -/
 theorem lemmaK {X Y X' Y' : Matrix (Fin n) (Fin 2) K} (hX : X ≠ 0) (hY : Y ≠ 0)

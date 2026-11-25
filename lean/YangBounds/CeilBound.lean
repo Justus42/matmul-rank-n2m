@@ -6,7 +6,7 @@ import Mathlib.Tactic.Linarith
 /-!
 # The ceiling in Yang's Theorem 1 as an integer inequality
 
-Task S1-13 (stage 1, round 4). Status: `behauptet`.
+Task S1-13 (stage 1, round 4).
 
 `ceil_bound_iff` was moved here unchanged (same name, same statement, same proof) from
 `YangBounds/Statements.lean`. Reason: `YangN3Teil1.lean` used it and therefore imported

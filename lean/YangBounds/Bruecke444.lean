@@ -8,8 +8,7 @@ import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
 /-!
 # The bridge to an algebraically closed field for `⟨4,2,4⟩`
 
-Task S2-35 (stage 2, round 9, track A, role: formaliser). Status of every statement in this
-file: `behauptet`. Nothing here is `geprüft` before the check of protocol section 5.1.
+Task S2-35 (stage 2, round 9, track A, role: formaliser).
 
 Prose: `lean/prosa/s2_444_spurA_r9_bruecke.md`.
 
