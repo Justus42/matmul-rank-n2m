@@ -1,5 +1,5 @@
 import YangBounds.Basic
-import YangBounds.Statements
+import YangBounds.CeilBound
 import Mathlib.FieldTheory.RatFunc.Basic
 
 /-!
