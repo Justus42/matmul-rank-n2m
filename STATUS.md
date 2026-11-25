@@ -7,7 +7,7 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 9 läuft, Protokoll 0.4)
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
 - Runden verbraucht: 8 von 24 (beide Spuren zusammen; Budget durch Justus von 12 auf 24 erhöht, Protokoll 0.4). Ab Runde 9 bis zu 6 Subagenten pro Runde
-- Runde 9 läuft: S2-34 bis S2-39 (6 Subagenten, 0 Sol-Anfragen geplant)
+- Runde 9 läuft: S2-34 bis S2-38 und S2-40 (6 Subagenten, 0 Sol-Anfragen geplant; S2-39 abgebrochen, ersetzt durch S2-40)
 - Abbruchregel 2, Spur A (Übergangsregel Protokoll 0.4, Abschnitt 5.4): Die Abgleiche zu B-008, B-009, B-012 und B-013 werden in Runde 9 von unbeeinflussten Prüfern wiederholt, die GPT-Urteile gelten weiter. Bestätigen sie, gelten die Fristen aus Runde 3 und 6 als gehalten, und Spur A steht nach Runde 8 bei **2 von 3** (vom Orchestrator zu bestätigen). Bestätigt der neue Prüfer B-014, zählt das als Fortschritt in Runde 9, Frist Ende Runde 11. Bis dahin bleiben die Statuseinträge mit Vorbehalt. **Spur B: aufgegeben**
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
@@ -53,7 +53,8 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 9 läuft, Protokoll 0.4)
 | S2-36 | Spur A: Zusammensetzen zum Endsatz mit benannten Hypothesen | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 9 |
 | S2-37 | Spur A: frischer Prüfer B-014 | Prüfer | wählt der Prüfer | vergeben in Runde 9 |
 | S2-38 | Spur A: frischer Prüfer, Aussagen-Abgleiche B-008 und B-009 | Prüfer | wählt der Prüfer | vergeben in Runde 9 |
-| S2-39 | Spur A: frischer Prüfer, Aussagen-Abgleiche B-012 und Satz E aus B-013 | Prüfer | wählt der Prüfer | vergeben in Runde 9 |
+| S2-39 | Spur A: frischer Prüfer, Aussagen-Abgleiche B-012 und Satz E aus B-013 | Prüfer | – | abgebrochen in Runde 9 nach unter einer Minute (Gedächtnis zeigte frühere Urteile), ersetzt durch S2-40 |
+| S2-40 | Spur A: frischer Prüfer, Aussagen-Abgleiche B-012 und Satz E aus B-013 (Ersatz für S2-39) | Prüfer | wählt der Prüfer | vergeben in Runde 9 |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.

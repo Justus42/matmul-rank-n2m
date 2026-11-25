@@ -1172,3 +1172,10 @@ Ausnahmen für Prüfer und Blind-Sucher bei Regel 1 und 7, Status nur durch den 
 - S2-39 (frischer Prüfer): Aussagen-Abgleiche B-012 und Satz E aus B-013
 
 Die Prüfer setzen keinen Status. Der Orchestrator meldet die Ergebnisse, danach trägt die Schreibhand den Status ein.
+
+**Nachtrag zu Runde 9: Ersatz von S2-39, zweite Bereinigung des Projektgedächtnisses**
+
+- S2-39 wurde nach unter einer Minute abgebrochen und durch S2-40 ersetzt (frischer Prüfer, Aussagen-Abgleiche B-012 und Satz E aus B-013). Grund: Beim Start wurden ihm Gedächtniseinträge mit früheren Urteilen eingeblendet. Die Threads der Runde 8 hatten sie nach der ersten Bereinigung neu angelegt. Es arbeiten weiter sechs Subagenten.
+- Wörtlich unter `archiv/gedaechtnis/` abgelegt, byteweise verglichen und danach aus dem Gedächtnis gelöscht (Commit 5ba150c): `s2-30-abgleich-b012`, `s2-31-abgleich-b013`, `s2-32-lemmaP-lean`, `s2-33-blind-r8`, `grenzrang-244`, `wache-openai-math` und `wache-stufe2-4x2x4`.
+- `repo-schreibrechte` ist archiviert und auf die Schreibrechte gekürzt, ohne Status, Zähler und Halt.
+- Die 24 Einträge aus Stufe 0 und 1 sind vorsorglich wörtlich unter `archiv/gedaechtnis/stufe01/` abgelegt (Commit 607f925). Ihre Kürzung um Prüfurteile und Statusangaben steht noch aus.
