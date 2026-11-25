@@ -549,3 +549,9 @@ Verbraucht in Stufe 2: 1 von 12.
 - S2-05: Spur A, Yangs vier Restfälle und Lemma M, Zieldatei `lean/prosa/s2_444_spurA_r2.md`
 - S2-06: Spur B, SAT-Suche mit Symmetrieansatz und Flip-Graph über viele Familien, Zieldatei `versuche/s2-spurB-r2.md`
 - S2-07: Literaturwache, mit der Frage nach dem Grenzrang von ⟨2,4,4⟩
+
+**Nachtrag zu Stufe 2, Runde 1: Entscheidung des Orchestrators zu Abbruchregel 2**
+
+Das 26er-Verfahren `verfahren/4x2x4-r26-s001.json` setzt den Zähler von Spur B nicht zurück. Begründung des Orchestrators: Das Verfahren bestätigt nur den bekannten Wert 26 und bringt die Frage „25 oder 26“ nicht voran. Eine großzügigere Auslegung käme dem Aussetzen einer Abbruchregel gleich, und das darf er nach 11.4 nicht. Die Zähler bleiben bei 1 von 3 für Spur A und 1 von 3 für Spur B.
+
+Die Behauptungsdatei für „R(⟨4,2,4⟩) ≤ 26“ mit Prüfung nach 5.2 vergibt der Orchestrator als Nebenauftrag in einer späteren Runde. Für S2-07 ist `lit/WACHE.md` als Zieldatei bestätigt.

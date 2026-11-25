@@ -32,6 +32,7 @@ Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein V
 
 ## Offene Kleinigkeiten
 
+- Behauptungsdatei für „R(⟨4,2,4⟩) ≤ 26“ zu `verfahren/4x2x4-r26-s001.json`, Prüfung nach 5.2. Wird als Nebenauftrag in einer späteren Runde vergeben. Setzt den Zähler von Spur B nach Abbruchregel 2 nicht zurück (Entscheidung des Orchestrators, siehe LOG.md)
 - Veraltete Kommentare „open“ in `lean/YangBounds/Statements.lean` und `lean/YangBounds/Upper3x2x6.lean` (Nebenbefund S1-18)
 - `lean/Axioms.lean` importiert das Wurzelmodul und lässt sich mit `lake env lean` nicht direkt ausführen
 - Formatnachtrag: Rückgabewert 3 mit erster Zeile INTERNER-FEHLER, FEHLERHAFT nur für Eigenschaften der Datei, ein Lauf zählt nur, wenn erstes Wort und Rückgabewert zusammenpassen. Einarbeitung in `verfahren/README.md` und beide Programme wird in Stufe 2 vergeben
