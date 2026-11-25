@@ -9,7 +9,7 @@ import Mathlib.Tactic.LinearCombination
 /-!
 # Yang v3, Theorem 1 (`n = 3`), part 3: the linear algebra after strong normalization
 
-Task S1-11 (stage 1, round 3, role: formaliser). Status: `behauptet`.
+Task S1-11 (stage 1, round 3, role: formaliser).
 
 Source of the proof: `lean/prosa/yang_n3.md` (task S1-02), Sections 4 to 8, which works out
 the proof of Theorem 1 in J. Yang, *New lower bounds on tensor rank of (n,2,m) matrix

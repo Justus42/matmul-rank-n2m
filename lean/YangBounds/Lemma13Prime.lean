@@ -3,8 +3,7 @@ import YangBounds.YangN4Lemma13
 /-!
 # Lemma 13′: a sharpening of Yang's Lemma 13
 
-Task S2-14 (stage 2, round 4, track A, role: formaliser). Status of every statement in this
-file: `behauptet` (nothing here is `geprüft` before the statement check of protocol 5.1).
+Task S2-14 (stage 2, round 4, track A, role: formaliser).
 
 Source: `lean/prosa/s2_444_spurA_r2.md` (task S2-05), Section 4, "Lemma 13′". Lemma 13 itself is Yang's
 (arXiv:2609.14393v3); the sharpening by the term `s` is from S2-05.

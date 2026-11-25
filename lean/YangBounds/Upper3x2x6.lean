@@ -8,7 +8,7 @@ import Mathlib.Tactic.Ring
 /-!
 # Upper bound `R(⟨3, 2, 6⟩) ≤ 30` over every field
 
-Task S1-12 (stage 1, round 3, role: formaliser). Status: `behauptet`.
+Task S1-12 (stage 1, round 3, role: formaliser).
 
 This file proves the statement of the open `sorry` `YangBounds.hopcroft_kerr_three_two_six`
 in `YangBounds/Statements.lean`, word for word, under the name

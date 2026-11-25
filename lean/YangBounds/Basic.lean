@@ -7,7 +7,7 @@ import MatrixMultiplicationLowerBound25
 /-!
 # Bilinear algorithms and the tensor rank of `⟨n, l, m⟩`
 
-Task S1-01 (stage 1, round 1). Status of every statement in this project: `behauptet`.
+Task S1-01 (stage 1, round 1).
 
 This file contains the definitions on which the formalisation of
 J. Yang, *New lower bounds on tensor rank of (n,2,m) matrix multiplication with GPT-6*,

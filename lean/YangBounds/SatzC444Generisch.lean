@@ -5,11 +5,10 @@ import Mathlib.RingTheory.Localization.FractionRing
 /-!
 # Satz C and Folgerung C1 (generic form) for `⟨4,2,4⟩` at the generic point
 
-Task S2-26 (stage 2, round 7, track A, role: formaliser). Status of every statement in this
-file: `behauptet`. Nothing here is `geprüft` before the check of protocol section 5.1.
+Task S2-26 (stage 2, round 7, track A, role: formaliser).
 
 Sources: prose `lean/prosa/s2_444_spurA_r4.md` (task S2-16), Sections 3 and 4, in the
-generic form R-C1 of `behauptungen/B-012.md` (route via the function field and a derivation).
+generic form (route via the function field and a derivation).
 
 ## The generic normal form
 
@@ -33,7 +32,7 @@ about the normal form corresponds to the statement at this generic point.
   decomposition of length `r ≤ 25`, the generic normal form is not symmetric:
   `¬ SatzB444.IsSymm (genAlg K alg)`. (`IsSymm` is the predicate of `SatzB444.lean`, with
   `μ_t = 0` allowed.)
-* `folgerungC1_generisch` (**Folgerung C1 in the form R-C1**): for every decomposition of
+* `folgerungC1_generisch` (**Folgerung C1, generic form**): for every decomposition of
   length 25 over any field, the generic normal form satisfies (N1), (N2), lies in the case
   `(rk L, rk H) = (5, 8)` and is not symmetric. This is the composition of Satz C with
   `satzB_unbedingt` and `satzB_symm_unbedingt`.
@@ -43,8 +42,8 @@ about the normal form corresponds to the statement at this generic point.
 1. The prose defines “symmetric” by a nonempty open set of points `p` (with invertible `M_p`).
    Here symmetric means `IsSymm` **at the generic point** (the matrix `e` and the `μ_t` are
    rational functions). The prose Step 0 (rational choice of `M_p` from a symmetry on an open
-   set) is not formalised; it is not needed for R-C1, because Satz B, applied over the field
-   `GField K`, gives the symmetry directly at the generic point.
+   set) is not formalised; it is not needed for the generic form, because Satz B, applied over
+   the field `GField K`, gives the symmetry directly at the generic point.
 2. The derivation used is `∂/∂T₀₁` on `GField K`, constructed from a ring homomorphism into the
    dual numbers (`IsLocalization.lift`), not the dual numbers `K[ε]/(ε²)` of the prose.
 3. (N2) at the generic point is proved with minors: for every support of `β(w)` an invertible
@@ -612,7 +611,7 @@ theorem alpha_ne_zero_of_length_25 (alg : BilinearAlgorithm K 4 2 4 25) (t : Fin
     omega
   exact absurd h (not_le.mpr (key _ (by simp [ht])))
 
-/-- **Folgerung C1 (form R-C1), at the generic point.** For every decomposition of
+/-- **Folgerung C1 (generic form), at the generic point.** For every decomposition of
 `⟨4,2,4⟩` of length 25 over any field `K`, the generic normal form satisfies (N1) and (N2),
 lies in the case `(rk L, rk H) = (5, 8)` and is not symmetric. -/
 theorem folgerungC1_generisch (alg : BilinearAlgorithm K 4 2 4 25) :
@@ -627,7 +626,7 @@ theorem folgerungC1_generisch (alg : BilinearAlgorithm K 4 2 4 25) :
   · exact absurd (SatzB444.satzB_symm_unbedingt (genAlg alg) h1 h2 h) hC
   · exact ⟨h1, h2, h, hC⟩
 
-/-- **Folgerung C1 (R-C1), short form:** at the generic point the case is not `(3, 6)`. -/
+/-- **Folgerung C1 (generic form), short form:** at the generic point the case is not `(3, 6)`. -/
 theorem folgerungC1_nicht36 (alg : BilinearAlgorithm K 4 2 4 25) :
     (finrank (GField K) (LinearMap.range (Lq (d := 3) (genAlg alg))),
       finrank (GField K) (LinearMap.range (Hq (d := 3) (genAlg alg)))) ≠ (3, 6) := by

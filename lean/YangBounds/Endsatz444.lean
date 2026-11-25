@@ -4,10 +4,7 @@ import YangBounds.SatzC444Generisch
 /-!
 # The final theorem `R(⟨4,2,4⟩) ≥ 26`, assembled from the existing theorems and two hypotheses
 
-Task S2-36 (stage 2, round 9, track A, role: formaliser, slot “Zusammensetzen”). Status of
-every statement in this file: `behauptet`. Nothing here is `geprüft` before the check of
-protocol section 5.1, and the final theorem counts as finished only when no hypothesis is left
-and a statement check exists.
+Task S2-36 (stage 2, round 9, track A, role: formaliser, slot “Zusammensetzen”).
 
 ## The final theorem
 

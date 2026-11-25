@@ -7,8 +7,7 @@ import Mathlib.LinearAlgebra.LinearIndependent.Lemmas
 /-!
 # Polynomial algebra for Lemma S (task S2-15)
 
-Task S2-15 (stage 2, round 4, track A, role: formaliser). Status of every statement in this
-file: `behauptet` (nothing here is `geprüft` before the check of protocol section 5.1).
+Task S2-15 (stage 2, round 4, track A, role: formaliser).
 
 This file contains the facts about the polynomial ring `R = K[x_0, x_1, x_2, x_3]` that the
 proof of Lemma S (prose `lean/prosa/s2_444_spurA_r2.md`, Section 6) needs, in the form used in

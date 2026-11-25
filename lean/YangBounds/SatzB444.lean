@@ -5,9 +5,7 @@ import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 /-!
 # Satz B for `⟨4,2,4⟩` at length 25: the cases (4,7) and (5,7) are impossible
 
-Task S2-15 (stage 2, round 4, track A, role: formaliser). Status of every statement in this
-file: `behauptet`. Nothing here is `geprüft` before the check of protocol section 5.1
-(in particular the statement check, 5.1 item 3, is still open).
+Task S2-15 (stage 2, round 4, track A, role: formaliser).
 
 Sources: prose `lean/prosa/s2_444_spurA_r2.md` (task S2-05), Sections 2, 5, 6, 7.
 Formalised is a simpler version with Lemma V′ (one admissible `u_0` with a common kernel

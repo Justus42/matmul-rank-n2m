@@ -5,8 +5,7 @@ import YangBounds.YangN3Teil3
 /-!
 # Yang v3, Theorem 1 (`n = 3`): assembly of the three parts
 
-Task S1-13 (stage 1, round 4, role: formaliser). Status of every statement in this file:
-`behauptet` (nothing here is `geprüft` before the check of protocol section 5.1).
+Task S1-13 (stage 1, round 4, role: formaliser).
 
 Source: J. Yang, *New lower bounds on tensor rank of (n,2,m) matrix multiplication with GPT-6*,
 arXiv:2609.14393v3 (12.10.2026), Theorem 1. The result is Yang's; this file only puts together

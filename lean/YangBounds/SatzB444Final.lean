@@ -4,8 +4,7 @@ import YangBounds.SatzB444
 /-!
 # Satz B for `⟨4,2,4⟩` at length 25 without hypotheses
 
-Task S2-18 (stage 2, round 5, track A, role: formaliser). Status of every statement in this
-file: `behauptet`. Nothing here is `geprüft` before the check of protocol section 5.1.
+Task S2-18 (stage 2, round 5, track A, role: formaliser).
 
 `SatzB444.lean` (task S2-15) proves `satzB`, `satzB_symm` and `satzB_global` under the two
 explicit hypotheses `SatzAHyp K` and `CommonKernelHyp K`. Both are discharged here by the

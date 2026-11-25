@@ -6,8 +6,7 @@ import Mathlib.RingTheory.Polynomial.Basic
 /-!
 # Satz E for `⟨4,2,4⟩` at length 25: sub-case A of the case (5,8) is impossible
 
-Task S2-27 (stage 2, round 7, track A, role: formaliser). Status of every statement in this
-file: `behauptet` (nothing here is `geprüft` before the statement check of protocol 5.1).
+Task S2-27 (stage 2, round 7, track A, role: formaliser).
 Claim file: `behauptungen/B-013.md`.
 
 Sources: prose `lean/prosa/s2_444_spurA_r4.md` (task S2-16), Section 5.2 (Satz E, steps A2 to

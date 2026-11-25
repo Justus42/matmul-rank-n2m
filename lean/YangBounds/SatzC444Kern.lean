@@ -3,8 +3,7 @@ import YangBounds.SatzB444Final
 /-!
 # Satz C for `⟨4,2,4⟩`: the algebraic core (identity (Kl), quadric, contradiction)
 
-Task S2-26 (stage 2, round 7, track A, role: formaliser). Status of every statement in this
-file: `behauptet`. Nothing here is `geprüft` before the check of protocol section 5.1.
+Task S2-26 (stage 2, round 7, track A, role: formaliser).
 
 Sources: prose `lean/prosa/s2_444_spurA_r4.md` (task S2-16), Section 3 (Satz C).
 
