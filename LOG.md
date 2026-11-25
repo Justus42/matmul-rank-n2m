@@ -612,3 +612,48 @@ Das sind sechs Aufträge. Abschnitt 6 des Protokolls lässt höchstens 4 Subagen
 **Nachtrag zu Runde 3 der Stufe 2: Verstoß gegen Abschnitt 6 behoben**
 
 Der Verstoß gegen Abschnitt 6 (sechs statt höchstens vier Subagenten) wurde bemerkt und vor jeder Lieferung behoben. Der Orchestrator hat S2-10 (Spur A, Restfälle) und S2-12 (Spur B, Zerlegung der SAT-Fälle) am 25.11.2026 um 12:46 Uhr (MEZ) zurückgezogen. Beide hatten bis dahin nichts geliefert. Runde 3 hat damit vier Aufträge: S2-08, S2-09, S2-11 und S2-13. Die Nummern S2-10 und S2-12 bleiben als zurückgezogen stehen. Ihre Arbeit wird in Runde 4 neu vergeben. Die Zieldateien von S2-09 und S2-11 wählen die Prüfer selbst.
+
+---
+
+## 25.11.2026 · Stufe 2, Runde 3, Abschluss und Halt
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: S2-08, S2-09, S2-11, S2-13. S2-10 und S2-12 wurden vor jeder Lieferung zurückgezogen und haben nichts im Repo geändert, das haben beide bestätigt.
+
+**Gelieferte Dateien**
+
+- S2-13 (Literaturwache): `lit/WACHE.md` und `lit/LIZENZEN.md`, Pull Request #41
+- S2-09 (Prüfer Spur A): `behauptungen/B-008.md`, `behauptungen/B-009.md`, `lean/prosa/s2_444_spurA_r2_pruefung.md`, `versuche/s2-09-pruefung/`, Pull Request #42
+- S2-11 (Prüfer Spur B): `behauptungen/B-010.md`, `behauptungen/B-011.md`, `behauptungen/B-011-anhang/`, Pull Request #43
+- S2-08 (Blind-Sucher): `versuche/s2-blind-r3.md` mit `versuche/s2-blind-r3/`, Pull Request #44
+
+**Befunde**
+
+- S2-13: Abbruchregel 3 greift nicht. Justus' Hinweis zu openai/math ist bestätigt, mit vier kleinen Abweichungen ohne Folgen. Die verbindliche Quellenliste der Wache steht nur in PROTOKOLL.md Abschnitt 7, und die kann nur Justus ändern.
+- S2-09: Satz A (B-008) und Satz B (B-009) halten nach dem Prüfer und, unabhängig davon, nach GPT 6.2 Sol. Lemma V hält mit Reparatur R1 und in einer einfacheren Fassung. Der Status bleibt behauptet, weil ein Prosa-Beweis nach 5.1 nicht geprüft sein kann, solange es keinen Lean-Beweis gibt.
+- S2-11: B-010 „Rang von ⟨4,2,4⟩ ist höchstens 26“ hat Status **geprüft** nach 5.2 (das Verfahren aus S2-03). B-011 (SAT-Ausschlüsse f = 1, 3, 19, 21, 23, 25) gilt nur für die Involution σ(u,v,w) = (vᵀ,uᵀ,wᵀ). Der Status bleibt behauptet, weil Abschnitt 5 für SAT-Zertifikate keinen Prüfweg kennt. Der Löser ist nicht geeicht, Zeitüberschreitungen sagen nichts.
+- S2-08: Der Blind-Sucher fand kein 25er-Verfahren. Er untersuchte Symmetrien der Ordnung 3, 5 und 7 über 𝔽₂: 29 Läufe UNSAT, 30 an der Zeitgrenze. Behauptung S2-08-a hat Status behauptet, der DRAT-Beweis ist ungeprüft. Er war nur eingeschränkt blind.
+
+**Neuer Status je Behauptung**
+
+- B-010: neu, **geprüft** (bekannter Wert 26)
+- B-008, B-009, B-011: neu, **behauptet**
+- Übersicht in `behauptungen/README.md` um B-008 bis B-011 ergänzt
+
+**Merges**
+
+Merge-Stand auf `main` beim Schreiben dieses Eintrags: PR #41 (93a0f06), #42 (d972567), #43 (f6435f1) und #44 (f5fc9de) sind am 25.11.2026 zwischen 12:47 und 13:29 Uhr (MEZ) gemergt, jeweils unter dem GitHub-Konto Justus42.
+
+**Runden**
+
+Verbraucht in Stufe 2: 3 von 12.
+
+**Abbruchregel 2 (Lesart des Orchestrators)**
+
+- Spur A hat in drei Runden in Folge kein Artefakt mit Status geprüft geliefert und endet damit.
+- Spur B hat in Runde 3 nur B-010 als geprüft. Nach der Entscheidung des Orchestrators zu Runde 1 setzt B-010 den Zähler nicht zurück. Damit endet auch Spur B.
+
+**Entscheidung des Orchestrators: Halt nach 11.4**
+
+Der Orchestrator vergibt keine neuen Aufträge und legt Justus die Entscheidung vor, weil er nach 11.4 keine Abbruchregel aussetzen darf.

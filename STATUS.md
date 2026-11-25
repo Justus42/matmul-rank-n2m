@@ -1,14 +1,13 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 3 läuft)
+Zuletzt geändert: 25.11.2026 (Stufe 2, nach Runde 3, Halt)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 2 von 12 (beide Spuren zusammen)
-- Runde 3 läuft: S2-08, S2-09, S2-11, S2-13 (S2-10 und S2-12 vor Lieferung zurückgezogen, um die Grenze von 4 Subagenten aus Abschnitt 6 einzuhalten)
-- Abbruchregel 2 (3 Runden in Folge ohne neues geprüftes Artefakt): Spur A 2 von 3, Spur B 2 von 3
+- Runden verbraucht: 3 von 12 (beide Spuren zusammen)
+- **Halt:** Abbruchregel 2 nach Lesart des Orchestrators für beide Spuren erreicht (Spur A 3 von 3, Spur B 3 von 3, B-010 setzt den Zähler nach seiner Entscheidung nicht zurück). Keine neuen Aufträge, Entscheidung bei Justus (siehe Sperren)
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
 
@@ -23,12 +22,12 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 3 läuft)
 | S2-05 | Spur A: Yangs vier Restfälle und Lemma M | Beweissucher | `lean/prosa/s2_444_spurA_r2.md` | erledigt in Runde 2, PR #38. Satz A, Satz B; offen (3,6) und (5,8) |
 | S2-06 | Spur B: SAT-Suche mit Symmetrieansatz, Flip-Graph über viele Familien | Verfahrenssucher | `versuche/s2-spurB-r2.md` | erledigt in Runde 2, PR #40 (Teilbericht). f = 5 bis 17 offen |
 | S2-07 | Literaturwache, mit Frage nach dem Grenzrang von ⟨2,4,4⟩ | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 2, PR #37. Grenzrang 22 bis 24 |
-| S2-08 | Blind-Suche, Runde 3 | Blind-Sucher | `versuche/s2-blind-r3.md` | vergeben in Runde 3 |
-| S2-09 | Prüfung Spur A: Satz A, Satz B, Lemmata 13′, V, S, mit GPT 6.2 Sol | Prüfer | wählt der Prüfer, wird nachgetragen | vergeben in Runde 3 |
-| S2-10 | Spur A: Restfälle (3,6) und (5,8) | Beweissucher | `lean/prosa/s2_444_spurA_r3.md` | zurückgezogen (Abschnitt 6), wird in Runde 4 neu vergeben |
-| S2-11 | Prüfung Spur B: DRAT-Ergebnisse, dazu Behauptungsdatei R(⟨4,2,4⟩) ≤ 26 | Prüfer | wählt der Prüfer, wird nachgetragen | vergeben in Runde 3 |
-| S2-12 | Spur B: Eichung und Zerlegung der offenen SAT-Fälle | Verfahrenssucher | `versuche/s2-spurB-r3.md` | zurückgezogen (Abschnitt 6), wird in Runde 4 neu vergeben |
-| S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | vergeben in Runde 3 |
+| S2-08 | Blind-Suche, Runde 3 | Blind-Sucher | `versuche/s2-blind-r3.md` | erledigt in Runde 3, PR #44 |
+| S2-09 | Prüfung Spur A: Satz A, Satz B, Lemmata 13′, V, S, mit GPT 6.2 Sol | Prüfer | `behauptungen/B-008.md`, `B-009.md`, `lean/prosa/s2_444_spurA_r2_pruefung.md` | erledigt in Runde 3, PR #42 |
+| S2-10 | Spur A: Restfälle (3,6) und (5,8) | Beweissucher | `lean/prosa/s2_444_spurA_r3.md` | zurückgezogen (Abschnitt 6), nichts geliefert |
+| S2-11 | Prüfung Spur B: DRAT-Ergebnisse, dazu Behauptungsdatei R(⟨4,2,4⟩) ≤ 26 | Prüfer | `behauptungen/B-010.md`, `B-011.md` | erledigt in Runde 3, PR #43 |
+| S2-12 | Spur B: Eichung und Zerlegung der offenen SAT-Fälle | Verfahrenssucher | `versuche/s2-spurB-r3.md` | zurückgezogen (Abschnitt 6), nichts geliefert |
+| S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
 
@@ -38,7 +37,6 @@ Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein V
 
 ## Offene Kleinigkeiten
 
-- Behauptungsdatei für „R(⟨4,2,4⟩) ≤ 26“ zu `verfahren/4x2x4-r26-s001.json`, Prüfung nach 5.2. In Runde 3 mit S2-11 vergeben. Setzt den Zähler von Spur B nach Abbruchregel 2 nicht zurück (Entscheidung des Orchestrators, siehe LOG.md)
 - Veraltete Kommentare „open“ in `lean/YangBounds/Statements.lean` und `lean/YangBounds/Upper3x2x6.lean` (Nebenbefund S1-18)
 - `lean/Axioms.lean` importiert das Wurzelmodul und lässt sich mit `lake env lean` nicht direkt ausführen
 - Formatnachtrag: Rückgabewert 3 mit erster Zeile INTERNER-FEHLER, FEHLERHAFT nur für Eigenschaften der Datei, ein Lauf zählt nur, wenn erstes Wort und Rückgabewert zusammenpassen. Einarbeitung in `verfahren/README.md` und beide Programme wird in Stufe 2 vergeben
@@ -118,6 +116,7 @@ Ergebnisse mit Status geprüft: B-001 (Rang von ⟨3,2,5⟩ ist 25, über jedem 
 
 ## Sperren
 
+- Halt nach Abbruchregel 2 (Stillstand in Spur A und Spur B nach Lesart des Orchestrators), Bericht an Justus, Entscheidung offen
 - Fremdmodelle vorerst nur bei kritischen Punkten (Entscheidung von Justus, 25.11.2026, siehe LOG.md): Aussagen-Abgleiche nach 5.1 Punkt 3 und Befunde, die eine Abbruchregel berühren. Dafür GPT 6.2 Sol mit hoher Denkstufe als Batch über die Bridge. Das Gegenlesen von Prosa vor einer Formalisierung entfällt vorerst
 - Keine Arbeit an Stufe 3 ohne Budget von Justus
 - Fremder Code nur nach der Lizenzregel (Protokoll Abschnitt 11.3)
