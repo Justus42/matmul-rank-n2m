@@ -1,5 +1,4 @@
 import YangBounds.Basic
-import YangBounds.Statements
 import YangBounds.YangN3Teil1
 import YangBounds.YangN3Teil2
 import YangBounds.YangN3Teil3
@@ -44,6 +43,10 @@ Indices of the prose start at `1` (`F_1, …, F_d`); here they are `Fin d` (`0, 
 * `yang_theorem_two_of_lemma13`: from the Lemma 13 hypothesis, the statement of
   `yang_theorem_two` (Statements.lean), word for word.
 * `yang_theorem_two_algorithm_of_lemma13`: the same bound for every single algorithm.
+
+Imports (S1-17): this file no longer imports `YangBounds.Statements` (nothing from it was used);
+`Statements.lean` now imports this file and `YangN4Lemma13.lean` to close `yang_theorem_two`,
+so the old import would have been an import cycle.
 
 No `sorry`, no own axiom, no `native_decide`. `#print axioms yang_theorem_two_of_lemma13`:
 `propext`, `Classical.choice`, `Quot.sound` (local build, 25.11.2026).
