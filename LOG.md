@@ -1925,3 +1925,42 @@ Von Justus angeordneter Abschluss nach Runde 12, keine eigene Runde.
   - Damit wäre der Satz „Stufe 3 beginnt nicht“ aus der Entscheidung von 23:42 Uhr MEZ überholt.
 - Die Schreibhand kann die Anweisung von Justus nicht nachprüfen. Die Änderung ist hier nur festgehalten, nicht bewertet.
 - Die neue Regel 14 trat während der Literaturwache in Kraft. Deren Hilfsagent war vorher vom Orchestrator vorgesehen.
+
+### 26.11.2026, Entscheidung von Justus zur Freigabe (Wortlaut, 25.11.2026, 00:08 Uhr MEZ)
+
+> 1. Protokoll 0.5 (Commit 61bd8d4) stammt von mir, ich habe es in einem anderen Chat eintragen lassen. Lies Abschnitt 3, 4, 5.4 und 6 und CLAUDE.md neu. Der Hilfsagent der Literaturwache bleibt ohne Folge.
+> 2. Befund G1 zählt nicht als Fund im Sinn meiner Bedingung. Es ist eine Katalogzeile ohne Beweis, mit falscher Zuschreibung und im selben Repo widersprochen. Die Freigabe von B-016 als Ergebnis tritt damit ein, mit den Auflagen 1 bis 7 und einer achten.
+> 3. Auflage 8: Die Notiz bekommt einen Abschnitt „Related claims". Nenne G1 mit Datei, Zeile, Commit und Datum. Schreibe sachlich, dass dort kein Beweis steht, dass dasselbe Repo die Schranke an anderer Stelle als offen führt und dass Lacelles Artikel (arXiv:2606.13408, Abschnitt 7.5) Hopcroft und Kerr untere Schranken nur für <2,2,n> und <2,3,3> zuschreibt. Aus „to our knowledge new" wird „to our knowledge the first proof".
+> 4. Eine unabhängige Recherche mit Gemini Deep Research vom 25.11.2026 fand ebenfalls keinen Beweis für 26. Vermerke das in lit/WACHE.md als Angabe von mir. Der Bericht liegt nicht im Repo. Nicht abgedeckt waren dort ECCC, Zenodo, Zulip und MathOverflow.
+> 5. Danach beginnt Stufe 3 nach Protokoll 0.5. Auflage 5 bleibt: kein Kontakt nach außen.
+
+(Die Nachricht kam am 26.11.2026 um 00:08 Uhr MEZ, 23:08 UTC. Die Datumsangabe in der Überschrift ist zu lesen als: Nacht vom 25. auf den 26.11.2026.)
+
+**Einordnung (Schreibhand im Auftrag des Orchestrators)**
+
+- **Protokoll 0.5** (Commit 61bd8d4) stammt von Justus. Der Vorbehalt der Schreibhand im vorigen Eintrag ist damit erledigt. Der Orchestrator hat die Abschnitte 3, 4, 5.4 und 6 sowie CLAUDE.md in Fassung 0.5 gelesen.
+- Der Hilfsagent der wiederholten Literaturwache bleibt **ohne Folge**.
+- **Befund G1 zählt nicht als Fund** im Sinn der Bedingung.
+- **Die Freigabe von B-016 als Ergebnis ist eingetreten**, mit den Auflagen 1 bis 7 und der neuen Auflage 8 („Related claims“; „to our knowledge the first proof“).
+- **Stufe 2 ist abgeschlossen**, mit 12 von 24 Runden.
+
+**Umsetzung (Abschluss nach Runde 12, keine eigene Runde)**
+
+- Ein neuer Thread „Ergebnis zu 4×2×4 in README eintragen“ setzt die Auflagen 1 bis 4 und 8 und den Vermerk zu Gemini Deep Research in `lit/WACHE.md` um.
+- Gestartet um 23:10 UTC, 1 Subagent, 0 Fremdmodell-Anfragen. Der Merge wird nachgetragen.
+- Auflagen 5 bis 7 sind schon erledigt oder vermerkt. Auflage 5 gilt weiter: kein Kontakt nach außen.
+
+**Danach:** Stufe 3 nach Protokoll 0.5.
+
+- Erkundung von 4×2×5 und 3×2×7, ohne Beweisangriff.
+- 2 Runden mit je bis zu 6 Subagenten, keine Fremdmodell-Anfrage.
+- Die Threads vergeben keine eigenen Subagenten.
+
+**Gedächtnis (Durchsicht vor Stufe 3, Schreibhand)**
+
+- Index und 21 Einzeleinträge sind unverändert seit der Durchsicht vor Runde 12. Der Abgleich lief um 23:09:17 UTC, es gibt keinen neuen Eintrag.
+- Keine Urteile, Befunde oder Zwischenstände zu Behauptungen.
+- Für Stufe 3 sind die Einträge zu 3×2×5, 3×2×6 und Yang n = 3 (`hk-verfahren-a10`, `lean-upper-3x2x6`, `yang-n3-*`) sachliche Datei- und Bauhinweise ohne Urteil.
+- Veraltet im Index, aber ohne Urteil:
+  - Die Zeile zu Protokoll Abschnitt 6 nennt nur Stufe 2.
+  - Die Literaturwache steht dort noch mit 11:47 UTC.
