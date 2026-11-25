@@ -1,0 +1,88 @@
+satzA_global : ∀ (K : Type u_1) [inst : Field K],
+  BilinearAlgorithm K 4 2 4 25 →
+    ∃ alg',
+      SN1 alg' ∧
+        SN2 alg' ∧
+          ∀ (ρ : ℕ),
+            IsGreatest (Set.range (rkComb (Fq alg'))) ρ →
+              ρ = 3 ∧
+                ((Module.finrank (AlgebraicClosure K) ↥(LinearMap.range (Lq alg')),
+                      Module.finrank (AlgebraicClosure K) ↥(LinearMap.range (Hq alg'))) =
+                    (3, 6) ∨
+                  (Module.finrank (AlgebraicClosure K) ↥(LinearMap.range (Lq alg')),
+                        Module.finrank (AlgebraicClosure K) ↥(LinearMap.range (Hq alg'))) =
+                      (4, 7) ∨
+                    (Module.finrank (AlgebraicClosure K) ↥(LinearMap.range (Lq alg')),
+                          Module.finrank (AlgebraicClosure K) ↥(LinearMap.range (Hq alg'))) =
+                        (5, 7) ∨
+                      (Module.finrank (AlgebraicClosure K) ↥(LinearMap.range (Lq alg')),
+                          Module.finrank (AlgebraicClosure K) ↥(LinearMap.range (Hq alg'))) =
+                        (5, 8))
+satzA_statement : ∀ (K : Type u_1) [inst : Field K], SatzAStatement K
+def YangBounds.SatzA444.SatzAStatement.{u} : (K : Type u) → [inst : Field K] → Prop :=
+fun K [Field K] =>
+  ∀ (alg : BilinearAlgorithm K 4 2 4 25),
+    SN1 alg →
+      SN2 alg →
+        ∀ (ρ : ℕ),
+          IsGreatest (Set.range (rkComb (Fq alg))) ρ →
+            ρ = 3 ∧
+              ((Module.finrank K ↥(LinearMap.range (Lq alg)), Module.finrank K ↥(LinearMap.range (Hq alg))) = (3, 6) ∨
+                (Module.finrank K ↥(LinearMap.range (Lq alg)), Module.finrank K ↥(LinearMap.range (Hq alg))) = (4, 7) ∨
+                  (Module.finrank K ↥(LinearMap.range (Lq alg)), Module.finrank K ↥(LinearMap.range (Hq alg))) =
+                      (5, 7) ∨
+                    (Module.finrank K ↥(LinearMap.range (Lq alg)), Module.finrank K ↥(LinearMap.range (Hq alg))) =
+                      (5, 8))
+def YangBounds.YangN4Haupt.SN1.{u} : {K : Type u} →
+  [inst : Field K] → {d m r : ℕ} → BilinearAlgorithm K (d + 1) 2 m r → Prop :=
+fun {K} [Field K] {d m r} alg => ∀ (k : Fin r), (alg.alpha k) (eA 0 0) ≠ 0
+def YangBounds.YangN4Haupt.SN2.{u} : {K : Type u} →
+  [inst : Field K] → {d m r : ℕ} → BilinearAlgorithm K (d + 1) 2 m r → Prop :=
+fun {K} [Field K] {d m r} alg => ∀ (v : Matrix (Fin 2) (Fin m) K), v ≠ 0 → LinearIndependent K fun i => (fv alg i) v
+def YangBounds.YangN4Haupt.Fq.{u} : {K : Type u} →
+  [inst : Field K] →
+    {d m r : ℕ} → (alg : BilinearAlgorithm K (d + 1) 2 m r) → Fin d → (Fin m → K) →ₗ[K] (Fin r → K) ⧸ J alg :=
+fun {K} [Field K] {d m r} alg i => π alg ∘ₗ φ alg i.succ
+def YangBounds.YangN4Haupt.Lq.{u} : {K : Type u} →
+  [inst : Field K] →
+    {d m r : ℕ} → (alg : BilinearAlgorithm K (d + 1) 2 m r) → (Fin d → Fin m → K) →ₗ[K] (Fin r → K) ⧸ J alg :=
+fun {K} [Field K] {d m r} alg => sumMap (Fq alg)
+def YangBounds.YangN4Haupt.Hq.{u} : {K : Type u} →
+  [inst : Field K] →
+    {d m r : ℕ} →
+      (alg : BilinearAlgorithm K (d + 1) 2 m r) → ↥(skewSpace K (Fin m → K) d) →ₗ[K] Fin d → (Fin r → K) ⧸ J alg :=
+fun {K} [Field K] {d m r} alg => skewExt (Lq alg)
+def YangBounds.YangN4Haupt.rkComb.{u, v, w} : {K : Type u} →
+  [inst : Field K] →
+    {U : Type v} →
+      [inst_1 : AddCommGroup U] →
+        [inst_2 : Module K U] →
+          {Q : Type w} →
+            [inst_3 : AddCommGroup Q] → [inst_4 : Module K Q] → {d : ℕ} → (Fin d → U →ₗ[K] Q) → (Fin d → K) → ℕ :=
+fun {K} [Field K] {U} [AddCommGroup U] [Module K U] {Q} [AddCommGroup Q] [Module K Q] {d} F γ =>
+  Module.finrank K ↥(LinearMap.range (∑ i, γ i • F i))
+structure YangBounds.BilinearAlgorithm.{u} (K : Type u) [Field K] (n l m r : ℕ) : Type u
+number of parameters: 6
+fields:
+  YangBounds.BilinearAlgorithm.alpha : Fin r → Matrix (Fin n) (Fin l) K →ₗ[K] K
+  YangBounds.BilinearAlgorithm.beta : Fin r → Matrix (Fin l) (Fin m) K →ₗ[K] K
+  YangBounds.BilinearAlgorithm.coeff : Fin r → Matrix (Fin n) (Fin m) K
+  YangBounds.BilinearAlgorithm.correct : ∀ (A : Matrix (Fin n) (Fin l) K) (B : Matrix (Fin l) (Fin m) K),
+      A * B = ∑ k, ((self.alpha k) A * (self.beta k) B) • self.coeff k
+constructor:
+  YangBounds.BilinearAlgorithm.mk.{u} {K : Type u} [Field K] {n l m r : ℕ}
+    (alpha : Fin r → Matrix (Fin n) (Fin l) K →ₗ[K] K) (beta : Fin r → Matrix (Fin l) (Fin m) K →ₗ[K] K)
+    (coeff : Fin r → Matrix (Fin n) (Fin m) K)
+    (correct :
+      ∀ (A : Matrix (Fin n) (Fin l) K) (B : Matrix (Fin l) (Fin m) K),
+        A * B = ∑ k, ((alpha k) A * (beta k) B) • coeff k) :
+    BilinearAlgorithm K n l m r
+'YangBounds.SatzA444.satzA_global' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangBounds.SatzA444.satzA_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangBounds.SatzA444.satzA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangBounds.SatzA444.lemma13Prime_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangBounds.Lemma13Prime.lemma13Prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangBounds.SatzA444.corollaryA1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangBounds.SatzA444.corollaryA2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangBounds.SatzA444.exists_common_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangBounds.SatzA444.sDim_table' depends on axioms: [propext, Classical.choice, Quot.sound]
