@@ -41,7 +41,9 @@ def summary(text: str) -> None:
 
 
 def modules(lean_dir: Path) -> list[str]:
-    mods = ["YangBounds"]
+    # The root module `YangBounds` is not a build target (lakefile glob
+    # `YangBounds.+` covers only submodules), so import every submodule instead.
+    mods = []
     for p in sorted((lean_dir / "YangBounds").rglob("*.lean")):
         rel = p.relative_to(lean_dir).with_suffix("")
         mods.append(".".join(rel.parts))
