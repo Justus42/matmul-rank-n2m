@@ -325,3 +325,24 @@ Verbraucht in Stufe 1: 2 von 8.
 - Beide Prüfprogramme auf denselben Testfällen abgleichen
 - Rückgabewert bei internem Fehler im Format festlegen
 - Actions-Workflow für `lean/`
+
+---
+
+## 25.11.2026 · Fremdmodell nicht verfügbar, Stufe 1, Runde 3 vergeben
+
+**Nachtrag des Fremdmodells zu S1-05 gescheitert**
+
+Der Nachtrag, bei dem das Fremdmodell die ungekürzte Fassung von `lean/prosa/yang_n3.md` lesen sollte, ist gescheitert. Das Gemini-Projekt hat seine monatliche Ausgabengrenze erreicht.
+
+Entscheidung des Orchestrators: Er weicht nicht auf ein anderes Konto (OpenRouter) aus. Eine Ausgabengrenze ist eine Budgetgrenze von Justus. Der Vorgang ist an Justus gemeldet.
+
+Das bisherige Gegenlesen zu n = 3 gilt als erfolgt und ist als **schwach** vermerkt, weil das Modell nur die gekürzte Fassung auf niedriger Denkstufe gelesen hat. Der strenge Nachtrag bleibt offen. Im vorigen Eintrag stand, dass die Formalisierung von n = 3 auf diesen Nachtrag wartet. Nach dieser Entscheidung beginnt sie auf Grundlage des schwachen Gegenlesens.
+
+**Aufträge für Runde 3 der Stufe 1**
+
+- S1-09, S1-10, S1-11: Formalisierung von Yangs Satz 1 in den drei Teilen nach Abschnitt 9 von `lean/prosa/yang_n3.md`, Zieldateien `YangN3Teil1.lean`, `YangN3Teil2.lean`, `YangN3Teil3.lean`
+- S1-12: Obere Schranke 30 für 3×2×6 in Lean, aus dem Verfahren von A-10, Zieldatei `Upper3x2x6.lean`
+
+**Hinweis für spätere Aussagen-Abgleiche**
+
+Ein Aussagen-Abgleich nach 5.1 Punkt 3 braucht das Fremdmodell. Dafür muss Justus entweder die Ausgabengrenze anheben oder den Text selbst an ein Fremdmodell weitergeben.
