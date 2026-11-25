@@ -1,14 +1,13 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 8 läuft)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Halt nach Runde 8)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 7 von 12 (beide Spuren zusammen)
-- Runde 8 läuft: S2-30, S2-31, S2-32, S2-33
-- **Halt nach Runde 8:** Runde 9 startet nicht. Der Orchestrator legt Justus eine Auslegungsfrage vor: Entwertet ein vom Prüfer gesehenes früheres Prosa-Prüfurteil einen Aussagen-Abgleich? Betroffen sind B-008, B-009, B-012 und voraussichtlich B-013. Zähler Spur A nach Runde 8: milde Lesart 2 von 3, strenge Lesart wäre Spur A schon mit Runde 5 beendet (siehe LOG.md)
+- Runden verbraucht: 8 von 12 (beide Spuren zusammen)
+- **Halt nach Runde 8:** Runde 9 startet nicht. Der Orchestrator legt Justus eine Auslegungsfrage vor: Entwertet ein vom Prüfer gesehenes früheres Prosa-Prüfurteil einen Aussagen-Abgleich? Betroffen sind B-008, B-009, B-012 und B-013. Zähler Spur A nach Runde 8: milde Lesart 2 von 3, strenge Lesart wäre Spur A schon mit Runde 5 beendet (siehe LOG.md)
 - Abbruchregel 2 (Protokoll 0.3), Spur A: Runde 6 bringt Fortschritt nach b), Runde 7 nicht, weil der Prüfer von B-014 frühere Prüfurteile gesehen hat (Lesart des Orchestrators, siehe LOG.md). Zähler: **1 von 3**. Frist: B-012 und B-013 geprüft bis Ende Runde 8; hält nur ein Teil, trägt dieser Teil Runde 6, solange er einen benannten Fall ausschließt. Runde 8 zählt nichts neu; ohne anderes Ergebnis steht Spur A danach bei 2 von 3. B-014 wird in Runde 9 von einem unbeeinflussten Prüfer und GPT neu geprüft. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
@@ -46,9 +45,9 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 8 läuft)
 | S2-28 | Spur A: Prüfung B-014 (Satz F), mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r6_pruefung.md` | erledigt in Runde 7, PR #58. Hält mit Reparaturen R-K, R-F1 bis R-F3 |
 | S2-29 | Blind-Sucher, Handkonstruktion | Blind-Sucher | `versuche/s2-blind-r7.md` | erledigt in Runde 7, PR #57. Kein 25er-Verfahren |
 | S2-30 | Spur A: Aussagen-Abgleich B-012, mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r8_abgleich_b012.md`, `behauptungen/B-012.md` | erledigt in Runde 8, PR #61. Teil G geprüft, unter Vorbehalt (Prüfer sah früheres Prüfurteil) |
-| S2-31 | Spur A: Aussagen-Abgleich B-013 (Satz E), mit GPT 6.2 Sol | Prüfer | `behauptungen/B-013.md` | vergeben in Runde 8 |
-| S2-32 | Spur A: Lemma P in Lean | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 8 |
-| S2-33 | Blind-Sucher | Blind-Sucher | `versuche/s2-blind-r8.md` | vergeben in Runde 8 |
+| S2-31 | Spur A: Aussagen-Abgleich B-013 (Satz E), mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r4_abgleich_b013.md`, `behauptungen/B-013.md` | erledigt in Runde 8, PR #62. Satz E geprüft, unter Vorbehalt (Prüfer sah früheres Prüfurteil) |
+| S2-32 | Spur A: Lemma P in Lean | Formalisierer | `lean/YangBounds/LemmaP444.lean` | erledigt in Runde 8, PR #64. Ohne sorry, nur für unendliche Körper; Abgleich fehlt |
+| S2-33 | Blind-Sucher | Blind-Sucher | `versuche/s2-blind-r8.md` | erledigt in Runde 8, PR #63. Keine Entscheidung |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.

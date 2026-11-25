@@ -1031,3 +1031,61 @@ Geplant für Runde 9: Lean für B-014, der Übergang vom generischen Punkt zum a
   - Spur A hätte nach Abbruchregel 2 spätestens mit Ende von Runde 5 geendet. Die Runden 6 bis 8 lagen dann jenseits der Regel.
   - Auch der Fortschritt aus Runde 6 hielte die Frist nicht, weil der Abgleich für B-012 ebenso betroffen ist und für B-013 voraussichtlich auch.
   - B-008, B-009 und B-012 fielen in den betroffenen Teilen auf behauptet zurück, bis ein unbeeinflusster Abgleich vorliegt. Widerlegt ist dadurch nichts.
+
+---
+
+## 25.11.2026 · Stufe 2, Runde 8, Abschluss
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: S2-30, S2-31, S2-32, S2-33.
+
+**Gelieferte Dateien**
+
+- S2-30 (Prüfer): `lean/prosa/s2_444_spurA_r8_abgleich_b012.md`, Pull Request #61 (siehe Zwischenstand oben)
+- S2-31 (Prüfer): `lean/prosa/s2_444_spurA_r4_abgleich_b013.md`, Vermerk in `behauptungen/B-013.md`, Fremdmodell in `versuche/s2-31-abgleich/`, Pull Request #62
+- S2-32 (Formalisierer): `lean/YangBounds/LemmaP444.lean` mit `lemmaP`, `nur_unterfallB'` und `nur_unterfallB_global'`, Gegenlesen der Prosa durch GPT in `versuche/s2-32/`, Pull Request #64. Die Datei trägt die neuen Sätze auch in `.github/scripts/lean_report.py` und `lean/Axioms.lean` ein.
+- S2-33 (Blind-Sucher): `versuche/s2-blind-r8.md`, Pull Request #63
+
+**Befunde**
+
+- S2-31: Prüfer und GPT 6.2 Sol bestätigen unabhängig voneinander, dass `satzE` Satz E aus B-013 ist, in einer stärkeren Form. Dasselbe gilt für die punktweise Teilaussage von C2 (`commonKernel_trivial`, `sDim_eq_one`).
+  - Abweichung bei `satzE_global`: GPT sagt, der Satz entspricht der Aussage nicht, weil `alg'` nicht an `alg` gebunden ist. Der Prüfer vermerkt dasselbe als Hinweis E2.
+  - Behauptet bleiben Lemma P, C2 mit offener Menge, „nur Unterfall B“, die Transponierte und die Kubiken.
+  - Offenlegung des Prüfers: Die Zeile „Prüfung“ in `B-013.md` mit dem Prosa-Urteil von S2-23 stand vor seinem Urteil vor ihm. Das ist derselbe Vorbehalt wie bei B-012.
+  - Der Prüfer hat den Status in `B-013.md` selbst gesetzt.
+- S2-32: `lemmaP` beweist `LemmaPStatement` für unendliche Körper (`[Infinite K]`), nicht für endliche. GPT hat die Prosa vorher gegengelesen, Urteil „hält“. Status behauptet, der Aussagen-Abgleich fehlt.
+- S2-33: Keine Entscheidung. Gewichtslemma und Reduktion auf eine Einschränkung haben Status behauptet. Der Sucher war nur eingeschränkt blind.
+
+**Selbst nachgesehen**
+
+- Alle vier Pull Requests sind auf `main`, gemergt am 25.11.2026 unter dem Konto Justus42:
+  - PR #61 um 18:13 Uhr (MEZ), Merge-Commit 1daace0
+  - PR #62 um 18:16 Uhr, Merge-Commit 26241ed
+  - PR #63 um 18:20 Uhr, Merge-Commit 5a5b130
+  - PR #64 um 18:55 Uhr, Merge-Commit 58d7926
+- Lauf 45669881460 lief auf `main` am Merge-Commit 58d7926 und endete mit success.
+- In `LemmaP444.lean` steht kein `sorry` außerhalb von Kommentaren.
+- Die SORRY-Zeile von Lauf 45658431578 hat der Prüfer S2-31 nach eigener Angabe nachgelesen.
+
+**Neuer Status je Behauptung**
+
+- B-012: geprüft für Teil G, **unter Vorbehalt** (siehe Zwischenstand).
+- B-013: **geprüft** für Satz E (`satzE`) und die punktweise Teilaussage von C2, **unter Vorbehalt des Orchestrators** zur Unabhängigkeit des Abgleichs. Alles Übrige bleibt **behauptet**.
+- B-008 und B-009: unverändert, mit Vorbehalt vermerkt.
+- B-014: unverändert **behauptet**.
+
+**Runden**
+
+Verbraucht in Stufe 2: 8 von 12.
+
+**Zählerstand Spur A**
+
+- In Runde 8 zählt nichts neu.
+- Milde Lesart: **2 von 3**.
+- Strenge Lesart: Spur A wäre mit Ende von Runde 5 beendet (Rechnung im Zwischenstand oben).
+- Spur B: aufgegeben.
+
+**Halt**
+
+Runde 9 startet nicht. Der Orchestrator legt Justus die Auslegungsfrage vor. Betroffen sind B-008, B-009, B-012 und B-013. Mit vorgelegt wird der Vorschlag `pruefvermerke/`.
