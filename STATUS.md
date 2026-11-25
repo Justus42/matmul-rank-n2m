@@ -1,13 +1,13 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 3 läuft, Regel für Fremdmodelle)
+Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 4 vergeben)
 
 ## Aktuelle Stufe
 
 **Stufe 1: Yangs dritte Fassung formalisieren**
 
-- Runden verbraucht: 2 von 8
-- Runde 3 läuft: S1-09, S1-10, S1-11, S1-12
+- Runden verbraucht: 3 von 8
+- Runde 4 läuft: S1-13, S1-14, S1-15, S1-16
 - Stufenwechsel 1 → 2: durch den Orchestrator, sobald das Fertig-Kriterium erfüllt ist (Protokoll Abschnitt 3 und 11)
 - Stufe 3: erst nach Budget von Justus
 
@@ -23,16 +23,20 @@ Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 3 läuft, Regel für Fremdmodelle)
 | S1-06 | Prüfung des Prosa-Beweises für n ≥ 4, Schwerpunkt L5, Prüfer und Fremdmodell | `lean/prosa/yang_n4_pruefung.md` | erledigt in Runde 2, PR #18 |
 | S1-07 | Python-Prüfprogramm an Abschnitt 9 und 10 des Formats anpassen | `pruefer/python/` | erledigt in Runde 2, PR #16 und #19 |
 | S1-08 | Rust-Prüfprogramm an Abschnitt 9 und 10 des Formats anpassen | `pruefer/rust/` | erledigt in Runde 2, PR #17 |
-| S1-09 | Formalisierung von Yangs Satz 1, Teil 1 nach Abschnitt 9 von `lean/prosa/yang_n3.md` | `YangN3Teil1.lean` | vergeben in Runde 3 |
-| S1-10 | Formalisierung von Yangs Satz 1, Teil 2 | `YangN3Teil2.lean` | vergeben in Runde 3 |
-| S1-11 | Formalisierung von Yangs Satz 1, Teil 3 | `YangN3Teil3.lean` | vergeben in Runde 3 |
-| S1-12 | Obere Schranke 30 für 3×2×6 in Lean, aus dem Verfahren von A-10 | `Upper3x2x6.lean` | vergeben in Runde 3 |
+| S1-09 | Formalisierung von Yangs Satz 1, Teil 1 nach Abschnitt 9 von `lean/prosa/yang_n3.md` | `lean/YangBounds/YangN3Teil1.lean` | erledigt in Runde 3, PR #21 |
+| S1-10 | Formalisierung von Yangs Satz 1, Teil 2 | `lean/YangBounds/YangN3Teil2.lean` | erledigt in Runde 3, PR #23 |
+| S1-11 | Formalisierung von Yangs Satz 1, Teil 3 | `lean/YangBounds/YangN3Teil3.lean` | erledigt in Runde 3, PR #22 |
+| S1-12 | Obere Schranke 30 für 3×2×6 in Lean, aus dem Verfahren von A-10 | `lean/YangBounds/Upper3x2x6.lean` | erledigt in Runde 3, PR #24 |
+| S1-13 | Satz 1 zusammensetzen und in `Statements.lean` einsetzen | `YangN3.lean` | vergeben in Runde 4 |
+| S1-14 | Actions-Workflow für `lean/` mit Axiom-Bericht je Satz | `.github/workflows/` | vergeben in Runde 4 |
+| S1-15 | Lemma 13 in reparierter Fassung | `YangN4Lemma13.lean` | vergeben in Runde 4 |
+| S1-16 | Hauptbeweis von Satz 2 mit Lemma 13 als Hypothese | `YangN4Haupt.lean` | vergeben in Runde 4 |
 
 Offen für spätere Runden:
 
 - Beide Prüfprogramme auf denselben Testfällen abgleichen
 - Rückgabewert bei internem Fehler im Format festlegen (Python nutzt bisher 3, eigene Entscheidung)
-- Actions-Workflow für `lean/`
+- In `Statements.lean` stehen noch drei `sorry`: Satz 1 (Einsetzen in S1-13 vergeben), Satz 2 (S1-15 und S1-16 arbeiten daran) und die obere Schranke 30 für 3×2×6 (in `Upper3x2x6.lean` bewiesen, das Einsetzen ist nicht ausdrücklich vergeben)
 
 ## Fertig-Kriterium Stufe 1
 

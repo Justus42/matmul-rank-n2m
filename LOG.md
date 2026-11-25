@@ -360,3 +360,46 @@ Justus hat am 25.11.2026 um 06:34 Uhr (MEZ) geschrieben:
 - Als kritisch gelten die Aussagen-Abgleiche nach 5.1 Punkt 3, weil ohne sie kein Status geprüft möglich ist. Ebenso kritisch sind Befunde, die eine Abbruchregel berühren. Dafür wird GPT 6.2 Sol mit hoher Denkstufe als Batch-Auftrag über die Bridge eingesetzt.
 - Das Gegenlesen von Prosa-Beweisen durch ein Fremdmodell vor einer Formalisierung (Abschnitt 4) entfällt vorerst.
 - Der strenge Nachtrag des Fremdmodells zu n = 3 (S1-05) entfällt ebenfalls.
+
+---
+
+## 25.11.2026 · Stufe 1, Runde 3, Abschluss
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: S1-09, S1-10, S1-11, S1-12.
+
+**Gelieferte Dateien**
+
+- S1-09: `lean/YangBounds/YangN3Teil1.lean`, Pull Request #21 (dazu `globs` im Lakefile)
+- S1-10: `lean/YangBounds/YangN3Teil2.lean`, Pull Request #23
+- S1-11: `lean/YangBounds/YangN3Teil3.lean`, Pull Request #22
+- S1-12: `lean/YangBounds/Upper3x2x6.lean`, Pull Request #24, dazu `versuche/V-S1-12-simp-matrixliterale.md` (gescheiterter erster Ansatz)
+
+**Befunde (alle Status behauptet)**
+
+- S1-09: Körpererweiterung und `yang_theorem_one_of_infinite`, ohne `sorry`.
+- S1-10: `exists_stronglyNormalized`, ohne `sorry`. Bei der Wahl der Determinante weicht der Beweis von der Prosa ab. Das hat keine Folgen für die Aussage.
+- S1-11: `yang_n3_of_stronglyNormalized`, ohne `sorry`. Aus m ≥ 2, SN1 und SN2 folgt 24m + 2 ≤ 5r.
+- S1-12: `tensorRank K 3 2 6 ≤ 30` über jedem Körper, aus dem Verfahren von A-10, mit `decide +kernel`, ohne `sorry`.
+- In allen vier Dateien zeigt die lokale Axiom-Prüfung nur `propext`, `Classical.choice` und `Quot.sound`.
+- Die drei `sorry` in `lean/YangBounds/Statements.lean` (Satz 1, Satz 2, obere Schranke 30 für 3×2×6) stehen beim Schreiben dieses Eintrags noch. Die neuen Sätze sind dort noch nicht eingesetzt.
+
+**Neuer Status je Behauptung**
+
+Kein Statuswort hat sich geändert. Alle Status bleiben behauptet, weil Actions `lean/` noch nicht baut und der Aussagen-Abgleich fehlt.
+
+**Merges**
+
+Merge-Stand auf `main` beim Schreiben dieses Eintrags: PR #21 (ea6b650), #23 (747a2ad), #22 (640685f) und #24 (edb6814) sind am 25.11.2026 zwischen 06:28 und 06:36 Uhr (MEZ) gemergt, jeweils unter dem GitHub-Konto Justus42.
+
+**Runden**
+
+Verbraucht in Stufe 1: 3 von 8.
+
+**Entscheidung für Runde 4 der Stufe 1**
+
+- S1-13: Satz 1 zusammensetzen und in `Statements.lean` einsetzen, Zieldatei `YangN3.lean`
+- S1-14: Actions-Workflow für `lean/` mit Axiom-Bericht je Satz
+- S1-15: Lemma 13 in reparierter Fassung, Zieldatei `YangN4Lemma13.lean`
+- S1-16: Hauptbeweis von Satz 2 mit Lemma 13 als Hypothese, Zieldatei `YangN4Haupt.lean`
