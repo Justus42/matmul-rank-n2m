@@ -45,3 +45,12 @@ Since S1-17 no proof is open; an occurrence of `sorryAx` here would be an error.
 #print axioms YangBounds.SatzF444.fall58_symmetrisch
 #print axioms YangBounds.SatzF444.unterfallBStatement_of
 #print axioms YangBounds.SatzF444.rank_four_two_four_ge_26_of_hyp
+#print axioms YangBounds.LemmaK444.lemmaK
+#print axioms YangBounds.LemmaK444.lemmaK_exklusiv
+#print axioms YangBounds.LemmaK444.folgerungK1
+#print axioms YangBounds.LemmaK444.lemmaKStatement
+#print axioms YangBounds.LemmaK444.folgerungK1Statement
+#print axioms YangBounds.LemmaK444.lemmaK_generisch
+#print axioms YangBounds.LemmaK444.lemmaK_generischL
+#print axioms YangBounds.LemmaK444.folgerungK1_generisch
+#print axioms YangBounds.LemmaK444.folgerungK1_generischL

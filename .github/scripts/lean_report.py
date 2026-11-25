@@ -54,6 +54,15 @@ MAIN_THEOREMS = [
     ("Case (5,8) symmetric, assuming (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.fall58_symmetrisch"),
     ("UnterfallBStatement, assuming (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.unterfallBStatement_of"),
     ("Final theorem R<4,2,4> >= 26, assuming only (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.rank_four_two_four_ge_26_of_hyp"),
+    ("Lemma K: two factorisations of (Xp)x(Yp), every field (LemmaK444.lean)", "YangBounds.LemmaK444.lemmaK"),
+    ("Lemma K: cases (i) and (ii) exclude each other (LemmaK444.lean)", "YangBounds.LemmaK444.lemmaK_exklusiv"),
+    ("Folgerung K1: at most two orbits, every field (LemmaK444.lean)", "YangBounds.LemmaK444.folgerungK1"),
+    ("LemmaKStatement, every field (LemmaK444.lean)", "YangBounds.LemmaK444.lemmaKStatement"),
+    ("FolgerungK1Statement, every field (LemmaK444.lean)", "YangBounds.LemmaK444.folgerungK1Statement"),
+    ("Lemma K at the generic point over GField K (LemmaK444.lean)", "YangBounds.LemmaK444.lemmaK_generisch"),
+    ("Lemma K at the generic point over GBar K (LemmaK444.lean)", "YangBounds.LemmaK444.lemmaK_generischL"),
+    ("Folgerung K1 at the generic point over GField K (LemmaK444.lean)", "YangBounds.LemmaK444.folgerungK1_generisch"),
+    ("Folgerung K1 at the generic point over GBar K (LemmaK444.lean)", "YangBounds.LemmaK444.folgerungK1_generischL"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 
