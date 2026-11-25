@@ -247,7 +247,8 @@ theorem mixC_mem (ξ : Matrix (Fin d) (Fin d) K) {c : Fin d → Fin d → U}
           simpa using this.symm
         rw [this, hdiag]
         simp
-    rwa [Fintype.sum_prod_type'] at hpair
+    rw [← Finset.univ_product_univ, Finset.sum_product] at hpair
+    exact hpair
   · rw [mixC_apply, mixC_apply, Finset.sum_comm, ← Finset.sum_neg_distrib]
     refine Finset.sum_congr rfl fun i _ => ?_
     rw [← Finset.sum_neg_distrib]
@@ -407,7 +408,7 @@ theorem core_count (F : Fin (d + 1) → U →ₗ[K] Q) :
         rw [skewExt_apply, hL]
         simp
       refine ⟨skewExt (sumMap F) ⟨gammaElt a, gammaElt_mem a⟩, ⟨⟨_, rfl⟩, ?_⟩, ?_⟩
-      · rw [LinearMap.mem_ker]
+      · rw [SetLike.mem_coe, LinearMap.mem_ker]
         funext i
         simp only [hπ, hH, hmk0, Pi.zero_apply]
       · funext i
@@ -462,7 +463,7 @@ theorem rowMatrix_isUnit {d : ℕ} (γ : Fin (d + 1) → K) {k : Fin (d + 1)} (h
       have := congrArg (Equiv.swap 0 k) h0
       simpa using this
     have := congrFun hvw (Equiv.swap 0 k j)
-    rwa [hrow _ hτ, hrow _ hτ, Equiv.swap_apply_self, Equiv.swap_apply_self] at this
+    rwa [hrow _ hτ, hrow _ hτ, Equiv.swap_apply_self] at this
   funext j
   by_cases hj : j = k
   · rw [hj]
@@ -503,8 +504,11 @@ theorem step13 {Q : Type w} [AddCommGroup Q] [Module K Q] [FiniteDimensional K Q
       push_neg at h
       exact hγ (funext h)
     have hdet := rowMatrix_isUnit γ hk
-    have h := core_ineq (mixF (rowMatrix γ k) F) (h11 _)
-    rw [mixF_rowMatrix_zero γ k F] at h
+    have h : (e + 2) * finrank K (LinearMap.range (∑ i, γ i • F i)) +
+        e * finrank K (LinearMap.range (sumMap (mixF (rowMatrix γ k) F))) ≤
+        2 * finrank K (LinearMap.range (skewExt (sumMap (mixF (rowMatrix γ k) F)))) := by
+      have := core_ineq (mixF (rowMatrix γ k) F) (h11 _)
+      rwa [mixF_rowMatrix_zero γ k F] at this
     -- `rk L ≤ rk L'` and `rk H' ≤ rk H`
     have hL : finrank K (LinearMap.range (sumMap F)) ≤
         finrank K (LinearMap.range (sumMap (mixF (rowMatrix γ k) F))) := by
