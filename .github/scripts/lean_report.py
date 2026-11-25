@@ -41,6 +41,9 @@ MAIN_THEOREMS = [
     ("Satz C <4,2,4>, algebraic core (SatzC444Kern.lean)", "YangBounds.SatzC444.satzC_kern"),
     ("Satz C <4,2,4>, generic point, length <= 25 (SatzC444Generisch.lean)", "YangBounds.SatzC444.satzC_generisch"),
     ("Folgerung C1 (R-C1) <4,2,4>, generic case (5,8) (SatzC444Generisch.lean)", "YangBounds.SatzC444.folgerungC1_generisch"),
+    ("Final theorem R<4,2,4> >= 26, assuming bridge and sub-case B (Endsatz444.lean)", "YangBounds.Endsatz444.rank_four_two_four_ge_26_of"),
+    ("Final theorem R<4,2,4> >= 26, hypotheses at one field (Endsatz444.lean)", "YangBounds.Endsatz444.rank_four_two_four_ge_26_of'"),
+    ("Final theorem R<4,2,4> >= 26, alternative route over infinite fields (Endsatz444.lean)", "YangBounds.Endsatz444.rank_four_two_four_ge_26_of_unendlich"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 

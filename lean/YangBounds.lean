@@ -5,3 +5,4 @@ import YangBounds.SatzE444
 import YangBounds.SatzE444Buendel
 import YangBounds.LemmaP444
 import YangBounds.SatzC444Generisch
+import YangBounds.Endsatz444
