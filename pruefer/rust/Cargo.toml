@@ -1,0 +1,19 @@
+[package]
+name = "pruefer-rust"
+version = "0.1.0"
+edition = "2021"
+description = "Checker 2 (task A-09): verifies matrix multiplication schemes with exact arithmetic"
+license = "Apache-2.0"
+publish = false
+
+[[bin]]
+name = "pruefer"
+path = "src/main.rs"
+
+[dependencies]
+num-bigint = "0.4"
+num-integer = "0.1"
+num-rational = "0.4"
+num-traits = "0.2"
+serde = "1"
+serde_json = "1"
