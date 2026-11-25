@@ -1,0 +1,207 @@
+I20261125 07:26:28.974712  2652 proto_io.h:20] Reading from /tmp/claude-0/build/runs/c244_bt1e6.pb.txt ...
+I20261125 07:26:28.975257  2652 proto_io.h:47] Read 883 bytes
+I20261125 07:26:28.985895  2652 rank_lower_bound_computer.h:191] Processing dim=8, count=1
+I20261125 07:26:28.985982  2652 rank_lower_bound_computer.h:204] Better LB for index=0: 0->0
+I20261125 07:26:28.985987  2652 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 1 / 1 = 100.00%
+I20261125 07:26:28.986006  2652 rank_lower_bound_computer.h:216] ProcessOrbitsAtDim P2...
+I20261125 07:26:28.988675  2652 rank_lower_bound_computer.h:228] ProcessOrbitsAtDim P3...
+I20261125 07:26:28.988699  2652 rank_lower_bound_computer.h:255] ProcessOrbitsAtDim done. duration=0.0
+I20261125 07:26:28.988720  2652 proto_io.h:56] Writing to /tmp/claude-0/build/runs/c244_bt1e6.pb.txt ...
+I20261125 07:26:28.988885  2652 proto_io.h:79] Written 889 bytes
+I20261125 07:26:28.988904  2652 rank_lower_bound_computer.h:191] Processing dim=7, count=2
+I20261125 07:26:28.989015  2652 rank_lower_bound_computer.h:204] Better LB for index=1: 0->4
+I20261125 07:26:28.989081  2655 rank_lower_bound_computer.h:204] Better LB for index=2: 0->8
+I20261125 07:26:28.989113  2652 rank_lower_bound_computer.h:216] ProcessOrbitsAtDim P2...
+I20261125 07:26:28.992148  2652 rank_lower_bound_computer.h:228] ProcessOrbitsAtDim P3...
+I20261125 07:26:28.992166  2652 rank_lower_bound_computer.h:255] ProcessOrbitsAtDim done. duration=0.0
+I20261125 07:26:28.992173  2652 proto_io.h:56] Writing to /tmp/claude-0/build/runs/c244_bt1e6.pb.txt ...
+I20261125 07:26:28.992295  2652 proto_io.h:79] Written 901 bytes
+I20261125 07:26:28.992380  2652 rank_lower_bound_computer.h:191] Processing dim=6, count=8
+W20261125 07:26:28.992470  2652 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*8) exceeds 2^24
+I20261125 07:26:28.992594  2654 rank_lower_bound_computer.h:204] Better LB for index=4: 0->8
+I20261125 07:26:28.992758  2654 rank_lower_bound_computer.h:204] Better LB for index=6: 0->8
+I20261125 07:26:28.992853  2654 rank_lower_bound_computer.h:204] Better LB for index=3: 0->8
+I20261125 07:26:28.993223  2653 rank_lower_bound_computer.h:204] Better LB for index=8: 0->12
+I20261125 07:26:28.993331  2652 rank_lower_bound_computer.h:204] Better LB for index=9: 0->12
+I20261125 07:26:28.993660  2653 rank_lower_bound_computer.h:204] Better LB for index=7: 0->12
+I20261125 07:26:28.998078  2654 rank_lower_bound_computer.h:204] Better LB for index=10: 0->16
+I20261125 07:26:29.018153  2655 rank_lower_bound_computer.h:204] Better LB for index=5: 0->12
+I20261125 07:26:29.018229  2652 rank_lower_bound_computer.h:216] ProcessOrbitsAtDim P2...
+I20261125 07:26:29.025988  2652 rank_lower_bound_computer.h:228] ProcessOrbitsAtDim P3...
+I20261125 07:26:29.026119  2652 rank_lower_bound_computer.h:255] ProcessOrbitsAtDim done. duration=0.0
+I20261125 07:26:29.026135  2652 proto_io.h:56] Writing to /tmp/claude-0/build/runs/c244_bt1e6.pb.txt ...
+I20261125 07:26:29.026335  2652 proto_io.h:79] Written 953 bytes
+I20261125 07:26:29.026654  2652 rank_lower_bound_computer.h:191] Processing dim=5, count=17
+W20261125 07:26:29.026799  2652 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*8) exceeds 2^24
+W20261125 07:26:29.026798  2654 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*12) exceeds 2^24
+I20261125 07:26:29.027347  2653 rank_lower_bound_computer.h:204] Better LB for index=14: 0->12
+I20261125 07:26:29.030411  2653 rank_lower_bound_computer.h:204] Better LB for index=11: 0->12
+W20261125 07:26:29.030481  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*4) exceeds 2^24
+I20261125 07:26:29.033520  2652 rank_lower_bound_computer.h:204] Better LB for index=17: 0->14
+W20261125 07:26:29.033800  2652 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*8) exceeds 2^24
+I20261125 07:26:29.038060  2655 rank_lower_bound_computer.h:204] Better LB for index=25: 0->14
+I20261125 07:26:29.038715  2655 rank_lower_bound_computer.h:204] Better LB for index=12: 0->12
+I20261125 07:26:29.039373  2655 rank_lower_bound_computer.h:204] Better LB for index=20: 0->12
+W20261125 07:26:29.039443  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:26:29.040052  2652 rank_lower_bound_computer.h:204] Better LB for index=19: 0->14
+W20261125 07:26:29.040126  2652 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:26:29.042039  2653 rank_lower_bound_computer.h:204] Better LB for index=18: 0->14
+I20261125 07:26:29.108872  2653 rank_lower_bound_computer.h:204] Better LB for index=23: 0->16
+I20261125 07:26:29.109586  2653 rank_lower_bound_computer.h:204] Better LB for index=16: 0->12
+W20261125 07:26:29.109658  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*12) exceeds 2^24
+I20261125 07:26:29.127252  2653 rank_lower_bound_computer.h:204] Better LB for index=24: 0->16
+W20261125 07:26:29.127385  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*8) exceeds 2^24
+I20261125 07:26:29.297302  2652 rank_lower_bound_computer.h:204] Better LB for index=26: 0->18
+I20261125 07:26:29.319448  2654 rank_lower_bound_computer.h:204] Better LB for index=22: 0->17
+I20261125 07:26:29.324741  2653 rank_lower_bound_computer.h:204] Better LB for index=13: 0->16
+W20261125 07:26:29.324860  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*4) exceeds 2^24
+I20261125 07:26:29.336222  2653 rank_lower_bound_computer.h:204] Better LB for index=21: 0->14
+I20261125 07:26:32.960170  2655 rank_lower_bound_computer.h:204] Better LB for index=27: 0->18
+I20261125 07:26:34.304728  2652 rank_lower_bound_computer.h:204] Better LB for index=15: 0->16
+I20261125 07:26:34.304801  2652 rank_lower_bound_computer.h:216] ProcessOrbitsAtDim P2...
+I20261125 07:26:34.324431  2652 rank_lower_bound_computer.h:228] ProcessOrbitsAtDim P3...
+I20261125 07:26:34.324883  2652 rank_lower_bound_computer.h:255] ProcessOrbitsAtDim done. duration=5.3
+I20261125 07:26:34.324908  2652 proto_io.h:56] Writing to /tmp/claude-0/build/runs/c244_bt1e6.pb.txt ...
+I20261125 07:26:34.325210  2652 proto_io.h:79] Written 1108 bytes
+I20261125 07:26:34.325585  2652 rank_lower_bound_computer.h:191] Processing dim=4, count=30
+W20261125 07:26:34.325766  2654 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*12) exceeds 2^24
+W20261125 07:26:34.325766  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:26:34.610424  2653 rank_lower_bound_computer.h:204] Better LB for index=45: 0->15
+W20261125 07:26:34.610591  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:26:36.303876  2654 rank_lower_bound_computer.h:204] Better LB for index=51: 0->18
+W20261125 07:26:36.304023  2654 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*12) exceeds 2^24
+I20261125 07:26:37.838986  2653 rank_lower_bound_computer.h:204] Better LB for index=38: 0->18
+I20261125 07:26:38.632138  2655 rank_lower_bound_computer.h:204] Better LB for index=47: 0->18
+W20261125 07:26:38.632292  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*8) exceeds 2^24
+I20261125 07:26:39.012377  2655 rank_lower_bound_computer.h:204] Better LB for index=34: 0->15
+I20261125 07:26:39.012434  2655 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 5 / 30 = 16.67%
+W20261125 07:26:39.012530  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:26:39.581125  2655 rank_lower_bound_computer.h:204] Better LB for index=53: 0->18
+I20261125 07:26:39.612489  2655 rank_lower_bound_computer.h:204] Better LB for index=32: 0->14
+I20261125 07:26:39.855921  2655 rank_lower_bound_computer.h:204] Better LB for index=44: 0->15
+W20261125 07:26:39.856058  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:26:40.348114  2655 rank_lower_bound_computer.h:204] Better LB for index=43: 0->18
+I20261125 07:26:51.686664  2652 rank_lower_bound_computer.h:204] Better LB for index=28: 0->16
+I20261125 07:26:51.686719  2652 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 10 / 30 = 33.33%
+W20261125 07:26:51.686823  2652 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*4) exceeds 2^24
+I20261125 07:26:52.067546  2652 rank_lower_bound_computer.h:204] Better LB for index=33: 0->16
+I20261125 07:27:03.454738  2653 rank_lower_bound_computer.h:204] Better LB for index=55: 0->20
+I20261125 07:27:03.454814  2653 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 12 / 30 = 40.00%
+W20261125 07:27:03.454917  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:27:04.977484  2653 rank_lower_bound_computer.h:204] Better LB for index=49: 0->18
+I20261125 07:27:05.035916  2653 rank_lower_bound_computer.h:204] Better LB for index=31: 0->16
+W20261125 07:27:05.036048  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:27:09.737691  2653 rank_lower_bound_computer.h:204] Better LB for index=36: 0->19
+I20261125 07:27:09.842082  2653 rank_lower_bound_computer.h:204] Better LB for index=40: 0->16
+W20261125 07:27:09.842217  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*12) exceeds 2^24
+I20261125 07:27:09.890027  2655 rank_lower_bound_computer.h:204] Better LB for index=56: 0->20
+W20261125 07:27:09.890157  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*12) exceeds 2^24
+I20261125 07:27:11.711400  2653 rank_lower_bound_computer.h:204] Better LB for index=41: 0->18
+W20261125 07:27:11.711578  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*12) exceeds 2^24
+I20261125 07:27:12.314344  2655 rank_lower_bound_computer.h:204] Better LB for index=39: 0->18
+I20261125 07:27:12.327559  2655 rank_lower_bound_computer.h:204] Better LB for index=42: 0->16
+W20261125 07:27:12.327695  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*4) exceeds 2^24
+I20261125 07:27:12.839970  2655 rank_lower_bound_computer.h:204] Better LB for index=35: 0->16
+W20261125 07:27:14.389333  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(12*4) exceeds 2^24
+W20261125 07:27:21.950583  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:27:21.951536  2652 rank_lower_bound_computer.h:204] Better LB for index=57: 0->20
+I20261125 07:27:21.951574  2652 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 22 / 30 = 73.33%
+W20261125 07:27:21.951671  2652 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:27:22.947511  2652 rank_lower_bound_computer.h:204] Better LB for index=50: 0->18
+W20261125 07:27:22.947666  2652 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*8) exceeds 2^24
+I20261125 07:27:23.005633  2652 rank_lower_bound_computer.h:204] Better LB for index=29: 0->16
+I20261125 07:27:23.089074  2655 rank_lower_bound_computer.h:204] Better LB for index=46: 0->18
+I20261125 07:27:26.111014  2653 rank_lower_bound_computer.h:204] Better LB for index=48: 0->19
+W20261125 07:27:26.111151  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(12*4) exceeds 2^24
+I20261125 07:27:36.196036  2653 rank_lower_bound_computer.h:204] Better LB for index=52: 0->19
+I20261125 07:27:36.196110  2653 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 27 / 30 = 90.00%
+I20261125 07:27:36.196172  2653 rank_lower_bound_computer.h:204] Better LB for index=37: 0->18
+W20261125 07:27:36.196249  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(12*4) exceeds 2^24
+I20261125 07:27:36.579221  2653 rank_lower_bound_computer.h:204] Better LB for index=54: 0->18
+I20261125 07:35:43.420842  2654 rank_lower_bound_computer.h:204] Better LB for index=30: 0->20
+I20261125 07:35:43.420928  2654 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 30 / 30 = 100.00%
+I20261125 07:35:43.420981  2652 rank_lower_bound_computer.h:216] ProcessOrbitsAtDim P2...
+I20261125 07:35:43.448006  2652 rank_lower_bound_computer.h:228] ProcessOrbitsAtDim P3...
+I20261125 07:35:43.458006  2652 rank_lower_bound_computer.h:255] ProcessOrbitsAtDim done. duration=549.1
+I20261125 07:35:43.458076  2652 proto_io.h:56] Writing to /tmp/claude-0/build/runs/c244_bt1e6.pb.txt ...
+I20261125 07:35:43.458693  2652 proto_io.h:79] Written 1492 bytes
+I20261125 07:35:43.458937  2652 rank_lower_bound_computer.h:191] Processing dim=3, count=17
+W20261125 07:35:43.459126  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*12) exceeds 2^24
+W20261125 07:35:43.459126  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:35:59.111414  2652 rank_lower_bound_computer.h:204] Better LB for index=74: 0->20
+I20261125 07:35:59.111476  2652 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 1 / 17 = 5.88%
+W20261125 07:35:59.111590  2652 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:36:06.204025  2654 rank_lower_bound_computer.h:204] Better LB for index=72: 0->20
+W20261125 07:36:06.204211  2654 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:36:11.812502  2655 rank_lower_bound_computer.h:204] Better LB for index=66: 0->19
+I20261125 07:36:11.812565  2655 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 3 / 17 = 17.65%
+W20261125 07:36:11.812693  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(12*4) exceeds 2^24
+I20261125 07:36:28.341205  2652 rank_lower_bound_computer.h:204] Better LB for index=62: 0->20
+I20261125 07:36:28.341269  2652 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 4 / 17 = 23.53%
+W20261125 07:36:28.341365  2652 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(12*4) exceeds 2^24
+I20261125 07:36:29.387768  2655 rank_lower_bound_computer.h:204] Better LB for index=71: 0->19
+W20261125 07:36:29.387926  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:36:37.476688  2652 rank_lower_bound_computer.h:204] Better LB for index=65: 0->19
+W20261125 07:36:37.476887  2652 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*12) exceeds 2^24
+I20261125 07:36:46.964689  2654 rank_lower_bound_computer.h:204] Better LB for index=64: 0->19
+I20261125 07:36:46.964758  2654 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 7 / 17 = 41.18%
+W20261125 07:36:46.964874  2654 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*4) exceeds 2^24
+I20261125 07:36:52.463168  2654 rank_lower_bound_computer.h:204] Better LB for index=59: 0->17
+I20261125 07:36:53.024087  2653 rank_lower_bound_computer.h:204] Better LB for index=68: 0->19
+I20261125 07:36:58.329752  2653 rank_lower_bound_computer.h:204] Better LB for index=63: 0->17
+I20261125 07:36:58.329820  2653 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 10 / 17 = 58.82%
+W20261125 07:36:58.329916  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(4*12) exceeds 2^24
+I20261125 07:37:00.803164  2655 rank_lower_bound_computer.h:204] Better LB for index=60: 0->20
+W20261125 07:37:00.803356  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:37:18.062759  2655 rank_lower_bound_computer.h:204] Better LB for index=69: 0->19
+I20261125 07:37:18.062821  2655 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 12 / 17 = 70.59%
+W20261125 07:37:18.062927  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(12*4) exceeds 2^24
+I20261125 07:37:32.754099  2653 rank_lower_bound_computer.h:204] Better LB for index=61: 0->18
+I20261125 07:37:32.754216  2653 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 13 / 17 = 76.47%
+W20261125 07:37:32.754328  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(12*4) exceeds 2^24
+I20261125 07:37:33.534139  2654 rank_lower_bound_computer.h:204] Better LB for index=73: 0->20
+I20261125 07:37:33.849649  2655 rank_lower_bound_computer.h:204] Better LB for index=70: 0->19
+I20261125 07:38:23.235134  2653 rank_lower_bound_computer.h:204] Better LB for index=67: 0->19
+I20261125 07:38:23.235219  2653 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 16 / 17 = 94.12%
+I20261125 07:38:23.242678  2652 rank_lower_bound_computer.h:204] Better LB for index=58: 0->20
+I20261125 07:38:23.242728  2652 rank_lower_bound_computer.h:216] ProcessOrbitsAtDim P2...
+I20261125 07:38:23.258448  2652 rank_lower_bound_computer.h:228] ProcessOrbitsAtDim P3...
+I20261125 07:38:23.284886  2652 rank_lower_bound_computer.h:255] ProcessOrbitsAtDim done. duration=159.8
+I20261125 07:38:23.284953  2652 proto_io.h:56] Writing to /tmp/claude-0/build/runs/c244_bt1e6.pb.txt ...
+I20261125 07:38:23.285635  2652 proto_io.h:79] Written 1787 bytes
+I20261125 07:38:23.286115  2652 rank_lower_bound_computer.h:191] Processing dim=2, count=8
+W20261125 07:38:23.286298  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(12*4) exceeds 2^24
+W20261125 07:38:23.287417  2654 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(12*4) exceeds 2^24
+I20261125 07:38:24.165200  2653 rank_lower_bound_computer.h:204] Better LB for index=76: 0->18
+W20261125 07:38:24.165385  2653 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:38:24.510828  2654 rank_lower_bound_computer.h:204] Better LB for index=79: 0->20
+I20261125 07:38:24.603390  2655 rank_lower_bound_computer.h:204] Better LB for index=77: 0->20
+W20261125 07:38:24.603543  2655 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(8*8) exceeds 2^24
+I20261125 07:38:25.497816  2652 rank_lower_bound_computer.h:204] Better LB for index=81: 0->20
+I20261125 07:38:26.476085  2654 rank_lower_bound_computer.h:204] Better LB for index=82: 0->20
+I20261125 07:38:28.208009  2652 rank_lower_bound_computer.h:204] Better LB for index=80: 0->20
+I20261125 07:38:28.360507  2653 rank_lower_bound_computer.h:204] Better LB for index=78: 0->20
+I20261125 07:38:28.367033  2655 rank_lower_bound_computer.h:204] Better LB for index=75: 0->20
+I20261125 07:38:28.367125  2652 rank_lower_bound_computer.h:216] ProcessOrbitsAtDim P2...
+I20261125 07:38:28.372218  2652 rank_lower_bound_computer.h:228] ProcessOrbitsAtDim P3...
+I20261125 07:38:28.373467  2652 rank_lower_bound_computer.h:255] ProcessOrbitsAtDim done. duration=5.1
+I20261125 07:38:28.373486  2652 proto_io.h:56] Writing to /tmp/claude-0/build/runs/c244_bt1e6.pb.txt ...
+I20261125 07:38:28.373781  2652 proto_io.h:79] Written 1943 bytes
+I20261125 07:38:28.374257  2652 rank_lower_bound_computer.h:191] Processing dim=1, count=2
+W20261125 07:38:28.374352  2652 rank_lower_bound_forced_product.h:130] Cancel Forced Product. num_iterations=2^(12*4) exceeds 2^24
+I20261125 07:38:28.675637  2654 rank_lower_bound_computer.h:204] Better LB for index=84: 0->21
+I20261125 07:38:28.675642  2652 rank_lower_bound_computer.h:204] Better LB for index=83: 0->21
+I20261125 07:38:28.675763  2652 rank_lower_bound_computer.h:216] ProcessOrbitsAtDim P2...
+I20261125 07:38:28.676965  2652 rank_lower_bound_computer.h:228] ProcessOrbitsAtDim P3...
+I20261125 07:38:28.677083  2652 rank_lower_bound_computer.h:255] ProcessOrbitsAtDim done. duration=0.3
+I20261125 07:38:28.677094  2652 proto_io.h:56] Writing to /tmp/claude-0/build/runs/c244_bt1e6.pb.txt ...
+I20261125 07:38:28.677356  2652 proto_io.h:79] Written 1960 bytes
+I20261125 07:38:28.677911  2652 rank_lower_bound_computer.h:191] Processing dim=0, count=1
+I20261125 07:38:28.915736  2652 rank_lower_bound_computer.h:204] Better LB for index=85: 0->22
+I20261125 07:38:28.915800  2652 rank_lower_bound_computer.h:216] ProcessOrbitsAtDim P2...
+I20261125 07:38:28.916108  2652 rank_lower_bound_computer.h:228] ProcessOrbitsAtDim P3...
+I20261125 07:38:28.916215  2652 rank_lower_bound_computer.h:255] ProcessOrbitsAtDim done. duration=0.2
+I20261125 07:38:28.916227  2652 proto_io.h:56] Writing to /tmp/claude-0/build/runs/c244_bt1e6.pb.txt ...
+I20261125 07:38:28.916508  2652 proto_io.h:79] Written 1969 bytes
+I20261125 07:38:28.936347  2652 rank_lower_bound_main.cc:121] UNCONSTRAINED TENSOR RANK LOWER BOUND: 22
+I20261125 07:38:28.936400  2652 rank_lower_bound_main.cc:124] Done. Wrote /tmp/claude-0/build/runs/c244_bt1e6.pb.txt
