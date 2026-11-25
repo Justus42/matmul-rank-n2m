@@ -8,5 +8,6 @@ import YangBounds.SatzC444Generisch
 import YangBounds.Endsatz444
 import YangBounds.Bruecke444
 import YangBounds.SatzF444
+import YangBounds.Transponiert444
 import YangBounds.LemmaZ444
 import YangBounds.LemmaK444
