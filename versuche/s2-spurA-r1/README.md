@@ -13,7 +13,7 @@ Bericht: `lean/prosa/s2_444_spurA_r1.md`. Dieser Ordner enthält nur, was man zu
 | `daten/cert_matrix_q02_n244_lb22.pb.txt` und `.btp` | Zertifikat für R_𝔽₂(⟨2,4,4⟩) ≥ 22 |
 | `daten/cert_matrix_q02_n244_basic_lb20.pb.txt` und `.btp` | Zertifikat ohne Substitution, ≥ 20 |
 | `daten/tabelle_244_lb22.txt` | die 86 Orbits mit Schranke und Technik, lesbar |
-| `logs/` | Protokolle der Suchläufe (Fortschrittszeilen entfernt) |
+| `logs/` | Protokolle der Suchläufe als `.txt` (Fortschrittszeilen entfernt; `.log` ignoriert das Repo) |
 
 Wangs Code selbst liegt **nicht** im Repo. Er wird als externer Klon benutzt (Commit `9db3d215267932ba3e8801a10655a2d538ed13d8`, MIT-Lizenz).
 

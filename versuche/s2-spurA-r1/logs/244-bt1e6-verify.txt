@@ -1,0 +1,14 @@
+I20261125 07:38:28.958277  2787 proto_io.h:20] Reading from /tmp/claude-0/build/runs/c244_bt1e6.pb.txt ...
+I20261125 07:38:28.958968  2787 proto_io.h:47] Read 1969 bytes
+I20261125 07:38:28.968536  2787 verifier.h:246] Verifying dim=8, count=1
+I20261125 07:38:28.969043  2787 verifier.h:246] Verifying dim=7, count=2
+I20261125 07:38:28.969482  2787 verifier.h:246] Verifying dim=6, count=8
+I20261125 07:38:28.997668  2787 verifier.h:246] Verifying dim=5, count=17
+I20261125 07:38:29.042856  2787 verifier.h:246] Verifying dim=4, count=30
+I20261125 07:38:29.088428  2787 verifier.h:246] Verifying dim=3, count=17
+I20261125 07:38:29.108095  2787 verifier.h:246] Verifying dim=2, count=8
+I20261125 07:38:29.111274  2787 verifier.h:246] Verifying dim=1, count=2
+I20261125 07:38:29.111403  2787 verifier.h:246] Verifying dim=0, count=1
+I20261125 07:38:29.111481  2787 verifier.h:272] Verified. Rank lower bound for matrix_q02_n244 is 22.
+I20261125 07:38:29.111562  2787 verifier_main.cc:42] UNCONSTRAINED TENSOR RANK LOWER BOUND: 22
+I20261125 07:38:29.111564  2787 verifier_main.cc:43] OK. Verified /tmp/claude-0/build/runs/c244_bt1e6.pb.txt

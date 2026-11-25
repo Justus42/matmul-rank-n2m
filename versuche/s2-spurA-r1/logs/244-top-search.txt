@@ -1,0 +1,12 @@
+I20261125 07:38:50.829902  2824 proto_io.h:20] Reading from runs/c244_top.pb.txt ...
+I20261125 07:38:50.830636  2824 proto_io.h:47] Read 1969 bytes
+I20261125 07:38:50.923205  2824 rank_lower_bound_computer.h:191] Processing dim=3, count=17
+I20261125 07:43:54.618114  2828 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 1 / 17 = 5.88%
+I20261125 07:47:29.770161  2827 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 2 / 17 = 11.76%
+I20261125 07:58:56.306792  2826 rank_lower_bound_computer.h:204] Better LB for index=65: 19->20
+I20261125 07:58:56.306887  2826 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 3 / 17 = 17.65%
+I20261125 08:01:03.654508  2827 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 4 / 17 = 23.53%
+I20261125 08:02:50.828866  2827 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 5 / 17 = 29.41%
+I20261125 08:03:16.369846  2827 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 6 / 17 = 35.29%
+I20261125 08:04:24.773710  2824 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 7 / 17 = 41.18%
+I20261125 08:05:16.733806  2824 rank_lower_bound_computer.h:211] ProcessOrbitsAtDim P1: 8 / 17 = 47.06%
