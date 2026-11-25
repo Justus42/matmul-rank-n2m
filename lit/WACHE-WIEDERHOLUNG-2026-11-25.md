@@ -145,3 +145,31 @@ Geöffnet (über raw.githubusercontent.com, da die GitHub-API fremde Repos für 
 | X4 | alphaXiv discover_papers, ab 2026-10-10 | Schlüsselwörter `matrix multiplication`, `tensor rank`, `bilinear complexity`; Frage „lower bounds or exact rank for small rectangular matrix multiplication formats“ | 12 | 2611.04175, 2611.09716, 2610.30054, 2610.28627, 2610.18914 (alle 9/4-Exponent), 2611.31155 und 2611.12907 (3×3, Rang 23), 2610.26563, 2611.02684, 2611.04502, 2611.30376, 2611.31963. **Keine neue Arbeit zu ⟨n,2,m⟩ nach Yang26 v3.** |
 
 **Q10. Alman/Li, „Asymptotic Rank Speedup Theorems, Revisited“, CCC 2026, LIPIcs Bd. 383, Nr. 36** (über alphaXiv answer_pdf_queries aus dem Dagstuhl-PDF). Asymptotischer Rang, kleine Coppersmith–Winograd-Tensoren. In den gelieferten Seiten kein ⟨2,4,4⟩. Für feste Formate ohne Bedeutung (asymptotischer Rang ≤ Grenzrang).
+
+### Geöffnete Webseiten (Werkzeug: ein Abruf-Agent mit WebFetch, wörtliche Zitate aus dessen Bericht)
+
+- **FMM-Lille (Sedoglavic), [fmm.univ-lille.fr/2x4x4.html](https://fmm.univ-lille.fr/2x4x4.html):** geladen (HTTP 200), ohne Datum oder Version. Überschrift wörtlich: „Description of fast matrix multiplication algorithm: <2×4×4:26>“; „The algorithm <2×4×4:26> is taken from:“ Hopcroft/Kerr 1971. **Keine untere Schranke, keine Aussage zu Optimalität.**
+- **[caisc2026.github.io/verifiable-problems/?problem=matrix-multiplication-tensor-rank](https://caisc2026.github.io/verifiable-problems/?problem=matrix-multiplication-tensor-rank):** geladen, Inhalt aber nur „Loading…“ (JavaScript). **Nicht lesbar**, wie schon in Runde 2 und S2-58.
+- **[pith.science/paper/2609.22054](https://pith.science/paper/2609.22054):** maschinelle Besprechung von TPSR26 v1; nur ⟨3,2,m⟩ und ⟨3,2,5⟩, nichts zu ⟨2,4,4⟩.
+- **[eprint.iacr.org/2026/849](https://eprint.iacr.org/2026/849):** Mårtensson/Stankovski Wagner, „On Why and How to Minimize the Arithmetic Complexity of Fast Matrix Multiplication Algorithms“ (eingegangen 30.04.2026). Nur Additionszahl, kein Rang, nichts zu ⟨2,4,4⟩.
+
+### Nicht lesbar oder nicht erreicht
+
+- arxiv.org, export.arxiv.org, fmm.univ-lille.fr, api.semanticscholar.org, api.openalex.org, mathoverflow.net, scholar.google.com per curl gesperrt (siehe Vorab). arXiv-Arbeiten daher über alphaXiv gelesen, FMM-Lille über den Abruf-Agenten. **Google Scholar und die Zitationslisten (Semantic Scholar) konnten nicht direkt abgefragt werden**; „zitierende Arbeiten“ von Yang26 nur über Websuche W10/W20 und alphaXiv X2/X4 gesucht.
+- **MathOverflow:** zwei Websuchen (W13 mit `site:mathoverflow.net`, W16) brachten keinen einzigen Treffer auf mathoverflow.net. Direkter Zugriff gesperrt. Ergebnis für MathOverflow: nichts gefunden, aber nur über die Suchmaschine geprüft.
+- arXiv-Listings math.AG, cs.CC, cs.SC, math.RA der letzten Monate: **nicht Seite für Seite durchgeblättert** (Zugang gesperrt); ersatzweise alphaXiv X2 (nach Aktualität) und X4 (ab 10.10.2026).
+- caisc2026 (JavaScript), Shitov26 (ResearchGate), D’Ambrosio (Zenodo, Format ⟨2,3,4⟩ über 𝔽₂), Hopcroft/Kerr 1971 im Original (Verlagsseite) nicht gelesen.
+- Lean-, Coq-, Isabelle-Repos: nur über die GitHub-Codesuche G-5 und G-1/G-2 (Standardzweige); keine Coq- oder Isabelle-Treffer zu Matrixmultiplikationsrang.
+
+### Zählung
+
+- Suchanfragen: 21 Websuchen (W1–W21), 4 alphaXiv-Suchen (X1–X4), 6 GitHub-Codesuchen (G-1 bis G-6), zusammen **31**. Dazu lokale grep/find-Durchläufe in 6 geklonten Repos.
+- Geöffnete Quellen: 10 Arbeiten (Q1–Q10), 4 Webseiten, 11 Repo-Dateien oder -Verzeichnisse (matmulcatalog: LOWER_BOUNDS.md, lower-bounds.json, RANK_KNOWLEDGE.md, comparison-F2; tungsten: proof_inner2/README.md, FINDINGS.md, targets.md; Perminov docs/ranks.md und Verfahrensdateien; Wang certs/matrix; Kauers Formatverzeichnisse; openai/math CONTENTS.md), zusammen **25**.
+- Subagenten: 1 (Abruf-Agent für die vier Webseiten). Fremdmodell-Anfragen: 0.
+
+## Ergebnis
+
+1. **Kein Beweis gefunden**, dass R(⟨2,4,4⟩) = 26 oder ≥ 26 ist, über keinem Körper, in keiner Arbeit, keinem Preprint, keinem Lean-Repo.
+2. **Kein Verfahren mit 25 Multiplikationen gefunden**, über keinem Körper (auch nicht 𝔽₂, ternär, ℤ, ℚ, ℂ). Alle Kataloge (FMM-Lille, Perminov, Lacelle, Kauers, AlphaEvolve, AlphaTensor-Import) führen 26.
+3. **Eine Behauptung gefunden (Befund G1):** `docs/LOWER_BOUNDS.md` im Repo solven-eu/matmulcatalog sagt seit 16.06.2026 „`R(⟨2,4,4⟩) ≥ 26` (Hopcroft-Kerr), UB 26 → tight“. Ohne Beweis, mit falscher Zuschreibung (HK71 bewiesen untere Schranken nur für ⟨2,2,n⟩ und ⟨2,3,3⟩, so auch Lacelles eigener Artikel), im Widerspruch zu `paper/theory/RANK_KNOWLEDGE.md` desselben Repos („open lower bound“) und zu Yang26. Das ist keine Fremdbegründung von 26, aber eine öffentliche Vorab-Behauptung derselben Zahl.
+4. **Bester veröffentlichter Stand:** untere Schranke 25 über beliebigen Körpern (Yang26, arXiv:2609.14393 v3, Satz 2); obere Schranke 26 (Hopcroft/Kerr 1971, ganzzahlig, damit über jedem Körper). Kommutative (nicht bilineare) Algorithmen mit 23 Multiplikationen (Islam 2009, Rosowski 2019) zählen für den Tensorrang nicht. Grenzrang ≤ 24 (siehe Wache S2-07), daher liefern Grenzrang-Methoden keine 26.
