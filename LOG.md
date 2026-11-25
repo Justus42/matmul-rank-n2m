@@ -1409,3 +1409,22 @@ Die drei Lean-Aufträge laufen schon. S2-47 bis S2-49 starten erst nach der Durc
 - Gedächtnis:
   - Die Einträge `s2-34-satzF-lean`, `s2-35-bruecke-lean` und `s2-36-endsatz-lean` aus Runde 9 sind wörtlich nach `archiv/gedaechtnis/` kopiert und aus dem Gedächtnis gelöscht.
   - Index und übrige Einzeleinträge sind durchgesehen. Sie enthalten keine Urteile, keinen Status und kein erwünschtes Ergebnis zu einer Behauptung. Restpunkte stehen in der Meldung an den Orchestrator.
+
+---
+
+## 25.11.2026 · Runde 10: Vorbereitung von S2-47 bis S2-49 abgeschlossen
+
+**Gedächtnis (im Auftrag des Orchestrators)**
+
+- Aus dem Gedächtnis gelöscht: `yang-n4-prosa`, `lean-yang-n4-haupt`, `lean-lemma13-n4` und `abgleich-yang-n4-b007`. Sie nennen Yangs Methode für n = 4 und hätten dem Blind-Sucher eine Richtung gezeigt.
+- Die ungekürzten Fassungen lagen schon unter `archiv/gedaechtnis/stufe01/`. Die gekürzten Fassungen weichen davon ab und liegen jetzt zusätzlich als `…-gekuerzt.md` dort.
+- Der Orchestrator hat die Index-Zeile zur Spur gestrichen.
+
+**B-013**
+
+- Lemma P ist jetzt ein eigener, abgegrenzter Punkt der Aussage. Er gibt den Wortlaut von `lean/prosa/s2_444_spurA_r4.md` Abschnitt 5.1 wieder, mit den Voraussetzungen vom Anfang von Abschnitt 5 und aus Abschnitt 2 (K algebraisch abgeschlossen).
+- Ohne Urteil und ohne Bezug auf die Lean-Fassung. Der übrige Text ist inhaltlich gleich, der alte Satz zu Lemma P verweist auf den neuen Punkt.
+
+**Festgehalten**
+
+- Blind-Sucher S2-49 liest nur `CLAUDE.md` und die Problemstellung im Auftrag.
