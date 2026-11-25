@@ -1181,3 +1181,24 @@ Die Prüfer setzen keinen Status. Der Orchestrator meldet die Ergebnisse, danach
 - Die 24 Einträge aus Stufe 0 und 1 sind vorsorglich wörtlich unter `archiv/gedaechtnis/stufe01/` abgelegt (Commit 607f925). Ihre Kürzung um Prüfurteile und Statusangaben steht noch aus.
 - S2-40 ist um 19:25 Uhr (MEZ) gestartet.
 - Offener Punkt für Justus: Die Einträge aus Stufe 0 und 1 im Projektgedächtnis enthalten weiter Prüfurteile und Statusangaben zu B-001 bis B-007 und zu den Yang-Prosabeweisen. Der Sicherheitsfilter der Sitzung hat ihre Kürzung abgelehnt, der Orchestrator umgeht das nicht. Sie betreffen nicht die Behauptungen, die in Runde 9 geprüft werden. Wörtliche Kopien liegen unter `archiv/gedaechtnis/stufe01/`. Soll gekürzt werden?
+
+---
+
+## 25.11.2026 · Korrektur durch Justus (Protokoll Version 0.4.1, zählt nicht zum Budget)
+
+Eingetragen im Auftrag von Justus aus einem Chat außerhalb des Projekts, 19:36 Uhr (MEZ).
+
+**Fehler in Version 0.4**
+
+Der Übergangsabsatz zu den wiederholten Prüfungen stand in Abschnitt 5.4. Abschnitt 5 ist der Teil, den Prüfer lesen dürfen. Der Absatz nannte die betroffenen Behauptungen und sagte, dass frühere Urteile des Fremdmodells weiter gelten. Ein Prüfer konnte daraus schließen, dass es frühere Prüfungen gab und wie sie ausgingen. Der Fehler liegt beim Verfasser der Protokolländerung, nicht beim Orchestrator oder bei den Prüfern.
+
+**Geändert in PROTOKOLL.md**
+
+- Der Absatz steht wortgleich in Abschnitt 6 bei Abbruchregel 2, mit einem Hinweis auf die Verschiebung
+- Abschnitt 5.4 sagt jetzt nur noch, dass Abschnitt 5 keine einzelne Behauptung und keinen Prüfstand nennt
+
+Am Inhalt der Regeln ändert sich nichts.
+
+**Folge für Runde 9 (Entscheidung beim Orchestrator nach 5.4)**
+
+Die Prüfer S2-37, S2-38 und S2-40 haben Abschnitt 5 in der Fassung 0.4 gelesen oder konnten ihn lesen. Empfehlung an Justus: alle drei abbrechen und durch neue ersetzen, die die Fassung 0.4.1 lesen. Die Formalisierer S2-34 bis S2-36 sind nicht betroffen.

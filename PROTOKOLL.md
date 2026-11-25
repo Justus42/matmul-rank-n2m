@@ -1,6 +1,6 @@
 # Protokoll: Exakter Rang kleiner Matrixmultiplikations-Formate
 
-Stand: 25.11.2026 · Version 0.4 · Diese Datei ist das Gedächtnis des Projekts. Jeder Chat und jeder Subagent liest sie zuerst.
+Stand: 25.11.2026 · Version 0.4.1 · Diese Datei ist das Gedächtnis des Projekts. Jeder Chat und jeder Subagent liest sie zuerst.
 
 ---
 
@@ -157,7 +157,7 @@ Den Status setzt nur der Orchestrator, nie der Prüfer selbst.
 - Status, Prüfurteile, Vorbehalte und die Übersicht stehen in `pruefvermerke/`
 - Hat ein Prüfer vor seinem Urteil ein früheres Urteil zur selben Behauptung gesehen, ist seine Prüfung ungültig und wird mit einem unbeeinflussten Prüfer wiederholt. Ein Urteil des Fremdmodells bleibt gültig, wenn das Fremdmodell selbst kein Urteil gesehen hat
 
-Übergang zu Version 0.4: Die Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 und die Prosa-Prüfung von B-014 werden in Runde 9 der Stufe 2 mit unbeeinflussten Prüfern wiederholt. Die vorhandenen Urteile von GPT 6.2 Sol gelten weiter. Bestätigen die neuen Prüfer die vier Abgleiche, gelten die Fristen aus Runde 3 und Runde 6 nach Abbruchregel 2 als gehalten. Bestätigt der neue Prüfer B-014, zählt das als Fortschritt in Runde 9, mit Frist Ende Runde 11. Bis dahin bleiben die Statuseinträge mit Vorbehalt stehen.
+Abschnitt 5 nennt keine einzelne Behauptung und keinen Prüfstand, weil Prüfer ihn lesen. Übergangsregeln stehen in Abschnitt 6.
 
 ### 5.5 Fremdmodelle sparsam
 
@@ -193,6 +193,8 @@ Die Zahlen sind Startwerte. Nur Justus ändert sie.
    Die Bestätigung eines schon bekannten Werts zählt nicht. Jeder Runden-Eintrag im Logbuch nennt den Zählerstand je Spur und, bei Fortschritt nach b), die Frist.
 
    Übergang zu Version 0.3: B-008 und B-009 zählen als Fortschritt von Spur A in Runde 3 der Stufe 2. Ihre Frist für Status geprüft ist das Ende von Runde 5. B-010 zählt nicht.
+
+   Übergang zu Version 0.4 (bis Version 0.4 in Abschnitt 5.4, verschoben, weil Prüfer Abschnitt 5 lesen): Die Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 und die Prosa-Prüfung von B-014 werden in Runde 9 der Stufe 2 mit unbeeinflussten Prüfern wiederholt. Die vorhandenen Urteile von GPT 6.2 Sol gelten weiter. Bestätigen die neuen Prüfer die vier Abgleiche, gelten die Fristen aus Runde 3 und Runde 6 als gehalten. Bestätigt der neue Prüfer B-014, zählt das als Fortschritt in Runde 9, mit Frist Ende Runde 11. Bis dahin bleiben die Statuseinträge mit Vorbehalt stehen.
 3. **Überholt:** Der Literaturwächter findet das Ziel anderswo gelöst: Arbeit stoppt sofort. Der Rest der Runde prüft das fremde Ergebnis nach
 4. **Fundamentfehler:** Stufe 0 oder 1 findet einen Fehler in einer Quelle: Stopp, Bericht an Justus, keine Weiterarbeit auf dem fehlerhaften Fundament
 
