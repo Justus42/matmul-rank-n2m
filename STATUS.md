@@ -1,13 +1,14 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, nach Runde 3, Halt)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 4 läuft, Protokoll 0.3)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
 - Runden verbraucht: 3 von 12 (beide Spuren zusammen)
-- **Halt:** Abbruchregel 2 nach Lesart des Orchestrators für beide Spuren erreicht (Spur A 3 von 3, Spur B 3 von 3, B-010 setzt den Zähler nach seiner Entscheidung nicht zurück). Keine neuen Aufträge, Entscheidung bei Justus (siehe Sperren)
+- Runde 4 läuft: S2-14, S2-15, S2-16, S2-17 (nur Spur A und Blind-Sucher)
+- Abbruchregel 2 (Protokoll 0.3, Runden ohne Fortschritt): **Spur A 0 von 3**, Fortschritt nach 6.2 b) durch B-008 und B-009 in Runde 3, **Frist für Status geprüft: Ende Runde 5**. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
 
@@ -24,9 +25,13 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, nach Runde 3, Halt)
 | S2-07 | Literaturwache, mit Frage nach dem Grenzrang von ⟨2,4,4⟩ | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 2, PR #37. Grenzrang 22 bis 24 |
 | S2-08 | Blind-Suche, Runde 3 | Blind-Sucher | `versuche/s2-blind-r3.md` | erledigt in Runde 3, PR #44 |
 | S2-09 | Prüfung Spur A: Satz A, Satz B, Lemmata 13′, V, S, mit GPT 6.2 Sol | Prüfer | `behauptungen/B-008.md`, `B-009.md`, `lean/prosa/s2_444_spurA_r2_pruefung.md` | erledigt in Runde 3, PR #42 |
-| S2-10 | Spur A: Restfälle (3,6) und (5,8) | Beweissucher | `lean/prosa/s2_444_spurA_r3.md` | zurückgezogen (Abschnitt 6), nichts geliefert |
+| S2-10 | Spur A: Restfälle (3,6) und (5,8) | Beweissucher | `lean/prosa/s2_444_spurA_r3.md` | zurückgezogen (Abschnitt 6), nichts geliefert, geht in S2-16 auf |
 | S2-11 | Prüfung Spur B: DRAT-Ergebnisse, dazu Behauptungsdatei R(⟨4,2,4⟩) ≤ 26 | Prüfer | `behauptungen/B-010.md`, `B-011.md` | erledigt in Runde 3, PR #43 |
-| S2-12 | Spur B: Eichung und Zerlegung der offenen SAT-Fälle | Verfahrenssucher | `versuche/s2-spurB-r3.md` | zurückgezogen (Abschnitt 6), nichts geliefert |
+| S2-12 | Spur B: Eichung und Zerlegung der offenen SAT-Fälle | Verfahrenssucher | `versuche/s2-spurB-r3.md` | zurückgezogen (Abschnitt 6), nichts geliefert, wird nicht neu vergeben |
+| S2-14 | Spur A: Lemma 13′ und Satz A (B-008) in Lean | Formalisierer | eigene Dateien unter `lean/` | vergeben in Runde 4 |
+| S2-15 | Spur A: Lemma V (repariert), Lemma S und Satz B (B-009) in Lean, Aussagen aus S2-14 als Hypothesen | Formalisierer | eigene Dateien unter `lean/` | vergeben in Runde 4 |
+| S2-16 | Spur A: Restfälle (3,6) und (5,8) in beide Richtungen | Beweissucher | `lean/prosa/s2_444_spurA_r4.md` | vergeben in Runde 4 |
+| S2-17 | Blind-Sucher als Beweissucher | Blind-Sucher | `versuche/s2-blind-r4.md` | vergeben in Runde 4 |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
@@ -109,14 +114,15 @@ Ergebnisse mit Status geprüft: B-001 (Rang von ⟨3,2,5⟩ ist 25, über jedem 
 
 ## Hinweise
 
-- Literaturwache: openai/math gehört dauerhaft dazu (Entscheidung von Justus, 25.11.2026)
+- Literaturwache: openai/math steht seit Protokoll 0.3 in Abschnitt 7
+- Erledigt: Der Halt nach Abbruchregel 2 ist aufgehoben (Entscheidung von Justus, Protokoll 0.3, siehe LOG.md)
 - Erledigt heißt: Datei geliefert und auf `main`. Ein Merge ändert keinen Status. Den Status ändert nur die Prüfung nach Abschnitt 5
 - Erledigt: Der Halt nach Abbruchregel 4 (L5, Lemma 13 in Yang v3) ist aufgehoben. Justus hat am 25.11.2026 entschieden: „Weiter, Reparatur prüfen lassen“ (siehe LOG.md)
 - Budget: Justus hat am 25.11.2026 weitere Runden über das Startbudget hinaus nach Ermessen des Orchestrators freigegeben (siehe LOG.md)
 
 ## Sperren
 
-- Halt nach Abbruchregel 2 (Stillstand in Spur A und Spur B nach Lesart des Orchestrators), Bericht an Justus, Entscheidung offen
+- Spur B ist aufgegeben (Entscheidung von Justus, 25.11.2026). Keine allgemeine SAT- oder Flip-Graph-Suche mehr. Ein 25er-Verfahren darf nur ein Auftrag der Spur A aus den Restfällen bauen (Abschnitt 3)
 - Fremdmodelle vorerst nur bei kritischen Punkten (Entscheidung von Justus, 25.11.2026, siehe LOG.md): Aussagen-Abgleiche nach 5.1 Punkt 3 und Befunde, die eine Abbruchregel berühren. Dafür GPT 6.2 Sol mit hoher Denkstufe als Batch über die Bridge. Das Gegenlesen von Prosa vor einer Formalisierung entfällt vorerst
 - Keine Arbeit an Stufe 3 ohne Budget von Justus
 - Fremder Code nur nach der Lizenzregel (Protokoll Abschnitt 11.3)

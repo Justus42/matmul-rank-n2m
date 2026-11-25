@@ -680,3 +680,39 @@ Abbruchregel 2 verlangte binnen drei Runden ein Artefakt mit Status geprüft. Ei
 Spur A: Zähler nach Runde 3 bei 0. Spur B: 3 von 3, die Spur endet nach der Regel.
 
 STATUS.md ist durch diesen Eintrag nicht geändert. Das übernimmt der Orchestrator.
+
+---
+
+## 25.11.2026 · Entscheidung von Justus, Protokoll 0.3, Stufe 2, Runde 4 vergeben
+
+**Entscheidung von Justus (25.11.2026, 14:39 Uhr MEZ)**
+
+> Nur Spur A weiterführen. Vorrang in Runde 4 hat die Lean-Formalisierung von Satz A, Satz B und den Lemmata 13′, V (reparierte Fassung) und S. Höchstens ein Auftrag greift (3,6) und (5,8) an, in beide Richtungen: Ausschluss oder Bau eines 25er-Verfahrens aus den Modellen der F-Daten. Die allgemeine SAT- und Flip-Graph-Suche endet mit Status aufgegeben. Deine strenge Lesart zu B-010 gilt. Die Regeländerung kommt als Protokoll 0.3.
+
+**Protokoll 0.3**
+
+PROTOKOLL.md liegt in Version 0.3 auf `main` (f8bb748). Geändert sind Abschnitt 3, 6 und 7:
+
+- Abschnitt 3: Endet eine Spur nach Abbruchregel 2, läuft die andere weiter. Ein Auftrag der Spur A darf einen Restfall in beide Richtungen angreifen, also ihn ausschließen oder aus ihm ein Verfahren mit 25 bauen.
+- Abschnitt 6, Abbruchregel 2: Sie zählt jetzt Runden ohne Fortschritt. Als Fortschritt zählt a) ein neues geprüftes Artefakt, das eine Schranke ändert oder einen benannten Fall ausschließt, oder b) eine solche Behauptung, die ein Prüfer und ein Fremdmodell unabhängig bestätigt haben. Für b) gilt eine Frist: Status geprüft bis zum Ende der übernächsten Runde. Die Bestätigung eines schon bekannten Werts zählt nicht. Übergangsregel: B-008 und B-009 zählen als Fortschritt von Spur A in Runde 3, mit Frist bis zum Ende von Runde 5. B-010 zählt nicht.
+- Abschnitt 7: openai/math gehört jetzt zur Literaturwache.
+
+**Folgen (Angaben des Orchestrators)**
+
+- Der Halt nach Abbruchregel 2 ist aufgehoben. Nur Spur A läuft weiter.
+- Spur A: Zähler 0. Fortschritt nach 6.2 b) in Runde 3 durch B-008 und B-009. Frist für Status geprüft: Ende von Runde 5 der Stufe 2.
+- Spur B endet mit Status **aufgegeben**. Die allgemeine SAT- und Flip-Graph-Suche endet ebenfalls mit Status **aufgegeben**. Grund: drei Runden ohne Fortschritt nach Abbruchregel 2, der Löser ist nicht geeicht, und es gibt keinen Prüfweg. B-011 und S2-08-a bleiben behauptet. B-010 zählt nicht als Fortschritt, die strenge Lesart des Orchestrators gilt.
+- Die zurückgezogenen Aufträge S2-10 und S2-12 werden nicht neu vergeben. S2-10 geht in S2-16 auf.
+
+**Runde 4 der Stufe 2, vergeben (Start 14:45 Uhr MEZ, vier Aufträge)**
+
+- S2-14 (Formalisierer, Spur A): Lemma 13′ und Satz A (B-008) in Lean, eigene Dateien unter `lean/`
+- S2-15 (Formalisierer, Spur A): Lemma V (reparierte, einfachere Fassung), Lemma S und Satz B (B-009) in Lean, eigene Dateien. Die Aussagen aus S2-14 gehen als ausdrückliche Hypothesen ein
+- S2-16 (Beweissucher, Spur A): Restfälle (3,6) und (5,8) in beide Richtungen, Zieldatei `lean/prosa/s2_444_spurA_r4.md`
+- S2-17 (Blind-Sucher als Beweissucher): Zieldatei `versuche/s2-blind-r4.md`
+
+In dieser Runde läuft keine eigene Literaturwache. Die letzte war S2-13 heute um 12:47 Uhr (MEZ), PR #41, in derselben Sitzung des Orchestrators. Geplant für Runde 5: die Lean-Teile zusammensetzen und den Aussagen-Abgleich nach 5.1 Punkt 3 für B-008 und B-009 durchführen.
+
+**Zählerstand nach Abbruchregel 2 (Protokoll 0.3)**
+
+Spur A steht bei 0, die Frist für B-008 und B-009 läuft bis zum Ende von Runde 5. Spur B ist aufgegeben.
