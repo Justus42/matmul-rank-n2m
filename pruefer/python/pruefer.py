@@ -191,6 +191,28 @@ def load_json(path):
     return doc
 
 
+def one_line(text):
+    """Escapes everything that could break the one-line rule (section 9.7.6).
+
+    Reasons built with %r are already escaped by repr(); the file name is not,
+    and a file name may contain a line break. Keeps printable characters as
+    they are and replaces the rest by \\xNN, \\uNNNN or \\UNNNNNNNN.
+    """
+    out = []
+    for c in text:
+        if c.isprintable() and c != "\\":
+            out.append(c)
+        elif c == "\\":
+            out.append("\\\\")
+        elif ord(c) < 0x100:
+            out.append("\\x%02x" % ord(c))
+        elif ord(c) < 0x10000:
+            out.append("\\u%04x" % ord(c))
+        else:
+            out.append("\\U%08x" % ord(c))
+    return "".join(out)
+
+
 def _is_int(x):
     return isinstance(x, int) and not isinstance(x, bool)
 
@@ -433,7 +455,8 @@ def check_file(path):
         kind, p = parse_ring(doc["ring"])                   # step 6
         products = parse_coefficients(doc, kind, p)         # step 6
     except Malformed as exc:
-        return MALFORMED, ["FEHLERHAFT %s %s" % (file_name, exc)]
+        # one_line: neither part may break the line (section 9.7.6).
+        return MALFORMED, ["FEHLERHAFT %s %s" % (one_line(file_name), one_line(str(exc)))]
 
     n, k, m = doc["n"], doc["k"], doc["m"]
     violations = find_violations(n, k, m, products, p)     # step 7
@@ -463,7 +486,8 @@ def main(argv):
     except Exception as exc:  # noqa: BLE001
         # A bug in this program must never look like ABGELEHNT (exit 1, the
         # default exit code of an uncaught Python exception).
-        print("INTERNER-FEHLER %s %s: %s" % (os.path.basename(argv[1]), type(exc).__name__, exc))
+        print("INTERNER-FEHLER %s %s: %s"
+              % (one_line(os.path.basename(argv[1])), type(exc).__name__, one_line(str(exc))))
         return INTERNAL_ERROR
     for line in lines:
         print(line)

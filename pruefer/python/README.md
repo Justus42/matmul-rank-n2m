@@ -35,7 +35,7 @@ cd pruefer/python
 python3 -m unittest discover -s tests
 ```
 
-85 Tests (Stand S1-07), darunter:
+89 Tests (Stand S1-07), darunter:
 
 - `tests/daten/2x2x2-r7-strassen69.json`: Strassens Beispiel aus `verfahren/README.md`, wörtlich kopiert. Ergebnis ANGENOMMEN, auch über GF(2) und GF(3)
 - `tests/daten/2x2x2-r7-strassen69-falsch.json`: dasselbe mit dem Vorzeichenfehler aus Abschnitt 7 des Formats (M2, `w[1][1]` = 1). Ergebnis ABGELEHNT mit genau 2 verletzten Gleichungen, wie dort vorhergesagt. Über GF(2) richtigerweise ANGENOMMEN, weil der Fehler 2 = 0 ist
@@ -43,6 +43,7 @@ python3 -m unittest discover -s tests
 - Brüche über `Q` und deren Primteiler, Nullprodukte
 - je ein Fall für jede FEHLERHAFT-Bedingung aus den Schritten 1 bis 6
 - Klassen `Test91Json` bis `Test97Output`: für jede Regel aus Abschnitt 9 des Formats mindestens ein Testfall, benannt nach der Nummer der Regel (etwa `test_913_lone_surrogates`). Jeder FEHLERHAFT-Fall prüft auch, dass genau eine Zeile ausgegeben wird (9.7.6)
+- `test_976_one_line_despite_control_characters`, `test_976_one_line_despite_file_name`: Steuerzeichen in Koeffizienten, Freitexten, `ring`, `id` und im Dateinamen brechen die FEHLERHAFT-Zeile nicht um (Nachfrage des Orchestrators zu 9.7.6)
 - `TestProjectSchemes`: die beiden Dateien `verfahren/3x2x5-r25-hk71.json` und `verfahren/3x2x6-r30-hk71.json` werden ANGENOMMEN
 
 ## Randfälle
@@ -71,7 +72,7 @@ Maßgeblich ist Abschnitt 9 von `verfahren/README.md` (Auftrag S1-04). Das Progr
 | 9.7.1 | falsche Anzahl von Argumenten: `FEHLERHAFT - <Grund>`, Rückgabewert 2 |
 | 9.7.2, 9.7.3 | nicht lesbare Datei (auch Ordner): FEHLERHAFT mit dem letzten Teil des Pfads |
 | 9.7.4 | alle Prüfungen der Schritte 1 bis 6 laufen vor der Rechnung; ABGELEHNT nur ohne jeden solchen Fehler |
-| 9.7.6 | bei FEHLERHAFT nur eine Zeile, Hinweise nur bei ANGENOMMEN und ABGELEHNT |
+| 9.7.6 | bei FEHLERHAFT nur eine Zeile, Hinweise nur bei ANGENOMMEN und ABGELEHNT. `one_line` ersetzt in Dateiname und Grund alle nicht druckbaren Zeichen durch `\xNN`, `\uNNNN` oder `\UNNNNNNNN`, damit kein Steuerzeichen die Zeile umbricht (etwa der Koeffizient `"1\n"` oder ein Dateiname mit Zeilenvorschub) |
 | 9.7.7 | Primteiler der Nenner per Probedivision bis 10^6 und Primtest; einen Rest, der so nicht zerlegt wird, nennt die Zeile als Restfaktor |
 
 ## Entscheidungen, wo auch Abschnitt 9 schweigt
