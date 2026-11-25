@@ -1,0 +1,11 @@
+BEST rank=31 steps=2169276
+BEST rank=30 steps=2600170
+BEST rank=29 steps=2658849
+BEST rank=28 steps=2665376
+BEST rank=27 steps=3050341
+END p=0 seed=108 steps=89325568 runs=1 best=27 plusses=296 restarts=0 distinct_le_report=0
+REACHED rank=27 times=1
+REACHED rank=28 times=1
+REACHED rank=29 times=1
+REACHED rank=30 times=1
+REACHED rank=31 times=1

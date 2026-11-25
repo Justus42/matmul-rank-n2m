@@ -1,0 +1,20 @@
+fa/101.log: best=27 steps=82509824 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fa/102.log: best=28 steps=113377280 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fa/103.log: best=28 steps=105316352 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fa/104.log: best=28 steps=111869952 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fa/105.log: best=28 steps=91750400 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fa/106.log: best=26 steps=41746432 rank26_schemes=121 invariants=25 shared_with_other_runs=0
+fa/107.log: best=28 steps=102694912 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fa/108.log: best=27 steps=89325568 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fa/109.log: best=28 steps=109707264 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fb/201.log: best=28 steps=111280128 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fb/202.log: best=27 steps=90112000 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fb/203.log: best=28 steps=103219200 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fb/204.log: best=28 steps=113377280 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fb/205.log: best=27 steps=90701824 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fb/206.log: best=27 steps=58392576 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fb/207.log: best=27 steps=83689472 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fb/208.log: best=28 steps=109051904 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+fb/209.log: best=27 steps=81723392 rank26_schemes=0 invariants=0 shared_with_other_runs=0
+runs=18 reached26=1 below26=0
+distinct rank-26 schemes over all runs=121 distinct invariants=25

@@ -1,0 +1,27 @@
+# Block 1 (Kalibrierung, F2, Rang 26, 600 s)
+f2r26f0: s UNSATISFIABLE c wall=1s
+f2r26f2: s UNSATISFIABLE c wall=1s
+f2r26f4: s TIMEOUT c wall=600s
+f2r26f6: s TIMEOUT c wall=600s
+# Block 2 (F2, Rang 25, 120 s, mit DRAT)
+f2r25f1: s UNSATISFIABLE c wall=1s
+f2r25f3: s UNSATISFIABLE c wall=1s
+f2r25f5: s TIMEOUT c wall=120s
+f2r25f7: s TIMEOUT c wall=120s
+f2r25f9: s TIMEOUT c wall=120s
+f2r25f11: s TIMEOUT c wall=120s
+f2r25f13: s TIMEOUT c wall=120s
+f2r25f15: s TIMEOUT c wall=120s
+f2r25f17: s TIMEOUT c wall=120s
+f2r25f19: s UNSATISFIABLE c wall=7s
+f2r25f21: s UNSATISFIABLE c wall=1s
+f2r25f23: s UNSATISFIABLE c wall=1s
+f2r25f25: s UNSATISFIABLE c wall=0s
+# Block 3 (F2, Rang 25, 1500 s, ohne DRAT)
+f2r25f5: s TIMEOUT c wall=1500s
+f2r25f7: s TIMEOUT c wall=1500s
+f2r25f9: s TIMEOUT c wall=1500s
+f2r25f13: s TIMEOUT c wall=1500s
+# Block 4 (11:25:59 bis 11:40:59 UTC), F3 Rang 25 Ansatz T, 900 s
+f3r25f1: s TIMEOUT c wall=900s
+f3r25f3: s TIMEOUT c wall=900s
