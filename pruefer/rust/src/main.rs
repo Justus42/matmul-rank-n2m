@@ -113,7 +113,7 @@ impl Json {
             Json::Null => "null",
             Json::Bool => "Wahrheitswert",
             Json::UInt(_) | Json::NegInt => "Ganzzahl",
-            Json::NonInteger => "Zahl mit Komma oder Exponent",
+            Json::NonInteger => "Zahl mit Komma, Exponent oder außerhalb von 64 Bit",
             Json::Str(_) => "Zeichenkette",
             Json::Arr(_) => "Liste",
             Json::Obj(_) => "Objekt",
@@ -385,6 +385,10 @@ fn check_date(s: &str) -> Step<()> {
     let y: u32 = s[0..4].parse().map_err(|_| bad())?;
     let mo: u32 = s[5..7].parse().map_err(|_| bad())?;
     let d: u32 = s[8..10].parse().map_err(|_| bad())?;
+    if y < 1 {
+        // Section 9.3: years 0001 to 9999.
+        return Err(bad());
+    }
     let leap = (y % 4 == 0 && y % 100 != 0) || y % 400 == 0;
     let dim = match mo {
         1 | 3 | 5 | 7 | 8 | 10 | 12 => 31,
@@ -399,6 +403,51 @@ fn check_date(s: &str) -> Step<()> {
     Ok(())
 }
 
+const ORIGIN_KEYS: [&str; 5] = ["source", "method", "created", "created_by", "derived_from"];
+
+/// Section 9.2.4: a free text string must contain at least one character
+/// other than space, tab, line feed and carriage return.
+fn check_text<'a>(j: &'a Json, what: &str) -> Step<&'a str> {
+    let s = as_str(j, what)?;
+    if !s.chars().any(|c| !matches!(c, ' ' | '\t' | '\n' | '\r')) {
+        return Err(format!(
+            "\"{}\" ist leer oder enthält nur Leerraum",
+            what
+        ));
+    }
+    Ok(s)
+}
+
+/// Section 9.4.2: `id` (and `origin.derived_from`) must match
+/// `([1-9][0-9]*)x([1-9][0-9]*)x([1-9][0-9]*)-r([1-9][0-9]*)-([a-z0-9]+(-[a-z0-9]+)*)`
+/// completely, ASCII only. Returns the short name.
+fn parse_id(s: &str) -> Option<&str> {
+    fn number(t: &str) -> bool {
+        !t.is_empty() && t.bytes().all(|b| b.is_ascii_digit()) && !t.starts_with('0')
+    }
+    let (dims, rest) = s.split_once("-r")?;
+    let mut it = dims.split('x');
+    let (a, b, c) = (it.next()?, it.next()?, it.next()?);
+    if it.next().is_some() {
+        return None;
+    }
+    let (r, short) = rest.split_once('-')?;
+    if ![a, b, c, r].iter().all(|t| number(t)) {
+        return None;
+    }
+    let short_ok = !short.is_empty()
+        && short.split('-').all(|part| {
+            !part.is_empty()
+                && part
+                    .bytes()
+                    .all(|ch| ch.is_ascii_lowercase() || ch.is_ascii_digit())
+        });
+    if !short_ok {
+        return None;
+    }
+    Some(short)
+}
+
 /// Step 1, origin part.
 fn check_origin(j: &Json) -> Step<()> {
     let obj = match j {
@@ -410,13 +459,24 @@ fn check_origin(j: &Json) -> Step<()> {
             ))
         }
     };
+    for (key, _) in obj {
+        if !ORIGIN_KEYS.contains(&key.as_str()) {
+            return Err(format!("unbekannter Schlüssel \"{}\" in \"origin\"", key));
+        }
+    }
     for key in ["source", "method", "created", "created_by"] {
         let v = req(obj, key, " in \"origin\"")?;
-        as_str(v, &format!("origin.{}", key))?;
+        check_text(v, &format!("origin.{}", key))?;
     }
     check_date(as_str(get(obj, "created").unwrap(), "origin.created")?)?;
     if let Some(v) = get(obj, "derived_from") {
-        as_str(v, "origin.derived_from")?;
+        let d = check_text(v, "origin.derived_from")?;
+        if parse_id(d).is_none() {
+            return Err(format!(
+                "origin.derived_from \"{}\" hat nicht die Form einer id",
+                d
+            ));
+        }
     }
     Ok(())
 }
@@ -493,6 +553,9 @@ fn matrix_strings<'a>(
 
 fn read_scheme(path: &Path, bytes: &[u8]) -> Step<Scheme> {
     // Step 1: UTF-8, JSON, required fields, no unknown top-level keys.
+    if bytes.starts_with(&[0xEF, 0xBB, 0xBF]) {
+        return Err("Byte-Order-Mark am Dateianfang ist nicht erlaubt".to_owned());
+    }
     let text = std::str::from_utf8(bytes).map_err(|e| format!("kein gültiges UTF-8: {}", e))?;
     let root: Json = serde_json::from_str(text).map_err(|e| format!("kein gültiges JSON: {}", e))?;
     let top = match &root {
@@ -531,10 +594,10 @@ fn read_scheme(path: &Path, bytes: &[u8]) -> Step<Scheme> {
     let ring_text = as_str(get(top, "ring").unwrap(), "ring")?.to_owned();
     check_origin(get(top, "origin").unwrap())?;
     if let Some(v) = get(top, "claim") {
-        as_str(v, "claim")?;
+        check_text(v, "claim")?;
     }
     if let Some(v) = get(top, "notes") {
-        as_str(v, "notes")?;
+        check_text(v, "notes")?;
     }
     let products_json = match get(top, "products").unwrap() {
         Json::Arr(a) => a,
@@ -601,15 +664,17 @@ fn read_scheme(path: &Path, bytes: &[u8]) -> Step<Scheme> {
             fname, n, k, m, rank, prefix
         )
     })?;
-    if short.is_empty()
-        || !short
-            .bytes()
-            .all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'-')
-    {
-        return Err(format!(
-            "Kurzname \"{}\" im Dateinamen: nur Kleinbuchstaben, Ziffern und Bindestrich, nicht leer",
-            short
-        ));
+    // Section 9.4.2: the whole id must match the pattern. The prefix is
+    // built from the parsed numbers, so leading zeros cannot pass above;
+    // the check here covers the short name.
+    match parse_id(&id) {
+        Some(s) if s == short => {}
+        _ => {
+            return Err(format!(
+                "Kurzname \"{}\" im Dateinamen: nur Kleinbuchstaben und Ziffern, Teile durch einzelne Bindestriche getrennt, nicht leer",
+                short
+            ))
+        }
     }
 
     // Step 4: rank equals number of products.
@@ -837,6 +902,21 @@ fn hints(s: &Scheme) -> Vec<String> {
 
 const MAX_LISTED: usize = 20;
 
+/// Output lines must stay single lines: control characters taken from the
+/// file or the path (e.g. a line feed in a coefficient) are written as
+/// escapes `\u{..}`.
+fn one_line(s: &str) -> String {
+    let mut out = String::with_capacity(s.len());
+    for c in s.chars() {
+        if c.is_control() || c == '\u{2028}' || c == '\u{2029}' {
+            out.push_str(&format!("\\u{{{:x}}}", c as u32));
+        } else {
+            out.push(c);
+        }
+    }
+    out
+}
+
 fn run(path: &Path) -> Outcome {
     let bytes = match std::fs::read(path) {
         Ok(b) => b,
@@ -912,14 +992,14 @@ fn main() -> ExitCode {
             ExitCode::from(0)
         }
         Outcome::Rejected { id, reason, lines } => {
-            println!("ABGELEHNT {} {}", id, reason);
+            println!("ABGELEHNT {} {}", one_line(&id), one_line(&reason));
             for l in lines {
                 println!("{}", l);
             }
             ExitCode::from(1)
         }
         Outcome::Malformed { reason } => {
-            println!("FEHLERHAFT {} {}", display_name, reason);
+            println!("FEHLERHAFT {} {}", one_line(&display_name), one_line(&reason));
             ExitCode::from(2)
         }
     }
@@ -994,5 +1074,28 @@ mod unit {
         assert!(check_date("2026-02-29").is_err());
         assert!(check_date("2026-13-01").is_err());
         assert!(check_date("26-11-25").is_err());
+        assert!(check_date("0000-01-01").is_err());
+        assert!(check_date("0001-01-01").is_ok());
+        assert!(check_date("9999-12-31").is_ok());
+    }
+
+    #[test]
+    fn ids() {
+        for ok in ["2x2x2-r7-strassen69", "3x2x5-r25-hk71", "1x1x1-r1-a-b-c", "10x2x10-r100-r1"] {
+            assert!(parse_id(ok).is_some(), "{}", ok);
+        }
+        for bad in [
+            "", "x", "02x2x2-r7-a", "2x2x2-r07-a", "2x2x2-r7-", "2x2x2-r7--a", "2x2x2-r7-a-", "2x2x2-r7-a--b",
+            "2x2x2-r7-A", "2x2x2-r7-ä", "2x2-r7-a", "2x2x2x2-r7-a", "2x2x2-r-a", "2x2x2r7-a", "٢x2x2-r7-a",
+        ] {
+            assert!(parse_id(bad).is_none(), "{}", bad);
+        }
+        assert_eq!(parse_id("2x2x2-r7-a-b"), Some("a-b"));
+    }
+
+    #[test]
+    fn single_line_output() {
+        assert_eq!(one_line("a\nb\r\tc"), "a\\u{a}b\\u{d}\\u{9}c");
+        assert_eq!(one_line("äx"), "äx");
     }
 }
