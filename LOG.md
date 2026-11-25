@@ -608,3 +608,7 @@ Justus hat selbst zu openai/math recherchiert (Familien 107 und 379, ω = 9/4). 
 - S2-13: Literaturwache mit Nachprüfung von Justus' Hinweis
 
 Das sind sechs Aufträge. Abschnitt 6 des Protokolls lässt höchstens 4 Subagenten pro Runde zu. Das ist an den Orchestrator gemeldet.
+
+**Nachtrag zu Runde 3 der Stufe 2: Verstoß gegen Abschnitt 6 behoben**
+
+Der Verstoß gegen Abschnitt 6 (sechs statt höchstens vier Subagenten) wurde bemerkt und vor jeder Lieferung behoben. Der Orchestrator hat S2-10 (Spur A, Restfälle) und S2-12 (Spur B, Zerlegung der SAT-Fälle) am 25.11.2026 um 12:46 Uhr (MEZ) zurückgezogen. Beide hatten bis dahin nichts geliefert. Runde 3 hat damit vier Aufträge: S2-08, S2-09, S2-11 und S2-13. Die Nummern S2-10 und S2-12 bleiben als zurückgezogen stehen. Ihre Arbeit wird in Runde 4 neu vergeben. Die Zieldateien von S2-09 und S2-11 wählen die Prüfer selbst.
