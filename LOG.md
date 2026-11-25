@@ -555,3 +555,60 @@ Verbraucht in Stufe 2: 1 von 12.
 Das 26er-Verfahren `verfahren/4x2x4-r26-s001.json` setzt den Zähler von Spur B nicht zurück. Begründung des Orchestrators: Das Verfahren bestätigt nur den bekannten Wert 26 und bringt die Frage „25 oder 26“ nicht voran. Eine großzügigere Auslegung käme dem Aussetzen einer Abbruchregel gleich, und das darf er nach 11.4 nicht. Die Zähler bleiben bei 1 von 3 für Spur A und 1 von 3 für Spur B.
 
 Die Behauptungsdatei für „R(⟨4,2,4⟩) ≤ 26“ mit Prüfung nach 5.2 vergibt der Orchestrator als Nebenauftrag in einer späteren Runde. Für S2-07 ist `lit/WACHE.md` als Zieldatei bestätigt.
+
+---
+
+## 25.11.2026 · Stufe 2, Runde 2, Abschluss
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: S2-04, S2-05, S2-06, S2-07.
+
+**Gelieferte Dateien**
+
+- S2-07 (Literaturwache): `lit/WACHE.md`, Pull Request #37
+- S2-05 (Spur A): `lean/prosa/s2_444_spurA_r2.md` mit `versuche/s2-spurA-r2/`, Pull Request #38
+- S2-04 (Blind-Sucher): `versuche/s2-blind-r2.md`, Pull Request #39
+- S2-06 (Spur B): `versuche/s2-spurB-r2.md` mit `versuche/s2-spurB-r2/`, Pull Request #40 (Teilbericht)
+
+**Befunde (Status behauptet, wo nicht anders gesagt)**
+
+- S2-07: Nichts Überholendes, Abbruchregel 3 greift nicht. Den Grenzrang von ⟨4,2,4⟩ gibt die Literatur mit 22 bis 24 an. Die obere Grenze 24 stammt von Smirnov 2013 und ist nur zitiert, das Original wurde nicht gelesen. Der Grenzrang liegt damit unter dem Rang.
+- S2-05: Satz A: Bei Rang 25 bleiben in Yangs Normalform ρ = 3 und die vier Restfälle (rk L, rk H) ∈ {(3,6), (4,7), (5,7), (5,8)}. Satz B: Die Fälle (4,7) und (5,7) sind über jedem Körper ausgeschlossen. Dafür braucht es drei neue Lemmata: Lemma 13′, Lemma V und Lemma S. Offen bleiben (3,6) und (5,8). Für diese beiden Fälle gibt es Modelle der F-Daten, die alle bisherigen Lemmata erfüllen. Lemma M aus S2-01 ist nach dem Bericht gleichwertig mit dem Ziel selbst. Fremdmodell: keines benutzt.
+- S2-04: Der Blind-Sucher fand kein Verfahren mit 25 Produkten und keinen Beweis für 26, weder numerisch über ℝ und ℂ noch per SAT über 𝔽₂ mit Symmetrie. Status vermutet für „kein Verfahren über ℝ und ℂ“. Er war nur eingeschränkt blind, weil ihm das Projektgedächtnis Runde 1 zusammenfasste.
+- S2-06: SAT über 𝔽₂ mit dem Symmetrieansatz A ↔ Bᵀ. Die Fälle f = 1, 3, 19, 21, 23 und 25 sind mit DRAT-Beweis ausgeschlossen, `drat-trim` nimmt die Beweise an. Die Fälle f = 5 bis 17 sind offen. Die Methode ist nicht geeicht, und die Suche über 𝔽₃ war zu langsam. kissat und drat-trim (MIT-Lizenz) liefen nur als externe Programme. Vier Rechenblöcke, jeder unter 30 Minuten. Der Thread stand nach Angabe des Orchestrators von 09:39 bis 11:44 Uhr (MEZ) still und lief nach seiner Nachfrage weiter.
+
+**Neuer Status je Behauptung**
+
+Kein Statuswort hat sich geändert.
+
+**Abbruchregel 2 (Stillstand)**
+
+Keine Spur hat in Runde 2 ein neues Artefakt mit Status geprüft geliefert. Zählerstand: Spur A 2 von 3, Spur B 2 von 3.
+
+**Merges**
+
+Merge-Stand auf `main` beim Schreiben dieses Eintrags: PR #37 (a87b8fa), #38 (545a8d6), #39 (37ba635) und #40 (3dcc887) sind am 25.11.2026 zwischen 09:34 und 12:43 Uhr (MEZ) gemergt, jeweils unter dem GitHub-Konto Justus42.
+
+**Runden**
+
+Verbraucht in Stufe 2: 2 von 12.
+
+**Hinweis von Justus (25.11.2026, 11:43 Uhr MEZ, übermittelt vom Orchestrator)**
+
+Justus hat selbst zu openai/math recherchiert (Familien 107 und 379, ω = 9/4). Status behauptet. Abbruchregel 3 greift danach nicht. Es gibt keinen Auftrag, die laufende Runde zu ändern. Entscheidung von Justus: openai/math kommt dauerhaft in die Literaturwache nach Abschnitt 7.
+
+**Runde 3 der Stufe 2, vergeben (Angabe des Orchestrators)**
+
+- S2-08: Blind-Sucher, Zieldatei `versuche/s2-blind-r3.md`
+- S2-09: Prüfer Spur A für Satz A, Satz B und die drei Lemmata 13′, V und S, mit GPT 6.2 Sol als zweitem Leser
+- S2-10: Spur A, Restfälle (3,6) und (5,8), Zieldatei `lean/prosa/s2_444_spurA_r3.md`
+- S2-11: Prüfer Spur B für die DRAT-Ergebnisse, dazu die Behauptungsdatei R(⟨4,2,4⟩) ≤ 26
+- S2-12: Spur B, Eichung und Zerlegung der offenen SAT-Fälle, Zieldatei `versuche/s2-spurB-r3.md`
+- S2-13: Literaturwache mit Nachprüfung von Justus' Hinweis
+
+Das sind sechs Aufträge. Abschnitt 6 des Protokolls lässt höchstens 4 Subagenten pro Runde zu. Das ist an den Orchestrator gemeldet.
+
+**Nachtrag zu Runde 3 der Stufe 2: Verstoß gegen Abschnitt 6 behoben**
+
+Der Verstoß gegen Abschnitt 6 (sechs statt höchstens vier Subagenten) wurde bemerkt und vor jeder Lieferung behoben. Der Orchestrator hat S2-10 (Spur A, Restfälle) und S2-12 (Spur B, Zerlegung der SAT-Fälle) am 25.11.2026 um 12:46 Uhr (MEZ) zurückgezogen. Beide hatten bis dahin nichts geliefert. Runde 3 hat damit vier Aufträge: S2-08, S2-09, S2-11 und S2-13. Die Nummern S2-10 und S2-12 bleiben als zurückgezogen stehen. Ihre Arbeit wird in Runde 4 neu vergeben. Die Zieldateien von S2-09 und S2-11 wählen die Prüfer selbst.

@@ -189,3 +189,92 @@ Zu unseren anderen Zielen nebenbei (alle aus arXiv:2610.13905 Tabelle 1, **geles
 - Smirnov 2013 nicht im Original gelesen. Die Zahl 24 stützt sich auf drei unabhängige Zitate (CHL 2019, Dumitriu u. a. 2026, README nliskij). Der Abruf von mathnet.ru unter `zvmmf10181` lieferte eine andere Smirnov-Arbeit (⟨2,7,2⟩ mit 22, Zh. Vychisl. Mat. Mat. Fiz. 55:4, 2015). Ob Smirnovs 24er-Verfahren explizit veröffentlicht ist, bleibt offen.
 - Die Rechnung hinter R̲ ≥ 22 (arXiv:1911.07981, Code unter math.tamu.edu/~jml/bapolaritycode.html) nicht nachvollzogen. Neuere Grenzrang-Schranken für ⟨2,4,4⟩ (nach 2019) nicht gefunden; arXiv:2609.12121 (Mańdziuk, Grenz-Apolarität jenseits der schwachen Form) behandelt ⟨2,4,4⟩ nicht (**gelesen**, Einleitung und Abschn. 6).
 - Der Dateibaum von github.com/nliskij/border-rank war für den Abruf gesperrt (robots), nur das README wurde gelesen.
+
+---
+
+## 25.11.2026 (Stufe 2, Runde 3, Auftrag S2-13)
+
+Rolle: Literaturwächter. Durchgang nach Protokoll Abschnitt 7, dazu die Nachprüfung des Hinweises von Justus vom 25.11.2026 zu den Veröffentlichungen im Repo openai/math. Werkzeuge: `git clone` und `git ls-remote` öffentlicher Repos, `pdftotext`, LaTeX-Quellen aus openai/math, alphaXiv-Suche. Alle Befunde haben den Status **behauptet** (Suche eines Agenten, keine Prüfung nach Abschnitt 5). Bei jeder Aussage steht, ob ich die Stelle selbst gelesen („gelesen“) oder nur per Textsuche durchsucht habe („durchsucht“). ω = 9/4 selbst wurde nicht nachgeprüft, das Projekt baut nicht darauf auf.
+
+### Ergebnis für die Abbruchregel 3
+
+**Keines der Ziele ist anderswo gelöst gefunden worden.** Kein Verfahren mit 25 Produkten und keine Schranke 26 für ⟨4,2,4⟩, keine Lösung von 3×2×7 oder 4×2×5, auch nicht in openai/math. Abbruchregel 3 greift nicht.
+
+### Pflichtpunkte nach Abschnitt 7
+
+- **Repo fallnlove/mm325_proof:** `git ls-remote` zeigt weiter `759cf4a8524d4212e7832046204c90b9361ba2bb`. Keine neuen Commits.
+- **arXiv:2609.14393 (Yang)** und **arXiv:2609.22054 (Tsyganov u. a.):** in der alphaXiv-Suche ab 24.11.2026 keine neue Fassung aufgetaucht. Versionslisten nicht ausgelesen (arxiv.org per curl gesperrt). Stand v3 bzw. v1 gilt weiter nur als nicht widerlegt.
+- **Wangs Repo** github.com/wcgbg/tensor-rank-lower-bound: `HEAD` weiter `9db3d215267932ba3e8801a10655a2d538ed13d8`.
+- **Neue Arbeiten seit dem letzten Eintrag (alphaXiv ab 24.11.2026, Stichworte tensor rank, matrix multiplication, lower bound, border rank, bilinear complexity):** nichts zu unseren Formaten. Gesichtet ohne Bezug: „The Matrix Multiplication Exponent Is Nine Fourths“ (schon bekannt, siehe unten), „VP and VNP Are Different“ (schon bekannt), 2611.31963 (nichtkommutativer Rang), 2611.31807 (rangerhaltende lineare Abbildungen).
+
+### Neue beobachtete Quelle: Repo openai/math
+
+Auf Entscheidung von Justus vom 25.11.2026 wird das Repo **github.com/openai/math** ab jetzt bei jedem Durchgang mitgeprüft: neue Commits, neue Familien in `CONTENTS.md`, neue Verzeichnisse in `preprints/`.
+
+- Geprüfter Stand: Commit `3344da59991ed94f9ba711217b29c1d760badfa6` vom 24.11.2026, 16:18 (UTC−8), „Merge pull request #6 from openai/codex/update-11-24“. Das ist zugleich `HEAD` laut `git ls-remote` am 25.11.2026 um 11:50 UTC, also derselbe Stand, den Justus angibt.
+- Lizenz: Apache-2.0 (Datei `LICENSE` gelesen), eingetragen in `lit/LIZENZEN.md`.
+- **Hinweis an den Orchestrator:** Die verbindliche Liste der beobachteten Quellen steht nur in `PROTOKOLL.md` Abschnitt 7. `lit/WACHE.md` hat keine eigene Quellenliste. Die Aufnahme ist deshalb nur hier vermerkt. `PROTOKOLL.md` habe ich nicht geändert.
+
+### Nachprüfung des Hinweises von Justus (Status dort: behauptet)
+
+Grundlage: vollständiger Klon (ohne Blobs) von openai/math am Commit `3344da5`, daraus `CONTENTS.md`, die LaTeX-Quellen und die PDFs der unten genannten Arbeiten.
+
+#### Punkt 1: Umfang des Repos und Treffer
+
+| Angabe von Justus | Befund | wie geprüft |
+|---|---|---|
+| rund 760 Verzeichnisse in `preprints/` | **stimmt**: 761 | `git ls-tree` gezählt |
+| 375 Familien in `CONTENTS.md` | **stimmt**: 375 nummerierte Familien, Nummern 001 bis 380, es fehlen 045, 061, 070, 123, 163 | gezählt |
+| Bezug zu Matrixmultiplikation, Tensorrang, Grenzrang, bilinear haben nur Familie 107 und 379 | **stimmt im Kern, mit einer Ergänzung**: Ein Stichworttreffer „matrix multiplication“ ist auch **Familie 135** („Homogeneous depth-five lower bounds for iterated matrix multiplication“, Schaltkreise der Tiefe fünf für iterierte Produkte, kein Tensorrang). Weitere Treffer auf „bilinear“ und „tensor“ (z. B. Familie 130 „Finite tensor savings and exact Fourier circuits“, Familie 108 Grenz-Determinantenkomplexität) betreffen keine Matrixmultiplikation. Ohne Bezug zu unseren Zielen | Stichwortsuche in `CONTENTS.md` und Verzeichnisnamen (durchsucht) |
+| Familie 107: ω ≤ 9/4 über ℂ, ω < 2,258 in Charakteristik 0, rechteckige Exponenten, ω < 2,3711 über jedem Körper | **stimmt**: Kurzfassung nennt ω ≤ 9/4 über ℂ, α > 0,465 in Charakteristik 0, ω < 2,258 außer in endlich vielen positiven Charakteristiken, ω < 2,371054886006746 über jedem Körper | `CONTENTS.md` Familie 107 (gelesen) |
+| „die vier Arbeiten der Familie 107“ | **weicht ab**: In `CONTENTS.md` stehen unter Familie 107 **drei** Arbeiten: „An Upper Bound of 9/4 for the Matrix Multiplication Exponent“ (02.10.2026), „Complex Matrix Multiplication Below 2.258 and Rectangular Bounds“ (24.09.2026, als „secondary writeup“), „Staggered extraction for exact matrix multiplication over every field“ (24.09.2026). Vermutlich hat Justus die 9/4-Arbeit vom 24.11. mitgezählt | gelesen |
+| Familie 379: untere Schranke 9/4 und Begleitarbeit „Euclidean geometry in the asymptotic spectrum of tensors“ | **stimmt, ist aber unvollständig**: Familie 379 („Euclidean tensor geometry and its applications to complexity and combinatorics“) umfasst **sieben** Arbeiten. Die übrigen fünf (Valiant-Hierarchie, Hamiltonkreis und Permanente, Fourier-Transformation, Ganzzahlmultiplikation auf Bändern, Sunflowers) haben laut Titel und Kurzfassung keinen Bezug zum Rang fester Formate | gelesen (Titel und Kurzfassungen), Volltexte der fünf nicht durchsucht |
+| keine Arbeit bestimmt den exakten Rang eines festen kleinen Formats, zu ⟨n,2,m⟩ steht nichts | **stimmt für die durchsuchten Arbeiten**. Gesucht in den LaTeX-Quellen der drei Arbeiten von Familie 107, der 9/4-Arbeit, der Begleitarbeit und von „Finite tensor savings“ nach ⟨a,b,c⟩ mit festen Zahlen, „a×b×c“, „border rank of“, „tensor rank of“, Hopcroft, Smirnov, Alekseev, Laderman, Bläser. Einzige Treffer mit festen Formaten: Strassens 7 für 2×2 (Einleitungen), triviale Formate wie ⟨1,m,1⟩, ⟨5,1,5⟩ und ein Hilfstensor mit Grenzrang 3 (Coppersmith-Winograd), alles als Baustein der Asymptotik | durchsucht |
+| keine expliziten Verfahren für kleine Formate | **stimmt** für dieselben Arbeiten | durchsucht |
+
+#### Punkt 2: Was die 9/4-Arbeit für feste Formate sagt
+
+Arbeit: „The matrix multiplication exponent is nine fourths“, OpenAI, Ausgabe vom 24.11.2026, `preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf`. Gelesen: Abschnitt 1.1 und 1.5 sowie Abschnitt 2.4 (Beweise beider Korollare). Abschnitt 1.2 bis 1.4 nur überflogen.
+
+- **Korollar 1.2 (gelesen, stimmt):** Für jedes n ≥ 2 und jeden Körper F ist der geometrische Grenzrang von T_n mindestens n^(9/4), der asymptotische Rang über F gleich n^(9/4), und jeder formale arithmetische Schaltkreis braucht mindestens ⌈n^(9/4)/2⌉ nichtskalare Multiplikations- oder Divisionsgatter. **Kleine Ungenauigkeit bei Justus:** Die Aussage „ein exaktes bilineares Verfahren braucht mindestens ⌈n^(9/4)⌉ Produkte“ steht nicht im Korollar selbst, sondern im Satz direkt danach („In particular …“). Inhaltlich stimmt sie.
+- **Korollar 1.3 (gelesen, stimmt):** Für alle positiven ganzen a, b, c sind geometrischer Grenzrang und asymptotischer Rang über F von T_{a,b,c} mindestens max{ab, bc, ca, (abc)^(3/4)}. Dazu 1/2 ≤ α_F ≤ 2/3. Beweis in Abschnitt 2.4: ab, bc, ca sind die Ränge der drei Abflachungen; (abc)^(3/4) kommt aus T_{a,b,c} ⊗ T_{b,c,a} ⊗ T_{c,a,b} ≅ T_{abc} und Korollar 1.2.
+- **Rechnung von Justus für unsere Formate (nachgerechnet, stimmt):**
+
+| Format | ab, bc, ca | (abc)^(3/4) | Maximum | bekannte untere Schranke für den Rang |
+|---|---|---|---|---|
+| ⟨4,2,4⟩ | 8, 8, 16 | 32^(3/4) ≈ 13,45 | 16 | 25 (Yang v3, B-007) |
+| ⟨3,2,7⟩ | 6, 14, 21 | 42^(3/4) ≈ 16,53 | 21 | 34 (Yang v3, ⌈(24·7+2)/5⌉) |
+| ⟨4,2,5⟩ | 8, 10, 20 | 40^(3/4) ≈ 15,91 | 20 | 31 (Yang v3, (4+2)·5+4−3) |
+
+  In allen drei Fällen ist das Maximum die Abflachungsschranke ca = n·m. Der Vergleich mit Bläser (23), Conner/Harper/Landsberg (Grenzrang ≥ 22) und Yang (25) bei ⟨4,2,4⟩ stimmt mit den Einträgen oben überein.
+- Weitere Angaben zu festen Größen in der Arbeit (gelesen, ohne Bezug zu uns): Abschnitt 1.5 nennt Bläsers Rangschranke 5/2·n² − 3n für T_n und Landsberg/Michałek; Abschnitt 2.4 sagt, Korollar 1.2 widerspreche bei n = 2^8 einer Grenzrang-Abschätzung aus Suns Preprint (Fassung 1). Nur quadratische Formate.
+
+#### Punkt 3: Folgerung für Spur A (vermutet)
+
+**Stimmt.** Die Methode der Arbeit beschränkt nur Grenzrang und asymptotischen Rang. Für ⟨2,4,4⟩ gilt asymptotischer Rang ≤ Grenzrang ≤ 24 (Smirnov, zitiert, siehe Eintrag S2-07). Keine Schranke dieser Art kann daher über 24 hinaus, also weder 25 noch 26 für den Rang liefern. Das deckt sich mit der Folgerung aus S2-07. Ein Leseauftrag für Spur A lohnt nicht.
+
+#### Punkt 4: Folgerung für Spur B
+
+**Stimmt.** Keine expliziten Verfahren für kleine Formate in den durchsuchten Arbeiten.
+
+#### Punkt 5: Prüfstand der Quelle
+
+**Stimmt.** Die Arbeiten sind Preprints im Repo, ohne Peer-Review. Das README der 9/4-Arbeit sagt wörtlich, die Lean-Entwicklung beweise den Exponenten 9/4 „for division-free circuits computing formal polynomial identities over every field“ (gelesen). Kleine Auffälligkeit: Das README verweist für den Formalisierungsumfang auf `lean/docs/107.md`, obwohl die Arbeit zu Familie 379 gehört; es gibt auch `lean/docs/379.md`. Für uns ohne Folgen.
+
+### Ergänzung zum bisherigen Eintrag „Asymptotik, Nicht-Ziel“
+
+Die Einordnung bleibt richtig. Die 9/4-Arbeit liefert für feste Formate nur Korollar 1.3, und das ist bei allen drei Zielen schwächer als die längst bekannten Schranken. Der Volltext ist jetzt in den maßgeblichen Stellen gelesen (Abschnitt 1.1, 1.5, 2.4).
+
+### Abweichungen von den Angaben von Justus, zusammengefasst
+
+1. Familie 107 hat drei Arbeiten, nicht vier.
+2. Familie 379 hat sieben Arbeiten. Für uns zählen nur die zwei, die Justus nennt.
+3. Familie 135 ist ein weiterer Stichworttreffer „matrix multiplication“ (iterierte Produkte, Tiefe-5-Schaltkreise), ohne Bezug zu Tensorrang.
+4. Die Schranke ⌈n^(9/4)⌉ für bilineare Verfahren steht im Text nach Korollar 1.2, nicht im Korollar.
+
+Alles andere, insbesondere die Tabelle und die Folgerungen für Spur A und B, stimmt.
+
+### Einschränkungen
+
+- Familie 107 und die Begleitarbeit nur per Textsuche in den LaTeX-Quellen durchsucht, nicht gelesen. Die fünf übrigen Arbeiten der Familie 379 nur nach Titel und Kurzfassung.
+- Kein vollständiger Durchgang der arXiv-Listen von cs.CC, sondern alphaXiv-Suche.

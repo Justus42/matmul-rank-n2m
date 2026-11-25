@@ -1,14 +1,14 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 2 läuft)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 3 läuft)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 1 von 12 (beide Spuren zusammen)
-- Runde 2 läuft: S2-04, S2-05, S2-06, S2-07
-- Abbruchregel 2 (3 Runden in Folge ohne neues geprüftes Artefakt): Spur A 1 von 3, Spur B 1 von 3
+- Runden verbraucht: 2 von 12 (beide Spuren zusammen)
+- Runde 3 läuft: S2-08, S2-09, S2-11, S2-13 (S2-10 und S2-12 vor Lieferung zurückgezogen, um die Grenze von 4 Subagenten aus Abschnitt 6 einzuhalten)
+- Abbruchregel 2 (3 Runden in Folge ohne neues geprüftes Artefakt): Spur A 2 von 3, Spur B 2 von 3
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
 
@@ -19,10 +19,16 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 2 läuft)
 | S2-01 | Blind-Suche, nur mit der Problemstellung | Blind-Sucher | `versuche/s2-blind-r1.md` | erledigt in Runde 1, PR #34 |
 | S2-02 | Spur A: Schranke 26 über 𝔽₂ mit Zertifikaten | Beweissucher | `lean/prosa/s2_444_spurA_r1.md`, `versuche/s2-spurA-r1/` | erledigt in Runde 1, PR #35. Zertifikat nur ≥ 22 über 𝔽₂ |
 | S2-03 | Spur B: Suche nach einem Verfahren mit 25 Produkten | Verfahrenssucher | `versuche/s2-spurB-r1.md`, `verfahren/` | erledigt in Runde 1, PR #36. Kein 25er-Verfahren, dazu `verfahren/4x2x4-r26-s001.json` (behauptet) |
-| S2-04 | Blind-Suche, Runde 2 | Blind-Sucher | `versuche/s2-blind-r2.md` | vergeben in Runde 2 |
-| S2-05 | Spur A: Yangs vier Restfälle und Lemma M | Beweissucher | `lean/prosa/s2_444_spurA_r2.md` | vergeben in Runde 2 |
-| S2-06 | Spur B: SAT-Suche mit Symmetrieansatz, Flip-Graph über viele Familien | Verfahrenssucher | `versuche/s2-spurB-r2.md` | vergeben in Runde 2 |
-| S2-07 | Literaturwache, mit Frage nach dem Grenzrang von ⟨2,4,4⟩ | Literaturwächter | `lit/WACHE.md` | vergeben in Runde 2 |
+| S2-04 | Blind-Suche, Runde 2 | Blind-Sucher | `versuche/s2-blind-r2.md` | erledigt in Runde 2, PR #39 |
+| S2-05 | Spur A: Yangs vier Restfälle und Lemma M | Beweissucher | `lean/prosa/s2_444_spurA_r2.md` | erledigt in Runde 2, PR #38. Satz A, Satz B; offen (3,6) und (5,8) |
+| S2-06 | Spur B: SAT-Suche mit Symmetrieansatz, Flip-Graph über viele Familien | Verfahrenssucher | `versuche/s2-spurB-r2.md` | erledigt in Runde 2, PR #40 (Teilbericht). f = 5 bis 17 offen |
+| S2-07 | Literaturwache, mit Frage nach dem Grenzrang von ⟨2,4,4⟩ | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 2, PR #37. Grenzrang 22 bis 24 |
+| S2-08 | Blind-Suche, Runde 3 | Blind-Sucher | `versuche/s2-blind-r3.md` | vergeben in Runde 3 |
+| S2-09 | Prüfung Spur A: Satz A, Satz B, Lemmata 13′, V, S, mit GPT 6.2 Sol | Prüfer | wählt der Prüfer, wird nachgetragen | vergeben in Runde 3 |
+| S2-10 | Spur A: Restfälle (3,6) und (5,8) | Beweissucher | `lean/prosa/s2_444_spurA_r3.md` | zurückgezogen (Abschnitt 6), wird in Runde 4 neu vergeben |
+| S2-11 | Prüfung Spur B: DRAT-Ergebnisse, dazu Behauptungsdatei R(⟨4,2,4⟩) ≤ 26 | Prüfer | wählt der Prüfer, wird nachgetragen | vergeben in Runde 3 |
+| S2-12 | Spur B: Eichung und Zerlegung der offenen SAT-Fälle | Verfahrenssucher | `versuche/s2-spurB-r3.md` | zurückgezogen (Abschnitt 6), wird in Runde 4 neu vergeben |
+| S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | vergeben in Runde 3 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
 
@@ -32,7 +38,7 @@ Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein V
 
 ## Offene Kleinigkeiten
 
-- Behauptungsdatei für „R(⟨4,2,4⟩) ≤ 26“ zu `verfahren/4x2x4-r26-s001.json`, Prüfung nach 5.2. Wird als Nebenauftrag in einer späteren Runde vergeben. Setzt den Zähler von Spur B nach Abbruchregel 2 nicht zurück (Entscheidung des Orchestrators, siehe LOG.md)
+- Behauptungsdatei für „R(⟨4,2,4⟩) ≤ 26“ zu `verfahren/4x2x4-r26-s001.json`, Prüfung nach 5.2. In Runde 3 mit S2-11 vergeben. Setzt den Zähler von Spur B nach Abbruchregel 2 nicht zurück (Entscheidung des Orchestrators, siehe LOG.md)
 - Veraltete Kommentare „open“ in `lean/YangBounds/Statements.lean` und `lean/YangBounds/Upper3x2x6.lean` (Nebenbefund S1-18)
 - `lean/Axioms.lean` importiert das Wurzelmodul und lässt sich mit `lake env lean` nicht direkt ausführen
 - Formatnachtrag: Rückgabewert 3 mit erster Zeile INTERNER-FEHLER, FEHLERHAFT nur für Eigenschaften der Datei, ein Lauf zählt nur, wenn erstes Wort und Rückgabewert zusammenpassen. Einarbeitung in `verfahren/README.md` und beide Programme wird in Stufe 2 vergeben
@@ -105,6 +111,7 @@ Ergebnisse mit Status geprüft: B-001 (Rang von ⟨3,2,5⟩ ist 25, über jedem 
 
 ## Hinweise
 
+- Literaturwache: openai/math gehört dauerhaft dazu (Entscheidung von Justus, 25.11.2026)
 - Erledigt heißt: Datei geliefert und auf `main`. Ein Merge ändert keinen Status. Den Status ändert nur die Prüfung nach Abschnitt 5
 - Erledigt: Der Halt nach Abbruchregel 4 (L5, Lemma 13 in Yang v3) ist aufgehoben. Justus hat am 25.11.2026 entschieden: „Weiter, Reparatur prüfen lassen“ (siehe LOG.md)
 - Budget: Justus hat am 25.11.2026 weitere Runden über das Startbudget hinaus nach Ermessen des Orchestrators freigegeben (siehe LOG.md)

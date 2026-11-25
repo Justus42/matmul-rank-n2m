@@ -1,0 +1,24 @@
+field: p61
+model | rkL rho rkH dimN s | dimI | 8-dimSyz | L13prime ok
+twisted cubic, 25 pts | 3 3 6 1 0 | 3 | 6 | True
+smooth quadric, 25 pts | 5 3 8 1 0 | 1 | 8 | True
+cubic + secant line, generic u0 | 4 3 8 1 0 | 2 | 8 | True
+cubic + secant line, u0 plane through the line | u0 not admissible: (N1) fails, some a_t lies in the plane
+   same plane, (N1) ignored | 4 3 7 1 0 | 2 | 7 | formula only
+24 cubic pts + 1 random | 4 3 8 1 0 | 2 | 8 | True
+field: f2
+model | rkL rho rkH dimN s | dimI | 8-dimSyz | L13prime ok
+twisted cubic, 25 pts | 3 3 6 1 0 | 3 | 6 | True
+smooth quadric, 25 pts | 5 3 8 1 0 | 1 | 8 | True
+cubic + secant line, generic u0 | 4 3 8 1 0 | 2 | 8 | True
+cubic + secant line, u0 plane through the line | u0 not admissible: (N1) fails, some a_t lies in the plane
+   same plane, (N1) ignored | 4 3 7 1 0 | 2 | 7 | formula only
+24 cubic pts + 1 random | 4 3 8 1 0 | 2 | 8 | True
+field: f3
+model | rkL rho rkH dimN s | dimI | 8-dimSyz | L13prime ok
+twisted cubic, 25 pts | 3 3 6 1 0 | 3 | 6 | True
+smooth quadric, 25 pts | 5 3 8 1 0 | 1 | 8 | True
+cubic + secant line, generic u0 | 4 3 8 1 0 | 2 | 8 | True
+cubic + secant line, u0 plane through the line | u0 not admissible: (N1) fails, some a_t lies in the plane
+   same plane, (N1) ignored | 4 3 7 1 0 | 2 | 7 | formula only
+24 cubic pts + 1 random | 4 3 8 1 0 | 2 | 8 | True
