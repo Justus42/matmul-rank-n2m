@@ -31,3 +31,4 @@ Eine Datei pro Behauptung, benannt `B-xxx.md`. Eine Behauptungsdatei enthält nu
 | B-013 | Im Restfall (5,8) ist Unterfall A unmöglich (Lemma P, Satz E). Unterfall B bleibt offen |
 | B-014 | Im Restfall (5,8) ist Unterfall B unmöglich (Lemma K, Lemma Z, Satz F). Folgerung F2: mit B-007 bis B-013 R(⟨4,2,4⟩) ≥ 26 über jedem Körper |
 | B-015 | Brücke: Zu jeder Zerlegung von ⟨4,2,4⟩ der Länge 25 über einem Körper K erfüllt die generische Normalform über dem algebraischen Abschluss von K(S,T) (N1), (N2), liegt im Fall (5,8) und ist nicht symmetrisch |
+| B-016 | R(⟨4,2,4⟩) ≥ 26 über jedem Körper, Lean-Endsatz `Transponiert444.rank_four_two_four_ge_26` |

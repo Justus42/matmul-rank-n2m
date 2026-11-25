@@ -1,15 +1,15 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 10 läuft, Protokoll 0.4.1)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 10 abgeschlossen, Protokoll 0.4.1)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 9 von 24 (beide Spuren zusammen; Budget durch Justus von 12 auf 24 erhöht, Protokoll 0.4). Ab Runde 9 bis zu 6 Subagenten pro Runde
+- Runden verbraucht: 10 von 24 (beide Spuren zusammen; Budget durch Justus von 12 auf 24 erhöht, Protokoll 0.4). Ab Runde 9 bis zu 6 Subagenten pro Runde
 - Runde 9 abgeschlossen: 6 zählende Subagenten (S2-34, S2-35, S2-36, S2-41, S2-42, S2-43), dazu gestartet und ersetzt S2-37 bis S2-40, 0 Sol-Anfragen, 51 Minuten nach Git (626eb7b bis 9f5a928)
-- Runde 10 läuft seit 20:24 Uhr MEZ: S2-44 bis S2-49 (6 Subagenten, 0 Sol-Anfragen geplant); S2-47 bis S2-49 starten nach der Durchsicht des Gedächtnisses
-- Abbruchregel 2, Spur A (Übergangsregel Protokoll 0.4.1, Abschnitt 6, Lesart des Orchestrators): Die vier Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 sind in Runde 9 von gültigen Prüfern bestätigt (S2-42, S2-43), die Fristen aus Runde 3 und 6 gelten als gehalten. S2-41 bestätigt B-014, das zählt als Fortschritt in Runde 9, **Frist für geprüft: Ende Runde 11**. Zähler Spur A: Runde 7 und 8 ohne Fortschritt, Runde 9 mit Fortschritt, also **0 von 3**. **Spur B: aufgegeben**
+- Runde 10 abgeschlossen: 6 Subagenten (S2-44 bis S2-49), 0 Sol-Anfragen, 62 Minuten nach Git (8226274 bis 32f12f6). Neu: B-016 (Endsatz in Lean ohne Hypothese, `Transponiert444.rank_four_two_four_ge_26`), behauptet, Aussagen-Abgleich in Runde 11
+- Abbruchregel 2, Spur A (Übergangsregel Protokoll 0.4.1, Abschnitt 6, Lesart des Orchestrators): Die vier Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 sind in Runde 9 von gültigen Prüfern bestätigt (S2-42, S2-43), die Fristen aus Runde 3 und 6 gelten als gehalten. S2-41 bestätigt B-014, das zählt als Fortschritt in Runde 9, **Frist für geprüft: Ende Runde 11**. Zähler Spur A: Runde 9 mit Fortschritt, Runde 10 ohne, also **1 von 3**. **Spur B: aufgegeben**
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
 
@@ -59,12 +59,12 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 10 läuft, Protokoll 0.4.1)
 | S2-41 | Spur A: Prüfer B-014 (letzte Wiederholung, Ersatz für S2-37) | Prüfer | `lean/prosa/s2_444_bericht_s2-41.md` | erledigt in Runde 9, PR #72. B-014 hält mit Reparaturen R-K, R-T, R-N. Gültig |
 | S2-42 | Spur A: Prüfer, Aussagen-Abgleiche B-008 und B-009 (letzte Wiederholung, Ersatz für S2-38) | Prüfer | `lean/prosa/s2_444_bericht_s2-42.md` | erledigt in Runde 9, PR #70. B-008 und B-009 in den genannten Teilen bestätigt. Gültig |
 | S2-43 | Spur A: Prüfer, Aussagen-Abgleiche B-012 und Satz E aus B-013 (letzte Wiederholung, Ersatz für S2-40) | Prüfer | `lean/prosa/s2_444_bericht_s2-43.md` | erledigt in Runde 9, PR #71. B-012 generisch und Satz E bestätigt. Gültig |
-| S2-44 | Spur A: `TransponiertEng` (B3′) in Lean | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 10 |
-| S2-45 | Spur A: Lemma K in Lean | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 10 |
-| S2-46 | Spur A: Lemma Z (`VielePunkte`) in Lean, Lemma K als benannte Hypothese | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 10 |
+| S2-44 | Spur A: `TransponiertEng` (B3′) in Lean | Formalisierer | `lean/YangBounds/Transponiert444.lean` | erledigt in Runde 10, PR #77 (32f12f6). `rank_four_two_four_ge_26` ohne Hypothese, Lauf 84 (Job 139490596774), SORRY 0 |
+| S2-45 | Spur A: Lemma K in Lean | Formalisierer | `lean/YangBounds/LemmaK444.lean` | erledigt in Runde 10, PR #78 (62fdd0a), Job 139468468902, SORRY 0 |
+| S2-46 | Spur A: Lemma Z (`VielePunkte`) in Lean, Lemma K als benannte Hypothese | Formalisierer | `lean/YangBounds/LemmaZ444.lean` | erledigt in Runde 10, PR #75 (2f82634), Job 139479127631, SORRY 0 |
 | S2-47 | Spur A: Prüfer, Aussagen-Abgleiche Lemma P (B-013) und Brücke (B-015) | Prüfer | `lean/prosa/s2_444_bericht_s2-47.md` | erledigt in Runde 10, PR #74. Lemma P und B-015 gedeckt. Gültig |
 | S2-48 | Spur A: zweiter Prüfer, Aussagen-Abgleiche Lemma P (B-013) und Brücke (B-015), sieht S2-47 nicht | Prüfer | `lean/prosa/s2_444_bericht_s2-48.md` | erledigt in Runde 10, PR #76. Lemma P und B-015 gedeckt. Gültig |
-| S2-49 | Blind-Suche, Runde 10 | Blind-Sucher | `versuche/s2-blind-r10.md` | vorgesehen in Runde 10 |
+| S2-49 | Blind-Suche, Runde 10 | Blind-Sucher | `versuche/s2-blind-r10.md` | erledigt in Runde 10, PR #79. Kein Verfahren mit 25, kein Beweis |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.

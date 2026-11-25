@@ -1475,3 +1475,66 @@ Die drei Lean-Aufträge laufen schon. S2-47 bis S2-49 starten erst nach der Durc
 - Kein Fortschritt nach Abbruchregel 2 a): B-015 und Lemma P ändern keine Schranke und schließen für sich keinen benannten Fall aus.
 - Nach b) zählen sie ebenfalls nicht, weil sie keine neue Behauptung der geforderten Art sind.
 - Gleiche Lesart.
+
+### 25.11.2026, Stufe 2, Runde 10 abgeschlossen (Schreibhand im Auftrag des Orchestrators)
+
+**Abschluss (Angaben des Orchestrators, von der Schreibhand nachgesehen)**
+
+- Runde 10 endet mit dem Merge von PR #77 (32f12f6).
+- Verbrauch: 6 Subagenten (S2-44 bis S2-49), 0 Fremdmodell-Anfragen.
+- Dauer nach Git-Zeitstempeln: von 8226274 (Vergabe von Runde 10, 20:25:26 Uhr MEZ) bis 32f12f6 (21:27:40 Uhr MEZ), **62 Minuten**.
+
+**Lieferungen**
+
+- S2-44: PR #77 (Merge 32f12f6, 21:27:40 Uhr MEZ), `lean/YangBounds/Transponiert444.lean`.
+  - `transponiertEng_genAlgL` ohne Hypothese.
+  - `Transponiert444.rank_four_two_four_ge_26 (K : Type u) [Field K] : 26 ≤ tensorRank K 4 2 4` ohne Hypothese.
+  - Lauf 84 auf main (45695177248, Job 139490596774): grün. SORRY 0 Deklarationen und 0 `sorry` im Quelltext. `TOTAL: STANDARD=56`. Beide Sätze nur mit propext, Classical.choice, Quot.sound.
+  - Letzte Commits der Lieferung: 29c322a (20:36 Uhr MEZ), c6659a2 (21:20:23 Uhr MEZ, main eingemischt).
+- S2-45: PR #78 (Merge 62fdd0a, 20:48:24 Uhr MEZ), `lean/YangBounds/LemmaK444.lean`. Lauf 45688812310, Job 139468468902, SORRY 0. Lieferung 776f67b (20:48:01 Uhr MEZ).
+- S2-46: PR #75 (Merge 2f82634, 21:07:19 Uhr MEZ), `lean/YangBounds/LemmaZ444.lean`. Lauf 45691870535, Job 139479127631, SORRY 0. Commits 37c685d (20:32:50 Uhr MEZ) bis abe0919 (20:55:40 Uhr MEZ).
+- S2-47 (PR #74) und S2-48 (PR #76): Aussagen-Abgleiche zu Lemma P und B-015, oben eingetragen.
+- S2-49: Blind-Sucher, PR #79 (f472bfd, 21:18:28 Uhr MEZ), `versuche/s2-blind-r10.md`. Kein Verfahren mit 25, kein Beweis.
+- Die Läufe auf main zu 62fdd0a, 2f82634 und 32f12f6 sind grün. Im Lauf 84 bauen alle vier neuen Dateien (SatzF444, LemmaK444, LemmaZ444, Transponiert444) zusammen.
+
+**Neue Behauptung**
+
+- `behauptungen/B-016.md` angelegt: Für jeden Körper K gilt R_K(⟨4,2,4⟩) ≥ 26. Artefakt `Transponiert444.rank_four_two_four_ge_26`, PR #77.
+- Status behauptet. Der Aussagen-Abgleich steht aus (Runde 11).
+- In B-014 als Artefakte ergänzt: `SatzF444.lean`, `LemmaK444.lean`, `LemmaZ444.lean`, `Transponiert444.lean`.
+
+**Status (gesetzt vom Orchestrator)**
+
+- Unverändert. B-014 bleibt behauptet, B-016 ist behauptet.
+
+**Zähler (Lesart des Orchestrators, von der Schreibhand gegengelesen)**
+
+- Runde 10 bringt kein neues geprüftes Artefakt, das eine Schranke ändert. Zähler Spur A: **1 von 3**.
+- Gegenlesen: Runde 9 hatte Fortschritt, Runde 10 keinen. 1 von 3 ist folgerichtig. Gleiche Lesart.
+- Frist B-014: geprüft bis Ende Runde 11.
+- Runden verbraucht: 10 von 24.
+
+**Hinweis der Schreibhand**
+
+- `rank_four_two_four_ge_26` ist ohne Hypothese formuliert. Wird B-016 geprüft, ist das Fertig-Kriterium von Stufe 2 erfüllt (Lean-Beweis für 26). Dann hält der Orchestrator nach 11.4 an und berichtet an Justus.
+
+**Gedächtnis (Durchsicht vor Runde 11)**
+
+- `schranken-befunde`: Literaturbefunde aus Stufe 0. Kopie nach `archiv/gedaechtnis/stufe01/schranken-befunde.md`, aus dem Gedächtnis gelöscht. Der Inhalt steht in `lit/QUELLEN.md`.
+- `hk-verfahren-a10`: Bauweg der HK-Verfahren (Bauplan, eigene Suche der Paarprodukte, Ergänzungsmatrix) entfernt. Es bleiben Dateinamen, PR und Formathinweis. Stand vorher in `archiv/gedaechtnis/stufe01/hk-verfahren-a10-stand-r10.md`.
+- `yang-n3-prosa`: Beweisinhalt (Körperbedingung, Gliederung) entfernt, es bleibt der Verweis auf die Datei. Stand vorher archiviert als `…/yang-n3-prosa-stand-r10.md`.
+- `aussagen-abgleich-n3`: Nebenbefund zu Lean-Kommentaren und Herkunftszeile entfernt. Stand vorher archiviert als `…/aussagen-abgleich-n3-stand-r10.md`.
+- `lean-yang-bounds`: Zwischenstand zu offenen `sorry` und zur Folgerung für ⟨4,2,4⟩ entfernt. Das Original liegt schon in `archiv/gedaechtnis/stufe01/lean-yang-bounds.md`.
+- In Runde 10 ist kein Einzeleintrag neu angelegt oder geändert worden (letzte Änderung 19:42 Uhr MEZ). Der Index wurde um 20:27 Uhr MEZ geändert und enthält keine Urteile. Grundlage ist die Kopie des Gedächtnisses in dieser Sitzung.
+- Übrige Einträge: technische Hinweise zu Werkzeugen, Format und Bau, ohne Urteile zu Behauptungen.
+
+**Kopfkommentare der neuen Lean-Dateien (Durchsicht der Schreibhand)**
+
+Kein Prüfurteil, aber Hinweise auf frühere Prüfungen:
+
+- Alle vier Dateien nennen im Kopf das Statuswort `behauptet`. LemmaZ444 sagt zusätzlich „Nothing here is `geprüft` before the check of protocol section 5.1“.
+- `SatzF444.lean`, Zeilen 8 bis 10 und 38: verweist auf `lean/prosa/s2_444_spurA_r6_pruefung.md` (Prüfbericht S2-28) und nennt die Reparaturen R-F1 bis R-F3 sowie die Ersatzargumente E2 und E3 („review repair R-F3“).
+- `LemmaK444.lean`, Zeilen 8 bis 9 und 50: Reparatur R-K mit Verweis auf `lean/prosa/s2_444_bericht_s2-41.md` (Prüferbericht S2-41) und `s2_444_spurA_r6_pruefung.md`.
+- `LemmaZ444.lean`, Zeilen 7 bis 11 und 39: Reparatur von Schritt 2 und R-K, Verweis auf `s2_444_bericht_s2-41.md`.
+- `Transponiert444.lean`, Zeilen 7 bis 9 und 36: Reparatur R-T mit Verweis auf `s2_444_bericht_s2-41.md`.
+- Die Verweise nennen Prüfberichte zu B-014. Ein Prüfer für B-014 oder B-016, der diese Köpfe liest, sieht, dass B-014 geprüft und repariert wurde, und kann die Berichte öffnen. Das Urteil selbst steht nicht in den Köpfen.
