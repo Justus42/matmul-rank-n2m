@@ -765,3 +765,64 @@ Verbraucht in Stufe 2: 4 von 12.
 - S2-21 (Blind-Sucher als Beweissucher): Zieldatei `versuche/s2-blind-r5.md`
 
 Geplant für Runde 6: Prüfer und Fremdmodell für B-012 und B-013, dazu ein Angriff auf Unterfall B von (5,8).
+
+---
+
+## 25.11.2026 · Stufe 2, Runde 5, Abschluss
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: S2-18, S2-19, S2-20, S2-21.
+
+**Gelieferte Dateien**
+
+- S2-18 (Formalisierer): `lean/YangBounds/SatzB444Final.lean` mit `satzB_unbedingt`, `satzB_symm_unbedingt`, `satzB_global_unbedingt`, Pull Request #49
+- S2-19 (Prüfer): Aussagen-Abgleich in `behauptungen/B-008.md`, Pull Request #52
+- S2-20 (Prüfer): Aussagen-Abgleich in `behauptungen/B-009.md`, Pull Request #51
+- S2-21 (Blind-Sucher): `versuche/s2-blind-r5.md`, Pull Request #50
+
+**Befunde**
+
+- S2-18: Satz B ist ohne Hypothesen zusammengesetzt. Hinweis aus S2-19: Der Workflow schlägt bei `sorry` nicht fehl. Maßgeblich ist die Zeile „SORRY“ im Log, nicht die grüne Farbe.
+- S2-19: Der Kern von B-008 ist bestanden, Prüfer und GPT 6.2 Sol kommen unabhängig zum gleichen Ergebnis. Der Isomorphie-Teil von Folgerung A1 hat keinen Lean-Satz und bleibt behauptet. `satzA_global` bindet die Normalform nicht an die eingegebene Zerlegung. Das ist unschädlich, weil `satzA_statement` jede Normalform abdeckt.
+- S2-20: Der Kern von B-009 ist bestanden: Die Fälle (4,7) und (5,7) sind über jedem Körper unmöglich. Prüfer und GPT 6.2 Sol kommen unabhängig zum gleichen Ergebnis. Der Symmetrie-Zusatz im Fall (3,6) mit μ_t ≠ 0 bleibt behauptet, weil `IsSymm` auch μ_t = 0 erlaubt.
+- S2-21: Kein Beweis für 26. Satz R (höchstens 2 reine Produkte je Richtung bei Länge 25) hat Status behauptet. Der Sucher war nur eingeschränkt blind.
+
+**Prüfung vor der Statusänderung (selbst nachgesehen)**
+
+1. PR #49 (1ca01a5), #50 (c2b4b9a), #51 (dfb6976) und #52 (8485c54) sind auf `main`, gemergt am 25.11.2026 zwischen 15:32 und 16:05 Uhr (MEZ), jeweils unter dem GitHub-Konto Justus42. Unter `lean/` und `.github/` hat sich nach 1ca01a5 nichts mehr geändert.
+2. Der Actions-Lauf 45635237494 lief auf `main` am Merge-Commit 1ca01a5 und endete mit success. Im Log steht `Build completed successfully` und `SORRY: 0` (Build-Log und Quellen). Die `#print axioms`-Ausgaben im Build zeigen für `lemma13Prime`, `satzA`, `satzA_statement`, `satzA_exists`, `satzA_global`, `corollaryA1`, `corollaryA2`, `sDim_table`, `exists_common_kernel`, `satzB`, `satzB_symm`, `satzB_global`, `satzB_unbedingt`, `satzB_symm_unbedingt` und `satzB_global_unbedingt` jeweils nur `propext`, `Classical.choice` und `Quot.sound`. Der Axiom-Bericht des Workflows meldet `TOTAL: STANDARD=9`.
+3. Den Aussagen-Abgleich haben je ein Prüfer und GPT 6.2 Sol unabhängig gemacht (S2-19 für B-008, S2-20 für B-009).
+4. Der grüne Lauf auf `main` ist der unter 2 genannte.
+
+**Neuer Status je Behauptung (nach 5.1 Punkt 1 bis 4)**
+
+- B-008: **geprüft** für den Kern (ρ = 3 und die vier Fälle), für die Surjektivität in A1 und für A2. Der Isomorphie-Teil von A1 bleibt **behauptet**.
+- B-009: **geprüft** für den Rangteil ((4,7) und (5,7) unmöglich, über jedem Körper). Der Symmetrie-Zusatz mit μ_t ≠ 0 bleibt **behauptet**.
+- B-010 bis B-013: unverändert.
+
+**Merges**
+
+Siehe Punkt 1 oben.
+
+**Runden**
+
+Verbraucht in Stufe 2: 5 von 12.
+
+**Zählerstand nach Abbruchregel 2 (Fassung 0.3), Spur A**
+
+- Die Frist für B-008 und B-009 (Fortschritt nach b) aus Runde 3, Frist Ende Runde 5) ist gehalten. Der Fortschritt aus Runde 3 bleibt gültig.
+- Ob Runde 5 selbst als Fortschritt nach a) zählt, ist offen. Wörtlich liefert Runde 5 neue Artefakte mit Status geprüft, die benannte Fälle ausschließen (`SatzB444Final.lean`, B-009 geprüft). Es sind aber dieselben Aussagen, die schon in Runde 3 nach b) gezählt wurden.
+  - Zählt Runde 5 nach a): Zähler **0 von 3**.
+  - Zählt sie nicht: Runde 4 und Runde 5 sind ohne Fortschritt, Zähler **2 von 3**.
+- Die Entscheidung ist an den Orchestrator gemeldet und wird nachgetragen.
+- Spur B: aufgegeben.
+
+**Runde 6 der Stufe 2, vergeben (Start 16:10 Uhr MEZ, vier Aufträge)**
+
+- S2-22 (Prüfer): B-012 (Satz C, Ausschluss von (3,6)) mit GPT 6.2 Sol
+- S2-23 (Prüfer): B-013 (Satz E, Unterfall A von (5,8)) mit GPT 6.2 Sol
+- S2-24 (Beweissucher): Unterfall B von (5,8) in beide Richtungen, Zieldatei `lean/prosa/s2_444_spurA_r6.md`
+- S2-25 (Blind-Sucher als Beweissucher): Zieldatei `versuche/s2-blind-r6.md`
+
+Bestätigen Prüfer und Fremdmodell B-012 oder B-013, zählt das als Fortschritt nach b) für Runde 6, mit Frist bis zum Ende von Runde 8.
