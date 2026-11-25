@@ -14,3 +14,6 @@ Since S1-17 no proof is open; an occurrence of `sorryAx` here would be an error.
 #print axioms YangBounds.rank_three_two_six
 #print axioms YangBounds.rank_four_two_four_ge
 #print axioms YangBounds.rank_four_two_five_ge
+#print axioms YangBounds.SatzB444.satzB_unbedingt
+#print axioms YangBounds.SatzB444.satzB_symm_unbedingt
+#print axioms YangBounds.SatzB444.satzB_global_unbedingt

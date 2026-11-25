@@ -29,6 +29,9 @@ MAIN_THEOREMS = [
     ("Rank <4,2,4> >= 25", "YangBounds.rank_four_two_four_ge"),
     ("Upper bound <3,2,6> <= 30 (Statements.lean)", "YangBounds.hopcroft_kerr_three_two_six"),
     ("Upper bound <3,2,6> <= 30 (Upper3x2x6.lean)", "YangBounds.Upper3x2x6.hopcroft_kerr_three_two_six"),
+    ("Satz B <4,2,4>, length 25, unconditional (SatzB444Final.lean)", "YangBounds.SatzB444.satzB_unbedingt"),
+    ("Satz B <4,2,4>, symmetric case, unconditional (SatzB444Final.lean)", "YangBounds.SatzB444.satzB_symm_unbedingt"),
+    ("Satz B <4,2,4>, every field, unconditional (SatzB444Final.lean)", "YangBounds.SatzB444.satzB_global_unbedingt"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 
