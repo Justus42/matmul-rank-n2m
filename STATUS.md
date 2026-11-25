@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 3 vergeben)
+Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 3 läuft, Regel für Fremdmodelle)
 
 ## Aktuelle Stufe
 
@@ -19,7 +19,7 @@ Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 3 vergeben)
 | S1-02 | Prosa-Beweis der Schranke für n = 3 | `lean/prosa/yang_n3.md` | erledigt in Runde 1, PR #13 |
 | S1-03 | Prosa-Beweis der Schranke für m ≥ n ≥ 4 | `lean/prosa/yang_n4.md` | erledigt in Runde 1, PR #14 (Lücke L5, Reparatur in S1-06 ohne Einwände) |
 | S1-04 | Festlegung der zwei Randfälle im Format (Zusatzschlüssel, ungültige Kalenderdaten: beides FEHLERHAFT) | `verfahren/README.md` | erledigt in Runde 1, PR #12 |
-| S1-05 | Prüfung des Prosa-Beweises für n = 3, Prüfer und Fremdmodell | `lean/prosa/yang_n3_pruefung.md` | erledigt in Runde 2, PR #20. Gegenlesen durch das Fremdmodell nur schwach (gekürzte Fassung), strenger Nachtrag offen |
+| S1-05 | Prüfung des Prosa-Beweises für n = 3, Prüfer und Fremdmodell | `lean/prosa/yang_n3_pruefung.md` | erledigt in Runde 2, PR #20. Gegenlesen durch das Fremdmodell nur schwach (gekürzte Fassung), strenger Nachtrag entfällt nach Entscheidung von Justus |
 | S1-06 | Prüfung des Prosa-Beweises für n ≥ 4, Schwerpunkt L5, Prüfer und Fremdmodell | `lean/prosa/yang_n4_pruefung.md` | erledigt in Runde 2, PR #18 |
 | S1-07 | Python-Prüfprogramm an Abschnitt 9 und 10 des Formats anpassen | `pruefer/python/` | erledigt in Runde 2, PR #16 und #19 |
 | S1-08 | Rust-Prüfprogramm an Abschnitt 9 und 10 des Formats anpassen | `pruefer/rust/` | erledigt in Runde 2, PR #17 |
@@ -30,7 +30,6 @@ Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 3 vergeben)
 
 Offen für spätere Runden:
 
-- Strenger Nachtrag des Fremdmodells zu S1-05 mit der ungekürzten Datei. Gescheitert an der Ausgabengrenze des Gemini-Projekts, an Justus gemeldet
 - Beide Prüfprogramme auf denselben Testfällen abgleichen
 - Rückgabewert bei internem Fehler im Format festlegen (Python nutzt bisher 3, eigene Entscheidung)
 - Actions-Workflow für `lean/`
@@ -78,6 +77,6 @@ Ergebnisse mit Status geprüft: B-001 (Rang von ⟨3,2,5⟩ ist 25, über jedem 
 
 ## Sperren
 
-- Fremdmodell nicht verfügbar: Das Gemini-Projekt hat seine monatliche Ausgabengrenze erreicht. Kein Ausweichen auf ein anderes Konto. Aussagen-Abgleiche nach 5.1 Punkt 3 brauchen Justus' Anhebung der Grenze oder seine eigene Weitergabe
+- Fremdmodelle vorerst nur bei kritischen Punkten (Entscheidung von Justus, 25.11.2026, siehe LOG.md): Aussagen-Abgleiche nach 5.1 Punkt 3 und Befunde, die eine Abbruchregel berühren. Dafür GPT 6.2 Sol mit hoher Denkstufe als Batch über die Bridge. Das Gegenlesen von Prosa vor einer Formalisierung entfällt vorerst
 - Keine Arbeit an Stufe 3 ohne Budget von Justus
 - Fremder Code nur nach der Lizenzregel (Protokoll Abschnitt 11.3)

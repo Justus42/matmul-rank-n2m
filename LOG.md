@@ -346,3 +346,17 @@ Das bisherige Gegenlesen zu n = 3 gilt als erfolgt und ist als **schwach** verme
 **Hinweis für spätere Aussagen-Abgleiche**
 
 Ein Aussagen-Abgleich nach 5.1 Punkt 3 braucht das Fremdmodell. Dafür muss Justus entweder die Ausgabengrenze anheben oder den Text selbst an ein Fremdmodell weitergeben.
+
+---
+
+## 25.11.2026 · Entscheidung von Justus zu Fremdmodellen (zählt nicht zum Budget)
+
+Justus hat am 25.11.2026 um 06:34 Uhr (MEZ) geschrieben:
+
+> Arbeit ohne Fremdmodelle vorerst. Bei kritischen Punkten GPT 6.2 Sol high via Bridge batch
+
+**Auslegung des Orchestrators**
+
+- Als kritisch gelten die Aussagen-Abgleiche nach 5.1 Punkt 3, weil ohne sie kein Status geprüft möglich ist. Ebenso kritisch sind Befunde, die eine Abbruchregel berühren. Dafür wird GPT 6.2 Sol mit hoher Denkstufe als Batch-Auftrag über die Bridge eingesetzt.
+- Das Gegenlesen von Prosa-Beweisen durch ein Fremdmodell vor einer Formalisierung (Abschnitt 4) entfällt vorerst.
+- Der strenge Nachtrag des Fremdmodells zu n = 3 (S1-05) entfällt ebenfalls.
