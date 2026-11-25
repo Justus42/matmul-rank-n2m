@@ -50,6 +50,10 @@ MAIN_THEOREMS = [
     ("Bridge <4,2,4>, applied: no sub-case A (Bruecke444.lean)", "YangBounds.Bruecke444.bruecke_nicht_unterfallA"),
     ("Bridge as Endsatz444.BrueckeStatement, every field (Bruecke444.lean)", "YangBounds.Bruecke444.brueckeStatement"),
     ("Final theorem R<4,2,4> >= 26, bridge discharged, assuming sub-case B (Bruecke444.lean)", "YangBounds.Bruecke444.rank_four_two_four_ge_26_of_unterfallB"),
+    ("Satz F <4,2,4>: sub-case B forces symmetry, assuming (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.satzF"),
+    ("Case (5,8) symmetric, assuming (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.fall58_symmetrisch"),
+    ("UnterfallBStatement, assuming (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.unterfallBStatement_of"),
+    ("Final theorem R<4,2,4> >= 26, assuming only (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.rank_four_two_four_ge_26_of_hyp"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 
