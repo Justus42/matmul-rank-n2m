@@ -282,3 +282,46 @@ Seit dem Eintrag zu Runde 2 der Stufe 0 läuft dieselbe Sitzung des Orchestrator
 - S1-06: Prüfung des Prosa-Beweises für n ≥ 4 mit Schwerpunkt L5, Prüfer und Fremdmodell, Zieldatei `lean/prosa/yang_n4_pruefung.md`
 - S1-07: Python-Prüfprogramm an Abschnitt 9 und 10 des Formats anpassen, Zieldatei `pruefer/python/`
 - S1-08: Rust-Prüfprogramm ebenso anpassen, Zieldatei `pruefer/rust/`
+
+---
+
+## 25.11.2026 · Stufe 1, Runde 2, Abschluss
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: S1-05, S1-06, S1-07, S1-08.
+
+**Gelieferte Dateien**
+
+- S1-05: `lean/prosa/yang_n3_pruefung.md`, Pull Request #20
+- S1-06: `lean/prosa/yang_n4_pruefung.md`, Pull Request #18
+- S1-07: `pruefer/python/`, Pull Requests #16 und #19
+- S1-08: `pruefer/rust/`, Pull Request #17
+
+**Befunde (alle Status behauptet)**
+
+- S1-05: Der Prüfer hat keine Einwände gegen den Prosa-Beweis für n = 3. Die Aussage über jedem Körper und die Bedingung m ≥ 2 sind bestätigt. Neuer Befund im Paper: Yangs Einleitung gibt das Ergebnis von Tsyganov u. a. als R > ⌈24m/5⌉ wieder statt als R > 24m/5. Das berührt den Beweis nicht.
+- S1-05, Fremdmodell: `gemini-4-carbon` hat nur eine gekürzte Fassung gelesen, auf niedriger Denkstufe. Der Orchestrator hat deshalb einen Nachtrag verlangt, bei dem das Fremdmodell die ungekürzte Datei als Batch-Auftrag liest. Die Formalisierung von n = 3 wartet auf diesen Nachtrag.
+- S1-06: Der Prüfer hat keine Einwände gegen den Prosa-Beweis für n ≥ 4. Befund L5 ist bestätigt: Der Beweis von Lemma 13 ist im Paper wörtlich falsch. Die Reparatur über Q/im F₁ ist nach dem Prüfbericht lückenlos, und die Aussage gilt über jedem Körper. `gemini-4-carbon` stimmt unabhängig zu. Es nennt zwei Vorbehalte (den Fall d = 2 und einen Schritt in Lemma 15(b)), die laut Bericht keine Einwände sind. Gegen den Nebenbefund m ≥ n − 1 gibt es keine Einwände, er bringt aber keine neue Schranke. Es gab Rechenproben an 420 Zufallsfällen, dabei blieb Bedingung (N2) ungeprüft.
+- S1-07: Das Python-Prüfprogramm ist an Abschnitt 9 und 10 des Formats angepasst und hat 89 Tests. Die Grenze von 4300 Stellen ist behoben. Bei einem internen Fehler gibt das Programm den eigenen Rückgabewert 3 zurück. Das hat der Subagent selbst entschieden, das Format legt es nicht fest.
+- S1-08: Das Rust-Prüfprogramm ist angepasst und hat 41 Tests. Der Zeilenumbruch durch Steuerzeichen ist behoben.
+- Beide Programme geben für `verfahren/3x2x5-r25-hk71.json` und `verfahren/3x2x6-r30-hk71.json` weiter ANGENOMMEN.
+
+**Neuer Status je Behauptung**
+
+Kein Statuswort hat sich geändert. Die Prosa-Prüfungen erfüllen 5.1 nicht, weil es noch keinen Lean-Beweis gibt. Alle neuen Befunde haben den Status behauptet.
+
+**Merges**
+
+Merge-Stand auf `main` beim Schreiben dieses Eintrags: PR #17 (1265218), #16 (9440cca), #18 (4e3d275), #19 (1c1d996) und #20 (ddebdc0) sind am 25.11.2026 zwischen 05:55 und 06:08 Uhr (MEZ) gemergt, jeweils unter dem GitHub-Konto Justus42.
+
+**Runden**
+
+Verbraucht in Stufe 1: 2 von 8.
+
+**Offen für spätere Runden**
+
+- Nachtrag des Fremdmodells zu S1-05 mit der ungekürzten Datei, darauf wartet die Formalisierung von n = 3
+- Beide Prüfprogramme auf denselben Testfällen abgleichen
+- Rückgabewert bei internem Fehler im Format festlegen
+- Actions-Workflow für `lean/`
