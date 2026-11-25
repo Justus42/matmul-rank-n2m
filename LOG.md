@@ -716,3 +716,52 @@ In dieser Runde läuft keine eigene Literaturwache. Die letzte war S2-13 heute u
 **Zählerstand nach Abbruchregel 2 (Protokoll 0.3)**
 
 Spur A steht bei 0, die Frist für B-008 und B-009 läuft bis zum Ende von Runde 5. Spur B ist aufgegeben.
+
+---
+
+## 25.11.2026 · Stufe 2, Runde 4, Abschluss
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: S2-14, S2-15, S2-16, S2-17.
+
+**Gelieferte Dateien**
+
+- S2-14 (Formalisierer, Spur A): `lean/YangBounds/Lemma13Prime.lean`, `lean/YangBounds/SatzA444.lean`, Pull Request #45
+- S2-15 (Formalisierer, Spur A): `lean/YangBounds/SatzB444.lean`, `lean/YangBounds/SatzB444Poly.lean`, Pull Request #48
+- S2-16 (Beweissucher, Spur A): `lean/prosa/s2_444_spurA_r4.md`, `behauptungen/B-012.md`, `behauptungen/B-013.md`, Pull Request #47
+- S2-17 (Blind-Sucher): `versuche/s2-blind-r4.md`, Pull Request #46
+
+**Befunde (alle Status behauptet)**
+
+- S2-14: Lemma 13′ und Satz A (B-008) sind in Lean ohne `sorry`. Laut Bericht ist der Actions-Lauf 45629108828 grün und meldet nur Standard-Axiome. Der Aussagen-Abgleich fehlt noch.
+- S2-15: Satz B (B-009) ist in Lean ohne `sorry`, unter den Hypothesen `SatzAHyp` und `CommonKernelHyp`. Laut Bericht ist der Actions-Lauf 45632519420 grün. Reparatur R1 wurde nicht gebraucht. Teil 3 von Lemma S ist durch ein neues Argument ersetzt.
+- S2-16: Zwei neue Behauptungen. B-012 (Satz C): Es gibt keine symmetrische Zerlegung der Länge 25, damit ist Fall (3,6) ausgeschlossen. B-013 (Satz E): Unterfall A von (5,8) ist ausgeschlossen. Beide sind noch von niemandem geprüft. Unterfall B von (5,8) bleibt offen. Ein 25er-Verfahren wurde nicht gefunden.
+- S2-17: Kein Ergebnis zu 25 oder 26. Der Blind-Sucher kommt unabhängig auf die vier Restfälle (Satz R, behauptet) und vermutet ρ = 4 als Schlüssel. Er war nur eingeschränkt blind.
+- Auf `main` steht in `lean/` kein `sorry` (nachgezählt).
+
+**Neuer Status je Behauptung**
+
+Kein Statuswort hat sich geändert. B-012 und B-013 sind neu, mit Status behauptet, und in der Übersicht nachgetragen.
+
+**Merges**
+
+Merge-Stand auf `main` beim Schreiben dieses Eintrags: PR #46 (bc0b63b), #45 (9a49624), #47 (9c80933) und #48 (c42939b) sind am 25.11.2026 zwischen 14:52 und 15:24 Uhr (MEZ) gemergt, jeweils unter dem GitHub-Konto Justus42.
+
+**Runden**
+
+Verbraucht in Stufe 2: 4 von 12.
+
+**Zählerstand nach Abbruchregel 2 (Fassung 0.3)**
+
+- Spur A: Runde 4 bringt keinen Fortschritt nach a) oder b). B-012 und B-013 sind noch nicht von Prüfer und Fremdmodell bestätigt, und keine Lean-Datei hat Status geprüft. **Zähler 1 von 3.** Frist für B-008 und B-009 (Fortschritt nach b) aus Runde 3): **Ende von Runde 5**.
+- Spur B: aufgegeben.
+
+**Runde 5 der Stufe 2, vergeben (Start 15:30 Uhr MEZ, vier Aufträge)**
+
+- S2-18 (Formalisierer): unbedingte Fassung von Satz B aus Satz A und Satz B zusammensetzen, neue Datei unter `lean/YangBounds/`, Actions grün auf `main`
+- S2-19 (Prüfer): Aussagen-Abgleich für B-008 mit GPT 6.2 Sol
+- S2-20 (Prüfer): Aussagen-Abgleich für B-009 mit GPT 6.2 Sol. Der Prüfer prüft die Hypothesen selbst und hängt nicht von S2-18 ab
+- S2-21 (Blind-Sucher als Beweissucher): Zieldatei `versuche/s2-blind-r5.md`
+
+Geplant für Runde 6: Prüfer und Fremdmodell für B-012 und B-013, dazu ein Angriff auf Unterfall B von (5,8).
