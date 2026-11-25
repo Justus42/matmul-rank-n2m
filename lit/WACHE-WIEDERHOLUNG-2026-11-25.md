@@ -78,3 +78,38 @@ Bewertung: Lacelle behauptet nicht, dass R(⟨2,4,4⟩) = 26 bewiesen ist; die S
 **Q8. AlphaEvolve, arXiv:2506.13131 v1.** Tabelle 3 (S. 34), Zeile wörtlich: „⟨2, 4, 4⟩ 26 [93] 26“ ([93] = Smirnov 2013). Kein Verfahren mit 25; AlphaEvolve erreicht 26 wieder.
 
 **Q9. Kauers/Moosbauer, arXiv:2212.01175 v1, „Flip graphs for matrix multiplication“.** Tabelle 1 (S. 10), Zeile wörtlich: „(2, 4, 4) any 26 [11] 26“ ([11] = Hopcroft/Kerr 1971). S. 1 wörtlich (Stand 2022): „Also for multiplying a 2 × 2 matrix with a 2 × p matrix and for multiplying a 2 × 3 matrix with a 3 × 3 matrix, optimal algorithms are known [11]. For all other formats, the known upper and lower bounds do not match.“
+
+### GitHub-Repos (Werkzeug git ls-remote und git clone --depth 1, danach grep/find lokal)
+
+`git ls-remote … HEAD` (Pflichtpunkte nach Abschnitt 7 und weitere Kataloge):
+
+| Repo | HEAD | Letzter Commit (Datum des Commits) | Befund |
+|---|---|---|---|
+| fallnlove/mm325_proof | `759cf4a8524d4212e7832046204c90b9361ba2bb` | unverändert gegenüber Wache S2-58 | nur ⟨3,2,5⟩ |
+| openai/math | `3344da59991ed94f9ba711217b29c1d760badfa6` | 2026-11-24, unverändert gegenüber S2-58 | siehe unten |
+| wcgbg/tensor-rank-lower-bound | `9db3d215267932ba3e8801a10655a2d538ed13d8` | 2026-10-29, unverändert | siehe unten |
+| mkauers/matrix-multiplication | `12c26b29a5458e173813911fb4f2c2865fba841e` | 2026-05-29 | siehe unten |
+| solven-eu/matmulcatalog (Lacelle) | `5ed2ee9798595621db7b5393df7669f7dd3a2fd1` | 2026-11-25 04:12 UTC | **siehe Befund G1** |
+| dronperminov/FastMatrixMultiplication (Perminov) | `f70078cd9d1674cbc9c27e71011d4d6dff771d40` | 2026-11-16 | siehe unten |
+
+- **openai/math:** `grep -n -i "matrix multiplication\|tensor rank\|bilinear" CONTENTS.md` liefert nur die bekannten Familien 107, 135 und 379 (9/4-Exponent, iterierte Produkte, Euclidean tensor geometry) und einen fachfremden Treffer (Bogomolov–Pop). In allen 48 Verzeichnissen, deren Dateien „matrix multiplication“ enthalten, liefert `grep` nach `langle 2,4,4`, `langle 4,2,4`, `langle 4,4,2`, `2\times 4\times 4`, `4 \times 2 \times 4`, `(4,2,4)`, `(2,4,4)`, `<2,4,4>`, `<4,2,4>`, `n,2,m` **in den preprints keinen Treffer**; die Treffer im Ordner `lean/OAI/Combinatorics/Ramsey/CycleClique/` sind Zahlentripel in Ramsey-Zertifikaten, fachfremd.
+- **wcgbg/tensor-rank-lower-bound (Wang):** Zertifikate für Matrixformate nur `n222, n223, n224, n233, n324, n333, n334, n344` (Verzeichnis `certs/matrix`). **Kein Zertifikat für n244, n424 oder n442.**
+- **mkauers/matrix-multiplication:** Verzeichnisse nur für die Formate 257 … 667 (verbesserte Formate aus 2510.19787). **Kein Verzeichnis 244.**
+- **dronperminov/FastMatrixMultiplication:** `find schemes -iname '*2x4x4*' -o -iname '*4x2x4*' -o -iname '*4x4x2*'` findet 8 Verfahrensdateien, **alle mit `_m26_`** (Rang 26), keine mit 25, auch nicht über 𝔽₂ oder ternär. `docs/ranks.md` Zeile 37 wörtlich: „| `2x4x4` | 26 | 26 | 26 | 2.820263831 |“ (Spalten ZT, Z, Q).
+- **solven-eu/matmulcatalog:** Verfahrensdateien zu ⟨2,4,4⟩ und Permutationen, alle `r26`: `2x4x4-r26-alphatensor_F2`, `-alphatensor_Z`, `-flips_mod0`, `-hk71`, `-kauers_2026`, `-perminov_ZT`, zwei `-perminov_serbase_ZT`, `-perminov_cr92…`, `4x2x4-r26-derived`, `4x4x2-r26-derived`. Kein Verfahren mit 25, auch über 𝔽₂ nicht.
+
+#### Befund G1 (wichtig): unbelegte Behauptung „R(⟨2,4,4⟩) ≥ 26“ im Katalog-Repo von Lacelle
+
+Datei `docs/LOWER_BOUNDS.md` im Repo [solven-eu/matmulcatalog](https://github.com/solven-eu/matmulcatalog/blob/5ed2ee9798595621db7b5393df7669f7dd3a2fd1/docs/LOWER_BOUNDS.md), Zeile 90, wörtlich:
+
+> - `R(⟨2,4,4⟩) ≥ 26` (Hopcroft-Kerr), UB 26 → tight
+
+Abschnitt „Other notable small formats“, unmittelbar nach „`R(⟨2,3,3⟩) = 15` (HK 1971, tight, all fields)“. Die Zeile steht seit dem Commit `0a9f83a0` vom 2026-06-16 („Reset project“, Autor Benoit Lacelle) unverändert in der Datei (`git log -S` nach Entpacken der vollen Historie: nur dieser eine Commit).
+
+Einordnung (eigene Prüfung der Belege, kein Prüfurteil):
+1. Das ist eine **Behauptung ohne Beweis und ohne Fundstelle** außer dem Namen „Hopcroft-Kerr“. Die maschinenlesbare Datei `docs/lower-bounds.json` desselben Repos (29 Einträge) enthält **keinen** Eintrag für [2,4,4]; ihre HK71-Einträge sind nur [2,2,3], [2,2,4], [2,2,5], [2,3,3] (und [2,2,2] mit Winograd).
+2. Lacelles eigener Artikel arXiv:2606.13408 v3, Abschnitt 7.5 (S. 26), sagt das Gegenteil: „Hopcroft–Kerr proved matching lower bounds only for ⟨2, 2, n⟩ and ⟨2, 3, 3⟩.“
+3. Yang26 v3 (12.10.2026) nennt R(⟨4,2,4⟩) ≥ 25 als neues Ergebnis, „one away from the current upper bounds“; Kauers/Moosbauer 2022 (S. 1) nennen ausdrücklich nur ⟨2,2,p⟩ und ⟨2,3,3⟩ als Formate mit bekannten optimalen Verfahren.
+4. Dieselbe Liste enthält einen Rechenfehler in der Nachbarzeile: „`R(⟨2,2,n⟩) = ⌈(3·2n + max(2,n))/2⌉` = `⌈3.5n + 0.5⌉`“; für n ≥ 2 ergibt die Formel ⌈3,5n⌉, nicht ⌈3,5n + 0,5⌉. Das spricht für eine flüchtig geschriebene Übersicht.
+
+Folgerung: Das ist **kein Beweis** von R(⟨2,4,4⟩) ≥ 26 und keine veröffentlichte Arbeit, sondern eine vermutlich irrtümliche Zuschreibung in einer Markdown-Übersicht eines öffentlichen Repos. Sie ist aber im Wortlaut der Frage („irgendwo schon … behauptet“) **ein Treffer**: Die Aussage „R(⟨2,4,4⟩) ≥ 26 … tight“ steht öffentlich, seit dem 16.06.2026, also vor Yang26.
