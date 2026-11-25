@@ -74,16 +74,19 @@ variable [FiniteDimensional K Q] {e : ℕ}
 noncomputable def sCore (F : Fin (e + 2) → U →ₗ[K] Q) : ℕ :=
   finrank K (⨆ j : Fin (e + 1), (LinearMap.ker (F 0)).map (F j.succ) : Submodule K Q)
 
+omit [FiniteDimensional K Q] in
 theorem sumMap_eq_zero_add (F : Fin (e + 2) → U →ₗ[K] Q) (u : Fin (e + 2) → U) :
     sumMap F u = F 0 (u 0) + ∑ i : Fin (e + 1), F i.succ (u i.succ) := by
   rw [sumMap_apply, Fin.sum_univ_succ]
 
+omit [FiniteDimensional K Q] in
 /-- `H(γ(a))_0 = -∑_j F_{j+1}(a_j)`. -/
 theorem H_gammaElt_zero (F : Fin (e + 2) → U →ₗ[K] Q) (a : Fin (e + 1) → U) :
     skewExt (sumMap F) ⟨gammaElt a, gammaElt_mem a⟩ 0 = -∑ j, F j.succ (a j) := by
   rw [skewExt_apply, sumMap_eq_zero_add]
   simp
 
+omit [FiniteDimensional K Q] in
 /-- `H(γ(a))_{i+1} = F_0(a_i)`. -/
 theorem H_gammaElt_succ (F : Fin (e + 2) → U →ₗ[K] Q) (a : Fin (e + 1) → U) (i : Fin (e + 1)) :
     skewExt (sumMap F) ⟨gammaElt a, gammaElt_mem a⟩ i.succ = F 0 (a i) := by
@@ -259,7 +262,8 @@ theorem iSup_map_le_iSup_map_mixF {e : ℕ} (γ : Fin (e + 2) → K) {k : Fin (e
   · subst hik
     have hGx : G x = 0 := hx
     have hsum : γ i • F i x = -∑ l ∈ Finset.univ.erase i, γ l • F l x := by
-      rw [eq_neg_iff_add_eq_zero, Finset.add_sum_erase _ _ (Finset.mem_univ i)]
+      rw [eq_neg_iff_add_eq_zero,
+        Finset.add_sum_erase _ (fun l => γ l • F l x) (Finset.mem_univ i)]
       simpa [hG, LinearMap.coeFn_sum, Finset.sum_apply] using hGx
     have hmem : γ i • F i x ∈ R := by
       rw [hsum]
@@ -283,23 +287,28 @@ theorem lemma13Prime_of_gamma {e : ℕ} (F : Fin (e + 2) → U →ₗ[K] Q) (γ 
     push_neg at h
     exact hγ (funext h)
   have hdet := rowMatrix_isUnit γ hk
-  set F' := mixF (rowMatrix γ k) F with hF'
-  have h0 : F' 0 = ∑ i, γ i • F i := mixF_rowMatrix_zero γ k F
-  have hc := lemma13Prime_core F'
-  have hs : sDim (∑ i, γ i • F i) F ≤ sCore F' := by
+  have hc := lemma13Prime_core (mixF (rowMatrix γ k) F)
+  have hs : sDim (∑ i, γ i • F i) F ≤ sCore (mixF (rowMatrix γ k) F) := by
     unfold sDim sCore
-    rw [h0]
+    rw [mixF_rowMatrix_zero γ k F]
     exact Submodule.finrank_mono (iSup_map_le_iSup_map_mixF γ hk F)
-  rw [h0] at hc
-  have hL : finrank K (LinearMap.range (sumMap F)) ≤ finrank K (LinearMap.range (sumMap F')) := by
-    have := range_sumMap_mixF_le (rowMatrix γ k)⁻¹ F'
-    rw [hF', mixF_mixF (Matrix.nonsing_inv_mul _ hdet)] at this
+  rw [mixF_rowMatrix_zero γ k F] at hc
+  have hL : finrank K (LinearMap.range (sumMap F)) ≤
+      finrank K (LinearMap.range (sumMap (mixF (rowMatrix γ k) F))) := by
+    have := range_sumMap_mixF_le (rowMatrix γ k)⁻¹ (mixF (rowMatrix γ k) F)
+    rw [mixF_mixF (Matrix.nonsing_inv_mul _ hdet)] at this
     exact Submodule.finrank_mono this
-  have hH : finrank K (LinearMap.range (skewExt (sumMap F'))) ≤
+  have hH : finrank K (LinearMap.range (skewExt (sumMap (mixF (rowMatrix γ k) F)))) ≤
       finrank K (LinearMap.range (skewExt (sumMap F))) :=
     finrank_range_skewExt_mixF_le (Matrix.mul_nonsing_inv _ hdet) F
-  have := Nat.mul_le_mul_left e hL
-  omega
+  have hel := Nat.mul_le_mul_left e hL
+  calc (e + 2) * finrank K (LinearMap.range (∑ i, γ i • F i)) + 2 * sDim (∑ i, γ i • F i) F +
+        e * finrank K (LinearMap.range (sumMap F))
+      ≤ (e + 2) * finrank K (LinearMap.range (∑ i, γ i • F i)) +
+          2 * sCore (mixF (rowMatrix γ k) F) +
+          e * finrank K (LinearMap.range (sumMap (mixF (rowMatrix γ k) F))) := by omega
+    _ ≤ 2 * finrank K (LinearMap.range (skewExt (sumMap (mixF (rowMatrix γ k) F)))) := hc
+    _ ≤ 2 * finrank K (LinearMap.range (skewExt (sumMap F))) := by omega
 
 /-- **Lemma 13′** (prose Section 4, doubled form, `e + 2` maps), with `ρ` the maximum of
 `rk(∑ γ_i F_i)` and `γ` any maximiser: `(e+2)·ρ + 2·s(γ) + e·rk L ≤ 2·rk H`. -/
@@ -318,12 +327,14 @@ theorem lemma13Prime {e : ℕ} (F : Fin (e + 2) → U →ₗ[K] Q) (ρ : ℕ)
     have hFi : ∀ i, F i = 0 := by
       intro i
       have hle : finrank K (LinearMap.range (F i)) ≤ ρ := by
-        have := hρ.2 ⟨Pi.single i 1, rfl⟩
+        have h' : finrank K (LinearMap.range
+            (∑ j, (Pi.single i (1 : K) : Fin (e + 2) → K) j • F j)) ≤ ρ :=
+          hρ.2 ⟨Pi.single i 1, rfl⟩
         have hs : ∑ j, (Pi.single i (1 : K) : Fin (e + 2) → K) j • F j = F i := by
           rw [Finset.sum_eq_single i (fun b _ hb => by simp [Pi.single_apply, hb])
             (fun h => absurd (Finset.mem_univ _) h)]
           simp
-        simpa [hs] using this
+        rwa [hs] at h'
       rw [hρ0, Nat.le_zero, Submodule.finrank_eq_zero, LinearMap.range_eq_bot] at hle
       exact hle
     have hF0 : F = 0 := funext hFi
@@ -333,11 +344,12 @@ theorem lemma13Prime {e : ℕ} (F : Fin (e + 2) → U →ₗ[K] Q) (ρ : ℕ)
     have hs : sDim (∑ i, (0 : Fin (e + 2) → K) i • (0 : Fin (e + 2) → U →ₗ[K] Q) i)
         (0 : Fin (e + 2) → U →ₗ[K] Q) = 0 := by
       simp [sDim]
-    rw [hρ0, hs, hsum]
+    rw [hρ0, hs, hsum, LinearMap.range_zero, finrank_bot]
     simp
   · rw [← hγρ]
     exact lemma13Prime_of_gamma F γ hγ
 
+omit [FiniteDimensional K Q] in
 /-- If `rk G < dim U` and `s(γ) = 0`, then the `F_i` have a common kernel vector `x ≠ 0`
 (prose Section 4, remark: "s = 0 heißt: k liegt im gemeinsamen Kern N"). -/
 theorem exists_common_kernel_of_sDim_eq_zero [FiniteDimensional K U] {d : ℕ}
