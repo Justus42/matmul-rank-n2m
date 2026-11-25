@@ -819,6 +819,74 @@ class Test97Output(Section9):
         doc["origin"]["created"] = "2026-02-30"
         self.assertMalformed(doc)
 
+    def test_976_one_line_despite_control_characters(self):
+        """A control character anywhere must not split the FEHLERHAFT line (9.7.6)."""
+        # in a coefficient
+        for bad in ("1\n", "\n", "1\r\n", "1\u2028", "1\u0085", "1\x00", "1\x7f", "\u000b1", "1\t"):
+            doc = load(STRASSEN)
+            doc["products"][0]["u"][0][0] = bad
+            code, lines = self.check(doc)
+            self.assertEqual(code, 2, lines)
+            self.assertEqual(len(lines), 1, lines)
+            for line in lines:
+                self.assertNotIn("\n", line)
+                self.assertNotIn("\r", line)
+        # in origin, claim, notes and derived_from
+        doc = load(STRASSEN)
+        doc["notes"] = "a\nb"
+        doc["origin"]["source"] = "x\r\ny"
+        doc["origin"]["created"] = "2026-11-2\n"
+        code, lines = self.check(doc)
+        self.assertEqual((code, len(lines)), (2, 1), lines)
+        self.assertNotIn("\n", lines[0])
+        # in ring and id
+        for key, value in (("ring", "GF(2)\n"), ("id", "2x2x2-r7-strassen69\n")):
+            doc = load(STRASSEN)
+            doc[key] = value
+            code, lines = self.check(doc, name=STRASSEN_NAME)
+            self.assertEqual((code, len(lines)), (2, 1), lines)
+            self.assertNotIn("\n", lines[0])
+
+    def test_976_one_line_despite_file_name(self):
+        """9.7.3 names the file in the line, 9.7.6 allows only one line."""
+        for name in ("2x2x2-r7-a\nb.json", "2x2x2-r7-a\rb.json", "a\nb.json", "2x2x2-r7-a\u2028b.json",
+                     "\n.json", "2x2x2-r7-a\x01b.json"):
+            doc = load(STRASSEN)
+            code, lines = self.check(doc, name=name)
+            self.assertEqual(code, 2, lines)
+            self.assertEqual(len(lines), 1, lines)
+            self.assertNotIn("\n", lines[0])
+            self.assertNotIn("\r", lines[0])
+        # the same through the command line: stdout holds exactly one line
+        path = os.path.join(self.tmp.name, "2x2x2-r7-a\nb.json")
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump(load(STRASSEN), fh)
+        res = subprocess.run([sys.executable, Test97Output.SCRIPT, path], capture_output=True)
+        self.assertEqual(res.returncode, 2)
+        out = res.stdout.decode("utf-8")
+        self.assertEqual(out.count("\n"), 1, repr(out))
+        self.assertTrue(out.startswith("FEHLERHAFT 2x2x2-r7-a\\x0ab.json "), repr(out))
+
+    def test_976_one_line_in_internal_error(self):
+        import io
+        from unittest import mock
+        buf = io.StringIO()
+        with mock.patch.object(pruefer, "check_file", side_effect=RuntimeError("ka\nputt")), \
+                mock.patch.object(sys, "stdout", buf):
+            code = pruefer.main(["pruefer.py", os.path.join(self.tmp.name, "2x2x2-r7-a\nb.json")])
+        self.assertEqual(code, 3)
+        # one trailing newline from print(), none inside the line
+        self.assertEqual(buf.getvalue().count("\n"), 1, repr(buf.getvalue()))
+        self.assertTrue(buf.getvalue().endswith("\n"))
+
+    def test_one_line_helper(self):
+        self.assertEqual(pruefer.one_line("ok 1/2 é😀"), "ok 1/2 é😀")
+        self.assertEqual(pruefer.one_line("a\nb"), "a\\x0ab")
+        self.assertEqual(pruefer.one_line("a\rb\tc"), "a\\x0db\\x09c")
+        self.assertEqual(pruefer.one_line("a\\b"), "a\\\\b")
+        self.assertEqual(pruefer.one_line("\u2028\u0085\x00"), "\\u2028\\x85\\x00")
+        self.assertEqual(pruefer.one_line("\U000e0001"), "\\U000e0001")
+
     def test_976_hints_on_rejected(self):
         doc = load(STRASSEN)
         doc["ring"] = "Q"
