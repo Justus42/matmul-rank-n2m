@@ -184,9 +184,9 @@ theorem transp_baseChange_alpha (L : Type v) [Field L] [Algebra K L] {n m r : �
   have h : ((transp alg).baseChange L).alpha t - ((alg.baseChange L).beta t).comp trA = 0 := by
     apply linearForm_eq_zero_of_unitMatrix
     intro i j
-    rw [LinearMap.sub_apply, LinearMap.comp_apply, sub_eq_zero, ← unitMatrix_map' L,
+    rw [LinearMap.sub_apply, LinearMap.comp_apply, sub_eq_zero, ← unitMatrix_map' (K := K) L,
       BilinearAlgorithm.baseChange_alpha_map, transp_alpha_apply]
-    show _ = (alg.baseChange L).beta t (Mrot * ((unitMatrix i j).map (algebraMap K L))ᵀ)
+    show _ = (alg.baseChange L).beta t ((Mrot : Matrix (Fin 2) (Fin 2) L) * ((unitMatrix i j).map (algebraMap K L))ᵀ)
     rw [← Mrot_map (K := K) L, ← Matrix.transpose_map, ← Matrix.map_mul,
       BilinearAlgorithm.baseChange_beta_map]
   have h2 := LinearMap.congr_fun h X
@@ -199,9 +199,9 @@ theorem transp_baseChange_beta (L : Type v) [Field L] [Algebra K L] {n m r : ℕ
   have h : ((transp alg).baseChange L).beta t - ((alg.baseChange L).alpha t).comp trB = 0 := by
     apply linearForm_eq_zero_of_unitMatrix
     intro i j
-    rw [LinearMap.sub_apply, LinearMap.comp_apply, sub_eq_zero, ← unitMatrix_map' L,
+    rw [LinearMap.sub_apply, LinearMap.comp_apply, sub_eq_zero, ← unitMatrix_map' (K := K) L,
       BilinearAlgorithm.baseChange_beta_map, transp_beta_apply]
-    show _ = (alg.baseChange L).alpha t (((unitMatrix i j).map (algebraMap K L))ᵀ * Mrot')
+    show _ = (alg.baseChange L).alpha t (((unitMatrix i j).map (algebraMap K L))ᵀ * (Mrot' : Matrix (Fin 2) (Fin 2) L))
     rw [← Mrot'_map (K := K) L, ← Matrix.transpose_map, ← Matrix.map_mul,
       BilinearAlgorithm.baseChange_alpha_map]
   have h2 := LinearMap.congr_fun h Y
@@ -286,9 +286,10 @@ variable (R : Matrix (Fin 4) (Fin 4) L) (hR : IsUnit R.det)
 /-- `a′_t = -Rᵀ b_t`. -/
 theorem transNF_avecs (t : Fin r) (i : Fin 4) :
     SatzB444.avecs (transNF alg R hR) t i = -(bvecs alg t ⬝ᵥ fun x => R x i) := by
-  show alg.beta t (Mrot * (R * unitMatrix i 0 * 1)ᵀ) = _
+  show alg.beta t ((Mrot : Matrix (Fin 2) (Fin 2) L) * (R * unitMatrix i 0 * 1)ᵀ) = _
   rw [mul_unitMatrix_mul, Mrot_outer]
-  have e : outer (Mrot *ᵥ fun y => (1 : Matrix (Fin 2) (Fin 2) L) 0 y) (fun x => R x i) =
+  have e : outer ((Mrot : Matrix (Fin 2) (Fin 2) L) *ᵥ fun y => (1 : Matrix (Fin 2) (Fin 2) L) 0 y)
+      (fun x => R x i) =
       -(emb fun x => R x i) := by
     ext a b
     fin_cases a <;>
@@ -409,9 +410,9 @@ variable {L : Type u} [Field L] {r : ℕ} (alg : BilinearAlgorithm L 4 2 4 r)
 `SatzF444.kubik_of_unterfallB`): in sub-case B there is `u₁ ∉ L e₀` such that `Ψ(e₀, ·)` and
 `Ψ(u₁, ·)` take values in a space of dimension `≤ 5`. -/
 theorem eng_of_unterfallB (hB : UnterfallB alg) :
-    ∃ u1 : Fin 4 → L, (∀ c : L, u1 ≠ c • Pi.single 0 1) ∧
+    ∃ u1 : Fin 4 → L, (∀ c : L, u1 ≠ c • (Pi.single 0 1 : Fin 4 → L)) ∧
       ∃ P : Submodule L (Fin r → L), finrank L P ≤ 5 ∧
-        ∀ w, psi alg (Pi.single 0 1) w ∈ P ∧ psi alg u1 w ∈ P := by
+        ∀ w, psi alg (Pi.single 0 1 : Fin 4 → L) w ∈ P ∧ psi alg u1 w ∈ P := by
   classical
   obtain ⟨-, γs, hγ0, -, hrk, -⟩ := hB
   obtain ⟨q, -, hq⟩ := LemmaP444.exists_eq_span_of_finrank_one _ hrk
@@ -481,7 +482,7 @@ theorem transponiertEng_of {L : Type u} [Field L] [IsAlgClosed L]
   refine ⟨w0, Rmat w0 *ᵥ u1, fun h => hw00 (by rw [h, Pi.zero_apply]), hw0, fun c hc => hu1 c ?_,
     P, hP, fun u => ⟨?_, ?_⟩⟩
   · apply hRinj
-    show Rmat w0 *ᵥ u1 = Rmat w0 *ᵥ (c • Pi.single 0 1)
+    show Rmat w0 *ᵥ u1 = Rmat w0 *ᵥ (c • (Pi.single 0 1 : Fin 4 → L))
     rw [hc, Matrix.mulVec_smul, Rmat_single]
   · have h := P.neg_mem (hmem u).1
     rwa [psi_transNF, Rmat_single, neg_neg] at h
@@ -524,7 +525,9 @@ theorem TgL_inv_mul_emb (u : Fin 4 → GBar K) : (TgL K)⁻¹ * emb u = outer (v
   simp [Matrix.mul_apply, Fin.sum_univ_two, emb_apply_zero, emb_apply_one, vTL, outer_apply]
 
 /-- `M p = -(det T) v`: the inner point of the `B`-side is the image of the generic point. -/
-theorem Mrot_prowL : Mrot *ᵥ prowL (K := K) = (-(ι K (Tg K).det)) • vTL (K := K) := by
+theorem Mrot_prowL :
+    (Mrot : Matrix (Fin 2) (Fin 2) (GBar K)) *ᵥ (prowL : Fin 2 → GBar K) =
+      (-(ι K (Tg K).det)) • (vTL : Fin 2 → GBar K) := by
   have hd := det_Tg_ne_zero K
   funext i
   rw [Pi.smul_apply, smul_eq_mul, vTL_eq]
@@ -556,20 +559,22 @@ theorem transN2_genAlgL {r : ℕ} (alg : BilinearAlgorithm K 4 2 4 r) : TransN2 
     apply hX
     calc X = (SgL K)⁻¹ * (SgL K * X * TgL K) * (TgL K)⁻¹ := by
           rw [Matrix.mul_assoc (SgL K) X, Matrix.nonsing_inv_mul_cancel_left _ _ hS,
-            Matrix.mul_nonsing_inv_cancel_right _ hT]
+            Matrix.mul_assoc X, Matrix.mul_nonsing_inv _ hT, Matrix.mul_one]
       _ = 0 := by rw [h0, Matrix.mul_zero, Matrix.zero_mul]
-  have hw : (SgL K * X * TgL K * Mrot)ᵀ ≠ 0 := by
+  have hw : (SgL K * X * TgL K * (Mrot : Matrix (Fin 2) (Fin 2) (GBar K)))ᵀ ≠ 0 := by
     intro h0
     apply hX'
-    have h1 : SgL K * X * TgL K * Mrot = 0 := Matrix.transpose_eq_zero.mp h0
-    calc SgL K * X * TgL K = SgL K * X * TgL K * Mrot * Mrot' := by
-          rw [Matrix.mul_assoc _ Mrot, Mrot_mul_Mrot', Matrix.mul_one]
+    have h1 : SgL K * X * TgL K * (Mrot : Matrix (Fin 2) (Fin 2) (GBar K)) = 0 :=
+      Matrix.transpose_eq_zero.mp h0
+    calc SgL K * X * TgL K = SgL K * X * TgL K * (Mrot : Matrix (Fin 2) (Fin 2) (GBar K)) *
+          (Mrot' : Matrix (Fin 2) (Fin 2) (GBar K)) := by
+          rw [Matrix.mul_assoc _ (Mrot : Matrix (Fin 2) (Fin 2) (GBar K)), Mrot_mul_Mrot', Matrix.mul_one]
       _ = 0 := by rw [h1, Matrix.zero_mul]
   apply genInjL (transp alg) _ hw
   rw [map_zero]
   funext k
   rw [lmap_apply, transp_baseChange_alpha, transp_baseChange_beta, Pi.zero_apply,
-    Matrix.transpose_transpose, Matrix.mul_assoc _ Mrot, Mrot_mul_Mrot', Matrix.mul_one,
+    Matrix.transpose_transpose, Matrix.mul_assoc _ (Mrot : Matrix (Fin 2) (Fin 2) (GBar K)), Mrot_mul_Mrot', Matrix.mul_one,
     Mrot_outer, Mrot_prowL, outer_smul_left, map_smul, smul_eq_mul, mul_assoc]
   have h := hu k
   rw [← beta_emb] at h
