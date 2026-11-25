@@ -1,0 +1,81 @@
+== Strassen <2,2,2>: n=2, m=2, r=7, dim ker W = 3
+   dim J_p, dim(J_p + ker W) at 3 random p: [(3, 3), (3, 3), (3, 3)]  -> (G) holds: True
+   class sizes: [1, 2, 2, 2], number of classes = 4, Lemma Z bound ceil(r/2) = 4
+   distinct points at random p: 4
+   pairs (s,t) with dim pr_(s,t)(ker W) <= 1: [(1, 3), (2, 4), (5, 6)]
+   class [1, 3]: ranks A = [1, 1], B = [1, 1]
+   class [2, 4]: ranks A = [1, 1], B = [1, 1]
+   class [5, 6]: ranks A = [1, 1], B = [1, 1]
+== Strassen <2,2,2>, random equivalent #1: n=2, m=2, r=7, dim ker W = 3
+   dim J_p, dim(J_p + ker W) at 3 random p: [(3, 3), (3, 3), (3, 3)]  -> (G) holds: True
+   class sizes: [1, 2, 2, 2], number of classes = 4, Lemma Z bound ceil(r/2) = 4
+   distinct points at random p: 4
+   pairs (s,t) with dim pr_(s,t)(ker W) <= 1: [(1, 3), (2, 4), (5, 6)]
+   class [1, 3]: ranks A = [1, 1], B = [1, 1]
+   class [2, 4]: ranks A = [1, 1], B = [1, 1]
+   class [5, 6]: ranks A = [1, 1], B = [1, 1]
+== Strassen <2,2,2>, random equivalent #2: n=2, m=2, r=7, dim ker W = 3
+   dim J_p, dim(J_p + ker W) at 3 random p: [(3, 3), (3, 3), (3, 3)]  -> (G) holds: True
+   class sizes: [1, 2, 2, 2], number of classes = 4, Lemma Z bound ceil(r/2) = 4
+   distinct points at random p: 4
+   pairs (s,t) with dim pr_(s,t)(ker W) <= 1: [(1, 3), (2, 4), (5, 6)]
+   class [1, 3]: ranks A = [1, 1], B = [1, 1]
+   class [2, 4]: ranks A = [1, 1], B = [1, 1]
+   class [5, 6]: ranks A = [1, 1], B = [1, 1]
+== Strassen <2,2,2>, random equivalent #3: n=2, m=2, r=7, dim ker W = 3
+   dim J_p, dim(J_p + ker W) at 3 random p: [(3, 3), (3, 3), (3, 3)]  -> (G) holds: True
+   class sizes: [1, 2, 2, 2], number of classes = 4, Lemma Z bound ceil(r/2) = 4
+   distinct points at random p: 4
+   pairs (s,t) with dim pr_(s,t)(ker W) <= 1: [(1, 3), (2, 4), (5, 6)]
+   class [1, 3]: ranks A = [1, 1], B = [1, 1]
+   class [2, 4]: ranks A = [1, 1], B = [1, 1]
+   class [5, 6]: ranks A = [1, 1], B = [1, 1]
+== Strassen+4 <2,2,3>: n=2, m=3, r=11, dim ker W = 5
+   dim J_p, dim(J_p + ker W) at 3 random p: [(5, 5), (5, 5), (5, 5)]  -> (G) holds: True
+   class sizes: [1, 2, 2, 2, 2, 2], number of classes = 6, Lemma Z bound ceil(r/2) = 6
+   distinct points at random p: 6
+   pairs (s,t) with dim pr_(s,t)(ker W) <= 1: [(1, 3), (2, 4), (5, 6), (7, 8), (9, 10)]
+   class [1, 3]: ranks A = [1, 1], B = [1, 1]
+   class [2, 4]: ranks A = [1, 1], B = [1, 1]
+   class [5, 6]: ranks A = [1, 1], B = [1, 1]
+   class [7, 8]: ranks A = [1, 1], B = [1, 1]
+   class [9, 10]: ranks A = [1, 1], B = [1, 1]
+== Strassen+4 <2,2,3>, random equivalent #1: n=2, m=3, r=11, dim ker W = 5
+   dim J_p, dim(J_p + ker W) at 3 random p: [(5, 5), (5, 5), (5, 5)]  -> (G) holds: True
+   class sizes: [1, 2, 2, 2, 2, 2], number of classes = 6, Lemma Z bound ceil(r/2) = 6
+   distinct points at random p: 6
+   pairs (s,t) with dim pr_(s,t)(ker W) <= 1: [(1, 3), (2, 4), (5, 6), (7, 8), (9, 10)]
+   class [1, 3]: ranks A = [1, 1], B = [1, 1]
+   class [2, 4]: ranks A = [1, 1], B = [1, 1]
+   class [5, 6]: ranks A = [1, 1], B = [1, 1]
+   class [7, 8]: ranks A = [1, 1], B = [1, 1]
+   class [9, 10]: ranks A = [1, 1], B = [1, 1]
+== Strassen+4 <2,2,3>, random equivalent #2: n=2, m=3, r=11, dim ker W = 5
+   dim J_p, dim(J_p + ker W) at 3 random p: [(5, 5), (5, 5), (5, 5)]  -> (G) holds: True
+   class sizes: [1, 2, 2, 2, 2, 2], number of classes = 6, Lemma Z bound ceil(r/2) = 6
+   distinct points at random p: 6
+   pairs (s,t) with dim pr_(s,t)(ker W) <= 1: [(1, 3), (2, 4), (5, 6), (7, 8), (9, 10)]
+   class [1, 3]: ranks A = [1, 1], B = [1, 1]
+   class [2, 4]: ranks A = [1, 1], B = [1, 1]
+   class [5, 6]: ranks A = [1, 1], B = [1, 1]
+   class [7, 8]: ranks A = [1, 1], B = [1, 1]
+   class [9, 10]: ranks A = [1, 1], B = [1, 1]
+== Strassen+4 <2,2,3>, random equivalent #3: n=2, m=3, r=11, dim ker W = 5
+   dim J_p, dim(J_p + ker W) at 3 random p: [(5, 5), (5, 5), (5, 5)]  -> (G) holds: True
+   class sizes: [1, 2, 2, 2, 2, 2], number of classes = 6, Lemma Z bound ceil(r/2) = 6
+   distinct points at random p: 6
+   pairs (s,t) with dim pr_(s,t)(ker W) <= 1: [(1, 3), (2, 4), (5, 6), (7, 8), (9, 10)]
+   class [1, 3]: ranks A = [1, 1], B = [1, 1]
+   class [2, 4]: ranks A = [1, 1], B = [1, 1]
+   class [5, 6]: ranks A = [1, 1], B = [1, 1]
+   class [7, 8]: ranks A = [1, 1], B = [1, 1]
+   class [9, 10]: ranks A = [1, 1], B = [1, 1]
+== negative control: Strassen with term 1 split (r=8, not minimal): n=2, m=2, r=8, dim ker W = 4
+   dim J_p, dim(J_p + ker W) at 3 random p: [(3, 4), (3, 4), (3, 4)]  -> (G) holds: False
+   class sizes: [2, 2, 2, 2], number of classes = 4, Lemma Z bound ceil(r/2) = 4
+   distinct points at random p: 4
+   pairs (s,t) with dim pr_(s,t)(ker W) <= 1: [(2, 4), (3, 5), (6, 7)]
+   class [0, 1]: ranks A = [2, 2], B = [2, 2]
+   class [2, 4]: ranks A = [1, 1], B = [1, 1]
+   class [3, 5]: ranks A = [1, 1], B = [1, 1]
+   class [6, 7]: ranks A = [1, 1], B = [1, 1]

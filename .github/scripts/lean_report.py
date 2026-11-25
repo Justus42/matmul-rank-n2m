@@ -35,6 +35,9 @@ MAIN_THEOREMS = [
     ("Satz E <4,2,4>, case (5,8): no sub-case A (SatzE444.lean)", "YangBounds.SatzE444.satzE"),
     ("Satz E <4,2,4>, every field (SatzE444.lean)", "YangBounds.SatzE444.satzE_global"),
     ("Only sub-case B, assuming Lemma P and non-symmetry (SatzE444Buendel.lean)", "YangBounds.SatzE444Buendel.nur_unterfallB"),
+    ("Satz C <4,2,4>, algebraic core (SatzC444Kern.lean)", "YangBounds.SatzC444.satzC_kern"),
+    ("Satz C <4,2,4>, generic point, length <= 25 (SatzC444Generisch.lean)", "YangBounds.SatzC444.satzC_generisch"),
+    ("Folgerung C1 (R-C1) <4,2,4>, generic case (5,8) (SatzC444Generisch.lean)", "YangBounds.SatzC444.folgerungC1_generisch"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 

@@ -21,3 +21,6 @@ Since S1-17 no proof is open; an occurrence of `sorryAx` here would be an error.
 #print axioms YangBounds.SatzE444.satzE_global
 #print axioms YangBounds.SatzE444Buendel.nur_unterfallB
 #print axioms YangBounds.SatzE444Buendel.nur_unterfallB_global
+#print axioms YangBounds.SatzC444.satzC_kern
+#print axioms YangBounds.SatzC444.satzC_generisch
+#print axioms YangBounds.SatzC444.folgerungC1_generisch
