@@ -515,7 +515,9 @@ theorem step13 {Q : Type w} [AddCommGroup Q] [Module K Q] [FiniteDimensional K Q
       have := range_sumMap_mixF_le (rowMatrix γ k)⁻¹ (mixF (rowMatrix γ k) F)
       rw [mixF_mixF (Matrix.nonsing_inv_mul _ hdet)] at this
       exact Submodule.finrank_mono this
-    have hH := finrank_range_skewExt_mixF_le (Matrix.mul_nonsing_inv _ hdet) F
+    have hH : finrank K (LinearMap.range (skewExt (sumMap (mixF (rowMatrix γ k) F)))) ≤
+        finrank K (LinearMap.range (skewExt (sumMap F))) :=
+      finrank_range_skewExt_mixF_le (Matrix.mul_nonsing_inv _ hdet) F
     have := Nat.mul_le_mul_left e hL
     omega
 
