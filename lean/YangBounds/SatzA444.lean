@@ -45,6 +45,8 @@ lemmas are Yang's (arXiv:2609.14393v3), formalised in `YangN4Haupt.lean` and
 * `SatzAStatement K`, `satzA_statement`: Theorem A for normalized decompositions, as a `Prop`
   usable as a hypothesis (task S2-15), and its proof.
 * `satzA`: the same as a theorem with explicit arguments, plus `dim Q = 5`.
+* `satzA_global`: the prose statement as written: any decomposition of length 25 over any
+  field has a normal form over the algebraic closure in which the conclusion holds.
 * `satzA_exists`: from any decomposition of length 25 over any field to a normalized one over
   the algebraic closure, for which Theorem A holds.
 * `finrank_range_Φ`: `rk Φ = 12 + rk H` (for every normalized decomposition of `⟨4,2,m⟩`…
@@ -191,6 +193,26 @@ theorem satzA_exists (K : Type u) [Field K] (alg : BilinearAlgorithm K 4 2 4 25)
   obtain rfl : r' = 25 := by omega
   exact ⟨alg', h1, h2⟩
 
+/-- **Satz A, global form with conclusion** (prose Section 3, as stated there): every
+decomposition of `⟨4,2,4⟩` of length 25 over any field `K` has a normal form over the
+algebraic closure (length 25, (N1), (N2)) in which `ρ = 3` and
+`(rk L, rk H) ∈ {(3,6), (4,7), (5,7), (5,8)}`. -/
+theorem satzA_global (K : Type u) [Field K] (alg : BilinearAlgorithm K 4 2 4 25) :
+    ∃ alg' : BilinearAlgorithm (AlgebraicClosure K) 4 2 4 25,
+      SN1 (d := 3) alg' ∧ SN2 (d := 3) alg' ∧
+      ∀ ρ : ℕ, IsGreatest (Set.range (rkComb (Fq (d := 3) alg'))) ρ →
+        ρ = 3 ∧
+        ((finrank (AlgebraicClosure K) (LinearMap.range (Lq (d := 3) alg')),
+            finrank (AlgebraicClosure K) (LinearMap.range (Hq (d := 3) alg'))) = (3, 6) ∨
+          (finrank (AlgebraicClosure K) (LinearMap.range (Lq (d := 3) alg')),
+            finrank (AlgebraicClosure K) (LinearMap.range (Hq (d := 3) alg'))) = (4, 7) ∨
+          (finrank (AlgebraicClosure K) (LinearMap.range (Lq (d := 3) alg')),
+            finrank (AlgebraicClosure K) (LinearMap.range (Hq (d := 3) alg'))) = (5, 7) ∨
+          (finrank (AlgebraicClosure K) (LinearMap.range (Lq (d := 3) alg')),
+            finrank (AlgebraicClosure K) (LinearMap.range (Hq (d := 3) alg'))) = (5, 8)) := by
+  obtain ⟨alg', h1, h2⟩ := satzA_exists K alg
+  exact ⟨alg', h1, h2, satzA_statement (AlgebraicClosure K) alg' h1 h2⟩
+
 /-! ## `rk Φ = 12 + rk H` and Folgerung A1 -/
 
 /-- `rk Φ = 12 + rk H` (prose Section 3, “Zu Φ”), from Lemma 10 (`ker Φ = {0} × ker H`). -/
@@ -317,8 +339,12 @@ the cases (3,6), (4,7), (5,7) and at most `1` in the case (5,8). -/
 theorem sDim_table (alg : BilinearAlgorithm K 4 2 4 25) (h1 : SN1 (d := 3) alg)
     (h2 : SN2 (d := 3) alg) (γ : Fin 3 → K)
     (hγ : IsGreatest (Set.range (rkComb (Fq (d := 3) alg))) (rkComb (Fq (d := 3) alg) γ)) :
-    (finrank K (LinearMap.range (Hq (d := 3) alg)) ≤
-        finrank K (LinearMap.range (Lq (d := 3) alg)) + 2 →
+    (((finrank K (LinearMap.range (Lq (d := 3) alg)),
+          finrank K (LinearMap.range (Hq (d := 3) alg))) = (3, 6) ∨
+        (finrank K (LinearMap.range (Lq (d := 3) alg)),
+          finrank K (LinearMap.range (Hq (d := 3) alg))) = (4, 7) ∨
+        (finrank K (LinearMap.range (Lq (d := 3) alg)),
+          finrank K (LinearMap.range (Hq (d := 3) alg))) = (5, 7)) →
       Lemma13Prime.sDim (∑ i, γ i • Fq (d := 3) alg i) (Fq (d := 3) alg) = 0) ∧
     Lemma13Prime.sDim (∑ i, γ i • Fq (d := 3) alg i) (Fq (d := 3) alg) ≤ 1 := by
   set ρ := rkComb (Fq (d := 3) alg) γ with hρdef
@@ -336,17 +362,22 @@ theorem sDim_table (alg : BilinearAlgorithm K 4 2 4 25) (h1 : SN1 (d := 3) alg)
   rw [hL, hH] at h
   simp only [Prod.mk.injEq] at hcases
   constructor
-  · intro hle
+  · intro hc
+    simp only [Prod.mk.injEq] at hc
     omega
   · omega
 
 /-- **Common kernel** (prose Section 4, table, and Section 7): in the cases (3,6), (4,7),
-(5,7) of Satz A (equivalently `rk H ≤ rk L + 2`), the maps `F_1, F_2, F_3` of a normalized
+(5,7) of Satz A, the maps `F_1, F_2, F_3` of a normalized
 decomposition of length 25 have a common kernel vector: `N ≠ 0`. -/
 theorem exists_common_kernel (alg : BilinearAlgorithm K 4 2 4 25) (h1 : SN1 (d := 3) alg)
     (h2 : SN2 (d := 3) alg)
-    (hcase : finrank K (LinearMap.range (Hq (d := 3) alg)) ≤
-      finrank K (LinearMap.range (Lq (d := 3) alg)) + 2) :
+    (hcase : ((finrank K (LinearMap.range (Lq (d := 3) alg)),
+          finrank K (LinearMap.range (Hq (d := 3) alg))) = (3, 6) ∨
+        (finrank K (LinearMap.range (Lq (d := 3) alg)),
+          finrank K (LinearMap.range (Hq (d := 3) alg))) = (4, 7) ∨
+        (finrank K (LinearMap.range (Lq (d := 3) alg)),
+          finrank K (LinearMap.range (Hq (d := 3) alg))) = (5, 7))) :
     ∃ x : Fin 4 → K, x ≠ 0 ∧ ∀ i, Fq (d := 3) alg i x = 0 := by
   obtain ⟨ρ, hρ⟩ := exists_isGreatest_rkComb (Fq (d := 3) alg)
   obtain ⟨γ, hγ⟩ := hρ.1
@@ -358,12 +389,6 @@ theorem exists_common_kernel (alg : BilinearAlgorithm K 4 2 4 25) (h1 : SN1 (d :
   have : finrank K (LinearMap.range (∑ i, γ i • Fq (d := 3) alg i)) = ρ := hγ
   rw [this, Module.finrank_fin_fun]
   omega
-
-/-- The cases (3,6), (4,7), (5,7) of Satz A are exactly those with `rk H ≤ rk L + 2`. -/
-theorem cases_kernel_iff (a b : ℕ)
-    (h : (a, b) = (3, 6) ∨ (a, b) = (4, 7) ∨ (a, b) = (5, 7) ∨ (a, b) = (5, 8)) :
-    b ≤ a + 2 ↔ ((a, b) = (3, 6) ∨ (a, b) = (4, 7) ∨ (a, b) = (5, 7)) := by
-  rcases h with h | h | h | h <;> obtain ⟨rfl, rfl⟩ := Prod.mk.inj h <;> decide
 
 end SatzA
 
@@ -377,6 +402,7 @@ end YangBounds
 #print axioms YangBounds.SatzA444.satzA
 #print axioms YangBounds.SatzA444.satzA_statement
 #print axioms YangBounds.SatzA444.satzA_exists
+#print axioms YangBounds.SatzA444.satzA_global
 #print axioms YangBounds.SatzA444.corollaryA1
 #print axioms YangBounds.SatzA444.corollaryA2
 #print axioms YangBounds.SatzA444.sDim_table
