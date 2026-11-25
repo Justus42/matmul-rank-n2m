@@ -1,13 +1,14 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Wechsel zu Stufe 1)
+Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 1, Halt)
 
 ## Aktuelle Stufe
 
 **Stufe 1: Yangs dritte Fassung formalisieren**
 
 - Runden verbraucht: 0 von 8
-- Runde 1 läuft: S1-01, S1-02, S1-03, S1-04
+- Runde 1 läuft: S1-02, S1-03, S1-04 geliefert, S1-01 schließt seine Lieferung noch ab
+- **Halt nach Abbruchregel 4:** keine neuen Aufträge, bis Justus entschieden hat (siehe Sperren)
 - Stufenwechsel 1 → 2: durch den Orchestrator, sobald das Fertig-Kriterium erfüllt ist (Protokoll Abschnitt 3 und 11)
 - Stufe 3: erst nach Budget von Justus
 
@@ -16,11 +17,11 @@ Zuletzt geändert: 25.11.2026 (Wechsel zu Stufe 1)
 | Nr. | Auftrag | Zieldatei | Stand |
 |---|---|---|---|
 | S1-01 | Lean-Projektgerüst | `lean/` | vergeben in Runde 1 |
-| S1-02 | Prosa-Beweis der Schranke für n = 3 | `lean/prosa/` oder Ort laut Auftrag | vergeben in Runde 1 |
-| S1-03 | Prosa-Beweis der Schranke für m ≥ n ≥ 4 | `lean/prosa/` oder Ort laut Auftrag | vergeben in Runde 1 |
-| S1-04 | Festlegung der zwei Randfälle im Format (Zusatzschlüssel, ungültige Kalenderdaten: beides FEHLERHAFT) | `verfahren/README.md` | vergeben in Runde 1 |
+| S1-02 | Prosa-Beweis der Schranke für n = 3 | `lean/prosa/yang_n3.md` | erledigt in Runde 1, PR #13 |
+| S1-03 | Prosa-Beweis der Schranke für m ≥ n ≥ 4 | `lean/prosa/yang_n4.md` | erledigt in Runde 1, PR #14 (Lücke L5, siehe Sperren) |
+| S1-04 | Festlegung der zwei Randfälle im Format (Zusatzschlüssel, ungültige Kalenderdaten: beides FEHLERHAFT) | `verfahren/README.md` | erledigt in Runde 1, PR #12 |
 
-Die Anpassung der beiden Prüfprogramme an die Randfälle wird in Stufe 1 vergeben.
+Die Anpassung der beiden Prüfprogramme an die Randfälle (Abschnitt 10 von `verfahren/README.md`) wird in Stufe 1 vergeben, sobald der Halt aufgehoben ist.
 
 ## Fertig-Kriterium Stufe 1
 
@@ -64,5 +65,6 @@ Ergebnisse mit Status geprüft: B-001 (Rang von ⟨3,2,5⟩ ist 25, über jedem 
 
 ## Sperren
 
+- Halt nach Abbruchregel 4 (L5, Lemma 13 in Yang v3), Bericht an Justus, Entscheidung offen
 - Keine Arbeit an Stufe 3 ohne Budget von Justus
 - Fremder Code nur nach der Lizenzregel (Protokoll Abschnitt 11.3)

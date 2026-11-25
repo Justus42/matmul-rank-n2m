@@ -200,3 +200,36 @@ Stufe 0 ist nach 3 Runden abgeschlossen. Die dritte Runde lag über dem Startbud
 **Entscheidung für Runde 1 der Stufe 1**
 
 Vergeben: S1-01 Lean-Projektgerüst (`lean/`), S1-02 Prosa-Beweis der Schranke für n = 3, S1-03 Prosa-Beweis der Schranke für m ≥ n ≥ 4, S1-04 Festlegung der zwei Randfälle im Format (`verfahren/README.md`).
+
+---
+
+## 25.11.2026 · Stufe 1, Runde 1, Zwischenstand und Halt
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: S1-01, S1-02, S1-03, S1-04. S1-01 (Lean-Projektgerüst) läuft beim Schreiben dieses Eintrags noch.
+
+**Gelieferte Dateien**
+
+- S1-04: `verfahren/README.md`, Pull Request #12
+- S1-02: `lean/prosa/yang_n3.md`, Pull Request #13
+- S1-03: `lean/prosa/yang_n4.md`, Pull Request #14
+
+**Befunde**
+
+- S1-04: Die Randfälle sind in strenger Lesart festgelegt (Abschnitt 9 des Formats). „-0“ bleibt erlaubt, das hat der Orchestrator bestätigt. Was die Prüfprogramme anpassen müssen, steht in Abschnitt 10.
+- S1-02: Prosa-Beweis für n = 3. Der Beweissucher fand keine Lücke und sechs Ungenauigkeiten im Paper ohne Einfluss auf die Aussage, darunter einen Schreibfehler in der Basiswechsel-Formel in Abschnitt 2. Status behauptet.
+- S1-03: Prosa-Beweis für m ≥ n ≥ 4. Der Beweissucher fand sieben Darstellungslücken L1 bis L7. Die schwerste ist L5: Der Beweis von Lemma 13 ist im Paper falsch aufgeschrieben. Wörtlich genommen ist Γ = 0, H(Γ) ist falsch angegeben, und L̄ und H̄ sind nicht wohldefiniert. Nach Einschätzung des Beweissuchers stimmt die Aussage von Lemma 13. Er hat eine Reparatur über den Quotienten Q/im F₁ aufgeschrieben und hält L5 nicht für eine Lücke im Sinne von Abbruchregel 4. Status behauptet, die Reparatur ist ungeprüft.
+- S1-03, Nebenbefund, Status vermutet: Die Voraussetzung m ≥ n − 1 könnte genügen.
+
+**Neuer Status je Behauptung**
+
+Kein Statuswort hat sich geändert. Alle neuen Befunde haben den Status behauptet, der Nebenbefund zu m ≥ n − 1 hat den Status vermutet.
+
+**Merges**
+
+Merge-Stand auf `main` beim Schreiben dieses Eintrags: PR #12 (e8d9cb0), #13 (d003ed0) und #14 (0fda45b) sind am 25.11.2026 zwischen 01:37 und 01:41 Uhr (MEZ) gemergt, jeweils unter dem GitHub-Konto Justus42.
+
+**Entscheidung des Orchestrators: Halt nach 11.4**
+
+L5 ist ein Fehler im Beweis einer Quelle (Lemma 13 in Yang v3), gefunden in Stufe 1. Damit steht Abbruchregel 4 in Frage. Der Orchestrator darf keine Abbruchregel aussetzen und legt sie nicht selbst zu seinen Gunsten aus. Er hält deshalb nach 11.4 an und berichtet an Justus. Bis Justus entschieden hat, werden keine neuen Aufträge vergeben. S1-01 darf seine laufende Lieferung abschließen.
