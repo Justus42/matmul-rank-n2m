@@ -1,17 +1,49 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 5 vergeben)
+Zuletzt geändert: 25.11.2026 (Wechsel zu Stufe 2)
 
 ## Aktuelle Stufe
 
-**Stufe 1: Yangs dritte Fassung formalisieren**
+**Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 4 von 8
-- Runde 5 läuft: S1-17, S1-18, S1-19, S1-20
-- Stufenwechsel 1 → 2: durch den Orchestrator, sobald das Fertig-Kriterium erfüllt ist (Protokoll Abschnitt 3 und 11)
+- Runden verbraucht: 0 von 12 (beide Spuren zusammen)
+- Runde 1 läuft: Literaturwache (erledigt, PR #33), S2-01, S2-02, S2-03
+- Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
 
-## Aufträge für Stufe 1
+## Aufträge für Stufe 2
+
+| Nr. | Auftrag | Rolle | Zieldatei | Stand |
+|---|---|---|---|---|
+| S2-01 | Blind-Suche, nur mit der Problemstellung | Blind-Sucher | `versuche/s2-blind-r1.md` | vergeben in Runde 1 |
+| S2-02 | Spur A: Schranke 26 über 𝔽₂ mit Zertifikaten | Beweissucher | `lean/prosa/s2_444_spurA_r1.md`, `versuche/s2-spurA-r1/` | vergeben in Runde 1 |
+| S2-03 | Spur B: Suche nach einem Verfahren mit 25 Produkten | Verfahrenssucher | `versuche/s2-spurB-r1.md`, `verfahren/` | vergeben in Runde 1 |
+
+Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
+
+## Fertig-Kriterium Stufe 2
+
+- [ ] Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25
+
+## Offene Kleinigkeiten
+
+- Veraltete Kommentare „open“ in `lean/YangBounds/Statements.lean` und `lean/YangBounds/Upper3x2x6.lean` (Nebenbefund S1-18)
+- `lean/Axioms.lean` importiert das Wurzelmodul und lässt sich mit `lake env lean` nicht direkt ausführen
+- Formatnachtrag: Rückgabewert 3 mit erster Zeile INTERNER-FEHLER, FEHLERHAFT nur für Eigenschaften der Datei, ein Lauf zählt nur, wenn erstes Wort und Rückgabewert zusammenpassen. Einarbeitung in `verfahren/README.md` und beide Programme wird in Stufe 2 vergeben
+
+## Stufe 1: abgeschlossen
+
+Abgeschlossen am 25.11.2026 nach 5 von 8 Runden.
+
+Fertig-Kriterium Stufe 1, alle Punkte erfüllt:
+
+- [x] Build grün ohne `sorry`: Actions-Lauf 45560784171 auf `main` (46f1038), `SORRY: 0`
+- [x] Axiom-Prüfung bestanden: derselbe Lauf, für alle Hauptsätze nur `propext`, `Classical.choice`, `Quot.sound`
+- [x] Aussagen-Abgleich bestanden: B-006 (S1-18) und B-007 (S1-19), je Prüfer und GPT 6.2 Sol
+
+Ergebnisse mit Status geprüft: Yangs Satz 1 (B-002) und Satz 2 (B-003) als Yangs Sätze, B-006 (Rang von ⟨3,2,6⟩ ist 30), B-007 (Rang von ⟨4,2,4⟩ ist mindestens 25). Übersicht in `behauptungen/README.md`.
+
+### Aufträge der Stufe 1
 
 | Nr. | Auftrag | Zieldatei | Stand |
 |---|---|---|---|
@@ -31,22 +63,10 @@ Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 5 vergeben)
 | S1-14 | Actions-Workflow für `lean/` mit Axiom-Bericht je Satz | `.github/workflows/lean-project.yml` | erledigt in Runde 4, PR #25 |
 | S1-15 | Lemma 13 in reparierter Fassung | `lean/YangBounds/YangN4Lemma13.lean` | erledigt in Runde 4, PR #26 |
 | S1-16 | Hauptbeweis von Satz 2 mit Lemma 13 als Hypothese | `lean/YangBounds/YangN4Haupt.lean` | erledigt in Runde 4, PR #28 |
-| S1-17 | Satz 2 in `Statements.lean` einsetzen, `lean/README.md` nachführen | `lean/` | vergeben in Runde 5 |
-| S1-18 | Aussagen-Abgleich Satz 1 und Rang 3×2×6 = 30, Prüfer und GPT 6.2 Sol | `behauptungen/` (laut Auftrag) | vergeben in Runde 5 |
-| S1-19 | Aussagen-Abgleich Satz 2 und Rang 4×2×4 ≥ 25, Prüfer und GPT 6.2 Sol | `behauptungen/` (laut Auftrag) | vergeben in Runde 5 |
-| S1-20 | Abgleich beider Prüfprogramme | `pruefer/abgleich/` | vergeben in Runde 5 |
-
-Offen für spätere Runden:
-
-- Beide Prüfprogramme auf denselben Testfällen abgleichen (S1-20 vergeben)
-- Rückgabewert bei internem Fehler im Format festlegen (Python nutzt bisher 3, eigene Entscheidung)
-- In `Statements.lean` steht noch ein `sorry`: `yang_theorem_two` (Einsetzen in S1-17 vergeben)
-
-## Fertig-Kriterium Stufe 1
-
-- [ ] Build grün ohne `sorry`
-- [ ] Axiom-Prüfung bestanden
-- [ ] Aussagen-Abgleich bestanden
+| S1-17 | Satz 2 in `Statements.lean` einsetzen, `lean/README.md` nachführen | `lean/` | erledigt in Runde 5, PR #29 |
+| S1-18 | Aussagen-Abgleich Satz 1 und Rang 3×2×6 = 30, Prüfer und GPT 6.2 Sol | `behauptungen/B-006.md` | erledigt in Runde 5, PR #32 |
+| S1-19 | Aussagen-Abgleich Satz 2 und Rang 4×2×4 ≥ 25, Prüfer und GPT 6.2 Sol | `behauptungen/B-007.md` | erledigt in Runde 5, PR #30 |
+| S1-20 | Abgleich beider Prüfprogramme | `pruefer/abgleich/` | erledigt in Runde 5, PR #31 |
 
 ## Stufe 0: abgeschlossen
 

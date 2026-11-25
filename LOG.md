@@ -446,3 +446,58 @@ Verbraucht in Stufe 1: 4 von 8.
 - S1-18: Aussagen-Abgleich für Satz 1 und für „Rang von 3×2×6 ist 30“, durch Prüfer und GPT 6.2 Sol
 - S1-19: Aussagen-Abgleich für Satz 2 und für „Rang von 4×2×4 ist mindestens 25“, durch Prüfer und GPT 6.2 Sol
 - S1-20: Abgleich beider Prüfprogramme, Zieldatei `pruefer/abgleich/`
+
+---
+
+## 25.11.2026 · Stufe 1, Runde 5, Abschluss und Wechsel zu Stufe 2
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: S1-17, S1-18, S1-19, S1-20.
+
+**Gelieferte Dateien**
+
+- S1-17: `lean/` (`Statements.lean`, `README.md`, `Axioms.lean`, `YangN4Haupt.lean`), Pull Request #29
+- S1-18: `behauptungen/B-006.md`, Pull Request #32
+- S1-19: `behauptungen/B-007.md`, Pull Request #30
+- S1-20: `pruefer/abgleich/`, Pull Request #31
+
+**Befunde**
+
+- S1-17: `yang_theorem_two` ist eingesetzt, im Projekt steht kein `sorry` mehr. `lean/README.md` ist nachgeführt. Ein altbekannter Mangel bleibt: `Axioms.lean` importiert das Wurzelmodul und lässt sich mit `lake env lean` nicht direkt ausführen.
+- S1-18: Prüfer und GPT 6.2 Sol (über die Bridge, unabhängig, hohe Denkstufe, Batch) bestätigen, dass `yang_theorem_one` Satz 1 aus Yang v3 ist und dass `rank_three_two_six` sagt: Der Rang von ⟨3,2,6⟩ ist 30 über jedem Körper. Im Auftrag an das Fremdmodell fehlten der Kopfkommentar und der Beweis des Feldes `correct` in `Upper3x2x6.lean`. Nebenbefund: In `Statements.lean` und `Upper3x2x6.lean` stehen veraltete Kommentare „open“.
+- S1-19: Prüfer und GPT 6.2 Sol bestätigen, dass `yang_theorem_two` Satz 2 ist und dass `rank_four_two_four_ge` sagt: Der Rang von ⟨4,2,4⟩ ist mindestens 25 über jedem Körper. Die Subtraktion n − 3 schneidet nicht ab. Das Fremdmodell hat einen Vorbehalt: Es hat Instanzen und Axiome in den Importen nur per Textsuche gesucht. Das deckt der Actions-Lauf ab. Der Prüfer konnte Lean lokal nicht ausführen.
+- S1-20: Auf 278 gemeinsamen Fällen stimmen beide Prüfprogramme im ersten Wort und im Rückgabewert überein, und beide stimmen mit dem Format. Abweichungen gibt es nur bei nicht schreibbarer Ausgabe und bei Speichermangel. Kein Programm gibt dabei fälschlich ANGENOMMEN.
+
+**Prüfung vor der Statusänderung (selbst nachgesehen)**
+
+1. PR #29 (46f1038), #30 (7b04255), #31 (90d46c1) und #32 (25492a5) sind auf `main`, gemergt am 25.11.2026 zwischen 07:11 und 07:29 Uhr (MEZ), jeweils unter dem GitHub-Konto Justus42.
+2. Der Workflow „Lean build (own project lean/)“ lief auf `main` am Merge-Commit von PR #29: Lauf 45560784171, Ereignis push, Ergebnis success (https://github.com/Justus42/matmul-rank-n2m/actions/runs/45560784171). Die Zusammenfassung meldet `SORRY: 0` im Build-Log und in den Quellen. Für `yang_theorem_one`, `yang_theorem_two`, `rank_three_two_six`, `rank_four_two_four_ge`, `hopcroft_kerr_three_two_six` und `Upper3x2x6.hopcroft_kerr_three_two_six` meldet sie nur `propext`, `Classical.choice` und `Quot.sound` (`TOTAL: STANDARD=6`). Nach 46f1038 hat sich unter `lean/` und `.github/` nichts mehr geändert.
+3. B-006 und B-007 wurden am Stand `502fb1a` abgeglichen. `git diff 502fb1a 46f1038` zeigt: `Basic.lean` (mit `BilinearAlgorithm` und `tensorRank`) und `CeilBound.lean` sind unverändert. In `Statements.lean` haben sich nur Beweise, Importe und Kommentare geändert. Die Aussagen von `yang_theorem_one`, `yang_theorem_two`, `rank_three_two_six` und `rank_four_two_four_ge` sind wörtlich gleich.
+
+**Neuer Status je Behauptung (nach 5.1 Punkt 1 bis 4)**
+
+- B-006 „Rang von ⟨3,2,6⟩ ist 30, über jedem Körper“: **geprüft**
+- B-007 „Rang von ⟨4,2,4⟩ ist mindestens 25, über jedem Körper“: **geprüft**
+- Yangs Satz 1 (B-002) und Yangs Satz 2 (B-003): **geprüft**, als Yangs Sätze mit Quelle arXiv:2609.14393 v3 (Protokoll Abschnitt 9). B-002 und B-003 sind keine eigenen Dateien, sondern Zeilen der Übersicht in `behauptungen/README.md`. Ihr Wortlaut ist genau Satz 1 und Satz 2. Dort sind sie auf geprüft gesetzt, mit Verweis auf B-006 und B-007.
+- B-004 und B-005: unverändert **behauptet**
+
+**Entscheidungen des Orchestrators**
+
+- Format: Rückgabewert 3 mit der ersten Zeile INTERNER-FEHLER wird Teil des Formats. FEHLERHAFT gilt nur für Eigenschaften der Datei. Ein Lauf zählt nur, wenn erstes Wort und Rückgabewert zusammenpassen, sonst gilt er als „kein Ergebnis“. Die Einarbeitung in `verfahren/README.md` und in die Programme wird in Stufe 2 vergeben.
+- Das Fertig-Kriterium der Stufe 1 ist erfüllt (Build grün ohne `sorry`, Axiom-Prüfung, Aussagen-Abgleich), nach 5 von 8 Runden.
+- Stufenwechsel nach Abschnitt 3: Wechsel zu Stufe 2, 4×2×4 (25 oder 26), Budget 12 Runden für beide Spuren zusammen. Runde 1 der Stufe 2 beginnt mit der Literaturwache.
+
+---
+
+## 25.11.2026 · Stufe 2, Runde 1 vergeben
+
+**Literaturwache**
+
+`lit/WACHE.md`, Pull Request #33 (auf `main` gemergt als 50d2b34). Der Rang von 4×2×4 ist nirgends bestimmt, Abbruchregel 3 greift nicht. Die beste obere Schranke ist 26 über ℤ und ℚ, die beste untere ist Yangs 25. Ansatz für Spur A: Zertifikatsmethoden über 𝔽₂ (Wang und Nachfolger). ⟨2,4,4⟩ ist dort noch nicht behandelt. Grenze dieses Ansatzes: Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
+
+**Aufträge (4 Subagenten mit der Literaturwache)**
+
+- S2-01: Blind-Sucher, sieht nur die Problemstellung, Zieldatei `versuche/s2-blind-r1.md`
+- S2-02: Spur A, Schranke 26 über 𝔽₂ mit Zertifikaten, Zieldateien `lean/prosa/s2_444_spurA_r1.md` und `versuche/s2-spurA-r1/`
+- S2-03: Spur B, Suche nach einem Verfahren mit 25 Produkten, Zieldateien `versuche/s2-spurB-r1.md` und `verfahren/`

@@ -21,10 +21,12 @@ Eine Datei pro Behauptung, benannt `B-xxx.md`. Die Übersicht unten wird bei jed
 | Nr. | Aussage | Status | Herkunft |
 |---|---|---|---|
 | B-001 | Rang von ⟨3,2,5⟩ ist 25, über jedem Körper | geprüft | untere Schranke: Lean-Satz aus Tsyganov u. a., arXiv:2609.22054 (Actions-Lauf 45518440779, Aussagen-Abgleich A-03); obere Schranke: `verfahren/3x2x5-r25-hk71.json` über ℤ (A-10, beide Prüfprogramme) |
-| B-002 | Rang von ⟨3,2,m⟩ ist mindestens ⌈(24m+2)/5⌉ für m ≥ 3 | behauptet | Yang, arXiv:2609.14393 v3 |
-| B-003 | Rang von ⟨n,2,m⟩ ist mindestens (n+2)·m + n − 3 für m ≥ n ≥ 4 | behauptet | Yang, arXiv:2609.14393 v3 |
+| B-002 | Rang von ⟨3,2,m⟩ ist mindestens ⌈(24m+2)/5⌉ für m ≥ 3, über jedem Körper (Yangs Satz 1) | geprüft | Yangs Satz, Quelle: Yang, arXiv:2609.14393 v3. Lean: `YangBounds.yang_theorem_one`, Actions-Lauf 45560784171, Aussagen-Abgleich in B-006 |
+| B-003 | Rang von ⟨n,2,m⟩ ist mindestens (n+2)·m + n − 3 für m ≥ n ≥ 4, über jedem Körper (Yangs Satz 2) | geprüft | Yangs Satz, Quelle: Yang, arXiv:2609.14393 v3. Lean: `YangBounds.yang_theorem_two`, Actions-Lauf 45560784171, Aussagen-Abgleich in B-007 |
 | B-004 | Rang von ⟨n,2,m⟩ ist höchstens ⌈(3nm + max(n,m))/2⌉ | behauptet | Hopcroft und Kerr 1971 |
 | B-005 | Rang von ⟨4,2,5⟩ ist höchstens 32 | behauptet | aus Yang v3 erschlossen, Quelle des Verfahrens offen |
+| B-006 | Rang von ⟨3,2,6⟩ ist 30, über jedem Körper | geprüft | untere Schranke aus Yangs Satz 1, obere nach Hopcroft und Kerr (Verfahren aus A-10). Lean: `YangBounds.rank_three_two_six`, Actions-Lauf 45560784171, Aussagen-Abgleich S1-18 |
+| B-007 | Rang von ⟨4,2,4⟩ ist mindestens 25, über jedem Körper | geprüft | Folgerung aus Yangs Satz 2. Lean: `YangBounds.rank_four_two_four_ge`, Actions-Lauf 45560784171, Aussagen-Abgleich S1-19 |
 
 Weitere geprüfte Ergebnisse ohne eigene Behauptungsdatei:
 
