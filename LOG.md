@@ -1538,3 +1538,81 @@ Kein Prüfurteil, aber Hinweise auf frühere Prüfungen:
 - `LemmaZ444.lean`, Zeilen 7 bis 11 und 39: Reparatur von Schritt 2 und R-K, Verweis auf `s2_444_bericht_s2-41.md`.
 - `Transponiert444.lean`, Zeilen 7 bis 9 und 36: Reparatur R-T mit Verweis auf `s2_444_bericht_s2-41.md`.
 - Die Verweise nennen Prüfberichte zu B-014. Ein Prüfer für B-014 oder B-016, der diese Köpfe liest, sieht, dass B-014 geprüft und repariert wurde, und kann die Berichte öffnen. Das Urteil selbst steht nicht in den Köpfen.
+
+### 25.11.2026, vor Runde 11: Hausarbeit „Kopfkommentare säubern“ (Schreibhand im Auftrag des Orchestrators)
+
+- Außerhalb der Runde, offen ausgewiesen, zählt nicht als Auftrag einer Runde.
+- PR #80 (Commit 90409c5, 21:44:38 Uhr MEZ; Merge c3c3884, 21:53:13 Uhr MEZ). Statuswörter, Verweise auf Prüfberichte und Reparaturbezeichnungen (R-K, R-T, R-F1 bis R-F3, E2, E3, R-C1, „repaired“) aus den Kommentaren von 26 Dateien unter `lean/YangBounds/` entfernt.
+- Nachgesehen (Schreibhand): Unter `lean/` sind nur Kommentarzeilen geändert. Lauf 86 auf main (45699204903, Job 139504538345) zu c3c3884: grün, SORRY 0.
+- Rest, als Spur offengelegt: `.github/scripts/lean_report.py` Zeile 43 trägt das Label „Folgerung C1 (R-C1)“. Es erscheint im Actions-Log, das Prüfer lesen.
+
+### 25.11.2026, Stufe 2, Runde 11, Zwischenstand (Schreibhand im Auftrag des Orchestrators)
+
+**Vergabe und Verbrauch (Angaben des Orchestrators)**
+
+- Beginn mit der Vergabe um 21:05 UTC (22:05 Uhr MEZ).
+- Bisher 5 Subagenten (S2-50 bis S2-53, dazu S2-54), 1 Fremdmodell-Anfrage.
+- Der Blind-Sucher S2-54 läuft noch. Dauer und Abschluss folgen.
+
+**Lieferungen (Merges nachgesehen)**
+
+- S2-50, Prüfer, Aussagen-Abgleich B-016: `lean/prosa/s2_444_bericht_s2-50.md`, Commit 26d1fb7 (22:07:45 Uhr MEZ), PR #81 (Merge c5566af, 22:07:59 Uhr MEZ).
+- S2-53, Prüfer B-014: `lean/prosa/s2_444_bericht_s2-53.md`, Commit 0fae88a (22:09:56 Uhr MEZ), PR #82 (Merge e22e337, 22:10:10 Uhr MEZ).
+- S2-52, Prüfer B-014: `lean/prosa/s2_444_bericht_s2-52.md`, Commit 2951e0d (22:09:55 Uhr MEZ), PR #83 (Merge eff7679, 22:10:22 Uhr MEZ).
+- S2-51, GPT 6.2 Sol zu B-016: `lean/prosa/s2_444_bericht_s2-51.md`, Commit 7597484 (22:12:53 Uhr MEZ), PR #84 (Merge a4c71cf, 22:13:07 Uhr MEZ).
+  - Modell `openai/gpt-6.2-sol-20261117`, Denkstufe high, Batch.
+  - 1 Anfrage, Urteil „agrees“.
+- Alle vier lesen `main` bei c3c3884 und werten Job 139504538345 aus.
+- B-016.md um Commit c3c3884 und Job 139504538345 ergänzt.
+
+**Abgleich der Berichte mit der Zusammenfassung des Orchestrators (Schreibhand)**
+
+- Kein Widerspruch.
+- S2-50: drei Punkte „stimmt überein“.
+- S2-52 und S2-53 übereinstimmend:
+  - Lemma K stimmt.
+  - Lemma Z mit 13 Punkten stimmt am generischen Punkt.
+  - `keine_drei` stimmt.
+  - Die Transponierte stimmt an `genAlgL` ohne Hypothese.
+  - F2 stimmt.
+- Abweichend:
+  - Paarstruktur: S2-52 „nicht vollständig“, S2-53 „mit Vorbehalt“ über `quadGleich_of_rel` und `lemmaK`.
+  - Satz F: S2-52 „nicht wörtlich, Umfang getragen“. S2-53 urteilt „stimmt überein“, aber **mit Vorbehalt**: An einer einzelnen Normalform steht die Hypothese `VielePunkte 11`. Diesen Vorbehalt nennt die Zusammenfassung nicht. Er ändert die Einstufung nicht, denn die Wortfassung für eine einzelne Normalform bleibt behauptet.
+- Beide melden:
+  - F1 hat keinen eigenen unbedingten Satz.
+  - Die Fassung mit offener Menge ist nicht formalisiert.
+  - `UnterfallB` und `NichtSymmetrisch` sind nur gegen die Prosa abgeglichen, nicht gegen B-012 und B-013.
+- Offenlegungen:
+  - Alle sahen Gedächtnis-Index und Einträge ohne Urteil zur jeweiligen Behauptung.
+  - S2-52 sah Statusangaben in der Prosa `s2_444_spurA_r6.md` (B-014 „behauptet“) und hat sie nach eigener Angabe nicht verwendet.
+  - Niemand sah ein früheres Prüfurteil zur selben Behauptung.
+
+**Status (gesetzt vom Orchestrator)**
+
+- B-016: **geprüft**. Lean-Bau ohne sorry, nur Standard-Axiome, grüner Lauf. Abgleich durch einen Prüfer (S2-50) und das Fremdmodell (S2-51) nach 5.1.
+- B-014 (strengere Lesart bei abweichenden Urteilen):
+  - **Geprüft:** Lemma K; Lemma Z (mindestens 13 Punkte am generischen Punkt, nie mehr als zwei); Transponierte an der generischen Normalform; F2.
+  - **Behauptet:** Gestalt des zusammenfallenden Paares mit gemeinsamem x und w; Satz F in der Wortfassung für eine einzelne Normalform; F1 als eigene Aussage; Fassung mit offener Menge.
+- Eingetragen in `pruefvermerke/B-014.md`, `pruefvermerke/B-016.md` und in der Übersicht.
+
+**Frist B-014 (geprüft bis Ende Runde 11)**
+
+- Lesart des Orchestrators: gehalten für den Teil, der die Schranke ändert (F2).
+- **Offener Punkt für Justus zur Bestätigung.**
+
+**Zähler (Lesart des Orchestrators, von der Schreibhand gegengelesen)**
+
+- B-016 ist ein neues geprüftes Artefakt, das die Schranke ändert. Das ist Fortschritt nach Abbruchregel 2 a). Zähler Spur A: **0 von 3**.
+- Gleiche Lesart.
+
+**Fertig-Kriterium Stufe 2**
+
+- Nach Sicht des Orchestrators erfüllt: Lean-Beweis für 26, geprüft als B-016.
+- Der Orchestrator hält nach Runde 11 an und meldet an Justus (11.4).
+- Als „Ergebnis“ gilt es erst nach Freigabe durch Justus.
+
+**Hinweis der Schreibhand zur Dauer**
+
+- Die Bericht-Commits liegen 2¾ bis 8 Minuten nach der angegebenen Vergabe um 21:05 UTC: S2-50 um 21:07:45 UTC, S2-52 und S2-53 um 21:09:55 UTC, S2-51 um 21:12:53 UTC.
+- Job 139504538345 endete laut S2-52 um 21:00 UTC.
+- Für die Dauer der Runde fehlt ein Git-Commit, der den Beginn markiert. Ich messe beim Abschluss ab dem Zeitpunkt, den der Orchestrator bestätigt.

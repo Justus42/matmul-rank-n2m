@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 10 abgeschlossen, Protokoll 0.4.1)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 11 läuft, Protokoll 0.4.1)
 
 ## Aktuelle Stufe
 
@@ -9,8 +9,11 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 10 abgeschlossen, Protokoll 0.4.1)
 - Runden verbraucht: 10 von 24 (beide Spuren zusammen; Budget durch Justus von 12 auf 24 erhöht, Protokoll 0.4). Ab Runde 9 bis zu 6 Subagenten pro Runde
 - Runde 9 abgeschlossen: 6 zählende Subagenten (S2-34, S2-35, S2-36, S2-41, S2-42, S2-43), dazu gestartet und ersetzt S2-37 bis S2-40, 0 Sol-Anfragen, 51 Minuten nach Git (626eb7b bis 9f5a928)
 - Runde 10 abgeschlossen: 6 Subagenten (S2-44 bis S2-49), 0 Sol-Anfragen, 62 Minuten nach Git (8226274 bis 32f12f6). Neu: B-016 (Endsatz in Lean ohne Hypothese, `Transponiert444.rank_four_two_four_ge_26`), behauptet, Aussagen-Abgleich in Runde 11
-- Abbruchregel 2, Spur A (Übergangsregel Protokoll 0.4.1, Abschnitt 6, Lesart des Orchestrators): Die vier Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 sind in Runde 9 von gültigen Prüfern bestätigt (S2-42, S2-43), die Fristen aus Runde 3 und 6 gelten als gehalten. S2-41 bestätigt B-014, das zählt als Fortschritt in Runde 9, **Frist für geprüft: Ende Runde 11**. Zähler Spur A: Runde 9 mit Fortschritt, Runde 10 ohne, also **1 von 3**. **Spur B: aufgegeben**
-- Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
+- Vor Runde 11, Hausarbeit außerhalb der Runde (offen ausgewiesen): Kopfkommentare gesäubert, PR #80 (c3c3884), nur Kommentare, Lauf 86 (45699204903, Job 139504538345) grün, SORRY 0. Rest: `.github/scripts/lean_report.py` Zeile 43 trägt das Label „(R-C1)“, es erscheint im Log (offengelegte Spur)
+- Runde 11 läuft seit 21:05 UTC (Angabe des Orchestrators): S2-50 bis S2-54, bisher 5 Subagenten, 1 Sol-Anfrage; Blind-Sucher S2-54 läuft noch
+- **B-016 geprüft** (Lean-Endsatz R(⟨4,2,4⟩) ≥ 26 über jedem Körper; Prüfer S2-50 und GPT 6.2 Sol S2-51). B-014 geprüft in Teilen (siehe `pruefvermerke/B-014.md`)
+- Abbruchregel 2, Spur A (Übergangsregel Protokoll 0.4.1, Abschnitt 6, Lesart des Orchestrators): Die vier Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 sind in Runde 9 von gültigen Prüfern bestätigt (S2-42, S2-43), die Fristen aus Runde 3 und 6 gelten als gehalten. S2-41 bestätigt B-014, das zählt als Fortschritt in Runde 9, **Frist für geprüft: Ende Runde 11**. Zähler Spur A: Runde 9 mit Fortschritt, Runde 10 ohne, Runde 11 mit Fortschritt (B-016 geprüft, ändert die Schranke), also **0 von 3**. Frist B-014: Lesart des Orchestrators „für den Teil, der die Schranke ändert (F2), gehalten“, **offen für Justus zur Bestätigung**. **Spur B: aufgegeben**
+- Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4). **Nach Sicht des Orchestrators erfüllt (B-016 geprüft).** Er hält nach Runde 11 an und meldet an Justus. Als „Ergebnis“ gilt es erst nach Freigabe durch Justus
 - Stufe 3: erst nach Budget von Justus
 
 ## Aufträge für Stufe 2
@@ -65,16 +68,22 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 10 abgeschlossen, Protokoll 0.4.1)
 | S2-47 | Spur A: Prüfer, Aussagen-Abgleiche Lemma P (B-013) und Brücke (B-015) | Prüfer | `lean/prosa/s2_444_bericht_s2-47.md` | erledigt in Runde 10, PR #74. Lemma P und B-015 gedeckt. Gültig |
 | S2-48 | Spur A: zweiter Prüfer, Aussagen-Abgleiche Lemma P (B-013) und Brücke (B-015), sieht S2-47 nicht | Prüfer | `lean/prosa/s2_444_bericht_s2-48.md` | erledigt in Runde 10, PR #76. Lemma P und B-015 gedeckt. Gültig |
 | S2-49 | Blind-Suche, Runde 10 | Blind-Sucher | `versuche/s2-blind-r10.md` | erledigt in Runde 10, PR #79. Kein Verfahren mit 25, kein Beweis |
+| S2-50 | Spur A: Prüfer, Aussagen-Abgleich B-016 (Endsatz) | Prüfer | `lean/prosa/s2_444_bericht_s2-50.md` | erledigt in Runde 11, PR #81. Alle drei Punkte stimmen überein |
+| S2-51 | Spur A: Fremdmodell GPT 6.2 Sol, Aussagen-Abgleich B-016 | Fremdmodell-Abfrage | `lean/prosa/s2_444_bericht_s2-51.md` | erledigt in Runde 11, PR #84. 1 Anfrage, Urteil „agrees“ |
+| S2-52 | Spur A: Prüfer, Aussagen-Abgleich B-014 | Prüfer | `lean/prosa/s2_444_bericht_s2-52.md` | erledigt in Runde 11, PR #83 |
+| S2-53 | Spur A: zweiter Prüfer, Aussagen-Abgleich B-014, sieht S2-52 nicht | Prüfer | `lean/prosa/s2_444_bericht_s2-53.md` | erledigt in Runde 11, PR #82 |
+| S2-54 | Blind-Suche, Runde 11 | Blind-Sucher | wird nachgetragen | läuft in Runde 11 |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
 
 ## Fertig-Kriterium Stufe 2
 
-- [ ] Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25
+- [ ] Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Stand: B-016 geprüft; nach Sicht des Orchestrators erfüllt, Meldung an Justus nach Runde 11, Haken erst nach seiner Freigabe
 
 ## Offene Kleinigkeiten
 
+- Label „(R-C1)“ in `.github/scripts/lean_report.py` Zeile 43, erscheint im Actions-Log (Rest aus PR #80)
 - Veraltete Kommentare „open“ in `lean/YangBounds/Statements.lean` und `lean/YangBounds/Upper3x2x6.lean` (Nebenbefund S1-18)
 - `lean/Axioms.lean` importiert das Wurzelmodul und lässt sich mit `lake env lean` nicht direkt ausführen
 - Formatnachtrag: Rückgabewert 3 mit erster Zeile INTERNER-FEHLER, FEHLERHAFT nur für Eigenschaften der Datei, ein Lauf zählt nur, wenn erstes Wort und Rückgabewert zusammenpassen. Einarbeitung in `verfahren/README.md` und beide Programme wird in Stufe 2 vergeben
