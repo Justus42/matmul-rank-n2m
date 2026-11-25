@@ -1,0 +1,3 @@
+Test 1: GF(10007), 300 Zufallsbuendel, davon nichtsingulaer 300, alle mit minimalem Linkskern-Grad 4 (ein L_4^T-Block)
+Test 2: 50 Buendel L_3^T + regulaerer Block: alle singulaer irgendwo, minimaler Grad 3 (wie erwartet)
+Test 3: GF(7), 5 nichtsingulaere Buendel: genau 1+(p-1)(p+1) = 49 Funktionale vom Rang <= 1 (p+1 Auswertungspunkte)

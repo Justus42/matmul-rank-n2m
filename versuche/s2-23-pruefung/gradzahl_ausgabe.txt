@@ -1,0 +1,5 @@
+Unterfall-A-Modell (alpha Grad 3, beta Grad 4), 20 Laeufe: dim span{a_t (x) b_t} = [8]
+Analogon S^3 x S^2 -> S^5 (Grad 3 und 5), 20 Laeufe: dim span = [9]
+Fixpunkte von psi o phi, Grade (1,1): hoechstens 2 affine Loesungen in GF(p), Schranke d*e+1 = 2
+Fixpunkte von psi o phi, Grade (2,3): hoechstens 4 affine Loesungen in GF(p), Schranke d*e+1 = 7
+Fixpunkte von psi o phi, Grade (3,3): hoechstens 3 affine Loesungen in GF(p), Schranke d*e+1 = 10

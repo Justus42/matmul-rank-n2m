@@ -1,0 +1,8 @@
+GF(2): rank<=1 Hankel vectors 4, zero+c*ev_sigma 4, expected 1+(q-1)(q+1) = 4, equal: True
+GF(3): rank<=1 Hankel vectors 9, zero+c*ev_sigma 9, expected 1+(q-1)(q+1) = 9, equal: True
+GF(5): rank<=1 Hankel vectors 25, zero+c*ev_sigma 25, expected 1+(q-1)(q+1) = 25, equal: True
+GF(7): rank<=1 Hankel vectors 49, zero+c*ev_sigma 49, expected 1+(q-1)(q+1) = 49, equal: True
+GF(4): rank<=1 Hankel vectors 16, zero+c*ev_sigma 16, expected 1+(q-1)(q+1) = 16, equal: True
+GF(8): rank<=1 Hankel vectors 64, zero+c*ev_sigma 64, expected 1+(q-1)(q+1) = 64, equal: True
+GF(9): rank<=1 Hankel vectors 81, zero+c*ev_sigma 81, expected 1+(q-1)(q+1) = 81, equal: True
+A4 bestaetigt in allen Testkoerpern
