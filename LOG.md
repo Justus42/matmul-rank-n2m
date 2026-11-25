@@ -1428,3 +1428,50 @@ Die drei Lean-Aufträge laufen schon. S2-47 bis S2-49 starten erst nach der Durc
 **Festgehalten**
 
 - Blind-Sucher S2-49 liest nur `CLAUDE.md` und die Problemstellung im Auftrag.
+
+---
+
+## 25.11.2026 · Runde 10: Aussagen-Abgleiche Lemma P (B-013) und Brücke (B-015)
+
+**Berichte (von der Schreibhand nachgelesen, Merges nachgesehen)**
+
+- S2-47: `lean/prosa/s2_444_bericht_s2-47.md`, PR #74 (Merge 31ac0f2).
+- S2-48: `lean/prosa/s2_444_bericht_s2-48.md`, PR #76 (Merge 2cc0b05).
+- Beide lesen `main` bei 2379d6b und werten Job 139447937419 aus (SORRY 0, nur propext, Classical.choice, Quot.sound).
+- Den Commit des Jobs konnten die Prüfer nicht abfragen. Lauf 67 hat 9f5a928 gebaut, und unter `lean/` ist bis 2cc0b05 nichts geändert (von der Schreibhand nachgesehen).
+
+**Dauer nach Git-Zeitstempeln**
+
+- Messbeginn: 2379d6b (20:27:09 Uhr MEZ), den Stand nennen beide.
+- S2-47: Bericht-Commit 5b90727 um 20:32:39 Uhr MEZ, höchstens 5½ Minuten.
+- S2-48: Bericht-Commit f28dd73 um 20:33:14 Uhr MEZ, höchstens 6 Minuten.
+
+**Gültigkeit (Entscheidung des Orchestrators)**
+
+- Beide gelten. Sie haben einander nicht gesehen, und keiner sah ein Urteil zur selben Behauptung.
+- Offengelegte Spuren:
+  - Statuswörter in Lean-Dateiköpfen und Prosa-Überschriften.
+  - Die Überschrift von §8 der Brücken-Prosa (S2-48).
+  - Eingeblendete Gedächtniseinträge aus Stufe 1 ohne Urteil zu B-013 oder B-015. S2-47 bekam `aussagen-abgleich-n3`, `abgleich-yang-n4-b007` und `git-regeln` eingeblendet, S2-48 bekam `aussagen-abgleich-n3` und `gemini-bridge`.
+  - **Hinweis der Schreibhand:** `abgleich-yang-n4-b007` war um 20:27 Uhr MEZ gelöscht und wurde S2-47 trotzdem eingeblendet. Die Löschung wirkt beim Einblenden offenbar verzögert.
+
+**Abgleich der beiden Berichte (Schreibhand)**
+
+- In den Urteilen stimmen beide überein:
+  - Lemma P ist durch `lemmaP` gedeckt, in den Voraussetzungen stärker.
+  - K* ist über alle γ mit Rang 3 gebildet. Beide geben ein eigenes, nicht formalisiertes Argument für die Gleichheit mit dem K* der Prosa.
+  - `nur_unterfallB_global'` bindet alg' nicht an alg.
+  - B-015 ist in allen drei Teilen gedeckt. `brueckeStatement` ist schwächer.
+- Einzige Abweichung: Nur S2-47 macht einen Vorbehalt zur Identifizierung des punktweisen `NichtSymmetrisch` mit p ∈ P_ns (Bericht 1.3 b). S2-48 wertet diesen Teil ohne Vorbehalt als gedeckt.
+
+**Status (gesetzt vom Orchestrator)**
+
+- B-013, Punkt Lemma P: **geprüft** für `lemmaP` (unendlicher Körper) und `nur_unterfallB'`. Vermerke: `NichtSymmetrisch` ist punktweise formuliert. K* wird über alle γ mit rk F_γ = 3 gebildet. `nur_unterfallB_global'` bindet alg' nicht an alg und gehört nicht zum geprüften Umfang.
+- B-015: **geprüft** in allen drei Teilen (`bruecke`, `bruecke_exists`, `descent`). Vermerk: `brueckeStatement` ist schwächer als die Behauptung.
+- Eingetragen in `pruefvermerke/B-013.md`, `pruefvermerke/B-015.md` und in der Übersicht.
+
+**Zähler (Lesart des Orchestrators, von der Schreibhand gegengelesen)**
+
+- Kein Fortschritt nach Abbruchregel 2 a): B-015 und Lemma P ändern keine Schranke und schließen für sich keinen benannten Fall aus.
+- Nach b) zählen sie ebenfalls nicht, weil sie keine neue Behauptung der geforderten Art sind.
+- Gleiche Lesart.

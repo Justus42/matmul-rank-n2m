@@ -62,8 +62,8 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 10 läuft, Protokoll 0.4.1)
 | S2-44 | Spur A: `TransponiertEng` (B3′) in Lean | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 10 |
 | S2-45 | Spur A: Lemma K in Lean | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 10 |
 | S2-46 | Spur A: Lemma Z (`VielePunkte`) in Lean, Lemma K als benannte Hypothese | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 10 |
-| S2-47 | Spur A: Prüfer, Aussagen-Abgleiche Lemma P (B-013) und Brücke (B-015) | Prüfer | wählt der Prüfer | vorgesehen in Runde 10 |
-| S2-48 | Spur A: zweiter Prüfer, Aussagen-Abgleiche Lemma P (B-013) und Brücke (B-015), sieht S2-47 nicht | Prüfer | wählt der Prüfer | vorgesehen in Runde 10 |
+| S2-47 | Spur A: Prüfer, Aussagen-Abgleiche Lemma P (B-013) und Brücke (B-015) | Prüfer | `lean/prosa/s2_444_bericht_s2-47.md` | erledigt in Runde 10, PR #74. Lemma P und B-015 gedeckt. Gültig |
+| S2-48 | Spur A: zweiter Prüfer, Aussagen-Abgleiche Lemma P (B-013) und Brücke (B-015), sieht S2-47 nicht | Prüfer | `lean/prosa/s2_444_bericht_s2-48.md` | erledigt in Runde 10, PR #76. Lemma P und B-015 gedeckt. Gültig |
 | S2-49 | Blind-Suche, Runde 10 | Blind-Sucher | `versuche/s2-blind-r10.md` | vorgesehen in Runde 10 |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
