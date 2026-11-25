@@ -1,4 +1,7 @@
 import YangBounds.Basic
+import YangBounds.CeilBound
+import YangBounds.YangN3
+import YangBounds.Upper3x2x6
 import Mathlib.Algebra.Order.Floor.Semiring
 import Mathlib.Data.Rat.Floor
 import Mathlib.Tactic.NormNum
@@ -32,8 +35,9 @@ universe u
 /-- **Yang v3, Theorem 1.** For every field `K` and every `m ≥ 3`:
 `R_K(⟨3, 2, m⟩) ≥ ⌈(24m + 2) / 5⌉`. -/
 theorem yang_theorem_one (K : Type u) [Field K] (m : ℕ) (hm : 3 ≤ m) :
-    ⌈((24 * m + 2 : ℚ) / 5)⌉₊ ≤ tensorRank K 3 2 m := by
-  sorry -- OPEN(S1-01): proof of Yang v3, Theorem 1 (Sections 2, 3, 4.1)
+    ⌈((24 * m + 2 : ℚ) / 5)⌉₊ ≤ tensorRank K 3 2 m :=
+  -- S1-13: assembled from parts 1 to 3 in `YangBounds/YangN3.lean`
+  YangN3.yang_theorem_one_proof K m hm
 
 /-- **Yang v3, Theorem 2.** For every field `K` and all `m ≥ n ≥ 4`:
 `R_K(⟨n, 2, m⟩) ≥ (n + 2) m + (n − 3)`. (Natural-number subtraction is harmless
@@ -47,23 +51,14 @@ theorem yang_theorem_two (K : Type u) [Field K] (n m : ℕ) (hn : 4 ≤ n) (hnm 
 /-- **Hopcroft–Kerr 1971 for `⟨3, 2, 6⟩`:** an algorithm with 30 products over every field.
 Not part of Yang's paper (only cited there). -/
 theorem hopcroft_kerr_three_two_six (K : Type u) [Field K] :
-    tensorRank K 3 2 6 ≤ 30 := by
-  sorry -- OPEN(S1-01): explicit algorithm of length 30 valid over every field
+    tensorRank K 3 2 6 ≤ 30 :=
+  -- S1-13: explicit algorithm from S1-12 in `YangBounds/Upper3x2x6.lean`
+  Upper3x2x6.hopcroft_kerr_three_two_six K
 
 /-! ## Equivalent forms (proved from the definitions) -/
 
-/-- The ceiling in Theorem 1 as an integer inequality. -/
-theorem ceil_bound_iff (m R : ℕ) :
-    ⌈((24 * m + 2 : ℚ) / 5)⌉₊ ≤ R ↔ 24 * m + 2 ≤ 5 * R := by
-  rw [Nat.ceil_le, div_le_iff₀ (by norm_num : (0 : ℚ) < 5)]
-  constructor
-  · intro h
-    have h' : ((24 * m + 2 : ℕ) : ℚ) ≤ ((5 * R : ℕ) : ℚ) := by push_cast; linarith
-    exact_mod_cast h'
-  · intro h
-    have h' : ((24 * m + 2 : ℕ) : ℚ) ≤ ((5 * R : ℕ) : ℚ) := by exact_mod_cast h
-    push_cast at h'
-    linarith
+-- `ceil_bound_iff` (the ceiling in Theorem 1 as an integer inequality) was moved unchanged
+-- to `YangBounds/CeilBound.lean` (S1-13) to avoid an import cycle; it is imported above.
 
 /-- Theorem 1 for every individual algorithm (no rank notion involved). -/
 theorem yang_theorem_one_algorithm (K : Type u) [Field K] (m : ℕ) (hm : 3 ≤ m) {r : ℕ}
