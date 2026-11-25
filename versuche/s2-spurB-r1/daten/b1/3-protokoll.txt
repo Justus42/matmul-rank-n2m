@@ -1,0 +1,1 @@
+END p=3 seed=13 steps=601751552 runs=1 best=26 plusses=601 restarts=0 distinct_le_report=1010
