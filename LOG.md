@@ -826,3 +826,9 @@ Verbraucht in Stufe 2: 5 von 12.
 - S2-25 (Blind-Sucher als Beweissucher): Zieldatei `versuche/s2-blind-r6.md`
 
 Bestätigen Prüfer und Fremdmodell B-012 oder B-013, zählt das als Fortschritt nach b) für Runde 6, mit Frist bis zum Ende von Runde 8.
+
+**Nachtrag zu Stufe 2, Runde 5: Zählerstand (Lesart des Orchestrators)**
+
+Runde 5 zählt nicht als eigener Fortschritt. Begründung des Orchestrators: B-008 und B-009 sind dieselben Aussagen, die schon in Runde 3 nach b) gezählt wurden. Regel b) verlangt, dass sie bis zur Frist geprüft sind, damit der Fortschritt aus Runde 3 gültig bleibt. Dieselbe Aussage zweimal zu zählen wäre die großzügigere Lesart. Bei zwei Lesarten nimmt der Orchestrator die strengere, wie bei B-010.
+
+Zähler Spur A: **2 von 3**. Runde 6 muss Fortschritt bringen, etwa durch die unabhängige Bestätigung von B-012 oder B-013 durch Prüfer und Fremdmodell. Sonst endet Spur A nach Abbruchregel 2, und der Orchestrator hält an.

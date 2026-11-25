@@ -8,7 +8,7 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 6 läuft)
 
 - Runden verbraucht: 5 von 12 (beide Spuren zusammen)
 - Runde 6 läuft: S2-22, S2-23, S2-24, S2-25
-- Abbruchregel 2 (Protokoll 0.3), Spur A: Die Frist für B-008 und B-009 (Ende Runde 5) ist gehalten, beide sind im Kern geprüft. Zähler: **0 von 3, falls Runde 5 als Fortschritt nach a) zählt, sonst 2 von 3** (Entscheidung des Orchestrators offen, siehe LOG.md). **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
+- Abbruchregel 2 (Protokoll 0.3), Spur A: Die Frist für B-008 und B-009 (Ende Runde 5) ist gehalten, beide sind im Kern geprüft. Zähler: **2 von 3** (Runde 4 und 5 ohne eigenen Fortschritt, Lesart des Orchestrators, siehe LOG.md). Runde 6 muss Fortschritt bringen, sonst endet Spur A. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
 
