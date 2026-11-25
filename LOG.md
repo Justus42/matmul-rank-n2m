@@ -117,3 +117,39 @@ Justus hat am 25.11.2026 um 00:54 Uhr (MEZ) geschrieben:
 > Freigabe zu weiteren Runden nach deinem Ermessen
 
 Damit gibt Justus weitere Runden über das Startbudget von Stufe 0 hinaus frei, nach Ermessen des Orchestrators. Das ist eine Budgetänderung durch Justus nach Abschnitt 6, keine Verlängerung durch einen Agenten. Die Tabelle in Abschnitt 6 von PROTOKOLL.md bleibt unverändert.
+
+---
+
+## 25.11.2026 · Runde 2 (Stufe 0, Runde 2 des Startbudgets)
+
+**Literaturwache**
+
+`lit/WACHE.md`, Pull Request #5. Keines der Ziele ist anderswo gelöst, Abbruchregel 3 greift nicht. Die arXiv-Listen von cs.CC wurden nicht vollständig durchgesehen. arXiv:2603.07280 (Wang) liegt jetzt in Fassung v11 mit neuem Titel vor.
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: Literaturwache, A-02, A-08, A-09.
+
+**Gelieferte Dateien**
+
+- Literaturwache: `lit/WACHE.md`, Pull Request #5
+- A-02: `lean/NACHBAU.md`, Pull Request #8
+- A-08: `pruefer/python/`, Pull Request #6
+- A-09: `pruefer/rust/`, Pull Request #7
+
+**Befunde (alle Status behauptet)**
+
+- A-02: Der Build von fallnlove/mm325_proof am Commit 759cf4a lief lokal grün. `#print axioms` zeigt nur die drei Standard-Axiome `propext`, `Classical.choice` und `Quot.sound`. Die Prüfsummen-Abweichung in deren `verification.txt` ist bestätigt. Der Status bleibt behauptet, bis der Build in GitHub Actions grün ist (Protokoll 5.1 Punkt 4).
+- A-08 und A-09: Beide Prüfprogramme nehmen Strassens Verfahren an und lehnen die falsche Fassung ab. Sie wurden unabhängig voneinander geschrieben. Offene Formatfälle hat jeder Subagent selbst entschieden und in seiner README notiert.
+
+**Neuer Status je Behauptung**
+
+Kein Statuswort hat sich geändert. Alle neuen Befunde haben den Status behauptet.
+
+**Merges**
+
+Merge-Stand auf `main` beim Schreiben dieses Eintrags: PR #5 (e0ea135), #6 (76578ec), #7 (3b40c45) und #8 (36c86ac) sind am 25.11.2026 zwischen 00:54 und 01:26 Uhr (MEZ) gemergt, jeweils unter dem GitHub-Konto Justus42.
+
+**Entscheidung für Runde 3**
+
+Runde 3 mit A-03, A-10, A-11. Sie liegt über dem Startbudget von 2 Runden und ist durch Justus' Freigabe vom 25.11.2026 gedeckt (siehe Eintrag „Budgetänderung durch Justus“).
