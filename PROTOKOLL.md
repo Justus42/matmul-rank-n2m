@@ -1,6 +1,6 @@
 # Protokoll: Exakter Rang kleiner Matrixmultiplikations-Formate
 
-Stand: 25.11.2026 · Version 0.2 · Diese Datei ist das Gedächtnis des Projekts. Jeder Chat und jeder Subagent liest sie zuerst.
+Stand: 25.11.2026 · Version 0.3 · Diese Datei ist das Gedächtnis des Projekts. Jeder Chat und jeder Subagent liest sie zuerst.
 
 ---
 
@@ -83,6 +83,8 @@ Zwei Spuren laufen parallel und gleichberechtigt:
 
 **Fertig, wenn:** entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25.
 
+Endet eine Spur nach Abbruchregel 2, läuft die andere weiter. Ein Auftrag der Spur A darf einen Restfall der Fallunterscheidung in beide Richtungen angreifen: ihn ausschließen oder aus ihm ein Verfahren mit 25 bauen.
+
 ### Stufe 3: 3×2×7 (34 oder 35?)
 
 Wie Stufe 2. Beginnt erst, wenn Justus ein Budget dafür festgelegt hat.
@@ -161,7 +163,13 @@ Die Zahlen sind Startwerte. Nur Justus ändert sie.
 **Abbruchregeln:**
 
 1. **Budget erschöpft:** Stufe endet, Abschlussbericht mit dem Erreichten
-2. **Stillstand:** 3 Runden in Folge ohne neues Artefakt mit Status geprüft: Spur endet mit Status aufgegeben
+2. **Stillstand:** 3 Runden in Folge ohne Fortschritt: Spur endet mit Status aufgegeben. Als Fortschritt einer Runde zählt nur:
+   - a) ein neues Artefakt mit Status geprüft, das eine Schranke des Zielformats ändert oder einen benannten Fall der Fallunterscheidung ausschließt
+   - b) eine neue Behauptung dieser Art mit Status behauptet, die ein Prüfer und ein Fremdmodell unabhängig voneinander bestätigt haben. Sie muss bis zum Ende der übernächsten Runde Status geprüft haben. Sonst zählt sie nachträglich nicht, und der Zähler wird neu berechnet
+
+   Die Bestätigung eines schon bekannten Werts zählt nicht. Jeder Runden-Eintrag im Logbuch nennt den Zählerstand je Spur und, bei Fortschritt nach b), die Frist.
+
+   Übergang zu Version 0.3: B-008 und B-009 zählen als Fortschritt von Spur A in Runde 3 der Stufe 2. Ihre Frist für Status geprüft ist das Ende von Runde 5. B-010 zählt nicht.
 3. **Überholt:** Der Literaturwächter findet das Ziel anderswo gelöst: Arbeit stoppt sofort. Der Rest der Runde prüft das fremde Ergebnis nach
 4. **Fundamentfehler:** Stufe 0 oder 1 findet einen Fehler in einer Quelle: Stopp, Bericht an Justus, keine Weiterarbeit auf dem fehlerhaften Fundament
 
@@ -176,6 +184,7 @@ Zu Beginn jeder Sitzung, vor jeder anderen Arbeit:
 - neue Fassungen von arXiv:2609.14393 und arXiv:2609.22054
 - neue Commits im Repo fallnlove/mm325_proof
 - neue arXiv-Arbeiten zu „tensor rank", „matrix multiplication", „lower bound" in cs.CC seit dem letzten Eintrag
+- im Repo github.com/openai/math: neue Commits, neue Familien in `CONTENTS.md`, neue Verzeichnisse in `preprints/` (Entscheidung von Justus vom 25.11.2026)
 
 Ergebnis mit Datum in `lit/WACHE.md`, auch wenn nichts Neues da ist.
 

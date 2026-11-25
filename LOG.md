@@ -657,3 +657,26 @@ Verbraucht in Stufe 2: 3 von 12.
 **Entscheidung des Orchestrators: Halt nach 11.4**
 
 Der Orchestrator vergibt keine neuen Aufträge und legt Justus die Entscheidung vor, weil er nach 11.4 keine Abbruchregel aussetzen darf.
+
+---
+
+## 25.11.2026 · Regeländerung durch Justus (Protokoll Version 0.3, zählt nicht zum Budget)
+
+Eingetragen im Auftrag von Justus aus einem Chat außerhalb des Projekts, 14:34 Uhr (MEZ).
+
+**Anlass**
+
+Abbruchregel 2 verlangte binnen drei Runden ein Artefakt mit Status geprüft. Ein Beweis braucht aber je eine Runde zum Finden, zum Gegenlesen und für Lean. Die Regel hätte Spur A trotz Fortschritt beendet. Zugleich ließ ihr Wortlaut offen, ob die Bestätigung eines bekannten Werts zählt.
+
+**Geändert in PROTOKOLL.md**
+
+- Abschnitt 6, Abbruchregel 2: Fortschritt ist jetzt bestimmt. Es zählt a) ein geprüftes Artefakt, das eine Schranke des Zielformats ändert oder einen benannten Fall ausschließt, oder b) eine solche Behauptung, die Prüfer und Fremdmodell unabhängig bestätigt haben, mit Frist für Status geprüft bis zum Ende der übernächsten Runde. Die Bestätigung eines bekannten Werts zählt nicht
+- Übergang: B-008 und B-009 zählen als Fortschritt von Spur A in Runde 3, Frist Ende Runde 5. B-010 zählt nicht. Die strenge Lesart des Orchestrators zu B-010 ist damit Regel
+- Abschnitt 3, Stufe 2: Endet eine Spur, läuft die andere weiter. Ein Auftrag der Spur A darf einen Restfall in beide Richtungen angreifen
+- Abschnitt 7: openai/math steht jetzt in der verbindlichen Quellenliste der Literaturwache
+
+**Folge für den Zählerstand (vom Orchestrator im nächsten Runden-Eintrag zu bestätigen)**
+
+Spur A: Zähler nach Runde 3 bei 0. Spur B: 3 von 3, die Spur endet nach der Regel.
+
+STATUS.md ist durch diesen Eintrag nicht geändert. Das übernimmt der Orchestrator.
