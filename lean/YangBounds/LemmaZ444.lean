@@ -188,7 +188,7 @@ noncomputable def mergeAlg (alg : BilinearAlgorithm K n l m r) (s s' : Fin r) (h
       Fintype.sum_eq_add s s' hss]
     · rw [Function.update_of_ne hss, Function.update_self, Function.update_self,
         Function.update_of_ne hss.symm, h A B, LinearMap.zero_apply, zero_mul, zero_smul,
-        smul_add, smul_smul, smul_smul]
+        smul_add, smul_smul]
       have e : alg.alpha s A * alg.beta s B * c = c * (alg.alpha s A * alg.beta s B) := by ring
       rw [e]
       abel
@@ -456,7 +456,7 @@ theorem genAlg_alpha_basis (t : Fin r) (k : Fin 4) :
   rw [genAlg_avecs, Matrix.mulVec_mulVec, Matrix.mul_nonsing_inv _ (isUnit_det_Sg K),
     Matrix.one_mulVec, baseChange_alpha, extendForm_apply]
   simp only [outer_apply, basisVec, Fin.sum_univ_two, Amat, Matrix.of_apply]
-  simp [Fin.sum_univ_four]
+  fin_cases k <;> simp [Fin.sum_univ_four]
 
 /-- `β_t(emb e_j)` of the generic normal form: `det(T)⁻¹ (B̂_t[j,0] p₀ + B̂_t[j,1] p₁)`. -/
 theorem genAlg_beta_basis (t : Fin r) (j : Fin 4) :
@@ -466,8 +466,7 @@ theorem genAlg_beta_basis (t : Fin r) (j : Fin 4) :
   rw [genAlg_beta_emb, baseChange_beta, extendForm_apply]
   simp only [outer_apply, basisVec, Fin.sum_univ_two, Bmat, Matrix.of_apply]
   simp only [Fin.sum_univ_four, mul_ite, mul_one, mul_zero, Fin.isValue]
-  simp [vT_zero, vT_one, prow, Fin.sum_univ_four]
-  ring
+  fin_cases j <;> simp [vT_zero, vT_one, prow, Fin.sum_univ_four] <;> ring
 
 /-- `b_t ≠ 0` at the generic normal form (from `β_t ≠ 0`). -/
 theorem genAlg_beta_ne (t : Fin r) (ht : alg.beta t ≠ 0) :
@@ -558,7 +557,8 @@ theorem kerW_rel (h1 : SN1 (d := 3) alg) (hr : r = 25)
       ha, hb, Pi.smul_apply, smul_eq_mul, smul_dotProduct, smul_eq_mul]
     ring
   let P : Submodule F (Fin r → F) :=
-    LinearMap.ker (LinearMap.proj s - (c * c') • LinearMap.proj t)
+    LinearMap.ker ((LinearMap.proj s : (Fin r → F) →ₗ[F] F) -
+      (c * c') • (LinearMap.proj t : (Fin r → F) →ₗ[F] F))
   have hP : ∀ x, x ∈ P ↔ x s = (c * c') * x t := by
     intro x
     simp [P, sub_eq_zero]
@@ -590,6 +590,7 @@ theorem bvecs_dot_basisVec {L : Type v} [Field L] {r : ℕ} (alg' : BilinearAlgo
     (t : Fin r) (y : Fin 4 → L) : alg'.beta t (emb y) = SatzF444.bvecs alg' t ⬝ᵥ y :=
   SatzF444.beta_emb alg' t y
 
+set_option maxHeartbeats 1000000 in
 /-- **Step 1 and the polynomial identity** (prose Lemma Z, steps 1 and 2, at the generic point).
 If `s ∼ t` at the generic normal form, there is `κ ∈ K`, `κ ≠ 0`, with
 `(A_s p) ⊗ (B̂_s p) = κ (A_t p) ⊗ (B̂_t p)` as a polynomial identity. -/
@@ -599,7 +600,7 @@ theorem quadGleich_of_rel {s t : Fin 25} (hrel : Rel (genAlg alg) s t) :
   classical
   obtain ⟨h1, h2, hcase, -⟩ := folgerungC1_generisch alg
   have hL : finrank (GField K) (LinearMap.range (Lq (d := 3) (genAlg alg))) = 5 :=
-    (Prod.mk.injEq _ _ _ _).1 hcase |>.1
+    (Prod.ext_iff.1 hcase).1
   obtain ⟨⟨c, ha⟩, ⟨c', hb⟩⟩ := hrel
   have hrelW := kerW_rel (genAlg alg) h1 rfl hL ha hb
   -- a vector of `ker W` with `x_t ≠ 0`
@@ -789,7 +790,7 @@ theorem lemmaZ_bruecke (hK : LemmaKStatement K) (alg : BilinearAlgorithm K 4 2 4
   refine ⟨prop_abstieg (Bruecke444.ι K) _ _ c fun i => ?_,
     prop_abstieg (Bruecke444.ι K) _ _ c' fun j => ?_⟩
   · have := congrFun ha i
-    rw [Bruecke444.avecs_genAlgL, Bruecke444.avecs_genAlgL, Pi.smul_apply, smul_eq_mul] at this
+    rw [Pi.smul_apply, smul_eq_mul, Bruecke444.avecs_genAlgL, Bruecke444.avecs_genAlgL] at this
     exact this
   · have := congrFun hb j
     simp only [SatzF444.bvecs, Pi.smul_apply, smul_eq_mul] at this
