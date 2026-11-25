@@ -1,0 +1,14 @@
+✔ [1673/1699] Built YangBounds.Lemma13Prime
+ℹ [1699/1699] Built YangBounds.SatzA444
+info: ././././YangBounds/SatzA444.lean:400:0: 'YangBounds.Lemma13Prime.lemma13Prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ././././YangBounds/SatzA444.lean:401:0: 'YangBounds.SatzA444.lemma13Prime_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ././././YangBounds/SatzA444.lean:402:0: 'YangBounds.SatzA444.satzA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ././././YangBounds/SatzA444.lean:403:0: 'YangBounds.SatzA444.satzA_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ././././YangBounds/SatzA444.lean:404:0: 'YangBounds.SatzA444.satzA_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ././././YangBounds/SatzA444.lean:405:0: 'YangBounds.SatzA444.satzA_global' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ././././YangBounds/SatzA444.lean:406:0: 'YangBounds.SatzA444.corollaryA1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ././././YangBounds/SatzA444.lean:407:0: 'YangBounds.SatzA444.corollaryA2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ././././YangBounds/SatzA444.lean:408:0: 'YangBounds.SatzA444.sDim_table' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ././././YangBounds/SatzA444.lean:409:0: 'YangBounds.SatzA444.exists_common_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully.
+exit 0
