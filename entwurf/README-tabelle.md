@@ -1,3 +1,5 @@
+> **Umgesetzt am 25.11.2026** nach der Freigabe von Justus (Auflagen 1 bis 8): Die Notiz steht jetzt unter `ergebnisse/rang-444.md`, die README ist geändert. Diese Datei bleibt als Entwurf stehen und gilt nicht mehr.
+
 # ENTWURF, NICHT FREIGEGEBEN: geänderte README-Tabelle
 
 > **Entwurf. Nicht freigegeben. Nicht in die README übernehmen, bevor Justus freigibt.**
