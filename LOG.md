@@ -233,3 +233,33 @@ Merge-Stand auf `main` beim Schreiben dieses Eintrags: PR #12 (e8d9cb0), #13 (d0
 **Entscheidung des Orchestrators: Halt nach 11.4**
 
 L5 ist ein Fehler im Beweis einer Quelle (Lemma 13 in Yang v3), gefunden in Stufe 1. Damit steht Abbruchregel 4 in Frage. Der Orchestrator darf keine Abbruchregel aussetzen und legt sie nicht selbst zu seinen Gunsten aus. Er hält deshalb nach 11.4 an und berichtet an Justus. Bis Justus entschieden hat, werden keine neuen Aufträge vergeben. S1-01 darf seine laufende Lieferung abschließen.
+
+---
+
+## 25.11.2026 · Stufe 1, Runde 1, Abschluss
+
+**Gelieferte Dateien**
+
+- S1-01: Lean-Projekt in `lean/` (`lakefile`, `YangBounds/Basic.lean`, `YangBounds/Statements.lean`, `YangBounds.lean`, `Axioms.lean`), Pull Request #15
+
+**Befunde (alle Status behauptet)**
+
+- S1-01: Das Lean-Projekt baut lokal. fallnlove/mm325_proof am Commit 759cf4a ist als Lake-Abhängigkeit per Git-URL eingebunden, also Verweis statt Kopie nach 11.3. Das Projekt enthält Definitionen und die Aussagen von Yangs Satz 1 und Satz 2. Die Folgerungen „Rang von 3×2×6 ist 30“ und „Rang von 4×2×4 ist mindestens 25“ sind daraus hergeleitet.
+- Offen sind genau drei `sorry` in `lean/YangBounds/Statements.lean`: Satz 1, Satz 2 und die obere Schranke 30 für 3×2×6.
+- Der Actions-Workflow baut `lean/` noch nicht. Ein lokaler Build zählt nach 5.1 Punkt 4 nicht.
+
+**Neuer Status je Behauptung**
+
+Kein Statuswort hat sich geändert. Alle Sätze des Lean-Projekts haben den Status behauptet.
+
+**Merges**
+
+PR #15 (ed591d1) ist am 25.11.2026 um 02:05 Uhr (MEZ) gemergt, unter dem GitHub-Konto Justus42.
+
+**Runden**
+
+Runde 1 der Stufe 1 ist abgeschlossen. Verbraucht in Stufe 1: 1 von 8.
+
+**Entscheidung**
+
+Der Halt nach Abbruchregel 4 (L5, Lemma 13 in Yang v3) besteht weiter. Justus ist gefragt. Es ist keine neue Runde vergeben.

@@ -1,13 +1,13 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 1, Halt)
+Zuletzt geändert: 25.11.2026 (Stufe 1, nach Runde 1, Halt)
 
 ## Aktuelle Stufe
 
 **Stufe 1: Yangs dritte Fassung formalisieren**
 
-- Runden verbraucht: 0 von 8
-- Runde 1 läuft: S1-02, S1-03, S1-04 geliefert, S1-01 schließt seine Lieferung noch ab
+- Runden verbraucht: 1 von 8
+- Runde 1 abgeschlossen, keine neue Runde vergeben
 - **Halt nach Abbruchregel 4:** keine neuen Aufträge, bis Justus entschieden hat (siehe Sperren)
 - Stufenwechsel 1 → 2: durch den Orchestrator, sobald das Fertig-Kriterium erfüllt ist (Protokoll Abschnitt 3 und 11)
 - Stufe 3: erst nach Budget von Justus
@@ -16,7 +16,7 @@ Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 1, Halt)
 
 | Nr. | Auftrag | Zieldatei | Stand |
 |---|---|---|---|
-| S1-01 | Lean-Projektgerüst | `lean/` | vergeben in Runde 1 |
+| S1-01 | Lean-Projektgerüst | `lean/` | erledigt in Runde 1, PR #15. Drei `sorry` offen (Satz 1, Satz 2, obere Schranke 30 für 3×2×6). Der Actions-Workflow baut `lean/` noch nicht |
 | S1-02 | Prosa-Beweis der Schranke für n = 3 | `lean/prosa/yang_n3.md` | erledigt in Runde 1, PR #13 |
 | S1-03 | Prosa-Beweis der Schranke für m ≥ n ≥ 4 | `lean/prosa/yang_n4.md` | erledigt in Runde 1, PR #14 (Lücke L5, siehe Sperren) |
 | S1-04 | Festlegung der zwei Randfälle im Format (Zusatzschlüssel, ungültige Kalenderdaten: beides FEHLERHAFT) | `verfahren/README.md` | erledigt in Runde 1, PR #12 |
