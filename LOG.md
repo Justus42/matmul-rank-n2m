@@ -984,3 +984,4 @@ Geplant für Runde 9: Lean für B-014, der Übergang vom generischen Punkt zum a
 - Unangetastet bleiben: `schranken-befunde.md`, die Einträge aus Stufe 0 und 1 sowie die Übersicht `MEMORY.md`.
 - Nicht erfasst ist `spurb-r1-4x2x4.md`, ein Eintrag aus Stufe 2 ohne das Präfix `s2-`. Er bleibt bis zur Entscheidung des Orchestrators im Gedächtnis.
 - Prüfer und Blind-Sucher dürfen `archiv/gedaechtnis/` nicht lesen (Hinweis in der README dort).
+- Ergänzung: Auf Entscheidung des Orchestrators ist auch `spurb-r1-4x2x4.md` wörtlich unter `archiv/gedaechtnis/` abgelegt, byteweise verglichen und danach aus dem Gedächtnis gelöscht. Insgesamt sind damit 25 Einträge archiviert und gelöscht.
