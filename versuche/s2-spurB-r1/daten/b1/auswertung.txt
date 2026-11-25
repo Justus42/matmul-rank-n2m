@@ -1,0 +1,23 @@
+daten/b1/1.log: p=2 seed=11 steps=631111680 best=26 plus=631 distinct_schemes=96 distinct_invariants=24
+daten/b1/2.log: p=3 seed=12 steps=613941248 best=26 plus=613 distinct_schemes=729 distinct_invariants=23
+daten/b1/3.log: p=3 seed=13 steps=601751552 best=26 plus=601 distinct_schemes=1010 distinct_invariants=73
+daten/b1/4.log: p=0 seed=14 steps=712048640 best=26 plus=712 distinct_schemes=77 distinct_invariants=32
+
+Z: Prozesse=1 Schritte=7.120e+08 bester Rang=26 Plus-Übergänge=712 verschiedene Verfahren je Rang={'26': 77} verschiedene Invarianten=32
+   Rang 26, 7x: 111:13 113:5 114:2 222:6
+   Rang 26, 6x: 111:14 113:4 114:2 222:6
+   Rang 26, 6x: 111:12 113:6 114:2 222:6
+   Rang 26, 5x: 111:14 113:5 114:1 222:6
+   Rang 26, 5x: 111:13 112:1 113:5 114:1 222:6
+GF(2): Prozesse=1 Schritte=6.311e+08 bester Rang=26 Plus-Übergänge=631 verschiedene Verfahren je Rang={'26': 96} verschiedene Invarianten=24
+   Rang 26, 8x: 111:13 113:6 114:1 222:6
+   Rang 26, 8x: 111:13 112:1 113:6 222:6
+   Rang 26, 8x: 111:13 112:1 113:5 114:1 222:6
+   Rang 26, 8x: 111:12 112:1 113:6 114:1 222:6
+   Rang 26, 8x: 111:12 113:6 114:2 222:6
+GF(3): Prozesse=2 Schritte=1.216e+09 bester Rang=26 Plus-Übergänge=1214 verschiedene Verfahren je Rang={'26': 1739} verschiedene Invarianten=73
+   Rang 26, 192x: 111:13 113:5 114:2 222:6
+   Rang 26, 170x: 111:12 113:6 114:2 222:6
+   Rang 26, 160x: 111:13 113:6 114:1 222:6
+   Rang 26, 128x: 111:12 113:5 114:3 222:6
+   Rang 26, 128x: 111:12 112:1 113:6 114:1 222:6
