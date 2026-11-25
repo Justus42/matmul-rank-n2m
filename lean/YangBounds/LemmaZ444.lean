@@ -59,11 +59,16 @@ Counting: classes of size `≤ 2` among 25 terms give at least 13 pairwise unrel
 * `rank_four_two_four_ge_26_of_lemmaK_transponiert`: the same with (B3′) in the form of
   `SatzF444.rank_four_two_four_ge_26_of_hyp` (every normal form in the case (5,8) over every
   algebraically closed field); (Z′) is no longer a hypothesis.
+* `lemmaKStatement_gilt`: `LemmaKStatement K` for every field, from `LemmaK444.lemmaK` (task
+  S2-45, merged on `main` while this task ran). Hence `lemmaZ_bruecke_unbedingt` (13 points,
+  unconditional) and the final theorems `rank_four_two_four_ge_26_of_transponiertEng` and
+  `rank_four_two_four_ge_26_of_transponiertEng'` with (B3′) as the **only** hypothesis.
 
 ## Named hypotheses (not proved here)
 
 * `LemmaKStatement K` (Lemma K, prose Section 3.1 with repair R-K). The part “exactly one of the
-  two cases” is not included (only “one of the two cases” is used).
+  two cases” is not included (only “one of the two cases” is used). Discharged in the last
+  section by `LemmaK444.lemmaK`.
 * `SatzF444.TransponiertEng` (B3′), unchanged from `SatzF444.lean`.
 
 No `sorry`, no own axiom, no `native_decide`.
