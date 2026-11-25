@@ -68,3 +68,13 @@ Keiner der Titel und keine der Kurzfassungen nennt ⟨2,4,4⟩, ⟨4,2,4⟩ oder
 Bewertung: Lacelle behauptet nicht, dass R(⟨2,4,4⟩) = 26 bewiesen ist; die Schreibweise mit „=“ ist Katalogsprache für die obere Schranke. Kein Verfahren mit 25.
 
 **Q5. Rudich/Rousseau, arXiv:2610.01639 v1, „Lower Bound of 22 for 3 × 3 Matrix Multiplication over Z“.** Nur ⟨3,3,3⟩. Kein ⟨2,4,4⟩ in den gelieferten Seiten 1–3, 5–15. Referenz [51] nennt Wang arXiv:2603.07280 „version 10 (30 Jul 2026)“, also eine neuere Fassung als die in Wache S2-58 gelesene v6. Muss neu geöffnet werden.
+
+### Geöffnete Quellen, Teil 2 (Werkzeug alphaXiv answer_pdf_queries)
+
+**Q6. Wang, arXiv:2603.07280, gelesen als v11 („arXiv:2603.07280v11 [cs.CC] 29 Aug 2026“).** Neuer als die in Wache S2-58 gelesene v6. Theorem 1 (S. 2): nur R_𝔽₂(⟨3,3,3⟩) ≥ 20, R_𝔽₂(⟨3,3,4⟩) ≥ 25, R_𝔽₂(⟨3,4,4⟩) ≥ 29. Tabelle 3 (S. 16, „Matrix multiplication tensor rank over 𝔽₂“) führt ⟨2,2,2⟩, ⟨2,2,3⟩, ⟨2,2,4⟩, ⟨2,3,3⟩, ⟨2,3,4⟩ (19/19/20), ⟨3,3,3⟩, ⟨3,3,4⟩, ⟨3,4,4⟩. **⟨2,4,4⟩ steht nicht in der Tabelle.** Tabelle 9 (S. 24) nennt für das Format 2×4 ohne Transposition 86 Bahnen über 𝔽₂ und 91 über 𝔽₃, also wäre ⟨2,4,4⟩ dem Verfahren rechnerisch zugänglich; ein Ergebnis dafür wird nicht berichtet.
+
+**Q7. TPSR26, arXiv:2609.22054, gelesen als v1 (18.09.2026).** Nur ⟨3,2,m⟩. Zu n = 4 nur das Zitat von Yang in der Einleitung (S. 1): „R_K(⟨n, 2, m⟩) ≥ (n + 2)m for n ≥ 4“ (nach der frühen Yang-Fassung). Keine Aussage zu 26. Keine neuere Fassung im Werkzeug.
+
+**Q8. AlphaEvolve, arXiv:2506.13131 v1.** Tabelle 3 (S. 34), Zeile wörtlich: „⟨2, 4, 4⟩ 26 [93] 26“ ([93] = Smirnov 2013). Kein Verfahren mit 25; AlphaEvolve erreicht 26 wieder.
+
+**Q9. Kauers/Moosbauer, arXiv:2212.01175 v1, „Flip graphs for matrix multiplication“.** Tabelle 1 (S. 10), Zeile wörtlich: „(2, 4, 4) any 26 [11] 26“ ([11] = Hopcroft/Kerr 1971). S. 1 wörtlich (Stand 2022): „Also for multiplying a 2 × 2 matrix with a 2 × p matrix and for multiplying a 2 × 3 matrix with a 3 × 3 matrix, optimal algorithms are known [11]. For all other formats, the known upper and lower bounds do not match.“
