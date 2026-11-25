@@ -44,6 +44,9 @@ MAIN_THEOREMS = [
     ("Final theorem R<4,2,4> >= 26, assuming bridge and sub-case B (Endsatz444.lean)", "YangBounds.Endsatz444.rank_four_two_four_ge_26_of"),
     ("Final theorem R<4,2,4> >= 26, hypotheses at one field (Endsatz444.lean)", "YangBounds.Endsatz444.rank_four_two_four_ge_26_of'"),
     ("Final theorem R<4,2,4> >= 26, alternative route over infinite fields (Endsatz444.lean)", "YangBounds.Endsatz444.rank_four_two_four_ge_26_of_unendlich"),
+    ("Satz F <4,2,4>: sub-case B forces symmetry, assuming (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.satzF"),
+    ("Case (5,8) symmetric, assuming (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.fall58_symmetrisch"),
+    ("UnterfallBStatement, assuming (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.unterfallBStatement_of"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 
