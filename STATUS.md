@@ -1,10 +1,31 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 2 abgeschlossen mit 12 von 24 Runden, B-016 als Ergebnis freigegeben, Stufe 3 folgt nach Protokoll 0.5)
+Zuletzt geändert: 26.11.2026 (Stufe 3, Runde 1 von 2 läuft, Protokoll 0.5)
 
 ## Aktuelle Stufe
 
-**Stufe 2: 4×2×4 (25 oder 26?)**
+**Stufe 3: Erkundung 4×2×5 (Länge 31) und 3×2×7 (Länge 34)** (Protokoll 0.5, Abschnitt 3)
+
+- Budget: 2 Runden mit je bis zu 6 Subagenten, keine Fremdmodell-Anfrage, keine eigenen Subagenten der Threads. Kein Beweisangriff. Nichts erhält den Status geprüft außer einem nach 5.2 bestätigten Verfahren
+- Begonnen 26.11.2026, nachdem die Auflagen 1 bis 8 der Freigabe zu Stufe 2 erledigt waren (PR #92, efc2eee)
+- Runde 1 von 2 läuft seit etwa 23:15 UTC: 6 Subagenten, 0 Fremdmodell-Anfragen
+- Fertig, wenn je Format eine Einschätzung unter `erkundung/` liegt (Restfälle mit beiden Rechnungen, übertragbare und nicht übertragbare Teile, Empfehlung) oder das Budget erschöpft ist. Danach hält der Orchestrator an
+- Kein Kontakt nach außen (Auflage 5)
+
+## Aufträge für Stufe 3
+
+| Nr. | Auftrag | Rolle | Zieldatei | Stand |
+|---|---|---|---|---|
+| S3-01 | Restfall-Rechnung 4×2×5 bei Länge 31 | Rechner | unter `erkundung/` | vergeben in Runde 1 |
+| S3-02 | Restfall-Rechnung 4×2×5 bei Länge 31, unabhängig von S3-01 | Rechner | unter `erkundung/` | vergeben in Runde 1 |
+| S3-03 | Restfall-Rechnung 3×2×7 bei Länge 34 | Rechner | unter `erkundung/` | vergeben in Runde 1 |
+| S3-04 | Restfall-Rechnung 3×2×7 bei Länge 34, unabhängig von S3-03 | Rechner | unter `erkundung/` | vergeben in Runde 1 |
+| S3-05 | Übertragbarkeit der Lean-Kette und Abzählargument für beide Formate | Erkunder | unter `erkundung/` | vergeben in Runde 1 |
+| S3-06 | Blind-Suche, mit Suche nach einem Verfahren mit 31 für 4×2×5 | Blind-Sucher | unter `erkundung/` | vergeben in Runde 1 |
+
+## Stufe 2: abgeschlossen
+
+**Stufe 2: 4×2×4 (25 oder 26?)**: abgeschlossen mit 12 von 24 Runden. B-016 als Ergebnis freigegeben, Auflagen erledigt (`ergebnisse/rang-444.md`)
 
 - Runden verbraucht: 12 von 24 (beide Spuren zusammen; Budget durch Justus von 12 auf 24 erhöht, Protokoll 0.4). Ab Runde 9 bis zu 6 Subagenten pro Runde
 - Runde 9 abgeschlossen: 6 zählende Subagenten (S2-34, S2-35, S2-36, S2-41, S2-42, S2-43), dazu gestartet und ersetzt S2-37 bis S2-40, 0 Sol-Anfragen, 51 Minuten nach Git (626eb7b bis 9f5a928)

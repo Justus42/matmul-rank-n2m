@@ -1964,3 +1964,36 @@ Von Justus angeordneter Abschluss nach Runde 12, keine eigene Runde.
 - Veraltet im Index, aber ohne Urteil:
   - Die Zeile zu Protokoll Abschnitt 6 nennt nur Stufe 2.
   - Die Literaturwache steht dort noch mit 11:47 UTC.
+
+### 26.11.2026, Auflagen der Freigabe erledigt, Beginn Stufe 3 (Schreibhand im Auftrag des Orchestrators)
+
+**README-Thread (Abschluss nach Runde 12, keine eigene Runde)**
+
+- PR #92, Commit 78c13f2 (00:11:23 Uhr MEZ), Merge efc2eee (00:11:40 Uhr MEZ). Kein Release, kein Tag.
+- Geändert:
+  - `ergebnisse/rang-444.md` (neu);
+  - `README.md`;
+  - `lit/WACHE.md` (Vermerk zu Gemini Deep Research als Angabe von Justus);
+  - Köpfe der beiden Dateien in `entwurf/`.
+- Unter `lean/` ist nichts geändert (`git diff 86debe9 efc2eee -- lean` leer).
+- Verbrauch: 1 Subagent, 0 Fremdmodell-Anfragen.
+- Dauer nach Git: Start um 23:10 UTC laut Orchestrator, Commit um 23:11:23 UTC, Merge um 23:11:40 UTC, also **etwa 1½ Minuten**.
+- Stichprobe der Schreibhand in README und Notiz:
+  - „to our knowledge the first proof“ und ein Abschnitt „Related claims“ sind vorhanden.
+  - „Human review: none“ bzw. „Human review | none“ ist vorhanden.
+  - „the repository owner“ steht in der Notiz.
+  - Lauf 45706606136 des Zweitlaufs ist genannt.
+  - „new here“ kommt nicht mehr vor.
+  - Den Inhalt im Einzelnen hat die Schreibhand nicht geprüft.
+- Ohne eigene Auflage wurde in der README der Plan-Punkt zu Stufe 3 an Protokoll 0.5 angepasst. Der Orchestrator hat das Justus gemeldet.
+- **Damit sind die Auflagen 1 bis 8 der Freigabe erledigt.**
+
+**Stufe 3 begonnen (Protokoll 0.5, Abschnitt 3)**
+
+- Erkundung von 4×2×5 (Länge 31) und 3×2×7 (Länge 34), kein Beweisangriff.
+- Budget 2 Runden mit je bis zu 6 Subagenten, keine Fremdmodell-Anfrage. Die Threads vergeben keine eigenen Subagenten.
+- Runde 1 von 2 vergeben um etwa 23:15 UTC, 6 Subagenten. Alle liefern nach `erkundung/`.
+  - S3-01 und S3-02: Restfall-Rechnung 4×2×5 bei Länge 31, unabhängig voneinander.
+  - S3-03 und S3-04: Restfall-Rechnung 3×2×7 bei Länge 34, unabhängig voneinander.
+  - S3-05: Übertragbarkeit der Lean-Kette und Abzählargument für beide Formate.
+  - S3-06: Blind-Sucher, mit Suche nach einem Verfahren mit 31 für 4×2×5.
