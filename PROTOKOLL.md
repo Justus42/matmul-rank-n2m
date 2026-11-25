@@ -1,6 +1,6 @@
 # Protokoll: Exakter Rang kleiner Matrixmultiplikations-Formate
 
-Stand: 25.11.2026 · Version 0.3 · Diese Datei ist das Gedächtnis des Projekts. Jeder Chat und jeder Subagent liest sie zuerst.
+Stand: 25.11.2026 · Version 0.4 · Diese Datei ist das Gedächtnis des Projekts. Jeder Chat und jeder Subagent liest sie zuerst.
 
 ---
 
@@ -108,7 +108,11 @@ Wie Stufe 2. Beginnt erst, wenn Justus ein Budget dafür festgelegt hat.
 
 Pro Runde läuft mindestens ein Blind-Sucher, sobald Stufe 2 begonnen hat. Prüfer sehen nie die Urteile früherer Prüfer.
 
-**Fremdmodell:** Vor jeder Formalisierung eines neuen Prosa-Beweises und bei jedem Aussagen-Abgleich liest ein Modell einer anderen Familie gegen (über die Gemini Bridge oder von Justus selbst weitergereicht).
+**Positivliste:** Jeder Auftrag an einen Prüfer oder Blind-Sucher nennt die Dateien, die er lesen darf. Alles andere ist für ihn gesperrt, ausdrücklich auch `STATUS.md`, `LOG.md`, `pruefvermerke/` und `archiv/`. Ein Prüfer liest von diesem Protokoll nur Abschnitt 5. Ein Blind-Sucher liest nur `CLAUDE.md` und die Problemstellung in seinem Auftrag.
+
+**Projektgedächtnis:** Prüfurteile, Befunde und Zwischenstände gehören nicht ins Projektgedächtnis. Sie stehen im Repo. Wer als Prüfer oder Blind-Sucher trotzdem etwas eingeblendet bekommt, legt es in seinem Bericht offen.
+
+**Fremdmodell:** Ein Modell einer anderen Familie liest gegen, über die Bridge oder von Justus selbst weitergereicht. Wann, regelt Abschnitt 5.5.
 
 **Justus:** legt Budgets fest, ändert Protokoll und CLAUDE.md, entscheidet über Veröffentlichung und Kontakt nach außen, kann jederzeit stoppen.
 
@@ -122,7 +126,7 @@ Nichts gilt als wahr, weil ein Agent es sagt.
 
 1. Lean-Build läuft durch, ohne `sorry` und ohne eigene Axiome
 2. `#print axioms` zeigt nur Standard-Axiome
-3. Aussagen-Abgleich: Ein Prüfer und ein Fremdmodell bestätigen unabhängig, dass der Lean-Satz die behauptete Aussage ist (richtiges Format, richtiger Körper, richtige Zahl)
+3. Aussagen-Abgleich: Zwei Leser bestätigen unabhängig voneinander, dass der Lean-Satz die behauptete Aussage ist (richtiges Format, richtiger Körper, richtige Zahl). Beim Endsatz einer Stufe sind das ein Prüfer und ein Fremdmodell. Bei Zwischenaussagen genügen zwei Prüfer, die einander nicht sehen
 4. Der Build läuft zusätzlich in GitHub Actions. Maßgeblich ist das grüne Ergebnis dort, nicht ein lokaler Lauf
 
 ### 5.2 Verfahren
@@ -145,17 +149,36 @@ Nur diese fünf, überall im Repo:
 
 Die Wörter „bewiesen" und „gelöst" stehen nur bei Status **geprüft**.
 
+Den Status setzt nur der Orchestrator, nie der Prüfer selbst.
+
+### 5.4 Trennung der Prüfvermerke
+
+- `behauptungen/B-xxx.md` enthält nur Aussage, Herkunft und Artefakt
+- Status, Prüfurteile, Vorbehalte und die Übersicht stehen in `pruefvermerke/`
+- Hat ein Prüfer vor seinem Urteil ein früheres Urteil zur selben Behauptung gesehen, ist seine Prüfung ungültig und wird mit einem unbeeinflussten Prüfer wiederholt. Ein Urteil des Fremdmodells bleibt gültig, wenn das Fremdmodell selbst kein Urteil gesehen hat
+
+Übergang zu Version 0.4: Die Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 und die Prosa-Prüfung von B-014 werden in Runde 9 der Stufe 2 mit unbeeinflussten Prüfern wiederholt. Die vorhandenen Urteile von GPT 6.2 Sol gelten weiter. Bestätigen die neuen Prüfer die vier Abgleiche, gelten die Fristen aus Runde 3 und Runde 6 nach Abbruchregel 2 als gehalten. Bestätigt der neue Prüfer B-014, zählt das als Fortschritt in Runde 9, mit Frist Ende Runde 11. Bis dahin bleiben die Statuseinträge mit Vorbehalt stehen.
+
+### 5.5 Fremdmodelle sparsam
+
+Anfragen an ein Fremdmodell kosten Justus eigenes Geld. Ein Fremdmodell wird nur eingesetzt für:
+
+- den Aussagen-Abgleich des Endsatzes einer Stufe
+- neue Prosa-Beweise, die als Fortschritt nach Abbruchregel 2 b) zählen sollen oder sonst eine Abbruchregel berühren
+
+Ein vorhandenes, unbeeinflusstes Urteil wird weiterverwendet und nicht neu angefragt. Standard ist GPT 6.2 Sol mit hoher Denkstufe als Batch über die Bridge.
+
 ---
 
 ## 6. Budget und Abbruch
 
-Eine **Runde** ist ein Orchestrator-Durchgang mit höchstens 4 Subagenten. Aufträge einer Runde hängen nie voneinander ab; Abhängigkeiten gibt es nur zwischen Runden. Rechenblöcke dauern höchstens 30 Minuten auf 4 Kernen. Nichts läuft im Hintergrund weiter, was nicht im Logbuch steht.
+Eine **Runde** ist ein Orchestrator-Durchgang mit höchstens 4 Subagenten, ab Runde 9 der Stufe 2 mit höchstens 6. Aufträge einer Runde hängen nie voneinander ab; Abhängigkeiten gibt es nur zwischen Runden. Rechenblöcke dauern höchstens 30 Minuten auf 4 Kernen. Nichts läuft im Hintergrund weiter, was nicht im Logbuch steht.
 
 | Stufe | Rundenbudget |
 |---|---|
 | 0 | 2 |
 | 1 | 8 |
-| 2 | 12 (beide Spuren zusammen) |
+| 2 | 24 (beide Spuren zusammen; bis Version 0.3: 12) |
 | 3 | nach Freigabe festlegen |
 
 Die Zahlen sind Startwerte. Nur Justus ändert sie.
@@ -198,7 +221,9 @@ CLAUDE.md           Kurzregeln, die jede Claude-Sitzung im Repo automatisch läd
 README.md           englische Übersicht für Außenstehende
 STATUS.md           aktuelle Stufe, laufende Aufträge, verbrauchte Runden
 LOG.md              ein Eintrag pro Runde, nur anhängen, nie umschreiben
-behauptungen/       eine Datei pro Behauptung: Aussage, Status, Artefakt, Prüfer
+behauptungen/       eine Datei pro Behauptung: Aussage, Herkunft, Artefakt
+pruefvermerke/      Status, Prüfurteile, Vorbehalte, Übersicht (für Prüfer gesperrt)
+archiv/             ausgelagerte Altbestände (für Prüfer und Blind-Sucher gesperrt)
 versuche/           gescheiterte Ansätze mit Grund des Scheiterns
 lean/               Lean-Projekt
 verfahren/          Verfahren als Datendateien
@@ -209,6 +234,8 @@ lit/                QUELLEN.md, WACHE.md, LIZENZEN.md, Notizen
 Gescheiterte Ansätze bleiben erhalten. Wer einen Ansatz beginnt, liest zuerst `versuche/`.
 
 Ein Logbuch-Eintrag enthält: Datum, Rundennummer, Aufträge, gelieferte Dateien, neuer Status je Behauptung, Entscheidung für die nächste Runde.
+
+Dazu der Verbrauch der Runde: Zahl der Subagenten, Dauer von der Vergabe bis zum letzten Merge, Zahl der Fremdmodell-Anfragen.
 
 ---
 
@@ -224,7 +251,7 @@ Ein Logbuch-Eintrag enthält: Datum, Rundennummer, Aufträge, gelieferte Dateien
 
 ## 10. Startauftrag für den Orchestrator-Chat
 
-> Lies PROTOKOLL.md, STATUS.md und LOG.md im Repo. Du bist der Orchestrator mit den Rechten aus Abschnitt 11. Führe zuerst die Literaturwache nach Abschnitt 7 aus. Arbeite dann die aktuelle Stufe in Runden nach Abschnitt 6 ab: höchstens 4 Subagenten pro Runde, jeder mit genau einem Auftrag und einer Zieldatei, keine Abhängigkeiten innerhalb einer Runde. Prüfe nichts selbst, sondern vergib Prüfaufträge nach Abschnitt 5. Beantworte Rückfragen der Threads selbst und merge ihre Pull Requests nach Abschnitt 11.2. Schreibe nach jeder Runde LOG.md und STATUS.md und stelle sie ein. Wechsle die Stufe nach Abschnitt 3 selbst. Halte nur in den Fällen aus Abschnitt 11.4 an und berichte dann in fünf Sätzen.
+> Lies PROTOKOLL.md, STATUS.md und LOG.md im Repo. Du bist der Orchestrator mit den Rechten aus Abschnitt 11. Führe zuerst die Literaturwache nach Abschnitt 7 aus. Arbeite dann die aktuelle Stufe in Runden nach Abschnitt 6 ab: höchstens so viele Subagenten pro Runde, wie Abschnitt 6 erlaubt, jeder mit genau einem Auftrag und einer Zieldatei, keine Abhängigkeiten innerhalb einer Runde. Gib Prüfern und Blind-Suchern eine Positivliste nach Abschnitt 4. Prüfe nichts selbst, sondern vergib Prüfaufträge nach Abschnitt 5. Beantworte Rückfragen der Threads selbst und merge ihre Pull Requests nach Abschnitt 11.2. Schreibe nach jeder Runde LOG.md und STATUS.md und stelle sie ein. Wechsle die Stufe nach Abschnitt 3 selbst. Halte nur in den Fällen aus Abschnitt 11.4 an und berichte dann in fünf Sätzen.
 
 ---
 
