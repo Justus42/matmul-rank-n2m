@@ -7,8 +7,7 @@ Task S2-27 (stage 2, round 7, track A, role: formaliser). Status of every statem
 file: `behauptet`. Claim file: `behauptungen/B-013.md`.
 
 Source: prose `lean/prosa/s2_444_spurA_r4.md` (task S2-16), Folgerung C2 (Section 4) and
-Lemma P (Section 5.1); review `lean/prosa/s2_444_spurA_r4_pruefung_b013.md` (task S2-23),
-Sections 2 and 3 (repairs R1, R2, R2b).
+Lemma P (Section 5.1).
 
 ## What is formalised here
 
@@ -21,7 +20,7 @@ Sections 2 and 3 (repairs R1, R2, R2b).
 * `NichtSymmetrisch alg := ¬ SatzB444.IsSymm alg`: the non-symmetry at the given normal form.
   In the prose it comes from Satz C (B-012, task S2-26). Here it is an **explicit hypothesis**
   of the theorems that need it.
-* Folgerung C2 without V′ (review Section 2, coordinate version): `N = 0` from
+* Folgerung C2 without V′ (coordinate version): `N = 0` from
   `NichtSymmetrisch` (`commonKernel_trivial`, via `SatzB444.lemmaV'`), and `s = 1` for every
   maximiser (`sDim_eq_one`), with `dim ker F_γ = 1` (`finrank_ker_Fc`).
 * `LemmaPStatement K`: Lemma P (the dichotomy) as a statement. **It is not proved in this
@@ -92,7 +91,7 @@ section C2
 
 variable {K : Type u} [Field K] {r : ℕ} (alg : BilinearAlgorithm K 4 2 4 r)
 
-/-- **`N = 0`** (review Section 2, coordinate version of C2b): at a non-symmetric normal form
+/-- **`N = 0`** (coordinate version of C2b): at a non-symmetric normal form
 the maps `F_1, F_2, F_3` have no common kernel vector. -/
 theorem commonKernel_trivial (h1 : SN1 (d := 3) alg) (h2 : SN2 (d := 3) alg)
     (hns : NichtSymmetrisch alg) (x : Fin 4 → K) (hx : ∀ i, Fq (d := 3) alg i x = 0) :
@@ -110,7 +109,7 @@ theorem finrank_ker_Fc {γ : Fin 3 → K} (hγ : γ ∈ Omega alg) :
   rw [Module.finrank_fin_fun] at h
   omega
 
-/-- **`s = 1`** (review Section 2, C2c): for a normalized decomposition of length 25 with no
+/-- **`s = 1`** (C2c): for a normalized decomposition of length 25 with no
 common kernel vector, every `γ ∈ Ω` has `s(γ) = dim ∑_i F_i(ker F_γ) = 1`. -/
 theorem sDim_eq_one (alg : BilinearAlgorithm K 4 2 4 25) (h1 : SN1 (d := 3) alg)
     (h2 : SN2 (d := 3) alg) (hN : ∀ x : Fin 4 → K, (∀ i, Fq (d := 3) alg i x = 0) → x = 0)
@@ -152,7 +151,7 @@ end C2
 
 section LemmaP
 
-/-- **Statement of Lemma P** (prose Section 5.1 with the repairs R2, R2b of the review): for
+/-- **Statement of Lemma P** (prose Section 5.1): for
 every normalized decomposition of `⟨4,2,4⟩` of length 25 over `K` (algebraically closed in the
 application) in the case (5,8) with `N = 0`, the space `K*` is in sub-case A or in sub-case B.
 **Not proved in this task**; used only as an explicit hypothesis. -/

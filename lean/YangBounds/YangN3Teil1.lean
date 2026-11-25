@@ -178,7 +178,7 @@ theorem BilinearAlgorithm.baseChange_beta_map (alg : BilinearAlgorithm K n l m r
     (alg.baseChange L).beta t (B.map (algebraMap K L)) = algebraMap K L (alg.beta t B) :=
   extendForm_map _ _
 
-/-- A linear form is zero after base change iff it was zero before (prose, S1-05 check, R2:
+/-- A linear form is zero after base change iff it was zero before (prose, R2:
 the order R1 before R2 does not matter). -/
 theorem extendForm_eq_zero_iff {a b : ℕ} (f : Matrix (Fin a) (Fin b) K →ₗ[K] K) :
     extendForm (L := L) f = 0 ↔ f = 0 := by

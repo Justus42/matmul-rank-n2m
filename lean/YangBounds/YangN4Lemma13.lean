@@ -12,8 +12,7 @@ import Mathlib.Algebra.BigOperators.Fin
 Task S1-15 (stage 1, round 4, role: formaliser). Status: `behauptet`.
 
 Source of the proof: `lean/prosa/yang_n4.md` (task S1-03), Section 6, "Lemma 13", in the
-repaired form over the quotient `Q / im F₁` (gap L5), checked in
-`lean/prosa/yang_n4_pruefung.md` (task S1-06). The lemma is Yang's (J. Yang, *New lower bounds
+repaired form over the quotient `Q / im F₁` (gap L5). The lemma is Yang's (J. Yang, *New lower bounds
 on tensor rank of (n,2,m) matrix multiplication with GPT-6*, arXiv:2609.14393v3, Lemma 13),
 not ours. The proof printed in the paper is wrong as written (gap L5); this file follows the
 prose file, not the paper.
@@ -62,8 +61,7 @@ written character for character as agreed with the parallel task S1-16
   `k` with `γ_k ≠ 0`). The inequalities `rk L ≤ rk L'` and `rk H' ≤ rk H` (enough for the
   bound) are proved for an arbitrary invertible `ξ` as in the prose (`ξᵀ c ξ`, zero diagonal
   via a pairing argument valid in characteristic 2).
-* Step 4 uses the rank–nullity identity `rk H = dim π(im H) + dim(im H ∩ ker π)` (remark A4
-  of the review) and only the inclusions `im H̄ ⊆ π(im H)` and `(im F₁)^{d−1} ⊆ p(im H ∩ ker π)`.
+* Step 4 uses the rank–nullity identity `rk H = dim π(im H) + dim(im H ∩ ker π)` and only the inclusions `im H̄ ⊆ π(im H)` and `(im F₁)^{d−1} ⊆ p(im H ∩ ker π)`.
 * `FiniteDimensional K U` is not needed for the proof; it is kept in `Lemma13Statement` as in
   the prose.
 -/

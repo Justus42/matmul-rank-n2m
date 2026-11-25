@@ -6,8 +6,7 @@ import YangBounds.YangN4Lemma13
 Task S2-14 (stage 2, round 4, track A, role: formaliser). Status of every statement in this
 file: `behauptet` (nothing here is `geprüft` before the statement check of protocol 5.1).
 
-Source: `lean/prosa/s2_444_spurA_r2.md` (task S2-05), Section 4, "Lemma 13′", checked in
-`lean/prosa/s2_444_spurA_r2_pruefung.md` (task S2-09), Section 2.4. Lemma 13 itself is Yang's
+Source: `lean/prosa/s2_444_spurA_r2.md` (task S2-05), Section 4, "Lemma 13′". Lemma 13 itself is Yang's
 (arXiv:2609.14393v3); the sharpening by the term `s` is from S2-05.
 
 ## Statement (prose, Section 4, for `d = 3`)

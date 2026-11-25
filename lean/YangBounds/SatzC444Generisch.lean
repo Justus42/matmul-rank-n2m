@@ -3,14 +3,13 @@ import Mathlib.Algebra.DualNumber
 import Mathlib.RingTheory.Localization.FractionRing
 
 /-!
-# Satz C and Folgerung C1 (repaired, generic) for `⟨4,2,4⟩` at the generic point
+# Satz C and Folgerung C1 (generic form) for `⟨4,2,4⟩` at the generic point
 
 Task S2-26 (stage 2, round 7, track A, role: formaliser). Status of every statement in this
 file: `behauptet`. Nothing here is `geprüft` before the check of protocol section 5.1.
 
-Sources: prose `lean/prosa/s2_444_spurA_r4.md` (task S2-16), Sections 3 and 4; review
-`lean/prosa/s2_444_spurA_r4_pruefung.md` (task S2-22), repair R-C1 and Section 4 (route via the
-function field and a derivation).
+Sources: prose `lean/prosa/s2_444_spurA_r4.md` (task S2-16), Sections 3 and 4, in the
+generic form R-C1 of `behauptungen/B-012.md` (route via the function field and a derivation).
 
 ## The generic normal form
 
@@ -34,7 +33,7 @@ about the normal form corresponds to the statement at this generic point.
   decomposition of length `r ≤ 25`, the generic normal form is not symmetric:
   `¬ SatzB444.IsSymm (genAlg K alg)`. (`IsSymm` is the predicate of `SatzB444.lean`, with
   `μ_t = 0` allowed.)
-* `folgerungC1_generisch` (**Folgerung C1, repaired as R-C1**): for every decomposition of
+* `folgerungC1_generisch` (**Folgerung C1 in the form R-C1**): for every decomposition of
   length 25 over any field, the generic normal form satisfies (N1), (N2), lies in the case
   `(rk L, rk H) = (5, 8)` and is not symmetric. This is the composition of Satz C with
   `satzB_unbedingt` and `satzB_symm_unbedingt`.
@@ -556,8 +555,7 @@ theorem beta_eq_zero_of_vT {r : ℕ} (alg : BilinearAlgorithm K 4 2 4 r) (t : Fi
   · exact (hk k).1
   · exact (hk k).2
 
-/-- **Satz C at the generic point** (B-012, Satz C, in the generic form of the review,
-Section 4): over every field `K`, the generic normal form of a decomposition of `⟨4,2,4⟩` of
+/-- **Satz C at the generic point** (B-012, Satz C, in the generic form): over every field `K`, the generic normal form of a decomposition of `⟨4,2,4⟩` of
 length `r ≤ 25` is not symmetric. -/
 theorem satzC_generisch {r : ℕ} (hr : r ≤ 25) (alg : BilinearAlgorithm K 4 2 4 r) :
     ¬ SatzB444.IsSymm (genAlg alg) := by
@@ -614,7 +612,7 @@ theorem alpha_ne_zero_of_length_25 (alg : BilinearAlgorithm K 4 2 4 25) (t : Fin
     omega
   exact absurd h (not_le.mpr (key _ (by simp [ht])))
 
-/-- **Folgerung C1, repaired (R-C1), at the generic point.** For every decomposition of
+/-- **Folgerung C1 (form R-C1), at the generic point.** For every decomposition of
 `⟨4,2,4⟩` of length 25 over any field `K`, the generic normal form satisfies (N1) and (N2),
 lies in the case `(rk L, rk H) = (5, 8)` and is not symmetric. -/
 theorem folgerungC1_generisch (alg : BilinearAlgorithm K 4 2 4 25) :
