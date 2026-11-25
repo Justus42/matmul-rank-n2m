@@ -1,0 +1,175 @@
+# Wiederholte Literaturwache zu R(⟨4,2,4⟩) = 26, Suchprotokoll
+
+Auftrag: Wiederholung der Literaturwache nach der Bedingung von Justus vom 25.11.2026, 22:42 UTC. Frage: Ist für ⟨2,4,4⟩ (gleichwertig ⟨4,2,4⟩, ⟨4,4,2⟩) irgendwo der Tensorrang 26 oder eine untere Schranke 26 bewiesen oder behauptet, oder gibt es ein Verfahren mit 25 Multiplikationen über irgendeinem Körper? Welche Schranken sind veröffentlicht?
+
+Regeln für dieses Protokoll: Jede Suchanfrage steht im Wortlaut, mit Werkzeug und Trefferzahl. Jede geöffnete Quelle steht mit Link und der einschlägigen Stelle. Uhrzeiten stehen nicht im Text, sie sind aus den Git-Zeitstempeln der Commits dieses Zweigs abzulesen. Eigentreffer auf Justus42/matmul-rank-n2m zählen nicht. Keine Fremdmodell-Anfragen.
+
+Ausführender Thread meldet als Modellbezeichnung: claude-opus-5-5.
+
+## Suchprotokoll
+
+(wird fortlaufend ergänzt)
+
+### Vorab: Erreichbarkeit
+
+Werkzeug Bash/curl, Abruf mit Statuscode: export.arxiv.org/api, arxiv.org/abs/2609.14393, fmm.univ-lille.fr/2x4x4.html, api.semanticscholar.org, api.openalex.org, mathoverflow.net, scholar.google.com. Alle sieben: Code 000 (vom Proxy der Umgebung nicht durchgelassen). Folge: Google Scholar ist nicht direkt durchsuchbar. Gesucht wurde mit dem Werkzeug WebSearch (Websuche), alphaXiv (Suchindex über arXiv) und einem Abruf-Werkzeug für einzelne Seiten. Ein vollständiges Durchblättern der arXiv-Listings ist damit nicht möglich; ersatzweise alphaXiv-Suche nach Aktualität.
+
+### Websuche, Block 1 (Werkzeug WebSearch)
+
+Trefferlisten wörtlich nach Titel/URL zusammengefasst. „Eigentreffer“ = Justus42/matmul-rank-n2m.
+
+| Nr. | Anfrage (wörtlich) | Modus | Treffer | Art der Treffer |
+|---|---|---|---|---|
+| W1 | `rank of 2x4x4 matrix multiplication tensor` | standard | 10 | arXiv: 0808.2688 (maximaler Rang 2-Schichten), 1607.01668 (Übersicht Tensorzerlegung), 1705.09652 (Grenzträgerrang 2×2), 2410.20538, 2209.11040, 2408.15728, 2609.05648 (maximaler Rang 4×4×4 über 𝔽₂), 1306.0708. Keiner nennt ⟨2,4,4⟩ im Titel. |
+| W2 | `"<2,4,4>" matrix multiplication rank lower bound` | standard | 10 | arXiv 2603.07280 (Wang, v1, v2, v3, v5 und ohne Version), 1112.6007, 1206.1530, 1706.04225, 2610.01639 („Lower Bound of 22 for 3x3 Matrix Multiplication over the Integers“) |
+| W3 | `"4x2x4" matrix multiplication 26 multiplications optimal` | standard | 10 | fmm.univ-lille.fr/2x4x4.html (⟨2×4×4:26⟩), 1804.04102, 2603.18699, 2506.13242 (mehrere Fassungen), eprint.iacr.org/2026/849, fmm 4x17x26, 2210.04045 |
+| W4 | `"25 multiplications" 4x4 by 4x2 matrix multiplication` | standard | 10 | 2506.13242, 2210.04045, mapleprimes-Beitrag 230205 (4×4-Ergebnis), 2603.18699, DrIsSc09 (Waterloo), Wikipedia Strassen. Kein Treffer zu einem 25-Produkt-Verfahren für ⟨2,4,4⟩ im Titel. |
+| W5 | `Hopcroft Kerr bound optimal n×2×m matrix multiplication rank proof 2026` | extended | 10 | arXiv 2609.14393 (Yang, HTML, v1, PDF), alphaXiv 2609.22054 (TPSR26), 2606.13408 (Lacelle, v1, aktuell, PDF), pith.science-Review zu 2609.22054, caisc2026 Verifiable Problems, 2603.07280v1 |
+| W6 | `"⟨4,2,4⟩" OR "<4,2,4>" tensor rank matrix multiplication` | standard | 10 | 2210.01183, 2506.13242, 2209.11040, 1607.01668, 2506.18713, 1705.09379, 1409.2908, 2311.01630, 1508.01110. Nichts mit ⟨4,2,4⟩ im Titel. |
+| W7 | `tensor rank "4×2×4" matrix multiplication lower bound 26` | extended | 10 | **Eigentreffer** github.com/Justus42/matmul-rank-n2m (zählt nicht); 2603.07280v3; par.nsf.gov 10486995 und 10486993; 1609.07476; 2006.02374; 1912.11927; Cambridge Forum-Artikel „new lower bounds for matrix multiplication and det3“; ToC v011a011 |
+| W8 | `"<4,4,2>" OR "4x4x2" matrix multiplication rank 26 25` | standard | 10 | 2210.04045, 2506.13242, 2603.18699, fmm 2x4x4, fmm 4x17x26, fmm 4x4x4, 2603.02398, fmm 4x15x26, 2306.00882 |
+| W9 | `2x4x4 matrix multiplication border rank 24 Smirnov` | standard | 10 | 1911.07981 (Conner/Harper/Landsberg, Grenzrang), 1705.09652, par.nsf.gov 10486993, core.ac.uk, 1112.6007, 2610.26563, 1305.0779, math/0407224 |
+| W10 | `papers citing "New lower bounds on tensor rank of (n,2,m) matrix multiplication"` | extended | 10 | 2609.14393 (HTML, PDF), alphaXiv „The Matrix Multiplication Exponent Is Nine Fourths“, **Eigentreffer** Justus42/matmul-rank-n2m, 2603.07280v3, ToC v011a011, 2603.07280v1, 1206.1530, par.nsf.gov 10486993, Cambridge Forum |
+
+Neu gegenüber früheren Wachen und noch zu öffnen: 2610.01639, 2609.05648, 2603.18699, 2506.13242, eprint.iacr.org/2026/849, 2610.26563, pith.science-Review, 2603.02398.
+
+### Websuche, Block 2 (Werkzeug WebSearch)
+
+| Nr. | Anfrage (wörtlich) | Modus | Treffer | Art der Treffer |
+|---|---|---|---|---|
+| W11 | `exact rank matrix multiplication small formats Lean formalization lower bound 2026` | extended | 9 | github.com/AIV5/mmrank21 (Lean, 3×3 ≥ 21 über jedem Körper laut Titel), alphaXiv 2609.18722, MathWorld, arXiv 2610.11823v3 („The rank of 3×3 matrix multiplication over 𝔽₂ is 23“), **Eigentreffer** Justus42/matmul-rank-n2m, lilting.ch (9/4-Arbeit), pith.science 2609.22054, zwei Nachrichtenseiten zur 9/4-Arbeit |
+| W12 | `Alekseyev "matrix multiplication" 2xnxm bilinear complexity lower bound` | standard | 10 | mathnet.ru cheb433, uzku1262, arXiv 2609.22054, 2603.07280v1/v2, 1206.1530, journal-vniispk.ru 176320 („On Bilinear Complexity of Multiplying 2×2-Matrix by 2×m-Matrix over Finite Field“), 1003.4679, 1112.6007 |
+| W13 | `site:mathoverflow.net rank matrix multiplication tensor 2x4 4x4 lower bound` | standard | 10 | **kein einziger Treffer auf mathoverflow.net**; stattdessen arXiv 2603.07280 (v1, v2, v5), 1706.04225, core.ac.uk, 1206.1530, 1705.09652, 1804.09124, 2306.01718, 2609.14393 |
+| W14 | `flip graph SAT search matrix multiplication 2x4x4 rank 25 scheme` | extended | 10 | doi 10.1145/3815436.3815455, 2212.01175 (Kauers/Moosbauer), ACM Arai u. a., 2506.22113, 2511.10786, 2502.04514, ACM Kauers/Moosbauer, 2510.19787, Chen/Kauers. Kein Treffer zu einem 25-Produkt-Verfahren für ⟨2,4,4⟩ im Titel. |
+| W15 | `"multiplicative complexity" "2 × 4" "4 × 4" matrices 26` | standard | 10 | fmm 2x4x4, 2506.13242, 2603.18699, cs/0703059 (Landsberg), 2609.06725, fmm 2x4x26, 2210.04045 |
+
+### alphaXiv-Suchen (Werkzeug alphaXiv discover_papers)
+
+| Nr. | Schlüsselwörter (wörtlich) | Frage (wörtlich) | Einstellung | Treffer |
+|---|---|---|---|---|
+| X1 | `<2,4,4>`, `tensor rank`, `matrix multiplication` | „tensor rank of <2,4,4> matrix multiplication, lower bound 26 or algorithm with 25 multiplications“ | Aufwand 8, Standard | 11: 2609.22054, 2609.14393, 2610.26563, 2611.09716, 2610.13905, 2602.11041, 2610.10593, 2609.12027, 2603.18699, 2510.19787, 2610.01639 |
+| X2 | `matrix multiplication`, `lower bound`, `tensor rank` | „new lower bounds on the rank of small matrix multiplication tensors“ | Aufwand 8, nach Aktualität | 16: 2609.14393, 2609.06725, 2609.22054, 2609.18722, 2610.01639, 2609.12121, 2610.11823, 2609.13596, 2609.06588, 2607.28676, 2609.32388, 2603.07280, 2510.19787, 2602.11041, 2610.13971, 2608.09708 |
+| X3 | `(n,2,m)`, `matrix multiplication`, `Hopcroft-Kerr` | „rank of (n,2,m) matrix multiplication, Hopcroft-Kerr bound optimality“ | Aufwand 8, Standard | 12: 2609.22054, 2609.14393, 2610.01639, 2609.06725, 2609.06588, 2609.32388, 2610.13971, 2606.13408, 2511.20317, 2510.19787, 2602.21797, 2508.01748 |
+
+Keiner der Titel und keine der Kurzfassungen nennt ⟨2,4,4⟩, ⟨4,2,4⟩ oder ⟨4,4,2⟩.
+
+### Geöffnete Quellen, Teil 1 (Werkzeug alphaXiv answer_pdf_queries, Volltext-PDF-Seiten)
+
+**Q1. Yang26, arXiv:2609.14393, gelesen als v3 („arXiv:2609.14393v3 [cs.CC] 12 Oct 2026“, Seite 1 des PDF).** Alle acht Seiten geliefert. Einschlägige Stelle, S. 1, wörtlich: „Additionally, Theorem 2 proves R(⟨4, 2, 4⟩) ≥ 25 and R(⟨4, 2, 5⟩) ≥ 31, which are each one away from the current upper bounds [4] [5].“ Abschnitt 4.2.1 (S. 7) beweist für n = 4 genau r ≥ 6m + 1, also 25 bei m = 4. Keine Aussage, dass 26 bewiesen oder die Frage anders als offen sei. Keine neue Fassung über v3 hinaus im Werkzeug sichtbar.
+
+**Q2. Tomar, arXiv:2610.11823 v3 (19.10.2026), „The rank of 3 × 3 matrix multiplication over 𝔽₂ is 23“.** Neu gegenüber früheren Wachen. Betrifft nur ⟨3,3,3⟩ über 𝔽₂. In den gelieferten Seiten (1–3, 5–7, 9, 11, 15, 17–18) kein ⟨2,4,4⟩. Nebenbefund: Lemma 4.3 erwähnt ⟨2,2,2⟩, sonst keine anderen Formate. Referenz [D’Am26]: „I. D’Ambrosio, The exact 𝔽₂-rank of 2 × 3 by 3 × 4 matrix multiplication, Zenodo, 2026“ (Format ⟨2,3,4⟩, nicht unseres; noch zu prüfen, ob dort ⟨2,4,4⟩ vorkommt).
+
+**Q3. Kauers/Wood, arXiv:2510.19787 v1, „Exploring the Meta Flip Graph“.** Tabelle Figure 4 (S. 9) listet nur verbesserte Formate (346, 257, 347, 446, 258, 267, 348, 357, 456, 268, 277, 358, 457, 556, 368, 377, 458, 467, 557, 566, 378, 477, 558, 567, 388, 568, 577, 667). **⟨2,4,4⟩ kommt nicht vor**, also keine Verbesserung unter 26. S. 4 wörtlich: „it is fair to believe that for most of the formats (n, m, p) near (2, 2, 2), the currently best known upper bounds for the rank are actually sharp.“ Das ist eine Vermutung, kein Beweis.
+
+**Q4. Lacelle, arXiv:2606.13408 v3 (Entwurf 17.08.2026).** Einschlägige Stellen:
+- S. 9, Beispiel ⟨4,8,12⟩:272, wörtlich: „Taking the serendipitous product with ⟨2, 4, 2⟩ and using R(⟨2, 4, 2⟩) = 14 and R(⟨2, 4, 4⟩) = 26, …“. **Dieses „= 26“ ist nach der Konvention des Katalogs der beste bekannte Rang (SOTA) über ℚ, keine Behauptung des exakten Tensorrangs:** Abschnitt 10.1 (S. 32) definiert „‚SOTA‘ means the lowest known rank“, und Abschnitt 7.5 (S. 26) sagt wörtlich: „The construction is an upper-bound realisation; Hopcroft–Kerr proved matching lower bounds only for ⟨2, 2, n⟩ and ⟨2, 3, 3⟩. … Lower bounds beyond Hopcroft–Kerr’s own remain out of scope.“
+- S. 29, wörtlich: „the Kronecker pair ⟨2, 4, 4⟩=26 ⊗ ⟨6, 3, 3⟩=40 gives 1040“, ebenfalls Katalograng.
+- S. 36: Untere Schranken („lower-bound registry“) sind laut Text „not yet surfaced in the comparison tables“.
+Bewertung: Lacelle behauptet nicht, dass R(⟨2,4,4⟩) = 26 bewiesen ist; die Schreibweise mit „=“ ist Katalogsprache für die obere Schranke. Kein Verfahren mit 25.
+
+**Q5. Rudich/Rousseau, arXiv:2610.01639 v1, „Lower Bound of 22 for 3 × 3 Matrix Multiplication over Z“.** Nur ⟨3,3,3⟩. Kein ⟨2,4,4⟩ in den gelieferten Seiten 1–3, 5–15. Referenz [51] nennt Wang arXiv:2603.07280 „version 10 (30 Jul 2026)“, also eine neuere Fassung als die in Wache S2-58 gelesene v6. Muss neu geöffnet werden.
+
+### Geöffnete Quellen, Teil 2 (Werkzeug alphaXiv answer_pdf_queries)
+
+**Q6. Wang, arXiv:2603.07280, gelesen als v11 („arXiv:2603.07280v11 [cs.CC] 29 Aug 2026“).** Neuer als die in Wache S2-58 gelesene v6. Theorem 1 (S. 2): nur R_𝔽₂(⟨3,3,3⟩) ≥ 20, R_𝔽₂(⟨3,3,4⟩) ≥ 25, R_𝔽₂(⟨3,4,4⟩) ≥ 29. Tabelle 3 (S. 16, „Matrix multiplication tensor rank over 𝔽₂“) führt ⟨2,2,2⟩, ⟨2,2,3⟩, ⟨2,2,4⟩, ⟨2,3,3⟩, ⟨2,3,4⟩ (19/19/20), ⟨3,3,3⟩, ⟨3,3,4⟩, ⟨3,4,4⟩. **⟨2,4,4⟩ steht nicht in der Tabelle.** Tabelle 9 (S. 24) nennt für das Format 2×4 ohne Transposition 86 Bahnen über 𝔽₂ und 91 über 𝔽₃, also wäre ⟨2,4,4⟩ dem Verfahren rechnerisch zugänglich; ein Ergebnis dafür wird nicht berichtet.
+
+**Q7. TPSR26, arXiv:2609.22054, gelesen als v1 (18.09.2026).** Nur ⟨3,2,m⟩. Zu n = 4 nur das Zitat von Yang in der Einleitung (S. 1): „R_K(⟨n, 2, m⟩) ≥ (n + 2)m for n ≥ 4“ (nach der frühen Yang-Fassung). Keine Aussage zu 26. Keine neuere Fassung im Werkzeug.
+
+**Q8. AlphaEvolve, arXiv:2506.13131 v1.** Tabelle 3 (S. 34), Zeile wörtlich: „⟨2, 4, 4⟩ 26 [93] 26“ ([93] = Smirnov 2013). Kein Verfahren mit 25; AlphaEvolve erreicht 26 wieder.
+
+**Q9. Kauers/Moosbauer, arXiv:2212.01175 v1, „Flip graphs for matrix multiplication“.** Tabelle 1 (S. 10), Zeile wörtlich: „(2, 4, 4) any 26 [11] 26“ ([11] = Hopcroft/Kerr 1971). S. 1 wörtlich (Stand 2022): „Also for multiplying a 2 × 2 matrix with a 2 × p matrix and for multiplying a 2 × 3 matrix with a 3 × 3 matrix, optimal algorithms are known [11]. For all other formats, the known upper and lower bounds do not match.“
+
+### GitHub-Repos (Werkzeug git ls-remote und git clone --depth 1, danach grep/find lokal)
+
+`git ls-remote … HEAD` (Pflichtpunkte nach Abschnitt 7 und weitere Kataloge):
+
+| Repo | HEAD | Letzter Commit (Datum des Commits) | Befund |
+|---|---|---|---|
+| fallnlove/mm325_proof | `759cf4a8524d4212e7832046204c90b9361ba2bb` | unverändert gegenüber Wache S2-58 | nur ⟨3,2,5⟩ |
+| openai/math | `3344da59991ed94f9ba711217b29c1d760badfa6` | 2026-11-24, unverändert gegenüber S2-58 | siehe unten |
+| wcgbg/tensor-rank-lower-bound | `9db3d215267932ba3e8801a10655a2d538ed13d8` | 2026-10-29, unverändert | siehe unten |
+| mkauers/matrix-multiplication | `12c26b29a5458e173813911fb4f2c2865fba841e` | 2026-05-29 | siehe unten |
+| solven-eu/matmulcatalog (Lacelle) | `5ed2ee9798595621db7b5393df7669f7dd3a2fd1` | 2026-11-25 04:12 UTC | **siehe Befund G1** |
+| dronperminov/FastMatrixMultiplication (Perminov) | `f70078cd9d1674cbc9c27e71011d4d6dff771d40` | 2026-11-16 | siehe unten |
+
+- **openai/math:** `grep -n -i "matrix multiplication\|tensor rank\|bilinear" CONTENTS.md` liefert nur die bekannten Familien 107, 135 und 379 (9/4-Exponent, iterierte Produkte, Euclidean tensor geometry) und einen fachfremden Treffer (Bogomolov–Pop). In allen 48 Verzeichnissen, deren Dateien „matrix multiplication“ enthalten, liefert `grep` nach `langle 2,4,4`, `langle 4,2,4`, `langle 4,4,2`, `2\times 4\times 4`, `4 \times 2 \times 4`, `(4,2,4)`, `(2,4,4)`, `<2,4,4>`, `<4,2,4>`, `n,2,m` **in den preprints keinen Treffer**; die Treffer im Ordner `lean/OAI/Combinatorics/Ramsey/CycleClique/` sind Zahlentripel in Ramsey-Zertifikaten, fachfremd.
+- **wcgbg/tensor-rank-lower-bound (Wang):** Zertifikate für Matrixformate nur `n222, n223, n224, n233, n324, n333, n334, n344` (Verzeichnis `certs/matrix`). **Kein Zertifikat für n244, n424 oder n442.**
+- **mkauers/matrix-multiplication:** Verzeichnisse nur für die Formate 257 … 667 (verbesserte Formate aus 2510.19787). **Kein Verzeichnis 244.**
+- **dronperminov/FastMatrixMultiplication:** `find schemes -iname '*2x4x4*' -o -iname '*4x2x4*' -o -iname '*4x4x2*'` findet 8 Verfahrensdateien, **alle mit `_m26_`** (Rang 26), keine mit 25, auch nicht über 𝔽₂ oder ternär. `docs/ranks.md` Zeile 37 wörtlich: „| `2x4x4` | 26 | 26 | 26 | 2.820263831 |“ (Spalten ZT, Z, Q).
+- **solven-eu/matmulcatalog:** Verfahrensdateien zu ⟨2,4,4⟩ und Permutationen, alle `r26`: `2x4x4-r26-alphatensor_F2`, `-alphatensor_Z`, `-flips_mod0`, `-hk71`, `-kauers_2026`, `-perminov_ZT`, zwei `-perminov_serbase_ZT`, `-perminov_cr92…`, `4x2x4-r26-derived`, `4x4x2-r26-derived`. Kein Verfahren mit 25, auch über 𝔽₂ nicht.
+
+#### Befund G1 (wichtig): unbelegte Behauptung „R(⟨2,4,4⟩) ≥ 26“ im Katalog-Repo von Lacelle
+
+Datei `docs/LOWER_BOUNDS.md` im Repo [solven-eu/matmulcatalog](https://github.com/solven-eu/matmulcatalog/blob/5ed2ee9798595621db7b5393df7669f7dd3a2fd1/docs/LOWER_BOUNDS.md), Zeile 90, wörtlich:
+
+> - `R(⟨2,4,4⟩) ≥ 26` (Hopcroft-Kerr), UB 26 → tight
+
+Abschnitt „Other notable small formats“, unmittelbar nach „`R(⟨2,3,3⟩) = 15` (HK 1971, tight, all fields)“. Die Zeile steht seit dem Commit `0a9f83a0` vom 2026-06-16 („Reset project“, Autor Benoit Lacelle) unverändert in der Datei (`git log -S` nach Entpacken der vollen Historie: nur dieser eine Commit).
+
+Einordnung (eigene Prüfung der Belege, kein Prüfurteil):
+1. Das ist eine **Behauptung ohne Beweis und ohne Fundstelle** außer dem Namen „Hopcroft-Kerr“. Die maschinenlesbare Datei `docs/lower-bounds.json` desselben Repos (29 Einträge) enthält **keinen** Eintrag für [2,4,4]; ihre HK71-Einträge sind nur [2,2,3], [2,2,4], [2,2,5], [2,3,3] (und [2,2,2] mit Winograd).
+2. Lacelles eigener Artikel arXiv:2606.13408 v3, Abschnitt 7.5 (S. 26), sagt das Gegenteil: „Hopcroft–Kerr proved matching lower bounds only for ⟨2, 2, n⟩ and ⟨2, 3, 3⟩.“
+3. Yang26 v3 (12.10.2026) nennt R(⟨4,2,4⟩) ≥ 25 als neues Ergebnis, „one away from the current upper bounds“; Kauers/Moosbauer 2022 (S. 1) nennen ausdrücklich nur ⟨2,2,p⟩ und ⟨2,3,3⟩ als Formate mit bekannten optimalen Verfahren.
+4. Dieselbe Liste enthält einen Rechenfehler in der Nachbarzeile: „`R(⟨2,2,n⟩) = ⌈(3·2n + max(2,n))/2⌉` = `⌈3.5n + 0.5⌉`“; für n ≥ 2 ergibt die Formel ⌈3,5n⌉, nicht ⌈3,5n + 0,5⌉. Das spricht für eine flüchtig geschriebene Übersicht.
+
+Folgerung: Das ist **kein Beweis** von R(⟨2,4,4⟩) ≥ 26 und keine veröffentlichte Arbeit, sondern eine vermutlich irrtümliche Zuschreibung in einer Markdown-Übersicht eines öffentlichen Repos. Sie ist aber im Wortlaut der Frage („irgendwo schon … behauptet“) **ein Treffer**: Die Aussage „R(⟨2,4,4⟩) ≥ 26 … tight“ steht öffentlich, seit dem 16.06.2026, also vor Yang26.
+
+### GitHub-Codesuche (Werkzeug `gh api -X GET search/code`, nur Standardzweige)
+
+| Nr. | Anfrage (wörtlich) | Trefferzahl laut API | einschlägige Treffer (Rest: fachfremde ML-/Compiler-Repos) |
+|---|---|---|---|
+| G-1 | `"2,4,4" tensor rank lower bound` | 1408 | solven-eu/matmulcatalog: `docs/LOWER_BOUNDS.md`, `references/BORDER_RANK_LAYER.md`, `paper/theory/RANK_KNOWLEDGE.md` |
+| G-2 | `"⟨2,4,4⟩"` | 125 | fast nur solven-eu/matmulcatalog (README, REFERENCES, CLAUDE.md, docs/comparison/…, research/…); KitaKen1/erdos-612-lean (fachfremd), carlostoledo1891/claimbox (fachfremd) |
+| G-3 | `"<4,2,4>" rank` | 60 | tungsten-lang/tungsten: `benchmarks/matmul/metaflip/proof_inner2/README.md`, `…/FINDINGS.md`; originaxiom/origin-axiom (Ausgabe einer Rechnung, „<4,2,4> UNDEFINED“, ohne Rangbezug) |
+| G-4 | `matrix multiplication rank 2x4x4 lower bound` | 166 | Tewf/tensor-rank-toolkit `methods/pencil_rank/projection-bound.md` (nennt nur „a 2x4x4 tensor“ als Suchraum, kein Rang von ⟨2,4,4⟩); tungsten-lang/tungsten (mehrere Dateien); solven-eu/matmulcatalog |
+| G-5 | `tensorRank matrix multiplication language:Lean` | 3 | cslib-community/cslib-frontier, facebookresearch/atlas-lean, qit-lmu/omega; alle nach Pfad fachfremd (Schnitt-Argumente, NP-Vollständigkeit), kein ⟨2,4,4⟩ |
+| G-6 | `"4x2x4" matrix multiplication` | 246 | tungsten-lang/tungsten `bits/tungsten-metaflip/tools/TWO-GRID-PARENT-2026-09-09.md`; Rest fachfremd |
+
+Geöffnet (über raw.githubusercontent.com, da die GitHub-API fremde Repos für diese Sitzung sperrt):
+
+- **solven-eu/matmulcatalog `paper/theory/RANK_KNOWLEDGE.md` Zeile 297**, wörtlich: „| `⟨2,4,4⟩` | 32 | **26** (latest), `≤ 27` historically | open lower bound | [AlphaTensor 2022][alpha22] |“. **Dasselbe Repo nennt die untere Schranke hier „open“** und widerspricht damit Befund G1.
+- **solven-eu/matmulcatalog `docs/comparison/us-vs-fmm-vs-perminov-F2.md` Zeile 19:** „| ⟨2,4,4⟩ | 26 | 26 | — | — | 26 | tie_derived |“ (nur obere Schranken).
+- **tungsten-lang/tungsten** (HEAD `3201662ac0ee318353c6849d86baa9c644a395c1`), `benchmarks/matmul/metaflip/proof_inner2/README.md`, Abschnitt „Wang `<2,4,4>` 86-orbit CPU campaign“, wörtlich: „The rigorous status is still `23 <= R_GF(2)(<2,4,4>) <= 26.` The lower endpoint is the existing algebraic bound; rank 26 is realized by the exact catalogue leaf.“ Die SAT-Läufe für „`<4,2,4>`, r23“ heißen dort „indeterminate“, und `FINDINGS.md` Zeile 1685 ff.: „Short CryptoMiniSat and RoundingSat probes on `<5,2,4>`, `<4,2,4>`, and `<3,2,5>` were indeterminate. Consequently `proof_inner2/` is a sound distributed proof campaign and not a new lower bound“. Kein Anspruch auf 26, kein Verfahren mit 25. (Die dort genannte untere Schranke 23 ist veraltet, Yang26 gibt 25 über allen Körpern.)
+- **tungsten-lang/tungsten `bits/tungsten-metaflip/bench/targets.md` Zeile 14:** „| 2x4x4 | 32 | 26 | integer, valid mod 2 | Lille, FMM, matmulcatalog, mkauers, KM22, Arai23 | commutative-only, excluded: … 23 (Islam 2009) …“. Nebenbefund: Kommutative Algorithmen mit 23 Multiplikationen (Islam 2009, Rosowski 2019) gibt es; sie sind **keine** bilinearen Verfahren und zählen für den Tensorrang nicht.
+
+### Websuche, Block 3, und alphaXiv ab 10.10.2026
+
+| Nr. | Werkzeug | Anfrage (wörtlich) | Treffer | Art der Treffer |
+|---|---|---|---|---|
+| W16 | WebSearch standard | `mathoverflow tensor rank matrix multiplication 2x4 4x4 Hopcroft Kerr optimal` | 10 | **kein Treffer auf mathoverflow.net** (wie W13); arXiv 1705.09652, 2510.19787, 2603.07280v2, 1102.0072, 2609.14393, 2210.01183, 1705.09379, 2609.06725 |
+| W17 | WebSearch extended | `"rank 26" OR "rank is 26" "2 × 4 × 4" OR "⟨2,4,4⟩" matrix multiplication` | 9 | fmm.univ-lille.fr/2x4x4.html; sonst nur allgemeine Seiten zum Matrixrang (Wikipedia, GeeksforGeeks usw.), fachfremd |
+| W18 | WebSearch standard | `D'Ambrosio exact F2-rank 2 × 3 by 3 × 4 matrix multiplication Zenodo` | 10 | kein Treffer auf die Zenodo-Arbeit selbst; arXiv 2603.07280, 2610.01639, 2610.11823, 2609.06725, 2508.03857, emergentmind, 2601.05272, 2609.06588 |
+| W19 | WebSearch standard | `Shitov tensor rank (2,2,m) matrix multiplication GPT-5.6 Sol` | 10 | 2609.14393, 2507.17890, 1712.08660, par.nsf.gov, Tsinghua-Archiv, 2603.07280v2, 2209.11040, 1705.09652, **LIPIcs CCC 2026 Nr. 36**, 1606.04085. Shitov26 selbst (ResearchGate) nicht gefunden; betrifft nur ⟨2,2,m⟩. |
+| W20 | WebSearch extended | `"Yang" "(n+2)m+n-3" OR "R(<4,2,4>) >= 25" matrix multiplication improvement 26` | 9 | alphaXiv 2609.22054, 2505.09814, **Eigentreffer** Justus42/matmul-rank-n2m, pith.science 2609.22054, fachfremde Seiten (Yangian, Yang–Baxter, Yang Le), Blog, 2410.20538 |
+| W21 | WebSearch standard | `Bläser lower bound rank 2×n×m matrix multiplication 2nm+n+m small formats survey Landsberg` | 10 | 2603.07280 (v1, v2, v5), 1211.6320, 1206.1530 (zweimal), 2510.19787, iris.unife.it, 2609.14393 |
+| X4 | alphaXiv discover_papers, ab 2026-10-10 | Schlüsselwörter `matrix multiplication`, `tensor rank`, `bilinear complexity`; Frage „lower bounds or exact rank for small rectangular matrix multiplication formats“ | 12 | 2611.04175, 2611.09716, 2610.30054, 2610.28627, 2610.18914 (alle 9/4-Exponent), 2611.31155 und 2611.12907 (3×3, Rang 23), 2610.26563, 2611.02684, 2611.04502, 2611.30376, 2611.31963. **Keine neue Arbeit zu ⟨n,2,m⟩ nach Yang26 v3.** |
+
+**Q10. Alman/Li, „Asymptotic Rank Speedup Theorems, Revisited“, CCC 2026, LIPIcs Bd. 383, Nr. 36** (über alphaXiv answer_pdf_queries aus dem Dagstuhl-PDF). Asymptotischer Rang, kleine Coppersmith–Winograd-Tensoren. In den gelieferten Seiten kein ⟨2,4,4⟩. Für feste Formate ohne Bedeutung (asymptotischer Rang ≤ Grenzrang).
+
+### Geöffnete Webseiten (Werkzeug: ein Abruf-Agent mit WebFetch, wörtliche Zitate aus dessen Bericht)
+
+- **FMM-Lille (Sedoglavic), [fmm.univ-lille.fr/2x4x4.html](https://fmm.univ-lille.fr/2x4x4.html):** geladen (HTTP 200), ohne Datum oder Version. Überschrift wörtlich: „Description of fast matrix multiplication algorithm: <2×4×4:26>“; „The algorithm <2×4×4:26> is taken from:“ Hopcroft/Kerr 1971. **Keine untere Schranke, keine Aussage zu Optimalität.**
+- **[caisc2026.github.io/verifiable-problems/?problem=matrix-multiplication-tensor-rank](https://caisc2026.github.io/verifiable-problems/?problem=matrix-multiplication-tensor-rank):** geladen, Inhalt aber nur „Loading…“ (JavaScript). **Nicht lesbar**, wie schon in Runde 2 und S2-58.
+- **[pith.science/paper/2609.22054](https://pith.science/paper/2609.22054):** maschinelle Besprechung von TPSR26 v1; nur ⟨3,2,m⟩ und ⟨3,2,5⟩, nichts zu ⟨2,4,4⟩.
+- **[eprint.iacr.org/2026/849](https://eprint.iacr.org/2026/849):** Mårtensson/Stankovski Wagner, „On Why and How to Minimize the Arithmetic Complexity of Fast Matrix Multiplication Algorithms“ (eingegangen 30.04.2026). Nur Additionszahl, kein Rang, nichts zu ⟨2,4,4⟩.
+
+### Nicht lesbar oder nicht erreicht
+
+- arxiv.org, export.arxiv.org, fmm.univ-lille.fr, api.semanticscholar.org, api.openalex.org, mathoverflow.net, scholar.google.com per curl gesperrt (siehe Vorab). arXiv-Arbeiten daher über alphaXiv gelesen, FMM-Lille über den Abruf-Agenten. **Google Scholar und die Zitationslisten (Semantic Scholar) konnten nicht direkt abgefragt werden**; „zitierende Arbeiten“ von Yang26 nur über Websuche W10/W20 und alphaXiv X2/X4 gesucht.
+- **MathOverflow:** zwei Websuchen (W13 mit `site:mathoverflow.net`, W16) brachten keinen einzigen Treffer auf mathoverflow.net. Direkter Zugriff gesperrt. Ergebnis für MathOverflow: nichts gefunden, aber nur über die Suchmaschine geprüft.
+- arXiv-Listings math.AG, cs.CC, cs.SC, math.RA der letzten Monate: **nicht Seite für Seite durchgeblättert** (Zugang gesperrt); ersatzweise alphaXiv X2 (nach Aktualität) und X4 (ab 10.10.2026).
+- caisc2026 (JavaScript), Shitov26 (ResearchGate), D’Ambrosio (Zenodo, Format ⟨2,3,4⟩ über 𝔽₂), Hopcroft/Kerr 1971 im Original (Verlagsseite) nicht gelesen.
+- Lean-, Coq-, Isabelle-Repos: nur über die GitHub-Codesuche G-5 und G-1/G-2 (Standardzweige); keine Coq- oder Isabelle-Treffer zu Matrixmultiplikationsrang.
+
+### Zählung
+
+- Suchanfragen: 21 Websuchen (W1–W21), 4 alphaXiv-Suchen (X1–X4), 6 GitHub-Codesuchen (G-1 bis G-6), zusammen **31**. Dazu lokale grep/find-Durchläufe in 6 geklonten Repos.
+- Geöffnete Quellen: 10 Arbeiten (Q1–Q10), 4 Webseiten, 11 Repo-Dateien oder -Verzeichnisse (matmulcatalog: LOWER_BOUNDS.md, lower-bounds.json, RANK_KNOWLEDGE.md, comparison-F2; tungsten: proof_inner2/README.md, FINDINGS.md, targets.md; Perminov docs/ranks.md und Verfahrensdateien; Wang certs/matrix; Kauers Formatverzeichnisse; openai/math CONTENTS.md), zusammen **25**.
+- Subagenten: 1 (Abruf-Agent für die vier Webseiten). Fremdmodell-Anfragen: 0.
+
+## Ergebnis
+
+1. **Kein Beweis gefunden**, dass R(⟨2,4,4⟩) = 26 oder ≥ 26 ist, über keinem Körper, in keiner Arbeit, keinem Preprint, keinem Lean-Repo.
+2. **Kein Verfahren mit 25 Multiplikationen gefunden**, über keinem Körper (auch nicht 𝔽₂, ternär, ℤ, ℚ, ℂ). Alle Kataloge (FMM-Lille, Perminov, Lacelle, Kauers, AlphaEvolve, AlphaTensor-Import) führen 26.
+3. **Eine Behauptung gefunden (Befund G1):** `docs/LOWER_BOUNDS.md` im Repo solven-eu/matmulcatalog sagt seit 16.06.2026 „`R(⟨2,4,4⟩) ≥ 26` (Hopcroft-Kerr), UB 26 → tight“. Ohne Beweis, mit falscher Zuschreibung (HK71 bewiesen untere Schranken nur für ⟨2,2,n⟩ und ⟨2,3,3⟩, so auch Lacelles eigener Artikel), im Widerspruch zu `paper/theory/RANK_KNOWLEDGE.md` desselben Repos („open lower bound“) und zu Yang26. Das ist keine Fremdbegründung von 26, aber eine öffentliche Vorab-Behauptung derselben Zahl.
+4. **Bester veröffentlichter Stand:** untere Schranke 25 über beliebigen Körpern (Yang26, arXiv:2609.14393 v3, Satz 2); obere Schranke 26 (Hopcroft/Kerr 1971, ganzzahlig, damit über jedem Körper). Kommutative (nicht bilineare) Algorithmen mit 23 Multiplikationen (Islam 2009, Rosowski 2019) zählen für den Tensorrang nicht. Grenzrang ≤ 24 (siehe Wache S2-07), daher liefern Grenzrang-Methoden keine 26.

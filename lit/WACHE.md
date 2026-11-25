@@ -329,3 +329,35 @@ Die einzigen Treffer mit „26“ zu diesem Format sind **Eigentreffer**: das ö
 - FMM-Lille-Startseite nur bis etwa ⟨2×21×31⟩ gelesen, die Zeile ⟨2×4×4⟩ war enthalten.
 - Shitov26 (ResearchGate) nicht erneut gesucht; betrifft nur ⟨2,2,m⟩.
 - Kein vollständiger Durchgang der arXiv-Listen von cs.CC, sondern alphaXiv- und Websuche.
+
+---
+
+## 25.11.2026, Wiederholung der Wache zu R(⟨4,2,4⟩) = 26 (Bedingung von Justus vom 25.11.2026, 22:42 UTC)
+
+Zeiten nicht hier, sondern aus den Git-Zeitstempeln der Commits auf dem Zweig `claude/project-thread-edc0bv` (Start-Commit `14638c1`). Vollständiges wörtliches Suchprotokoll: [WACHE-WIEDERHOLUNG-2026-11-25.md](WACHE-WIEDERHOLUNG-2026-11-25.md). Ausführender Thread meldet als Modellbezeichnung claude-opus-5-5. Ein Abruf-Subagent, keine Fremdmodell-Anfrage.
+
+### Ergebnis
+
+**Nicht gefunden:** kein Beweis von R(⟨4,2,4⟩) ≥ 26 oder = 26 (alle Permutationen, jeder Körper) und kein Verfahren mit 25 Multiplikationen.
+
+**Gefunden, ausdrücklich zu melden:** eine unbelegte Behauptung „`R(⟨2,4,4⟩) ≥ 26` (Hopcroft-Kerr), UB 26 → tight“ in `docs/LOWER_BOUNDS.md`, Zeile 90, des öffentlichen Repos solven-eu/matmulcatalog (Lacelle), Commit `0a9f83a0` vom 16.06.2026, HEAD `5ed2ee97`. Ohne Beweis, mit nach Lacelles eigenem Artikel (arXiv:2606.13408 v3, Abschnitt 7.5) falscher Zuschreibung an HK71, im selben Repo widersprochen (`paper/theory/RANK_KNOWLEDGE.md`: „open lower bound“), nicht in der maschinenlesbaren Schrankenliste `docs/lower-bounds.json`. Einzelheiten: Protokoll, Befund G1.
+
+Bester veröffentlichter Stand: untere Schranke 25 über beliebigen Körpern (Yang26 v3), obere Schranke 26 (HK71). Status dieses Eintrags: behauptet.
+
+### Suchbegriffe (Auswahl, vollständig im Protokoll)
+
+`rank of 2x4x4 matrix multiplication tensor`; `"<2,4,4>" matrix multiplication rank lower bound`; `"4x2x4" matrix multiplication 26 multiplications optimal`; `"25 multiplications" 4x4 by 4x2 matrix multiplication`; `"⟨4,2,4⟩" OR "<4,2,4>" tensor rank matrix multiplication`; `"<4,4,2>" OR "4x4x2" …`; `2x4x4 matrix multiplication border rank 24 Smirnov`; `papers citing "New lower bounds on tensor rank of (n,2,m) matrix multiplication"`; `flip graph SAT search matrix multiplication 2x4x4 rank 25 scheme`; `site:mathoverflow.net …`; alphaXiv `<2,4,4>`, `(n,2,m)`, `Hopcroft-Kerr`, `lower bound`; GitHub-Code `"⟨2,4,4⟩"`, `"<4,2,4>" rank`, `tensorRank … language:Lean`. 31 Suchanfragen.
+
+### Quellen (25 geöffnet)
+
+Yang26 v3, TPSR26 v1, Wang26 v11, Lacelle26 v3, Tomar 2610.11823 v3, Rudich/Rousseau 2610.01639, Kauers/Wood 2510.19787, Kauers/Moosbauer 2212.01175, AlphaEvolve 2506.13131, Alman/Li CCC 2026; FMM-Lille 2x4x4, caisc2026 (nicht lesbar), pith.science, IACR 2026/849; Repos solven-eu/matmulcatalog, dronperminov/FastMatrixMultiplication, mkauers/matrix-multiplication, wcgbg/tensor-rank-lower-bound, tungsten-lang/tungsten, openai/math.
+
+### Pflichtpunkte nach Abschnitt 7
+
+- arXiv:2609.14393: v3 vom 12.10.2026, keine neuere Fassung gesehen. arXiv:2609.22054: v1.
+- fallnlove/mm325_proof `759cf4a8`, openai/math `3344da59`, wcgbg/tensor-rank-lower-bound `9db3d215`: alle unverändert gegenüber Wache S2-58. In openai/math kein ⟨n,2,m⟩.
+- Neue Arbeiten cs.CC seit dem letzten Eintrag (alphaXiv ab 10.10.2026): nur 9/4-Expositionen und 3×3-Arbeiten, nichts zu ⟨n,2,m⟩.
+
+### Einschränkungen
+
+arXiv, Google Scholar, Semantic Scholar, MathOverflow und FMM-Lille vom Proxy per curl gesperrt; arXiv-Listings nicht Seite für Seite, Scholar-Zitationslisten nicht abgefragt, MathOverflow nur über Suchmaschine (kein Treffer). caisc2026 nicht lesbar (JavaScript). Keine Vollständigkeit garantiert.
