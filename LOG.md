@@ -1003,3 +1003,31 @@ Geplant für Runde 9: Lean für B-014, der Übergang vom generischen Punkt zum a
 
 - B-012: **geprüft** für Teil G, **unter Vorbehalt des Orchestrators** zur Unabhängigkeit des Abgleichs. Die Entscheidung über den Vorbehalt steht aus.
 - Satz C im Wortlaut und R-C1 an den Punkten einer offenen Menge bleiben **behauptet**.
+
+**Halt nach Runde 8 (Entscheidung des Orchestrators, Abschnitt 11)**
+
+- Der Orchestrator hält nach Runde 8 an, weil eine Regel ausgelegt werden müsste. Runde 8 läuft zu Ende, Runde 9 startet nicht. Er legt die Frage Justus vor, zusammen mit dem Ergebnis von Runde 8.
+- Offene Frage: Entwertet ein früheres Prosa-Prüfurteil, das der Prüfer gesehen hat, einen Aussagen-Abgleich nach 5.1 Punkt 3? Abschnitt 4 sagt, der Prüfer bekommt „nur Behauptung und Artefakt, keine Vorgeschichte“.
+  - Betroffen ist B-012 (S2-30). Das Feld „Prüfung“ in `B-012.md` enthielt das Urteil von S2-22.
+  - Betroffen sind auch B-008 und B-009 (S2-19, S2-20). Beim Abgleich enthielten `B-008.md` und `B-009.md` schon das Urteil von S2-09 (Commit 128221a).
+  - Voraussichtlich ist auch B-013 (S2-31) betroffen.
+- Die Statuseinträge bleiben, wie sie sind.
+  - B-012 Teil G bleibt geprüft unter Vorbehalt.
+  - B-008 und B-009 bekommen denselben Vorbehalt als Vermerk in der Übersicht, ohne Statuswechsel.
+- Ein Vorschlag geht mit an Justus und ist noch nicht freigegeben: Status, Prüfvermerke und die Übersicht ziehen nach `pruefvermerke/`. `behauptungen/B-xxx.md` enthält dann nur noch Aussage, Herkunft und Artefakt. Prüfer-Aufträge nennen die lesbaren Dateien als Positivliste.
+
+**Zählerstand Spur A in beiden Lesarten (Stand: Runde 8 läuft, S2-31 bis S2-33 offen)**
+
+- **Milde Lesart** (ein gesehenes Prosa-Urteil entwertet den Abgleich nicht):
+  - Runde 3: Fortschritt nach b), gehalten durch B-008 und B-009 in Runde 5.
+  - Runde 4: kein Fortschritt (1). Runde 5: kein Fortschritt (2).
+  - Runde 6: Fortschritt nach b) (0). Die Frist ist gehalten, weil B-012 Teil G bis Runde 8 geprüft ist.
+  - Runde 7: kein Fortschritt (1), Entscheidung zu S2-28.
+  - Runde 8: nichts neu zu zählen (2).
+  - Nach Runde 8: **2 von 3**, sofern S2-31 bis S2-33 nichts Neues bringen. Runde 9 müsste Fortschritt bringen.
+- **Strenge Lesart** (der Abgleich ist entwertet):
+  - B-008 und B-009 hatten bis Ende Runde 5 keinen gültigen Abgleich. Der Fortschritt aus Runde 3 fällt nachträglich weg.
+  - Damit waren die Runden 1 bis 5 ohne Fortschritt. Selbst gezählt erst ab Runde 3 sind es 3 von 3.
+  - Spur A hätte nach Abbruchregel 2 spätestens mit Ende von Runde 5 geendet. Die Runden 6 bis 8 lagen dann jenseits der Regel.
+  - Auch der Fortschritt aus Runde 6 hielte die Frist nicht, weil der Abgleich für B-012 ebenso betroffen ist und für B-013 voraussichtlich auch.
+  - B-008, B-009 und B-012 fielen in den betroffenen Teilen auf behauptet zurück, bis ein unbeeinflusster Abgleich vorliegt. Widerlegt ist dadurch nichts.

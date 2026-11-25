@@ -8,6 +8,7 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 8 läuft)
 
 - Runden verbraucht: 7 von 12 (beide Spuren zusammen)
 - Runde 8 läuft: S2-30, S2-31, S2-32, S2-33
+- **Halt nach Runde 8:** Runde 9 startet nicht. Der Orchestrator legt Justus eine Auslegungsfrage vor: Entwertet ein vom Prüfer gesehenes früheres Prosa-Prüfurteil einen Aussagen-Abgleich? Betroffen sind B-008, B-009, B-012 und voraussichtlich B-013. Zähler Spur A nach Runde 8: milde Lesart 2 von 3, strenge Lesart wäre Spur A schon mit Runde 5 beendet (siehe LOG.md)
 - Abbruchregel 2 (Protokoll 0.3), Spur A: Runde 6 bringt Fortschritt nach b), Runde 7 nicht, weil der Prüfer von B-014 frühere Prüfurteile gesehen hat (Lesart des Orchestrators, siehe LOG.md). Zähler: **1 von 3**. Frist: B-012 und B-013 geprüft bis Ende Runde 8; hält nur ein Teil, trägt dieser Teil Runde 6, solange er einen benannten Fall ausschließt. Runde 8 zählt nichts neu; ohne anderes Ergebnis steht Spur A danach bei 2 von 3. B-014 wird in Runde 9 von einem unbeeinflussten Prüfer und GPT neu geprüft. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
