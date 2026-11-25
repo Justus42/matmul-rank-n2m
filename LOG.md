@@ -985,3 +985,21 @@ Geplant für Runde 9: Lean für B-014, der Übergang vom generischen Punkt zum a
 - Nicht erfasst ist `spurb-r1-4x2x4.md`, ein Eintrag aus Stufe 2 ohne das Präfix `s2-`. Er bleibt bis zur Entscheidung des Orchestrators im Gedächtnis.
 - Prüfer und Blind-Sucher dürfen `archiv/gedaechtnis/` nicht lesen (Hinweis in der README dort).
 - Ergänzung: Auf Entscheidung des Orchestrators ist auch `spurb-r1-4x2x4.md` wörtlich unter `archiv/gedaechtnis/` abgelegt, byteweise verglichen und danach aus dem Gedächtnis gelöscht. Insgesamt sind damit 25 Einträge archiviert und gelöscht.
+
+---
+
+## 25.11.2026 · Stufe 2, Runde 8, Zwischenstand
+
+**S2-30 (Prüfer): Aussagen-Abgleich B-012, Pull Request #61, gemergt um 18:13 Uhr (MEZ) unter dem Konto Justus42, Merge-Commit 1daace0**
+
+- Bericht `lean/prosa/s2_444_spurA_r8_abgleich_b012.md`, Antwort des Fremdmodells `versuche/s2-30/gpt_antwort.md`, Vermerk in `behauptungen/B-012.md`.
+- Prüfer und GPT 6.2 Sol bestätigen unabhängig voneinander, dass die Lean-Sätze `satzC_generisch`, `folgerungC1_generisch` und `folgerungC1_nicht36` die generische Fassung von Satz C und von C1 nach R-C1 sind („Teil G“, über K(S,T)). Der Wortlaut mit offener Menge über K̄ ist nur über ein nicht formalisiertes Spezialisierungsargument gleichwertig.
+- Die SORRY-Zeile von Lauf 45653961790 hat der Prüfer selbst nachgelesen: SORRY 0, nur Standard-Axiome.
+- Satz E ist in Lean nur für algebraisch abgeschlossene Körper formuliert. Der Anschluss an Teil G ist offen.
+- Offenlegung des Prüfers: Das Feld „Prüfung“ in `B-012.md` enthielt die Zusammenfassung des Prosa-Prüfurteils von S2-22. Außerdem wurden ihm Gedächtnisnotizen zu S2-22 und S2-26 eingeblendet. Das Fremdmodell sah keine Urteile.
+- Der Prüfer hat den Status in `B-012.md` selbst eingetragen, obwohl die Datei sagt, dass der Orchestrator den Status setzt.
+
+**Neuer Status**
+
+- B-012: **geprüft** für Teil G, **unter Vorbehalt des Orchestrators** zur Unabhängigkeit des Abgleichs. Die Entscheidung über den Vorbehalt steht aus.
+- Satz C im Wortlaut und R-C1 an den Punkten einer offenen Menge bleiben **behauptet**.

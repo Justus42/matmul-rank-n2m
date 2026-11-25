@@ -44,7 +44,7 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 8 läuft)
 | S2-27 | Spur A: Satz E (B-013) in Lean, Nicht-Symmetrie als Hypothese | Formalisierer | `lean/YangBounds/SatzE444.lean`, `SatzE444Buendel.lean` | erledigt in Runde 7, PR #60. Ohne sorry; Lemma P nur als Hypothese |
 | S2-28 | Spur A: Prüfung B-014 (Satz F), mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r6_pruefung.md` | erledigt in Runde 7, PR #58. Hält mit Reparaturen R-K, R-F1 bis R-F3 |
 | S2-29 | Blind-Sucher, Handkonstruktion | Blind-Sucher | `versuche/s2-blind-r7.md` | erledigt in Runde 7, PR #57. Kein 25er-Verfahren |
-| S2-30 | Spur A: Aussagen-Abgleich B-012, mit GPT 6.2 Sol | Prüfer | `behauptungen/B-012.md` | vergeben in Runde 8 |
+| S2-30 | Spur A: Aussagen-Abgleich B-012, mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r8_abgleich_b012.md`, `behauptungen/B-012.md` | erledigt in Runde 8, PR #61. Teil G geprüft, unter Vorbehalt (Prüfer sah früheres Prüfurteil) |
 | S2-31 | Spur A: Aussagen-Abgleich B-013 (Satz E), mit GPT 6.2 Sol | Prüfer | `behauptungen/B-013.md` | vergeben in Runde 8 |
 | S2-32 | Spur A: Lemma P in Lean | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 8 |
 | S2-33 | Blind-Sucher | Blind-Sucher | `versuche/s2-blind-r8.md` | vergeben in Runde 8 |
