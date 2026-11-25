@@ -1,0 +1,112 @@
+# S1-14: Build the own Lean project under lean/ and report sorry and axioms.
+#
+# Protocol 5.1 item 4: the green run in GitHub Actions is authoritative for proofs.
+# This job is green whenever `lake build` succeeds. Open proofs (`sorry`) do NOT fail
+# the job; instead the number and locations of all `sorry` and, for every main
+# theorem, its axioms are written to the job log, as annotations and to the job
+# summary. The old job in lean-build.yml (external mm325_proof) is unchanged.
+
+name: Lean build (own project lean/)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/lean-project.yml"
+      - ".github/scripts/lean_report.py"
+      - "lean/**"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/lean-project.yml"
+      - ".github/scripts/lean_report.py"
+      - "lean/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lean-project-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build lean/ and report axioms
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        shell: bash
+        working-directory: lean
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read toolchain and mathlib revision
+        run: |
+          set -euo pipefail
+          tc="$(tr -d '[:space:]' < lean-toolchain)"
+          echo "lean-toolchain: $tc"
+          echo "LEAN_TOOLCHAIN=$tc" >> "$GITHUB_ENV"
+          rev="$(python3 -c 'import json; print({p["name"]: p["rev"] for p in json.load(open("lake-manifest.json"))["packages"]}["mathlib"])')"
+          echo "mathlib rev: $rev"
+          echo "MATHLIB_REV=$rev" >> "$GITHUB_ENV"
+
+      - name: Restore elan toolchain cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.elan
+          key: elan-${{ runner.os }}-${{ env.LEAN_TOOLCHAIN }}
+
+      - name: Restore mathlib cache downloads
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/mathlib
+          key: mathlib-cache-${{ runner.os }}-${{ env.MATHLIB_REV }}
+
+      - name: Install elan and toolchain
+        run: |
+          set -euo pipefail
+          if [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+              | sh -s -- -y --default-toolchain none
+          fi
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          export PATH="$HOME/.elan/bin:$PATH"
+          elan toolchain install "$LEAN_TOOLCHAIN"
+          lean --version
+          lake --version
+
+      - name: Fetch mathlib build cache
+        run: |
+          set -euo pipefail
+          lake exe cache get
+          # The manifest must stay untouched (no lake update).
+          git diff --exit-code -- lake-manifest.json lakefile.toml lean-toolchain
+
+      - name: Build library YangBounds (all modules)
+        run: |
+          set -euo pipefail
+          lake build 2>&1 | tee "$RUNNER_TEMP/build.txt"
+
+      - name: Report sorry (number and locations)
+        run: python3 ../.github/scripts/lean_report.py sorry-report . "$RUNNER_TEMP/build.txt"
+
+      - name: "#print axioms for the main theorems"
+        run: |
+          set -euo pipefail
+          check="$RUNNER_TEMP/MainAxioms.lean"
+          python3 ../.github/scripts/lean_report.py gen-check . "$check"
+          lake env lean "$check" 2>&1 | tee "$RUNNER_TEMP/axioms.txt"
+
+      - name: Axiom result per main theorem
+        run: python3 ../.github/scripts/lean_report.py axiom-report "$RUNNER_TEMP/axioms.txt"
+
+      - name: Summary header and raw output
+        if: always()
+        run: |
+          {
+            echo "### Raw \`#print axioms\` output"
+            echo '```'
+            cat "$RUNNER_TEMP/axioms.txt" 2>/dev/null || echo "(not run)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
