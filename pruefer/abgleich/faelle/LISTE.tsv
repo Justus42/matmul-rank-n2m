@@ -1,0 +1,268 @@
+# case	rule	expected	expected_exit	file	description
+strassen-z	7	ANGENOMMEN	0	strassen-z/2x2x2-r7-strassen69.json	Strassen wie in Abschnitt 7
+strassen-q	4	ANGENOMMEN	0	strassen-q/2x2x2-r7-strassen69.json	Strassen über Q
+strassen-gf2	4	ANGENOMMEN	0	strassen-gf2/2x2x2-r7-strassen69.json	Strassen über GF(2)
+strassen-gf3	4	ANGENOMMEN	0	strassen-gf3/2x2x2-r7-strassen69.json	Strassen über GF(3)
+strassen-gf-gross	9.6.2	ANGENOMMEN	0	strassen-gf-gross/2x2x2-r7-strassen69.json	Strassen über GF(2^64-59), größte Primzahl unter 2^64
+strassen-gf-m61	9.6.2	ANGENOMMEN	0	strassen-gf-m61/2x2x2-r7-strassen69.json	Strassen über GF(2^61-1)
+strassen-q-brueche	4	ANGENOMMEN	0	strassen-q-brueche/2x2x2-r7-strassen69.json	Strassen über Q, M1 mit u·2 und w·1/2, Nenner 2
+strassen-q-riesig	9.5.4	ANGENOMMEN	0	strassen-q-riesig/2x2x2-r7-strassen69.json	Strassen über Q, M1 mit Faktor 10^5000 und 1/10^5000 (5001 Stellen)
+strassen-z-riesig	9.5.4	ANGENOMMEN	0	strassen-z-riesig/2x2x2-r9-riesig.json	Strassen über Z plus zwei Produkte mit ±10^5000, die sich aufheben
+strassen-q-nenner-gross	9.7.7	ANGENOMMEN	0	strassen-q-nenner-gross/2x2x2-r7-strassen69.json	Strassen über Q, Nenner 1000003·1000033 (Hinweis Primteiler)
+strassen-q-nullformen	9.5.2	ANGENOMMEN	0	strassen-q-nullformen/2x2x2-r7-strassen69.json	Strassen über Q mit -0, 0/5, -0/5, 1/1, 2/2
+strassen-z-minusnull	9.5.2	ANGENOMMEN	0	strassen-z-minusnull/2x2x2-r7-strassen69.json	Strassen über Z mit -0
+strassen-nullprodukt	6	ANGENOMMEN	0	strassen-nullprodukt/2x2x2-r8-nullprodukt.json	Strassen plus ein Produkt mit u ganz null (Hinweiszeile)
+naiv-2x2x2	7	ANGENOMMEN	0	naiv-2x2x2/2x2x2-r8-naiv.json	Schulmethode 2x2x2
+naiv-3x2x5	7	ANGENOMMEN	0	naiv-3x2x5/3x2x5-r30-naiv.json	Schulmethode 3x2x5
+naiv-1x3x2-q	4	ANGENOMMEN	0	naiv-1x3x2-q/1x3x2-r6-naiv.json	Schulmethode 1x3x2 über Q, k ungleich 2
+eins-z	7	ANGENOMMEN	0	eins-z/1x1x1-r1-eins.json	1x1x1 mit einem Produkt
+eins-gf2-drei	4	ANGENOMMEN	0	eins-gf2-drei/1x1x1-r1-eins.json	1x1x1 über GF(2), Koeffizient 3 ≡ 1
+eins-gf5-minusvier	4	ANGENOMMEN	0	eins-gf5-minusvier/1x1x1-r1-eins.json	1x1x1 über GF(5), Koeffizient -4 ≡ 1
+strassen-gf2-vorzeichen	4	ANGENOMMEN	0	strassen-gf2-vorzeichen/2x2x2-r7-strassen69.json	Vorzeichenfehler aus Abschnitt 7 über GF(2): -1 ≡ 1, also richtig
+optional-alle	9.2.3	ANGENOMMEN	0	optional-alle/2x2x2-r7-strassen69.json	claim, notes und derived_from gesetzt
+notes-nbsp	9.2.4	ANGENOMMEN	0	notes-nbsp/2x2x2-r7-strassen69.json	notes nur aus geschütztem Leerzeichen U+00A0 (nicht eines der vier Leerraumzeichen)
+escape-koeffizient	9.1.4	ANGENOMMEN	0	escape-koeffizient/2x2x2-r7-strassen69.json	Koeffizient als "\u0031"
+escape-schluessel	9.1.4	ANGENOMMEN	0	escape-schluessel/2x2x2-r7-strassen69.json	Schlüssel "\u0075" statt "u"
+surrogat-paar	9.1.3	ANGENOMMEN	0	surrogat-paar/2x2x2-r7-strassen69.json	gültiges Surrogat-Paar in notes
+leerraum-danach	9.1.1	ANGENOMMEN	0	leerraum-danach/2x2x2-r7-strassen69.json	Leerraum nach dem JSON-Wert
+kompakt	9.1.1	ANGENOMMEN	0	kompakt/2x2x2-r7-strassen69.json	JSON ohne jeden Leerraum
+datum-zukunft	9.3	ANGENOMMEN	0	datum-zukunft/2x2x2-r7-strassen69.json	Datum in der Zukunft
+datum-schalttag	9.3	ANGENOMMEN	0	datum-schalttag/2x2x2-r7-strassen69.json	Schalttag 2024
+datum-2000-02-29	9.3	ANGENOMMEN	0	datum-2000-02-29/2x2x2-r7-strassen69.json	Schalttag 2000 (durch 400 teilbar)
+datum-0001	9.3	ANGENOMMEN	0	datum-0001/2x2x2-r7-strassen69.json	kleinstes Jahr 0001
+datum-9999	9.3	ANGENOMMEN	0	datum-9999/2x2x2-r7-strassen69.json	größtes Datum
+datum-1900-02-29	9.3	FEHLERHAFT	2	datum-1900-02-29/2x2x2-r7-strassen69.json	kein Schalttag 1900
+datum-02-30	9.3	FEHLERHAFT	2	datum-02-30/2x2x2-r7-strassen69.json	30. Februar
+datum-monat-13	9.3	FEHLERHAFT	2	datum-monat-13/2x2x2-r7-strassen69.json	Monat 13
+datum-monat-00	9.3	FEHLERHAFT	2	datum-monat-00/2x2x2-r7-strassen69.json	Monat 00
+datum-tag-00	9.3	FEHLERHAFT	2	datum-tag-00/2x2x2-r7-strassen69.json	Tag 00
+datum-11-31	9.3	FEHLERHAFT	2	datum-11-31/2x2x2-r7-strassen69.json	31. November
+datum-kurz	9.3	FEHLERHAFT	2	datum-kurz/2x2x2-r7-strassen69.json	ohne führende Nullen
+datum-0000	9.3	FEHLERHAFT	2	datum-0000/2x2x2-r7-strassen69.json	Jahr 0000
+datum-uhrzeit	9.3	FEHLERHAFT	2	datum-uhrzeit/2x2x2-r7-strassen69.json	mit Uhrzeit
+datum-schraegstrich	9.3	FEHLERHAFT	2	datum-schraegstrich/2x2x2-r7-strassen69.json	Schrägstriche
+datum-arabisch	9.3	FEHLERHAFT	2	datum-arabisch/2x2x2-r7-strassen69.json	arabisch-indische Ziffern
+datum-vollbreit	9.3	FEHLERHAFT	2	datum-vollbreit/2x2x2-r7-strassen69.json	Vollbreit-Ziffern im Jahr
+datum-leerzeichen	9.3	FEHLERHAFT	2	datum-leerzeichen/2x2x2-r7-strassen69.json	angehängtes Leerzeichen
+strassen-vorzeichen	7	ABGELEHNT	1	strassen-vorzeichen/2x2x2-r7-strassen69.json	Vorzeichenfehler aus Abschnitt 7 (M2, w[1][1] = 1)
+strassen-q-vorzeichen	7	ABGELEHNT	1	strassen-q-vorzeichen/2x2x2-r7-strassen69.json	derselbe Fehler über Q
+strassen-gf3-vorzeichen	7	ABGELEHNT	1	strassen-gf3-vorzeichen/2x2x2-r7-strassen69.json	derselbe Fehler über GF(3)
+strassen-ohne-m7	7	ABGELEHNT	1	strassen-ohne-m7/2x2x2-r6-ohne-m7.json	Strassen ohne M7, rank 6
+strassen-q-falscher-bruch	7	ABGELEHNT	1	strassen-q-falscher-bruch/2x2x2-r7-strassen69.json	Strassen über Q, M1 mit u·2 und w·1/3
+strassen-w-transponiert	2	ABGELEHNT	1	strassen-w-transponiert/2x2x2-r7-strassen69.json	Strassen mit transponiert gespeichertem w
+eins-zwei	7	ABGELEHNT	1	eins-zwei/1x1x1-r1-eins.json	1x1x1 mit Koeffizient 2
+eins-gf3-zwei	7	ABGELEHNT	1	eins-gf3-zwei/1x1x1-r1-eins.json	1x1x1 über GF(3) mit Koeffizient 2
+eins-null	7	ABGELEHNT	1	eins-null/1x1x1-r1-eins.json	1x1x1 mit Koeffizient 0 (Nullprodukt und falsch)
+eins-gf2-zwei	7	ABGELEHNT	1	eins-gf2-zwei/1x1x1-r1-eins.json	1x1x1 über GF(2), Koeffizient 2 ≡ 0
+strassen-gf-gross-minus1	9.6.2	ANGENOMMEN	0	strassen-gf-gross-minus1/2x2x2-r7-strassen69.json	GF(2^64-59), -1 in M2 als p-1 geschrieben
+strassen-gf-gross-falsch	7	ABGELEHNT	1	strassen-gf-gross-falsch/2x2x2-r7-strassen69.json	GF(2^64-59), M2 mit p-2 statt -1
+hk71-3x2x5-gestoert	7	ABGELEHNT	1	hk71-3x2x5-gestoert/3x2x5-r25-hk71.json	Verfahren aus verfahren/3x2x5-r25-hk71.json mit einem auf 0 gesetzten w-Koeffizienten
+hk71-3x2x6-gestoert	7	ABGELEHNT	1	hk71-3x2x6-gestoert/3x2x6-r30-hk71.json	Verfahren aus verfahren/3x2x6-r30-hk71.json mit einem auf 0 gesetzten w-Koeffizienten
+utf8-ungueltig	9.1.1	FEHLERHAFT	2	utf8-ungueltig/2x2x2-r7-strassen69.json	ungültiges UTF-8-Byte 0xFF in origin.method
+utf8-ueberlang	9.1.1	FEHLERHAFT	2	utf8-ueberlang/2x2x2-r7-strassen69.json	überlange UTF-8-Folge C0 AF
+bom	9.1.1	FEHLERHAFT	2	bom/2x2x2-r7-strassen69.json	Byte-Order-Mark am Anfang
+utf16	9.1.1	FEHLERHAFT	2	utf16/2x2x2-r7-strassen69.json	Datei in UTF-16LE ohne BOM
+nachlauf	9.1.1	FEHLERHAFT	2	nachlauf/2x2x2-r7-strassen69.json	Text nach dem JSON-Wert
+zwei-objekte	9.1.1	FEHLERHAFT	2	zwei-objekte/2x2x2-r7-strassen69.json	zwei JSON-Objekte hintereinander
+nan	9.1.1	FEHLERHAFT	2	nan/2x2x2-r7-strassen69.json	n = NaN
+infinity	9.1.1	FEHLERHAFT	2	infinity/2x2x2-r7-strassen69.json	m = Infinity
+minus-infinity	9.1.1	FEHLERHAFT	2	minus-infinity/2x2x2-r7-strassen69.json	k = -Infinity
+kommentar	9.1.1	FEHLERHAFT	2	kommentar/2x2x2-r7-strassen69.json	Zeilenkommentar
+kommentar-block	9.1.1	FEHLERHAFT	2	kommentar-block/2x2x2-r7-strassen69.json	Blockkommentar
+komma-hinten-objekt	9.1.1	FEHLERHAFT	2	komma-hinten-objekt/2x2x2-r7-strassen69.json	nachgestelltes Komma im Objekt
+komma-hinten-liste	9.1.1	FEHLERHAFT	2	komma-hinten-liste/2x2x2-r7-strassen69.json	nachgestelltes Komma in products
+leer	9.1.1	FEHLERHAFT	2	leer/2x2x2-r7-strassen69.json	leere Datei
+nur-leerraum	9.1.1	FEHLERHAFT	2	nur-leerraum/2x2x2-r7-strassen69.json	nur Leerraum
+abgeschnitten	9.1.1	FEHLERHAFT	2	abgeschnitten/2x2x2-r7-strassen69.json	abgeschnittene Datei (endet vor origin)
+einfache-anfuehrung	9.1.1	FEHLERHAFT	2	einfache-anfuehrung/2x2x2-r7-strassen69.json	einfache Anführungszeichen
+steuerzeichen-roh	9.1.1	FEHLERHAFT	2	steuerzeichen-roh/2x2x2-r7-strassen69.json	rohes Tabulatorzeichen in einer Zeichenkette
+doppelt-oben	9.1.2	FEHLERHAFT	2	doppelt-oben/2x2x2-r7-strassen69.json	ring doppelt (gleicher Wert)
+doppelt-oben-anders	9.1.2	FEHLERHAFT	2	doppelt-oben-anders/2x2x2-r7-strassen69.json	rank doppelt, zweiter Wert richtig
+doppelt-origin	9.1.2	FEHLERHAFT	2	doppelt-origin/2x2x2-r7-strassen69.json	origin.method doppelt
+doppelt-produkt	9.1.2	FEHLERHAFT	2	doppelt-produkt/2x2x2-r7-strassen69.json	u im ersten Produkt doppelt
+doppelt-escape	9.1.2	FEHLERHAFT	2	doppelt-escape/2x2x2-r7-strassen69.json	n doppelt, einmal als "\u006e"
+surrogat-hoch	9.1.3	FEHLERHAFT	2	surrogat-hoch/2x2x2-r7-strassen69.json	einzelnes hohes Surrogat in notes
+surrogat-tief	9.1.3	FEHLERHAFT	2	surrogat-tief/2x2x2-r7-strassen69.json	einzelnes tiefes Surrogat in notes
+surrogat-vertauscht	9.1.3	FEHLERHAFT	2	surrogat-vertauscht/2x2x2-r7-strassen69.json	Surrogat-Paar in falscher Reihenfolge
+surrogat-schluessel	9.1.3	FEHLERHAFT	2	surrogat-schluessel/2x2x2-r7-strassen69.json	einzelnes Surrogat in einem (unbekannten) Schlüssel
+oben-liste	9.1.5	FEHLERHAFT	2	oben-liste/2x2x2-r7-strassen69.json	oberster Wert Liste
+oben-liste-objekt	9.1.5	FEHLERHAFT	2	oben-liste-objekt/2x2x2-r7-strassen69.json	Strassen in eine Liste gepackt
+oben-string	9.1.5	FEHLERHAFT	2	oben-string/2x2x2-r7-strassen69.json	oberster Wert Zeichenkette
+oben-zahl	9.1.5	FEHLERHAFT	2	oben-zahl/2x2x2-r7-strassen69.json	oberster Wert Zahl
+oben-null	9.1.5	FEHLERHAFT	2	oben-null/2x2x2-r7-strassen69.json	oberster Wert null
+oben-true	9.1.5	FEHLERHAFT	2	oben-true/2x2x2-r7-strassen69.json	oberster Wert true
+tief-verschachtelt	9.2.3	FEHLERHAFT	2	tief-verschachtelt/2x2x2-r7-strassen69.json	notes als Liste mit 100000 Ebenen
+tief-verschachtelt-offen	9.1.1	FEHLERHAFT	2	tief-verschachtelt-offen/2x2x2-r7-strassen69.json	100000 öffnende Klammern ohne Ende
+fehlt-format_version	6.1	FEHLERHAFT	2	fehlt-format_version/2x2x2-r7-strassen69.json	format_version fehlt
+fehlt-id	6.1	FEHLERHAFT	2	fehlt-id/2x2x2-r7-strassen69.json	id fehlt
+fehlt-n	6.1	FEHLERHAFT	2	fehlt-n/2x2x2-r7-strassen69.json	n fehlt
+fehlt-k	6.1	FEHLERHAFT	2	fehlt-k/2x2x2-r7-strassen69.json	k fehlt
+fehlt-m	6.1	FEHLERHAFT	2	fehlt-m/2x2x2-r7-strassen69.json	m fehlt
+fehlt-rank	6.1	FEHLERHAFT	2	fehlt-rank/2x2x2-r7-strassen69.json	rank fehlt
+fehlt-ring	6.1	FEHLERHAFT	2	fehlt-ring/2x2x2-r7-strassen69.json	ring fehlt
+fehlt-origin	6.1	FEHLERHAFT	2	fehlt-origin/2x2x2-r7-strassen69.json	origin fehlt
+fehlt-products	6.1	FEHLERHAFT	2	fehlt-products/2x2x2-r7-strassen69.json	products fehlt
+fehlt-source	6.1	FEHLERHAFT	2	fehlt-source/2x2x2-r7-strassen69.json	origin.source fehlt
+fehlt-method	6.1	FEHLERHAFT	2	fehlt-method/2x2x2-r7-strassen69.json	origin.method fehlt
+fehlt-created	6.1	FEHLERHAFT	2	fehlt-created/2x2x2-r7-strassen69.json	origin.created fehlt
+fehlt-created_by	6.1	FEHLERHAFT	2	fehlt-created_by/2x2x2-r7-strassen69.json	origin.created_by fehlt
+fehlt-produkt-u	6.1	FEHLERHAFT	2	fehlt-produkt-u/2x2x2-r7-strassen69.json	u fehlt in products[3]
+fehlt-produkt-v	6.1	FEHLERHAFT	2	fehlt-produkt-v/2x2x2-r7-strassen69.json	v fehlt in products[3]
+fehlt-produkt-w	6.1	FEHLERHAFT	2	fehlt-produkt-w/2x2x2-r7-strassen69.json	w fehlt in products[3]
+zusatz-oben	9.2.1	FEHLERHAFT	2	zusatz-oben/2x2x2-r7-strassen69.json	unbekannter Schlüssel oben
+zusatz-origin	9.2.1	FEHLERHAFT	2	zusatz-origin/2x2x2-r7-strassen69.json	unbekannter Schlüssel in origin
+zusatz-produkt	9.2.1	FEHLERHAFT	2	zusatz-produkt/2x2x2-r7-strassen69.json	unbekannter Schlüssel in einem Produkt
+zusatz-grossschreibung	9.2.1	FEHLERHAFT	2	zusatz-grossschreibung/2x2x2-r7-strassen69.json	Schlüssel Ring zusätzlich zu ring
+zusatz-status	9.2.1	FEHLERHAFT	2	zusatz-status/2x2x2-r7-strassen69.json	Schlüssel status (Abschnitt 1)
+int-punkt	9.2.2	FEHLERHAFT	2	int-punkt/2x2x2-r7-strassen69.json	n = 2.0
+int-exponent	9.2.2	FEHLERHAFT	2	int-exponent/2x2x2-r7-strassen69.json	n = 2e0
+int-exponent-gross	9.2.2	FEHLERHAFT	2	int-exponent-gross/2x2x2-r7-strassen69.json	m = 2E0
+int-string	9.2.2	FEHLERHAFT	2	int-string/2x2x2-r7-strassen69.json	k = "2"
+int-true	9.2.2	FEHLERHAFT	2	int-true/2x2x2-r7-strassen69.json	n = true
+int-false	9.2.2	FEHLERHAFT	2	int-false/2x2x2-r7-strassen69.json	m = false
+int-null	9.2.2	FEHLERHAFT	2	int-null/2x2x2-r7-strassen69.json	rank = null
+int-null-n	9.2.2	FEHLERHAFT	2	int-null-n/2x2x2-r7-strassen69.json	n = null
+int-null-fv	9.2.2	FEHLERHAFT	2	int-null-fv/2x2x2-r7-strassen69.json	format_version = null
+int-true-fv	9.2.2	FEHLERHAFT	2	int-true-fv/2x2x2-r7-strassen69.json	format_version = true (true == 1 in Python)
+int-liste	9.2.2	FEHLERHAFT	2	int-liste/2x2x2-r7-strassen69.json	n = [2]
+int-objekt	9.2.2	FEHLERHAFT	2	int-objekt/2x2x2-r7-strassen69.json	n als Objekt
+int-null-wert	9.2.2	FEHLERHAFT	2	int-null-wert/2x2x2-r7-strassen69.json	n = 0
+int-negativ	9.2.2	FEHLERHAFT	2	int-negativ/2x2x2-r7-strassen69.json	m = -2
+int-minus-null	9.2.2	FEHLERHAFT	2	int-minus-null/2x2x2-r7-strassen69.json	n = -0 (JSON-Ganzzahl, Wert 0)
+rank-null	9.2.2	FEHLERHAFT	2	rank-null/2x2x2-r7-strassen69.json	rank = 0
+fv-2	9.2.2	FEHLERHAFT	2	fv-2/2x2x2-r7-strassen69.json	format_version = 2 (Schritt 2)
+fv-0	9.2.2	FEHLERHAFT	2	fv-0/2x2x2-r7-strassen69.json	format_version = 0
+fv-punkt	9.2.2	FEHLERHAFT	2	fv-punkt/2x2x2-r7-strassen69.json	format_version = 1.0
+int-riesig	9.2.2	FEHLERHAFT	2	int-riesig/2x2x2-r7-strassen69.json	n = 10^30 (Form passt nicht)
+int-1e400	9.2.2	FEHLERHAFT	2	int-1e400/2x2x2-r7-strassen69.json	n = 1e400
+int-fuehrende-null	9.1.1	FEHLERHAFT	2	int-fuehrende-null/2x2x2-r7-strassen69.json	n = 02 (in JSON ungültig)
+int-plus	9.1.1	FEHLERHAFT	2	int-plus/2x2x2-r7-strassen69.json	n = +2 (in JSON ungültig)
+origin-string	9.2.3	FEHLERHAFT	2	origin-string/2x2x2-r7-strassen69.json	origin als Zeichenkette
+origin-liste	9.2.3	FEHLERHAFT	2	origin-liste/2x2x2-r7-strassen69.json	origin als Liste
+origin-null	9.2.3	FEHLERHAFT	2	origin-null/2x2x2-r7-strassen69.json	origin = null
+origin-zahl	9.2.3	FEHLERHAFT	2	origin-zahl/2x2x2-r7-strassen69.json	origin.source als Zahl
+origin-wert-null	9.2.3	FEHLERHAFT	2	origin-wert-null/2x2x2-r7-strassen69.json	origin.method = null
+origin-wert-liste	9.2.3	FEHLERHAFT	2	origin-wert-liste/2x2x2-r7-strassen69.json	origin.created_by als Liste
+origin-datum-zahl	9.2.3	FEHLERHAFT	2	origin-datum-zahl/2x2x2-r7-strassen69.json	origin.created als Zahl
+claim-null	9.2.3	FEHLERHAFT	2	claim-null/2x2x2-r7-strassen69.json	claim = null
+notes-null	9.2.3	FEHLERHAFT	2	notes-null/2x2x2-r7-strassen69.json	notes = null
+derived-null	9.2.3	FEHLERHAFT	2	derived-null/2x2x2-r7-strassen69.json	origin.derived_from = null
+claim-zahl	9.2.3	FEHLERHAFT	2	claim-zahl/2x2x2-r7-strassen69.json	claim als Zahl
+notes-liste	9.2.3	FEHLERHAFT	2	notes-liste/2x2x2-r7-strassen69.json	notes als Liste
+notes-true	9.2.3	FEHLERHAFT	2	notes-true/2x2x2-r7-strassen69.json	notes = true
+ring-null	9.2.3	FEHLERHAFT	2	ring-null/2x2x2-r7-strassen69.json	ring = null
+id-null	9.2.3	FEHLERHAFT	2	id-null/2x2x2-r7-strassen69.json	id = null
+leer-source	9.2.4	FEHLERHAFT	2	leer-source/2x2x2-r7-strassen69.json	origin.source leer
+leer-method	9.2.4	FEHLERHAFT	2	leer-method/2x2x2-r7-strassen69.json	origin.method nur Leerzeichen
+leer-created_by	9.2.4	FEHLERHAFT	2	leer-created_by/2x2x2-r7-strassen69.json	origin.created_by nur Tab, CR, LF
+leer-derived	9.2.4	FEHLERHAFT	2	leer-derived/2x2x2-r7-strassen69.json	origin.derived_from leer
+leer-claim	9.2.4	FEHLERHAFT	2	leer-claim/2x2x2-r7-strassen69.json	claim leer
+leer-notes	9.2.4	FEHLERHAFT	2	leer-notes/2x2x2-r7-strassen69.json	notes nur Leerraum
+leer-created	9.3	FEHLERHAFT	2	leer-created/2x2x2-r7-strassen69.json	origin.created leer
+derived-form-falsch	9.2.5	FEHLERHAFT	2	derived-form-falsch/2x2x2-r7-strassen69.json	derived_from ohne id-Form
+derived-bindestrich	9.2.5	FEHLERHAFT	2	derived-bindestrich/2x2x2-r7-strassen69.json	derived_from ohne Kurzname
+derived-gross	9.2.5	FEHLERHAFT	2	derived-gross/2x2x2-r7-strassen69.json	derived_from mit Großbuchstaben
+derived-endung	9.2.5	FEHLERHAFT	2	derived-endung/2x2x2-r7-strassen69.json	derived_from mit .json
+derived-fuehrende-null	9.2.5	FEHLERHAFT	2	derived-fuehrende-null/2x2x2-r7-strassen69.json	derived_from mit führender Null
+derived-unbekannt	9.2.5	ANGENOMMEN	0	derived-unbekannt/2x2x2-r7-strassen69.json	derived_from in id-Form, Verfahren existiert nicht (9.2.5: nicht geprüft)
+products-objekt	9.2.6	FEHLERHAFT	2	products-objekt/2x2x2-r7-strassen69.json	products als Objekt
+products-null	9.2.6	FEHLERHAFT	2	products-null/2x2x2-r7-strassen69.json	products = null
+produkt-liste	9.2.6	FEHLERHAFT	2	produkt-liste/2x2x2-r7-strassen69.json	ein Produkt als Liste
+produkt-null	9.2.6	FEHLERHAFT	2	produkt-null/2x2x2-r7-strassen69.json	ein Produkt = null
+form-u-zeilen	6.5	FEHLERHAFT	2	form-u-zeilen/2x2x2-r7-strassen69.json	u mit 1 statt 2 Zeilen
+form-v-spalten	6.5	FEHLERHAFT	2	form-v-spalten/2x2x2-r7-strassen69.json	v mit 3 statt 2 Spalten
+form-w-zeilen	6.5	FEHLERHAFT	2	form-w-zeilen/2x2x2-r7-strassen69.json	w mit 3 statt 2 Zeilen
+form-ungleich	9.2.6	FEHLERHAFT	2	form-ungleich/2x2x2-r7-strassen69.json	ungleich lange Zeilen in u
+form-leere-zeile	9.2.6	FEHLERHAFT	2	form-leere-zeile/2x2x2-r7-strassen69.json	leere Zeile in u
+form-leer	9.2.6	FEHLERHAFT	2	form-leer/2x2x2-r7-strassen69.json	u leer
+form-flach	9.2.6	FEHLERHAFT	2	form-flach/2x2x2-r7-strassen69.json	u als flache Liste
+form-string	9.2.6	FEHLERHAFT	2	form-string/2x2x2-r7-strassen69.json	u als Zeichenkette
+form-tiefer	9.2.6	FEHLERHAFT	2	form-tiefer/2x2x2-r7-strassen69.json	Koeffizient als Liste
+koeff-zahl	9.2.6	FEHLERHAFT	2	koeff-zahl/2x2x2-r7-strassen69.json	Koeffizient als JSON-Zahl 1
+koeff-zahl-0	9.2.6	FEHLERHAFT	2	koeff-zahl-0/2x2x2-r7-strassen69.json	Koeffizient als JSON-Zahl 0
+koeff-null	9.2.6	FEHLERHAFT	2	koeff-null/2x2x2-r7-strassen69.json	Koeffizient null
+koeff-true	9.2.6	FEHLERHAFT	2	koeff-true/2x2x2-r7-strassen69.json	Koeffizient true
+u-null	9.2.6	FEHLERHAFT	2	u-null/2x2x2-r7-strassen69.json	u = null
+zeile-null	9.2.6	FEHLERHAFT	2	zeile-null/2x2x2-r7-strassen69.json	Zeile von v = null
+rank-zu-klein	6.4	FEHLERHAFT	2	rank-zu-klein/2x2x2-r7-strassen69.json	rank 7, aber 8 Produkte
+rank-zu-gross	6.4	FEHLERHAFT	2	rank-zu-gross/2x2x2-r7-strassen69.json	rank 7, aber 6 Produkte
+products-leer	6.4	FEHLERHAFT	2	products-leer/2x2x2-r7-strassen69.json	products leer, rank 7
+endung-gross	9.4.1	FEHLERHAFT	2	endung-gross/2x2x2-r7-strassen69.JSON	Endung .JSON
+endung-keine	9.4.1	FEHLERHAFT	2	endung-keine/2x2x2-r7-strassen69	keine Endung
+endung-txt	9.4.1	FEHLERHAFT	2	endung-txt/2x2x2-r7-strassen69.txt	Endung .txt
+endung-doppelt	9.4.1	FEHLERHAFT	2	endung-doppelt/2x2x2-r7-strassen69.json.json	Endung .json.json, id ohne zweite Endung
+id-ungleich	9.4.1	FEHLERHAFT	2	id-ungleich/2x2x2-r7-strassen69.json	id anders als Dateiname
+id-gross-klein	9.4.1	FEHLERHAFT	2	id-gross-klein/2x2x2-r7-strassen69.json	id unterscheidet sich in der Groß-/Kleinschreibung
+id-leerzeichen	9.4.1	FEHLERHAFT	2	id-leerzeichen/2x2x2-r7-strassen69.json	id mit angehängtem Leerzeichen
+id-fuehrende-null	9.4.2	FEHLERHAFT	2	id-fuehrende-null/02x2x2-r7-strassen69.json	führende Null bei n
+id-rank-null	9.4.2	FEHLERHAFT	2	id-rank-null/2x2x2-r07-strassen69.json	führende Null bei rank
+id-kurz-anfang	9.4.2	FEHLERHAFT	2	id-kurz-anfang/2x2x2-r7--strassen69.json	Kurzname beginnt mit Bindestrich
+id-kurz-ende	9.4.2	FEHLERHAFT	2	id-kurz-ende/2x2x2-r7-strassen69-.json	Kurzname endet mit Bindestrich
+id-kurz-doppel	9.4.2	FEHLERHAFT	2	id-kurz-doppel/2x2x2-r7-stras--sen.json	zwei Bindestriche im Kurznamen
+id-kurz-gross	9.4.2	FEHLERHAFT	2	id-kurz-gross/2x2x2-r7-Strassen.json	Großbuchstabe im Kurznamen
+id-kurz-unterstrich	9.4.2	FEHLERHAFT	2	id-kurz-unterstrich/2x2x2-r7-stras_sen.json	Unterstrich im Kurznamen
+id-kurz-umlaut	9.4.2	FEHLERHAFT	2	id-kurz-umlaut/2x2x2-r7-straßen.json	ß im Kurznamen
+id-kurz-leer	9.4.2	FEHLERHAFT	2	id-kurz-leer/2x2x2-r7-.json	leerer Kurzname
+id-ohne-kurz	9.4.2	FEHLERHAFT	2	id-ohne-kurz/2x2x2-r7.json	ohne Kurzname
+id-n-falsch	9.4.2	FEHLERHAFT	2	id-n-falsch/3x2x2-r7-strassen69.json	Dateiname sagt n = 3, Datei n = 2
+id-rank-falsch	9.4.2	FEHLERHAFT	2	id-rank-falsch/2x2x2-r8-strassen69.json	Dateiname sagt rank 8, Datei 7
+id-grosses-x	9.4.2	FEHLERHAFT	2	id-grosses-x/2X2X2-r7-strassen69.json	großes X
+id-vollbreit	9.4.2	FEHLERHAFT	2	id-vollbreit/２x2x2-r7-strassen69.json	Vollbreit-Ziffer für n
+id-kurz-ziffern	9.4.2	ANGENOMMEN	0	id-kurz-ziffern/2x2x2-r7-0.json	Kurzname nur Ziffer 0
+id-kurz-bindestriche	9.4.2	ANGENOMMEN	0	id-kurz-bindestriche/2x2x2-r7-a-b-c.json	Kurzname mit einzelnen Bindestrichen
+koeff-newline	9.5.1	FEHLERHAFT	2	koeff-newline/2x2x2-r7-strassen69.json	Koeffizient "1\n"
+koeff-vollbreit	9.5.1	FEHLERHAFT	2	koeff-vollbreit/2x2x2-r7-strassen69.json	Vollbreit-Ziffer 1
+koeff-arabisch	9.5.1	FEHLERHAFT	2	koeff-arabisch/2x2x2-r7-strassen69.json	arabisch-indische Ziffer 1
+koeff-unterstrich	9.5.1	FEHLERHAFT	2	koeff-unterstrich/2x2x2-r7-strassen69.json	Koeffizient "1_0"
+koeff-plus	9.5.1	FEHLERHAFT	2	koeff-plus/2x2x2-r7-strassen69.json	Koeffizient "+1"
+koeff-fuehrende-null	9.5.1	FEHLERHAFT	2	koeff-fuehrende-null/2x2x2-r7-strassen69.json	Koeffizient "01"
+koeff-dezimal	9.5.1	FEHLERHAFT	2	koeff-dezimal/2x2x2-r7-strassen69.json	Koeffizient "1.0" über Q
+koeff-exponent	9.5.1	FEHLERHAFT	2	koeff-exponent/2x2x2-r7-strassen69.json	Koeffizient "1e0" über Q
+koeff-leerzeichen-vorn	9.5.1	FEHLERHAFT	2	koeff-leerzeichen-vorn/2x2x2-r7-strassen69.json	Koeffizient " 1"
+koeff-leerzeichen-hinten	9.5.1	FEHLERHAFT	2	koeff-leerzeichen-hinten/2x2x2-r7-strassen69.json	Koeffizient "1 "
+koeff-leer	9.5.1	FEHLERHAFT	2	koeff-leer/2x2x2-r7-strassen69.json	leerer Koeffizient
+koeff-minus-minus	9.5.1	FEHLERHAFT	2	koeff-minus-minus/2x2x2-r7-strassen69.json	Koeffizient "--1"
+koeff-minus-allein	9.5.1	FEHLERHAFT	2	koeff-minus-allein/2x2x2-r7-strassen69.json	Koeffizient "-"
+koeff-nenner-null	9.5.1	FEHLERHAFT	2	koeff-nenner-null/2x2x2-r7-strassen69.json	Koeffizient "1/0"
+koeff-nenner-negativ	9.5.1	FEHLERHAFT	2	koeff-nenner-negativ/2x2x2-r7-strassen69.json	Koeffizient "1/-1"
+koeff-nenner-fuehrend	9.5.1	FEHLERHAFT	2	koeff-nenner-fuehrend/2x2x2-r7-strassen69.json	Koeffizient "1/01"
+koeff-nenner-leer	9.5.1	FEHLERHAFT	2	koeff-nenner-leer/2x2x2-r7-strassen69.json	Koeffizient "1/"
+koeff-zaehler-leer	9.5.1	FEHLERHAFT	2	koeff-zaehler-leer/2x2x2-r7-strassen69.json	Koeffizient "/1"
+koeff-doppelbruch	9.5.1	FEHLERHAFT	2	koeff-doppelbruch/2x2x2-r7-strassen69.json	Koeffizient "1/1/1"
+koeff-nul-zeichen	9.5.1	FEHLERHAFT	2	koeff-nul-zeichen/2x2x2-r7-strassen69.json	Koeffizient "1\u0000"
+koeff-hex	9.5.1	FEHLERHAFT	2	koeff-hex/2x2x2-r7-strassen69.json	Koeffizient "0x1"
+koeff-bruch-z	9.5.3	FEHLERHAFT	2	koeff-bruch-z/2x2x2-r7-strassen69.json	Koeffizient "2/2" über Z (9.5.3)
+koeff-bruch-z-ganz	9.5.3	FEHLERHAFT	2	koeff-bruch-z-ganz/2x2x2-r7-strassen69.json	Koeffizient "1/1" über Z (9.5.3)
+koeff-bruch-gf	9.5.3	FEHLERHAFT	2	koeff-bruch-gf/2x2x2-r7-strassen69.json	Koeffizient "1/1" über GF(2) (9.5.3)
+koeff-bruch-q	9.5.2	ANGENOMMEN	0	koeff-bruch-q/2x2x2-r7-strassen69.json	Koeffizient "2/2" über Q
+ring-gf02	9.6.1	FEHLERHAFT	2	ring-gf02/2x2x2-r7-strassen69.json	GF(02)
+ring-gf-leer	9.6.1	FEHLERHAFT	2	ring-gf-leer/2x2x2-r7-strassen69.json	GF( 2)
+ring-klein	9.6.1	FEHLERHAFT	2	ring-klein/2x2x2-r7-strassen69.json	gf(2)
+ring-leer-hinten	9.6.1	FEHLERHAFT	2	ring-leer-hinten/2x2x2-r7-strassen69.json	GF(2) mit Leerzeichen
+ring-z-klein	9.6.1	FEHLERHAFT	2	ring-z-klein/2x2x2-r7-strassen69.json	z
+ring-r	9.6.1	FEHLERHAFT	2	ring-r/2x2x2-r7-strassen69.json	R (reelle Zahlen)
+ring-leer	9.6.1	FEHLERHAFT	2	ring-leer/2x2x2-r7-strassen69.json	leerer ring
+ring-gf	9.6.1	FEHLERHAFT	2	ring-gf/2x2x2-r7-strassen69.json	GF()
+ring-gf-ohne-klammer	9.6.1	FEHLERHAFT	2	ring-gf-ohne-klammer/2x2x2-r7-strassen69.json	GF2
+ring-zp	9.6.1	FEHLERHAFT	2	ring-zp/2x2x2-r7-strassen69.json	Z/2
+ring-gf4	9.6.2	FEHLERHAFT	2	ring-gf4/2x2x2-r7-strassen69.json	GF(4), keine Primzahl
+ring-gf1	9.6.2	FEHLERHAFT	2	ring-gf1/2x2x2-r7-strassen69.json	GF(1)
+ring-gf0	9.6.1	FEHLERHAFT	2	ring-gf0/2x2x2-r7-strassen69.json	GF(0)
+ring-gf-minus	9.6.1	FEHLERHAFT	2	ring-gf-minus/2x2x2-r7-strassen69.json	GF(-2)
+ring-gf-561	9.6.2	FEHLERHAFT	2	ring-gf-561/2x2x2-r7-strassen69.json	GF(561), Carmichael-Zahl
+ring-gf-spsp	9.6.2	FEHLERHAFT	2	ring-gf-spsp/2x2x2-r7-strassen69.json	GF(3215031751), starke Pseudoprimzahl zu den Basen 2, 3, 5, 7
+ring-gf-spsp-gross	9.6.2	FEHLERHAFT	2	ring-gf-spsp-gross/2x2x2-r7-strassen69.json	GF(3825123056546413051), starke Pseudoprimzahl zu den Basen 2 bis 23
+ring-gf-quadrat	9.6.2	FEHLERHAFT	2	ring-gf-quadrat/2x2x2-r7-strassen69.json	GF(4294967291^2), Quadrat einer Primzahl knapp unter 2^64
+ring-gf-2hoch64-minus1	9.6.2	FEHLERHAFT	2	ring-gf-2hoch64-minus1/2x2x2-r7-strassen69.json	GF(2^64-1), keine Primzahl
+ring-gf-2hoch64	9.6.2	FEHLERHAFT	2	ring-gf-2hoch64/2x2x2-r7-strassen69.json	GF(2^64)
+ring-gf-ueber-2hoch64	9.6.2	FEHLERHAFT	2	ring-gf-ueber-2hoch64/2x2x2-r7-strassen69.json	GF(2^64+13), Primzahl über der Grenze
+ring-gf-riesig	9.6.2	FEHLERHAFT	2	ring-gf-riesig/2x2x2-r7-strassen69.json	GF(10^40-1)
+ring-gf-arabisch	9.6.1	FEHLERHAFT	2	ring-gf-arabisch/2x2x2-r7-strassen69.json	GF mit arabisch-indischer Ziffer 2
+ring-gf-vollbreit	9.6.1	FEHLERHAFT	2	ring-gf-vollbreit/2x2x2-r7-strassen69.json	GF mit Vollbreit-Ziffer 2
+ring-q-klein	9.6.1	FEHLERHAFT	2	ring-q-klein/2x2x2-r7-strassen69.json	q
+ring-gf2-klammer-eckig	9.6.1	FEHLERHAFT	2	ring-gf2-klammer-eckig/2x2x2-r7-strassen69.json	GF[2]
+mehrere-fehler	9.7.4	FEHLERHAFT	2	mehrere-fehler/2x2x2-r7-strassen69.json	drei Formatfehler zugleich
+falsch-und-fehlerhaft	9.7.4	FEHLERHAFT	2	falsch-und-fehlerhaft/2x2x2-r7-strassen69.json	Gleichungen verletzt und ungültiges Datum: FEHLERHAFT, nicht ABGELEHNT
+falsch-und-koeff	9.7.4	FEHLERHAFT	2	falsch-und-koeff/2x2x2-r7-strassen69.json	Gleichungen verletzt und ein Koeffizient "1 " im letzten Produkt
+koeff-zeilenumbruch-mitte	9.7.6	FEHLERHAFT	2	koeff-zeilenumbruch-mitte/2x2x2-r7-strassen69.json	Koeffizient "1\n2" (Grund einzeilig?)
+ring-zeilenumbruch	9.7.6	FEHLERHAFT	2	ring-zeilenumbruch/2x2x2-r7-strassen69.json	ring mit Zeilenvorschub und dem Wort ANGENOMMEN
