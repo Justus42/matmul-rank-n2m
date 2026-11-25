@@ -1,4 +1,6 @@
 import YangBounds.Basic
 import YangBounds.Statements
 import YangBounds.SatzB444Final
+import YangBounds.SatzE444
+import YangBounds.SatzE444Buendel
 import YangBounds.SatzC444Generisch
