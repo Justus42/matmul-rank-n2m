@@ -54,6 +54,13 @@ MAIN_THEOREMS = [
     ("Case (5,8) symmetric, assuming (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.fall58_symmetrisch"),
     ("UnterfallBStatement, assuming (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.unterfallBStatement_of"),
     ("Final theorem R<4,2,4> >= 26, assuming only (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.rank_four_two_four_ge_26_of_hyp"),
+    ("(B3') TransponiertEng at a normal form with TransN1, TransN2 (Transponiert444.lean)", "YangBounds.Transponiert444.transponiertEng_of"),
+    ("TransN1 for the generic normal form genAlgL (Transponiert444.lean)", "YangBounds.Transponiert444.transN1_genAlgL"),
+    ("TransN2 for the generic normal form genAlgL (Transponiert444.lean)", "YangBounds.Transponiert444.transN2_genAlgL"),
+    ("(B3') TransponiertEng for genAlgL, no hypothesis (Transponiert444.lean)", "YangBounds.Transponiert444.transponiertEng_genAlgL"),
+    ("No decomposition of length 25, assuming only (Z') at genAlgL (Transponiert444.lean)", "YangBounds.Transponiert444.keine_zerlegung_25_of_vielePunkte"),
+    ("Final theorem R<4,2,4> >= 26, assuming only (Z') at genAlgL (Transponiert444.lean)", "YangBounds.Transponiert444.rank_four_two_four_ge_26_of_vielePunkte"),
+    ("Final theorem R<4,2,4> >= 26, assuming only (Z') at normal forms (Transponiert444.lean)", "YangBounds.Transponiert444.rank_four_two_four_ge_26_of_hyp'"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 
