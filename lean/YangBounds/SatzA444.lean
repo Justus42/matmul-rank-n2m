@@ -219,7 +219,11 @@ theorem finrank_imL_prod (alg : BilinearAlgorithm K 4 2 4 25) (h1 : SN1 (d := 3)
     simp only [ι, LinearMap.prodMap_apply, Prod.mk.injEq, LinearMap.id_apply] at h
     exact Prod.ext (Subtype.ext h.1) h.2
   have hr : LinearMap.range ι = (LinearMap.range (Lq (d := 3) alg)).prod ⊤ := by
-    rw [LinearMap.range_prodMap, Submodule.range_subtype, LinearMap.range_id]
+    apply le_antisymm
+    · rintro _ ⟨⟨a, b⟩, rfl⟩
+      exact ⟨a.2, Submodule.mem_top⟩
+    · rintro ⟨y, q⟩ ⟨hy, -⟩
+      exact ⟨(⟨y, hy⟩, q), rfl⟩
   rw [← hr, LinearMap.finrank_range_of_inj hι, Module.finrank_prod, Module.finrank_pi_fintype]
   simp only [Finset.sum_const, Finset.card_univ, Fintype.card_fin, smul_eq_mul]
   omega
@@ -243,8 +247,7 @@ theorem corollaryA1 (alg : BilinearAlgorithm K 4 2 4 25) (h1 : SN1 (d := 3) alg)
 theorem cases_A1_iff (a b : ℕ)
     (h : (a, b) = (3, 6) ∨ (a, b) = (4, 7) ∨ (a, b) = (5, 7) ∨ (a, b) = (5, 8)) :
     b = a + 3 ↔ ((a, b) = (3, 6) ∨ (a, b) = (4, 7) ∨ (a, b) = (5, 8)) := by
-  simp only [Prod.mk.injEq] at h ⊢
-  omega
+  rcases h with h | h | h | h <;> obtain ⟨rfl, rfl⟩ := Prod.mk.inj h <;> decide
 
 /-! ## Folgerung A2 -/
 
@@ -360,8 +363,7 @@ theorem exists_common_kernel (alg : BilinearAlgorithm K 4 2 4 25) (h1 : SN1 (d :
 theorem cases_kernel_iff (a b : ℕ)
     (h : (a, b) = (3, 6) ∨ (a, b) = (4, 7) ∨ (a, b) = (5, 7) ∨ (a, b) = (5, 8)) :
     b ≤ a + 2 ↔ ((a, b) = (3, 6) ∨ (a, b) = (4, 7) ∨ (a, b) = (5, 7)) := by
-  simp only [Prod.mk.injEq] at h ⊢
-  omega
+  rcases h with h | h | h | h <;> obtain ⟨rfl, rfl⟩ := Prod.mk.inj h <;> decide
 
 end SatzA
 
