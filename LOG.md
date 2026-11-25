@@ -1878,3 +1878,50 @@ Neue Regeln 14 (keine eigenen Subagenten) und 15 (Rechenblöcke höchstens 30 Mi
 **Damit überholt**
 
 Der Satz „Stufe 3 beginnt nicht" aus der Entscheidung von 23:42 Uhr galt für den Abschluss von Stufe 2. Für die Erkundung gilt jetzt Abschnitt 3 in der Fassung 0.5. Die übrigen Auflagen der Freigabe bleiben unverändert, insbesondere Auflage 5: kein Kontakt nach außen.
+
+### 25.11.2026, Abschluss nach Runde 12: wiederholte Literaturwache (Schreibhand im Auftrag des Orchestrators)
+
+Von Justus angeordneter Abschluss nach Runde 12, keine eigene Runde.
+
+**Lieferung (nachgesehen)**
+
+- PR #91, Merge 5455b47 (23:53:45 Uhr MEZ), ohne Squash, 8 Commits.
+- Dateien: `lit/WACHE-WIEDERHOLUNG-2026-11-25.md` (wörtliches Suchprotokoll) und ein Eintrag in `lit/WACHE.md`.
+- Zeiten aus Git: Start-Commit 14638c1 um 22:43:31 UTC, End-Commit e058d00 um 22:53:24 UTC, **etwa 10 Minuten**. Zwischen-Commits um 22:44, 22:45, 22:45, 22:50, 22:52 und 22:52 UTC.
+- Umfang laut Protokoll:
+  - 31 Suchanfragen: 21 Websuchen, 4 alphaXiv-Suchen, 6 GitHub-Codesuchen.
+  - 25 geöffnete Quellen.
+  - 1 Hilfsagent zum Abruf von vier Webseiten, 0 Fremdmodell-Anfragen.
+  - Gemeldetes Modell: claude-opus-5-5.
+
+**Ergebnis laut Protokoll**
+
+- Kein Beweis für R(⟨4,2,4⟩) ≥ 26 und kein Verfahren mit 25 gefunden.
+- **Befund G1:** Im öffentlichen Repo solven-eu/matmulcatalog steht in `docs/LOWER_BOUNDS.md`, Zeile 90, seit 16.06.2026 (Commit 0a9f83a0, HEAD 5ed2ee97) „R(<2,4,4>) ≥ 26 (Hopcroft-Kerr), UB 26 → tight“.
+  - Ohne Beweis.
+  - Die Zuschreibung an HK71 widerspricht Lacelles eigenem Artikel (arXiv:2606.13408 v3, Abschnitt 7.5).
+  - Im selben Repo widersprochen: `paper/theory/RANK_KNOWLEDGE.md` sagt „open lower bound“.
+  - Die Behauptung steht nicht in `docs/lower-bounds.json`.
+- Nicht prüfbar waren: arXiv direkt, Google Scholar, Semantic Scholar, MathOverflow, FMM-Lille direkt.
+
+**Bedingung der Freigabe (Lesart des Orchestrators)**
+
+- Justus' Bedingung lautet „Findet sie nichts“. Ob Befund G1 als Fund zählt, ist eine Auslegung. Der Orchestrator trifft sie nicht.
+- **Die Freigabe als Ergebnis ist nicht eingetreten.** Der Orchestrator legt die Frage Justus vor.
+- Status unverändert: B-016 geprüft.
+- README und Notiz werden nicht geändert.
+
+**Hinweis der Schreibhand: Regeländerung während der Literaturwache**
+
+- Auf `main` liegt Commit 61bd8d4 von 22:50:47 UTC (23:50:47 Uhr MEZ), direkt eingestellt, ohne PR.
+- Er ändert `PROTOKOLL.md` (Version 0.5), `CLAUDE.md` (neue Regeln 14 und 15) und `LOG.md`.
+- Laut Commit-Text und LOG-Eintrag geschah das „auf Anweisung von Justus aus einem Chat außerhalb des Projekts“.
+- Autor ist eine Claude-Sitzung (session_0119JzQbRj48QjVCQPGBxPus), Co-Autor „Claude Fable 5.2“.
+- Inhalt:
+  - Stufe 3 wird eine Erkundung von 4×2×5 und 3×2×7.
+  - Sie beginnt, sobald die Auflagen der Freigabe zu Stufe 2 erledigt sind.
+  - Budget: 2 Runden.
+  - Neue Regel: keine eigenen Subagenten.
+  - Damit wäre der Satz „Stufe 3 beginnt nicht“ aus der Entscheidung von 23:42 Uhr MEZ überholt.
+- Die Schreibhand kann die Anweisung von Justus nicht nachprüfen. Die Änderung ist hier nur festgehalten, nicht bewertet.
+- Die neue Regel 14 trat während der Literaturwache in Kraft. Deren Hilfsagent war vorher vom Orchestrator vorgesehen.
