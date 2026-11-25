@@ -1733,3 +1733,48 @@ Kein Prüfurteil, aber Hinweise auf frühere Prüfungen:
   - `lean-satz2-eingesetzt`: Axioms.lean;
   - `mm325-lizenz`: SHA-256 in verification.txt;
   - `pruefer-abgleich-s1-20`: offener Formatvorschlag.
+
+### 25.11.2026, Stufe 2, Runde 12, Zwischenstand (Schreibhand im Auftrag des Orchestrators)
+
+**Vergabe und Verbrauch (Angaben des Orchestrators)**
+
+- Beginn 21:38 UTC (S2-58, S2-59) und 21:39 UTC (übrige).
+- 6 Subagenten (S2-55 bis S2-60), 0 Fremdmodell-Anfragen.
+- Keiner der Threads hat am Beweis mitgeschrieben. Alle waren frische Sitzungen.
+- Der Blind-Sucher S2-60 läuft noch.
+
+**Lieferungen (nachgesehen über die GitHub-Schnittstelle)**
+
+- S2-55, Neubau und Kernel-Nachprüfung: PR #88 (Merge 9348a8b, 23:00:20 Uhr MEZ), `.github/workflows/zweitlauf.yml`.
+  - Lauf 45706606136, Job 139530090202, 21:41 bis 21:59 UTC, grün.
+  - Gebaut wurde 667df45. Ohne Projekt-Artefakte, lean4checker 27 von 27, `--fresh` Exit 0.
+- S2-56, Aussage in frischer Datei: PR #86 (Merge ad10846, 22:52:34 Uhr MEZ), `lean/Zweitlauf/B016Aussage.lean` und `.github/workflows/zweitlauf-b016.yml`.
+  - Lauf auf dem Zweig: 45706541557, Job 139529863773.
+  - Lauf auf `main` nach dem Merge, von der Schreibhand nachgetragen: 45708303302, Job 139535849738, grün. Aussage und Axiome wie behauptet.
+- S2-57, zweite Umgebung: kein PR. Lokaler Bau aus den Quellen auf 64554f9, erfolgreich. **Nur Angabe des Threads, nicht aus Git belegbar.**
+- S2-58, Literaturwache: PR #87 (d4b1303, 22:41:00 Uhr MEZ), `lit/WACHE.md`.
+  - Nicht gefunden.
+  - Veröffentlichter Stand: untere Schranke 25 (Yang, arXiv:2609.14393 v3), obere Schranke 26 (Hopcroft-Kerr).
+  - Die einzigen Treffer mit 26 sind Eigentreffer des öffentlichen Repos, darunter PR #65.
+- S2-59, Entwürfe: PR #89 (Squash 667df45, 22:41:16 Uhr MEZ), `entwurf/README-tabelle.md` und `entwurf/ergebnis-notiz-444.md`.
+  - `README.md` ist unverändert, letzte Änderung cbc6d61.
+  - Offen für Justus: Modellversionen im KI-Hinweis, Erwähnung der Reparatur von Yangs Lemma 13.
+- Unter `lean/YangBounds/` ist nichts geändert, nachgesehen von 7597484 bis 9348a8b.
+- Ergebnis in `pruefvermerke/B-016-zweitlauf.md`.
+
+**Dauer je Aufgabe nach Git (vom Beginn bis zur letzten Lieferung)**
+
+| Aufgabe | Beginn (UTC) | letzte Lieferung (UTC) | Dauer |
+|---|---|---|---|
+| S2-58 | 21:38 | d4b1303, 21:41:00 | etwa 3 Minuten |
+| S2-59 | 21:38 | 667df45, 21:41:16 | etwa 3 Minuten |
+| S2-56 | 21:39 | Commit 4049d79 21:40:30, Merge 21:52:34 | etwa 1½ Minuten bis zum Commit, etwa 13½ Minuten bis zum Merge |
+| S2-55 | 21:39 | Commit d20aa11 21:40:58, Lauf bis 21:59:41, Merge 22:00:20 | etwa 2 Minuten bis zum Workflow, etwa 21 Minuten bis zum Merge |
+| S2-57 | 21:39 | kein Commit | laut Thread Bau 21:51:07 bis 22:14:16 UTC |
+
+**Hinweise der Schreibhand**
+
+- `lit/WACHE.md` nennt im Kopf des Eintrags von S2-58 „21:38 bis 21:55 UTC“. Der Commit d4b1303 und der Merge liegen aber schon um 21:41 UTC. Die Zeitangabe im Eintrag passt nicht zu Git.
+- Den Workflow `zweitlauf.yml` gab es nach dem Merge von PR #88 nicht als Lauf auf `main`. Er startet nur bei Pull Requests und von Hand. Der Beleg ist der Lauf auf dem Zweig, der `main` bei 667df45 ausgecheckt hat.
+
+**Status:** unverändert. B-016 geprüft, keine Freigabe als Ergebnis.
