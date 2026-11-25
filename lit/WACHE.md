@@ -131,3 +131,61 @@ Gezielt gesucht (Websuche, alphaXiv) nach Arbeiten, die ⟨4,2,4⟩, ⟨2,4,4⟩
 - D'Ambrosio (Zenodo), Alekseev/Smirnov, HK71 und Ja'Ja'/Takche wurden nicht im Original gelesen.
 - Ob Kauers/Moosbauer, Kauers/Wood oder AlphaEvolve ⟨2,4,4⟩ über ℚ mit gebrochenen Koeffizienten gezielt durchsucht haben, ist offen.
 - Die Seite caisc2026.github.io/verifiable-problems wurde in diesem Durchgang nicht erneut versucht.
+
+---
+
+## 25.11.2026 (Stufe 2, Runde 2, Auftrag S2-07)
+
+Rolle: Literaturwächter. Durchgang nach Protokoll Abschnitt 7, dazu die gezielte Frage aus Runde 1 nach dem Grenzrang (border rank) von ⟨2,4,4⟩ = ⟨4,2,4⟩. Werkzeuge: alphaXiv (Suche und Volltexte), Websuche, `git ls-remote`, Abruf von Webseiten über einen Abruf-Agenten. Alle Befunde haben den Status **behauptet** (Suche eines Agenten, keine Prüfung nach Abschnitt 5). Bei jeder Aussage steht, ob ich die Stelle selbst gelesen habe („gelesen“) oder sie nur aus einer Zusammenfassung oder einem Zitat kenne („zitiert“).
+
+### Ergebnis für die Abbruchregel 3
+
+**Keines der Ziele ist anderswo gelöst gefunden worden.** Kein Verfahren mit 25 Produkten und keine Schranke 26 für ⟨4,2,4⟩, keine Lösung von 3×2×7 oder 4×2×5. Abbruchregel 3 greift nicht.
+
+### Pflichtpunkte nach Abschnitt 7
+
+- **Repo fallnlove/mm325_proof:** `git ls-remote` zeigt weiter genau `759cf4a8524d4212e7832046204c90b9361ba2bb` auf `main`. Keine neuen Commits.
+- **arXiv:2609.14393 (Yang)** und **arXiv:2609.22054 (Tsyganov u. a.):** keine neue Fassung bei alphaXiv gefunden. Die arXiv-Versionsliste habe ich in diesem Durchgang nicht ausgelesen (arxiv.org per curl gesperrt). Der Stand v3 bzw. v1 aus dem Eintrag von heute früh gilt also nur als nicht widerlegt.
+- **Wangs Repo** github.com/wcgbg/tensor-rank-lower-bound: `HEAD` weiter `9db3d215267932ba3e8801a10655a2d538ed13d8`.
+- **Neue Arbeiten seit dem letzten Eintrag (alphaXiv, ab 20.11.2026):** nichts zu unseren Formaten. Gesichtet ohne Bezug: 2611.31155 (Rang-23-Verfahren 3×3, schon bekannt), „The Matrix Multiplication Exponent Is Nine Fourths“ (schon bekannt), „VP and VNP Are Different“ (24.11.2026, Schaltkreiskomplexität), 2611.30721 (Partitionsrang über endlichen Körpern).
+
+### Gezielte Frage: Grenzrang von ⟨2,4,4⟩
+
+**Antwort: Der Grenzrang ist nicht bestimmt. Die Literatur gibt 22 ≤ R̲(⟨2,4,4⟩) ≤ 24.** Damit liegt der Grenzrang sicher **unter** dem Rang, denn der Rang ist mindestens 25 (Yang v3, im Projekt B-007). Für ⟨4,2,4⟩ gilt also R̲ ≤ 24 < 25 ≤ R ≤ 26, eine Lücke von mindestens 1 und höchstens 4.
+
+| Aussage | Quelle und Stelle | gelesen? |
+|---|---|---|
+| R̲(⟨2,4,4⟩) ≤ 24 | Smirnov, *The bilinear complexity and practical algorithms for matrix multiplication*, Comput. Math. Math. Phys. 53(12) (2013) 1781–1795 | **zitiert**: Original nicht gelesen (nicht erreichbar). Zitiert in Conner, Harper, Landsberg, arXiv:1911.07981, S. 3, Absatz nach Satz 1.4: „Smirnov [28] … also proved R̲(M⟨244⟩) ≤ 24, and R̲(M⟨255⟩) ≤ 38“ (**gelesen**). Ebenso Dumitriu u. a., arXiv:2610.13905, Tabelle 1, Zeile ⟨2,4,4⟩, Spalte „vs. [56–58]“: 24 (**gelesen**), und README von github.com/nliskij/border-rank, Tabelle „Stored bounds“: „(2,4,4) \| 26 \| 1 \| 25 \| 24 \| 1“ (über Abruf-Agenten gelesen) |
+| R̲(⟨2,4,4⟩) ≤ 25 durch eigenes APA-Verfahren (Grad 6, Restglieder nur in ε³ und ε⁶), gewonnen aus einem exakten 26er mit einem nilpotenten Glied | Dumitriu, Holtz, Hsu, Liskij, Moran, Schneider, Schwartz, Yuan, *Fast and Stable Arbitrary Precision Approximate Matrix Multiplication*, arXiv:2610.13905 v1 (09.10.2026), Tabelle 1 und Abschn. 2.1–2.2 (Satz 2.1, 2.2, Algorithmus 1) | **gelesen**. Schlechter als Smirnov |
+| **R̲(⟨2,4,4⟩) ≥ 22** | Conner, Harper, Landsberg, *New lower bounds for matrix multiplication and det₃*, arXiv:1911.07981 v1, Satz 1.4 (2), Tabelle, Zeile n = 4: „22 = 4² + 6“; Beweis durch erschöpfende Rechnersuche mit Grenz-Apolarität (Abschn. 7.3, letzter Satz) | **gelesen** (Satzaussage; die Rechnung selbst nicht nachvollzogen). Später als Forum Math. Pi 11 (2023) e17 erschienen (Angabe aus arXiv:2609.12121, Lit. [9]) |
+| vorher nur R̲(⟨2,n,n⟩) ≥ n² + 1, hier 17 | Lickteig 1984, so in arXiv:1911.07981, S. 3 | zitiert |
+| Koszul-Flattenings geben für ⟨2,4,4⟩ nur ≥ 14 | Landsberg, Ottaviani, arXiv:1112.6007, Satz 1.1: R̲(M⟨m,n,l⟩) ≥ nl(n+m−1)/m für n ≤ m; beste Einsetzung m = n = 4, l = 2 ergibt 14 (eigene Rechnung) | **gelesen** |
+
+**Lücke zwischen Rang und Grenzrang bei ⟨2,n,n⟩ und ⟨2,2,n⟩ (soweit gefunden):**
+
+| Format | Rang | Grenzrang | Quellen |
+|---|---|---|---|
+| ⟨2,2,2⟩ | 7 | 7 | Landsberg 2006; arXiv:1911.07981 (**gelesen**) |
+| ⟨2,2,3⟩ | 11 | 10 | Rang: Hopcroft–Kerr 1971 (zitiert in arXiv:2610.13905 S. 2, **gelesen**); Grenzrang: Bini u. a. 1979/80 oben, arXiv:1911.07981 Satz 1.3 unten (**gelesen**) |
+| ⟨2,2,n⟩ | 7n/2 aufgerundet (Shitov, laut Yang v3, zitiert) | 3n ≤ R̲ ≤ 3n + 1 für n ≤ 7 | arXiv:1911.07981 nach Satz 1.3 (**gelesen**), obere Schranke Smirnov |
+| ⟨2,3,3⟩ | 15 | 14 | Rang: Yang v3 bzw. Hopcroft–Kerr; Grenzrang: arXiv:1911.07981 Satz 1.4 (1) (**gelesen**) |
+| ⟨2,4,4⟩ | 25 oder 26 | 22 bis 24 | siehe oben |
+| ⟨2,5,5⟩ | ≥ 35 (Yang), ≤ 40 (HK-Formel) | 32 ≤ R̲ ≤ 38 | arXiv:1911.07981 Satz 1.4 (2) und S. 3 (**gelesen**) |
+
+Ab ⟨2,2,3⟩ ist in jedem Fall mit bekanntem Rang der Grenzrang echt kleiner. Eine allgemeine Aussage über die Größe der Lücke bei ⟨n,2,m⟩ habe ich nicht gefunden.
+
+Zu unseren anderen Zielen nebenbei (alle aus arXiv:2610.13905 Tabelle 1, **gelesen**): R̲(⟨2,3,7⟩) ≤ 33 (Smirnov), R̲(⟨2,4,5⟩) ≤ 31 (neu in dieser Arbeit, Anhang B), R̲(⟨2,3,6⟩) ≤ 28 (Smirnov).
+
+**Folgerung für Spur B (vermutet):** Die numerische Probe in `versuche/s2-spurB-r1.md` Abschnitt 3 (Näherungen mit 25 Gliedern und wachsenden Koeffizienten) passt zur Literatur, sagt aber nichts Neues: Wegen R̲ ≤ 24 gibt es sogar Näherungsfolgen mit 24 Gliedern. Gleitkommasuchen über ℝ mit 25 Gliedern werden deshalb fast sicher in solche Grenzfolgen laufen. Ein Hinweis auf ein exaktes 25er-Verfahren lässt sich aus kleinen Residuen nur gewinnen, wenn die Koeffizienten beschränkt bleiben. Für exakte Suchen empfiehlt sich, Koeffizienten zu beschränken oder über endlichen Körpern zu suchen.
+
+**Folgerung für Spur A (vermutet):** Jede Schranke R(⟨4,2,4⟩) ≥ 26 muss eine Methode benutzen, die Rang und Grenzrang unterscheidet (Substitution wie bei Yang, Zertifikate über endlichen Körpern). Methoden, die nur den Grenzrang beschränken (Flattenings, Grenz-Apolarität), kommen höchstens bis 24.
+
+### Veröffentlichte SAT- oder Flip-Graph-Ergebnisse mit 25 Produkten für ⟨2,4,4⟩
+
+**Kein exaktes Verfahren mit 25 gefunden.** Die einzige Arbeit, die gezielt Flip-Graphen für ⟨2,4,4⟩ mit Ziel 25 einsetzt, ist arXiv:2610.13905 (Abschn. 2.2: Perminovs Flip-Graph-Programm über 𝔽₂ oder 𝔽₃, Hensel-Anhebung, eine Woche auf 23 Threads). Sie sucht exakte 26er mit einem nilpotenten Glied und erhält daraus **nur ein Näherungsverfahren** mit 25, kein exaktes (**gelesen**). Keine SAT-Arbeit zu ⟨2,4,4⟩ mit 25 gefunden. Stand der Kataloge wie im Eintrag „vor Beginn von Stufe 2“.
+
+### Einschränkungen
+
+- Smirnov 2013 nicht im Original gelesen. Die Zahl 24 stützt sich auf drei unabhängige Zitate (CHL 2019, Dumitriu u. a. 2026, README nliskij). Der Abruf von mathnet.ru unter `zvmmf10181` lieferte eine andere Smirnov-Arbeit (⟨2,7,2⟩ mit 22, Zh. Vychisl. Mat. Mat. Fiz. 55:4, 2015). Ob Smirnovs 24er-Verfahren explizit veröffentlicht ist, bleibt offen.
+- Die Rechnung hinter R̲ ≥ 22 (arXiv:1911.07981, Code unter math.tamu.edu/~jml/bapolaritycode.html) nicht nachvollzogen. Neuere Grenzrang-Schranken für ⟨2,4,4⟩ (nach 2019) nicht gefunden; arXiv:2609.12121 (Mańdziuk, Grenz-Apolarität jenseits der schwachen Form) behandelt ⟨2,4,4⟩ nicht (**gelesen**, Einleitung und Abschn. 6).
+- Der Dateibaum von github.com/nliskij/border-rank war für den Abruf gesperrt (robots), nur das README wurde gelesen.

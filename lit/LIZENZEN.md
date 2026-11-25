@@ -6,6 +6,8 @@ Eine Zeile pro fremdem Repo oder Code. Es gilt die Lizenzregel in Abschnitt 11.3
 |---|---|---|---|---|
 | github.com/fallnlove/mm325_proof | 759cf4a8524d4212e7832046204c90b9361ba2bb | **keine angegeben** | lesen, verlinken, zitieren, extern klonen und bauen; als Lake-Abhängigkeit per URL einbinden; **nicht** Code in unser Repo kopieren | geklärt am 24.11.2026 (A-01) |
 | mathlib4 (Abhängigkeit des obigen Repos) | c44e0c8ee63ca166450922a373c7409c5d26b00b (Tag v4.19.0) | Apache-2.0 (bekannt, nicht neu nachgelesen) | nutzen als Abhängigkeit | vermutet |
+| github.com/wcgbg/tensor-rank-lower-bound (Chengu Wang) | 9db3d215267932ba3e8801a10655a2d538ed13d8 | MIT, Copyright (c) 2026 Chengu Wang (Datei `LICENSE` gelesen) | übernehmen mit Lizenzhinweis; in S2-02 nur extern benutzt, nichts kopiert | geklärt am 25.11.2026 (S2-02, eingetragen in S2-07) |
+| github.com/nliskij/border-rank (Liskij u. a., zu arXiv:2610.13905) | nicht ermittelt (Commit-Zeile auf der Seite leer) | **keine angegeben** (keine `LICENSE`-Datei auf der Startseite, nur README gelesen) | lesen, verlinken, zitieren; **nicht** in unser Repo kopieren | festgestellt am 25.11.2026 (S2-07) |
 
 ---
 
