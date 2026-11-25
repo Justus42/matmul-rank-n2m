@@ -1,0 +1,225 @@
+# A-11: Build the external Lean proof of rank(<3,2,5>) >= 25 and check its axioms.
+#
+# The external repository fallnlove/mm325_proof has no license (see lit/LIZENZEN.md).
+# Per protocol section 11.3 nothing from it is copied into this repository:
+# the workflow clones it at run time at a fixed commit, outside the checkout.
+
+name: Lean build (mm325_proof)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/lean-build.yml"
+      - "lean/**"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/lean-build.yml"
+      - "lean/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lean-build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  EXT_REPO: https://github.com/fallnlove/mm325_proof
+  EXT_COMMIT: 759cf4a8524d4212e7832046204c90b9361ba2bb
+  EXT_MODULE: MatrixMultiplicationLowerBound25
+  EXT_SOURCE_SHA256: b1ec8c87dbdff3de92effa9b41de0a0c3ba61001525fea1eaa853aec51e8ed79
+  LEAN_TOOLCHAIN: leanprover/lean4:v4.19.0
+  MATHLIB_REV: c44e0c8ee63ca166450922a373c7409c5d26b00b
+
+jobs:
+  build:
+    name: Build and axiom check
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Clone external repository at fixed commit
+        run: |
+          set -euo pipefail
+          EXT_DIR="$RUNNER_TEMP/mm325_proof"
+          echo "EXT_DIR=$EXT_DIR" >> "$GITHUB_ENV"
+          git init -q "$EXT_DIR"
+          cd "$EXT_DIR"
+          git remote add origin "$EXT_REPO"
+          git fetch -q --depth 1 origin "$EXT_COMMIT"
+          git checkout -q --detach FETCH_HEAD
+          head="$(git rev-parse HEAD)"
+          echo "HEAD = $head"
+          test "$head" = "$EXT_COMMIT"
+          ls -la
+
+      - name: Check pinned toolchain, mathlib revision and source hash
+        working-directory: ${{ env.EXT_DIR }}
+        run: |
+          set -euo pipefail
+          echo "lean-toolchain: $(cat lean-toolchain)"
+          test "$(tr -d '[:space:]' < lean-toolchain)" = "$LEAN_TOOLCHAIN"
+          python3 - <<'EOF'
+          import json, os
+          m = json.load(open("lake-manifest.json"))
+          revs = {p["name"]: p.get("rev") for p in m["packages"]}
+          for name, rev in sorted(revs.items()):
+              print(f"{name:20s} {rev}")
+          assert revs.get("mathlib") == os.environ["MATHLIB_REV"], "unexpected mathlib revision"
+          EOF
+          sum="$(sha256sum "$EXT_MODULE.lean" | cut -d' ' -f1)"
+          echo "sha256($EXT_MODULE.lean) = $sum"
+          test "$sum" = "$EXT_SOURCE_SHA256"
+
+      - name: Restore elan toolchain cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.elan
+          key: elan-${{ runner.os }}-lean-4.19.0
+
+      - name: Restore mathlib cache downloads
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/mathlib
+          key: mathlib-cache-${{ runner.os }}-${{ env.MATHLIB_REV }}
+
+      - name: Install elan and Lean 4.19.0
+        working-directory: ${{ env.EXT_DIR }}
+        run: |
+          set -euo pipefail
+          if [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+              | sh -s -- -y --default-toolchain none
+          fi
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          export PATH="$HOME/.elan/bin:$PATH"
+          elan toolchain install "$LEAN_TOOLCHAIN"
+          lean --version
+          lake --version
+          lean --version | grep -q "version 4.19.0"
+
+      - name: Fetch mathlib build cache
+        working-directory: ${{ env.EXT_DIR }}
+        run: |
+          set -euo pipefail
+          lake exe cache get
+          # The manifest must stay untouched (no lake update).
+          git diff --exit-code -- lake-manifest.json lakefile.toml lean-toolchain
+
+      - name: Build module
+        working-directory: ${{ env.EXT_DIR }}
+        run: |
+          set -euo pipefail
+          lake build "$EXT_MODULE" 2>&1 | tee "$RUNNER_TEMP/build.txt"
+          if grep -q "declaration uses 'sorry'" "$RUNNER_TEMP/build.txt"; then
+            echo "::error::build output contains 'declaration uses sorry'"
+            exit 1
+          fi
+          # Every installed package must be at the revision of the manifest.
+          python3 - <<'EOF'
+          import json, subprocess
+          m = json.load(open("lake-manifest.json"))
+          pkgdir = m.get("packagesDir", ".lake/packages")
+          bad = 0
+          for p in m["packages"]:
+              head = subprocess.check_output(
+                  ["git", "-C", f"{pkgdir}/{p['name']}", "rev-parse", "HEAD"], text=True).strip()
+              ok = head == p["rev"]
+              bad += not ok
+              print(f"{'ok ' if ok else 'BAD'} {p['name']:20s} {head}")
+          assert bad == 0, "package revisions differ from lake-manifest.json"
+          EOF
+
+      - name: "Axiom check 1: Audit.lean (#print axioms)"
+        working-directory: ${{ env.EXT_DIR }}
+        run: |
+          set -euo pipefail
+          lake env lean Audit.lean 2>&1 | tee "$RUNNER_TEMP/audit.txt"
+          expected="$(grep -c '^#print axioms' Audit.lean)"
+          echo "Audit.lean contains $expected '#print axioms' commands"
+          python3 - "$RUNNER_TEMP/audit.txt" "$expected" <<'EOF'
+          import re, sys
+          text = open(sys.argv[1]).read()
+          expected = int(sys.argv[2])
+          standard = {"propext", "Classical.choice", "Quot.sound"}
+          found = re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]", text)
+          found += [(n, "") for n in re.findall(r"'([^']+)' does not depend on any axioms", text)]
+          bad = 0
+          for name, axs in found:
+              axset = {a.strip() for a in axs.replace("\n", " ").split(",") if a.strip()}
+              extra = axset - standard
+              bad += bool(extra)
+              print(f"{'BAD' if extra else 'ok '} {name}: {sorted(axset)}")
+          print(f"{len(found)} axiom reports, expected {expected}")
+          assert expected > 0 and len(found) == expected, "number of axiom reports does not match"
+          assert bad == 0, "non-standard axioms found"
+          EOF
+
+      - name: "Axiom check 2: every theorem of the module"
+        working-directory: ${{ env.EXT_DIR }}
+        run: |
+          set -euo pipefail
+          check="$RUNNER_TEMP/AxiomCheck.lean"
+          cat > "$check" <<'EOF'
+          import MatrixMultiplicationLowerBound25
+          open Lean Elab Command
+
+          /- Collect the axioms of every theorem declared in the module and fail
+          unless they are among the three standard axioms. Also fail on any
+          user-facing `axiom` declaration in the module. -/
+          run_cmd do
+            let env ← getEnv
+            let modName := `MatrixMultiplicationLowerBound25
+            let some modIdx := env.getModuleIdx? modName
+              | throwError "module {modName} not found"
+            let standard : List Name := [``propext, ``Classical.choice, ``Quot.sound]
+            let mut thms : Array Name := #[]
+            let mut userAxioms : Array Name := #[]
+            let mut internalAxioms : Nat := 0
+            let mut total : Nat := 0
+            for (n, ci) in env.constants.map₁.toList do
+              if env.getModuleIdxFor? n == some modIdx then
+                total := total + 1
+                match ci with
+                | .thmInfo _ => thms := thms.push n
+                | .axiomInfo _ =>
+                  if n.isInternal then internalAxioms := internalAxioms + 1
+                  else userAxioms := userAxioms.push n
+                | _ => pure ()
+            let mut used : NameSet := {}
+            for n in thms do
+              for a in (← collectAxioms n) do
+                used := used.insert a
+            let usedList := used.toList.map toString |>.toArray.qsort (· < ·)
+            logInfo m!"constants in module: {total}, theorems: {thms.size}"
+            logInfo m!"compiler-internal axiom entries (not used by any theorem check): {internalAxioms}"
+            logInfo m!"user axiom declarations: {userAxioms}"
+            logInfo m!"union of axioms over all theorems: {usedList}"
+            let extra := used.toList.filter (fun a => !standard.contains a)
+            if thms.isEmpty then throwError "no theorems found in module"
+            unless userAxioms.isEmpty do throwError "module declares axioms: {userAxioms}"
+            unless extra.isEmpty do throwError "non-standard axioms used: {extra}"
+            logInfo "AXIOM CHECK PASSED"
+          EOF
+          lake env lean "$check" 2>&1 | tee "$RUNNER_TEMP/axiomcheck.txt"
+          grep -q "AXIOM CHECK PASSED" "$RUNNER_TEMP/axiomcheck.txt"
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Lean build of fallnlove/mm325_proof @ ${EXT_COMMIT:0:7}"
+            echo
+            echo '### Audit.lean'
+            echo '```'
+            cat "$RUNNER_TEMP/audit.txt" 2>/dev/null || echo "(not run)"
+            echo '```'
+            echo '### Module-wide axiom check'
+            echo '```'
+            cat "$RUNNER_TEMP/axiomcheck.txt" 2>/dev/null || echo "(not run)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
