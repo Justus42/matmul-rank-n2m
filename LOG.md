@@ -153,3 +153,50 @@ Merge-Stand auf `main` beim Schreiben dieses Eintrags: PR #5 (e0ea135), #6 (7657
 **Entscheidung für Runde 3**
 
 Runde 3 mit A-03, A-10, A-11. Sie liegt über dem Startbudget von 2 Runden und ist durch Justus' Freigabe vom 25.11.2026 gedeckt (siehe Eintrag „Budgetänderung durch Justus“).
+
+---
+
+## 25.11.2026 · Runde 3 (Stufe 0, über dem Startbudget, durch Justus' Freigabe gedeckt)
+
+**Aufträge und Subagenten**
+
+Drei Subagenten: A-03, A-10, A-11.
+
+**Gelieferte Dateien**
+
+- A-11: `.github/workflows/lean-build.yml`, Pull Request #9
+- A-03: `behauptungen/B-001.md`, Pull Request #10
+- A-10: `verfahren/3x2x5-r25-hk71.json` und `verfahren/3x2x6-r30-hk71.json`, Pull Request #11
+
+**Befunde**
+
+- A-11: Der Lean-Build von fallnlove/mm325_proof am Commit 759cf4a ist in GitHub Actions grün, Lauf 45518440779 (https://github.com/Justus42/matmul-rank-n2m/actions/runs/45518440779, Ergebnis success, am Kopf-Commit ecd0032 von PR #9). Die Axiom-Prüfung zeigt nur `propext`, `Classical.choice` und `Quot.sound`.
+- A-03: Prüfer und Fremdmodell (`gemini-4-carbon` über die Gemini Bridge, unabhängig eingeholt) bestätigen, dass `theorem_one_tensorRank` Satz 1 aus arXiv:2609.22054v1 ist: R > 24m/5 über jedem Körper, für m = 5 also R ≥ 25. Die obere Schranke ≤ 25 ist dort nicht formalisiert.
+- A-10: Die beiden Verfahren liegen über ℤ vor. Sie sind nach dem Bauplan von Hopcroft und Kerr neu konstruiert, mit den Bausteinen aus Lacelle, arXiv:2606.13408, Abschnitt 7.1. Das Original HK71 wurde nicht gelesen. Beide Prüfprogramme (Python und Rust, von verschiedenen Subagenten unabhängig geschrieben) geben ANGENOMMEN. Die Ausgaben der Prüfläufe sind in Pull Request #11 und in der Commit-Nachricht belegt, nicht als eigene Datei im Repo.
+- A-10, Nebenbefund: Die Programme urteilen in zwei Fällen verschieden, die das Format offen lässt. Bei einem Zusatzschlüssel in `origin` sagt Python FEHLERHAFT und Rust ANGENOMMEN. Bei einem ungültigen Datum wie 2026-02-30 sagt Python ANGENOMMEN und Rust FEHLERHAFT. Die gelieferten Verfahrensdateien sind davon nicht betroffen.
+
+**Neuer Status je Behauptung (nach Abschnitt 5, Belege oben)**
+
+- Obere Schranken 25 für 3×2×5 und 30 für 3×2×6 über ℤ, durch die Verfahren aus A-10: **geprüft** nach 5.2 Punkt 1 bis 3. Nach `verfahren/README.md` Abschnitt 4 gilt ein Verfahren über ℤ über jedem Körper.
+- Untere Schranke R(⟨3,2,5⟩) ≥ 25 über jedem Körper: **geprüft** nach 5.1 Punkt 1 bis 4 (Build und Axiome in Actions durch A-11, Aussagen-Abgleich durch A-03).
+- B-001 „Rang von ⟨3,2,5⟩ ist 25, über jedem Körper“: **geprüft**. Die Aussage ist durch die beiden vorigen Punkte vollständig gedeckt, die untere Schranke durch den Lean-Satz und die obere durch das ℤ-Verfahren mit 25 Produkten.
+- B-002 bis B-005: unverändert **behauptet**. Für das Verfahren mit 30 Produkten gibt es keine eigene Behauptungsdatei. Es ist in der Übersicht in `behauptungen/README.md` vermerkt. Der Rang 30 von ⟨3,2,6⟩ ist damit nicht geprüft, weil die untere Schranke (B-002) noch behauptet ist.
+
+**Merges**
+
+Merge-Stand auf `main` beim Schreiben dieses Eintrags: PR #10 (bdf95e7), #9 (4644cfc) und #11 (cac2c55) sind am 25.11.2026 zwischen 01:31 und 01:33 Uhr (MEZ) gemergt, jeweils unter dem GitHub-Konto Justus42.
+
+**Fertig-Kriterium Stufe 0**
+
+Alle vier Punkte sind erfüllt: Lean-Build grün (Lauf 45518440779), Axiom-Bericht (`lean/NACHBAU.md` und Lauf 45518440779), Tabelle bestätigt oder korrigiert (`lit/QUELLEN.md`), beide Prüfprogramme bestätigen mindestens zwei bekannte Verfahren (3×2×5 mit 25 und 3×2×6 mit 30, dazu Strassen).
+
+Stufe 0 ist nach 3 Runden abgeschlossen. Die dritte Runde lag über dem Startbudget von 2 und war durch Justus' Freigabe vom 25.11.2026 gedeckt.
+
+**Entscheidungen des Orchestrators**
+
+- Stufenwechsel nach Abschnitt 3: Wechsel zu Stufe 1 (Yangs dritte Fassung formalisieren), Rundenbudget 8.
+- Format: Unbekannte Zusatzschlüssel gelten überall als FEHLERHAFT, ungültige Kalenderdaten ebenfalls. Die Anpassung von Format und Prüfprogrammen wird in Stufe 1 vergeben.
+
+**Entscheidung für Runde 1 der Stufe 1**
+
+Vergeben: S1-01 Lean-Projektgerüst (`lean/`), S1-02 Prosa-Beweis der Schranke für n = 3, S1-03 Prosa-Beweis der Schranke für m ≥ n ≥ 4, S1-04 Festlegung der zwei Randfälle im Format (`verfahren/README.md`).
