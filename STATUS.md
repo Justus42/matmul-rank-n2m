@@ -1,16 +1,17 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 11 läuft, Protokoll 0.4.1)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 11 abgeschlossen, Orchestrator wartet auf Justus, Protokoll 0.4.1)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 10 von 24 (beide Spuren zusammen; Budget durch Justus von 12 auf 24 erhöht, Protokoll 0.4). Ab Runde 9 bis zu 6 Subagenten pro Runde
+- Runden verbraucht: 11 von 24 (beide Spuren zusammen; Budget durch Justus von 12 auf 24 erhöht, Protokoll 0.4). Ab Runde 9 bis zu 6 Subagenten pro Runde
 - Runde 9 abgeschlossen: 6 zählende Subagenten (S2-34, S2-35, S2-36, S2-41, S2-42, S2-43), dazu gestartet und ersetzt S2-37 bis S2-40, 0 Sol-Anfragen, 51 Minuten nach Git (626eb7b bis 9f5a928)
 - Runde 10 abgeschlossen: 6 Subagenten (S2-44 bis S2-49), 0 Sol-Anfragen, 62 Minuten nach Git (8226274 bis 32f12f6). Neu: B-016 (Endsatz in Lean ohne Hypothese, `Transponiert444.rank_four_two_four_ge_26`), behauptet, Aussagen-Abgleich in Runde 11
 - Vor Runde 11, Hausarbeit außerhalb der Runde (offen ausgewiesen): Kopfkommentare gesäubert, PR #80 (c3c3884), nur Kommentare, Lauf 86 (45699204903, Job 139504538345) grün, SORRY 0. Rest: `.github/scripts/lean_report.py` Zeile 43 trägt das Label „(R-C1)“, es erscheint im Log (offengelegte Spur)
-- Runde 11 läuft seit 21:05 UTC (Angabe des Orchestrators): S2-50 bis S2-54, bisher 5 Subagenten, 1 Sol-Anfrage; Blind-Sucher S2-54 läuft noch
+- Runde 11 abgeschlossen: 5 Subagenten (S2-50 bis S2-54), 1 Sol-Anfrage, etwa 28 Minuten nach Git (Vergabe etwa 21:05 UTC bis b64e6c8). Dauern je Aufgabe: S2-50 etwa 3, S2-52 und S2-53 je etwa 5, S2-51 etwa 8, S2-54 etwa 28 Minuten
+- Der Orchestrator vergibt nichts Neues und wartet auf Justus. Offen für Justus: Fertig-Kriterium und Freigabe als Ergebnis, Frist B-014, kurze Prüferdauern in Runde 11
 - **B-016 geprüft** (Lean-Endsatz R(⟨4,2,4⟩) ≥ 26 über jedem Körper; Prüfer S2-50 und GPT 6.2 Sol S2-51). B-014 geprüft in Teilen (siehe `pruefvermerke/B-014.md`)
 - Abbruchregel 2, Spur A (Übergangsregel Protokoll 0.4.1, Abschnitt 6, Lesart des Orchestrators): Die vier Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 sind in Runde 9 von gültigen Prüfern bestätigt (S2-42, S2-43), die Fristen aus Runde 3 und 6 gelten als gehalten. S2-41 bestätigt B-014, das zählt als Fortschritt in Runde 9, **Frist für geprüft: Ende Runde 11**. Zähler Spur A: Runde 9 mit Fortschritt, Runde 10 ohne, Runde 11 mit Fortschritt (B-016 geprüft, ändert die Schranke), also **0 von 3**. Frist B-014: Lesart des Orchestrators „für den Teil, der die Schranke ändert (F2), gehalten“, **offen für Justus zur Bestätigung**. **Spur B: aufgegeben**
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4). **Nach Sicht des Orchestrators erfüllt (B-016 geprüft).** Er hält nach Runde 11 an und meldet an Justus. Als „Ergebnis“ gilt es erst nach Freigabe durch Justus
@@ -72,7 +73,7 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 11 läuft, Protokoll 0.4.1)
 | S2-51 | Spur A: Fremdmodell GPT 6.2 Sol, Aussagen-Abgleich B-016 | Fremdmodell-Abfrage | `lean/prosa/s2_444_bericht_s2-51.md` | erledigt in Runde 11, PR #84. 1 Anfrage, Urteil „agrees“ |
 | S2-52 | Spur A: Prüfer, Aussagen-Abgleich B-014 | Prüfer | `lean/prosa/s2_444_bericht_s2-52.md` | erledigt in Runde 11, PR #83 |
 | S2-53 | Spur A: zweiter Prüfer, Aussagen-Abgleich B-014, sieht S2-52 nicht | Prüfer | `lean/prosa/s2_444_bericht_s2-53.md` | erledigt in Runde 11, PR #82 |
-| S2-54 | Blind-Suche, Runde 11 | Blind-Sucher | wird nachgetragen | läuft in Runde 11 |
+| S2-54 | Blind-Suche, Runde 11 | Blind-Sucher | `versuche/s2-blind-r11.md` | erledigt in Runde 11, PR #85 (b64e6c8). Flip-Graph über GF(2), 4 × 25 Minuten, alle 26, keiner 25, kein Beweis. Gedächtnis-Einträge gelöscht (siehe LOG) |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
