@@ -278,3 +278,54 @@ Alles andere, insbesondere die Tabelle und die Folgerungen für Spur A und B, st
 
 - Familie 107 und die Begleitarbeit nur per Textsuche in den LaTeX-Quellen durchsucht, nicht gelesen. Die fünf übrigen Arbeiten der Familie 379 nur nach Titel und Kurzfassung.
 - Kein vollständiger Durchgang der arXiv-Listen von cs.CC, sondern alphaXiv-Suche.
+
+---
+
+## 25.11.2026, 21:38 bis 21:55 UTC (Stufe 2, Runde 12, Auftrag S2-58)
+
+Auftrag: Punkt 5 der Nachricht von Justus vom 25.11.2026, 21:37 UTC. Gezielte Suche, ob der Rang von ⟨4,2,4⟩ (gleichwertig ⟨2,4,4⟩, ⟨4,4,2⟩) schon als 26 bewiesen oder eine untere Schranke 26 veröffentlicht ist. Dazu die Pflichtpunkte nach Abschnitt 7. Keine Fremdmodell-Anfrage.
+
+### Ergebnis
+
+**Nicht gefunden.** Keine Quelle beweist R(⟨4,2,4⟩) ≥ 26 oder R(⟨4,2,4⟩) = 26, und keine Quelle widerspricht der Schranke 26 (kein Verfahren mit 25 Produkten). Bester veröffentlichter Stand außerhalb dieses Repos unverändert:
+
+| | Wert | Quelle |
+|---|---|---|
+| untere Schranke | 25, über beliebigen Körpern | Yang26 (arXiv:2609.14393 v3), Satz 2 mit n = m = 4: (4+2)·4 + 4 − 3 = 25 |
+| obere Schranke | 26 | HK71; FMM-Lille führt ⟨2×4×4:26⟩ mit Quelle Hopcroft und Kerr 1971 |
+
+Die einzigen Treffer mit „26“ zu diesem Format sind **Eigentreffer**: das öffentliche Repo Justus42/matmul-rank-n2m und dessen Pull Request #65 („S2-36: Endsatz R(<4,2,4>) ≥ 26 …“), beide von der Websuche indexiert. Sie zählen nicht als Fremdquelle. Status dieses Eintrags: behauptet (Suche eines Agenten, keine Vollständigkeit garantiert).
+
+### Suchbegriffe
+
+- alphaXiv (Sortierung nach Aktualität, ohne Datumsgrenze): „tensor rank“, „matrix multiplication“, „<2,4,4>“, „4x2x4“, „lower bound“; zweite Suche „(n,2,m) matrix multiplication“ ab 20.11.2026; dritte Suche „border rank“, „<2,4,4>“ (Sortierung nach Bedeutung)
+- Websuche: `tensor rank "4x2x4" OR "<2,4,4>" matrix multiplication rank 26 lower bound`; `"2x4x4" OR "4x4x2" matrix multiplication rank 26 Hopcroft Kerr optimal bilinear`; `Lean formal proof tensor rank matrix multiplication 4×2×4 26 lower bound 2026`; `"matrix multiplication" "is 26" rank "⟨2,4,4⟩" OR "(4,2,4)" OR "4 × 2 × 4" tensor rank exact`; `fmm.univ-lille.fr 2x4x4 26 Sedoglavic catalogue`
+- GitHub-Suche (Repos und Code): „matrix multiplication tensor rank lower bound“, `tensorRank "4 2 4" language:lean`, `"26 ≤" tensorRank`
+
+### Gesichtete Quellen
+
+- **Yang26**, [arXiv:2609.14393](https://arxiv.org/abs/2609.14393): Abstract-Seite zeigt weiter „This version: v3 2026-10-12“. Keine neue Fassung. Abstract nennt (n+2)m + n − 3 für m ≥ n ≥ 4, also 25 bei ⟨4,2,4⟩.
+- **TPSR26**, [arXiv:2609.22054](https://arxiv.org/abs/2609.22054): nur ⟨3,2,m⟩, in alphaXiv weiter nur v1.
+- **Wang26**, [arXiv:2603.07280](https://arxiv.org/html/2603.07280v6) (HTML v6 gelesen): Tabelle enthält 2,2,2 bis 3,4,4, aber **kein ⟨2,4,4⟩**. Hauptkörper 𝔽₂.
+- **FMM-Lille (Sedoglavic)**, [fmm.univ-lille.fr](https://fmm.univ-lille.fr/) und [2x4x4.html](https://fmm.univ-lille.fr/2x4x4.html): Zeile „<2×4×4:26> 26 32 Hopcroft and Kerr 1971“. Keine Spalte und keine Aussage zu unteren Schranken oder Optimalität. Kein Datum, Version `9aa936f7ba6c86ddcbd7b192420bfbe097198481`, Hinweis „underlying data are currently reconstructed“. Kein Koeffizientenring genannt.
+- **Lacelle26**, [arXiv:2606.13408 v3](https://arxiv.org/html/2606.13408v3) (Katalog, 14.08.2026): keine Aussage zu ⟨2,4,4⟩ gefunden. Nur die ersten rund 40 000 Zeichen wörtlich gelesen, Rest nur als Zusammenfassung.
+- **Bläser, Landsberg, Conner/Harper/Landsberg, Alekseyev, Hopcroft-Kerr:** keine neue Arbeit dieser Autoren zu ⟨2,4,4⟩ in den Suchen. Neue Treffer zu Grenzrang (z. B. [arXiv:2609.12121](https://www.alphaxiv.org/abs/2609.12121), Grenzrang jenseits der schwachen Border-Apolarity) nennen in der Kurzfassung kein ⟨2,4,4⟩. Grenzrang ist ohnehin höchstens 24 (siehe Eintrag S2-07) und kann 26 nicht liefern.
+- **Repo [Oxelra-AI/Qiushi-Engine-Matmul-Research](https://github.com/Oxelra-AI/Qiushi-Engine-Matmul-Research)** (Treffer der GitHub-Suche, Commit `4649c03201e1974ee2f97b7de53c5f96e17cf3a8` vom 17.09.2026): nur 3×3 über 𝔽₂ (≥ 21). Kein Bezug zu ⟨2,4,4⟩.
+- **Neue Arbeiten seit dem letzten Eintrag (alphaXiv ab 20.11.2026):** nur schon bekannte Treffer (9/4-Arbeit, VP ≠ VNP, 2611.31155, 2611.31963) sowie 2611.30757 (Semidefinite Optimierung) und 2611.30721 (Partition-Rang). Nichts zu ⟨n,2,m⟩.
+
+### Pflichtpunkte nach Abschnitt 7
+
+`git ls-remote` am 25.11.2026 um 21:38 UTC:
+
+- **fallnlove/mm325_proof:** `759cf4a8524d4212e7832046204c90b9361ba2bb`, unverändert.
+- **openai/math:** `3344da59991ed94f9ba711217b29c1d760badfa6`, unverändert seit dem Eintrag S2-13. Damit keine neuen Familien in `CONTENTS.md` und keine neuen Verzeichnisse in `preprints/`; die Durchsicht aus S2-13 (kein ⟨n,2,m⟩, keine feste Rangschranke) gilt weiter.
+- **wcgbg/tensor-rank-lower-bound:** `9db3d215267932ba3e8801a10655a2d538ed13d8`, unverändert.
+- **arXiv:2609.14393** v3, **arXiv:2609.22054** v1, siehe oben.
+
+### Einschränkungen
+
+- arxiv.org und fmm.univ-lille.fr sind aus der Umgebung per curl gesperrt. Beide Seiten wurden über einen Abruf-Agenten gelesen; die Angaben oben stammen aus dessen Bericht mit wörtlichen Zitaten.
+- Die Seite [caisc2026.github.io/verifiable-problems](https://caisc2026.github.io/verifiable-problems/?problem=matrix-multiplication-tensor-rank) zeigt beim Abruf nur „Loading…“ (Inhalt per JavaScript). Wie schon in Runde 2 nicht gelesen. Ob dort ⟨2,4,4⟩ als offen oder gelöst geführt wird, ist unbekannt.
+- FMM-Lille-Startseite nur bis etwa ⟨2×21×31⟩ gelesen, die Zeile ⟨2×4×4⟩ war enthalten.
+- Shitov26 (ResearchGate) nicht erneut gesucht; betrifft nur ⟨2,2,m⟩.
+- Kein vollständiger Durchgang der arXiv-Listen von cs.CC, sondern alphaXiv- und Websuche.
