@@ -1,13 +1,14 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 9 läuft, Protokoll 0.4.1)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 10 läuft, Protokoll 0.4.1)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 8 von 24 (beide Spuren zusammen; Budget durch Justus von 12 auf 24 erhöht, Protokoll 0.4). Ab Runde 9 bis zu 6 Subagenten pro Runde
-- Runde 9 läuft: S2-34 bis S2-36 und S2-41 bis S2-43 (6 zählende Subagenten, 0 Sol-Anfragen). Gestartet wurden 10 Aufträge, S2-37 bis S2-40 zählen nicht. Erledigt: S2-35, S2-36, S2-41, S2-42, S2-43; offen: S2-34
+- Runden verbraucht: 9 von 24 (beide Spuren zusammen; Budget durch Justus von 12 auf 24 erhöht, Protokoll 0.4). Ab Runde 9 bis zu 6 Subagenten pro Runde
+- Runde 9 abgeschlossen: 6 zählende Subagenten (S2-34, S2-35, S2-36, S2-41, S2-42, S2-43), dazu gestartet und ersetzt S2-37 bis S2-40, 0 Sol-Anfragen, 51 Minuten nach Git (626eb7b bis 9f5a928)
+- Runde 10 läuft seit 20:24 Uhr MEZ: S2-44 bis S2-49 (6 Subagenten, 0 Sol-Anfragen geplant); S2-47 bis S2-49 starten nach der Durchsicht des Gedächtnisses
 - Abbruchregel 2, Spur A (Übergangsregel Protokoll 0.4.1, Abschnitt 6, Lesart des Orchestrators): Die vier Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 sind in Runde 9 von gültigen Prüfern bestätigt (S2-42, S2-43), die Fristen aus Runde 3 und 6 gelten als gehalten. S2-41 bestätigt B-014, das zählt als Fortschritt in Runde 9, **Frist für geprüft: Ende Runde 11**. Zähler Spur A: Runde 7 und 8 ohne Fortschritt, Runde 9 mit Fortschritt, also **0 von 3**. **Spur B: aufgegeben**
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
@@ -48,7 +49,7 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 9 läuft, Protokoll 0.4.1)
 | S2-31 | Spur A: Aussagen-Abgleich B-013 (Satz E), mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r4_abgleich_b013.md`, `behauptungen/B-013.md` | erledigt in Runde 8, PR #62. Satz E geprüft, unter Vorbehalt (Prüfer sah früheres Prüfurteil) |
 | S2-32 | Spur A: Lemma P in Lean | Formalisierer | `lean/YangBounds/LemmaP444.lean` | erledigt in Runde 8, PR #64. Ohne sorry, nur für unendliche Körper; Abgleich fehlt |
 | S2-33 | Blind-Sucher | Blind-Sucher | `versuche/s2-blind-r8.md` | erledigt in Runde 8, PR #63. Keine Entscheidung |
-| S2-34 | Spur A: Unterfall B in Lean (B-014) | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 9 |
+| S2-34 | Spur A: Unterfall B in Lean (B-014) | Formalisierer | `lean/YangBounds/SatzF444.lean` | erledigt in Runde 9, PR #73 (9f5a928). Satz F mit benannten Hypothesen `TransponiertEng` und `VielePunkte alg 11`, Lemma K nicht formalisiert. Lauf 67 grün, SORRY 0, nur Standard-Axiome |
 | S2-35 | Spur A: Brücke generisch zu algebraisch abgeschlossen in Lean, Weg über „Rang fällt bei Körpererweiterung“ prüfen | Formalisierer | `lean/YangBounds/Bruecke444.lean`, `lean/prosa/s2_444_spurA_r9_bruecke.md` | erledigt in Runde 9, PR #69 (deaea2e). Lauf 65 auf main grün (Job 139440176459), alle 27 Hauptsätze nur Standard-Axiome |
 | S2-36 | Spur A: Zusammensetzen zum Endsatz mit benannten Hypothesen | Formalisierer | `lean/YangBounds/Endsatz444.lean` | erledigt in Runde 9, PR #65 (Merge 50e9ec1). Endsatz mit zwei benannten Hypothesen (Brücke, Unterfall B), Lauf 56 grün, 0 sorry (Lauf 57) |
 | S2-37 | Spur A: frischer Prüfer B-014 | Prüfer | wählt der Prüfer | ungültig (Gedächtnis-Index und Abschnitt 5.4 in Fassung 0.4 verrieten das erwünschte Ergebnis), PR #68, ersetzt durch S2-41 |
@@ -58,6 +59,12 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 9 läuft, Protokoll 0.4.1)
 | S2-41 | Spur A: Prüfer B-014 (letzte Wiederholung, Ersatz für S2-37) | Prüfer | `lean/prosa/s2_444_bericht_s2-41.md` | erledigt in Runde 9, PR #72. B-014 hält mit Reparaturen R-K, R-T, R-N. Gültig |
 | S2-42 | Spur A: Prüfer, Aussagen-Abgleiche B-008 und B-009 (letzte Wiederholung, Ersatz für S2-38) | Prüfer | `lean/prosa/s2_444_bericht_s2-42.md` | erledigt in Runde 9, PR #70. B-008 und B-009 in den genannten Teilen bestätigt. Gültig |
 | S2-43 | Spur A: Prüfer, Aussagen-Abgleiche B-012 und Satz E aus B-013 (letzte Wiederholung, Ersatz für S2-40) | Prüfer | `lean/prosa/s2_444_bericht_s2-43.md` | erledigt in Runde 9, PR #71. B-012 generisch und Satz E bestätigt. Gültig |
+| S2-44 | Spur A: `TransponiertEng` (B3′) in Lean | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 10 |
+| S2-45 | Spur A: Lemma K in Lean | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 10 |
+| S2-46 | Spur A: Lemma Z (`VielePunkte`) in Lean, Lemma K als benannte Hypothese | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 10 |
+| S2-47 | Spur A: Prüfer, Aussagen-Abgleiche Lemma P (B-013) und Brücke (B-015) | Prüfer | wählt der Prüfer | vorgesehen in Runde 10 |
+| S2-48 | Spur A: zweiter Prüfer, Aussagen-Abgleiche Lemma P (B-013) und Brücke (B-015), sieht S2-47 nicht | Prüfer | wählt der Prüfer | vorgesehen in Runde 10 |
+| S2-49 | Blind-Suche, Runde 10 | Blind-Sucher | `versuche/s2-blind-r10.md` | vorgesehen in Runde 10 |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
