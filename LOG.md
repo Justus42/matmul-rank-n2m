@@ -897,3 +897,72 @@ Verbraucht in Stufe 2: 6 von 12.
 - S2-29 (Blind-Sucher): Handkonstruktion, Zieldatei `versuche/s2-blind-r7.md`
 
 Geplant für Runde 8: die übrigen Lean-Fassungen, Aussagen-Abgleich für B-012 und B-013, Blind-Sucher.
+
+---
+
+## 25.11.2026 · Stufe 2, Runde 7, Abschluss
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: S2-26, S2-27, S2-28, S2-29.
+
+**Gelieferte Dateien**
+
+- S2-26 (Formalisierer): `lean/YangBounds/SatzC444Kern.lean` und `SatzC444Generisch.lean` mit `satzC_kern`, `satzC_generisch` und `folgerungC1_generisch`, Pull Request #59
+- S2-27 (Formalisierer): `lean/YangBounds/SatzE444.lean` und `SatzE444Buendel.lean` mit `satzE`, `satzE_global` und `nur_unterfallB`, Pull Request #60
+- S2-28 (Prüfer): `lean/prosa/s2_444_spurA_r6_pruefung.md`, Prüfvermerk in `behauptungen/B-014.md`, Code und Fremdmodell in `versuche/s2-28/`, Pull Request #58
+- S2-29 (Blind-Sucher): `versuche/s2-blind-r7.md`, Pull Request #57. Der Merge gelang erst nach mehreren Fehlern 500 von GitHub.
+
+**Befunde**
+
+- S2-26: Satz C und Folgerung C1 in der generischen Fassung (R-C1) sind in Lean ohne sorry. Offen ist, dass die Symmetrie am generischen Punkt vorausgesetzt wird, nicht auf einer offenen Menge. Schritt 0 der Prosa ist nicht formalisiert. Der Aussagen-Abgleich fehlt.
+- S2-27: Satz E (Unterfall A unmöglich) ist in Lean ohne sorry. Lemma P (die Dichotomie) steht nur als benannte Hypothese `LemmaPStatement` da und ist nicht bewiesen. Es fehlt auch die Verkettung mit Satz C (vom generischen Punkt zum algebraischen Abschluss).
+- S2-28: B-014 hält mit den benannten Reparaturen R-K, R-F1, R-F2 und R-F3, keine Aussage ändert sich. GPT 6.2 Sol kommt unabhängig zum gleichen Urteil und hat alle 13 Fragen mit JA beantwortet. Offenlegung des Prüfers (Bericht Abschnitt 0): Das Projektgedächtnis hat ihm vor der Prüfung eine Kurzfassung der Urteile aus S2-22 und S2-23 eingeblendet, darunter das zum GPT-Vorschlag gegen Unterfall B. Prüfberichte hat er nicht gelesen. Das Fremdmodell sah kein Urteil.
+- S2-29: Kein Verfahren mit 25 Produkten und kein Beweis. Die Hilfssätze haben Status behauptet, die Schlüsse auf 26 Status vermutet. Der Sucher war nur eingeschränkt blind, das Gedächtnis zeigte ihm Inhalte zu S2-23 und S2-24 (Bericht Abschnitt 8).
+
+**Selbst nachgesehen**
+
+- Die Actions-Läufe 45653961790 (am Merge-Commit 0563469) und 45658431578 (am Merge-Commit b8cee48) liefen auf `main` und endeten mit success.
+- Im Lauf 45658431578 meldet der Axiom-Bericht nur `propext`, `Classical.choice` und `Quot.sound`, und zwar für `satzC_kern`, `satzC_generisch`, `folgerungC1_generisch`, `satzE`, `satzE_global` und `nur_unterfallB`. Gesamt: `TOTAL: STANDARD=15`.
+- Die Zeile „SORRY“ lag außerhalb des Log-Ausschnitts, den ich abrufen konnte. In den Quellen unter `lean/YangBounds/` steht `sorry` nur in Kommentaren.
+- Es gibt keine Statusänderung zu geprüft, weil der Aussagen-Abgleich fehlt.
+
+**Neuer Status je Behauptung**
+
+- B-012: **behauptet**. Lean-Fassung und Lauf sind in der Übersicht eingetragen.
+- B-013: **behauptet**. Lean-Fassung von Satz E und Lauf sind eingetragen.
+- B-014: **behauptet**, Prüfvermerk S2-28 mit Reparaturen eingetragen.
+- Alle übrigen unverändert.
+
+**Merges**
+
+Alle vier Pull Requests sind auf `main`, gemergt am 25.11.2026 unter dem GitHub-Konto Justus42:
+
+- PR #57 um 16:59 Uhr (MEZ), Merge-Commit 55dd86e
+- PR #58 um 17:04 Uhr, Merge-Commit 142c495
+- PR #59 um 17:26 Uhr, Merge-Commit 0563469
+- PR #60 um 17:51 Uhr, Merge-Commit b8cee48
+
+**Runden**
+
+Verbraucht in Stufe 2: 7 von 12.
+
+**Zählerstand nach Abbruchregel 2 (Fassung 0.3), Spur A (Lesart des Orchestrators)**
+
+- Runde 7 bringt Fortschritt nach b). B-014 schließt einen benannten Fall aus, Unterfall B von (5,8). Prüfer und Fremdmodell haben B-014 mit benannten Reparaturen bestätigt.
+- Zähler Spur A: **0 von 3**.
+- Frist für B-014: geprüft bis Ende Runde 9.
+- Frist aus Runde 6: B-012 und B-013 müssen bis Ende Runde 8 geprüft sein.
+  - Bei B-013 kann bis dahin voraussichtlich nur Satz E geprüft werden, nicht Lemma P (die Dichotomie).
+  - Strenge Lesart des Orchestrators: Hält B-013 die Frist nur teilweise, trägt B-012 allein den Fortschritt aus Runde 6. Dafür muss B-012 bis Ende Runde 8 geprüft sein.
+- Vorbehalt zur Unabhängigkeit in S2-28 (siehe Befunde) ist an den Orchestrator gemeldet.
+- Spur B: aufgegeben.
+
+**Runde 8 der Stufe 2, vergeben (Start 17:58 Uhr MEZ, vier Aufträge)**
+
+- S2-30 (Prüfer): Aussagen-Abgleich B-012 mit GPT 6.2 Sol
+- S2-31 (Prüfer): Aussagen-Abgleich B-013 (Satz E) mit GPT 6.2 Sol
+- S2-32 (Formalisierer): Lemma P in Lean
+- S2-33 (Blind-Sucher): Zieldatei `versuche/s2-blind-r8.md`
+
+Geplant für Runde 9: Lean für B-014, der Übergang vom generischen Punkt zum algebraischen Abschluss und das Zusammensetzen, Aussagen-Abgleich für Lemma P, Blind-Sucher.

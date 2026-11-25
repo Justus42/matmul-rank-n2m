@@ -1,14 +1,14 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 7 läuft)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 8 läuft)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 6 von 12 (beide Spuren zusammen)
-- Runde 7 läuft: S2-26, S2-27, S2-28, S2-29
-- Abbruchregel 2 (Protokoll 0.3), Spur A: Runde 6 bringt Fortschritt nach b), weil Prüfer und GPT 6.2 Sol B-012 (Fassung R-C1) und B-013 (mit Reparaturen R1, R2, R2b) unabhängig bestätigt haben (Lesart des Orchestrators, siehe LOG.md). Zähler: **0 von 3**. Frist: B-012 und B-013 müssen bis Ende Runde 8 geprüft sein, sonst zählt Runde 6 nachträglich nicht. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
+- Runden verbraucht: 7 von 12 (beide Spuren zusammen)
+- Runde 8 läuft: S2-30, S2-31, S2-32, S2-33
+- Abbruchregel 2 (Protokoll 0.3), Spur A: Runde 6 und Runde 7 bringen Fortschritt nach b) (Lesart des Orchestrators, siehe LOG.md). Zähler: **0 von 3**. Fristen: B-012 und B-013 geprüft bis Ende Runde 8 (hält B-013 nur in Satz E, trägt B-012 allein Runde 6), B-014 geprüft bis Ende Runde 9. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
 
@@ -40,10 +40,14 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 7 läuft)
 | S2-23 | Spur A: Prüfung B-013 (Satz E, Unterfall A von (5,8)), mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r4_pruefung_b013.md`, `versuche/s2-23-pruefung/` | erledigt in Runde 6, PR #56. Satz E hält, C2 und Lemma P mit Reparaturen |
 | S2-24 | Spur A: Unterfall B von (5,8) in beide Richtungen | Beweissucher | `lean/prosa/s2_444_spurA_r6.md`, `behauptungen/B-014.md` | erledigt in Runde 6, PR #53. Satz F (Unterfall B unmöglich), neue Behauptung B-014; kein 25er-Verfahren |
 | S2-25 | Blind-Sucher als Beweissucher | Blind-Sucher | `versuche/s2-blind-r6.md` | erledigt in Runde 6, PR #54. Lemma 2 (Starrheit), behauptet |
-| S2-26 | Spur A: Satz C und generische Fassung von C1 (B-012) in Lean | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 7 |
-| S2-27 | Spur A: Satz E (B-013) in Lean, Nicht-Symmetrie als Hypothese | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 7 |
-| S2-28 | Spur A: Prüfung B-014 (Satz F), mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r6_pruefung.md` | vergeben in Runde 7 |
-| S2-29 | Blind-Sucher, Handkonstruktion | Blind-Sucher | `versuche/s2-blind-r7.md` | vergeben in Runde 7 |
+| S2-26 | Spur A: Satz C und generische Fassung von C1 (B-012) in Lean | Formalisierer | `lean/YangBounds/SatzC444Kern.lean`, `SatzC444Generisch.lean` | erledigt in Runde 7, PR #59. Ohne sorry; Symmetrie nur am generischen Punkt |
+| S2-27 | Spur A: Satz E (B-013) in Lean, Nicht-Symmetrie als Hypothese | Formalisierer | `lean/YangBounds/SatzE444.lean`, `SatzE444Buendel.lean` | erledigt in Runde 7, PR #60. Ohne sorry; Lemma P nur als Hypothese |
+| S2-28 | Spur A: Prüfung B-014 (Satz F), mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r6_pruefung.md` | erledigt in Runde 7, PR #58. Hält mit Reparaturen R-K, R-F1 bis R-F3 |
+| S2-29 | Blind-Sucher, Handkonstruktion | Blind-Sucher | `versuche/s2-blind-r7.md` | erledigt in Runde 7, PR #57. Kein 25er-Verfahren |
+| S2-30 | Spur A: Aussagen-Abgleich B-012, mit GPT 6.2 Sol | Prüfer | `behauptungen/B-012.md` | vergeben in Runde 8 |
+| S2-31 | Spur A: Aussagen-Abgleich B-013 (Satz E), mit GPT 6.2 Sol | Prüfer | `behauptungen/B-013.md` | vergeben in Runde 8 |
+| S2-32 | Spur A: Lemma P in Lean | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 8 |
+| S2-33 | Blind-Sucher | Blind-Sucher | `versuche/s2-blind-r8.md` | vergeben in Runde 8 |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
