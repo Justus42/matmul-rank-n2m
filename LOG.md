@@ -832,3 +832,68 @@ Bestätigen Prüfer und Fremdmodell B-012 oder B-013, zählt das als Fortschritt
 Runde 5 zählt nicht als eigener Fortschritt. Begründung des Orchestrators: B-008 und B-009 sind dieselben Aussagen, die schon in Runde 3 nach b) gezählt wurden. Regel b) verlangt, dass sie bis zur Frist geprüft sind, damit der Fortschritt aus Runde 3 gültig bleibt. Dieselbe Aussage zweimal zu zählen wäre die großzügigere Lesart. Bei zwei Lesarten nimmt der Orchestrator die strengere, wie bei B-010.
 
 Zähler Spur A: **2 von 3**. Runde 6 muss Fortschritt bringen, etwa durch die unabhängige Bestätigung von B-012 oder B-013 durch Prüfer und Fremdmodell. Sonst endet Spur A nach Abbruchregel 2, und der Orchestrator hält an.
+
+---
+
+## 25.11.2026 · Stufe 2, Runde 6, Abschluss
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: S2-22, S2-23, S2-24, S2-25.
+
+**Gelieferte Dateien**
+
+- S2-22 (Prüfer): `lean/prosa/s2_444_spurA_r4_pruefung.md`, Prüfvermerk in `behauptungen/B-012.md`, Rechnungen und Fremdmodell in `versuche/s2-22/`, Pull Request #55
+- S2-23 (Prüfer): `lean/prosa/s2_444_spurA_r4_pruefung_b013.md`, Prüfvermerk in `behauptungen/B-013.md`, Rechnungen und Fremdmodell in `versuche/s2-23-pruefung/`, Pull Request #56
+- S2-24 (Beweissucher): `lean/prosa/s2_444_spurA_r6.md`, neue Behauptung `behauptungen/B-014.md`, Gegenprobe in `versuche/s2-24/`, Pull Request #53
+- S2-25 (Blind-Sucher): `versuche/s2-blind-r6.md`, Pull Request #54
+
+**Befunde**
+
+- S2-22: Satz C hält, jeder Schritt nachgerechnet. Folgerung C1 hält nur mit der benannten Reparatur R-C1. Dass der Fall (rk L, rk H) auf der offenen Menge der zulässigen p konstant ist, ist nicht begründet. Richtig und ausreichend ist die generische Fassung: Eine Zerlegung der Länge 25 liegt für alle p einer nichtleeren offenen, also dichten Menge zulässiger p im Fall (5,8). An einzelnen zulässigen p ist (3,6) nicht ausgeschlossen. GPT 6.2 Sol kommt unabhängig zum gleichen Urteil (Auftrag ohne das Urteil des Prüfers).
+- S2-23: Satz E (Unterfall A unmöglich) hält ohne Reparatur und hängt nicht von Satz C ab. Folgerung C2 und Lemma P halten mit den benannten Reparaturen R1, R2 und R2b. Satz C wird nur für die Nicht-Symmetrie in Folgerung C2 gebraucht. GPT 6.2 Sol kommt unabhängig zum gleichen Urteil. GPT schlägt zusätzlich einen Schluss gegen Unterfall B vor, den der Prüfer nachvollzogen hat. Das ist eine neue Behauptung, nicht Teil von B-013 (Bericht Abschnitt 7.2).
+- S2-24: Neue Behauptung B-014: Unterfall B von (5,8) ist unmöglich (Lemma K, Lemma Z, Satz F). Folgerung F2 setzt daraus mit B-007 bis B-013 die Kette zu R(⟨4,2,4⟩) ≥ 26 zusammen. Alles behauptet, von niemandem gelesen. Kein Verfahren mit 25 Produkten. S2-24 lief gleichzeitig mit S2-23 und war vor dessen Bericht gemergt (PR #53 vor PR #56). Satz F ist also unabhängig vom Vorschlag aus S2-23 Abschnitt 7.2 entstanden.
+- S2-25: Keine Entscheidung zwischen 25 und 26. Starrheits-Lemma (Lemma 2: höchstens 6 Produkte je Gerade ℓ ⊂ C² auf A- und B-Seite) mit Status behauptet. Der Sucher war nur eingeschränkt blind (Offenlegung in Abschnitt 7).
+
+**Neuer Status je Behauptung**
+
+- B-012: **behauptet**, Prüfvermerk S2-22 mit Reparatur R-C1 eingetragen.
+- B-013: **behauptet**, Prüfvermerk S2-23 mit Reparaturen R1, R2, R2b eingetragen.
+- B-014: neu, **behauptet**.
+- Alle übrigen unverändert. Keine Statusänderung zu geprüft, daher keine Prüfung eines Actions-Laufs in dieser Runde.
+
+**Merges**
+
+Alle vier Pull Requests sind auf `main`, gemergt am 25.11.2026 unter dem GitHub-Konto Justus42:
+
+- PR #53 um 16:15 Uhr (MEZ), Merge-Commit 48bd413
+- PR #54 um 16:17 Uhr, Merge-Commit 072b699
+- PR #55 um 16:20 Uhr, Merge-Commit fe7b183
+- PR #56 um 16:37 Uhr, Merge-Commit a3046ac
+
+**Runden**
+
+Verbraucht in Stufe 2: 6 von 12.
+
+**Zählerstand nach Abbruchregel 2 (Fassung 0.3), Spur A (Lesart des Orchestrators)**
+
+- Runde 6 bringt Fortschritt nach b). B-012 und B-013 sind neue Behauptungen, die benannte Fälle ausschließen. Prüfer und Fremdmodell haben beide unabhängig bestätigt.
+  - B-012 schließt (3,6) aus.
+  - B-013 schließt Unterfall A von (5,8) aus.
+- Die Bestätigung gilt jeweils nur in der reparierten Fassung:
+  - B-012 nur in der generischen Fassung R-C1.
+  - B-013 nur mit den Reparaturen R1, R2 und R2b.
+  - Satz E aus B-013 hält ohne Reparatur.
+- Zähler Spur A: **0 von 3**.
+- Frist: B-012 und B-013 müssen bis zum Ende von Runde 8 geprüft sein, sonst zählt Runde 6 nachträglich nicht.
+- B-014 ist noch nicht bestätigt und zählt in Runde 6 nicht.
+- Spur B: aufgegeben.
+
+**Runde 7 der Stufe 2, vergeben (Start 16:45 Uhr MEZ, vier Aufträge)**
+
+- S2-26 (Formalisierer): Satz C und die generische Fassung von C1 (B-012) in Lean, eigene Dateien
+- S2-27 (Formalisierer): Satz E (B-013) in Lean, Nicht-Symmetrie als ausdrückliche Hypothese
+- S2-28 (Prüfer): B-014 mit GPT 6.2 Sol, Zieldatei `lean/prosa/s2_444_spurA_r6_pruefung.md`
+- S2-29 (Blind-Sucher): Handkonstruktion, Zieldatei `versuche/s2-blind-r7.md`
+
+Geplant für Runde 8: die übrigen Lean-Fassungen, Aussagen-Abgleich für B-012 und B-013, Blind-Sucher.

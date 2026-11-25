@@ -1,14 +1,14 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 6 läuft)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 7 läuft)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 5 von 12 (beide Spuren zusammen)
-- Runde 6 läuft: S2-22, S2-23, S2-24, S2-25
-- Abbruchregel 2 (Protokoll 0.3), Spur A: Die Frist für B-008 und B-009 (Ende Runde 5) ist gehalten, beide sind im Kern geprüft. Zähler: **2 von 3** (Runde 4 und 5 ohne eigenen Fortschritt, Lesart des Orchestrators, siehe LOG.md). Runde 6 muss Fortschritt bringen, sonst endet Spur A. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
+- Runden verbraucht: 6 von 12 (beide Spuren zusammen)
+- Runde 7 läuft: S2-26, S2-27, S2-28, S2-29
+- Abbruchregel 2 (Protokoll 0.3), Spur A: Runde 6 bringt Fortschritt nach b), weil Prüfer und GPT 6.2 Sol B-012 (Fassung R-C1) und B-013 (mit Reparaturen R1, R2, R2b) unabhängig bestätigt haben (Lesart des Orchestrators, siehe LOG.md). Zähler: **0 von 3**. Frist: B-012 und B-013 müssen bis Ende Runde 8 geprüft sein, sonst zählt Runde 6 nachträglich nicht. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
 
@@ -36,10 +36,14 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 6 läuft)
 | S2-19 | Spur A: Aussagen-Abgleich B-008, mit GPT 6.2 Sol | Prüfer | `behauptungen/B-008.md` | erledigt in Runde 5, PR #52. B-008 im Kern geprüft |
 | S2-20 | Spur A: Aussagen-Abgleich B-009, mit GPT 6.2 Sol, prüft die Hypothesen selbst | Prüfer | `behauptungen/B-009.md` | erledigt in Runde 5, PR #51. B-009 im Rangteil geprüft |
 | S2-21 | Blind-Sucher als Beweissucher | Blind-Sucher | `versuche/s2-blind-r5.md` | erledigt in Runde 5, PR #50 |
-| S2-22 | Spur A: Prüfung B-012 (Satz C, Ausschluss von (3,6)), mit GPT 6.2 Sol | Prüfer | wählt der Prüfer | vergeben in Runde 6 |
-| S2-23 | Spur A: Prüfung B-013 (Satz E, Unterfall A von (5,8)), mit GPT 6.2 Sol | Prüfer | wählt der Prüfer | vergeben in Runde 6 |
-| S2-24 | Spur A: Unterfall B von (5,8) in beide Richtungen | Beweissucher | `lean/prosa/s2_444_spurA_r6.md` | vergeben in Runde 6 |
-| S2-25 | Blind-Sucher als Beweissucher | Blind-Sucher | `versuche/s2-blind-r6.md` | vergeben in Runde 6 |
+| S2-22 | Spur A: Prüfung B-012 (Satz C, Ausschluss von (3,6)), mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r4_pruefung.md`, `versuche/s2-22/` | erledigt in Runde 6, PR #55. Satz C hält, C1 nur generisch (R-C1) |
+| S2-23 | Spur A: Prüfung B-013 (Satz E, Unterfall A von (5,8)), mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r4_pruefung_b013.md`, `versuche/s2-23-pruefung/` | erledigt in Runde 6, PR #56. Satz E hält, C2 und Lemma P mit Reparaturen |
+| S2-24 | Spur A: Unterfall B von (5,8) in beide Richtungen | Beweissucher | `lean/prosa/s2_444_spurA_r6.md`, `behauptungen/B-014.md` | erledigt in Runde 6, PR #53. Satz F (Unterfall B unmöglich), neue Behauptung B-014; kein 25er-Verfahren |
+| S2-25 | Blind-Sucher als Beweissucher | Blind-Sucher | `versuche/s2-blind-r6.md` | erledigt in Runde 6, PR #54. Lemma 2 (Starrheit), behauptet |
+| S2-26 | Spur A: Satz C und generische Fassung von C1 (B-012) in Lean | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 7 |
+| S2-27 | Spur A: Satz E (B-013) in Lean, Nicht-Symmetrie als Hypothese | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 7 |
+| S2-28 | Spur A: Prüfung B-014 (Satz F), mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r6_pruefung.md` | vergeben in Runde 7 |
+| S2-29 | Blind-Sucher, Handkonstruktion | Blind-Sucher | `versuche/s2-blind-r7.md` | vergeben in Runde 7 |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
