@@ -1,13 +1,13 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 4 vergeben)
+Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 5 vergeben)
 
 ## Aktuelle Stufe
 
 **Stufe 1: Yangs dritte Fassung formalisieren**
 
-- Runden verbraucht: 3 von 8
-- Runde 4 läuft: S1-13, S1-14, S1-15, S1-16
+- Runden verbraucht: 4 von 8
+- Runde 5 läuft: S1-17, S1-18, S1-19, S1-20
 - Stufenwechsel 1 → 2: durch den Orchestrator, sobald das Fertig-Kriterium erfüllt ist (Protokoll Abschnitt 3 und 11)
 - Stufe 3: erst nach Budget von Justus
 
@@ -27,16 +27,20 @@ Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 4 vergeben)
 | S1-10 | Formalisierung von Yangs Satz 1, Teil 2 | `lean/YangBounds/YangN3Teil2.lean` | erledigt in Runde 3, PR #23 |
 | S1-11 | Formalisierung von Yangs Satz 1, Teil 3 | `lean/YangBounds/YangN3Teil3.lean` | erledigt in Runde 3, PR #22 |
 | S1-12 | Obere Schranke 30 für 3×2×6 in Lean, aus dem Verfahren von A-10 | `lean/YangBounds/Upper3x2x6.lean` | erledigt in Runde 3, PR #24 |
-| S1-13 | Satz 1 zusammensetzen und in `Statements.lean` einsetzen, dazu die obere Schranke 30 für 3×2×6 aus `Upper3x2x6.lean` einsetzen | `YangN3.lean` | vergeben in Runde 4 |
-| S1-14 | Actions-Workflow für `lean/` mit Axiom-Bericht je Satz | `.github/workflows/` | vergeben in Runde 4 |
-| S1-15 | Lemma 13 in reparierter Fassung | `YangN4Lemma13.lean` | vergeben in Runde 4 |
-| S1-16 | Hauptbeweis von Satz 2 mit Lemma 13 als Hypothese | `YangN4Haupt.lean` | vergeben in Runde 4 |
+| S1-13 | Satz 1 zusammensetzen und in `Statements.lean` einsetzen, dazu die obere Schranke 30 für 3×2×6 aus `Upper3x2x6.lean` einsetzen | `lean/YangBounds/YangN3.lean`, `CeilBound.lean`, `Statements.lean` | erledigt in Runde 4, PR #27 |
+| S1-14 | Actions-Workflow für `lean/` mit Axiom-Bericht je Satz | `.github/workflows/lean-project.yml` | erledigt in Runde 4, PR #25 |
+| S1-15 | Lemma 13 in reparierter Fassung | `lean/YangBounds/YangN4Lemma13.lean` | erledigt in Runde 4, PR #26 |
+| S1-16 | Hauptbeweis von Satz 2 mit Lemma 13 als Hypothese | `lean/YangBounds/YangN4Haupt.lean` | erledigt in Runde 4, PR #28 |
+| S1-17 | Satz 2 in `Statements.lean` einsetzen, `lean/README.md` nachführen | `lean/` | vergeben in Runde 5 |
+| S1-18 | Aussagen-Abgleich Satz 1 und Rang 3×2×6 = 30, Prüfer und GPT 6.2 Sol | `behauptungen/` (laut Auftrag) | vergeben in Runde 5 |
+| S1-19 | Aussagen-Abgleich Satz 2 und Rang 4×2×4 ≥ 25, Prüfer und GPT 6.2 Sol | `behauptungen/` (laut Auftrag) | vergeben in Runde 5 |
+| S1-20 | Abgleich beider Prüfprogramme | `pruefer/abgleich/` | vergeben in Runde 5 |
 
 Offen für spätere Runden:
 
-- Beide Prüfprogramme auf denselben Testfällen abgleichen
+- Beide Prüfprogramme auf denselben Testfällen abgleichen (S1-20 vergeben)
 - Rückgabewert bei internem Fehler im Format festlegen (Python nutzt bisher 3, eigene Entscheidung)
-- In `Statements.lean` stehen noch drei `sorry`: Satz 1 (Einsetzen in S1-13 vergeben), Satz 2 (S1-15 und S1-16 arbeiten daran) und die obere Schranke 30 für 3×2×6 (in `Upper3x2x6.lean` bewiesen, Einsetzen in S1-13 vergeben)
+- In `Statements.lean` steht noch ein `sorry`: `yang_theorem_two` (Einsetzen in S1-17 vergeben)
 
 ## Fertig-Kriterium Stufe 1
 

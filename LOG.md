@@ -403,3 +403,46 @@ Verbraucht in Stufe 1: 3 von 8.
 - S1-14: Actions-Workflow für `lean/` mit Axiom-Bericht je Satz
 - S1-15: Lemma 13 in reparierter Fassung, Zieldatei `YangN4Lemma13.lean`
 - S1-16: Hauptbeweis von Satz 2 mit Lemma 13 als Hypothese, Zieldatei `YangN4Haupt.lean`
+
+---
+
+## 25.11.2026 · Stufe 1, Runde 4, Abschluss
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: S1-13, S1-14, S1-15, S1-16.
+
+**Gelieferte Dateien**
+
+- S1-13: `lean/YangBounds/YangN3.lean`, `lean/YangBounds/CeilBound.lean`, Änderung an `lean/YangBounds/Statements.lean`, Pull Request #27
+- S1-14: `.github/workflows/lean-project.yml`, Pull Request #25
+- S1-15: `lean/YangBounds/YangN4Lemma13.lean`, Pull Request #26
+- S1-16: `lean/YangBounds/YangN4Haupt.lean`, Pull Request #28
+
+**Befunde (alle Status behauptet)**
+
+- S1-13: Satz 1 ist zusammengesetzt und die obere Schranke 30 eingesetzt. `yang_theorem_one` und `rank_three_two_six` kommen ohne `sorry` aus. Der Actions-Lauf 45556926418 (success, am Kopf-Commit a5e302c von PR #27) meldet dafür nur Standard-Axiome. `ceil_bound_iff` wurde unverändert nach `CeilBound.lean` verschoben, um einen Importzyklus zu vermeiden.
+- S1-14: Der Workflow „Lean build (own project lean/)“ baut `lean/` und stuft je Hauptsatz die Axiome ein. Erster Lauf ist 45555275380 (success, am Kopf-Commit 07b57b2 von PR #25).
+- S1-15: Lemma 13 ist in der reparierten Fassung bewiesen, ohne `sorry`. Die Reparatur trägt. Abweichend von der Prosa ist Lemma 11 per Induktion zusammen mit Lemma 13 bewiesen.
+- S1-16: Der Hauptbeweis von Satz 2 steht, mit Lemma 13 als Hypothese und ohne `sorry`. Er weicht an zwei Stellen von der Prosa ab, ohne Folgen für die Aussage.
+- Das einzige verbleibende `sorry` ist `yang_theorem_two` in `lean/YangBounds/Statements.lean`, weil das Einsetzen noch fehlt. Ich habe das auf `main` nachgezählt.
+- Beide genannten Actions-Läufe liefen auf den Zweigen der Pull Requests, nicht auf `main` nach dem Merge.
+
+**Neuer Status je Behauptung**
+
+Kein Statuswort hat sich geändert. Alle Status bleiben behauptet, weil die Aussagen-Abgleiche fehlen.
+
+**Merges**
+
+Merge-Stand auf `main` beim Schreiben dieses Eintrags: PR #25 (5090735), #26 (28b2fb3), #27 (d9d1e04) und #28 (502fb1a) sind am 25.11.2026 zwischen 06:43 und 07:07 Uhr (MEZ) gemergt, jeweils unter dem GitHub-Konto Justus42.
+
+**Runden**
+
+Verbraucht in Stufe 1: 4 von 8.
+
+**Entscheidung für Runde 5 der Stufe 1**
+
+- S1-17: Satz 2 in `Statements.lean` einsetzen und `lean/README.md` nachführen
+- S1-18: Aussagen-Abgleich für Satz 1 und für „Rang von 3×2×6 ist 30“, durch Prüfer und GPT 6.2 Sol
+- S1-19: Aussagen-Abgleich für Satz 2 und für „Rang von 4×2×4 ist mindestens 25“, durch Prüfer und GPT 6.2 Sol
+- S1-20: Abgleich beider Prüfprogramme, Zieldatei `pruefer/abgleich/`
