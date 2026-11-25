@@ -1089,3 +1089,37 @@ Verbraucht in Stufe 2: 8 von 12.
 **Halt**
 
 Runde 9 startet nicht. Der Orchestrator legt Justus die Auslegungsfrage vor. Betroffen sind B-008, B-009, B-012 und B-013. Mit vorgelegt wird der Vorschlag `pruefvermerke/`.
+
+---
+
+## 25.11.2026 · Regeländerung durch Justus (Protokoll Version 0.4, zählt nicht zum Budget)
+
+Eingetragen im Auftrag von Justus aus einem Chat außerhalb des Projekts, 19:19 Uhr (MEZ).
+
+**Anlass**
+
+Die Prüfer der Aussagen-Abgleiche hatten frühere Prosa-Urteile vor sich, weil das Feld „Prüfung" in der Behauptungsdatei stand, die sie lesen mussten. Der Fehler lag in der Dateivorlage, nicht bei den Prüfern. Dazu kommt: Justus hat diese Woche reichlich Claude-Kontingent, Anfragen an Fremdmodelle kosten ihn dagegen eigenes Geld.
+
+**Entscheidung zur Auslegungsfrage**
+
+Abgleiche neu, sauber getrennt, ohne neue Fremdmodell-Anfragen. Die vorhandenen Urteile von GPT 6.2 Sol gelten weiter, weil das Fremdmodell kein Urteil gesehen hat. Ersetzt werden nur die beeinflussten Prüfer.
+
+**Geändert in PROTOKOLL.md**
+
+- Abschnitt 4: Positivliste für Prüfer und Blind-Sucher. `STATUS.md`, `LOG.md`, `pruefvermerke/` und `archiv/` sind für sie gesperrt. Keine Urteile ins Projektgedächtnis
+- Abschnitt 5.1 Punkt 3: Beim Endsatz einer Stufe gleichen ein Prüfer und ein Fremdmodell ab. Bei Zwischenaussagen genügen zwei Prüfer, die einander nicht sehen
+- Abschnitt 5.3: Den Status setzt nur der Orchestrator
+- Neu 5.4: Prüfvermerke getrennt in `pruefvermerke/`. Eine Prüfung mit gesehenem früheren Urteil ist ungültig und wird wiederholt. Übergangsregel für B-008, B-009, B-012, B-013 und B-014
+- Neu 5.5: Fremdmodelle nur für den Abgleich des Endsatzes und für neue Prosa-Beweise, die eine Abbruchregel berühren
+- Abschnitt 6: Stufe 2 hat 24 statt 12 Runden. Ab Runde 9 der Stufe 2 bis zu 6 Subagenten pro Runde
+- Abschnitt 8: Jeder Runden-Eintrag nennt den Verbrauch (Subagenten, Dauer, Fremdmodell-Anfragen)
+
+**Geändert in CLAUDE.md**
+
+Ausnahmen für Prüfer und Blind-Sucher bei Regel 1 und 7, Status nur durch den Orchestrator, keine Urteile ins Projektgedächtnis, Fremdmodelle nur nach 5.5.
+
+**Offen für den Orchestrator**
+
+- Umzug von Status, Prüfurteilen und Übersicht nach `pruefvermerke/`, Vorlage in `behauptungen/README.md` anpassen
+- Zählerstand nach der Übergangsregel in 5.4 im nächsten Runden-Eintrag bestätigen
+- STATUS.md nachführen
