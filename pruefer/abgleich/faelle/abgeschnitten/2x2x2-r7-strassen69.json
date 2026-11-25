@@ -1,0 +1,9 @@
+{
+ "format_version": 1,
+ "id": "2x2x2-r7-strassen69",
+ "n": 2,
+ "k": 2,
+ "m": 2,
+ "rank": 7,
+ "ring": "Z",
+ 
