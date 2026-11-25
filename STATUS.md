@@ -1,20 +1,21 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Fertig-Kriterium von Justus anerkannt, Runde 12 Zweitlauf läuft, Protokoll 0.4.1)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Fertig-Kriterium von Justus anerkannt, Runde 12 abgeschlossen, Orchestrator hält an, Protokoll 0.4.1)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 11 von 24 (beide Spuren zusammen; Budget durch Justus von 12 auf 24 erhöht, Protokoll 0.4). Ab Runde 9 bis zu 6 Subagenten pro Runde
+- Runden verbraucht: 12 von 24 (beide Spuren zusammen; Budget durch Justus von 12 auf 24 erhöht, Protokoll 0.4). Ab Runde 9 bis zu 6 Subagenten pro Runde
 - Runde 9 abgeschlossen: 6 zählende Subagenten (S2-34, S2-35, S2-36, S2-41, S2-42, S2-43), dazu gestartet und ersetzt S2-37 bis S2-40, 0 Sol-Anfragen, 51 Minuten nach Git (626eb7b bis 9f5a928)
 - Runde 10 abgeschlossen: 6 Subagenten (S2-44 bis S2-49), 0 Sol-Anfragen, 62 Minuten nach Git (8226274 bis 32f12f6). Neu: B-016 (Endsatz in Lean ohne Hypothese, `Transponiert444.rank_four_two_four_ge_26`), behauptet, Aussagen-Abgleich in Runde 11
 - Vor Runde 11, Hausarbeit außerhalb der Runde (offen ausgewiesen): Kopfkommentare gesäubert, PR #80 (c3c3884), nur Kommentare, Lauf 86 (45699204903, Job 139504538345) grün, SORRY 0. Rest: `.github/scripts/lean_report.py` Zeile 43 trägt das Label „(R-C1)“, es erscheint im Log (offengelegte Spur)
 - Runde 11 abgeschlossen: 5 Subagenten (S2-50 bis S2-54), 1 Sol-Anfrage, etwa 28 Minuten nach Git (Vergabe etwa 21:05 UTC bis b64e6c8). Dauern je Aufgabe: S2-50 etwa 3, S2-52 und S2-53 je etwa 5, S2-51 etwa 8, S2-54 etwa 28 Minuten
 - **Entscheidung von Justus (22:37 Uhr MEZ, Wortlaut in LOG.md):** Fertig-Kriterium anerkannt, B-016 bleibt geprüft, Frist B-014 gehalten (abweichende Prosa-Teile bleiben behauptet). **Noch keine Freigabe als Ergebnis.** Vorher Runde 12 als zweiter, unabhängiger Maschinenlauf ohne Sol-Anfrage (Neubau, Kernel-Nachprüfung, Aussage in frischer Datei, zweite Umgebung, Literaturwache; Entwürfe unter `entwurf/`, README unverändert). Quelltexte unter `lean/YangBounds/` bleiben unverändert. Ergebnis in `pruefvermerke/B-016-zweitlauf.md`. Nach Runde 12 anhalten und berichten. Stufe 3 beginnt nicht
-- Runde 12 läuft seit 21:38 UTC: 6 Subagenten, 0 Sol-Anfragen. S2-55 bis S2-59 erledigt, Zweitlauf in `pruefvermerke/B-016-zweitlauf.md` (Neubau und lean4checker 27/27 grün, frische Datei grün, zweiter lokaler Bau laut Thread erfolgreich). S2-60 (Blind-Sucher) läuft
+- Runde 12 abgeschlossen: 7 Subagenten (S2-55 bis S2-60, dazu ein von S2-60 selbst gestarteter Subagent, Regelverstoß), 0 Sol-Anfragen, etwa 41 Minuten nach Git (21:38 UTC bis 8594f30). Zweitlauf in `pruefvermerke/B-016-zweitlauf.md`: Neubau und lean4checker 27/27 grün, frische Datei grün, zweiter lokaler Bau laut Thread erfolgreich. Zweiter Regelverstoß: Rechenblock von S2-60 etwa 32 statt höchstens 30 Minuten
+- **Orchestrator hält nach Runde 12 an und berichtet an Justus.** Nichts Neues vergeben. Punkte für Justus (LOG.md, Abschluss Runde 12): Freigabe als Ergebnis, offene Punkte der Entwürfe, zwei Regelverstöße, Zeitangabe S2-58, kurze Dauern
 - **B-016 geprüft** (Lean-Endsatz R(⟨4,2,4⟩) ≥ 26 über jedem Körper; Prüfer S2-50 und GPT 6.2 Sol S2-51). B-014 geprüft in Teilen (siehe `pruefvermerke/B-014.md`)
-- Abbruchregel 2, Spur A (Übergangsregel Protokoll 0.4.1, Abschnitt 6, Lesart des Orchestrators): Die vier Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 sind in Runde 9 von gültigen Prüfern bestätigt (S2-42, S2-43), die Fristen aus Runde 3 und 6 gelten als gehalten. S2-41 bestätigt B-014, das zählt als Fortschritt in Runde 9, **Frist für geprüft: Ende Runde 11**. Zähler Spur A: Runde 9 mit Fortschritt, Runde 10 ohne, Runde 11 mit Fortschritt (B-016 geprüft, ändert die Schranke), also **0 von 3**. Frist B-014: gehalten, von Justus bestätigt (der Teil, der die Schranke ändert, ist geprüft). **Spur B: aufgegeben**
+- Abbruchregel 2, Spur A (Übergangsregel Protokoll 0.4.1, Abschnitt 6, Lesart des Orchestrators): Die vier Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 sind in Runde 9 von gültigen Prüfern bestätigt (S2-42, S2-43), die Fristen aus Runde 3 und 6 gelten als gehalten. S2-41 bestätigt B-014, das zählt als Fortschritt in Runde 9, **Frist für geprüft: Ende Runde 11**. Zähler Spur A: Runde 9 mit Fortschritt, Runde 10 ohne, Runde 11 mit Fortschritt (B-016 geprüft, ändert die Schranke), Runde 12 (Zweitlauf) ohne neues Artefakt zur Schranke, nach strenger Lesart also **1 von 3**. Frist B-014: gehalten, von Justus bestätigt (der Teil, der die Schranke ändert, ist geprüft). **Spur B: aufgegeben**
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4). **Von Justus anerkannt (B-016 geprüft).** Noch keine Freigabe als Ergebnis; vorher Zweitlauf in Runde 12
 - Stufe 3: erst nach Budget von Justus
 
@@ -80,7 +81,7 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Fertig-Kriterium von Justus anerkannt, R
 | S2-57 | Zweitlauf: lokaler Bau in zweiter Umgebung | Prüfer (Maschinenlauf) | kein PR | erledigt in Runde 12. Bau aus Quellen erfolgreich (nur Angabe des Threads) |
 | S2-58 | Literaturwache 4×2×4 Rang 26 | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 12, PR #87. Nicht gefunden |
 | S2-59 | Entwürfe README-Tabelle und Ergebnis-Notiz | Schreiber | `entwurf/` | erledigt in Runde 12, PR #89. Nicht eingestellt |
-| S2-60 | Blind-Suche, Runde 12 | Blind-Sucher | wird nachgetragen | läuft in Runde 12 |
+| S2-60 | Blind-Suche, Runde 12 | Blind-Sucher | `versuche/s2-blind-r12.md` | erledigt in Runde 12, PR #90 (8594f30). Bester Rang 26 über GF(2), 186 geprüfte 26er-Verfahren, kein 25er, kein Beweis. Regelverstöße: Rechenblock etwa 32 Minuten, eigener Subagent |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.

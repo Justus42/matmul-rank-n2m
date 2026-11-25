@@ -1778,3 +1778,47 @@ Kein Prüfurteil, aber Hinweise auf frühere Prüfungen:
 - Den Workflow `zweitlauf.yml` gab es nach dem Merge von PR #88 nicht als Lauf auf `main`. Er startet nur bei Pull Requests und von Hand. Der Beleg ist der Lauf auf dem Zweig, der `main` bei 667df45 ausgecheckt hat.
 
 **Status:** unverändert. B-016 geprüft, keine Freigabe als Ergebnis.
+
+### 25.11.2026, Stufe 2, Runde 12 abgeschlossen (Schreibhand im Auftrag des Orchestrators)
+
+**Abschluss**
+
+- Runde 12 endet mit dem Merge von PR #90 (8594f30, 23:18:47 Uhr MEZ).
+- Verbrauch: **7 Subagenten** (S2-55 bis S2-60 und ein Subagent, den S2-60 selbst gestartet hat), 0 Fremdmodell-Anfragen.
+- Dauer nach Git: vom Beginn um 21:38 UTC bis 8594f30 um 22:18:47 UTC, **etwa 41 Minuten**.
+- Runden verbraucht: 12 von 24.
+
+**S2-60, Blind-Sucher**
+
+- PR #90, Merge 8594f30, `versuche/s2-blind-r12.md`.
+- Flip-Graph-Wanderung über GF(2), eigener Code, bester Rang 26.
+- Ein Vorrat von 186 verschiedenen, geprüften Verfahren mit 26 Termen, darunter 21 verschiedene Rangprofile.
+- Kein Verfahren mit 25, kein Beweis. 0 Fremdmodell-Anfragen.
+- Dauer nach Git: etwa 40 Minuten, von 21:39 UTC bis 22:18:47 UTC.
+
+**Regelverstöße in Runde 12 (offen eingetragen)**
+
+1. **Rechenblock über 30 Minuten (Protokoll Abschnitt 6).** Der Hauptlauf von S2-60 lief etwa 32 Minuten auf 4 Kernen, von 21:44 bis 22:16 UTC, und wurde von Hand abgebrochen. Die Zeitprüfung saß nur in der äußeren Schleife. Nach Angabe von S2-60 ist der Fehler im Programm behoben. Die Zahl der Züge ist nur geschätzt, weil gepufferte Ausgabe verloren ging.
+2. **Mehr Subagenten als erlaubt (höchstens 6 pro Runde).** S2-60 hat selbst einen Subagenten (Webseiten-Leser) für zwei arXiv-Arbeiten gestartet. Die Runde hatte damit 7 Subagenten.
+
+**Zähler (Lesart des Orchestrators, von der Schreibhand gegengelesen)**
+
+- Nach Runde 11: 0 von 3.
+- Runde 12 war ein von Justus angeordneter Zweitlauf ohne neues Artefakt zur Schranke. Nach strenger Lesart zählt sie als Runde ohne Fortschritt: **1 von 3**.
+- Gegenlesen: Nach Abbruchregel 2 a) gibt es kein neues geprüftes Artefakt, das eine Schranke ändert, und nach b) keine neue bestätigte Behauptung. 1 von 3 ist folgerichtig. Gleiche Lesart.
+
+**Status:** unverändert. B-016 geprüft, B-014 in Teilen geprüft, keine Freigabe als Ergebnis.
+
+**Halt nach Runde 12**
+
+- Der Orchestrator hält an, wie Justus angeordnet hat, und berichtet an Justus. Es wird nichts Neues vergeben. Stufe 3 beginnt nicht.
+
+**Punkte für Justus**
+
+1. Freigabe als Ergebnis nach dem Zweitlauf (`pruefvermerke/B-016-zweitlauf.md`).
+2. Entwürfe unter `entwurf/`: Modellversionen im KI-Hinweis, Erwähnung der Reparatur von Yangs Lemma 13.
+3. Die zwei Regelverstöße von S2-60: Rechenblock 32 statt 30 Minuten und ein eigener Subagent, also 7 statt 6.
+4. Die Zeitangabe von S2-58 in `lit/WACHE.md` („21:38 bis 21:55 UTC“) widerspricht Git (Commit und Merge um 21:41 UTC).
+5. Die kurzen Dauern:
+   - Runde 11: Prüfer etwa 3 bis 8 Minuten.
+   - Runde 12: S2-58 und S2-59 je etwa 3 Minuten. S2-56 committete nach etwa 1½ Minuten, S2-55 legte seinen Workflow nach etwa 2 Minuten an.
