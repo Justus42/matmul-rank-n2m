@@ -1,0 +1,19 @@
+# S2-31: Auftrag an das Fremdmodell (Aussagen-Abgleich B-013)
+
+- Modell: `openai/gpt-6.2-sol` über OpenRouter in der Gemini-Bridge, Batch, Denkstufe high, abgegeben 25.11.2026 18:00 (MEZ), Kennung `openrouter:batch-1795626031-vvomJ49XjIJxDKOXbDwx`.
+- Systemrolle: „Du bist ein kritischer, unabhängiger Prüfer für Aussagen-Abgleiche zwischen Lean-4-Sätzen und Prosa-Mathematik.“
+- Die Bridge kann das Repo nicht lesen. Der Auftrag ging inline. Das Urteil des Prüfers und frühere Prüfurteile waren **nicht** enthalten.
+
+## Fragen (wörtlich)
+
+1. Sagen `SatzE444.satzE` und `SatzE444.satzE_global` (mit allen verwendeten Definitionen) mindestens das, was Satz E der Prosa (Abschnitt 5.2) und der Satz-E-Teil der Behauptung B-013 sagen: richtiges Format ⟨4,2,4⟩, Länge 25, richtiger Körper (K bzw. algebraischer Abschluss), richtiger Fall (5,8), richtiger Begriff von Unterfall A? Ist das Lean-Prädikat `UnterfallA` wirklich schwächer als (oder gleich) Unterfall A der Prosa, sodass ¬UnterfallA mindestens so stark ist wie die Prosa-Aussage? Braucht `satzE` wirklich nur rk L = 5 (über `satzE_of_rkL`) und keine Nicht-Symmetrie? Gibt es Fallen (z. B. Quotient (Fin r → K) ⧸ J statt Q = ker W / J, q = 0 zugelassen, Hypothesen, die nie erfüllbar sind und die Aussage leer machen, Indexverschiebung i.succ, Parametrisierung von U, Lage von p und u_0 in der Normalform)?
+2. Welche Teile von B-013 sind durch Lean-Sätze OHNE offene Hypothese abgedeckt, welche nur unter den benannten Hypothesen `LemmaPStatement` oder `NichtSymmetrisch`, und welche gar nicht? Gehe B-013 Satz für Satz durch (Folgerung C2: N(u_0)=0 und s=1; Lemma P; Unterfall A/B; Satz E; Folgerung Unterfall B für Zerlegung und Transponierte; verdrehte Kubiken).
+3. Passen `LemmaPStatement`, `UnterfallAVoll`, `UnterfallB`, `Kstern`, `Omega` und `NichtSymmetrisch` als Aussagen zur Prosa (Lemma P in 5.1, „symmetrisch“ in Abschnitt 2, Folgerung C2 in Abschnitt 4), sodass ein späterer Lean-Beweis von `LemmaPStatement` das Richtige beweist? Ist `LemmaPStatement` möglicherweise stärker als die Prosa (z. B. beliebiger Körper statt algebraisch abgeschlossen, alle Normalformen statt generischer u_0, alle γ ∈ Ω statt generischer γ) und dadurch eventuell falsch oder schwerer zu beweisen? Ist es schwächer, sodass es nichts nützt? Passt `NichtSymmetrisch` (punktweise, an einer Normalform) zum Symmetriebegriff der Prosa (offene Menge von p)?
+4. Urteil je Teil: „Lean-Aussage entspricht der Behauptung“ / „entspricht mit Abweichung (benennen, schädlich oder unschädlich)“ / „entspricht nicht“.
+
+## Mitgegebenes Material
+
+- `behauptungen/B-013.md`, Zeile „Aussage“, wörtlich (ohne die Zeilen „Prüfung“ und „Status“).
+- Kurzfassung der Bezeichnungen aus `lean/prosa/yang_n4.md` (Normalform, f_i, U, J, W, Q, F_i, L, H, ρ, s, N, (N1), (N2), Lemma 8, Lemma 9, Satz A, Lemma 13′, Lemma V′).
+- `lean/prosa/s2_444_spurA_r4.md`: Abschnitt 2 und Folgerung C2 (Abschnitt 4) fast wörtlich, Einleitung von Abschnitt 5 und die Aussage von Lemma P (5.1) wörtlich, der Beweis von Lemma P gekürzt (Schritte 1 bis 4 in je einem Satz), Satz E (5.2) mit A2 bis A8 gekürzt, 5.3 gekürzt.
+- Lean wörtlich (Aussagen und Definitionen, Beweise ausgelassen): `BilinearAlgorithm`, `emb`, `skewSpace`, `skewExt`, `sumMap`, `rkComb`, `eA`, `prodMap`, `fv`, `W`, `SN1`, `SN2`, `φ`, `J`, `π`, `Kbar`, `Fq`, `Lq`, `Hq`, `JHat`, `finrank_JHat`, `satzA`, `satzA_exists`, `avecs`, `φ_apply_apply`, `IsSymm`, `lemmaV'`, `sDim`; aus `SatzE444.lean` der Kopfkommentar (gekürzt), `psi`, `finrank_JHat_le_eight`, `UnterfallA`, `rkL_le_four_of_unterfallA`, `satzE_of_rkL`, `satzE`, `satzE_global`; aus `SatzE444Buendel.lean` `Fc`, `Omega`, `Kstern`, `UnterfallAVoll`, `UnterfallB`, `NichtSymmetrisch`, `unterfallA_of_voll`, `commonKernel_trivial`, `finrank_ker_Fc`, `sDim_eq_one`, `LemmaPStatement`, `dichotomie`, `nur_unterfallB`, `nur_unterfallB_global`.
