@@ -1235,3 +1235,23 @@ Die Prüfer S2-37, S2-38 und S2-40 haben Abschnitt 5 in der Fassung 0.4 gelesen 
   - `lean/prosa/s2_444_spurA_r2.md`: Statusübersicht („bestätigt S2-02“, das ist ein Suchergebnis und kein Prüfurteil).
   - `versuche/s2-32/lemmaP_prosa.md`: Zeile 3 nennt die Reparaturen aus dem Prüfbericht S2-23.
   - `lean/prosa/yang_n4.md`: ohne Fund.
+
+---
+
+## 25.11.2026 · Anweisung von Justus: letzte Wiederholung der drei Prüfungen in Runde 9
+
+**Anweisung von Justus (19:45 Uhr MEZ), Inhalt**
+
+- Der Abgleich von Satz E (aus S2-40) gilt nicht.
+- Alle drei Prüfer S2-37, S2-38 und S2-40 wussten aus dem Gedächtnis-Index und aus Abschnitt 5.4 in der Fassung 0.4, dass eine Bestätigung erwünscht ist. Alle drei Prüfungen werden deshalb **einmal** wiederholt, als letzte Wiederholung.
+- Vorher wird aus dem Gedächtnis-Index jeder Hinweis auf frühere Urteile, auf die Wiederholung und auf Fristen entfernt.
+- Die Prüfer bekommen genaue Dateipfade und die Job-Nummer des Actions-Laufs statt Verzeichnis- und Lauflisten. Sie lesen Abschnitt 5 in der Fassung 0.4.1.
+- Ungültig ist danach nur noch, wer ein Urteil zur selben Behauptung gesehen hat oder das erwünschte Ergebnis kannte. Spuren früherer Prüfungen werden offengelegt und hingenommen.
+- Eine weitere Wiederholung gibt es nicht. Scheitert auch diese, zählt das vorhandene GPT-Urteil allein, mit Vermerk.
+- Dauern werden künftig aus den Git-Zeitstempeln gemessen, nicht aus Angaben der Threads.
+
+**Festgehalten**
+
+- Die Wiederholung übernehmen S2-41 (B-014), S2-42 (B-008 und B-009) und S2-43 (B-012 und Satz E aus B-013).
+- Die Prüferaufträge nennen Dateipfade je Behauptung und den Actions-Lauf 57 auf main (Commit 08854c3, Job 139430765012).
+- Offengelegte Spuren in den Herkunftsdateien sind im vorigen Eintrag aufgezählt. Sie werden nach dieser Anweisung hingenommen.
