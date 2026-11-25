@@ -1123,3 +1123,52 @@ Ausnahmen für Prüfer und Blind-Sucher bei Regel 1 und 7, Status nur durch den 
 - Umzug von Status, Prüfurteilen und Übersicht nach `pruefvermerke/`, Vorlage in `behauptungen/README.md` anpassen
 - Zählerstand nach der Übergangsregel in 5.4 im nächsten Runden-Eintrag bestätigen
 - STATUS.md nachführen
+
+---
+
+## 25.11.2026 · Entscheidung von Justus zur Auslegungsfrage, Umbau, Stufe 2 Runde 9 vergeben
+
+**Entscheidung von Justus (19:19 Uhr MEZ), wörtlich**
+
+> Abgleiche neu, aber ohne neue Sol-Anfragen: Die vorhandenen GPT-Urteile gelten weiter, nur die Claude-Prüfer werden durch unbeeinflusste ersetzt. Bestätigen sie, gelten die Fristen als gehalten. pruefvermerke/ mit Positivliste ist freigegeben. Budgetänderung: Stufe 2 hat 24 Runden, ab Runde 9 bis zu 6 Subagenten pro Runde. Runde 9: drei Plätze für Lean (Unterfall B, Brücke, Zusammensetzen), drei für frische Prüfer (B-014, dazu die vier Abgleiche gebündelt). Ziel bleibt ein einziger Lean-Satz für die Schranke 26. Lass prüfen, ob die Brücke über „Rang fällt bei Körpererweiterung" einfacher wird. Sol nur noch für den Abgleich des Endsatzes und für neue Prosa-Beweise, die eine Abbruchregel berühren. Schreib in jeden Runden-Eintrag Zahl der Subagenten, Dauer und Zahl der Sol-Anfragen.
+
+**Festgehalten**
+
+- Die vorhandenen GPT-Urteile gelten weiter. Nur die Claude-Prüfer werden durch unbeeinflusste ersetzt. Bestätigen sie, gelten die Fristen aus Runde 3 und Runde 6 als gehalten.
+- Stufe 2 hat 24 Runden. Ab Runde 9 sind bis zu 6 Subagenten pro Runde erlaubt.
+- Sol (GPT 6.2 Sol) gibt es nur noch für den Abgleich des Endsatzes und für neue Prosa-Beweise, die eine Abbruchregel berühren.
+- Jeder Runden-Eintrag nennt ab jetzt die Zahl der Subagenten, die Dauer und die Zahl der Sol-Anfragen.
+- Protokoll 0.4 (Commit 626eb7b, im Auftrag von Justus eingetragen) enthält diese Regeln bereits: Abschnitte 4, 5.1, 5.3 bis 5.5, 6 und 8. Das Budget von 24 Runden und die 6 Subagenten stehen damit auch in PROTOKOLL.md. Den Wortlaut von PROTOKOLL.md ändert nur Justus.
+- Nach Justus' Platzvergabe hat Runde 9 keinen Blind-Sucher. Abschnitt 6 verlangt mindestens einen Blind-Sucher pro Runde, die ausdrückliche Platzvergabe von Justus geht hier vor.
+- Die Brücke (S2-35) wird ohne Sol-Gegenlesen formalisiert. Das entspricht 5.5, weil sie kein neuer Prosa-Beweis ist, der eine Abbruchregel berührt.
+
+**Umbau nach Protokoll 5.4 (Commit d905704)**
+
+- `behauptungen/B-xxx.md` enthält nur noch Aussage, Herkunft und Artefakt.
+  - B-012 hat dazu die Fassung R-C1 als Teil der Aussage bekommen.
+  - B-012 und B-013 haben eine neutrale Zeile „Lean-Artefakt“ bekommen.
+- `pruefvermerke/B-xxx.md` ist jeweils die wörtliche Kopie der früheren Behauptungsdatei.
+- Die Übersicht mit Status steht jetzt in `pruefvermerke/README.md`.
+- Das Signal für die Prüfer ist die Datei `pruefvermerke/UMBAU-FERTIG`.
+
+**Zählerstand nach der Übergangsregel in 5.4 (vom Orchestrator zu bestätigen)**
+
+- Bestätigen die neuen Prüfer die vier Abgleiche, gilt:
+  - Runde 3 hat Fortschritt gebracht.
+  - Runde 4 und 5 brachten keinen.
+  - Runde 6 hat Fortschritt gebracht.
+  - Runde 7 und 8 brachten keinen.
+  - Damit steht Spur A nach Runde 8 bei **2 von 3**.
+- Bestätigt der neue Prüfer B-014, zählt das als Fortschritt in Runde 9. B-014 muss dann bis Ende Runde 11 geprüft sein.
+- Bis dahin bleiben die Statuseinträge mit Vorbehalt stehen.
+
+**Runde 9 der Stufe 2, vergeben (Start 19:22 Uhr MEZ, sechs Subagenten, 0 Sol-Anfragen geplant)**
+
+- S2-34 (Formalisierer): Unterfall B in Lean (B-014)
+- S2-35 (Formalisierer): Brücke vom generischen Punkt zum algebraisch abgeschlossenen Körper in Lean. Justus' Auftrag: prüfen, ob die Brücke über „Rang fällt bei Körpererweiterung“ einfacher wird.
+- S2-36 (Formalisierer): Zusammensetzen zum Endsatz mit benannten Hypothesen
+- S2-37 (frischer Prüfer): B-014
+- S2-38 (frischer Prüfer): Aussagen-Abgleiche B-008 und B-009
+- S2-39 (frischer Prüfer): Aussagen-Abgleiche B-012 und Satz E aus B-013
+
+Die Prüfer setzen keinen Status. Der Orchestrator meldet die Ergebnisse, danach trägt die Schreibhand den Status ein.

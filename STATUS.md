@@ -1,14 +1,14 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Halt nach Runde 8)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 9 läuft, Protokoll 0.4)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 8 von 12 (beide Spuren zusammen)
-- **Halt nach Runde 8:** Runde 9 startet nicht. Der Orchestrator legt Justus eine Auslegungsfrage vor: Entwertet ein vom Prüfer gesehenes früheres Prosa-Prüfurteil einen Aussagen-Abgleich? Betroffen sind B-008, B-009, B-012 und B-013. Zähler Spur A nach Runde 8: milde Lesart 2 von 3, strenge Lesart wäre Spur A schon mit Runde 5 beendet (siehe LOG.md)
-- Abbruchregel 2 (Protokoll 0.3), Spur A: Runde 6 bringt Fortschritt nach b), Runde 7 nicht, weil der Prüfer von B-014 frühere Prüfurteile gesehen hat (Lesart des Orchestrators, siehe LOG.md). Zähler: **1 von 3**. Frist: B-012 und B-013 geprüft bis Ende Runde 8; hält nur ein Teil, trägt dieser Teil Runde 6, solange er einen benannten Fall ausschließt. Runde 8 zählt nichts neu; ohne anderes Ergebnis steht Spur A danach bei 2 von 3. B-014 wird in Runde 9 von einem unbeeinflussten Prüfer und GPT neu geprüft. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
+- Runden verbraucht: 8 von 24 (beide Spuren zusammen; Budget durch Justus von 12 auf 24 erhöht, Protokoll 0.4). Ab Runde 9 bis zu 6 Subagenten pro Runde
+- Runde 9 läuft: S2-34 bis S2-39 (6 Subagenten, 0 Sol-Anfragen geplant)
+- Abbruchregel 2, Spur A (Übergangsregel Protokoll 0.4, Abschnitt 5.4): Die Abgleiche zu B-008, B-009, B-012 und B-013 werden in Runde 9 von unbeeinflussten Prüfern wiederholt, die GPT-Urteile gelten weiter. Bestätigen sie, gelten die Fristen aus Runde 3 und 6 als gehalten, und Spur A steht nach Runde 8 bei **2 von 3** (vom Orchestrator zu bestätigen). Bestätigt der neue Prüfer B-014, zählt das als Fortschritt in Runde 9, Frist Ende Runde 11. Bis dahin bleiben die Statuseinträge mit Vorbehalt. **Spur B: aufgegeben**
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
 
@@ -48,6 +48,12 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Halt nach Runde 8)
 | S2-31 | Spur A: Aussagen-Abgleich B-013 (Satz E), mit GPT 6.2 Sol | Prüfer | `lean/prosa/s2_444_spurA_r4_abgleich_b013.md`, `behauptungen/B-013.md` | erledigt in Runde 8, PR #62. Satz E geprüft, unter Vorbehalt (Prüfer sah früheres Prüfurteil) |
 | S2-32 | Spur A: Lemma P in Lean | Formalisierer | `lean/YangBounds/LemmaP444.lean` | erledigt in Runde 8, PR #64. Ohne sorry, nur für unendliche Körper; Abgleich fehlt |
 | S2-33 | Blind-Sucher | Blind-Sucher | `versuche/s2-blind-r8.md` | erledigt in Runde 8, PR #63. Keine Entscheidung |
+| S2-34 | Spur A: Unterfall B in Lean (B-014) | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 9 |
+| S2-35 | Spur A: Brücke generisch zu algebraisch abgeschlossen in Lean, Weg über „Rang fällt bei Körpererweiterung“ prüfen | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 9 |
+| S2-36 | Spur A: Zusammensetzen zum Endsatz mit benannten Hypothesen | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 9 |
+| S2-37 | Spur A: frischer Prüfer B-014 | Prüfer | wählt der Prüfer | vergeben in Runde 9 |
+| S2-38 | Spur A: frischer Prüfer, Aussagen-Abgleiche B-008 und B-009 | Prüfer | wählt der Prüfer | vergeben in Runde 9 |
+| S2-39 | Spur A: frischer Prüfer, Aussagen-Abgleiche B-012 und Satz E aus B-013 | Prüfer | wählt der Prüfer | vergeben in Runde 9 |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
@@ -72,7 +78,7 @@ Fertig-Kriterium Stufe 1, alle Punkte erfüllt:
 - [x] Axiom-Prüfung bestanden: derselbe Lauf, für alle Hauptsätze nur `propext`, `Classical.choice`, `Quot.sound`
 - [x] Aussagen-Abgleich bestanden: B-006 (S1-18) und B-007 (S1-19), je Prüfer und GPT 6.2 Sol
 
-Ergebnisse mit Status geprüft: Yangs Satz 1 (B-002) und Satz 2 (B-003) als Yangs Sätze, B-006 (Rang von ⟨3,2,6⟩ ist 30), B-007 (Rang von ⟨4,2,4⟩ ist mindestens 25). Übersicht in `behauptungen/README.md`.
+Ergebnisse mit Status geprüft: Yangs Satz 1 (B-002) und Satz 2 (B-003) als Yangs Sätze, B-006 (Rang von ⟨3,2,6⟩ ist 30), B-007 (Rang von ⟨4,2,4⟩ ist mindestens 25). Übersicht in `pruefvermerke/README.md`.
 
 ### Aufträge der Stufe 1
 
@@ -110,7 +116,7 @@ Fertig-Kriterium Stufe 0, alle Punkte erfüllt:
 - [x] Tabelle in Abschnitt 2 bestätigt oder korrigiert: `lit/QUELLEN.md` (PR #4). Präzisierung bei 4×2×5, Status behauptet
 - [x] Beide Prüfprogramme bestätigen mindestens zwei bekannte Verfahren: 3×2×5 mit 25 und 3×2×6 mit 30 über ℤ (A-10, PR #11), dazu Strassen
 
-Ergebnisse mit Status geprüft: B-001 (Rang von ⟨3,2,5⟩ ist 25, über jedem Körper) und die obere Schranke 30 für ⟨3,2,6⟩ über ℤ. Übersicht in `behauptungen/README.md`.
+Ergebnisse mit Status geprüft: B-001 (Rang von ⟨3,2,5⟩ ist 25, über jedem Körper) und die obere Schranke 30 für ⟨3,2,6⟩ über ℤ. Übersicht in `pruefvermerke/README.md`.
 
 ### Aufträge der Stufe 0
 
