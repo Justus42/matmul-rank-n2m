@@ -45,8 +45,9 @@ No, not literally. `genAlgL alg = changeBasis (alg_L) S T` changes the rows of t
 the generic `S`) and the inner dimension (by the generic `T`), but not the columns of the
 `B`-side. Transposing exchanges the roles: the rows of the new `A`-side are the columns of the
 old `B`-side, which are **not** generic. So `transp (genAlgL alg)` is a change of basis of
-`transp alg` with the identity on its `A`-rows, the inner matrix `M T⁻ᵀ M⁻¹`-type change and
-`Sᵀ` on its `B`-columns; it is not of the form `genAlgL (transp alg)`, and its (N1) can fail
+`transp alg` with the identity on its `A`-rows, a generic change of the inner dimension and
+`Sᵀ` on its `B`-columns; it is not of the form
+`genAlgL (transp alg)`, and its (N1) can fail
 (`b_t·e₀ = 0` is possible). This is why the outer change of basis `R` is needed.
 
 What does transfer is the point: the inner point of `genAlgL alg` on the `B`-side is
@@ -58,8 +59,9 @@ What does transfer is the point: the inner point of `genAlgL alg` on the `B`-sid
 
 ## Main results
 
-* `transponiertEng_of`: (B3′) `TransponiertEng alg` at a single normal form over an
-  algebraically closed field, from (N1), (N2), non-symmetry, `TransN1` and `TransN2`.
+* `transponiertEng_of`: (B3′) `TransponiertEng alg` at a single normal form of length 25 over
+  an algebraically closed field, from (N1), non-symmetry, `TransN1` and `TransN2` ((N2) of `alg`
+  itself is not needed).
 * `transponiertEng_genAlgL`: (B3′) for the normal form `genAlgL alg` of the bridge, for every
   decomposition of length 25 over every field, **without hypothesis**.
 * `keine_zerlegung_25_of_vielePunkte`, `rank_four_two_four_ge_26_of_vielePunkte`:
@@ -460,7 +462,7 @@ end Eng
 /-! ## (B3′) at a single normal form -/
 
 /-- **(B3′) at a single normal form** (prose (B3) with repair R-T): over an algebraically closed
-field, a normal form of length 25 with (N1), (N2), not symmetric, and with the (N1), (N2) of the
+field, a normal form of length 25 with (N1), not symmetric, and with the (N1), (N2) of the
 transposed decomposition (`TransN1`, `TransN2`) satisfies `TransponiertEng`. -/
 theorem transponiertEng_of {L : Type u} [Field L] [IsAlgClosed L]
     (alg : BilinearAlgorithm L 4 2 4 25) (h1 : SN1 (d := 3) alg) (hns : NichtSymmetrisch alg)
@@ -547,8 +549,7 @@ theorem Mrot_prowL :
     simp only [Matrix.of_apply, Matrix.cons_val', Matrix.cons_val_zero, Matrix.cons_val_one,
       Matrix.head_cons, Matrix.empty_val', Matrix.cons_val_fin_one, zero_mul, neg_mul, one_mul,
       add_zero]
-    rw [← map_neg, ← map_neg, ← map_mul]
-    congr 1
+    rw [← map_mul, ← map_neg]
     field_simp
 
 set_option synthInstance.maxHeartbeats 400000 in
