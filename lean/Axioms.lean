@@ -27,3 +27,7 @@ Since S1-17 no proof is open; an occurrence of `sorryAx` here would be an error.
 #print axioms YangBounds.LemmaP444.lemmaP
 #print axioms YangBounds.LemmaP444.nur_unterfallB'
 #print axioms YangBounds.LemmaP444.nur_unterfallB_global'
+#print axioms YangBounds.Endsatz444.fall58_of_nichtSymmetrisch
+#print axioms YangBounds.Endsatz444.rank_four_two_four_ge_26_of
+#print axioms YangBounds.Endsatz444.rank_four_two_four_ge_26_of'
+#print axioms YangBounds.Endsatz444.rank_four_two_four_ge_26_of_unendlich
