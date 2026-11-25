@@ -1,0 +1,3 @@
+(3, 6) a-Exponenten (0, 1, 2, 3) b-Exponenten (0, 1, 2, 3) {'dimS': 7, 'rkL': 3, 'rho': 3, 'rkH': 6}
+(5, 8) a-Exponenten (0, 1, 2, 5) b-Exponenten (0, 1, 2, 5) {'dimS': 9, 'rkL': 5, 'rho': 3, 'rkH': 8}
+gefunden: [(3, 6), (5, 8)]

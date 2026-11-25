@@ -1,0 +1,4 @@
+# symmetrie.py on 2500 distinct rank-26 GF(2) schemes (flip.c of S2-01, seed 501, 120 s), GF(2^31), seed 11
+# (dimS, rho, rhoT, symDim, G invertible): count
+(10, 3, 3, 1, True): 14
+(10, 4, 4, 0, False): 2486

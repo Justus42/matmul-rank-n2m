@@ -1,0 +1,5 @@
+M1: 25 Momentpunkte, a=b {'dimS': 7, 'rkL': 3, 'rho': 3, 'rkH': 6, 'rho<=3 exakt': True, 'kein Rang-1 im Kern': True}
+M2: 24 Momentpunkte + 1 zufaelliges a=b {'dimS': 8, 'rkL': 4, 'rho': 3, 'rkH': 8, 'rho<=3 exakt': True, 'kein Rang-1 im Kern': True}
+M3: 23 Momentpunkte + 2 zufaellige a=b {'dimS': 9, 'rkL': 5, 'rho': 3, 'rkH': 8, 'rho<=3 exakt': True, 'kein Rang-1 im Kern': True}
+M4: 24 Momentpunkte + 1 zufaelliges Paar a!=b {'dimS': 8, 'rkL': 4, 'rho': 4, 'rkH': 9, 'rho<=3 exakt': False, 'kein Rang-1 im Kern': True}
+M5: 22 Momentpunkte + 3 zufaellige a=b {'dimS': 10, 'rkL': 6, 'rho': 3, 'rkH': 8, 'rho<=3 exakt': True, 'kein Rang-1 im Kern': True}
