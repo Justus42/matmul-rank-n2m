@@ -45,3 +45,8 @@ Since S1-17 no proof is open; an occurrence of `sorryAx` here would be an error.
 #print axioms YangBounds.SatzF444.fall58_symmetrisch
 #print axioms YangBounds.SatzF444.unterfallBStatement_of
 #print axioms YangBounds.SatzF444.rank_four_two_four_ge_26_of_hyp
+#print axioms YangBounds.LemmaZ444.lemmaZ_generisch
+#print axioms YangBounds.LemmaZ444.lemmaZ_bruecke
+#print axioms YangBounds.LemmaZ444.keine_zerlegung_25_of_lemmaK
+#print axioms YangBounds.LemmaZ444.rank_four_two_four_ge_26_of_lemmaK
+#print axioms YangBounds.LemmaZ444.rank_four_two_four_ge_26_of_lemmaK_transponiert

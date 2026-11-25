@@ -54,6 +54,11 @@ MAIN_THEOREMS = [
     ("Case (5,8) symmetric, assuming (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.fall58_symmetrisch"),
     ("UnterfallBStatement, assuming (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.unterfallBStatement_of"),
     ("Final theorem R<4,2,4> >= 26, assuming only (B3') and (Z') (SatzF444.lean)", "YangBounds.SatzF444.rank_four_two_four_ge_26_of_hyp"),
+    ("Lemma Z <4,2,4>: 13 distinct points at the generic normal form, assuming Lemma K (LemmaZ444.lean)", "YangBounds.LemmaZ444.lemmaZ_generisch"),
+    ("Lemma Z <4,2,4>: 13 distinct points at the normal form of the bridge, assuming Lemma K (LemmaZ444.lean)", "YangBounds.LemmaZ444.lemmaZ_bruecke"),
+    ("No decomposition of length 25, assuming Lemma K and (B3') (LemmaZ444.lean)", "YangBounds.LemmaZ444.keine_zerlegung_25_of_lemmaK"),
+    ("Final theorem R<4,2,4> >= 26, assuming Lemma K and (B3') for the bridge normal form (LemmaZ444.lean)", "YangBounds.LemmaZ444.rank_four_two_four_ge_26_of_lemmaK"),
+    ("Final theorem R<4,2,4> >= 26, assuming Lemma K and (B3') at all normal forms (LemmaZ444.lean)", "YangBounds.LemmaZ444.rank_four_two_four_ge_26_of_lemmaK_transponiert"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 
