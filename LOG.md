@@ -1822,3 +1822,31 @@ Kein Prüfurteil, aber Hinweise auf frühere Prüfungen:
 5. Die kurzen Dauern:
    - Runde 11: Prüfer etwa 3 bis 8 Minuten.
    - Runde 12: S2-58 und S2-59 je etwa 3 Minuten. S2-56 committete nach etwa 1½ Minuten, S2-55 legte seinen Workflow nach etwa 2 Minuten an.
+
+### 25.11.2026, Entscheidung von Justus nach Runde 12 (Wortlaut, 23:42 Uhr MEZ)
+
+> Freigabe unter einer Bedingung: Wiederhole zuerst die Literaturwache, mit Zeiten aus Git und wörtlichem Suchprotokoll. Findet sie nichts, ist B-016 als Ergebnis freigegeben, mit diesen Auflagen:
+>
+> 1. README nach Entwurf Teil 1 und 2 ändern. Die Notiz zieht ohne Entwurfskopf nach ergebnisse/rang-444.md, der Link wird angepasst.
+> 2. In Notiz und README: „new here" wird zu „to our knowledge new (literature check of 25/26 November 2026)". Daten des Zweitlaufs eintragen. „Human review: none" bleibt.
+> 3. Lemma 13 bleibt erwähnt, aber neutral: Die Modelle konnten einen Schritt des geschriebenen Beweises nicht nachvollziehen, die Formalisierung nutzt ein anderes Argument für dieselbe Aussage.
+> 4. KI-Hinweis: Trag ein, welche Modellbezeichnung du und die Threads selbst melden. Mich nennst du „the repository owner".
+> 5. Kein Zenodo-Release, kein arXiv, kein Kontakt nach außen. Das entscheide ich getrennt.
+> 6. Die zwei Regelverstöße des Blind-Suchers kommen ins Logbuch, ohne weitere Folge.
+> 7. Notiere als offenen Punkt für später: die Kette des Endsatzes vom Paket mm325_proof entkoppeln. Nicht jetzt beginnen.
+>
+> Danach halte an. Stufe 3 beginnt nicht.
+
+**Einordnung (Schreibhand im Auftrag des Orchestrators)**
+
+- Die Freigabe als Ergebnis ist **bedingt und noch nicht eingetreten**. Erst muss die wiederholte Literaturwache nichts finden.
+- Diese Arbeiten sind ein **von Justus angeordneter Abschluss nach Runde 12, keine eigene Runde**. Sie zählen nicht als Runde nach Abschnitt 6.
+- Die wiederholte Literaturwache läuft seit 22:43 UTC in einem neuen Thread: 1 Subagent, 0 Fremdmodell-Anfragen.
+- Erst nach der Meldung „nichts gefunden“ ändert ein weiterer Thread README und Notiz nach den Auflagen 1 bis 4.
+- Auflage 5: kein Zenodo-Release, kein arXiv, kein Kontakt nach außen.
+
+**Auflage 6, erledigt:** Die zwei Regelverstöße von S2-60 stehen im Abschluss von Runde 12: Rechenblock etwa 32 statt höchstens 30 Minuten, ein eigener Subagent und damit 7 statt 6 Subagenten. Nach Entscheidung von Justus haben sie **keine weitere Folge**.
+
+**Auflage 7, offener Punkt für später:** Die Kette des Endsatzes vom Paket `mm325_proof` (mm325_lower_bound, fallnlove/mm325_proof@759cf4a) entkoppeln. **Nicht jetzt beginnen.**
+
+**Halt:** Nach dem bedingten Abschluss hält der Orchestrator an. Stufe 3 beginnt nicht.
