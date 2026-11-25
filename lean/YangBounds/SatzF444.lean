@@ -1,5 +1,6 @@
 import YangBounds.LemmaP444
 import YangBounds.Endsatz444
+import YangBounds.Bruecke444
 
 /-!
 # Satz F for `⟨4,2,4⟩`, case (5,8): sub-case B is impossible (with named hypotheses)
@@ -31,6 +32,8 @@ elementary replacements E2 (Bézout by fixed points) and E3 (the degree argument
   sub-case B and of the case (5,8) at non-symmetric normal forms, under (B3′) and (Z′).
 * `unterfallBStatement_of`: `Endsatz444.UnterfallBStatement L` from (B3′) and (Z′) for every
   normal form in the case (5,8) that is not symmetric.
+* `rank_four_two_four_ge_26_of_hyp`: `26 ≤ tensorRank K 4 2 4` over every field, with the bridge
+  of `Bruecke444.lean`, assuming only (B3′) and (Z′).
 
 ## Named hypotheses (not proved here)
 
@@ -855,6 +858,19 @@ theorem unterfallBStatement_of (L : Type u) [Field L] [IsAlgClosed L]
   obtain ⟨hT, hZ⟩ := hyp alg h1 h2 hcase hns
   exact unterfallB_unmoeglich alg h1 h2 hns hT hZ hB
 
+/-- **`R(⟨4,2,4⟩) ≥ 26` over every field, assuming only (B3′) and (Z′)** for every non-symmetric
+normal form in the case (5,8) over every algebraically closed field (the bridge is discharged
+by `Bruecke444.rank_four_two_four_ge_26_of_unterfallB`). -/
+theorem rank_four_two_four_ge_26_of_hyp
+    (hyp : ∀ (L : Type u) [Field L] [IsAlgClosed L] (alg : BilinearAlgorithm L 4 2 4 25),
+      SN1 (d := 3) alg → SN2 (d := 3) alg →
+      (finrank L (LinearMap.range (Lq (d := 3) alg)),
+        finrank L (LinearMap.range (Hq (d := 3) alg))) = (5, 8) →
+      NichtSymmetrisch alg → TransponiertEng alg ∧ VielePunkte alg 11)
+    (K : Type u) [Field K] : 26 ≤ tensorRank K 4 2 4 :=
+  Bruecke444.rank_four_two_four_ge_26_of_unterfallB
+    (fun L _ _ => unterfallBStatement_of L (hyp L)) K
+
 end Endsatz
 
 end SatzF444
@@ -870,3 +886,4 @@ end YangBounds
 #print axioms YangBounds.SatzF444.fall58_symmetrisch
 #print axioms YangBounds.SatzF444.fall58_ausgeschlossen
 #print axioms YangBounds.SatzF444.unterfallBStatement_of
+#print axioms YangBounds.SatzF444.rank_four_two_four_ge_26_of_hyp
