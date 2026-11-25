@@ -31,6 +31,8 @@ Eine Datei pro Behauptung, benannt `B-xxx.md`. Die Übersicht unten wird bei jed
 | B-009 | Bei Länge 25 sind die Fälle (4,7) und (5,7) unmöglich, über jedem Körper (Satz B, mit Lemma 13′, V, S) | behauptet | S2-05, Prosa in `lean/prosa/s2_444_spurA_r2.md`. Prüfer S2-09 und GPT 6.2 Sol: hält, mit Reparaturen R1 und R2. Kein Lean-Satz |
 | B-010 | Rang von ⟨4,2,4⟩ ist höchstens 26, über jedem Körper | geprüft | `verfahren/4x2x4-r26-s001.json` über ℤ (S2-03), Prüfung nach 5.2 durch S2-11. Bekannter Wert, kein neues Ergebnis |
 | B-011 | Über 𝔽₂ kein σ-invariantes 25er-Verfahren für ⟨4,2,4⟩ mit f ∈ {1, 3, 19, 21, 23, 25} Fixprodukten, σ(u,v,w) = (vᵀ,uᵀ,wᵀ) | behauptet | S2-06 (SAT mit DRAT), Prüfer S2-11. Abschnitt 5 kennt keinen Prüfweg für SAT-Zertifikate |
+| B-012 | Keine symmetrische Zerlegung von ⟨4,2,4⟩ der Länge 25, damit ist der Restfall (3,6) ausgeschlossen, über jedem Körper (Satz C) | behauptet | S2-16, Prosa in `lean/prosa/s2_444_spurA_r4.md`. Stützt sich auf B-008 und B-009. Noch von keinem Prüfer und keinem Fremdmodell gelesen |
+| B-013 | Im Restfall (5,8) ist Unterfall A unmöglich (Lemma P, Satz E). Unterfall B bleibt offen | behauptet | S2-16, Prosa in `lean/prosa/s2_444_spurA_r4.md`. Stützt sich auf B-008, B-009 und B-012. Noch von keinem Prüfer und keinem Fremdmodell gelesen |
 
 Weitere geprüfte Ergebnisse ohne eigene Behauptungsdatei:
 

@@ -1,14 +1,14 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 4 läuft, Protokoll 0.3)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 5 läuft)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 3 von 12 (beide Spuren zusammen)
-- Runde 4 läuft: S2-14, S2-15, S2-16, S2-17 (nur Spur A und Blind-Sucher)
-- Abbruchregel 2 (Protokoll 0.3, Runden ohne Fortschritt): **Spur A 0 von 3**, Fortschritt nach 6.2 b) durch B-008 und B-009 in Runde 3, **Frist für Status geprüft: Ende Runde 5**. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
+- Runden verbraucht: 4 von 12 (beide Spuren zusammen)
+- Runde 5 läuft: S2-18, S2-19, S2-20, S2-21
+- Abbruchregel 2 (Protokoll 0.3, Runden ohne Fortschritt): **Spur A 1 von 3** (Runde 4 ohne Fortschritt), Fortschritt nach 6.2 b) durch B-008 und B-009 in Runde 3, **Frist für Status geprüft: Ende Runde 5**. **Spur B: aufgegeben** (drei Runden ohne Fortschritt)
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
 
@@ -28,10 +28,14 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 4 läuft, Protokoll 0.3)
 | S2-10 | Spur A: Restfälle (3,6) und (5,8) | Beweissucher | `lean/prosa/s2_444_spurA_r3.md` | zurückgezogen (Abschnitt 6), nichts geliefert, geht in S2-16 auf |
 | S2-11 | Prüfung Spur B: DRAT-Ergebnisse, dazu Behauptungsdatei R(⟨4,2,4⟩) ≤ 26 | Prüfer | `behauptungen/B-010.md`, `B-011.md` | erledigt in Runde 3, PR #43 |
 | S2-12 | Spur B: Eichung und Zerlegung der offenen SAT-Fälle | Verfahrenssucher | `versuche/s2-spurB-r3.md` | zurückgezogen (Abschnitt 6), nichts geliefert, wird nicht neu vergeben |
-| S2-14 | Spur A: Lemma 13′ und Satz A (B-008) in Lean | Formalisierer | eigene Dateien unter `lean/` | vergeben in Runde 4 |
-| S2-15 | Spur A: Lemma V (repariert), Lemma S und Satz B (B-009) in Lean, Aussagen aus S2-14 als Hypothesen | Formalisierer | eigene Dateien unter `lean/` | vergeben in Runde 4 |
-| S2-16 | Spur A: Restfälle (3,6) und (5,8) in beide Richtungen | Beweissucher | `lean/prosa/s2_444_spurA_r4.md` | vergeben in Runde 4 |
-| S2-17 | Blind-Sucher als Beweissucher | Blind-Sucher | `versuche/s2-blind-r4.md` | vergeben in Runde 4 |
+| S2-14 | Spur A: Lemma 13′ und Satz A (B-008) in Lean | Formalisierer | `lean/YangBounds/Lemma13Prime.lean`, `SatzA444.lean` | erledigt in Runde 4, PR #45 |
+| S2-15 | Spur A: Lemma V (repariert), Lemma S und Satz B (B-009) in Lean, Aussagen aus S2-14 als Hypothesen | Formalisierer | `lean/YangBounds/SatzB444.lean`, `SatzB444Poly.lean` | erledigt in Runde 4, PR #48 |
+| S2-16 | Spur A: Restfälle (3,6) und (5,8) in beide Richtungen | Beweissucher | `lean/prosa/s2_444_spurA_r4.md`, `behauptungen/B-012.md`, `B-013.md` | erledigt in Runde 4, PR #47. (3,6) und Unterfall A von (5,8) ausgeschlossen (behauptet), Unterfall B offen |
+| S2-17 | Blind-Sucher als Beweissucher | Blind-Sucher | `versuche/s2-blind-r4.md` | erledigt in Runde 4, PR #46 |
+| S2-18 | Spur A: unbedingte Fassung von Satz B aus Satz A und Satz B zusammensetzen | Formalisierer | neue Datei unter `lean/YangBounds/` | vergeben in Runde 5 |
+| S2-19 | Spur A: Aussagen-Abgleich B-008, mit GPT 6.2 Sol | Prüfer | wählt der Prüfer | vergeben in Runde 5 |
+| S2-20 | Spur A: Aussagen-Abgleich B-009, mit GPT 6.2 Sol, prüft die Hypothesen selbst | Prüfer | wählt der Prüfer | vergeben in Runde 5 |
+| S2-21 | Blind-Sucher als Beweissucher | Blind-Sucher | `versuche/s2-blind-r5.md` | vergeben in Runde 5 |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
