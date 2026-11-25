@@ -1,4 +1,5 @@
 import YangBounds.SatzF444
+import YangBounds.LemmaZ444
 
 /-!
 # The transposed decomposition at the same point: hypothesis (B3′) of Satz F for `⟨4,2,4⟩`
@@ -71,9 +72,15 @@ What does transfer is the point: the inner point of `genAlgL alg` on the `B`-sid
   `SatzF444.rank_four_two_four_ge_26_of_hyp`, with (B3′) removed: the hypothesis is (Z′) for
   every normal form in the case (5,8), not symmetric, with `TransN1` and `TransN2`.
 
-## Remaining named hypothesis
+* `rank_four_two_four_ge_26`: `26 ≤ tensorRank K 4 2 4` over every field, **without hypothesis**,
+  by combining `transponiertEng_genAlgL` with `LemmaZ444.rank_four_two_four_ge_26_of_transponiertEng`
+  (Lemma Z, task S2-46).
 
-* (Z′) `VielePunkte _ 11` (Lemma Z of the prose). Not touched here.
+## Remaining named hypotheses
+
+* In this file only (Z′) `VielePunkte _ 11` in the intermediate final theorems; it is discharged
+  for `genAlgL` by `LemmaZ444.lean`. At a single normal form, `transponiertEng_of` keeps
+  `TransN1` and `TransN2` as named assumptions.
 
 No `sorry`, no own axiom, no `native_decide`.
 -/
@@ -642,6 +649,14 @@ theorem rank_four_two_four_ge_26_of_hyp'
 
 end Endsatz
 
+/-! ## The chain without hypothesis (with Lemma Z of `LemmaZ444.lean`, task S2-46) -/
+
+/-- **`R(⟨4,2,4⟩) ≥ 26` over every field `K`, without hypothesis**: (B3′) for the normal form
+of the bridge (`transponiertEng_genAlgL`) is exactly the remaining hypothesis of
+`LemmaZ444.rank_four_two_four_ge_26_of_transponiertEng`. Status: `behauptet`. -/
+theorem rank_four_two_four_ge_26 (K : Type u) [Field K] : 26 ≤ tensorRank K 4 2 4 :=
+  LemmaZ444.rank_four_two_four_ge_26_of_transponiertEng K fun alg => transponiertEng_genAlgL alg
+
 end Transponiert444
 end YangBounds
 
@@ -657,3 +672,4 @@ end YangBounds
 #print axioms YangBounds.Transponiert444.keine_zerlegung_25_of_vielePunkte
 #print axioms YangBounds.Transponiert444.rank_four_two_four_ge_26_of_vielePunkte
 #print axioms YangBounds.Transponiert444.rank_four_two_four_ge_26_of_hyp'
+#print axioms YangBounds.Transponiert444.rank_four_two_four_ge_26
