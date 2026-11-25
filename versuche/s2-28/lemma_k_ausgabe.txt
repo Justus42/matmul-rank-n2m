@@ -1,0 +1,7 @@
+q=4 n=2: fibres=20925, max orbits per fibre=2, fibres with 2 orbits=750, violations=0
+q=7 n=2: fibres=949248, max orbits per fibre=2, fibres with 2 orbits=10752, violations=0
+q=8 n=2: fibres=2375163, max orbits per fibre=2, fibres with 2 orbits=20412, violations=0
+q=4 n=3: fibres=5576445, max orbits per fibre=2, fibres with 2 orbits=13230, violations=0
+
+
+Laufzeit: 4 min 25 s auf einem Kern
