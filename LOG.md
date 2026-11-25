@@ -1685,3 +1685,51 @@ Kein Prüfurteil, aber Hinweise auf frühere Prüfungen:
   - Bestätigung des Fertig-Kriteriums und Freigabe, es als Ergebnis zu bezeichnen;
   - Frist B-014 (Lesart: gehalten für F2);
   - die kurzen Dauern der Prüfer in Runde 11.
+
+### 25.11.2026, Entscheidung von Justus nach Runde 11 (Wortlaut, 22:37 Uhr MEZ)
+
+> Stufe 2: Das Fertig-Kriterium erkenne ich an. B-016 bleibt geprüft. Deine Lesart zu B-014 bestätige ich: Die Frist gilt als gehalten, weil der Teil, der die Schranke ändert, geprüft ist. Die abweichenden Prosa-Teile bleiben behauptet.
+>
+> Noch keine Freigabe als Ergebnis. Vorher will ich einen zweiten, unabhängigen Maschinenlauf, weil Prüfer und GPT sich auf denselben Actions-Lauf gestützt haben. Das ist Runde 12, ohne Sol-Anfrage. Vergib dafür an Threads, die am Beweis nicht mitgeschrieben haben:
+>
+> 1. Neubau: frischer Checkout des aktuellen Commits, Bau ohne übernommene Build-Artefakte des Projekts. Der offizielle mathlib-Cache ist erlaubt.
+> 2. Kernel-Nachprüfung: lean4checker (oder das passende Gegenstück zur verwendeten Lean-Version) über alle Module des Projekts. Falls es für die Toolchain nicht verfügbar ist, halte das fest und brich nicht ab.
+> 3. Aussage in frischer Datei: eine neue Datei, die nur Basic und den Endsatz importiert, ohne eigene Notation, mit example (K : Type) [Field K] : 26 ≤ YangBounds.tensorRank K 4 2 4 := … und #print axioms. Das soll ausschließen, dass Notation in der Beweisdatei die Aussage verschiebt.
+> 4. Zweite Umgebung: Versuche zusätzlich einen lokalen Bau in einer frischen Sitzung. Wenn die Umgebung das verweigert, halte es fest.
+> 5. Literaturwache jetzt: gezielt nach 4×2×4 und <2,4,4> mit Rang 26 suchen, Eintrag in lit/WACHE.md.
+>
+> An den Quelltexten unter lean/YangBounds/ ändert niemand etwas. Ergebnis mit Commit, Toolchain, mathlib-Stand und Lauf-Nummern in pruefvermerke/B-016-zweitlauf.md.
+>
+> Bereite außerdem Entwürfe vor, ohne sie einzustellen: die geänderte README-Tabelle und eine kurze englische Ergebnis-Notiz mit Quellenangaben (Yang, Tsyganov u. a., Hopcroft-Kerr) und dem KI-Hinweis. Beides unter entwurf/. Die README selbst bleibt unverändert, bis ich freigebe.
+>
+> Der Blind-Sucher von Runde 11 läuft zu Ende. Stufe 3 beginnt nicht. Halte nach Runde 12 an und berichte.
+
+**Einordnung (Schreibhand)**
+
+- Fertig-Kriterium Stufe 2: von Justus anerkannt.
+- B-016 bleibt geprüft.
+- Frist B-014: gilt als gehalten. Die abweichenden Prosa-Teile bleiben behauptet.
+- **Noch keine Freigabe als Ergebnis.**
+- Runde 12 ist der Zweitlauf, ohne Sol-Anfrage. Danach hält der Orchestrator an und berichtet. Stufe 3 beginnt nicht.
+
+**Geplante Vergabe für Runde 12 (Angabe des Orchestrators)**
+
+- S2-55: Neubau und Kernel-Nachprüfung.
+- S2-56: Aussage in frischer Datei.
+- S2-57: zweite Umgebung.
+- S2-58: Literaturwache.
+- S2-59: Entwürfe unter `entwurf/`.
+- S2-60: Blind-Sucher.
+- `pruefvermerke/B-016-zweitlauf.md` schreibt die Schreibhand am Ende aus den Meldungen von S2-55 bis S2-57.
+
+**Gedächtnis (Durchsicht vor Runde 12, Schreibhand)**
+
+- Index unverändert seit 20:27 Uhr MEZ.
+- Gekürzt, weil sie Urteile oder Zwischenstände enthielten. Vorheriger Stand jeweils in `archiv/gedaechtnis/stufe01/…-stand-r12.md`:
+  - `pruefer-rust`: Satz „HK-Dateien … erneut ANGENOMMEN. Status behauptet.“ entfernt (Prüfergebnis und Statuswort).
+  - `pruefer-python-s1-07`: Zwischenstand „Offen ist ein Abgleich-Auftrag … erst dann ist Protokoll 5.2 wieder erfüllt“ ersetzt durch einen neutralen Hinweis.
+- Übrige Einträge: technische Hinweise zu Werkzeugen, Format und Bau. Keine Urteile zu Behauptungen und keine Zwischenstände von Stufe 2.
+- Verbliebene Nebenbefunde zu Werkzeugen, nicht zu Behauptungen:
+  - `lean-satz2-eingesetzt`: Axioms.lean;
+  - `mm325-lizenz`: SHA-256 in verification.txt;
+  - `pruefer-abgleich-s1-20`: offener Formatvorschlag.

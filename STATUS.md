@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 11 abgeschlossen, Orchestrator wartet auf Justus, Protokoll 0.4.1)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Fertig-Kriterium von Justus anerkannt, Runde 12 Zweitlauf, Protokoll 0.4.1)
 
 ## Aktuelle Stufe
 
@@ -11,10 +11,11 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 11 abgeschlossen, Orchestrator war
 - Runde 10 abgeschlossen: 6 Subagenten (S2-44 bis S2-49), 0 Sol-Anfragen, 62 Minuten nach Git (8226274 bis 32f12f6). Neu: B-016 (Endsatz in Lean ohne Hypothese, `Transponiert444.rank_four_two_four_ge_26`), behauptet, Aussagen-Abgleich in Runde 11
 - Vor Runde 11, Hausarbeit außerhalb der Runde (offen ausgewiesen): Kopfkommentare gesäubert, PR #80 (c3c3884), nur Kommentare, Lauf 86 (45699204903, Job 139504538345) grün, SORRY 0. Rest: `.github/scripts/lean_report.py` Zeile 43 trägt das Label „(R-C1)“, es erscheint im Log (offengelegte Spur)
 - Runde 11 abgeschlossen: 5 Subagenten (S2-50 bis S2-54), 1 Sol-Anfrage, etwa 28 Minuten nach Git (Vergabe etwa 21:05 UTC bis b64e6c8). Dauern je Aufgabe: S2-50 etwa 3, S2-52 und S2-53 je etwa 5, S2-51 etwa 8, S2-54 etwa 28 Minuten
-- Der Orchestrator vergibt nichts Neues und wartet auf Justus. Offen für Justus: Fertig-Kriterium und Freigabe als Ergebnis, Frist B-014, kurze Prüferdauern in Runde 11
+- **Entscheidung von Justus (22:37 Uhr MEZ, Wortlaut in LOG.md):** Fertig-Kriterium anerkannt, B-016 bleibt geprüft, Frist B-014 gehalten (abweichende Prosa-Teile bleiben behauptet). **Noch keine Freigabe als Ergebnis.** Vorher Runde 12 als zweiter, unabhängiger Maschinenlauf ohne Sol-Anfrage (Neubau, Kernel-Nachprüfung, Aussage in frischer Datei, zweite Umgebung, Literaturwache; Entwürfe unter `entwurf/`, README unverändert). Quelltexte unter `lean/YangBounds/` bleiben unverändert. Ergebnis in `pruefvermerke/B-016-zweitlauf.md`. Nach Runde 12 anhalten und berichten. Stufe 3 beginnt nicht
+- Runde 12 geplant: S2-55 Neubau und Kernel-Nachprüfung, S2-56 Aussage in frischer Datei, S2-57 zweite Umgebung, S2-58 Literaturwache, S2-59 Entwürfe, S2-60 Blind-Sucher
 - **B-016 geprüft** (Lean-Endsatz R(⟨4,2,4⟩) ≥ 26 über jedem Körper; Prüfer S2-50 und GPT 6.2 Sol S2-51). B-014 geprüft in Teilen (siehe `pruefvermerke/B-014.md`)
-- Abbruchregel 2, Spur A (Übergangsregel Protokoll 0.4.1, Abschnitt 6, Lesart des Orchestrators): Die vier Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 sind in Runde 9 von gültigen Prüfern bestätigt (S2-42, S2-43), die Fristen aus Runde 3 und 6 gelten als gehalten. S2-41 bestätigt B-014, das zählt als Fortschritt in Runde 9, **Frist für geprüft: Ende Runde 11**. Zähler Spur A: Runde 9 mit Fortschritt, Runde 10 ohne, Runde 11 mit Fortschritt (B-016 geprüft, ändert die Schranke), also **0 von 3**. Frist B-014: Lesart des Orchestrators „für den Teil, der die Schranke ändert (F2), gehalten“, **offen für Justus zur Bestätigung**. **Spur B: aufgegeben**
-- Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4). **Nach Sicht des Orchestrators erfüllt (B-016 geprüft).** Er hält nach Runde 11 an und meldet an Justus. Als „Ergebnis“ gilt es erst nach Freigabe durch Justus
+- Abbruchregel 2, Spur A (Übergangsregel Protokoll 0.4.1, Abschnitt 6, Lesart des Orchestrators): Die vier Aussagen-Abgleiche zu B-008, B-009, B-012 und B-013 sind in Runde 9 von gültigen Prüfern bestätigt (S2-42, S2-43), die Fristen aus Runde 3 und 6 gelten als gehalten. S2-41 bestätigt B-014, das zählt als Fortschritt in Runde 9, **Frist für geprüft: Ende Runde 11**. Zähler Spur A: Runde 9 mit Fortschritt, Runde 10 ohne, Runde 11 mit Fortschritt (B-016 geprüft, ändert die Schranke), also **0 von 3**. Frist B-014: gehalten, von Justus bestätigt (der Teil, der die Schranke ändert, ist geprüft). **Spur B: aufgegeben**
+- Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4). **Von Justus anerkannt (B-016 geprüft).** Noch keine Freigabe als Ergebnis; vorher Zweitlauf in Runde 12
 - Stufe 3: erst nach Budget von Justus
 
 ## Aufträge für Stufe 2
@@ -80,7 +81,7 @@ Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein V
 
 ## Fertig-Kriterium Stufe 2
 
-- [ ] Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Stand: B-016 geprüft; nach Sicht des Orchestrators erfüllt, Meldung an Justus nach Runde 11, Haken erst nach seiner Freigabe
+- [ ] Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Stand: B-016 geprüft; von Justus anerkannt. Freigabe als Ergebnis steht aus (Zweitlauf Runde 12)
 
 ## Offene Kleinigkeiten
 
