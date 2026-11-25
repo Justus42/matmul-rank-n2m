@@ -1,13 +1,14 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Wechsel zu Stufe 2)
+Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 2 läuft)
 
 ## Aktuelle Stufe
 
 **Stufe 2: 4×2×4 (25 oder 26?)**
 
-- Runden verbraucht: 0 von 12 (beide Spuren zusammen)
-- Runde 1 läuft: Literaturwache (erledigt, PR #33), S2-01, S2-02, S2-03
+- Runden verbraucht: 1 von 12 (beide Spuren zusammen)
+- Runde 2 läuft: S2-04, S2-05, S2-06, S2-07
+- Abbruchregel 2 (3 Runden in Folge ohne neues geprüftes Artefakt): Spur A 1 von 3, Spur B 1 von 3
 - Fertig, wenn: entweder Lean-Beweis für 26 oder ein nach 5.2 bestätigtes Verfahren mit 25. Dann hält der Orchestrator an und berichtet an Justus (11.4)
 - Stufe 3: erst nach Budget von Justus
 
@@ -15,9 +16,13 @@ Zuletzt geändert: 25.11.2026 (Wechsel zu Stufe 2)
 
 | Nr. | Auftrag | Rolle | Zieldatei | Stand |
 |---|---|---|---|---|
-| S2-01 | Blind-Suche, nur mit der Problemstellung | Blind-Sucher | `versuche/s2-blind-r1.md` | vergeben in Runde 1 |
-| S2-02 | Spur A: Schranke 26 über 𝔽₂ mit Zertifikaten | Beweissucher | `lean/prosa/s2_444_spurA_r1.md`, `versuche/s2-spurA-r1/` | vergeben in Runde 1 |
-| S2-03 | Spur B: Suche nach einem Verfahren mit 25 Produkten | Verfahrenssucher | `versuche/s2-spurB-r1.md`, `verfahren/` | vergeben in Runde 1 |
+| S2-01 | Blind-Suche, nur mit der Problemstellung | Blind-Sucher | `versuche/s2-blind-r1.md` | erledigt in Runde 1, PR #34 |
+| S2-02 | Spur A: Schranke 26 über 𝔽₂ mit Zertifikaten | Beweissucher | `lean/prosa/s2_444_spurA_r1.md`, `versuche/s2-spurA-r1/` | erledigt in Runde 1, PR #35. Zertifikat nur ≥ 22 über 𝔽₂ |
+| S2-03 | Spur B: Suche nach einem Verfahren mit 25 Produkten | Verfahrenssucher | `versuche/s2-spurB-r1.md`, `verfahren/` | erledigt in Runde 1, PR #36. Kein 25er-Verfahren, dazu `verfahren/4x2x4-r26-s001.json` (behauptet) |
+| S2-04 | Blind-Suche, Runde 2 | Blind-Sucher | `versuche/s2-blind-r2.md` | vergeben in Runde 2 |
+| S2-05 | Spur A: Yangs vier Restfälle und Lemma M | Beweissucher | `lean/prosa/s2_444_spurA_r2.md` | vergeben in Runde 2 |
+| S2-06 | Spur B: SAT-Suche mit Symmetrieansatz, Flip-Graph über viele Familien | Verfahrenssucher | `versuche/s2-spurB-r2.md` | vergeben in Runde 2 |
+| S2-07 | Literaturwache, mit Frage nach dem Grenzrang von ⟨2,4,4⟩ | Literaturwächter | `lit/WACHE.md` | vergeben in Runde 2 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.
 

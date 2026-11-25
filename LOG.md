@@ -501,3 +501,51 @@ Vier Subagenten: S1-17, S1-18, S1-19, S1-20.
 - S2-01: Blind-Sucher, sieht nur die Problemstellung, Zieldatei `versuche/s2-blind-r1.md`
 - S2-02: Spur A, Schranke 26 über 𝔽₂ mit Zertifikaten, Zieldateien `lean/prosa/s2_444_spurA_r1.md` und `versuche/s2-spurA-r1/`
 - S2-03: Spur B, Suche nach einem Verfahren mit 25 Produkten, Zieldateien `versuche/s2-spurB-r1.md` und `verfahren/`
+
+---
+
+## 25.11.2026 · Stufe 2, Runde 1, Abschluss
+
+**Aufträge und Subagenten**
+
+Vier Subagenten: Literaturwache, S2-01, S2-02, S2-03.
+
+**Gelieferte Dateien**
+
+- Literaturwache: `lit/WACHE.md`, Pull Request #33 (Inhalt siehe Eintrag „Stufe 2, Runde 1 vergeben“). Nichts Überholendes, Abbruchregel 3 greift nicht.
+- S2-01: `versuche/s2-blind-r1.md` mit `versuche/s2-blind-r1/`, Pull Request #34
+- S2-02: `lean/prosa/s2_444_spurA_r1.md` mit `versuche/s2-spurA-r1/`, Pull Request #35
+- S2-03: `versuche/s2-spurB-r1.md` mit `versuche/s2-spurB-r1/` und `verfahren/4x2x4-r26-s001.json`, Pull Request #36
+
+**Befunde**
+
+- S2-01 (Blind-Sucher): Er fand kein Verfahren mit 25 Produkten und keinen Beweis für 26. Eine Flip-Graph-Suche über 𝔽₂ erreicht 26 zuverlässig, aber nie weniger. Über 𝔽₃ hat der Sucher aufgegeben. Er nennt ein offenes Lemma M und liefert fünf Ausnahmen als Daten. Status vermutet oder behauptet. Einschränkung laut Orchestrator: Der Sucher war nicht ganz blind, weil ihm das Projektgedächtnis den Literaturstand mitgab. Im Repo hat er nach eigener Angabe nur `CLAUDE.md` gelesen.
+- S2-02 (Spur A): Mit Wangs Verfahren erreicht das Zertifikat über 𝔽₂ nur R ≥ 22 (Status behauptet). Das Ziel 26 ist nicht erreicht. Der Sucher behauptet eine Verschärfung von Yang: Bei Rang 25 bleiben vier Restfälle mit ρ = 3. Die Regressionsprobe an ⟨3,2,4⟩ ist nicht fertig, und Wangs eigene Zertifikate waren nicht abrufbar.
+- S2-03 (Spur B): Es gibt kein Verfahren mit 25 Produkten über 𝔽₂, 𝔽₃, 𝔽₅ oder ℤ in den durchsuchten Bereichen. Das neue Verfahren `verfahren/4x2x4-r26-s001.json` über ℤ nehmen beide Prüfprogramme an. Es erreicht den bekannten besten Wert 26, nicht weniger. Status behauptet, eine Behauptungsdatei dazu gibt es nicht.
+
+**Neuer Status je Behauptung**
+
+Kein Statuswort hat sich geändert.
+
+**Abbruchregel 2 (Stillstand)**
+
+In Runde 1 hat keine Spur ein neues Artefakt mit Status geprüft geliefert.
+
+- Spur A: kein geprüftes Artefakt. Zähler: 1 Runde ohne geprüftes Artefakt (von 3).
+- Spur B: kein geprüftes Artefakt. Das 26er-Verfahren hat Status behauptet. Zähler: 1 Runde ohne geprüftes Artefakt (von 3).
+- Der Blind-Sucher gehört zu keiner Spur.
+
+**Merges**
+
+Merge-Stand auf `main` beim Schreiben dieses Eintrags: PR #33 (50d2b34), #34 (8b2417a), #35 (e97f1be) und #36 (5bfa2d5) sind am 25.11.2026 zwischen 07:33 und 09:30 Uhr (MEZ) gemergt, jeweils unter dem GitHub-Konto Justus42.
+
+**Runden**
+
+Verbraucht in Stufe 2: 1 von 12.
+
+**Runde 2 der Stufe 2, vergeben**
+
+- S2-04: Blind-Sucher, Zieldatei `versuche/s2-blind-r2.md`
+- S2-05: Spur A, Yangs vier Restfälle und Lemma M, Zieldatei `lean/prosa/s2_444_spurA_r2.md`
+- S2-06: Spur B, SAT-Suche mit Symmetrieansatz und Flip-Graph über viele Familien, Zieldatei `versuche/s2-spurB-r2.md`
+- S2-07: Literaturwache, mit der Frage nach dem Grenzrang von ⟨2,4,4⟩
