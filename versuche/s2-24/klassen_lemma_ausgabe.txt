@@ -1,0 +1,7 @@
+n=2 q=2: 198 nonzero fibres, max torus orbits per fibre = 2, fibres with 2 orbits = 27 (all of swap shape)
+n=2 q=3: 3008 nonzero fibres, max torus orbits per fibre = 2, fibres with 2 orbits = 192 (all of swap shape)
+n=2 q=5: 95184 nonzero fibres, max torus orbits per fibre = 2, fibres with 2 orbits = 2160 (all of swap shape)
+n=3 q=2: 3822 nonzero fibres, max torus orbits per fibre = 2, fibres with 2 orbits = 147 (all of swap shape)
+n=3 q=3: 262964 nonzero fibres, max torus orbits per fibre = 2, fibres with 2 orbits = 2028 (all of swap shape)
+n=4 q=2: 64350 nonzero fibres, max torus orbits per fibre = 2, fibres with 2 orbits = 675 (all of swap shape)
+Lemma K core: OK in all cases
