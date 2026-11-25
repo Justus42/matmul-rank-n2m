@@ -610,7 +610,7 @@ theorem quadGleich_of_rel {s t : Fin 25} (hrel : Rel (genAlg alg) s t) :
   have hx0t : x0 t ≠ 0 := by
     show SatzB444.avecs (genAlg alg) t 0 * (genAlg alg).beta t (emb (basisVec j0)) ≠ 0
     exact mul_ne_zero (SatzB444.avecs_zero_ne _ h1 t) hj0
-  obtain ⟨y, hy, hyt⟩ := kern_abstieg (fun ij t => alg.coeff t ij.1 ij.2) x0
+  obtain ⟨y, hy, hyt⟩ := kern_abstieg (fun (ij : Fin 4 × Fin 4) (t : Fin 25) => alg.coeff t ij.1 ij.2) x0
     ((genAlg_W_eq_zero_iff alg x0).1 hx0W) t hx0t
   -- `ι y ∈ ker W`, hence `κ = c c' = ι (y_s / y_t)`
   have hyW : W (d := 3) (genAlg alg) (fun t => algebraMap K (GField K) (y t)) = 0 := by
@@ -790,7 +790,8 @@ theorem lemmaZ_bruecke (hK : LemmaKStatement K) (alg : BilinearAlgorithm K 4 2 4
   refine ⟨prop_abstieg (Bruecke444.ι K) _ _ c fun i => ?_,
     prop_abstieg (Bruecke444.ι K) _ _ c' fun j => ?_⟩
   · have := congrFun ha i
-    rw [Pi.smul_apply, smul_eq_mul, Bruecke444.avecs_genAlgL, Bruecke444.avecs_genAlgL] at this
+    simp only [Pi.smul_apply, smul_eq_mul] at this
+    rw [Bruecke444.avecs_genAlgL, Bruecke444.avecs_genAlgL] at this
     exact this
   · have := congrFun hb j
     simp only [SatzF444.bvecs, Pi.smul_apply, smul_eq_mul] at this
