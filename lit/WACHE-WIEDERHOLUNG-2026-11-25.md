@@ -113,3 +113,21 @@ Einordnung (eigene Prüfung der Belege, kein Prüfurteil):
 4. Dieselbe Liste enthält einen Rechenfehler in der Nachbarzeile: „`R(⟨2,2,n⟩) = ⌈(3·2n + max(2,n))/2⌉` = `⌈3.5n + 0.5⌉`“; für n ≥ 2 ergibt die Formel ⌈3,5n⌉, nicht ⌈3,5n + 0,5⌉. Das spricht für eine flüchtig geschriebene Übersicht.
 
 Folgerung: Das ist **kein Beweis** von R(⟨2,4,4⟩) ≥ 26 und keine veröffentlichte Arbeit, sondern eine vermutlich irrtümliche Zuschreibung in einer Markdown-Übersicht eines öffentlichen Repos. Sie ist aber im Wortlaut der Frage („irgendwo schon … behauptet“) **ein Treffer**: Die Aussage „R(⟨2,4,4⟩) ≥ 26 … tight“ steht öffentlich, seit dem 16.06.2026, also vor Yang26.
+
+### GitHub-Codesuche (Werkzeug `gh api -X GET search/code`, nur Standardzweige)
+
+| Nr. | Anfrage (wörtlich) | Trefferzahl laut API | einschlägige Treffer (Rest: fachfremde ML-/Compiler-Repos) |
+|---|---|---|---|
+| G-1 | `"2,4,4" tensor rank lower bound` | 1408 | solven-eu/matmulcatalog: `docs/LOWER_BOUNDS.md`, `references/BORDER_RANK_LAYER.md`, `paper/theory/RANK_KNOWLEDGE.md` |
+| G-2 | `"⟨2,4,4⟩"` | 125 | fast nur solven-eu/matmulcatalog (README, REFERENCES, CLAUDE.md, docs/comparison/…, research/…); KitaKen1/erdos-612-lean (fachfremd), carlostoledo1891/claimbox (fachfremd) |
+| G-3 | `"<4,2,4>" rank` | 60 | tungsten-lang/tungsten: `benchmarks/matmul/metaflip/proof_inner2/README.md`, `…/FINDINGS.md`; originaxiom/origin-axiom (Ausgabe einer Rechnung, „<4,2,4> UNDEFINED“, ohne Rangbezug) |
+| G-4 | `matrix multiplication rank 2x4x4 lower bound` | 166 | Tewf/tensor-rank-toolkit `methods/pencil_rank/projection-bound.md` (nennt nur „a 2x4x4 tensor“ als Suchraum, kein Rang von ⟨2,4,4⟩); tungsten-lang/tungsten (mehrere Dateien); solven-eu/matmulcatalog |
+| G-5 | `tensorRank matrix multiplication language:Lean` | 3 | cslib-community/cslib-frontier, facebookresearch/atlas-lean, qit-lmu/omega; alle nach Pfad fachfremd (Schnitt-Argumente, NP-Vollständigkeit), kein ⟨2,4,4⟩ |
+| G-6 | `"4x2x4" matrix multiplication` | 246 | tungsten-lang/tungsten `bits/tungsten-metaflip/tools/TWO-GRID-PARENT-2026-09-09.md`; Rest fachfremd |
+
+Geöffnet (über raw.githubusercontent.com, da die GitHub-API fremde Repos für diese Sitzung sperrt):
+
+- **solven-eu/matmulcatalog `paper/theory/RANK_KNOWLEDGE.md` Zeile 297**, wörtlich: „| `⟨2,4,4⟩` | 32 | **26** (latest), `≤ 27` historically | open lower bound | [AlphaTensor 2022][alpha22] |“. **Dasselbe Repo nennt die untere Schranke hier „open“** und widerspricht damit Befund G1.
+- **solven-eu/matmulcatalog `docs/comparison/us-vs-fmm-vs-perminov-F2.md` Zeile 19:** „| ⟨2,4,4⟩ | 26 | 26 | — | — | 26 | tie_derived |“ (nur obere Schranken).
+- **tungsten-lang/tungsten** (HEAD `3201662ac0ee318353c6849d86baa9c644a395c1`), `benchmarks/matmul/metaflip/proof_inner2/README.md`, Abschnitt „Wang `<2,4,4>` 86-orbit CPU campaign“, wörtlich: „The rigorous status is still `23 <= R_GF(2)(<2,4,4>) <= 26.` The lower endpoint is the existing algebraic bound; rank 26 is realized by the exact catalogue leaf.“ Die SAT-Läufe für „`<4,2,4>`, r23“ heißen dort „indeterminate“, und `FINDINGS.md` Zeile 1685 ff.: „Short CryptoMiniSat and RoundingSat probes on `<5,2,4>`, `<4,2,4>`, and `<3,2,5>` were indeterminate. Consequently `proof_inner2/` is a sound distributed proof campaign and not a new lower bound“. Kein Anspruch auf 26, kein Verfahren mit 25. (Die dort genannte untere Schranke 23 ist veraltet, Yang26 gibt 25 über allen Körpern.)
+- **tungsten-lang/tungsten `bits/tungsten-metaflip/bench/targets.md` Zeile 14:** „| 2x4x4 | 32 | 26 | integer, valid mod 2 | Lille, FMM, matmulcatalog, mkauers, KM22, Arai23 | commutative-only, excluded: … 23 (Islam 2009) …“. Nebenbefund: Kommutative Algorithmen mit 23 Multiplikationen (Islam 2009, Rosowski 2019) gibt es; sie sind **keine** bilinearen Verfahren und zählen für den Tensorrang nicht.
