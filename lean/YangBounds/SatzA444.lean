@@ -9,8 +9,7 @@ file: `behauptet` (nothing here is `geprüft` before the statement check of prot
 Claim file: `behauptungen/B-008.md`.
 
 Source: `lean/prosa/s2_444_spurA_r2.md` (task S2-05), Section 3 (Satz A, Folgerung A1, A2)
-and Section 4 (Lemma 13′, application table); checked in
-`lean/prosa/s2_444_spurA_r2_pruefung.md` (task S2-09), Sections 2.2 to 2.4. The underlying
+and Section 4 (Lemma 13′, application table). The underlying
 lemmas are Yang's (arXiv:2609.14393v3), formalised in `YangN4Haupt.lean` and
 `YangN4Lemma13.lean`.
 

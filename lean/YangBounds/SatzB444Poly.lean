@@ -11,8 +11,7 @@ Task S2-15 (stage 2, round 4, track A, role: formaliser). Status of every statem
 file: `behauptet` (nothing here is `geprüft` before the check of protocol section 5.1).
 
 This file contains the facts about the polynomial ring `R = K[x_0, x_1, x_2, x_3]` that the
-proof of Lemma S (prose `lean/prosa/s2_444_spurA_r2.md`, Section 6, and the review
-`lean/prosa/s2_444_spurA_r2_pruefung.md`, Section 2.7) needs, in the form used in
+proof of Lemma S (prose `lean/prosa/s2_444_spurA_r2.md`, Section 6) needs, in the form used in
 `SatzB444.lean`:
 
 * `lin y = ∑ y_l x_l`, the linear form of a vector `y ∈ K⁴`;

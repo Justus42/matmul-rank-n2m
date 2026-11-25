@@ -6,8 +6,7 @@ import YangBounds.SatzB444Final
 Task S2-26 (stage 2, round 7, track A, role: formaliser). Status of every statement in this
 file: `behauptet`. Nothing here is `geprüft` before the check of protocol section 5.1.
 
-Sources: prose `lean/prosa/s2_444_spurA_r4.md` (task S2-16), Section 3 (Satz C), and the review
-`lean/prosa/s2_444_spurA_r4_pruefung.md` (task S2-22), Sections 2 and 4.
+Sources: prose `lean/prosa/s2_444_spurA_r4.md` (task S2-16), Section 3 (Satz C).
 
 ## What is proved here
 
@@ -22,7 +21,7 @@ there are an injective linear map `E` of `F⁴` and scalars `μ_t` with
 and that every term with `β_t(v ·ᵀ) = 0` also has `β_t((Dv) ·ᵀ) = 0`. Then `False`.
 
 This is the prose proof of Satz C (Steps 1 to 4) at one point of a field with a derivation,
-as proposed in Section 4 of the review: instead of `p` and `p + εd` with dual numbers, the
+in a function-field form: instead of `p` and `p + εd` with dual numbers, the
 equation (S) is differentiated with `D` (product rule). In the prose notation
 `a_t(p) = A_t p`, `b_t(p) = B_tᵀ J p`; here the point `v` plays the role of `J p` (any `v` with
 `p·v = 0`), and `E` is `Mᵀ` up to the choice of coordinates.
@@ -32,17 +31,17 @@ equation (S) is differentiated with `D` (product rule). In the prose notation
 1. **No rational choice of `M_p` (Step 0).** The derivation acts on the given `E` and `μ_t`; no
    rational functions are needed. The field `F` is, in the application, the function field of
    the generic point (file `SatzC444Generisch.lean`).
-2. **`μ_t ≠ 0` is not assumed** (review P2 and Section 2.7). Terms with `μ_t = 0` have
+2. **`μ_t ≠ 0` is not assumed**. Terms with `μ_t = 0` have
    `β_t(v ·ᵀ) = 0`; the hypothesis `hb` then gives `β_t((Dv) ·ᵀ) = 0`, and these terms drop out
    of (Kl) and of the spanning argument. At the generic point `hb` holds because such a `β_t`
    is the zero form.
 3. **The quadric is found in the space of `q` with `μ_t q(a_t) = 0`** (the image of
    `q ↦ (μ_t q(a_t))_t` lies in `ker W`, of dimension `r − 16 ≤ 9`, while the quadratic forms have
    dimension 10). This avoids the identification `span{a_t ⊗ a_t} ≅ span{a_t ⊗ b_t}`.
-4. **Characteristic 2 without square roots** (review, GPT supplement E2): from `Q + Qᵀ = 0` the
+4. **Characteristic 2 without square roots**: from `Q + Qᵀ = 0` the
    form `q` is additive; it vanishes on the `a_t` with `μ_t ≠ 0`, which span `F⁴`; hence `q = 0`.
    This argument is uniform in the characteristic.
-5. **Any length `r ≤ 25`** (review P2), no reference to B-007.
+5. **Any length `r ≤ 25`**, no reference to B-007.
 
 No `sorry`, no own axiom, no `native_decide`.
 -/

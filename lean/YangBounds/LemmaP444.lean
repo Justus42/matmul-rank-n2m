@@ -10,9 +10,8 @@ file: `behauptet` (until a statement check per protocol Section 5.1 item 3).
 Claim file: `behauptungen/B-013.md`.
 
 Source: prose `versuche/s2-32/lemmaP_prosa.md` (elementary version of Lemma P from
-`lean/prosa/s2_444_spurA_r4.md`, Section 5.1, with the repairs R2, R2b of the review
-`lean/prosa/s2_444_spurA_r4_pruefung_b013.md`). The duality/degree argument of the prose
-(step 2) is replaced by the elementary argument of the review (finiteness of the bad points on
+`lean/prosa/s2_444_spurA_r4.md`, Section 5.1). The duality/degree argument of the prose
+(step 2) is replaced by an elementary argument (finiteness of the bad points on
 a line, then pigeonhole); the Kronecker normal form (step 4) is replaced by an eigenvalue
 argument; Lemma 9 is replaced by `rk L = 5`.
 

@@ -1202,3 +1202,36 @@ Am Inhalt der Regeln ändert sich nichts.
 **Folge für Runde 9 (Entscheidung beim Orchestrator nach 5.4)**
 
 Die Prüfer S2-37, S2-38 und S2-40 haben Abschnitt 5 in der Fassung 0.4 gelesen oder konnten ihn lesen. Empfehlung an Justus: alle drei abbrechen und durch neue ersetzen, die die Fassung 0.4.1 lesen. Die Formalisierer S2-34 bis S2-36 sind nicht betroffen.
+
+---
+
+## 25.11.2026 · Anweisung von Justus zu Protokoll 0.4.1, Ersatz der Prüfer in Runde 9
+
+**Anweisung von Justus (19:39 Uhr MEZ), wörtlich**
+
+> Protokoll 0.4.1 liegt auf main. Der Übergangsabsatz stand in Abschnitt 5.4 und hat den Prüfern verraten, dass es frühere Prüfungen gab. Er steht jetzt in Abschnitt 6. Brich die Prüfer S2-37, S2-38 und S2-40 ab und ersetze sie durch neue, die Abschnitt 5 in der Fassung 0.4.1 lesen. Die Formalisierer laufen weiter. Runde 9 ohne Blind-Sucher ist genehmigt. Prüfe vor jeder Vergabe an Prüfer oder Blind-Sucher, ob das Projektgedächtnis Urteile enthält.
+
+**Festgehalten**
+
+- S2-37 (B-014, PR #68), S2-38 (B-008 und B-009, PR #66) und S2-40 (B-012 und Satz E aus B-013, PR #67) waren beim Abbruch schon fertig. Ihre Berichte gelten als **ungültig**, die Dateien bleiben im Repo.
+- Ersatz: S2-41, S2-42 und S2-43, frische Prüfer mit Abschnitt 5 in der Fassung 0.4.1. Sie starten erst, wenn das Gedächtnis bereinigt ist.
+- In Runde 9 sind damit zehn Aufträge gestartet, sechs zählen:
+  - zählend: S2-34, S2-35, S2-36, S2-41, S2-42, S2-43
+  - nicht zählend: S2-37, S2-38, S2-39 und S2-40
+- Runde 9 ohne Blind-Sucher ist von Justus genehmigt.
+- Die Karte des Orchestrators zur Gültigkeit von S2-40 ist zurückgezogen, sie ist gegenstandslos.
+
+**Vorbereitung der Ersatzprüfer (Schreibhand)**
+
+- Gedächtnis:
+  - Alle Einzeleinträge sind durchgesehen. Wörtliche Kopien liegen unter `archiv/gedaechtnis/` und `archiv/gedaechtnis/stufe01/`.
+  - Gelöscht ist `pruefung-yang-n4`. Auf den Sachinhalt gekürzt sind 19 Einträge, Prüfurteile, Status- und Ergebnisangaben sind entfernt.
+  - Unverändert bleiben `git-regeln`, `gemini-bridge`, `mm325-lizenz`, `schranken-befunde`, `verfahren-datenformat`, `verfahren-randfaelle-s1-04` und `lean-yang-bounds`. Sie enthalten nur Verfahrens-, Format- und Literaturangaben.
+- Lean (Commit 08854c3): In 12 Dateien unter `lean/YangBounds/` sind Kommentarverweise auf frühere Prüfberichte entfernt („review“, „checked in …_pruefung.md“, „GPT supplement“, „repaired as R-C1“). Am Code ist nichts geändert.
+- `behauptungen/B-012.md`: Der Hinweis „Gegenstand des Aussagen-Abgleichs“ ist entfernt. Die Zeile heißt jetzt „Folgerung C1, generische Fassung (R-C1)“.
+- Prosa-Berichte, die als Herkunft genannt sind, bleiben unverändert. Sie zitieren aber frühere Urteile oder Status:
+  - `lean/prosa/s2_444_spurA_r4.md`: Abschnitt 1 (V′ aus S2-09), Abschnitt 2 (Reparatur R1 aus S2-09, „B-007 (geprüft)“) und Abschnitt 4 (Beweis von C1: „mit R1 und V′ aus S2-09“).
+  - `lean/prosa/s2_444_spurA_r6.md`: Abschnitt 5 (F2: „B-007 und B-010 (beide geprüft)“, „Geprüft sind …, im Kern B-008 und B-009“, laufende Prüfungen S2-22 und S2-23) und Abschnitt 11 (Vorschläge zu Prüfungen).
+  - `lean/prosa/s2_444_spurA_r2.md`: Statusübersicht („bestätigt S2-02“, das ist ein Suchergebnis und kein Prüfurteil).
+  - `versuche/s2-32/lemmaP_prosa.md`: Zeile 3 nennt die Reparaturen aus dem Prüfbericht S2-23.
+  - `lean/prosa/yang_n4.md`: ohne Fund.

@@ -9,10 +9,9 @@ Task S2-15 (stage 2, round 4, track A, role: formaliser). Status of every statem
 file: `behauptet`. Nothing here is `geprüft` before the check of protocol section 5.1
 (in particular the statement check, 5.1 item 3, is still open).
 
-Sources: prose `lean/prosa/s2_444_spurA_r2.md` (task S2-05), Sections 2, 5, 6, 7, and the
-review `lean/prosa/s2_444_spurA_r2_pruefung.md` (task S2-09), in particular the simpler
-Lemma V′ of Section 6 (one admissible `u_0` with a common kernel forces the symmetry).
-As agreed with the orchestrator, the **repaired simpler version** is formalised: Lemma V′
+Sources: prose `lean/prosa/s2_444_spurA_r2.md` (task S2-05), Sections 2, 5, 6, 7.
+Formalised is a simpler version with Lemma V′ (one admissible `u_0` with a common kernel
+forces the symmetry): Lemma V′
 instead of Lemma V, and Satz B for **every** admissible `u_0` (every normalized decomposition),
 not only for a generic one.
 
@@ -33,7 +32,7 @@ not only for a generic one.
 
 ## Main results
 
-* `lemmaV'` (**Lemma V′**, review Section 6): (N1), (N2) and a common kernel vector
+* `lemmaV'` (**Lemma V′**): (N1), (N2) and a common kernel vector
   `0 ≠ x ∈ ker F_1 ∩ ker F_2 ∩ ker F_3` give `IsSymm alg`.
 * `noProd_I` (**Lemma S, part 1, second half**): in the symmetric case the space `I` of
   quadratic forms `q` with `μ_t q(a_t) = 0` for all `t` contains no product of two nonzero
@@ -70,9 +69,9 @@ In round 5 the hypotheses are discharged by `SatzA444.satzA_statement`-style pro
 
 ## Deviations from the prose (documented; the statements are unchanged or stronger)
 
-1. **Lemma V′ instead of Lemma V**, as recommended in the review (Section 7, item 3): only
+1. **Lemma V′ instead of Lemma V**: only
    linear algebra at one point `u_0`, no Zariski density.
-2. **R1 is not needed.** The prose needs `μ_t ≠ 0` (hence `b_t ≠ 0`, repair R1 on the choice of
+2. **R1 is not needed.** The prose needs `μ_t ≠ 0` (hence `b_t ≠ 0`, a condition on the choice of
    `p`) only to rescale the coordinates. Here the coordinate `t` is weighted by `μ_t` instead
    (`I` is defined with `μ_t q(a_t) = 0`), so terms with `μ_t = 0` simply drop out of `I`.
    Lemma V′ is proved without any condition on `β_t`.
@@ -86,7 +85,7 @@ In round 5 the hypotheses are discharged by `SatzA444.satzA_statement`-style pro
    `P_i ∈ I` gives `x_0(a_t) Z(a_t) = 0`, and (N1) `x_0(a_t) ≠ 0` gives `Z ∈ I`. The syzygy
    lemma `SatzB444Poly.syz` (`dim I ≤ 2`, no product in `I`, `K[x_0,…,x_3]` a UFD) gives
    `P_i = 0`, and then `c` lies in a 4-dimensional space. This is a **new argument, not in the
-   prose**; it makes Satz B hold for every admissible `u_0`, as the review's V′ remark predicts.
+   prose**; it makes Satz B hold for every admissible `u_0`.
    The upper bound `rk H ≤ 8` and part 4 (`rk H = 8 − dim Syz₁`) are not formalised; Satz B
    does not need them.
 
@@ -180,7 +179,7 @@ section LemmaV
 
 variable {K : Type u} [Field K] {r : ℕ} (alg : BilinearAlgorithm K 4 2 4 r)
 
-/-- **Lemma V′** (review `s2_444_spurA_r2_pruefung.md`, Section 6, item 2): under (N1), (N2),
+/-- **Lemma V′**: under (N1), (N2),
 a common kernel vector `x ≠ 0` of `F_1, F_2, F_3` (that is, `N(u_0) ≠ 0`) forces the
 symmetry. -/
 theorem lemmaV' (h1 : SN1 (d := 3) alg) (h2 : SN2 (d := 3) alg) (x : Fin 4 → K) (hx : x ≠ 0)
@@ -603,7 +602,7 @@ section SatzB
 
 variable {K : Type u} [Field K]
 
-/-- **Satz B** (B-009, prose Section 7, in the stronger form of the review, Section 6): for every
+/-- **Satz B** (B-009, prose Section 7, in a stronger form): for every
 normalized decomposition of `⟨4,2,4⟩` of length 25 over any field (every admissible pair
 `(p, u_0)`), `(rk L, rk H)` is `(3,6)` or `(5,8)`. The cases (4,7) and (5,7) are impossible.
 Hypotheses: Satz A and the common-kernel consequence of Lemma 13′ (task S2-14). -/

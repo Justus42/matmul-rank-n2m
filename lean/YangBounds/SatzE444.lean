@@ -11,9 +11,7 @@ file: `behauptet` (nothing here is `geprüft` before the statement check of prot
 Claim file: `behauptungen/B-013.md`.
 
 Sources: prose `lean/prosa/s2_444_spurA_r4.md` (task S2-16), Section 5.2 (Satz E, steps A2 to
-A8), and the review `lean/prosa/s2_444_spurA_r4_pruefung_b013.md` (task S2-23), Section 8,
-item 1, whose suggested form is formalised here: it bypasses Lemma P and needs no Kronecker
-normal form.
+A8), in a frame form that bypasses Lemma P and needs no Kronecker normal form.
 
 ## Setting (notation of `YangN4Haupt.lean`, `d = 3`, `m = 4`)
 
@@ -24,7 +22,7 @@ normal form.
 * `J = Ψ(e_0, U)` is `J alg`, `Ĵ = Ψ(K⁴, U)` is `SatzA444.JHat alg`, `Q = ker W / J` lives in
   `(Fin r → K) ⧸ J alg`, `F_i = Fq alg i`.
 
-## The form that is proved (review Section 8, item 1)
+## The form that is proved
 
 `satzE_rahmen`: over an algebraically closed field, if there are a two-dimensional subspace
 `S ⊆ U` and a subspace `P` of dimension at most 5 that contains `J` and all `Ψ(u, x)`,
@@ -354,7 +352,7 @@ theorem psi_mem_of_span {ι : Type*} (u : ι → (Fin 4 → K))
   rw [hu] at this
   exact this Submodule.mem_top
 
-/-- **Satz E, frame form** (review Section 8, item 1). Over an algebraically closed field, under
+/-- **Satz E, frame form**. Over an algebraically closed field, under
 (N1), (N2): let `x_1, x_2 ∈ U` be linearly independent and `P` a subspace of dimension at most 5
 that contains `J` and all `f_i(x_1)`, `f_i(x_2)`. Then `dim Ĵ ≤ 8`. -/
 theorem finrank_JHat_le_eight [IsAlgClosed K] (h1 : SN1 (d := 3) alg) (h2 : SN2 (d := 3) alg)

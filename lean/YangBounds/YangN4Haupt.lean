@@ -12,8 +12,7 @@ import Mathlib.LinearAlgebra.Dual.Lemmas
 Task S1-16 (stage 1, round 4, role: formaliser). Status of every statement in this file:
 `behauptet` (nothing here is `geprüft` before the check of protocol section 5.1).
 
-Source of the proof: `lean/prosa/yang_n4.md` (task S1-03, checked in S1-06,
-`lean/prosa/yang_n4_pruefung.md`), which works out the proof of Theorem 2 in
+Source of the proof: `lean/prosa/yang_n4.md` (task S1-03), which works out the proof of Theorem 2 in
 J. Yang, *New lower bounds on tensor rank of (n,2,m) matrix multiplication with GPT-6*,
 arXiv:2609.14393v3 (12.10.2026). The theorem is Yang's, not ours (protocol section 9).
 
