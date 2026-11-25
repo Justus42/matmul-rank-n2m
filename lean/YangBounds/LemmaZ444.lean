@@ -1,4 +1,5 @@
 import YangBounds.SatzF444
+import YangBounds.LemmaK444
 
 /-!
 # Lemma Z for `⟨4,2,4⟩` at the generic normal form (many distinct points)
@@ -854,6 +855,59 @@ theorem rank_four_two_four_ge_26_of_lemmaK_transponiert
 
 end Endsatz
 
+/-! ## Lemma K discharged by `LemmaK444.lean` (task S2-45)
+
+`LemmaK444.lemmaK` (merged on `main` while this task ran) proves Lemma K over every field with
+weaker assumptions (`X, Y ≠ 0` only, hypothesis `PolyEq`, equivalent to the coefficient form by
+`LemmaK444.polyEq_iff_quadEq`). It gives `LemmaKStatement K` of this file for every field. -/
+
+section OhneLemmaK
+
+open SatzE444Buendel
+
+/-- `LemmaKStatement K` holds for every field (from `LemmaK444.lemmaK`). -/
+theorem lemmaKStatement_gilt (K : Type u) [Field K] : LemmaKStatement K := by
+  intro n X Y X' Y' hX hY _ _ hq
+  have hpe : LemmaK444.PolyEq X Y X' Y' :=
+    (LemmaK444.polyEq_iff_quadEq _ _ _ _).2 fun i j => ⟨(hq i j).1, (hq i j).2.2, (hq i j).2.1⟩
+  rcases LemmaK444.lemmaK hX hY hpe with ⟨c, hc, h1, h2⟩ |
+      ⟨x, w, l1, l2, c, hx, hw, hd, hc, e1, e2, e3, e4⟩
+  · exact Or.inl ⟨c, hc, h1, h2⟩
+  · exact Or.inr ⟨x, w, l1, l2, c, hx, hw, hc, hd, e1, e2, e3, e4⟩
+
+/-- **Lemma Z at the generic normal form, unconditional.** -/
+theorem lemmaZ_generisch_unbedingt {K : Type u} [Field K] (alg : BilinearAlgorithm K 4 2 4 25) :
+    SatzF444.VielePunkte (genAlg alg) 13 :=
+  lemmaZ_generisch (lemmaKStatement_gilt K) alg
+
+/-- **Lemma Z for the normal form of the bridge, unconditional:** `genAlgL alg` over `GBar K`
+has at least 13 terms with pairwise distinct points `[a_t ⊗ b_t]`. -/
+theorem lemmaZ_bruecke_unbedingt {K : Type u} [Field K] (alg : BilinearAlgorithm K 4 2 4 25) :
+    SatzF444.VielePunkte (Bruecke444.genAlgL alg) 13 :=
+  lemmaZ_bruecke (lemmaKStatement_gilt K) alg
+
+/-- **`R(⟨4,2,4⟩) ≥ 26` over `K`, assuming only (B3′) for the normal form of the bridge**
+(`TransponiertEng (genAlgL alg)` for every decomposition `alg` of length 25 over `K`). -/
+theorem rank_four_two_four_ge_26_of_transponiertEng (K : Type u) [Field K]
+    (hT : ∀ alg : BilinearAlgorithm K 4 2 4 25,
+      SatzF444.TransponiertEng (Bruecke444.genAlgL alg)) :
+    26 ≤ tensorRank K 4 2 4 :=
+  rank_four_two_four_ge_26_of_lemmaK K (lemmaKStatement_gilt K) hT
+
+/-- **`R(⟨4,2,4⟩) ≥ 26` over every field, assuming only (B3′)** in the form of
+`SatzF444.rank_four_two_four_ge_26_of_hyp` (every non-symmetric normal form in the case (5,8)
+over every algebraically closed field). (Z′) and Lemma K are no longer hypotheses. -/
+theorem rank_four_two_four_ge_26_of_transponiertEng'
+    (hT : ∀ (L : Type u) [Field L] [IsAlgClosed L] (alg : BilinearAlgorithm L 4 2 4 25),
+      SN1 (d := 3) alg → SN2 (d := 3) alg →
+      (finrank L (LinearMap.range (Lq (d := 3) alg)),
+        finrank L (LinearMap.range (Hq (d := 3) alg))) = (5, 8) →
+      NichtSymmetrisch alg → SatzF444.TransponiertEng alg)
+    (K : Type u) [Field K] : 26 ≤ tensorRank K 4 2 4 :=
+  rank_four_two_four_ge_26_of_lemmaK_transponiert (fun K _ => lemmaKStatement_gilt K) hT K
+
+end OhneLemmaK
+
 end LemmaZ444
 end YangBounds
 
@@ -875,3 +929,8 @@ Expected for each: `[propext, Classical.choice, Quot.sound]`. -/
 #print axioms YangBounds.LemmaZ444.keine_zerlegung_25_of_lemmaK
 #print axioms YangBounds.LemmaZ444.rank_four_two_four_ge_26_of_lemmaK
 #print axioms YangBounds.LemmaZ444.rank_four_two_four_ge_26_of_lemmaK_transponiert
+#print axioms YangBounds.LemmaZ444.lemmaKStatement_gilt
+#print axioms YangBounds.LemmaZ444.lemmaZ_generisch_unbedingt
+#print axioms YangBounds.LemmaZ444.lemmaZ_bruecke_unbedingt
+#print axioms YangBounds.LemmaZ444.rank_four_two_four_ge_26_of_transponiertEng
+#print axioms YangBounds.LemmaZ444.rank_four_two_four_ge_26_of_transponiertEng'

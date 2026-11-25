@@ -59,6 +59,18 @@ MAIN_THEOREMS = [
     ("No decomposition of length 25, assuming Lemma K and (B3') (LemmaZ444.lean)", "YangBounds.LemmaZ444.keine_zerlegung_25_of_lemmaK"),
     ("Final theorem R<4,2,4> >= 26, assuming Lemma K and (B3') for the bridge normal form (LemmaZ444.lean)", "YangBounds.LemmaZ444.rank_four_two_four_ge_26_of_lemmaK"),
     ("Final theorem R<4,2,4> >= 26, assuming Lemma K and (B3') at all normal forms (LemmaZ444.lean)", "YangBounds.LemmaZ444.rank_four_two_four_ge_26_of_lemmaK_transponiert"),
+    ("Lemma Z <4,2,4>: 13 distinct points at the bridge normal form, unconditional (LemmaZ444.lean)", "YangBounds.LemmaZ444.lemmaZ_bruecke_unbedingt"),
+    ("Final theorem R<4,2,4> >= 26, assuming only (B3') for the bridge normal form (LemmaZ444.lean)", "YangBounds.LemmaZ444.rank_four_two_four_ge_26_of_transponiertEng"),
+    ("Final theorem R<4,2,4> >= 26, assuming only (B3') at all normal forms (LemmaZ444.lean)", "YangBounds.LemmaZ444.rank_four_two_four_ge_26_of_transponiertEng'"),
+    ("Lemma K: two factorisations of (Xp)x(Yp), every field (LemmaK444.lean)", "YangBounds.LemmaK444.lemmaK"),
+    ("Lemma K: cases (i) and (ii) exclude each other (LemmaK444.lean)", "YangBounds.LemmaK444.lemmaK_exklusiv"),
+    ("Folgerung K1: at most two orbits, every field (LemmaK444.lean)", "YangBounds.LemmaK444.folgerungK1"),
+    ("LemmaKStatement, every field (LemmaK444.lean)", "YangBounds.LemmaK444.lemmaKStatement"),
+    ("FolgerungK1Statement, every field (LemmaK444.lean)", "YangBounds.LemmaK444.folgerungK1Statement"),
+    ("Lemma K at the generic point over GField K (LemmaK444.lean)", "YangBounds.LemmaK444.lemmaK_generisch"),
+    ("Lemma K at the generic point over GBar K (LemmaK444.lean)", "YangBounds.LemmaK444.lemmaK_generischL"),
+    ("Folgerung K1 at the generic point over GField K (LemmaK444.lean)", "YangBounds.LemmaK444.folgerungK1_generisch"),
+    ("Folgerung K1 at the generic point over GBar K (LemmaK444.lean)", "YangBounds.LemmaK444.folgerungK1_generischL"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 

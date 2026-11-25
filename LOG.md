@@ -1345,3 +1345,133 @@ Die Prüfer S2-37, S2-38 und S2-40 haben Abschnitt 5 in der Fassung 0.4 gelesen 
 - Der Achsenbericht nennt TOTAL STANDARD=27. Alle Hauptsätze, auch die sechs neuen aus `Bruecke444.lean`, benutzen nur propext, Classical.choice und Quot.sound. Neu sind `bruecke`, `bruecke_exists`, `bruecke_unterfallB`, `bruecke_nicht_unterfallA`, `brueckeStatement` und `rank_four_two_four_ge_26_of_unterfallB`.
 - In `Bruecke444.lean` steht `sorry` nur im Kommentar.
 - Der Endsatz `Bruecke444.rank_four_two_four_ge_26_of_unterfallB` trägt nur noch die Hypothese zu Unterfall B (laut Achsenbericht: „bridge discharged, assuming sub-case B“). Den Status setzt der Orchestrator.
+
+---
+
+## 25.11.2026 · Stufe 2, Runde 9 abgeschlossen
+
+**S2-34 erledigt (von der Schreibhand nachgesehen)**
+
+- PR #73 ist gemergt (9f5a928, 20:12 Uhr MEZ). Er bringt `lean/YangBounds/SatzF444.lean`.
+- Lauf 67 auf main ist grün (Run 45682937335, Job 139447937419).
+- Die SORRY-Zeilen lauten wörtlich: „SORRY: 0 declaration(s) with 'declaration uses sorry' in the build log“ und „SORRY: 0 'sorry' token(s) in the sources outside comments“.
+- Achsenbericht: TOTAL STANDARD=31. Neu sind `SatzF444.satzF`, `fall58_symmetrisch`, `unterfallBStatement_of` und `rank_four_two_four_ge_26_of_hyp`. Alle benutzen nur propext, Classical.choice und Quot.sound.
+- Der Ausschluss von Unterfall B und `rank_four_two_four_ge_26_of_hyp` hängen an zwei benannten Hypothesen: `TransponiertEng` (B3′) und `VielePunkte alg 11` (Z′). Lemma K ist nicht formalisiert.
+
+**Status (Orchestrator)**
+
+- B-014 bleibt **behauptet**.
+- Frist für Status geprüft: Ende Runde 11.
+
+**Verbrauch Runde 9**
+
+- 6 zählende Subagenten: S2-34, S2-35, S2-36, S2-41, S2-42 und S2-43.
+- Gestartet und ersetzt wurden S2-37, S2-38, S2-39 und S2-40.
+- Sol-Anfragen: 0.
+
+**Dauer nach Git-Zeitstempeln**
+
+- Von Protokoll 0.4 (626eb7b, 19:21:25 Uhr MEZ, Grundlage aller Aufträge der Runde) bis zum letzten Merge der Runde (9f5a928, 20:12:46 Uhr MEZ): 51 Minuten. Der Vergabe-Eintrag b4ab3c8 stammt von 19:22:49 Uhr MEZ.
+- Die letzten Lieferungen je Auftrag (MEZ):
+  - S2-36: e0cc761, 19:25
+  - S2-38: eb9a69b, 19:26
+  - S2-40: c288079, 19:28
+  - S2-37: 51a99ec, 19:30
+  - S2-35: a6fb7f7, 19:50
+  - S2-42: 2347673, 19:57
+  - S2-43: 278a558, 19:58
+  - S2-41: e31df0f, 19:58
+  - S2-34: 2980f1f, 20:10 und 3eeef70, 20:12
+- Start-Commits einzelner Aufträge gibt es in Git nicht. Dauern je Auftrag sind daher nur als Obergrenze ab 626eb7b messbar, für S2-41 bis S2-43 ab e1f0aa5.
+
+**Zählerstand nach Abbruchregel 2 (Lesart des Orchestrators)**
+
+- Spur A: **0 von 3**, Fortschritt in Runde 9 durch B-014, Frist Ende Runde 11.
+- Spur B: aufgegeben.
+
+---
+
+## 25.11.2026 · Stufe 2, Runde 10 vergeben (Meldung des Orchestrators)
+
+**Start: 20:24 Uhr MEZ. Sechs Aufträge, 0 Sol-Anfragen geplant.**
+
+- S2-44: Lean, `TransponiertEng`
+- S2-45: Lean, Lemma K
+- S2-46: Lean, Lemma Z (`VielePunkte`, Lemma K als benannte Hypothese)
+- S2-47 und S2-48: zwei Prüfer, die einander nicht sehen. Sie machen die Aussagen-Abgleiche nach 5.1 Punkt 3 (Zwischenaussagen, zwei Prüfer) zu Lemma P (`lean/YangBounds/LemmaP444.lean`, B-013) und zur Brücke (`lean/YangBounds/Bruecke444.lean`, B-015).
+- S2-49: Blind-Sucher, `versuche/s2-blind-r10.md`
+
+Die drei Lean-Aufträge laufen schon. S2-47 bis S2-49 starten erst nach der Durchsicht des Gedächtnisses.
+
+**Vorbereitung durch die Schreibhand**
+
+- Neue Behauptung `behauptungen/B-015.md` (Brücke), angelegt im Auftrag des Orchestrators aus Abschnitt 7 der Prosa von S2-35 und dem Lean-Dateikopf. Dazu `pruefvermerke/B-015.md` mit Status **behauptet** und Einträge in beiden Übersichten.
+- Gedächtnis:
+  - Die Einträge `s2-34-satzF-lean`, `s2-35-bruecke-lean` und `s2-36-endsatz-lean` aus Runde 9 sind wörtlich nach `archiv/gedaechtnis/` kopiert und aus dem Gedächtnis gelöscht.
+  - Index und übrige Einzeleinträge sind durchgesehen. Sie enthalten keine Urteile, keinen Status und kein erwünschtes Ergebnis zu einer Behauptung. Restpunkte stehen in der Meldung an den Orchestrator.
+
+---
+
+## 25.11.2026 · Runde 10: Vorbereitung von S2-47 bis S2-49 abgeschlossen
+
+**Gedächtnis (im Auftrag des Orchestrators)**
+
+- Aus dem Gedächtnis gelöscht: `yang-n4-prosa`, `lean-yang-n4-haupt`, `lean-lemma13-n4` und `abgleich-yang-n4-b007`. Sie nennen Yangs Methode für n = 4 und hätten dem Blind-Sucher eine Richtung gezeigt.
+- Die ungekürzten Fassungen lagen schon unter `archiv/gedaechtnis/stufe01/`. Die gekürzten Fassungen weichen davon ab und liegen jetzt zusätzlich als `…-gekuerzt.md` dort.
+- Der Orchestrator hat die Index-Zeile zur Spur gestrichen.
+
+**B-013**
+
+- Lemma P ist jetzt ein eigener, abgegrenzter Punkt der Aussage. Er gibt den Wortlaut von `lean/prosa/s2_444_spurA_r4.md` Abschnitt 5.1 wieder, mit den Voraussetzungen vom Anfang von Abschnitt 5 und aus Abschnitt 2 (K algebraisch abgeschlossen).
+- Ohne Urteil und ohne Bezug auf die Lean-Fassung. Der übrige Text ist inhaltlich gleich, der alte Satz zu Lemma P verweist auf den neuen Punkt.
+
+**Festgehalten**
+
+- Blind-Sucher S2-49 liest nur `CLAUDE.md` und die Problemstellung im Auftrag.
+
+---
+
+## 25.11.2026 · Runde 10: Aussagen-Abgleiche Lemma P (B-013) und Brücke (B-015)
+
+**Berichte (von der Schreibhand nachgelesen, Merges nachgesehen)**
+
+- S2-47: `lean/prosa/s2_444_bericht_s2-47.md`, PR #74 (Merge 31ac0f2).
+- S2-48: `lean/prosa/s2_444_bericht_s2-48.md`, PR #76 (Merge 2cc0b05).
+- Beide lesen `main` bei 2379d6b und werten Job 139447937419 aus (SORRY 0, nur propext, Classical.choice, Quot.sound).
+- Den Commit des Jobs konnten die Prüfer nicht abfragen. Lauf 67 hat 9f5a928 gebaut, und unter `lean/` ist bis 2cc0b05 nichts geändert (von der Schreibhand nachgesehen).
+
+**Dauer nach Git-Zeitstempeln**
+
+- Messbeginn: 2379d6b (20:27:09 Uhr MEZ), den Stand nennen beide.
+- S2-47: Bericht-Commit 5b90727 um 20:32:39 Uhr MEZ, höchstens 5½ Minuten.
+- S2-48: Bericht-Commit f28dd73 um 20:33:14 Uhr MEZ, höchstens 6 Minuten.
+
+**Gültigkeit (Entscheidung des Orchestrators)**
+
+- Beide gelten. Sie haben einander nicht gesehen, und keiner sah ein Urteil zur selben Behauptung.
+- Offengelegte Spuren:
+  - Statuswörter in Lean-Dateiköpfen und Prosa-Überschriften.
+  - Die Überschrift von §8 der Brücken-Prosa (S2-48).
+  - Eingeblendete Gedächtniseinträge aus Stufe 1 ohne Urteil zu B-013 oder B-015. S2-47 bekam `aussagen-abgleich-n3`, `abgleich-yang-n4-b007` und `git-regeln` eingeblendet, S2-48 bekam `aussagen-abgleich-n3` und `gemini-bridge`.
+  - **Hinweis der Schreibhand:** `abgleich-yang-n4-b007` war um 20:27 Uhr MEZ gelöscht und wurde S2-47 trotzdem eingeblendet. Die Löschung wirkt beim Einblenden offenbar verzögert.
+
+**Abgleich der beiden Berichte (Schreibhand)**
+
+- In den Urteilen stimmen beide überein:
+  - Lemma P ist durch `lemmaP` gedeckt, in den Voraussetzungen stärker.
+  - K* ist über alle γ mit Rang 3 gebildet. Beide geben ein eigenes, nicht formalisiertes Argument für die Gleichheit mit dem K* der Prosa.
+  - `nur_unterfallB_global'` bindet alg' nicht an alg.
+  - B-015 ist in allen drei Teilen gedeckt. `brueckeStatement` ist schwächer.
+- Einzige Abweichung: Nur S2-47 macht einen Vorbehalt zur Identifizierung des punktweisen `NichtSymmetrisch` mit p ∈ P_ns (Bericht 1.3 b). S2-48 wertet diesen Teil ohne Vorbehalt als gedeckt.
+
+**Status (gesetzt vom Orchestrator)**
+
+- B-013, Punkt Lemma P: **geprüft** für `lemmaP` (unendlicher Körper) und `nur_unterfallB'`. Vermerke: `NichtSymmetrisch` ist punktweise formuliert. K* wird über alle γ mit rk F_γ = 3 gebildet. `nur_unterfallB_global'` bindet alg' nicht an alg und gehört nicht zum geprüften Umfang.
+- B-015: **geprüft** in allen drei Teilen (`bruecke`, `bruecke_exists`, `descent`). Vermerk: `brueckeStatement` ist schwächer als die Behauptung.
+- Eingetragen in `pruefvermerke/B-013.md`, `pruefvermerke/B-015.md` und in der Übersicht.
+
+**Zähler (Lesart des Orchestrators, von der Schreibhand gegengelesen)**
+
+- Kein Fortschritt nach Abbruchregel 2 a): B-015 und Lemma P ändern keine Schranke und schließen für sich keinen benannten Fall aus.
+- Nach b) zählen sie ebenfalls nicht, weil sie keine neue Behauptung der geforderten Art sind.
+- Gleiche Lesart.
