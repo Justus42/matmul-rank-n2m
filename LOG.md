@@ -263,3 +263,22 @@ Runde 1 der Stufe 1 ist abgeschlossen. Verbraucht in Stufe 1: 1 von 8.
 **Entscheidung**
 
 Der Halt nach Abbruchregel 4 (L5, Lemma 13 in Yang v3) besteht weiter. Justus ist gefragt. Es ist keine neue Runde vergeben.
+
+---
+
+## 25.11.2026 · Entscheidung von Justus zum Halt, Stufe 1, Runde 2 vergeben
+
+**Entscheidung von Justus**
+
+Der Orchestrator hat Justus gefragt, ob Abbruchregel 4 wegen des falsch aufgeschriebenen Beweises von Lemma 13 in Yang v3 (L5) greift. Justus hat am 25.11.2026 auf der Entscheidungskarte gewählt: „Weiter, Reparatur prüfen lassen“. Die Angabe stammt vom Orchestrator, der die Karte gestellt hat. Damit ist der Halt aufgehoben.
+
+**Literaturwache**
+
+Seit dem Eintrag zu Runde 2 der Stufe 0 läuft dieselbe Sitzung des Orchestrators. Es gibt deshalb keinen neuen Eintrag in `lit/WACHE.md`.
+
+**Aufträge für Runde 2 der Stufe 1**
+
+- S1-05: Prüfung des Prosa-Beweises für n = 3, Prüfer und Fremdmodell, Zieldatei `lean/prosa/yang_n3_pruefung.md`
+- S1-06: Prüfung des Prosa-Beweises für n ≥ 4 mit Schwerpunkt L5, Prüfer und Fremdmodell, Zieldatei `lean/prosa/yang_n4_pruefung.md`
+- S1-07: Python-Prüfprogramm an Abschnitt 9 und 10 des Formats anpassen, Zieldatei `pruefer/python/`
+- S1-08: Rust-Prüfprogramm ebenso anpassen, Zieldatei `pruefer/rust/`

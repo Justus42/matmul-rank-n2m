@@ -1,14 +1,13 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 1, nach Runde 1, Halt)
+Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 2 vergeben)
 
 ## Aktuelle Stufe
 
 **Stufe 1: Yangs dritte Fassung formalisieren**
 
 - Runden verbraucht: 1 von 8
-- Runde 1 abgeschlossen, keine neue Runde vergeben
-- **Halt nach Abbruchregel 4:** keine neuen Aufträge, bis Justus entschieden hat (siehe Sperren)
+- Runde 2 läuft: S1-05, S1-06, S1-07, S1-08
 - Stufenwechsel 1 → 2: durch den Orchestrator, sobald das Fertig-Kriterium erfüllt ist (Protokoll Abschnitt 3 und 11)
 - Stufe 3: erst nach Budget von Justus
 
@@ -18,10 +17,12 @@ Zuletzt geändert: 25.11.2026 (Stufe 1, nach Runde 1, Halt)
 |---|---|---|---|
 | S1-01 | Lean-Projektgerüst | `lean/` | erledigt in Runde 1, PR #15. Drei `sorry` offen (Satz 1, Satz 2, obere Schranke 30 für 3×2×6). Der Actions-Workflow baut `lean/` noch nicht |
 | S1-02 | Prosa-Beweis der Schranke für n = 3 | `lean/prosa/yang_n3.md` | erledigt in Runde 1, PR #13 |
-| S1-03 | Prosa-Beweis der Schranke für m ≥ n ≥ 4 | `lean/prosa/yang_n4.md` | erledigt in Runde 1, PR #14 (Lücke L5, siehe Sperren) |
+| S1-03 | Prosa-Beweis der Schranke für m ≥ n ≥ 4 | `lean/prosa/yang_n4.md` | erledigt in Runde 1, PR #14 (Lücke L5, Reparatur wird in S1-06 geprüft) |
 | S1-04 | Festlegung der zwei Randfälle im Format (Zusatzschlüssel, ungültige Kalenderdaten: beides FEHLERHAFT) | `verfahren/README.md` | erledigt in Runde 1, PR #12 |
-
-Die Anpassung der beiden Prüfprogramme an die Randfälle (Abschnitt 10 von `verfahren/README.md`) wird in Stufe 1 vergeben, sobald der Halt aufgehoben ist.
+| S1-05 | Prüfung des Prosa-Beweises für n = 3, Prüfer und Fremdmodell | `lean/prosa/yang_n3_pruefung.md` | vergeben in Runde 2 |
+| S1-06 | Prüfung des Prosa-Beweises für n ≥ 4, Schwerpunkt L5, Prüfer und Fremdmodell | `lean/prosa/yang_n4_pruefung.md` | vergeben in Runde 2 |
+| S1-07 | Python-Prüfprogramm an Abschnitt 9 und 10 des Formats anpassen | `pruefer/python/` | vergeben in Runde 2 |
+| S1-08 | Rust-Prüfprogramm an Abschnitt 9 und 10 des Formats anpassen | `pruefer/rust/` | vergeben in Runde 2 |
 
 ## Fertig-Kriterium Stufe 1
 
@@ -61,10 +62,10 @@ Ergebnisse mit Status geprüft: B-001 (Rang von ⟨3,2,5⟩ ist 25, über jedem 
 ## Hinweise
 
 - Erledigt heißt: Datei geliefert und auf `main`. Ein Merge ändert keinen Status. Den Status ändert nur die Prüfung nach Abschnitt 5
+- Erledigt: Der Halt nach Abbruchregel 4 (L5, Lemma 13 in Yang v3) ist aufgehoben. Justus hat am 25.11.2026 entschieden: „Weiter, Reparatur prüfen lassen“ (siehe LOG.md)
 - Budget: Justus hat am 25.11.2026 weitere Runden über das Startbudget hinaus nach Ermessen des Orchestrators freigegeben (siehe LOG.md)
 
 ## Sperren
 
-- Halt nach Abbruchregel 4 (L5, Lemma 13 in Yang v3), Bericht an Justus, Entscheidung offen
 - Keine Arbeit an Stufe 3 ohne Budget von Justus
 - Fremder Code nur nach der Lizenzregel (Protokoll Abschnitt 11.3)
