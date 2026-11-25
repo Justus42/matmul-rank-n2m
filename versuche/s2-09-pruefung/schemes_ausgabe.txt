@@ -1,0 +1,26 @@
+scheme | ring | Brent | rkL rho rkH dimN s | L13 L13prime | dimG invertible | dimI 6-rkL | 8-dimSyz
+4x2x4-r26-s001.json#1 | Z r=26 | True | 6 4 11 0 0 | True True | 0 False | 0 0 | None
+beispiele-rang26-f2.txt#1 | F2 r=26 | True | 6 4 10 0 0 | True True | 0 False | 0 0 | None
+beispiele-rang26-f2.txt#2 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+beispiele-rang26-f2.txt#3 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+beispiele-rang26-f2.txt#4 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+beispiele-rang26-f2.txt#5 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+beispiele-rang26-f2.txt#6 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+beispiele-rang26-f2.txt#7 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+beispiele-rang26-f2.txt#8 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+beispiele-rang26-f2.txt#9 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#1 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#2 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#3 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#4 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#5 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#6 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#7 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#8 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#9 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#10 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#11 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#12 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#13 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+rho3_rang26_f2.txt#14 | F2 r=26 | True | 6 3 8 1 0 | True True | 1 True | 0 0 | 8
+violations: 0

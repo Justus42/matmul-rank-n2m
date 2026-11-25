@@ -1,0 +1,1 @@
+Lemma 13prime: 14132 (triple, gamma*) checks, violations: 0
