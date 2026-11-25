@@ -1,0 +1,20 @@
+# SAT ueber GF(2) mit erzwungener Symmetrie, cryptominisat 5.18 (pycryptosat), 1 Thread je Lauf
+# Schreibweise: Gruppe, Orbitstruktur (Orbitgroesse x Anzahl), Rang, Ergebnis (False = UNSAT, None = Zeitgrenze)
+c4 4x5,2x2,1x1 R=25 sat=None t=603.5 verified=None
+c4 4x5,2x1,1x3 R=25 sat=None t=603.6 verified=None
+c4 4x6,1x1 R=25 sat=None t=603.8 verified=None
+c4 4x4,2x4,1x1 R=25 sat=None t=605.6 verified=None
+tau 2x13 R=26 sat=False t=0.0
+tau 2x12,1x2 R=26 sat=False t=0.0
+tau 2x11,1x4 R=26 sat=None t=20.2
+tau 2x10,1x6 R=26 sat=None t=20.1
+tau 2x9,1x8 R=26 sat=None t=20.1
+tau 2x12,1x1 R=25 sat=False t=0.0
+tau 2x11,1x3 R=25 sat=False t=0.0
+tau 2x10,1x5 R=25 sat=None t=20.1
+tau 2x9,1x7 R=25 sat=None t=20.1
+tau 2x8,1x9 R=25 sat=None t=20.1
+sw 2x13 R=26 sat=None t=301.9
+c2 2x13 R=26 sat=None t=302.0
+c4 4x6,2x1 R=26 sat=None t=302.1
+# Kalibrierung: <2,2,2> Rang 7 SAT in 0,02 s (verifiziert), Rang 6 Zeitgrenze 60 s; <2,2,3> Rang 11 SAT in 0,26 s (verifiziert)
