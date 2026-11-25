@@ -1,0 +1,20 @@
+Strassen C: [Matrix([
+[1, 0],
+[0, 1]]), Matrix([
+[0,  0],
+[1, -1]]), Matrix([
+[0, 1],
+[0, 1]]), Matrix([
+[1, 0],
+[1, 0]]), Matrix([
+[-1, 1],
+[ 0, 0]]), Matrix([
+[0, 0],
+[0, 1]]), Matrix([
+[1, 0],
+[0, 0]])]
+dim solution space for G over Q(s): 1
+G_p = Matrix([[0, -1], [1, 0]])  det = 1
+identity (Kl) holds: True
+order-0 identity holds: True
+dim span a_t a_t^T: 3

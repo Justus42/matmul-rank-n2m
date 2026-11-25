@@ -1,0 +1,14 @@
+1 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+2 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+3 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+4 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+5 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+6 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+7 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+8 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+9 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+10 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+11 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+12 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+13 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
+14 rkA=1: 19 rkB=1: 19 solDim per p: {1} dim span G_p over 8 p: 1
