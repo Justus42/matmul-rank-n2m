@@ -1,0 +1,1 @@
+END p=2 seed=21 steps=651624448 runs=1 best=26 plusses=2172 restarts=0 distinct_le_report=96

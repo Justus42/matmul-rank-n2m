@@ -1,0 +1,5 @@
+RUN rank=25 seed=44 run=1 iters=6000 resid=2.000e+00 maxabs=2.343e+00
+RUN rank=25 seed=44 run=2 iters=6000 resid=2.000e+00 maxabs=1.324e+00
+RUN rank=25 seed=44 run=3 iters=6000 resid=1.000e+00 maxabs=4.224e+00
+RUN rank=25 seed=44 run=4 iters=6000 resid=2.000e+00 maxabs=4.690e+01
+RUN rank=25 seed=44 run=5 iters=6000 resid=2.000e+00 maxabs=7.258e+00

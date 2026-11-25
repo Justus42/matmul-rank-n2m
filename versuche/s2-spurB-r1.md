@@ -64,7 +64,7 @@ Plateau 3·10⁵, mit Drift.
 | 3 | 𝔽₅ | `z26_seed1` mod 5 | 1 | 5,87·10⁸ | 26 | 15625 |
 | 4 | 𝔽₂ | Schulmethode, Neustart alle 3·10⁶ Schritte | 1 | 5,58·10⁷ | 26 | 3 |
 
-Zusammen: rund 4,4·10⁹ Flip-Schritte, über 6000 Plus-Übergänge. **Kein Verfahren mit 25 Produkten.** Vollständige Ausgaben unter `s2-spurB-r1/daten/b1/` und `daten/b2/`, Zusammenfassung in `daten/auswertung_b1_b2.txt`.
+Zusammen: rund 4,4·10⁹ Flip-Schritte, über 6000 Plus-Übergänge. **Kein Verfahren mit 25 Produkten.** Protokolle unter `s2-spurB-r1/daten/b1/` und `daten/b2/` (`*-protokoll.txt`). Die Zeilen `SCHEME` je erreichtem 26er (zusammen 2,6 MB) sind wegen der Regel „große Zwischenergebnisse gehören nicht ins Repo“ weggelassen; ihre Zählung steht in `daten/b1/auswertung.txt`, `daten/b2/auswertung.txt` und `daten/auswertung_b1_b2.txt`. Mit den Aufrufen aus Abschnitt 6 und denselben Samen lassen sie sich neu erzeugen.
 
 ### Was die Wanderung über die Struktur zeigt
 
@@ -124,7 +124,7 @@ Kalibrierung an ⟨2,2,2⟩ mit Rang 7: Residuum 10⁻¹³ bis 10⁻¹⁶ in jed
 | `versuche/s2-spurB-r1/struktur.py` | listet Produktpaare mit gemeinsamem Faktor (rechnet über ℚ, daher nur für ℤ- und 𝔽₂-Ausgaben sinnvoll) |
 | `versuche/s2-spurB-r1/als.py` | numerische Probe (Levenberg-Marquardt oder ALS, Gleitkomma) |
 | `versuche/s2-spurB-r1/daten/z26_seed1.txt`, `z26_seed4.txt`, `f2_26_seed1.txt` | die drei 26er-Startverfahren als Ausgabe von `flip.c` (erstes wird zu `4x2x4-r26-s001.json`) |
-| `versuche/s2-spurB-r1/daten/b1/` bis `b4/` | vollständige Protokolle der vier Blöcke, bei b1 auch die zuletzt besten Verfahren |
+| `versuche/s2-spurB-r1/daten/b1/` bis `b4/` | Protokolle der vier Blöcke (b1, b2 ohne `SCHEME`-Zeilen), Auswertungen, bei b1 auch die zuletzt besten Verfahren |
 
 Aufrufe der Blöcke (aus `versuche/s2-spurB-r1/`, mit `OUT` und `FLIP` gesetzt, `D=daten`):
 
