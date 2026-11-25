@@ -1,0 +1,14 @@
+1 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+2 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+3 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+4 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+5 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+6 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+7 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+8 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+9 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+10 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+11 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+12 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+13 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
+14 identity (Kl): True  nonconstant mu_t: 19  dim span a_t(x)a_t: 10
