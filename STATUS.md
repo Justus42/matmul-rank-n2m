@@ -1,13 +1,13 @@
 # Status
 
-Zuletzt geändert: 25.11.2026 (Stufe 1, nach Runde 2)
+Zuletzt geändert: 25.11.2026 (Stufe 1, Runde 3 vergeben)
 
 ## Aktuelle Stufe
 
 **Stufe 1: Yangs dritte Fassung formalisieren**
 
 - Runden verbraucht: 2 von 8
-- Runde 2 abgeschlossen, Runde 3 noch nicht vergeben
+- Runde 3 läuft: S1-09, S1-10, S1-11, S1-12
 - Stufenwechsel 1 → 2: durch den Orchestrator, sobald das Fertig-Kriterium erfüllt ist (Protokoll Abschnitt 3 und 11)
 - Stufe 3: erst nach Budget von Justus
 
@@ -19,14 +19,18 @@ Zuletzt geändert: 25.11.2026 (Stufe 1, nach Runde 2)
 | S1-02 | Prosa-Beweis der Schranke für n = 3 | `lean/prosa/yang_n3.md` | erledigt in Runde 1, PR #13 |
 | S1-03 | Prosa-Beweis der Schranke für m ≥ n ≥ 4 | `lean/prosa/yang_n4.md` | erledigt in Runde 1, PR #14 (Lücke L5, Reparatur in S1-06 ohne Einwände) |
 | S1-04 | Festlegung der zwei Randfälle im Format (Zusatzschlüssel, ungültige Kalenderdaten: beides FEHLERHAFT) | `verfahren/README.md` | erledigt in Runde 1, PR #12 |
-| S1-05 | Prüfung des Prosa-Beweises für n = 3, Prüfer und Fremdmodell | `lean/prosa/yang_n3_pruefung.md` | erledigt in Runde 2, PR #20. Nachtrag des Fremdmodells mit ungekürzter Datei verlangt |
+| S1-05 | Prüfung des Prosa-Beweises für n = 3, Prüfer und Fremdmodell | `lean/prosa/yang_n3_pruefung.md` | erledigt in Runde 2, PR #20. Gegenlesen durch das Fremdmodell nur schwach (gekürzte Fassung), strenger Nachtrag offen |
 | S1-06 | Prüfung des Prosa-Beweises für n ≥ 4, Schwerpunkt L5, Prüfer und Fremdmodell | `lean/prosa/yang_n4_pruefung.md` | erledigt in Runde 2, PR #18 |
 | S1-07 | Python-Prüfprogramm an Abschnitt 9 und 10 des Formats anpassen | `pruefer/python/` | erledigt in Runde 2, PR #16 und #19 |
 | S1-08 | Rust-Prüfprogramm an Abschnitt 9 und 10 des Formats anpassen | `pruefer/rust/` | erledigt in Runde 2, PR #17 |
+| S1-09 | Formalisierung von Yangs Satz 1, Teil 1 nach Abschnitt 9 von `lean/prosa/yang_n3.md` | `YangN3Teil1.lean` | vergeben in Runde 3 |
+| S1-10 | Formalisierung von Yangs Satz 1, Teil 2 | `YangN3Teil2.lean` | vergeben in Runde 3 |
+| S1-11 | Formalisierung von Yangs Satz 1, Teil 3 | `YangN3Teil3.lean` | vergeben in Runde 3 |
+| S1-12 | Obere Schranke 30 für 3×2×6 in Lean, aus dem Verfahren von A-10 | `Upper3x2x6.lean` | vergeben in Runde 3 |
 
 Offen für spätere Runden:
 
-- Nachtrag des Fremdmodells zu S1-05 mit der ungekürzten Datei. Die Formalisierung von n = 3 wartet darauf
+- Strenger Nachtrag des Fremdmodells zu S1-05 mit der ungekürzten Datei. Gescheitert an der Ausgabengrenze des Gemini-Projekts, an Justus gemeldet
 - Beide Prüfprogramme auf denselben Testfällen abgleichen
 - Rückgabewert bei internem Fehler im Format festlegen (Python nutzt bisher 3, eigene Entscheidung)
 - Actions-Workflow für `lean/`
@@ -74,5 +78,6 @@ Ergebnisse mit Status geprüft: B-001 (Rang von ⟨3,2,5⟩ ist 25, über jedem 
 
 ## Sperren
 
+- Fremdmodell nicht verfügbar: Das Gemini-Projekt hat seine monatliche Ausgabengrenze erreicht. Kein Ausweichen auf ein anderes Konto. Aussagen-Abgleiche nach 5.1 Punkt 3 brauchen Justus' Anhebung der Grenze oder seine eigene Weitergabe
 - Keine Arbeit an Stufe 3 ohne Budget von Justus
 - Fremder Code nur nach der Lizenzregel (Protokoll Abschnitt 11.3)
