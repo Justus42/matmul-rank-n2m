@@ -32,6 +32,9 @@ MAIN_THEOREMS = [
     ("Satz B <4,2,4>, length 25, unconditional (SatzB444Final.lean)", "YangBounds.SatzB444.satzB_unbedingt"),
     ("Satz B <4,2,4>, symmetric case, unconditional (SatzB444Final.lean)", "YangBounds.SatzB444.satzB_symm_unbedingt"),
     ("Satz B <4,2,4>, every field, unconditional (SatzB444Final.lean)", "YangBounds.SatzB444.satzB_global_unbedingt"),
+    ("Satz C <4,2,4>, algebraic core (SatzC444Kern.lean)", "YangBounds.SatzC444.satzC_kern"),
+    ("Satz C <4,2,4>, generic point, length <= 25 (SatzC444Generisch.lean)", "YangBounds.SatzC444.satzC_generisch"),
+    ("Folgerung C1 (R-C1) <4,2,4>, generic case (5,8) (SatzC444Generisch.lean)", "YangBounds.SatzC444.folgerungC1_generisch"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 
