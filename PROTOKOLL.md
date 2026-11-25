@@ -1,6 +1,6 @@
 # Protokoll: Exakter Rang kleiner Matrixmultiplikations-Formate
 
-Stand: 25.11.2026 · Version 0.4.1 · Diese Datei ist das Gedächtnis des Projekts. Jeder Chat und jeder Subagent liest sie zuerst.
+Stand: 25.11.2026 · Version 0.5 · Diese Datei ist das Gedächtnis des Projekts. Jeder Chat und jeder Subagent liest sie zuerst.
 
 ---
 
@@ -30,7 +30,7 @@ Stimmen beide überein, ist das Format gelöst. Unsere Ziele sind Formate, bei d
 | 3×2×5 | 25 | 25 | gelöst, Lean-Beweis (Tsyganov u. a.) |
 | 3×2×6 | 30 | 30 | gelöst laut Yang v3, **nicht formalisiert gefunden** |
 | 3×2×7 | 34 | 35 | selbst aus den Formeln berechnet |
-| 4×2×4 | 25 | 26 | Yang v3 |
+| 4×2×4 | 26 | 26 | untere Schranke: Lean-Satz in diesem Repo (B-016), obere: Hopcroft-Kerr, hier nachgeprüft (B-010). Bis Version 0.4.1: 25 nach Yang v3 |
 | 4×2×5 | 31 | 32 | Yang v3; Quelle des 32er-Verfahrens in Stufe 0 nachtragen (Hopcroft-Kerr-Formel ergäbe 33) |
 
 Formeln:
@@ -53,7 +53,7 @@ Alle Zahlen dieser Tabelle gelten als **ungeprüft übernommen**, bis Stufe 0 si
 
 Jede Stufe hat ein Fertig-Kriterium, das eine Maschine entscheidet. Eine Stufe gilt erst als erreicht, wenn die Prüfung nach Abschnitt 5 bestanden ist.
 
-**Stufenwechsel:** Der Orchestrator wechselt von Stufe 0 zu 1 und von Stufe 1 zu 2 selbst, sobald das Fertig-Kriterium erfüllt und im Logbuch belegt ist. Stufe 3 beginnt erst, wenn Justus ein Budget dafür festgelegt hat.
+**Stufenwechsel:** Der Orchestrator wechselt von Stufe 0 zu 1 und von Stufe 1 zu 2 selbst, sobald das Fertig-Kriterium erfüllt und im Logbuch belegt ist. Stufe 3 hat seit Version 0.5 ein Budget. Sie beginnt, sobald die Auflagen aus Justus' Freigabe zu Stufe 2 erledigt sind. Nach Stufe 3 hält der Orchestrator an; eine weitere Stufe gibt es erst nach neuer Entscheidung von Justus.
 
 ### Stufe 0: Nachbau und Bestandsaufnahme
 
@@ -85,9 +85,21 @@ Zwei Spuren laufen parallel und gleichberechtigt:
 
 Endet eine Spur nach Abbruchregel 2, läuft die andere weiter. Ein Auftrag der Spur A darf einen Restfall der Fallunterscheidung in beide Richtungen angreifen: ihn ausschließen oder aus ihm ein Verfahren mit 25 bauen.
 
-### Stufe 3: 3×2×7 (34 oder 35?)
+### Stufe 3: Erkundung 4×2×5 und 3×2×7
 
-Wie Stufe 2. Beginnt erst, wenn Justus ein Budget dafür festgelegt hat.
+Bis Version 0.4.1 war Stufe 3 der volle Angriff auf 3×2×7. Seit Version 0.5 ist sie eine kurze Erkundung. Sie soll klären, ob sich der Angriff auf ein weiteres Format lohnt, und beweist selbst nichts.
+
+Fragen je Format (4×2×5 bei Länge 31, 3×2×7 bei Länge 34):
+
+- Welche Teile der Lean-Kette zu 4×2×4 gelten unabhängig vom Format, welche sind auf 4×2×4 zugeschnitten?
+- Wie viele Restfälle bleiben, wenn man die Fallunterscheidung aus Stufe 2 auf das Format anwendet? Das ist eine Rechnung. Zwei Subagenten führen sie unabhängig voneinander durch, mit eigenen Programmen
+- Trägt das Abzählargument am Ende der Kette (Schnittpunkte gegen verschiedene Punkte), oder geht die Rechnung dort nicht auf?
+
+Dazu für 4×2×5 die Gegenrichtung: Suche nach einem Verfahren mit 31, geprüft nach 5.2.
+
+Nichts aus Stufe 3 erhält den Status geprüft, außer einem nach 5.2 bestätigten Verfahren. Alles andere bleibt vermutet oder behauptet.
+
+**Fertig, wenn:** je Format eine Einschätzung unter `erkundung/` liegt: Zahl und Liste der Restfälle mit beiden Rechnungen, übertragbare und nicht übertragbare Teile, Empfehlung „Angriff lohnt" oder „lohnt nicht" mit Begründung. Oder wenn das Budget erschöpft ist.
 
 ---
 
@@ -109,6 +121,8 @@ Wie Stufe 2. Beginnt erst, wenn Justus ein Budget dafür festgelegt hat.
 Pro Runde läuft mindestens ein Blind-Sucher, sobald Stufe 2 begonnen hat. Prüfer sehen nie die Urteile früherer Prüfer.
 
 **Positivliste:** Jeder Auftrag an einen Prüfer oder Blind-Sucher nennt die Dateien, die er lesen darf. Alles andere ist für ihn gesperrt, ausdrücklich auch `STATUS.md`, `LOG.md`, `pruefvermerke/` und `archiv/`. Ein Prüfer liest von diesem Protokoll nur Abschnitt 5. Ein Blind-Sucher liest nur `CLAUDE.md` und die Problemstellung in seinem Auftrag.
+
+Die Positivliste nennt genaue Dateipfade und, wo nötig, die Nummer eines Actions-Jobs. Verzeichnislisten, Lauflisten und Commit-Listen gehören nicht hinein. Ein Auftrag an einen Prüfer nennt weder Fristen noch Zählerstände noch ein erwünschtes Ergebnis.
 
 **Projektgedächtnis:** Prüfurteile, Befunde und Zwischenstände gehören nicht ins Projektgedächtnis. Sie stehen im Repo. Wer als Prüfer oder Blind-Sucher trotzdem etwas eingeblendet bekommt, legt es in seinem Bericht offen.
 
@@ -155,7 +169,10 @@ Den Status setzt nur der Orchestrator, nie der Prüfer selbst.
 
 - `behauptungen/B-xxx.md` enthält nur Aussage, Herkunft und Artefakt
 - Status, Prüfurteile, Vorbehalte und die Übersicht stehen in `pruefvermerke/`
-- Hat ein Prüfer vor seinem Urteil ein früheres Urteil zur selben Behauptung gesehen, ist seine Prüfung ungültig und wird mit einem unbeeinflussten Prüfer wiederholt. Ein Urteil des Fremdmodells bleibt gültig, wenn das Fremdmodell selbst kein Urteil gesehen hat
+- Eine Prüfung ist ungültig, wenn der Prüfer vor seinem Urteil ein Urteil zur selben Behauptung gesehen hat oder wusste, welches Ergebnis erwünscht ist oder was von seinem Urteil abhängt
+- Bloße Spuren früherer Prüfungen (Dateinamen, Verweise in Quelltext-Kommentaren) machen eine Prüfung nicht ungültig. Der Prüfer legt sie offen
+- Eine ungültige Prüfung wird einmal mit einem unbeeinflussten Prüfer wiederholt. Ist auch die Wiederholung ungültig, zählt ein vorhandenes unbeeinflusstes Urteil des Fremdmodells allein, mit Vermerk. Fehlt ein solches, bleibt der Status behauptet
+- Ein Urteil des Fremdmodells bleibt gültig, wenn das Fremdmodell selbst weder ein Urteil gesehen hat noch das erwünschte Ergebnis kannte
 
 Abschnitt 5 nennt keine einzelne Behauptung und keinen Prüfstand, weil Prüfer ihn lesen. Übergangsregeln stehen in Abschnitt 6.
 
@@ -174,12 +191,14 @@ Ein vorhandenes, unbeeinflusstes Urteil wird weiterverwendet und nicht neu angef
 
 Eine **Runde** ist ein Orchestrator-Durchgang mit höchstens 4 Subagenten, ab Runde 9 der Stufe 2 mit höchstens 6. Aufträge einer Runde hängen nie voneinander ab; Abhängigkeiten gibt es nur zwischen Runden. Rechenblöcke dauern höchstens 30 Minuten auf 4 Kernen. Nichts läuft im Hintergrund weiter, was nicht im Logbuch steht.
 
+Subagenten vergeben keine eigenen Subagenten. Braucht ein Auftrag Hilfe, meldet der Thread das dem Orchestrator, und der vergibt einen eigenen Platz.
+
 | Stufe | Rundenbudget |
 |---|---|
 | 0 | 2 |
 | 1 | 8 |
 | 2 | 24 (beide Spuren zusammen; bis Version 0.3: 12) |
-| 3 | nach Freigabe festlegen |
+| 3 | 2, je bis zu 6 Subagenten, keine Fremdmodell-Anfrage |
 
 Die Zahlen sind Startwerte. Nur Justus ändert sie.
 
@@ -237,7 +256,7 @@ Gescheiterte Ansätze bleiben erhalten. Wer einen Ansatz beginnt, liest zuerst `
 
 Ein Logbuch-Eintrag enthält: Datum, Rundennummer, Aufträge, gelieferte Dateien, neuer Status je Behauptung, Entscheidung für die nächste Runde.
 
-Dazu der Verbrauch der Runde: Zahl der Subagenten, Dauer von der Vergabe bis zum letzten Merge, Zahl der Fremdmodell-Anfragen.
+Dazu der Verbrauch der Runde: Zahl der Subagenten, Dauer von der Vergabe bis zum letzten Merge, Zahl der Fremdmodell-Anfragen. Dauern stammen aus den Git-Zeitstempeln, nicht aus Angaben der Threads.
 
 ---
 
@@ -298,11 +317,11 @@ Auch der Orchestrator darf nicht:
 - PROTOKOLL.md oder CLAUDE.md ändern
 - selbst beweisen oder prüfen (Abschnitte 4 und 5)
 - etwas veröffentlichen oder nach außen Kontakt aufnehmen (Abschnitt 9)
-- Stufe 3 ohne Budget von Justus beginnen
+- über Stufe 3 hinaus weiterarbeiten oder in Stufe 3 einen vollen Beweisangriff beginnen
 
 Er hält an und berichtet an Justus, wenn:
 
 - eine Abbruchregel greift
-- das Fertig-Kriterium von Stufe 2 erfüllt ist
+- das Fertig-Kriterium von Stufe 2 oder von Stufe 3 erfüllt ist
 - die Plattform eine nötige Aktion verweigert und es keinen Ausweg nach diesem Protokoll gibt
 - eine Regel dieses Protokolls geändert werden müsste, um weiterzukommen

@@ -15,14 +15,16 @@
 11. Sprache im Repo: Deutsch. Ausnahme: `README.md`, Lean-Code und Programmcode sind englisch.
 12. Schreibe keine Prüfurteile, Befunde oder Zwischenstände ins Projektgedächtnis. Bekommst du als Prüfer oder Blind-Sucher trotzdem etwas eingeblendet, lege es in deinem Bericht offen.
 13. Fremdmodelle nur nach Abschnitt 5.5 des Protokolls. Jede Anfrage kostet Justus eigenes Geld.
+14. Vergib keine eigenen Subagenten, außer du bist der Orchestrator. Brauchst du Hilfe, melde es ihm.
+15. Rechenblöcke dauern höchstens 30 Minuten.
 
 ## Wenn du der Orchestrator bist
 
 Du führst das Projekt ohne Rückfragen an Justus. Deine Rechte stehen in Abschnitt 11.2 des Protokolls: Pull Requests mergen, Rückfragen der Threads beantworten, Aufträge vergeben und ändern, Stufen nach Abschnitt 3 wechseln, Lizenzfragen nach 11.3 entscheiden.
 
-Deine Grenzen stehen in Abschnitt 11.4: kein Budget verlängern, keine Abbruchregel aussetzen, `PROTOKOLL.md` und `CLAUDE.md` nicht ändern, nicht selbst beweisen oder prüfen, nichts veröffentlichen, Stufe 3 nicht ohne Budget beginnen.
+Deine Grenzen stehen in Abschnitt 11.4: kein Budget verlängern, keine Abbruchregel aussetzen, `PROTOKOLL.md` und `CLAUDE.md` nicht ändern, nicht selbst beweisen oder prüfen, nichts veröffentlichen, nicht über Stufe 3 hinaus weiterarbeiten. Stufe 3 ist eine Erkundung und kein Beweisangriff (Protokoll Abschnitt 3).
 
-Gib jedem Prüfer und Blind-Sucher eine Positivliste lesbarer Dateien mit. Status und Prüfurteile stehen in `pruefvermerke/`, nicht in `behauptungen/`.
+Gib jedem Prüfer und Blind-Sucher eine Positivliste mit genauen Dateipfaden mit, ohne Fristen, Zählerstände oder erwünschtes Ergebnis. Status und Prüfurteile stehen in `pruefvermerke/`, nicht in `behauptungen/`.
 
 Schreibe in jeden Runden-Eintrag den Verbrauch: Zahl der Subagenten, Dauer, Zahl der Fremdmodell-Anfragen.
 

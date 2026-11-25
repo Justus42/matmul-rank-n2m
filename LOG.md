@@ -1850,3 +1850,31 @@ Kein Prüfurteil, aber Hinweise auf frühere Prüfungen:
 **Auflage 7, offener Punkt für später:** Die Kette des Endsatzes vom Paket `mm325_proof` (mm325_lower_bound, fallnlove/mm325_proof@759cf4a) entkoppeln. **Nicht jetzt beginnen.**
 
 **Halt:** Nach dem bedingten Abschluss hält der Orchestrator an. Stufe 3 beginnt nicht.
+
+---
+
+## 25.11.2026 · Regeländerung durch Justus (Protokoll Version 0.5, zählt nicht zum Budget)
+
+Eingetragen im Auftrag von Justus aus einem Chat außerhalb des Projekts, 23:49 Uhr (MEZ).
+
+**Anlass**
+
+Justus will vor einem Schritt nach außen wissen, ob sich die Methode aus Stufe 2 auf weitere Formate überträgt. Dafür reicht eine Erkundung. Ein voller Angriff auf 3×2×7 wäre zu groß. Dazu kommen zwei Klarstellungen aus Runde 9 und Runde 12.
+
+**Geändert in PROTOKOLL.md**
+
+- Abschnitt 2: Zeile 4×2×4 auf den Stand B-016 und B-010 gebracht
+- Abschnitt 3: Stufe 3 ist jetzt eine Erkundung zu 4×2×5 (Länge 31) und 3×2×7 (Länge 34). Sie beweist nichts. Jede Restfall-Rechnung machen zwei Subagenten unabhängig. Für 4×2×5 kommt die Suche nach einem Verfahren mit 31 dazu. Fertig ist die Stufe mit je einer Einschätzung unter `erkundung/`
+- Abschnitt 3 und 11.4: Stufe 3 beginnt, sobald die Auflagen aus der Freigabe zu Stufe 2 erledigt sind. Danach hält der Orchestrator an. Kein voller Beweisangriff in Stufe 3
+- Abschnitt 4: Positivlisten nennen genaue Dateipfade. Aufträge an Prüfer nennen keine Fristen, Zählerstände oder erwünschten Ergebnisse
+- Abschnitt 5.4: Ungültig ist eine Prüfung bei gesehenem Urteil zur selben Behauptung oder bei bekanntem Wunschergebnis. Bloße Spuren früherer Prüfungen werden offengelegt und hingenommen. Eine ungültige Prüfung wird einmal wiederholt; danach zählt ein unbeeinflusstes Urteil des Fremdmodells allein, mit Vermerk
+- Abschnitt 6: Budget Stufe 3 sind 2 Runden mit je bis zu 6 Subagenten, ohne Fremdmodell-Anfrage. Subagenten vergeben keine eigenen Subagenten
+- Abschnitt 8: Dauern stammen aus Git-Zeitstempeln
+
+**Geändert in CLAUDE.md**
+
+Neue Regeln 14 (keine eigenen Subagenten) und 15 (Rechenblöcke höchstens 30 Minuten). Hinweise für den Orchestrator an Stufe 3 und an die Positivliste angepasst.
+
+**Damit überholt**
+
+Der Satz „Stufe 3 beginnt nicht" aus der Entscheidung von 23:42 Uhr galt für den Abschluss von Stufe 2. Für die Erkundung gilt jetzt Abschnitt 3 in der Fassung 0.5. Die übrigen Auflagen der Freigabe bleiben unverändert, insbesondere Auflage 5: kein Kontakt nach außen.
