@@ -1,0 +1,10 @@
+1 {'r': 26, 'dimS': 10, 'rho': 4, 'rhoT': 4, 'symDim': 0, 'G_invertierbar': False}
+2 {'r': 26, 'dimS': 10, 'rho': 3, 'rhoT': 3, 'symDim': 1, 'G_invertierbar': True}
+3 {'r': 26, 'dimS': 10, 'rho': 3, 'rhoT': 3, 'symDim': 1, 'G_invertierbar': True}
+4 {'r': 26, 'dimS': 10, 'rho': 3, 'rhoT': 3, 'symDim': 1, 'G_invertierbar': True}
+5 {'r': 26, 'dimS': 10, 'rho': 3, 'rhoT': 3, 'symDim': 1, 'G_invertierbar': True}
+6 {'r': 26, 'dimS': 10, 'rho': 3, 'rhoT': 3, 'symDim': 1, 'G_invertierbar': True}
+7 {'r': 26, 'dimS': 10, 'rho': 3, 'rhoT': 3, 'symDim': 1, 'G_invertierbar': True}
+8 {'r': 26, 'dimS': 10, 'rho': 3, 'rhoT': 3, 'symDim': 1, 'G_invertierbar': True}
+9 {'r': 26, 'dimS': 10, 'rho': 3, 'rhoT': 3, 'symDim': 1, 'G_invertierbar': True}
+1 {'r': 26, 'dimS': 10, 'rho': 4, 'rhoT': 4, 'symDim': 0, 'G_invertierbar': False}
