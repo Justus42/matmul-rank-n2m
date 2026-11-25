@@ -1,8 +1,7 @@
 import YangBounds
 
 /-! Axiom report for the stage-1 statements. Run with `lake env lean Axioms.lean`.
-While proofs are open, the open statements and everything derived from them
-show `sorryAx`. -/
+Since S1-17 no proof is open; an occurrence of `sorryAx` here would be an error. -/
 
 #print axioms YangBounds.tensorRank_le_mul
 #print axioms YangBounds.tensorRank_three_two_eq
