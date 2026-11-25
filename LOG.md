@@ -1335,3 +1335,13 @@ Die Prüfer S2-37, S2-38 und S2-40 haben Abschnitt 5 in der Fassung 0.4 gelesen 
 - S2-35 (Brücke, `lean/YangBounds/Bruecke444.lean`) ist mit PR #69 gemergt (deaea2e, 19:59 Uhr MEZ). Der Lean-Lauf auf main läuft noch, Ergebnis folgt.
 - S2-34 ist offen.
 - Verbrauch bisher: 6 zählende Subagenten (10 gestartet), 0 Sol-Anfragen.
+
+---
+
+## 25.11.2026 · Runde 9: S2-35 erledigt
+
+- PR #69 (Merge deaea2e, 19:59 Uhr MEZ) bringt `lean/YangBounds/Bruecke444.lean` und `lean/prosa/s2_444_spurA_r9_bruecke.md`.
+- Lauf 65 auf main ist grün (Job 139440176459), von der Schreibhand nachgesehen.
+- Der Achsenbericht nennt TOTAL STANDARD=27. Alle Hauptsätze, auch die sechs neuen aus `Bruecke444.lean`, benutzen nur propext, Classical.choice und Quot.sound. Neu sind `bruecke`, `bruecke_exists`, `bruecke_unterfallB`, `bruecke_nicht_unterfallA`, `brueckeStatement` und `rank_four_two_four_ge_26_of_unterfallB`.
+- In `Bruecke444.lean` steht `sorry` nur im Kommentar.
+- Der Endsatz `Bruecke444.rank_four_two_four_ge_26_of_unterfallB` trägt nur noch die Hypothese zu Unterfall B (laut Achsenbericht: „bridge discharged, assuming sub-case B“). Den Status setzt der Orchestrator.
