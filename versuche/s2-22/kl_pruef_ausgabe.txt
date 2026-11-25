@@ -1,0 +1,38 @@
+GF(2^31) modulus irreducible: True
+GF(2^61-1) Strassen {'label': 'Strassen', 'r': 7, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 6, 'Kl': True, 'order0': True, 'dim_aa': 3, 'dim_ab': 3, "bound_C'": 3}
+GF(2^61-1) Strassen {'label': 'Strassen', 'r': 7, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 6, 'Kl': True, 'order0': True, 'dim_aa': 3, 'dim_ab': 3, "bound_C'": 3}
+GF(2^61-1) Strassen {'label': 'Strassen', 'r': 7, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 6, 'Kl': True, 'order0': True, 'dim_aa': 3, 'dim_ab': 3, "bound_C'": 3}
+GF(2^31) Strassen {'label': 'Strassen', 'r': 7, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 6, 'Kl': True, 'order0': True, 'dim_aa': 3, 'dim_ab': 3, "bound_C'": 3}
+GF(2^31) Strassen {'label': 'Strassen', 'r': 7, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 6, 'Kl': True, 'order0': True, 'dim_aa': 3, 'dim_ab': 3, "bound_C'": 3}
+GF(2^31) Strassen {'label': 'Strassen', 'r': 7, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 6, 'Kl': True, 'order0': True, 'dim_aa': 3, 'dim_ab': 3, "bound_C'": 3}
+GF(2^61-1) s001 {'label': 's001', 'r': 26, 'dim_sol': 0, 'symmetric': False}
+GF(2^31)   s001 {'label': 's001', 'r': 26, 'dim_sol': 0, 'symmetric': False}
+GF(2^31) f2-00 {'label': 'f2-0', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-01 {'label': 'f2-1', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-02 {'label': 'f2-2', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-03 {'label': 'f2-3', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-04 {'label': 'f2-4', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-05 {'label': 'f2-5', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-06 {'label': 'f2-6', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-07 {'label': 'f2-7', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-08 {'label': 'f2-8', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-09 {'label': 'f2-9', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-10 {'label': 'f2-10', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-11 {'label': 'f2-11', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-12 {'label': 'f2-12', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+GF(2^31) f2-13 {'label': 'f2-13', 'r': 26, 'dim_sol': 1, 'symmetric': True, 'first_order_solvable': True, 'mu_all_nonzero': True, 'delta_nonzero': 19, 'Kl': True, 'order0': True, 'dim_aa': 10, 'dim_ab': 10, "bound_C'": 10}
+dim span{a_t(p) (x) b_t(p)}: generic p vs. the three GF(2)-rational points p
+  f2-00 generic 10, special [(3, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0'), (4, 'some a_t or b_t = 0')]
+  f2-01 generic 10, special [(3, 'some a_t or b_t = 0'), (4, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0')]
+  f2-02 generic 10, special [(3, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0'), (4, 'some a_t or b_t = 0')]
+  f2-03 generic 10, special [(3, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0'), (4, 'some a_t or b_t = 0')]
+  f2-04 generic 10, special [(4, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0')]
+  f2-05 generic 10, special [(3, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0'), (4, 'some a_t or b_t = 0')]
+  f2-06 generic 10, special [(3, 'some a_t or b_t = 0'), (4, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0')]
+  f2-07 generic 10, special [(4, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0')]
+  f2-08 generic 10, special [(3, 'some a_t or b_t = 0'), (4, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0')]
+  f2-09 generic 10, special [(3, 'some a_t or b_t = 0'), (4, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0')]
+  f2-10 generic 10, special [(3, 'some a_t or b_t = 0'), (4, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0')]
+  f2-11 generic 10, special [(3, 'some a_t or b_t = 0'), (4, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0')]
+  f2-12 generic 10, special [(3, 'some a_t or b_t = 0'), (4, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0')]
+  f2-13 generic 10, special [(3, 'some a_t or b_t = 0'), (4, 'some a_t or b_t = 0'), (3, 'some a_t or b_t = 0')]
