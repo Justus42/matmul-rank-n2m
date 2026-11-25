@@ -1616,3 +1616,20 @@ Kein Prüfurteil, aber Hinweise auf frühere Prüfungen:
 - Die Bericht-Commits liegen 2¾ bis 8 Minuten nach der angegebenen Vergabe um 21:05 UTC: S2-50 um 21:07:45 UTC, S2-52 und S2-53 um 21:09:55 UTC, S2-51 um 21:12:53 UTC.
 - Job 139504538345 endete laut S2-52 um 21:00 UTC.
 - Für die Dauer der Runde fehlt ein Git-Commit, der den Beginn markiert. Ich messe beim Abschluss ab dem Zeitpunkt, den der Orchestrator bestätigt.
+
+### 25.11.2026, Stufe 2, Runde 11, Nachtrag zur Dauer je Aufgabe (Schreibhand im Auftrag des Orchestrators)
+
+- Beginn bestätigt durch den Orchestrator:
+  - Die Säuberung (PR #80) meldete sich um 21:04:13 UTC.
+  - Die fünf Aufgaben wurden unmittelbar danach vergeben, etwa um 21:05 UTC (22:05 Uhr MEZ).
+- Dauer je Aufgabe nach Git, von etwa 21:05 UTC bis zum Bericht-Commit:
+
+| Aufgabe | Bericht-Commit (UTC) | Dauer |
+|---|---|---|
+| S2-50, Prüfer B-016 | 26d1fb7, 21:07:45 | etwa 3 Minuten |
+| S2-52, Prüfer B-014 | 2951e0d, 21:09:55 | etwa 5 Minuten |
+| S2-53, Prüfer B-014 | 0fae88a, 21:09:56 | etwa 5 Minuten |
+| S2-51, GPT 6.2 Sol zu B-016 | 7597484, 21:12:53 | etwa 8 Minuten |
+
+- S2-51 nennt als Batch-Zeiten der Bridge „abgegeben 22:05, fertig 22:11“ (MEZ).
+- Der Blind-Sucher S2-54 wird beim Abschluss der Runde nachgetragen.
