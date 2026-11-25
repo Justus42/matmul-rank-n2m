@@ -1283,3 +1283,55 @@ Die Prüfer S2-37, S2-38 und S2-40 haben Abschnitt 5 in der Fassung 0.4 gelesen 
 - PR #65 ist gemergt (50e9ec1, 19:34 Uhr MEZ). Er bringt `lean/YangBounds/Endsatz444.lean` mit zwei benannten Hypothesen.
 - Lauf 56 auf main ist grün.
 - Dauer nach Git-Zeitstempeln: vom Vergabe-Commit bis zum Commit e0cc761 (19:25 Uhr MEZ), siehe Rundenabschluss.
+
+---
+
+## 25.11.2026 · Runde 9: Ergebnis der letzten Wiederholung, Status B-008, B-009, B-012, B-013, B-014
+
+**Berichte (von der Schreibhand nachgelesen, Merges nachgesehen)**
+
+- S2-42, B-008 und B-009: `lean/prosa/s2_444_bericht_s2-42.md`, PR #70 (Merge c4af749).
+- S2-43, B-012 und Satz E aus B-013: `lean/prosa/s2_444_bericht_s2-43.md`, PR #71 (Merge c17315a).
+- S2-41, B-014: `lean/prosa/s2_444_bericht_s2-41.md`, PR #72 (Merge 2d6df41).
+- Alle drei nennen `main` bei e1f0aa5 als Prüfstand. S2-42 und S2-43 werten Job 139430765012 aus (SORRY 0, nur propext, Classical.choice, Quot.sound).
+
+**Dauer nach Git-Zeitstempeln**
+
+- Messbeginn: Commit e1f0aa5 (19:51:26 Uhr MEZ), den alle drei als Stand lesen. Der Vergabe-Eintrag 284d933 folgt um 19:53:28 Uhr MEZ.
+- S2-42: Bericht-Commit 2347673 um 19:57:34 Uhr MEZ, also höchstens 6 Minuten.
+- S2-43: Bericht-Commit 278a558 um 19:58:52 Uhr MEZ, also höchstens 7½ Minuten.
+- S2-41: Bericht-Commit e31df0f um 19:58:57 Uhr MEZ, also höchstens 7½ Minuten.
+
+**Gültigkeit (Entscheidung des Orchestrators nach der Regel von Justus, 19:45 Uhr MEZ)**
+
+- Alle drei Prüfungen gelten. Keiner der Prüfer hat ein Urteil zur selben Behauptung gesehen oder das erwünschte Ergebnis gekannt.
+- Offengelegte und hingenommene Spuren:
+  - S2-42 sah über `git diff c2b4b9a origin/main` die entfernten Kopfkommentare mit Verweisen auf Prosa-Prüfungen. Das ist kein Urteil zum Abgleich.
+  - Alle drei sahen Statuswörter in Prosa und Überschriften.
+  - S2-41 und S2-43 bekamen während der Arbeit gekürzte Gedächtniseinträge aus Stufe 0 und 1 eingeblendet. Die Schreibhand hat `yang-n4-prosa`, `yang-n3-prosa`, `abgleich-yang-n4-b007` und `aussagen-abgleich-n3` nachgelesen: kein Urteil, kein Status, kein Ergebnis zu einer Behauptung.
+- Die Berichte von S2-37 (PR #68), S2-38 (PR #66) und S2-40 (PR #67) bleiben ungültig.
+
+**Status (gesetzt vom Orchestrator)**
+
+- B-008: **geprüft** für Satz A, Lemma 13′, A2 und die Surjektivität in A1. Der Vorbehalt entfällt. **behauptet** bleiben der Isomorphismus in A1 und die globale Fassung als Aussage über die gegebene Zerlegung.
+- B-009: **geprüft** für die Fallliste (3,6) oder (5,8). Der Vorbehalt entfällt. **behauptet** bleiben die Symmetrie mit μ_t ≠ 0, Lemma V und der volle Wortlaut von Lemma S.
+- B-012: **geprüft** für die generische Fassung über K(S,T) (nicht symmetrisch, Fall (5,8), nicht (3,6)). Der Vorbehalt entfällt. **behauptet** bleiben die Fassung mit offener Menge und Schritt 0.
+- B-013: **geprüft** für Satz E (`satzE`) samt `commonKernel_trivial` und `sDim_eq_one` je Normalform. Der Vorbehalt entfällt. **behauptet** bleibt der Rest. Vermerk: `satzE_global` sagt nichts über die eingegebene Zerlegung.
+- B-014: bleibt **behauptet**. Der neue Prüfer S2-41 urteilt „hält mit Reparaturen R-K, R-T, R-N“, zusammen mit dem vorhandenen GPT-Urteil.
+- Eingetragen in `pruefvermerke/B-008.md`, `B-009.md`, `B-012.md`, `B-013.md`, `B-014.md` und in der Übersicht `pruefvermerke/README.md`.
+
+**Zählerstand nach Abbruchregel 2, Spur A (Lesart des Orchestrators, Übergangsregel Abschnitt 6)**
+
+- Die vier Aussagen-Abgleiche sind bestätigt. Die Fristen aus Runde 3 und Runde 6 gelten als gehalten.
+- B-014 zählt als Fortschritt in Runde 9, Frist für Status geprüft: **Ende Runde 11**.
+- Runde 7 und 8 ohne Fortschritt, Runde 9 mit Fortschritt. Zähler Spur A: **0 von 3**.
+- Gegengelesen von der Schreibhand gegen Abschnitt 6 (Fassung 0.4.1): gleiche Lesart. Abbruchregel 2 verlangt drei Runden in Folge ohne Fortschritt, und der Fortschritt in Runde 9 unterbricht die Folge.
+- Hinweise der Schreibhand für die Frist:
+  - R-T in B-014 stützt sich auf Satz A und auf die Fallliste aus Satz B, die beide jetzt geprüft sind.
+  - F1 und F2 stützen sich zusätzlich auf Teile von B-012 und B-013, die behauptet bleiben (offene Menge P_ns, Lemma P, C2). Bis Ende Runde 11 muss B-014 entweder mit diesen Teilen geprüft sein oder ohne sie auskommen.
+
+**Weiteres in Runde 9**
+
+- S2-35 (Brücke, `lean/YangBounds/Bruecke444.lean`) ist mit PR #69 gemergt (deaea2e, 19:59 Uhr MEZ). Der Lean-Lauf auf main läuft noch, Ergebnis folgt.
+- S2-34 ist offen.
+- Verbrauch bisher: 6 zählende Subagenten (10 gestartet), 0 Sol-Anfragen.
