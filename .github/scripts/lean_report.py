@@ -44,6 +44,12 @@ MAIN_THEOREMS = [
     ("Final theorem R<4,2,4> >= 26, assuming bridge and sub-case B (Endsatz444.lean)", "YangBounds.Endsatz444.rank_four_two_four_ge_26_of"),
     ("Final theorem R<4,2,4> >= 26, hypotheses at one field (Endsatz444.lean)", "YangBounds.Endsatz444.rank_four_two_four_ge_26_of'"),
     ("Final theorem R<4,2,4> >= 26, alternative route over infinite fields (Endsatz444.lean)", "YangBounds.Endsatz444.rank_four_two_four_ge_26_of_unendlich"),
+    ("Bridge <4,2,4>: (N1), (N2), (5,8), not symmetric over AlgebraicClosure K(S,T) (Bruecke444.lean)", "YangBounds.Bruecke444.bruecke"),
+    ("Bridge <4,2,4>, existence over an algebraically closed field (Bruecke444.lean)", "YangBounds.Bruecke444.bruecke_exists"),
+    ("Bridge <4,2,4>, applied: only sub-case B (Bruecke444.lean)", "YangBounds.Bruecke444.bruecke_unterfallB"),
+    ("Bridge <4,2,4>, applied: no sub-case A (Bruecke444.lean)", "YangBounds.Bruecke444.bruecke_nicht_unterfallA"),
+    ("Bridge as Endsatz444.BrueckeStatement, every field (Bruecke444.lean)", "YangBounds.Bruecke444.brueckeStatement"),
+    ("Final theorem R<4,2,4> >= 26, bridge discharged, assuming sub-case B (Bruecke444.lean)", "YangBounds.Bruecke444.rank_four_two_four_ge_26_of_unterfallB"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 

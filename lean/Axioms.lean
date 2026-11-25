@@ -31,3 +31,13 @@ Since S1-17 no proof is open; an occurrence of `sorryAx` here would be an error.
 #print axioms YangBounds.Endsatz444.rank_four_two_four_ge_26_of
 #print axioms YangBounds.Endsatz444.rank_four_two_four_ge_26_of'
 #print axioms YangBounds.Endsatz444.rank_four_two_four_ge_26_of_unendlich
+#print axioms YangBounds.Bruecke444.descent
+#print axioms YangBounds.Bruecke444.isSymm_descent
+#print axioms YangBounds.Bruecke444.genSN2L
+#print axioms YangBounds.Bruecke444.nichtSymm_genAlgL
+#print axioms YangBounds.Bruecke444.bruecke
+#print axioms YangBounds.Bruecke444.bruecke_exists
+#print axioms YangBounds.Bruecke444.bruecke_unterfallB
+#print axioms YangBounds.Bruecke444.bruecke_nicht_unterfallA
+#print axioms YangBounds.Bruecke444.brueckeStatement
+#print axioms YangBounds.Bruecke444.rank_four_two_four_ge_26_of_unterfallB
