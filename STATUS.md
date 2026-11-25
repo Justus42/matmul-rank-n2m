@@ -50,14 +50,14 @@ Zuletzt geändert: 25.11.2026 (Stufe 2, Runde 9 läuft, Protokoll 0.4.1)
 | S2-33 | Blind-Sucher | Blind-Sucher | `versuche/s2-blind-r8.md` | erledigt in Runde 8, PR #63. Keine Entscheidung |
 | S2-34 | Spur A: Unterfall B in Lean (B-014) | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 9 |
 | S2-35 | Spur A: Brücke generisch zu algebraisch abgeschlossen in Lean, Weg über „Rang fällt bei Körpererweiterung“ prüfen | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 9 |
-| S2-36 | Spur A: Zusammensetzen zum Endsatz mit benannten Hypothesen | Formalisierer | eigene Dateien unter `lean/YangBounds/` | vergeben in Runde 9 |
+| S2-36 | Spur A: Zusammensetzen zum Endsatz mit benannten Hypothesen | Formalisierer | `lean/YangBounds/Endsatz444.lean` | erledigt in Runde 9, PR #65 (Merge 50e9ec1). Endsatz mit zwei benannten Hypothesen (Brücke, Unterfall B), Lauf 56 grün, 0 sorry (Lauf 57) |
 | S2-37 | Spur A: frischer Prüfer B-014 | Prüfer | wählt der Prüfer | ungültig (Gedächtnis-Index und Abschnitt 5.4 in Fassung 0.4 verrieten das erwünschte Ergebnis), PR #68, ersetzt durch S2-41 |
 | S2-38 | Spur A: frischer Prüfer, Aussagen-Abgleiche B-008 und B-009 | Prüfer | wählt der Prüfer | ungültig (wie S2-37), PR #66, ersetzt durch S2-42 |
 | S2-39 | Spur A: frischer Prüfer, Aussagen-Abgleiche B-012 und Satz E aus B-013 | Prüfer | – | abgebrochen in Runde 9 nach unter einer Minute (Gedächtnis zeigte frühere Urteile), ersetzt durch S2-40 |
 | S2-40 | Spur A: frischer Prüfer, Aussagen-Abgleiche B-012 und Satz E aus B-013 (Ersatz für S2-39) | Prüfer | wählt der Prüfer | ungültig (wie S2-37, Abgleich von Satz E gilt nicht), PR #67, ersetzt durch S2-43 |
-| S2-41 | Spur A: Prüfer B-014 (letzte Wiederholung, Ersatz für S2-37) | Prüfer | wählt der Prüfer | vorgesehen in Runde 9 |
-| S2-42 | Spur A: Prüfer, Aussagen-Abgleiche B-008 und B-009 (letzte Wiederholung, Ersatz für S2-38) | Prüfer | wählt der Prüfer | vorgesehen in Runde 9 |
-| S2-43 | Spur A: Prüfer, Aussagen-Abgleiche B-012 und Satz E aus B-013 (letzte Wiederholung, Ersatz für S2-40) | Prüfer | wählt der Prüfer | vorgesehen in Runde 9 |
+| S2-41 | Spur A: Prüfer B-014 (letzte Wiederholung, Ersatz für S2-37) | Prüfer | `lean/prosa/s2_444_bericht_s2-41.md` | vergeben in Runde 9, Start 18:54 UTC |
+| S2-42 | Spur A: Prüfer, Aussagen-Abgleiche B-008 und B-009 (letzte Wiederholung, Ersatz für S2-38) | Prüfer | `lean/prosa/s2_444_bericht_s2-42.md` | vergeben in Runde 9, Start 18:54 UTC |
+| S2-43 | Spur A: Prüfer, Aussagen-Abgleiche B-012 und Satz E aus B-013 (letzte Wiederholung, Ersatz für S2-40) | Prüfer | `lean/prosa/s2_444_bericht_s2-43.md` | vergeben in Runde 9, Start 18:54 UTC |
 | S2-13 | Literaturwache mit Nachprüfung von Justus' Hinweis zu openai/math | Literaturwächter | `lit/WACHE.md` | erledigt in Runde 3, PR #41 |
 
 Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein Verfahren über ℚ mit Nenner 2 aus.

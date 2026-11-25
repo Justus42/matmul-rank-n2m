@@ -1255,3 +1255,31 @@ Die Prüfer S2-37, S2-38 und S2-40 haben Abschnitt 5 in der Fassung 0.4 gelesen 
 - Die Wiederholung übernehmen S2-41 (B-014), S2-42 (B-008 und B-009) und S2-43 (B-012 und Satz E aus B-013).
 - Die Prüferaufträge nennen Dateipfade je Behauptung und den Actions-Lauf 57 auf main (Commit 08854c3, Job 139430765012).
 - Offengelegte Spuren in den Herkunftsdateien sind im vorigen Eintrag aufgezählt. Sie werden nach dieser Anweisung hingenommen.
+
+---
+
+## 25.11.2026 · Runde 9: Start der letzten Wiederholung, S2-36 erledigt
+
+**Vergabe (Orchestrator, 19:54 Uhr MEZ)**
+
+- S2-41 (B-014), S2-42 (B-008 und B-009) und S2-43 (B-012 und Satz E aus B-013) sind gestartet, mit Abschnitt 5 in der Fassung 0.4.1, genauen Dateipfaden und Job 139430765012 (Lauf 57, Commit 08854c3).
+- Berichte: `lean/prosa/s2_444_bericht_s2-41.md` bis `lean/prosa/s2_444_bericht_s2-43.md`.
+- S2-42 bekommt `lean/prosa/s2_444_spurA_r6.md` nicht, weil dort Abschnitt 5 ein Urteil zu B-008 und B-009 nennt.
+- Vorher hat der Orchestrator im Gedächtnis-Index die Zeile zum Ziel der Schranke und die Zeile zur Prüfung des Gedächtnisses auf Urteile neutral gefasst.
+
+**Lauf 57, von der Schreibhand nachgesehen**
+
+- Grün, alle Schritte erfolgreich.
+- SORRY: 0 Deklarationen und 0 Vorkommen in den Quellen.
+- Achsen: 21 Hauptsätze, jeweils nur propext, Classical.choice und Quot.sound.
+
+**Lesart des Orchestrators**
+
+- Der Achsenbericht im Job-Protokoll nennt den Endsatz („Final theorem R<4,2,4> >= 26, assuming bridge and sub-case B“). Das gilt als offengelegte Spur. Es ist kein Urteil und kein erwünschtes Ergebnis einer Prüfung.
+- Der Laufname nennt frühere Prüfungen. Ein neuer Lauf mit neutralem Namen ist nicht nötig, weil die Prüfer nur das Job-Protokoll abrufen.
+
+**S2-36 erledigt**
+
+- PR #65 ist gemergt (50e9ec1, 19:34 Uhr MEZ). Er bringt `lean/YangBounds/Endsatz444.lean` mit zwei benannten Hypothesen.
+- Lauf 56 auf main ist grün.
+- Dauer nach Git-Zeitstempeln: vom Vergabe-Commit bis zum Commit e0cc761 (19:25 Uhr MEZ), siehe Rundenabschluss.
