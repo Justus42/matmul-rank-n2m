@@ -1,0 +1,1 @@
+{"n": 4, "m": 4, "r": 25, "case": ["3a", "I", "I"], "f": 19, "result": "UNSAT", "sec": 0.1, "vars": 23340, "clauses": 90624}
