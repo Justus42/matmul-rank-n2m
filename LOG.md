@@ -1179,3 +1179,5 @@ Die Prüfer setzen keinen Status. Der Orchestrator meldet die Ergebnisse, danach
 - Wörtlich unter `archiv/gedaechtnis/` abgelegt, byteweise verglichen und danach aus dem Gedächtnis gelöscht (Commit 5ba150c): `s2-30-abgleich-b012`, `s2-31-abgleich-b013`, `s2-32-lemmaP-lean`, `s2-33-blind-r8`, `grenzrang-244`, `wache-openai-math` und `wache-stufe2-4x2x4`.
 - `repo-schreibrechte` ist archiviert und auf die Schreibrechte gekürzt, ohne Status, Zähler und Halt.
 - Die 24 Einträge aus Stufe 0 und 1 sind vorsorglich wörtlich unter `archiv/gedaechtnis/stufe01/` abgelegt (Commit 607f925). Ihre Kürzung um Prüfurteile und Statusangaben steht noch aus.
+- S2-40 ist um 19:25 Uhr (MEZ) gestartet.
+- Offener Punkt für Justus: Die Einträge aus Stufe 0 und 1 im Projektgedächtnis enthalten weiter Prüfurteile und Statusangaben zu B-001 bis B-007 und zu den Yang-Prosabeweisen. Der Sicherheitsfilter der Sitzung hat ihre Kürzung abgelehnt, der Orchestrator umgeht das nicht. Sie betreffen nicht die Behauptungen, die in Runde 9 geprüft werden. Wörtliche Kopien liegen unter `archiv/gedaechtnis/stufe01/`. Soll gekürzt werden?
