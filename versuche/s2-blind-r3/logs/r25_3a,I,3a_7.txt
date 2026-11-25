@@ -1,0 +1,1 @@
+{"n": 4, "m": 4, "r": 25, "case": ["3a", "I", "3a"], "f": 7, "result": "TIMEOUT", "sec": 90.8, "vars": 20646, "clauses": 80608}
