@@ -361,3 +361,11 @@ Yang26 v3, TPSR26 v1, Wang26 v11, Lacelle26 v3, Tomar 2610.11823 v3, Rudich/Rous
 ### Einschränkungen
 
 arXiv, Google Scholar, Semantic Scholar, MathOverflow und FMM-Lille vom Proxy per curl gesperrt; arXiv-Listings nicht Seite für Seite, Scholar-Zitationslisten nicht abgefragt, MathOverflow nur über Suchmaschine (kein Treffer). caisc2026 nicht lesbar (JavaScript). Keine Vollständigkeit garantiert.
+
+---
+
+## 25.11.2026, Angabe von Justus (the repository owner) zu einer unabhängigen Recherche
+
+Nach Angabe von Justus in seiner Nachricht vom 25.11.2026, 23:08 UTC: Eine unabhängige Recherche mit Gemini Deep Research vom 25.11.2026 fand ebenfalls keinen Beweis für R(⟨4,2,4⟩) ≥ 26. Der Bericht liegt nicht im Repo. Nicht abgedeckt waren dort ECCC, Zenodo, Zulip und MathOverflow.
+
+Eingetragen als Angabe von Justus, von diesem Thread nicht nachgeprüft. Status: behauptet.
