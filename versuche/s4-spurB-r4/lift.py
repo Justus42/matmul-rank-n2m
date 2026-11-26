@@ -12,6 +12,11 @@ random points of the affine solution space EXACTLY over Z (Python integers, no f
 The first pattern with residual 0 is written as a JSON file in the format of
 verfahren/README.md with ring "Z".
 
+If this system is inconsistent (no lift with the same support), the zero entries are
+allowed to become +-2: an entry 0 becomes 2*e with e in {0, 1} modulo 4; the extra variables
+get the lowest priority as pivots, so that as few zeros as possible change. An entry 2 mod 4
+is tried as +2 and as -2 at random. The test over Z is exact in every case.
+
 Usage: python3 lift.py <flip-output.txt> <index> <out.json> <id> [tries] [seed]
 """
 import json
@@ -97,30 +102,47 @@ def main():
     rng = random.Random(int(sys.argv[6]) if len(sys.argv) > 6 else 1)
     (n, k, m, R, P), prods = read_schemes(path)[idx]
     assert P == 2 and len(prods) == R
-    # variables: one per nonzero entry
-    var = {}
-    for r, f in enumerate(prods):
-        for t in range(3):
-            for e, x in enumerate(f[t]):
-                if x % 2:
-                    var[(r, t, e)] = len(var)
     plus = [tuple([x % 2 for x in f[t]] for t in range(3)) for f in prods]
     eqs = equations(n, k, m, plus)
-    rows = []
-    for A, Bi, C, mons, want in eqs:
-        f1 = len(mons) - want
-        assert f1 % 2 == 0, "not a GF(2) scheme"
-        mask = 0
-        for r in mons:
-            for key in ((r, 0, A), (r, 1, Bi), (r, 2, C)):
-                mask ^= 1 << var[key]
-        rows.append((mask, (f1 // 2) % 2))
-    sol = solve_gf2(rows, len(var))
+    sol = None
+    for widen in (False, True):
+        # variables: zero entries first (low bits = low pivot priority) if widened, then signs
+        var, zvar = {}, {}
+        if widen:
+            for r, f in enumerate(prods):
+                for t in range(3):
+                    for e, x in enumerate(f[t]):
+                        if x % 2 == 0:
+                            zvar[(r, t, e)] = len(zvar)
+        off = len(zvar)
+        for r, f in enumerate(prods):
+            for t in range(3):
+                for e, x in enumerate(f[t]):
+                    if x % 2:
+                        var[(r, t, e)] = off + len(var)
+        rows = []
+        for A, Bi, C, mons, want in eqs:
+            f1 = len(mons) - want
+            assert f1 % 2 == 0, "not a GF(2) scheme"
+            mask = 0
+            for r in mons:
+                for key in ((r, 0, A), (r, 1, Bi), (r, 2, C)):
+                    mask ^= 1 << var[key]
+            if widen:
+                # monomials with exactly one zero entry: 1*1*(2e) = 2e mod 4
+                for r, (a, b, c) in enumerate(plus):
+                    z = [(t, ix) for t, ix, val in ((0, A, a[A]), (1, Bi, b[Bi]), (2, C, c[C])) if not val]
+                    if len(z) == 1:
+                        mask ^= 1 << zvar[(r, z[0][0], z[0][1])]
+            rows.append((mask, (f1 // 2) % 2))
+        sol = solve_gf2(rows, off + len(var))
+        if sol is not None:
+            break
+        print(f"no lift with {'+-2 allowed' if widen else 'the same support'}: mod-4 system inconsistent ({len(var)} signs, {len(zvar)} zeros)")
     if sol is None:
-        print(f"no sign lift: the mod-4 system is inconsistent ({len(var)} signs)")
         return 1
     x0, kern = sol
-    print(f"signs={len(var)} kernel dim={len(kern)}")
+    print(f"signs={len(var)} zeros={len(zvar)} kernel dim={len(kern)}")
     for t in range(tries):
         x = x0
         if t:
@@ -129,8 +151,18 @@ def main():
                     x ^= v
         cand = []
         for r, f in enumerate(prods):
-            cand.append(tuple([(-1 if (x >> var[(r, tt, e)]) & 1 else 1) if f[tt][e] % 2 else 0
-                               for e in range(len(f[tt]))] for tt in range(3)))
+            fac = []
+            for tt in range(3):
+                vec = []
+                for e in range(len(f[tt])):
+                    if f[tt][e] % 2:
+                        vec.append(-1 if (x >> var[(r, tt, e)]) & 1 else 1)
+                    elif (r, tt, e) in zvar and (x >> zvar[(r, tt, e)]) & 1:
+                        vec.append(rng.choice((2, -2)))
+                    else:
+                        vec.append(0)
+                fac.append(vec)
+            cand.append(tuple(fac))
         bad = residual_int(eqs, cand)
         if bad == 0:
             print(f"lift found at try {t}: exact over Z, 0 violated equations")
