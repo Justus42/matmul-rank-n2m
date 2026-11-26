@@ -2375,3 +2375,28 @@ Alle melden 0 eigene Subagenten und 0 Fremdmodell-Anfragen. Status von allem: **
 **Gedächtnis:** Die Einträge `hk-verfahren-a10` und `lean-upper-3x2x6` bleiben unverändert (Entscheidung des Orchestrators). Der Blind-Sucher legt offen, was ihm eingeblendet wird. Die Einschränkung der Blindheit wird wie in Runde 2 vermerkt.
 
 Die Literaturwache dieser Sitzung läuft. Die Vergabe von Runde 3 folgt danach.
+
+## 26.11.2026 · Literaturwache vor Runde 3 (außerhalb der Runde)
+
+- `lit/WACHE-2026-11-26-R3.md` und Eintrag in `lit/WACHE.md`, PR #115 (Merge 35e2449 um 09:51:06 UTC). Commits 8468ba8 (09:48:20), 15719b4 (09:49:05), 213de8a (09:50:28), 58eb1a9 (09:50:41). Dauer nach Git etwa 3 Minuten. Nur diese zwei Dateien geändert.
+- Ergebnis: Nichts gefunden. Keine neue Fassung von 2609.14393 oder 2609.22054, keine neue Arbeit zu ⟨n,2,m⟩ oder einer Rangschranke eines festen Formats. **Abbruchregel 3 greift nicht.** Status: behauptet.
+- Weiter gesperrt: arXiv (alle Zugänge), FMM-Lille, Google Scholar, Semantic Scholar, ECCC, Zenodo, MathOverflow per curl; GitHub-REST-API für fremde Repos 403.
+- Verbrauch: 1 Subagent (der Thread selbst), 0 Fremdmodell-Anfragen. Gemeldetes Modell: claude-opus-5-5.
+
+## 26.11.2026 · Stufe 4, Runde 3 von 6 vergeben (etwa 09:53 UTC)
+
+6 Subagenten, alle gleichzeitig und unabhängig. Keine eigenen Subagenten der Threads. Rechenblöcke höchstens 30 Minuten auf 4 Kernen mit Commit dazwischen (Lesart e). Fremdmodell: höchstens zwei Sol-Anfragen, keine ohne Prüferbestätigung (Vorgabe 3 von Justus), bisher 0.
+
+| Nr. | Spur, Rolle | Auftrag | Zieldatei |
+|---|---|---|---|
+| S4-12 | Prüfer | B-021, D zuerst und einzeln. Positivliste: `CLAUDE.md`, Protokoll Abschnitt 5, `behauptungen/B-021.md`, `lean/prosa/s4_327_spurA_r2_bau.md`, `lean/prosa/yang_n3.md` | `lean/prosa/s4_327_bericht_s4-12.md` |
+| S4-13 | Prüfer | B-022, B-023, B-024. Positivliste: `CLAUDE.md`, Protokoll Abschnitt 5, die drei Behauptungsdateien, die drei Artefakte, `versuche/s4-spurB-r2/`, `lean/prosa/yang_n3.md` | `lean/prosa/s4_327_bericht_s4-13.md` |
+| S4-14 | Spur A, Beweissucher | e = 3 ohne (INJ5) (S4-07-V, L-2), beide Richtungen | `lean/prosa/s4_327_spurA_r3_e3.md` |
+| S4-15 | Spur A, Beweissucher | e ≤ 2 (L-1), Ausschluss oder Bau | `lean/prosa/s4_327_spurA_r3_e2.md` |
+| S4-16 | Spur B, Verfahrenssucher | zuerst Positivprobe bei 35; bei Nichtbestehen Ende mit Befund, keine Suche bei 34 (Vorgabe 4 von Justus) | `versuche/s4-spurB-r3.md` |
+| S4-17 | Blind-Sucher | liest nur `CLAUDE.md` und die Problemstellung | `versuche/s4-blind-r3.md` |
+
+- Laut Orchestrator wurden keinem Prüfer und dem Blind-Sucher Fristen, Zähler, das erwünschte Ergebnis oder die Nachricht von Justus mitgegeben.
+- Gedächtnis vor der Vergabe durchgesehen (Eintrag oben, etwa 09:52 UTC).
+- Zählerstand zu Beginn der Runde: Spur A 1 von 3, Spur B 1 von 3. Laufende Fristen nach 2 b): keine.
+- Runde 3 bleibt nach Lesart (f) offen, bis die Sol-Antwort zu S4-07-D da ist oder feststeht, dass keine Anfrage gestellt wird.

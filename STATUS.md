@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Pause von Justus aufgehoben, Lesart (d) gilt nicht, Zähler je 1 von 3; Runde 3 in Vorbereitung)
+Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 3 vergeben etwa 09:53 UTC; Zähler je 1 von 3)
 
 ## Aktuelle Stufe
 
@@ -14,6 +14,8 @@ Zuletzt geändert: 26.11.2026 (Pause von Justus aufgehoben, Lesart (d) gilt nich
 - Runde 1 von 6 vergeben etwa 06:52 UTC: 5 Subagenten, 0 Fremdmodell-Anfragen. S4-01 bis S4-03 Prüfer für B-017 bis B-019, S4-04 Verfahren mit 35 anlegen und nachrechnen, S4-05 Blind-Sucher. Die Berichte S3-03 und S3-04 stehen auf keiner Positivliste
 - Runde 1 von 6 abgeschlossen: 5 Subagenten, 0 Fremdmodell-Anfragen, etwa 48 Minuten nach Git (06:52 UTC bis 412ad8b um 07:40:05 UTC). Haltebedingung nicht erfüllt (Lesart c). B-017 bis B-019 behauptet, von einem Prüfer bestätigt. B-020 (obere Schranke 35) behauptet
 - Abbruchregel 2: Lesart (d) des Orchestrators gilt nicht (Justus, 26.11.2026, 09:47 UTC). Die Spuren gibt es erst ab Runde 2. Zähler nach Runde 2: Spur A 1 von 3, Spur B 1 von 3
+- Literaturwache vor Runde 3: PR #115 (Merge 35e2449), etwa 3 Minuten nach Git, nichts gefunden, Abbruchregel 3 greift nicht. 1 Subagent, 0 Fremdmodell-Anfragen
+- Runde 3 von 6 vergeben etwa 09:53 UTC: 6 Subagenten (S4-12 bis S4-17), Fremdmodell höchstens zwei Sol-Anfragen, keine ohne Prüferbestätigung, bisher 0. Bleibt offen bis zur Sol-Antwort zu S4-07-D oder bis feststeht, dass keine Anfrage gestellt wird (Lesart f)
 - Runde 2 von 6 vergeben: S4-06 bis S4-09 etwa 07:42 UTC, S4-10 und S4-11 etwa 07:43 UTC nach Durchsicht des Gedächtnisses. 6 Subagenten, Fremdmodell in dieser Runde nicht geplant
 - Runde 2 von 6 abgeschlossen: 6 Subagenten, 0 Fremdmodell-Anfragen, etwa 50 Minuten nach Git (07:42 UTC bis 78ce5f9 um 08:31:52 UTC). Kein Ausschluss, kein Verfahren mit 34. Zähler nach Justus (09:47 UTC): Spur A 1 von 3, Spur B 1 von 3
 - Lesart (e): Rechenblöcke direkt hintereinander ohne Commit dazwischen zählen als ein Block. S4-05 hat damit die Grenze von 30 Minuten überschritten (etwa 38 Minuten), Regelverstoß ohne weitere Folge
@@ -88,6 +90,12 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S4-09 | Axiom-Bericht für `lemma15b` und `lemma_I` in Actions (nur Workflow) | Lean-Wartung | Workflow | erledigt, PR #108 (Merge 1e4f7b8) und #112 (Merge 645af03). Lauf 45778891656, Job 139769322302: `lemma15b_core`, `lemma15b`, `lemma_I` nur Standard-Axiome, SORRY 0 |
 | S4-10 | Prüfung B-020, Wiederholung beider Läufe | Prüfer | `verfahren/3x2x7-r35-pruefung-s4-10.md` | erledigt, PR #109 (Merge e715211). B-020 geprüft nach 5.2 |
 | S4-11 | Blind-Sucher | Blind-Sucher | `versuche/s4-blind-r2.md` | erledigt, PR #110 (Merge 0ee499f). Satz G behauptet, keine Schranke über 34. Blindheit eingeschränkt (vier Einzeleinträge eingeblendet) |
+| S4-12 | Prüfung B-021 (D zuerst und einzeln) | Prüfer | `lean/prosa/s4_327_bericht_s4-12.md` | vergeben in Runde 3 |
+| S4-13 | Prüfung B-022, B-023, B-024 | Prüfer | `lean/prosa/s4_327_bericht_s4-13.md` | vergeben in Runde 3 |
+| S4-14 | Spur A: e = 3 ohne (INJ5), beide Richtungen | Beweissucher | `lean/prosa/s4_327_spurA_r3_e3.md` | vergeben in Runde 3 |
+| S4-15 | Spur A: e ≤ 2, Ausschluss oder Bau | Beweissucher | `lean/prosa/s4_327_spurA_r3_e2.md` | vergeben in Runde 3 |
+| S4-16 | Spur B: Positivprobe bei 35, nur bei Bestehen Suche nach 34 | Verfahrenssucher | `versuche/s4-spurB-r3.md` | vergeben in Runde 3 |
+| S4-17 | Blind-Sucher | Blind-Sucher | `versuche/s4-blind-r3.md` | vergeben in Runde 3 |
 
 ## Stufe 3: abgeschlossen
 
