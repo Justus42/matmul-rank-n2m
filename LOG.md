@@ -1997,3 +1997,49 @@ Von Justus angeordneter Abschluss nach Runde 12, keine eigene Runde.
   - S3-03 und S3-04: Restfall-Rechnung 3×2×7 bei Länge 34, unabhängig voneinander.
   - S3-05: Übertragbarkeit der Lean-Kette und Abzählargument für beide Formate.
   - S3-06: Blind-Sucher, mit Suche nach einem Verfahren mit 31 für 4×2×5.
+
+### 26.11.2026, Stufe 3, Runde 1 von 2 abgeschlossen (Schreibhand im Auftrag des Orchestrators)
+
+**Abschluss**
+
+- Vergabe um etwa 23:15 UTC (Angabe des Orchestrators). Ende mit dem Merge von PR #98 (a0f4ae5) um 00:02:32 UTC.
+- Dauer nach Git: **etwa 47 Minuten**.
+- Verbrauch: 6 Subagenten (S3-01 bis S3-06), 0 Fremdmodell-Anfragen.
+- Eigene Subagenten der Threads: keine gemeldet. S3-05 und S3-06 schreiben das ausdrücklich.
+- Unter `lean/` ist nichts geändert (nachgesehen, aa9f011 bis a0f4ae5).
+
+**Lieferungen (auf main nachgesehen; Inhalt laut Threads, alles Status behauptet)**
+
+| Auftrag | PR, Merge | Dateien | Bericht-Commit (UTC) | Dauer nach Git |
+|---|---|---|---|---|
+| S3-01, Restfälle 4×2×5, Länge 31 | #93, 96407db | `erkundung/s3-01-restfaelle-425.md`, `erkundung/s3-01-restfaelle.py` | bf3e092, 23:16:27 | etwa 1½ Minuten |
+| S3-02, Restfälle 4×2×5, Länge 31 | #94, a94018c | `erkundung/s3-02-restfaelle-425.md`, `erkundung/s3-02-restfaelle.py` | e710ce4, 23:16:44 | etwa 2 Minuten |
+| S3-04, Restfälle 3×2×7, Länge 34 | #95, 43d0410 | `erkundung/s3-04-restfaelle-327.md`, `erkundung/s3-04-restfaelle-327.py` | 37c4809, 23:18:09 | etwa 3 Minuten |
+| S3-03, Restfälle 3×2×7, Länge 34 | #96, 9fa3ac8 | `erkundung/s3-03-restfaelle-327.md` | f6ff18a, 23:18:35 | etwa 3½ Minuten |
+| S3-05, Übertragbarkeit der Lean-Kette | #97, 0486edb | `erkundung/s3-05-uebertragung.md` | 644eeb7, 23:23:20 | etwa 8 Minuten |
+| S3-06, Blind-Sucher 4×2×5 | #98, a0f4ae5 | `erkundung/s3-06-blind-425.md` | 3c59dc1, 00:02:14 | etwa 47 Minuten |
+
+- S3-01 und S3-02, unabhängig voneinander: je 7 Restfälle in der Rolle n = 4, m = 5. In der transponierten Lage ⟨5,2,4⟩ sind es 20 Fälle.
+- S3-03 und S3-04, unabhängig voneinander: je genau ein Restfall (ρ, rk L, rk H) = (4, 6, 4) in der Rolle n = 3. In der transponierten Lage sind es 201 Fälle.
+- S3-05: Der Unterbau ist allgemein formuliert. Ab Satz B ist alles fest auf 4×2×4 gebaut. Unter `lean/` hat S3-05 nichts geändert.
+- S3-06: kein Verfahren mit 31 oder 32. Über GF(2) 13 Verfahren mit 33.
+  - Rechenblöcke höchstens 10 Minuten, 0 eigene Subagenten (Angabe des Threads).
+  - Eingeblendet waren der Gedächtnis-Index und die Einträge `hk-verfahren-a10`, `verfahren-randfaelle-s1-04`, `verfahren-datenformat` und `git-regeln`. Das ist in Abschnitt 0 des Berichts offengelegt.
+- Hinweis der Schreibhand: Die Bericht-Commits von S3-01 bis S3-04 liegen 1½ bis 3½ Minuten nach der Vergabe.
+
+**Status (Orchestrator):** alles behauptet. Nichts wird geprüft.
+
+**Fertig-Kriterium Stufe 3:** noch nicht erfüllt. Die Einschätzung je Format mit Empfehlung fehlt.
+
+**Runde 2 von 2 (letzte Runde, danach hält der Orchestrator an)**
+
+- Keine Fremdmodell-Anfrage, keine eigenen Subagenten der Threads.
+- S3-07: Einschätzung 4×2×5, Ziel `erkundung/s3-07-einschaetzung-425.md`. Vergeben um etwa 00:10 UTC.
+- S3-08: Einschätzung 3×2×7, Ziel `erkundung/s3-08-einschaetzung-327.md`. Vergeben um etwa 00:10 UTC.
+- S3-09: Blind-Sucher, Verfahren mit 31 für 4×2×5 über Körpern der Charakteristik ungleich 2, Ziel `erkundung/s3-09-blind-425.md`. Vergabe erst nach der Bestätigung der Schreibhand.
+
+**Gedächtnis (Durchsicht vor S3-09, Schreibhand)**
+
+- Index nach dem Abgleich um 00:04 UTC: vom Orchestrator um 23:13 UTC neu gefasst (Protokoll 0.5, Auflage 5, Wunsch zu Literaturwachen). Er enthält keine Urteile, Befunde oder Zwischenstände.
+- 21 Einzeleinträge, unverändert seit der letzten Durchsicht. Keine Urteile, Befunde oder Zwischenstände.
+- Kein Eintrag nennt Schranken oder Verfahren zu 4×2×5 oder 3×2×7. Der frühere Eintrag `schranken-befunde` mit der Schranke 32 für 4×2×5 ist seit der Durchsicht vor Runde 11 gelöscht.
