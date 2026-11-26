@@ -423,3 +423,37 @@ arXiv (Abstract-, Listen-, API- und OAI-Seiten), FMM-Lille sowie Scholar, Semant
 ### Einschränkungen
 
 Keine Vollständigkeit garantiert, kein Durchgang der cs.CC-Listen, sehr neue Einreichungen eventuell noch nicht indexiert.
+
+---
+
+## 26.11.2026 (vor Runde 4 der Stufe 4)
+
+Zeiten aus den Git-Zeitstempeln der Commits auf dem Zweig `claude/project-thread-o46ufv` (erster Commit `c422348`). Vollständiges wörtliches Suchprotokoll: [WACHE-2026-11-26-R4.md](WACHE-2026-11-26-R4.md). Ausführender Thread meldet als Modellbezeichnung claude-opus-5-5. Keine Subagenten, keine Abruf-Agenten, keine Fremdmodell-Anfrage. Anlass: Die Umgebung lässt nach Angabe des repository owner seit 26.11.2026 arxiv.org, fmm.univ-lille.fr, eccc.weizmann.ac.il, zenodo.org, mathoverflow.net und api.semanticscholar.org durch.
+
+### Ergebnis für die Abbruchregel 3
+
+**Nicht gefunden:** kein Beweis von R(⟨3,2,7⟩) ≥ 35 (alle Permutationen, jeder Körper), kein Verfahren mit 34 Multiplikationen, keine neue Schranke für das Format. Bester veröffentlichter Stand unverändert: untere Schranke 34 (2609.14393 v3), obere Schranke 35 (HK71). Die FMM-Lille-Haupttabelle (Stand 24.11.2026) führt das Format in allen Einträgen mit 35. Abbruchregel 3 greift nicht. Status: behauptet.
+
+### Pflichtpunkte nach Abschnitt 7
+
+- arXiv:2609.14393: Versionsliste direkt gelesen, v1 13.09., v2 28.09., v3 12.10.2026, keine neue Fassung. arXiv:2609.22054: nur v1 vom 18.09.2026.
+- fallnlove/mm325_proof `759cf4a8`: unverändert.
+- openai/math `3344da59`: unverändert, also keine neuen Commits, Familien oder Verzeichnisse in `preprints/`.
+- cs.CC direkt gelesen (Liste vom 26.11.2026 und Wochenliste ab 20.11.2026, 64 Einträge, dazu 10 Ersetzungen): keine Arbeit zu ⟨n,2,m⟩ oder zur Rangschranke eines festen Formats. arXiv-API-Suchen über alle Kategorien ebenfalls ohne neuen Treffer.
+
+### Erreichbarkeit
+
+| Quelle | erreichbar |
+|---|---|
+| arXiv (abs, list, export-API, OAI) | ja |
+| fmm.univ-lille.fr (2x3x7.html und Haupttabelle) | ja |
+| eccc.weizmann.ac.il | ja, nur mit Browser-Kennung im User-Agent |
+| zenodo.org (API) | ja |
+| mathoverflow.net | ja |
+| api.semanticscholar.org | durchgelassen, ohne Schlüssel meist 429 (2 von 9 Anfragen beantwortet) |
+| Google Scholar | nein |
+| GitHub-REST-API für fremde Repos | nein (403); git und raw.githubusercontent.com ja |
+
+### Einschränkungen
+
+Keine Vollständigkeit garantiert. Semantic-Scholar-Stichwortsuche unbeantwortet. Von Zenodo und MathOverflow nur die neuesten zehn Treffer je Anfrage gesichtet.
