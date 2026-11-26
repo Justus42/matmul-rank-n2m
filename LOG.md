@@ -2225,3 +2225,42 @@ Alle UTC, aus Git. Alle vier melden 0 eigene Subagenten und 0 Fremdmodell-Anfrag
 **Gegengelesen (Schreibhand):** Die Urteile finden sich so in den Berichten. Zu Punkt 2: In Stufe 0 hat A-10 die Verfahren für 3×2×5 und 3×2×6 gebaut und beide Prüfprogramme selbst laufen lassen. Ein getrennter Prüfer hat die Läufe nicht wiederholt, der Status wurde trotzdem auf geprüft gesetzt (Eintrag Stufe 0, Runde 3). Bei B-010 (4×2×4 mit 26) hat dagegen ein getrennter Prüfer (S2-11) die Läufe wiederholt. Die strengere Lesart folgt dem Muster von B-010.
 
 **Nachtrag 26.11.2026, etwa 07:00 UTC:** Auf Anweisung des Orchestrators `behauptungen/B-020.md` angelegt (R(⟨3,2,7⟩) ≤ 35 über ℤ, Artefakt `verfahren/3x2x7-r35-hk71.json` mit SHA-256, Herkunft S4-04, ohne Ausgaben der Läufe und ohne Urteil), dazu `pruefvermerke/B-020.md` mit Status behauptet. Die Zeile für die Schranke 35 in der Liste „ohne eigene Behauptungsdatei“ ist durch die Zeile B-020 in der Übersicht ersetzt. Der Orchestrator bleibt beim Muster von B-010 und vergibt die Wiederholung der Läufe in Runde 2.
+
+## 26.11.2026 · Stufe 4, Runde 1 abgeschlossen
+
+**S4-05 (Blind-Sucher):** `versuche/s4-blind-r1.md`, PR #107 (Merge 412ad8b um 07:40:05 UTC). Commits 20e9126 (06:53:15), 2a7e08b (07:06:59), bb81c05 (07:39:28). Nur diese eine Datei geändert.
+
+- Inhalt laut Bericht, alles behauptet: Rang 34 oder 35, nicht entschieden. Eigenes Verfahren mit 35 über ℤ per Flip-Graph (aus ⟨3,2,3⟩ mit 15 und ⟨3,2,4⟩ mit 20, Koeffizienten −1, 0, 1), nicht als Datei unter `verfahren/` abgelegt. Untere Schranke 34 nur aus der Literatur. Ein Verfahren mit 34 müsste rk L = 6, rk H = 4, Δ = 2, dim N = 3, dim S = 1 erfüllen, ein Widerspruch wurde nicht gefunden (Lücke L3). Ein exaktes Beispiel, dass die Voraussetzungen von Lemma 2 und 3 aus Tsyganov u. a. bei r = 34 erfüllbar sind. Suche nach 34 über ℤ und über GF(2) ohne Fund.
+- Offenlegung: Gedächtnis-Index und drei Einzeleinträge eingeblendet (`hk-verfahren-a10`, `lean-upper-3x2x6`, `git-regeln`). Öffentliche Literatur außerhalb des Repos gelesen (Abschnitt 3 des Berichts).
+- Rechenblöcke laut Bericht: Block 1 über ℤ 20 Minuten (07:00 bis 07:20 UTC, 4 Kerne), Block 2 über GF(2) 18 Minuten (07:20 bis 07:38 UTC, 4 Kerne), dazu kürzere Läufe (4 Minuten auf 1 Kern, je 100 s auf 3 Kernen). Jeder Block für sich liegt unter 30 Minuten. Die beiden großen Blöcke liefen ohne Pause hintereinander, zusammen 38 Minuten. Aus Git ist nur der Rahmen ablesbar: Zwischen den Commits 07:06:59 und 07:39:28 liegen 32,5 Minuten, das passt zu den Angaben. Einzelne Blocklängen lassen sich aus Git nicht nachmessen.
+- Verbrauch: 0 eigene Subagenten, 0 Fremdmodell-Anfragen.
+
+**Runde 1, Abschluss**
+
+- 5 Subagenten (S4-01 bis S4-05), 0 Fremdmodell-Anfragen.
+- Dauer nach Git: Vergabe etwa 06:52 UTC bis Merge 412ad8b um 07:40:05 UTC, also etwa 48 Minuten. S4-01 bis S4-04 waren nach je etwa 4 bis 5 Minuten fertig, S4-05 nach etwa 47 Minuten.
+- Status: B-017 bis B-019 behauptet, von einem Prüfer bestätigt. B-020 behauptet. Alles aus S4-05 behauptet.
+
+**Lesarten des Orchestrators (strengere Fassung)**
+
+- (c) Die Haltebedingung von Runde 1 (mehr als zwei Restfälle oder ein nicht behebbarer Fehler in einem der beiden Lemmata) ist nicht erfüllt. Runde 2 beginnt.
+- (d) Abbruchregel 2: Die Spuren gibt es erst ab Runde 2. Streng gelesen zählt Runde 1 trotzdem als Runde ohne Fortschritt. Zähler 1 von 3 für Spur A und für Spur B. Das beendet keine Spur.
+
+**Gegengelesen (Schreibhand):** (c) deckt sich mit den Berichten S4-01 bis S4-03. (d) ist strenger als der Wortlaut, weil Runde 1 laut Abschnitt 3 nur Prüfung ist und keine Spur hatte. Der Zähler steht damit nach Runde 1 bei 1 von 3 für beide Spuren.
+
+## 26.11.2026 · Stufe 4, Runde 2 von 6 vergeben (S4-06 bis S4-09 etwa 07:42 UTC)
+
+Bis zu 6 Subagenten, keine eigenen Subagenten der Threads. Fremdmodell nur nach 5.5, in dieser Runde keine Anfrage geplant.
+
+| Nr. | Spur, Rolle | Auftrag | Zieldatei | Vergabe |
+|---|---|---|---|---|
+| S4-06 | Spur A, Beweissucher | Ausschluss des Restfalls | `lean/prosa/s4_327_spurA_r2_ausschluss.md` | etwa 07:42 UTC |
+| S4-07 | Spur A, Beweissucher (Gegenrichtung) | aus dem Restfall ein Verfahren mit 34 bauen oder das Hindernis benennen | `lean/prosa/s4_327_spurA_r2_bau.md` | etwa 07:42 UTC |
+| S4-08 | Spur B, Verfahrenssucher | Suche nach 34, mit den erzwungenen Kenngrößen als Vorgabe | `versuche/s4-spurB-r2.md` | etwa 07:42 UTC |
+| S4-09 | Lean-Wartung | Axiom-Bericht für `lemma15b` und `lemma_I` im Actions-Lauf, nur Workflow, kein Quelltext unter `lean/YangBounds/` | Workflow | etwa 07:42 UTC |
+| S4-10 | Prüfer | B-020, wiederholt die Läufe beider Prüfprogramme | `verfahren/3x2x7-r35-pruefung-s4-10.md` | nach Durchsicht des Gedächtnisses |
+| S4-11 | Blind-Sucher | | `versuche/s4-blind-r2.md` | nach Durchsicht des Gedächtnisses |
+
+Positivliste S4-10: `behauptungen/B-020.md`, `verfahren/3x2x7-r35-hk71.json`, `verfahren/README.md`, `pruefer/python/`, `pruefer/rust/`. Nicht darauf: `verfahren/3x2x7-r35-nachrechnung.md`.
+
+**Gedächtnis vor S4-10 und S4-11 (Schreibhand, etwa 07:45 UTC):** Index (unverändert seit 06:45 UTC, letzte Synchronisation 06:58 UTC) und alle 21 Einzeleinträge durchgesehen. Nichts über Behauptungen, Prüfurteile, Befunde, Zähler oder Rundenverlauf von Stufe 4. Nichts geändert. Freigegeben.
