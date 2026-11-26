@@ -1,0 +1,54 @@
+# S4-26: Endsatz zu ⟨4,2,4⟩ vom Paket `mm325_proof` entkoppeln (Auflage 7)
+
+Wartungsauftrag in Runde 5 von Stufe 4, Inhalt nach Punkt 3 der Nachricht des repository owner vom 26.11.2026, 11:40 UTC. Ausgangsstand: `main` bei `66f11ab`. Status setzt nur der Orchestrator.
+
+## Was verschoben wurde
+
+| vorher | nachher |
+|---|---|
+| `lean/YangBounds/Basic.lean` Zeile 5: `import MatrixMultiplicationLowerBound25` | entfernt; an seiner Stelle die 21 Mathlib-Importe des Paketmoduls, die `Basic.lean` noch nicht selbst hatte (siehe unten) |
+| `lean/YangBounds/Basic.lean` Zeilen 24–27, Hinweis im Modulkommentar | ersetzt durch den Hinweis, dass `Basic.lean` das Paket nicht importiert und die Brücke in `BrueckeMM325.lean` liegt |
+| `lean/YangBounds/Basic.lean` Zeilen 125–153: `BilinearAlgorithm.toMatrixAlgorithm`, `BilinearAlgorithm.ofMatrixAlgorithm`, `tensorRank_three_two_eq`, `tpsr_lower_bound` | wörtlich unverändert in der neuen Datei `lean/YangBounds/BrueckeMM325.lean`, gleiche Namen im Namensraum `YangBounds` |
+| `lean/Axioms.lean` Zeilen 7 und 8: `#print axioms YangBounds.tensorRank_three_two_eq`, `#print axioms YangBounds.tpsr_lower_bound` | entfernt; stehen in der neuen Datei `lean/AxiomsMM325.lean` (importiert nur `YangBounds.BrueckeMM325`) |
+
+Unverändert: `lakefile.toml`, `lake-manifest.json` (Paket `mm325_lower_bound` bei `759cf4a8…` bleibt Abhängigkeit, Mathlib bei `c44e0c8`), `lean/YangBounds.lean` (Wurzelmodul, importiert `BrueckeMM325` nicht), alle übrigen Lean-Dateien, alle Sätze und Beweise, `.github/workflows/*`, `.github/scripts/lean_report.py`.
+
+`BrueckeMM325.lean` wird weiter gebaut: Die Bibliothek `YangBounds` erfasst über das Muster `YangBounds.+` jede Datei unter `lean/YangBounds/`, und `lean_report.py gen-check` importiert ebenfalls jede dieser Dateien.
+
+### Warum die Mathlib-Importe in `Basic.lean`
+
+Bisher bekamen `Basic.lean` und alle Dateien dahinter über `MatrixMultiplicationLowerBound25` dessen Mathlib-Importe mit. Damit kein nachfolgender Beweis eine Mathlib-Datei verliert, stehen genau diese Importe jetzt direkt in `Basic.lean`. Liste der Importe des Paketmoduls (`fallnlove/mm325_proof@759cf4a`, Datei `MatrixMultiplicationLowerBound25.lean`, Zeilen 1–23, außerhalb des Repos gelesen, nichts kopiert außer den Modulnamen): `Mathlib.LinearAlgebra.FiniteDimensional.Basic`, `Mathlib.Tactic.FinCases`, `Mathlib.Tactic.Ring`, `Mathlib.LinearAlgebra.Quotient.Basic`, `Mathlib.Tactic.Abel`, `Mathlib.LinearAlgebra.FiniteDimensional.Lemmas`, `Mathlib.Algebra.Module.Submodule.Lattice`, `Mathlib.Algebra.Module.Pi`, `Mathlib.Algebra.Field.Basic`, `Mathlib.LinearAlgebra.Dual.Lemmas`, `Mathlib.LinearAlgebra.Pi`, `Mathlib.Algebra.Polynomial.Roots`, `Mathlib.LinearAlgebra.Dimension.Constructions`, `Mathlib.Tactic.LinearCombination`, `Mathlib.Tactic.FieldSimp`, `Mathlib.Tactic.Push`, `Mathlib.LinearAlgebra.Basis.Prod`, `Mathlib.LinearAlgebra.StdBasis`, `Mathlib.LinearAlgebra.BilinearMap`, `Mathlib.FieldTheory.RatFunc.Basic`, `Mathlib.Data.Matrix.Mul`, `Mathlib.Data.Nat.Find`, `Mathlib.Tactic.NormNum`. Die beiden vorletzten hatte `Basic.lean` schon.
+
+Was nachfolgende Dateien jetzt nicht mehr sehen, sind nur die eigenen Deklarationen des Pakets (Namensräume `MatrixMultiplicationLowerBound` und `MM325`, darunter einige `@[simp]`-Lemmata über seine eigenen Typen). Keine Lean-Datei unter `lean/` außer der Brücke nennt einen dieser Namen (Suche nach `MatrixMultiplicationLowerBound`, `MM325`, `matrixMul`, `colUnit`, `pencilMinor`, `mapVec`, `pairBasis`, `Decomposition`: keine Treffer außerhalb der Brücke). Ob ein `simp`-Aufruf stillschweigend eines der Paket-Lemmata benutzt hat, entscheidet der Bau im Actions-Lauf.
+
+## Importkette des Endsatzes
+
+Endsatz: `YangBounds.Transponiert444.rank_four_two_four_ge_26` in `lean/YangBounds/Transponiert444.lean`. Ermittelt aus den `import`-Zeilen der Quelltexte (transitive Hülle innerhalb von `lean/YangBounds/`, Importe außerhalb des Projekts gesammelt).
+
+**Vorher (`main` bei `66f11ab`):** 26 Projektmodule: `Basic`, `Bruecke444`, `CeilBound`, `Endsatz444`, `Lemma13Prime`, `LemmaK444`, `LemmaP444`, `LemmaZ444`, `SatzA444`, `SatzB444`, `SatzB444Final`, `SatzB444Poly`, `SatzC444Generisch`, `SatzC444Kern`, `SatzE444`, `SatzE444Buendel`, `SatzF444`, `Statements`, `Transponiert444`, `Upper3x2x6`, `YangN3`, `YangN3Teil1`, `YangN3Teil2`, `YangN3Teil3`, `YangN4Haupt`, `YangN4Lemma13` (jeweils mit Präfix `YangBounds.`). Einziger Import außerhalb von Mathlib: `MatrixMultiplicationLowerBound25`, importiert von `YangBounds.Basic`. Über `Basic` hing damit jede Datei der Kette am Paket (z. B. `Transponiert444 → SatzF444 → LemmaP444 → SatzE444Buendel → SatzE444 → SatzA444 → Statements → Basic → MatrixMultiplicationLowerBound25`).
+
+**Nachher (dieser PR):** dieselben 26 Projektmodule. Importe außerhalb von Mathlib: keine. Kein Modul der Kette importiert `MatrixMultiplicationLowerBound25`. Da Mathlib das Paket nicht importiert (das Paket hängt umgekehrt von Mathlib ab), importiert die Kette das Paket weder direkt noch indirekt. `YangBounds.BrueckeMM325` ist nicht in der Kette.
+
+Zur Gegenprobe: Wurzelmodul `YangBounds` (27 Module, Kette plus Wurzel): kein Paketimport. `YangBounds.S4BedingterAusschluss`: kein Paketimport. `YangBounds.BrueckeMM325`: importiert `YangBounds.Basic` und `MatrixMultiplicationLowerBound25`, als einzige Datei des Projekts. Außerdem importieren nur `lean/AxiomsMM325.lean` (neu) und `lean/YangBounds/Basic.lean` (im Kommentar) den Namen `BrueckeMM325`, also kein Modul der Kette.
+
+Nachrechnen ohne Lean: für jedes Modul die Zeilen `^import` lesen und die Hülle bilden; die `import`-Zeilen aller Dateien stehen in den ersten Zeilen der Dateien unter `lean/YangBounds/`.
+
+## Was sonst das Paket nennt
+
+Nicht geändert, weil außerhalb des Auftrags oder für einen grünen Lauf nicht nötig:
+
+- `.github/workflows/zweitlauf.yml` (Zeilen 7, 137, 147, 152): prüft mit lean4checker auch die Module des Pakets unter `.lake/packages/mm325_lower_bound/.lake/build`. Das Paket wird weiter gebaut (wegen `BrueckeMM325.lean`), der Schritt bleibt also lauffähig. Für den Endsatz selbst prüft der Schritt danach mehr als nötig, das ist unschädlich. Die Axiom-Zeile dort importiert nur `YangBounds.Transponiert444` und ist vom Umbau nicht betroffen.
+- `.github/workflows/lean-build.yml`: der alte, getrennte Bau des fremden Repos. Unberührt.
+- `.github/workflows/lean-project.yml` Zeile 7: Kommentar über `lean-build.yml`. Unberührt.
+- `lean/README.md` Zeilen 24, 26 („bridge to the dependency“ bei `Basic.lean`), 36–41 (Abschnitt zur Abhängigkeit), 54–58 und 132 (`tensorRank_three_two_eq`, `tpsr_lower_bound` in `Axioms.lean`): nach dem Umbau in den Zeilen 26 und 132 veraltet. Nicht geändert (README-Dateien außerhalb des Auftrags, strengere Lesart); Nachtrag gehört in einen eigenen Auftrag.
+- `lean/NACHBAU.md`: historischer Nachbau des fremden Repos (A-02). Unberührt.
+- `README.md` Zeile 25 und `ergebnisse/rang-444.md` Zeilen 31, 58, 84: nennen das Paket als Voraussetzung des Beweises. Nach Vorgabe des repository owner in einem getrennten Auftrag nach dem wiederholten Zweitlauf zu ändern; hier unberührt.
+- `STATUS.md` Zeile 257 („`lean/Axioms.lean` importiert das Wurzelmodul …“) und Zeile 253 (Auflage 7): Sache des Orchestrators.
+
+Es hängt sonst nichts am Paket als diese Brücke: keine weitere Lean-Datei unter `lean/` importiert das Paket oder benutzt die vier verschobenen Deklarationen.
+
+## Lauf
+
+Maßgeblich ist der Lauf von `.github/workflows/lean-project.yml` (Job „Build lean/ and report axioms“). Lauf- und Job-Nummern des PR-Laufs und des Laufs auf `main` meldet der Thread dem Orchestrator; sie stehen nicht in dieser Datei, weil jeder Commit hier den Lauf neu startet.
+
+Verbrauch: keine Subagenten, keine Fremdmodell-Anfragen, kein lokaler Lean-Bau (nur Lesen der Quelltexte und ein Klon von `fallnlove/mm325_proof` außerhalb des Repos zum Lesen der Importliste).
