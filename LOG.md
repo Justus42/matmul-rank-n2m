@@ -2310,3 +2310,25 @@ Alle melden 0 eigene Subagenten und 0 Fremdmodell-Anfragen. Status von allem: **
 - **S4-08 (Spur B):** läuft noch. Zweig `claude/project-thread-irkx8w`, noch ohne PR. Commits 3c6af4d (07:45:27), 0083762 (07:49:46), d9cea16 (07:55:46, Block 1a 07:50:36 bis 07:55:36), 0ca1e58 (08:10:30, Block 1b). Nachtrag folgt.
 
 **Offene Pull Requests (26.11.2026, etwa 08:30 UTC):** keiner. Alte Zweige aus Stufe 2 sind per Squash gemergt und haben keinen offenen PR.
+
+## 26.11.2026 · Stufe 4, Runde 2 abgeschlossen
+
+**S4-08 (Spur B, Suche nach 34):** `versuche/s4-spurB-r2.md` mit `versuche/s4-spurB-r2/` (Programme und Daten), PR #114 (Merge 78ce5f9 um 08:31:52 UTC). Commits 3c6af4d (07:45:27), 0083762 (07:49:46), d9cea16 (07:55:46), 0ca1e58 (08:10:30), b9c134c (08:31:36). Dauer ab Vergabe (etwa 07:42) etwa 50 Minuten.
+
+- Inhalt laut Bericht, alles behauptet: Kein Verfahren mit 34. Kein Teil des Suchraums vollständig abgesucht, kein UNSAT, kein Zertifikat. Die Positivprobe bei 35 fand ebenfalls nichts. Das Werkzeug ist damit nicht geeicht, das Ausbleiben eines Funds ist kein Indiz gegen 34. Behauptet: Eichwerte (6, 7, 6) der bekannten 35er gegen (4, 6, 4) im Restfall, Satz K (K1, K2, ohne Lemma 15(b), ohne algebraischen Abschluss), Grenze der starken Normalform über GF(2) und GF(3).
+- **Rechenblöcke gegen Lesart (e) und Git:** 1a 07:50:36 bis 07:55:36 (5 Minuten), Commit d9cea16 um 07:55:46; 1b 07:55:54 bis 08:10:24 (14,5 Minuten), Commit 0ca1e58 um 08:10:30; Block 2 08:10:41 bis 08:30:41 (20 Minuten), Commit b9c134c um 08:31:36. Je 4 Kerne. Zwischen allen Blöcken liegt ein Commit, die Commit-Zeiten passen zu den Angaben. Jeder Block unter 30 Minuten. **Kein Verstoß.**
+- Eingeblendet: Gedächtnis-Index und Einzeleinträge (Datei- und Formathinweise, Abschnitt 0 des Berichts). 0 eigene Subagenten, 0 Fremdmodell-Anfragen.
+
+**Runde 2, Abschluss**
+
+- 6 Subagenten (S4-06 bis S4-11), 0 Fremdmodell-Anfragen.
+- Dauer nach Git: Vergabe etwa 07:42 UTC (erster Commit 07:42:02) bis Merge 78ce5f9 um 08:31:52 UTC, also etwa 50 Minuten.
+- Ergebnis: B-020 geprüft (S4-10). Kein Ausschluss des Restfalls, kein Verfahren mit 34. Alles Übrige behauptet.
+- **Zählerstand Abbruchregel 2** (Lesart (d) des Orchestrators): Spur A 2 von 3, Spur B 2 von 3. Kein Fortschritt nach a) oder b) in Runde 2. B-020 zählt nicht (Bestätigung eines bekannten Werts). Ohne Lesart (d) je 1 von 3. Laufende Fristen nach 2 b): keine.
+- Budget: 2 von 6 Runden verbraucht.
+- Offene Pull Requests: keine.
+- Der Orchestrator legt Justus Lesart (d) vor, weil nach ihr eine Runde 3 ohne Fortschritt beide Spuren und die Stufe beenden würde (Protokoll Abschnitt 3). Ohne seine Antwort beginnt Runde 3 nicht.
+
+**Der Orchestrator hält an.** Pause bis Sonntag, 29.11.2026, auf Anweisung von Justus. Keine Vergabe vorher. Die Pause zählt nicht als Runde und löst keine Abbruchregel aus.
+
+**Plan des Orchestrators für Runde 3 (26.11.2026),** bei Wiederaufnahme gegen Abschnitt 3 und den dann geltenden Stand neu zu lesen: steht in STATUS.md unter „Wiederaufnahme“.
