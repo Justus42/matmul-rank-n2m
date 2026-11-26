@@ -3368,3 +3368,8 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - Liste für eine spätere Fassung (nach Punkt 6 von Justus; keine falsche Angabe): „p. 28“ statt „pp. 27–28“ für die Vermutung in `README.md` Z. 29, `ergebnisse/rang-444.md` Z. 24, 103, 107 und `lit/QUELLEN.md` Z. 11 („S. 28“) (N-01); die drei Texte erwähnen die Kommentaränderungen nicht (N-01); die Läufe auf 18556a7 und 53e9608 nennt kein Text im Repo; `BELEGE.md` Abschnitt 9 zeigt a1e0deb, die lokalen Läufe auf 53e9608 liegen nur außerhalb des Repos; `ergebnisse/rang-444.md` Z. 3 ohne Hinweis auf die bedingte erste Freigabe.
 - Hinweis: Dieser Logbuch-Commit liegt hinter 53e9608 und ändert nur `LOG.md` und `STATUS.md`.
 - Zahl der Subagenten der Nacharbeit unverändert sieben (N-01 bis N-07; dieser Durchgang ohne neuen Subagenten), kein Fremdmodell.
+
+## 26.11.2026 · Nacharbeit abgeschlossen: SHA an Justus, Meldung von N-01 zu Endsatz444 (Schreibhand, aus der Meldung des Orchestrators)
+
+- Meldung von N-01 (22:08 UTC, über den Orchestrator, nicht von der Schreibhand geprüft): Im Export `solution.export` des Comparator-Laufs B auf 53e9608 (laut N-01 27012 Deklarationen) kommt aus dem Namensraum `YangBounds.Endsatz444` nur `fall58_of_nichtSymmetrisch` vor; der neue Hinweis in `Endsatz444.lean` sei damit richtig. Der Export liegt nicht im Repo. Hinweis ohne Wertung: con-ron meldete für denselben Export „accepted 27008 declarations (--verified)“; laut seiner Ausgabe zählen 30 erzeugte Datensätze zu `Lean.Syntax` nicht mit.
+- Der Orchestrator hat Justus um 22:09 UTC den SHA **53e9608398bbeaaa7b9306d5b732f23ff6997171** genannt und angehalten. Weitere Aufträge gibt es nicht.
