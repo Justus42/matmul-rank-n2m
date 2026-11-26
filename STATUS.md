@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 3: Prüfer S4-12 und S4-13 geliefert, B-025 angelegt, Vorgabe für die nächste Literaturwache; Zähler je 1 von 3)
+Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 3: Prüfer S4-12 und S4-13 geliefert, B-025 angelegt, Vorgabe für die nächste Literaturwache, Sol-Antwort zu D, Fortschritt Spur A; Zähler Spur A 0 von 3, Frist Ende Runde 5)
 
 ## Aktuelle Stufe
 
@@ -17,7 +17,8 @@ Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 3: Prüfer S4-12 und S4-13 geliefe
 - Literaturwache vor Runde 3: PR #115 (Merge 35e2449), etwa 3 Minuten nach Git, nichts gefunden, Abbruchregel 3 greift nicht. 1 Subagent, 0 Fremdmodell-Anfragen. Lief noch mit den bisherigen Netzsperren
 - **Vorgabe für die nächste Literaturwache** (Justus, 26.11.2026, 10:09 UTC, Wortlaut im Logbuch): Die Umgebung lässt jetzt arxiv.org samt Unterdomains, fmm.univ-lille.fr, eccc.weizmann.ac.il, zenodo.org, mathoverflow.net und api.semanticscholar.org durch. Die Wache liest direkt die Versionslisten von 2609.14393 und 2609.22054, die neuen Einträge in cs.CC und die FMM-Lille-Seite zu 2x3x7 und hält fest, was erreichbar war
 - Runde 3 von 6 vergeben etwa 09:53 UTC: 6 Subagenten (S4-12 bis S4-17), Fremdmodell höchstens zwei Sol-Anfragen, keine ohne Prüferbestätigung, bisher 1. Bleibt offen bis zur Sol-Antwort zu S4-07-D oder bis feststeht, dass keine Anfrage gestellt wird (Lesart f)
-- Runde 3, Zwischenstand: S4-12 und S4-13 geliefert. B-021 bis B-024 behauptet, von einem Prüfer bestätigt (B-024 K2 nur berichtigt). B-025 (Fallunterscheidung) angelegt, behauptet. Sol-Anfrage zu S4-07-D gestellt 10:05 UTC (1 von höchstens 2, Batch `openrouter:batch-1795687520-iFCKAiiJIQ1lIli8h29y`), Antwort steht aus
+- Runde 3, Zwischenstand: S4-12 und S4-13 geliefert. B-021 bis B-024 behauptet, von einem Prüfer bestätigt (B-024 K2 nur berichtigt). B-025 (Fallunterscheidung) angelegt, behauptet. Sol-Anfrage zu S4-07-D gestellt 10:05 UTC (1 von höchstens 2, Batch `openrouter:batch-1795687520-iFCKAiiJIQ1lIli8h29y`), Antwort da 10:11 UTC (`versuche/s4-r3-sol-d/gpt_antwort.md`): erster Satz von D hält, zweiter Satz nur je Normalform
+- **Runde 3, Fortschritt Spur A nach Abbruchregel 2 b)** (Orchestrator, nach Vorgabe 1 von Justus): B-021 D (erster Satz) von Prüfer S4-12 und Fremdmodell unabhängig bestätigt, Status behauptet. Ausgeschlossen ist der benannte Fall „e = 3 mit (INJ5)“ der Fallunterscheidung B-025. **Zähler Spur A: 0 von 3. Frist: B-021 D geprüft bis Ende Runde 5**, sonst zählt es nachträglich nicht und der Zähler wird neu berechnet. Spur B: Zähler hängt an S4-16. Fremdmodell Runde 3: 1 von höchstens 2, eine zweite Anfrage ist in dieser Runde nicht mehr möglich
 - Runde 2 von 6 vergeben: S4-06 bis S4-09 etwa 07:42 UTC, S4-10 und S4-11 etwa 07:43 UTC nach Durchsicht des Gedächtnisses. 6 Subagenten, Fremdmodell in dieser Runde nicht geplant
 - Runde 2 von 6 abgeschlossen: 6 Subagenten, 0 Fremdmodell-Anfragen, etwa 50 Minuten nach Git (07:42 UTC bis 78ce5f9 um 08:31:52 UTC). Kein Ausschluss, kein Verfahren mit 34. Zähler nach Justus (09:47 UTC): Spur A 1 von 3, Spur B 1 von 3
 - Lesart (e): Rechenblöcke direkt hintereinander ohne Commit dazwischen zählen als ein Block. S4-05 hat damit die Grenze von 30 Minuten überschritten (etwa 38 Minuten), Regelverstoß ohne weitere Folge
@@ -33,7 +34,7 @@ Entscheidung von Justus vom 26.11.2026, 08:23 UTC: Runde 2 abschließen, dann Pa
 
 - Budget Stufe 4: 2 von 6 Runden verbraucht (Runde 1: 5 Subagenten, Runde 2: 6 Subagenten), 0 Fremdmodell-Anfragen in der Stufe. Verbleibend: 4 Runden
 - Zähler Abbruchregel 2 (Wortlaut Justus, 09:47 UTC): „Zähler nach Runde 2: Spur A 1 von 3, Spur B 1 von 3.“ Lesart (d) gilt nicht
-- Laufende Fristen nach Abbruchregel 2 b): keine. In Stufe 4 gibt es bisher keine Behauptung, die ein Prüfer und ein Fremdmodell bestätigt haben
+- Laufende Fristen nach Abbruchregel 2 b): keine (Stand bei der Pause). Seit Runde 3: B-021 D geprüft bis Ende Runde 5 (siehe „Aktuelle Stufe“)
 - Weitere Fristen: keine mit Datum (die Pause bis 29.11.2026 ist aufgehoben). Offener Punkt ohne Frist: Auflage 7 aus Stufe 2 (Endsatz von mm325_proof entkoppeln, „nicht jetzt“)
 - Geprüft in Stufe 4: B-020 (R(⟨3,2,7⟩) ≤ 35 über ℤ und jedem Körper, nach 5.2). Behauptet, von einem Prüfer bestätigt: B-017, B-018, B-019. Axiom-Bericht für `lemma15b` und `lemma_I` seit S4-09 vorhanden
 - Rang von ⟨3,2,7⟩: 34 oder 35, nicht entschieden

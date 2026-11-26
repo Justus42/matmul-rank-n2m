@@ -2440,3 +2440,14 @@ Wortlaut Justus (26.11.2026, 10:09:04 UTC):
 
 - Als Vorgabe für die nächste Literaturwache in STATUS.md eingetragen.
 - Die Literaturwache vor Runde 3 (PR #115) lief noch mit den bisherigen Netzsperren. Das bleibt so vermerkt, sie wird nicht nachträglich anders bewertet.
+
+**Nachtrag 26.11.2026, Runde 3: Sol-Antwort zu S4-07-D und Entscheidung des Orchestrators**
+
+- Antwort abgeholt von der Schreibhand mit `batch_job` der Bridge (kostenlos, keine neue Anfrage, ohne `save_to`). Wörtlich abgelegt in `versuche/s4-r3-sol-d/gpt_antwort.md`. Kopf: openai/gpt-6.2-sol, Betreiber OpenAI, abgegeben 10:05 UTC, fertig 10:11 UTC (MEZ 11:05, 11:11), Eingabe 6.516, Ausgabe 8.161 Tokens (Denken 4.813), 0,05 US-$, finish_reason stop.
+- Urteil des Fremdmodells: erster Satz von D hält unter den ausdrücklich übernommenen Voraussetzungen aus Abschnitt 1. Der zweite Satz hält als Alternative je Normalform, nicht normalformunabhängig. (INJ5) als Polynom-Injektivität. Nebenbefund: Der Ausschluss von e = 0 in 3.1 setzt eine im Auszug fehlende Charakterisierung von S voraus, D braucht ihn nicht. Die Lesart des Orchestrators stimmt mit dem Wortlaut überein (Abgleich im Prüfvermerk B-021).
+- Entscheidung des Orchestrators:
+  1. B-021 D (erster Satz) ist von einem Prüfer (S4-12) und vom Fremdmodell unabhängig voneinander bestätigt. Sol sah weder das Prüferurteil noch ein erwünschtes Ergebnis. Status bleibt behauptet.
+  2. Nach Vorgabe 1 von Justus (09:47 UTC) zählt das als Fortschritt von Spur A nach Abbruchregel 2 b) in Runde 3: Ausschluss des benannten Falls „e = 3 mit (INJ5)“ der Fallunterscheidung B-025. Zähler Spur A damit 0 von 3. Frist: Status geprüft bis zum Ende von Runde 5, sonst zählt es nachträglich nicht und der Zähler wird neu berechnet.
+  3. Vorbehalte in `pruefvermerke/B-021.md` und `pruefvermerke/B-025.md`: Abhängigkeit von B-017 bis B-019 und den übernommenen Voraussetzungen; zweiter Satz nur je Normalform; (INJ5) als Polynom-Aussage; Vollständigkeit (e ≤ 3) und Ausschluss von e = 0 von keinem Prüfer beurteilt, Sol nennt beim Ausschluss von e = 0 eine fehlende Voraussetzung.
+  4. Fremdmodell Runde 3: 1 von höchstens 2 verbraucht. Eine zweite Anfrage stellt der Orchestrator nur, wenn ein weiterer Ausschluss aus S4-14 oder S4-15 von einem Prüfer bestätigt wäre. Das ist in dieser Runde nicht mehr möglich. Spur B: Der Zähler hängt an S4-16.
+- Nach Lesart (f) ist die Sol-Antwort da. Runde 3 bleibt offen bis zu den Lieferungen S4-14 bis S4-17.
