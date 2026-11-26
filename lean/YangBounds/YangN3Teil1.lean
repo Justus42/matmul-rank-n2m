@@ -70,18 +70,18 @@ theorem extendForm_map {a b : ℕ} (f : Matrix (Fin a) (Fin b) K →ₗ[K] K)
     (A : Matrix (Fin a) (Fin b) K) :
     extendForm (L := L) f (A.map (algebraMap K L)) = algebraMap K L (f A) := by
   rw [extendForm_apply]
-  conv_rhs => rw [Matrix.matrix_eq_sum_stdBasisMatrix A]
+  conv_rhs => rw [Matrix.matrix_eq_sum_single A]
   simp only [map_sum, Matrix.map_apply]
   refine Finset.sum_congr rfl fun i _ => Finset.sum_congr rfl fun j _ => ?_
-  have h : Matrix.stdBasisMatrix i j (A i j) = A i j • (unitMatrix i j : Matrix _ _ K) := by
+  have h : Matrix.single i j (A i j) = A i j • (unitMatrix i j : Matrix _ _ K) := by
     ext i' j'
     by_cases h1 : i' = i
     · subst h1
       by_cases h2 : j' = j
       · subst h2
-        simp [Matrix.stdBasisMatrix, unitMatrix]
-      · simp [Matrix.stdBasisMatrix, unitMatrix, h2, Ne.symm h2]
-    · simp [Matrix.stdBasisMatrix, unitMatrix, h1, Ne.symm h1]
+        simp [Matrix.single, unitMatrix]
+      · simp [Matrix.single, unitMatrix, h2, Ne.symm h2]
+    · simp [Matrix.single, unitMatrix, h1, Ne.symm h1]
   rw [h, LinearMap.map_smul, smul_eq_mul, map_mul, mul_comm]
 
 /-- The product of two matrix units, entry by entry. -/

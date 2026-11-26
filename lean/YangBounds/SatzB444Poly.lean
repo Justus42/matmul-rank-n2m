@@ -120,7 +120,7 @@ theorem eq_single_of_degree_eq_one {d : Fin 4 →₀ ℕ} (hd : d.degree = 1) :
   · rw [Finsupp.single_eq_of_ne (Ne.symm hj)]
     by_cases hjs : j ∈ d.support
     · exact hrest j (Finset.mem_erase.mpr ⟨hj, hjs⟩)
-    · exact Finsupp.not_mem_support_iff.mp hjs
+    · exact Finsupp.notMem_support_iff.mp hjs
 
 /-- A homogeneous polynomial of degree `1` is a linear form. -/
 theorem eq_lin_of_isHomogeneous_one {g : Poly K} (hg : g.IsHomogeneous 1) :
