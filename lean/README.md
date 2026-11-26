@@ -112,16 +112,16 @@ records such a local run with commands and output, section 9 the same on the com
 below.
 
 GitHub Actions is authoritative (protocol 5.1 item 4). Runs on commit
-`@@W@@`:
+`a1e0deb6d5ef38032d64c5b3813ec7a96a49ace0`:
 
-* `.github/workflows/lean-project.yml`, run @@LPRUN@@, job @@LPJOB@@: success.
+* `.github/workflows/lean-project.yml`, run 45886015262, job 140136780218: success.
 * `.github/workflows/zweitlauf.yml` (fresh checkout, no build artefacts, `leanchecker` of the
   toolchain over every project module, `#print axioms`, `leanchecker --fresh` on
-  `YangBounds.Transponiert444`), run @@ZWRUN@@, job @@ZWJOB@@: success, 32 of 32 modules OK.
+  `YangBounds.Transponiert444`), run 45886019141, job 140141105711: success, 32 of 32 modules OK.
   On `main` this workflow is not started by a push; it runs by `workflow_dispatch` (input `ref`),
   on pushes to the branch `portierung`, and on pull requests that change the workflow file.
 
-Between `@@WS@@` and the commit that added these run numbers only text files changed
+Between `a1e0deb` and the commit that added these run numbers only text files changed
 (`README.md`, this file, `ergebnisse/rang-444.md`, `palomar/BELEGE.md`). The first runs of the
 Lean 4.36.0 state were on commit `676cdf5` (run 45869038515, job 140079318183, and run
 45869043624, job 140079342228). Since then task N-06 re-determined the import list of
@@ -147,7 +147,7 @@ How to check them:
   kernel and NanoDa ("Your solution is okay!"), the same from exports as Palomar's judge does it,
   `con-ron` on the Solution export, and a control run that rejects a forbidden axiom. These runs
   were outside Palomar's sandbox; section 1.7 lists what they do not show.
-  Section 9 repeats them on commit `@@WS@@`.
+  Section 9 repeats them on commit `a1e0deb`.
 * Palomar's own check functions (toolchain, Lean sources, `comparator.json`,
   `formalization.yaml`, licence) ran locally on the files: `palomar/BELEGE.md`, sections 2, 8 and 9.
 
