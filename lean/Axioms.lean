@@ -4,8 +4,6 @@ import YangBounds
 Since S1-17 no proof is open; an occurrence of `sorryAx` here would be an error. -/
 
 #print axioms YangBounds.tensorRank_le_mul
-#print axioms YangBounds.tensorRank_three_two_eq
-#print axioms YangBounds.tpsr_lower_bound
 #print axioms YangBounds.ceil_bound_iff
 #print axioms YangBounds.yang_theorem_one
 #print axioms YangBounds.yang_theorem_two

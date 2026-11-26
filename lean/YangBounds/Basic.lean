@@ -2,7 +2,30 @@ import Mathlib.Data.Matrix.Mul
 import Mathlib.Data.Nat.Find
 import Mathlib.Algebra.BigOperators.Fin
 import Mathlib.Logic.Equiv.Fin.Basic
-import MatrixMultiplicationLowerBound25
+-- S4-26 (condition 7): the Mathlib modules below are exactly the Mathlib imports of the
+-- former dependency module `MatrixMultiplicationLowerBound25` that this file no longer
+-- imports, so that every downstream file sees the same Mathlib environment as before.
+import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.Ring
+import Mathlib.LinearAlgebra.Quotient.Basic
+import Mathlib.Tactic.Abel
+import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+import Mathlib.Algebra.Module.Submodule.Lattice
+import Mathlib.Algebra.Module.Pi
+import Mathlib.Algebra.Field.Basic
+import Mathlib.LinearAlgebra.Dual.Lemmas
+import Mathlib.LinearAlgebra.Pi
+import Mathlib.Algebra.Polynomial.Roots
+import Mathlib.LinearAlgebra.Dimension.Constructions
+import Mathlib.Tactic.LinearCombination
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Push
+import Mathlib.LinearAlgebra.Basis.Prod
+import Mathlib.LinearAlgebra.StdBasis
+import Mathlib.LinearAlgebra.BilinearMap
+import Mathlib.FieldTheory.RatFunc.Basic
+import Mathlib.Tactic.NormNum
 
 /-!
 # Bilinear algorithms and the tensor rank of `⟨n, l, m⟩`
@@ -21,10 +44,10 @@ linear maps `α_r : F^{k×l} → F`, `β_r : F^{l×m} → F` and matrices `C_r �
 `BilinearAlgorithm K n l m r` is exactly such a decomposition of length `r` over the field `K`,
 and `tensorRank K n l m` is the smallest such `r`.
 
-For `n = 3`, `l = 2` the structure coincides field by field with
-`MatrixMultiplicationLowerBound.MatrixAlgorithm` from the external dependency
-`fallnlove/mm325_proof` (commit `759cf4a`), which is imported, not copied
-(protocol section 11.3). `tensorRank_three_two_eq` connects the two rank notions.
+This file does not import the external dependency `fallnlove/mm325_proof`.
+The connection to it (`tensorRank_three_two_eq`, `tpsr_lower_bound`) lives in
+`YangBounds/BrueckeMM325.lean`, which no file of the chain of the final theorem imports
+(task S4-26, condition 7).
 -/
 
 namespace YangBounds
@@ -121,35 +144,5 @@ theorem le_tensorRank_iff {c : ℕ} :
 theorem tensorRank_le_mul : tensorRank K n l m ≤ n * l * m := by
   have h := tensorRank_le (standardAlgorithm K n l m)
   simpa [Fintype.card_prod, Fintype.card_fin, Nat.mul_assoc] using h
-
-/-! ## Connection to the external dependency `mm325_proof` -/
-
-/-- For `⟨3, 2, m⟩` our algorithms are the `MatrixAlgorithm`s of the dependency. -/
-def BilinearAlgorithm.toMatrixAlgorithm (alg : BilinearAlgorithm K 3 2 m r) :
-    MatrixMultiplicationLowerBound.MatrixAlgorithm K m r :=
-  ⟨alg.alpha, alg.beta, alg.coeff, alg.correct⟩
-
-/-- Converse direction of `BilinearAlgorithm.toMatrixAlgorithm`. -/
-def BilinearAlgorithm.ofMatrixAlgorithm (alg : MatrixMultiplicationLowerBound.MatrixAlgorithm K m r) :
-    BilinearAlgorithm K 3 2 m r :=
-  ⟨alg.alpha, alg.beta, alg.coeff, alg.correct⟩
-
-/-- Our rank of `⟨3, 2, m⟩` equals `matrixTensorRank` of the dependency. -/
-theorem tensorRank_three_two_eq (K : Type u) [Field K] (m : ℕ) :
-    tensorRank K 3 2 m = MatrixMultiplicationLowerBound.matrixTensorRank K m := by
-  apply le_antisymm
-  · obtain ⟨alg⟩ := MatrixMultiplicationLowerBound.matrixTensorRank_attained (K := K) (mcols := m)
-    exact tensorRank_le (BilinearAlgorithm.ofMatrixAlgorithm alg)
-  · obtain ⟨alg⟩ := tensorRank_attained (K := K) (n := 3) (l := 2) (m := m)
-    exact MatrixMultiplicationLowerBound.matrixTensorRank_le alg.toMatrixAlgorithm
-
-/-- Theorem 1 of Tsyganov, Parkina, Samsonov, Rakhuba (arXiv:2609.22054), `R > 24m/5`,
-transported from the dependency to `tensorRank`. This is weaker than Yang's Theorem 1.
-The proof is the one of the dependency (`matrix_algorithm_rank_strict`). -/
-theorem tpsr_lower_bound (K : Type u) [Field K] (m : ℕ) (hm : 0 < m) :
-    24 * m < 5 * tensorRank K 3 2 m := by
-  obtain ⟨alg⟩ := tensorRank_attained (K := K) (n := 3) (l := 2) (m := m)
-  exact MatrixMultiplicationLowerBound.matrix_algorithm_rank_strict hm
-    alg.alpha alg.beta alg.coeff alg.correct
 
 end YangBounds
