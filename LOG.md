@@ -2264,3 +2264,7 @@ Bis zu 6 Subagenten, keine eigenen Subagenten der Threads. Fremdmodell nur nach 
 Positivliste S4-10: `behauptungen/B-020.md`, `verfahren/3x2x7-r35-hk71.json`, `verfahren/README.md`, `pruefer/python/`, `pruefer/rust/`. Nicht darauf: `verfahren/3x2x7-r35-nachrechnung.md`.
 
 **Gedächtnis vor S4-10 und S4-11 (Schreibhand, etwa 07:45 UTC):** Index (unverändert seit 06:45 UTC, letzte Synchronisation 06:58 UTC) und alle 21 Einzeleinträge durchgesehen. Nichts über Behauptungen, Prüfurteile, Befunde, Zähler oder Rundenverlauf von Stufe 4. Nichts geändert. Freigegeben.
+
+**Nachtrag 26.11.2026, Runde 2:** S4-10 (Prüfer B-020) und S4-11 (Blind-Sucher, diesmal als Beweissucher) vergeben etwa 07:43 UTC. Runde 2 hat damit 6 Subagenten, 0 Fremdmodell-Anfragen.
+
+**Lesart (e) des Orchestrators (strengere Fassung):** Rechenblöcke direkt hintereinander ohne Commit dazwischen zählen als ein Block. Danach hat S4-05 die Grenze von 30 Minuten überschritten (zwei Blöcke von 07:00 bis 07:38 UTC, etwa 38 Minuten, kein Commit dazwischen; Commits 2a7e08b um 07:06:59 und bb81c05 um 07:39:28). **Regelverstoß von S4-05 (CLAUDE.md Regel 15, Protokoll Abschnitt 6), ohne weitere Folge.** In die Aufträge S4-08 und S4-11 hat der Orchestrator geschrieben, dass zwischen zwei Blöcken ein Commit liegen muss.

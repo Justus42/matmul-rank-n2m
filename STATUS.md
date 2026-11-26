@@ -14,7 +14,8 @@ Zuletzt geändert: 26.11.2026 (Stufe 4: Runde 1 abgeschlossen, Runde 2 vergeben)
 - Runde 1 von 6 vergeben etwa 06:52 UTC: 5 Subagenten, 0 Fremdmodell-Anfragen. S4-01 bis S4-03 Prüfer für B-017 bis B-019, S4-04 Verfahren mit 35 anlegen und nachrechnen, S4-05 Blind-Sucher. Die Berichte S3-03 und S3-04 stehen auf keiner Positivliste
 - Runde 1 von 6 abgeschlossen: 5 Subagenten, 0 Fremdmodell-Anfragen, etwa 48 Minuten nach Git (06:52 UTC bis 412ad8b um 07:40:05 UTC). Haltebedingung nicht erfüllt (Lesart c). B-017 bis B-019 behauptet, von einem Prüfer bestätigt. B-020 (obere Schranke 35) behauptet
 - Abbruchregel 2 (Lesart d, strenger): Runde 1 zählt als Runde ohne Fortschritt. Zähler 1 von 3 für Spur A und 1 von 3 für Spur B
-- Runde 2 von 6 vergeben: S4-06 bis S4-09 etwa 07:42 UTC, S4-10 und S4-11 nach Durchsicht des Gedächtnisses (erledigt etwa 07:45 UTC). Fremdmodell in dieser Runde nicht geplant
+- Runde 2 von 6 vergeben: S4-06 bis S4-09 etwa 07:42 UTC, S4-10 und S4-11 etwa 07:43 UTC nach Durchsicht des Gedächtnisses. 6 Subagenten, Fremdmodell in dieser Runde nicht geplant
+- Lesart (e): Rechenblöcke direkt hintereinander ohne Commit dazwischen zählen als ein Block. S4-05 hat damit die Grenze von 30 Minuten überschritten (etwa 38 Minuten), Regelverstoß ohne weitere Folge
 - Fertig mit einem Lean-Satz für die untere Schranke 35 über jedem Körper (geprüft nach 5.1 samt Abgleich des Endsatzes), einem nach 5.2 bestätigten Verfahren mit 34, erschöpftem Budget oder wenn eine Abbruchregel beide Spuren beendet
 - Kein Kontakt nach außen. README und `ergebnisse/` bleiben unverändert
 
@@ -31,8 +32,8 @@ Zuletzt geändert: 26.11.2026 (Stufe 4: Runde 1 abgeschlossen, Runde 2 vergeben)
 | S4-07 | Spur A, Gegenrichtung: aus dem Restfall ein Verfahren mit 34 bauen oder Hindernis benennen | Beweissucher | `lean/prosa/s4_327_spurA_r2_bau.md` | vergeben in Runde 2 |
 | S4-08 | Spur B: Suche nach 34 mit den erzwungenen Kenngrößen | Verfahrenssucher | `versuche/s4-spurB-r2.md` | vergeben in Runde 2 |
 | S4-09 | Axiom-Bericht für `lemma15b` und `lemma_I` in Actions (nur Workflow) | Lean-Wartung | Workflow | vergeben in Runde 2 |
-| S4-10 | Prüfung B-020, Wiederholung beider Läufe | Prüfer | `verfahren/3x2x7-r35-pruefung-s4-10.md` | Runde 2, Vergabe nach Gedächtnis-Durchsicht |
-| S4-11 | Blind-Sucher | Blind-Sucher | `versuche/s4-blind-r2.md` | Runde 2, Vergabe nach Gedächtnis-Durchsicht |
+| S4-10 | Prüfung B-020, Wiederholung beider Läufe | Prüfer | `verfahren/3x2x7-r35-pruefung-s4-10.md` | vergeben in Runde 2 (etwa 07:43 UTC) |
+| S4-11 | Blind-Sucher | Blind-Sucher | `versuche/s4-blind-r2.md` | vergeben in Runde 2 (etwa 07:43 UTC) |
 
 ## Stufe 3: abgeschlossen
 
