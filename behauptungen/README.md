@@ -36,3 +36,7 @@ Eine Datei pro Behauptung, benannt `B-xxx.md`. Eine Behauptungsdatei enthält nu
 | B-018 | Lemma 15(b) bei d = 2: rk L = d·ρ ⇒ ρ = m, über algebraisch abgeschlossenem Körper |
 | B-019 | Lemma I (Δ ≥ min(2, dim N), Rahmen yang_n3) gilt für jede Normalform des Rahmens yang_n4 mit d = 2, so wie C2 im Programm S3-04 es benutzt |
 | B-020 | Rang von ⟨3,2,7⟩ ist höchstens 35 über ℤ, Verfahren `verfahren/3x2x7-r35-hk71.json` |
+| B-021 | S4-07-A bis E: Umformulierung, Zerlegungssatz, Gestalt bei e = 3, bedingter Ausschluss D (e = 3 unter (INJ5)), Satz X |
+| B-022 | S4-06 A1 bis A6: Strukturaussagen zum Restfall (4, 6, 4) bei Länge 34 |
+| B-023 | Satz G: Gleichheitsfall r = 34 für m = 7 |
+| B-024 | Satz K: Gestalt des Restfalls in den Faktoren, ohne Lemma 15(b) |

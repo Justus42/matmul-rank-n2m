@@ -2359,3 +2359,19 @@ Alle melden 0 eigene Subagenten und 0 Fremdmodell-Anfragen. Status von allem: **
 - Die Literaturwache für diese Sitzung vergibt der Orchestrator vor der Runde. Nach der bisherigen Lesart zählt sie nicht als Aufgabe der Runde.
 
 **Gedächtnis vor der Vergabe an Prüfer und Blind-Sucher (Schreibhand, etwa 09:52 UTC):** Index (unverändert seit 06:45 UTC) und alle 21 Einzeleinträge durchgesehen. Nichts über Behauptungen, Prüfurteile, Befunde, Zähler, Lesarten oder Rundenverlauf von Stufe 4. Die Einträge `hk-verfahren-a10` und `lean-upper-3x2x6` enthalten nur Dateipfade, PR-Nummern und Bautechnik zu 3×2×5, 3×2×6 und der Lean-Datei. Sie verraten einem Blind-Sucher aber, dass das Projekt Verfahren für 3×2×5 und 3×2×6 und eine Lean-Familie YangBounds hat. Kein Urteil. Nichts geändert. Freigegeben.
+
+## 26.11.2026 · Vorbereitung Runde 3: Behauptungen B-021 bis B-024, Lesart (f)
+
+**Behauptungsdateien** (Auftrag des Orchestrators, nach 5.4 nur Aussage, Herkunft, Artefakt, Aussagen wörtlich):
+
+- `behauptungen/B-021.md`: S4-07-A bis E aus `lean/prosa/s4_327_spurA_r2_bau.md` (961f6c0). D steht als eigener, einzeln beurteilbarer Punkt, mit (INJ5) im Wortlaut.
+- `behauptungen/B-022.md`: S4-06 A1 bis A6 aus `lean/prosa/s4_327_spurA_r2_ausschluss.md` (8c96b57).
+- `behauptungen/B-023.md`: Satz G aus `versuche/s4-blind-r2.md` (bc9c772).
+- `behauptungen/B-024.md`: Satz K aus `versuche/s4-spurB-r2.md` (b9c134c).
+- Prüfvermerke B-021 bis B-024 mit Status behauptet. Prüfer erhalten Behauptungsdatei und Bericht als Artefakt.
+
+**Lesart (f) des Orchestrators:** Die Sol-Anfrage zu S4-07-D ist kein Auftrag an einen Subagenten im Sinn von Abschnitt 6, sondern eine Anfrage des Orchestrators nach 5.5. Der Satz „Aufträge einer Runde hängen nie voneinander ab“ betrifft die sechs Subagenten-Aufträge, die weiterhin alle gleichzeitig und unabhängig vergeben werden. Justus hat die Reihenfolge Prüfer, dann Sol, und die Zuordnung zu Runde 3 am 26.11.2026 um 09:47 UTC ausdrücklich so vorgegeben. Seine Vorgabe geht vor. Die strengere Lesart (Sol erst in Runde 4) nimmt der Orchestrator deshalb nicht, weil sie der ausdrücklichen Anweisung widerspräche. **Runde 3 bleibt offen, bis die Sol-Antwort da ist oder feststeht, dass keine Anfrage gestellt wird.**
+
+**Gedächtnis:** Die Einträge `hk-verfahren-a10` und `lean-upper-3x2x6` bleiben unverändert (Entscheidung des Orchestrators). Der Blind-Sucher legt offen, was ihm eingeblendet wird. Die Einschränkung der Blindheit wird wie in Runde 2 vermerkt.
+
+Die Literaturwache dieser Sitzung läuft. Die Vergabe von Runde 3 folgt danach.

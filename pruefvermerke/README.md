@@ -41,6 +41,10 @@ Je Behauptung gibt es eine Datei `pruefvermerke/B-xxx.md`. Sie beginnt mit der w
 | B-018 | Lemma 15(b) bei d = 2: rk L = d·ρ ⇒ ρ = m, über algebraisch abgeschlossenem Körper | behauptet (von einem Prüfer bestätigt, S4-02) | Prosa `lean/prosa/yang_n4.md` (S1-03), Lean `YangN4Haupt.lemma15b` (S1-16), Job 139535850068 |
 | B-019 | Lemma I gilt für jede Normalform des Rahmens yang_n4 mit d = 2 (Bedingung C2 im Programm S3-04) | behauptet (von einem Prüfer bestätigt, S4-03) | `yang_n3.md` Lemma I (S1-02), `YangN3Teil3.lemma_I` (S1-11), Wortlaut vom Orchestrator |
 | B-020 | Rang von ⟨3,2,7⟩ ist höchstens 35 über ℤ (also über jedem Körper), Verfahren `verfahren/3x2x7-r35-hk71.json` | geprüft | S4-04 (PR #104), eigener Bau nach Hopcroft-Kerr. Läufe beider Prüfprogramme wiederholt durch S4-10 (PR #109), nach 5.2 Punkt 1 bis 3 |
+| B-021 | S4-07-A bis E (Umformulierung, Zerlegungssatz, Gestalt bei e = 3, bedingter Ausschluss D unter (INJ5), Satz X) | behauptet | S4-07, PR #113 (Merge 81fa438) |
+| B-022 | S4-06 A1 bis A6 (Strukturaussagen zum Restfall) | behauptet | S4-06, PR #111 (Merge dfd239e) |
+| B-023 | Satz G (Gleichheitsfall r = 34 für m = 7) | behauptet | S4-11 (Blind-Sucher), PR #110 (Merge 0ee499f) |
+| B-024 | Satz K (Gestalt des Restfalls in den Faktoren, ohne Lemma 15(b)) | behauptet | S4-08, PR #114 (Merge 78ce5f9) |
 
 Weitere geprüfte Ergebnisse ohne eigene Behauptungsdatei:
 

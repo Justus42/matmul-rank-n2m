@@ -67,6 +67,10 @@ Aufträge:
 
 Sonst gilt der Plan oben.
 
+Lesart (f) des Orchestrators: Die Sol-Anfrage zu S4-07-D ist eine Anfrage des Orchestrators nach 5.5, kein Subagenten-Auftrag nach Abschnitt 6. Runde 3 bleibt offen, bis die Sol-Antwort da ist oder feststeht, dass keine Anfrage gestellt wird.
+
+Behauptungsdateien für die Prüfer von Runde 3: B-021 (S4-07-A bis E, D einzeln), B-022 (S4-06 A1 bis A6), B-023 (Satz G), B-024 (Satz K), alle behauptet. Nächste freie Auftragsnummer: S4-12
+
 Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 Minuten auf 4 Kernen, mit Commit dazwischen (Lesart e, in jeden Auftrag). Keine eigenen Subagenten. Fremdmodell nur nach 5.5, falls ein Ausschluss aus 1 oder 2 als Fortschritt nach 2 b) zählen soll.
 
 ## Aufträge für Stufe 4
