@@ -517,7 +517,7 @@ theorem finrank_Kbar (h1 : SN1 alg) : finrank K (Kbar alg) + (d + 2) * m = r := 
   have h := YangN3Teil3.finrank_map_mkQ_add (LinearMap.ker (W alg)) (J alg) (J_le_ker alg)
   have h3 := G3 alg
   rw [finrank_J alg h1] at h
-  simp only [Kbar, π] at h ⊢
+  have h' : finrank K (Kbar alg) + m = finrank K (LinearMap.ker (W alg)) := h
   rw [show (d + 2) * m = (d + 1) * m + m by ring]
   omega
 
@@ -749,6 +749,7 @@ theorem lemma8 (h1 : SN1 alg) (h2 : SN2 alg) (S : Submodule K (Matrix (Fin 2) (F
       subst this
       simp only [Pi.sub_apply, Pi.smul_apply, smul_eq_mul]
       field_simp
+      simp
     · simp [hw'E k h, hwE k h]
   obtain ⟨v, hvS, rfl⟩ := Submodule.mem_map.1 hwX
   have hv : v ≠ 0 := fun h => hw0 (by rw [h, map_zero])
@@ -809,7 +810,7 @@ theorem lemma8' (h1 : SN1 alg) (h2 : SN2 alg) (hm : 1 ≤ m) :
       · intro k _ hk; simp [Pi.single_apply, hk]
       · simp
   have := Submodule.finrank_mono hYL
-  simp only [π] at this
+  have hq' : finrank K (Y.map (π alg)) + m = finrank K Y := hq
   omega
 
 /-- **Lemma 9.** Over an algebraically closed field, under (N1), (N2): there is no subspace
@@ -1004,7 +1005,7 @@ theorem lemma14 (h1 : SN1 alg) (h2 : SN2 alg) (hm : d ≤ m) {ρ : ℕ}
   let f' : Matrix (Fin 2) (Fin m) K →ₗ[K] (Fin r → K) := ∑ i, γ i • fv alg i
   have hf'apply : ∀ x t, f' x t = (∑ i, γ i * alg.alpha t (eA i 0)) * alg.beta t x := by
     intro x t
-    simp only [f', FunLike.coe_sum, Finset.sum_apply, LinearMap.smul_apply, Pi.smul_apply,
+    simp only [f', LinearMap.sum_apply, Finset.sum_apply, LinearMap.smul_apply, Pi.smul_apply,
       fv_apply, avec, bvec, Pi.mul_apply, LinearMap.pi_apply, smul_eq_mul, Finset.sum_mul]
     exact Finset.sum_congr rfl fun i _ => by ring
   have hf'inj : Function.Injective (f' ∘ₗ emb) := by
@@ -1032,7 +1033,7 @@ theorem lemma14 (h1 : SN1 alg) (h2 : SN2 alg) (hm : d ≤ m) {ρ : ℕ}
   have hmap : X.map (π alg) ≤ LinearMap.range (∑ j, γ j.succ • Fq alg j) := by
     rintro _ ⟨_, ⟨y, rfl⟩, rfl⟩
     refine ⟨y, ?_⟩
-    simp only [f', LinearMap.comp_apply, FunLike.coe_sum, Finset.sum_apply,
+    simp only [f', LinearMap.comp_apply, LinearMap.sum_apply,
       LinearMap.smul_apply, map_sum, map_smul]
     rw [Fin.sum_univ_succ]
     simp only [show ∀ y, π alg (fv alg 0 (emb y)) = 0 from fun y => π_φ0 alg y, smul_zero,
@@ -1178,7 +1179,11 @@ theorem exists_suppPoly [Infinite K] (sp : Finset (Fin r)) :
       rw [← LinearMap.det_toMatrix']
       congr 1
       ext i j
-      simp [LinearMap.toMatrix'_apply]
+      simp only [LinearMap.toMatrix'_apply, LinearMap.coe_comp, Function.comp_apply, Matrix.of_apply]
+      have hs : (Pi.single j 1 : Fin (d + 1) → K) = fun j' => if j' = j then 1 else 0 := by
+        funext j'
+        simp [Pi.single_apply]
+      rw [hs]
     refine ⟨fun x => LinearMap.det (G ∘ₗ lmap alg (rowT x) w0), ⟨?_, ?_⟩, ?_⟩
     · simp only [hdet]
       apply YangN3Teil2.IsPolyFun.det

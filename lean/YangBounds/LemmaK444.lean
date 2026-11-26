@@ -85,7 +85,7 @@ theorem lin_eq_monomial (a : Fin 2 → K) :
     lin a = monomial (Finsupp.single 0 1) (a 0) + monomial (Finsupp.single 1 1) (a 1) := by
   simp only [lin, C_mul_X_eq_monomial]
 
-theorem coeff_lin (a : Fin 2 → K) (i : Fin 2) : coeff (Finsupp.single i 1) (lin a) = a i := by
+theorem coeff_lin (a : Fin 2 → K) (i : Fin 2) : (lin a).coeff (Finsupp.single i 1) = a i := by
   rw [lin_eq_monomial, coeff_add, coeff_monomial, coeff_monomial]
   fin_cases i
   · simp [single_ne_single]
@@ -142,8 +142,8 @@ theorem lin_mul_lin (a b : Fin 2 → K) :
   ring
 
 theorem coeff_lin_mul_lin (a b : Fin 2 → K) :
-    coeff m00 (lin a * lin b) = a 0 * b 0 ∧ coeff m11 (lin a * lin b) = a 1 * b 1 ∧
-      coeff m01 (lin a * lin b) = a 0 * b 1 + a 1 * b 0 := by
+    (lin a * lin b).coeff m00 = a 0 * b 0 ∧ (lin a * lin b).coeff m11 = a 1 * b 1 ∧
+      (lin a * lin b).coeff m01 = a 0 * b 1 + a 1 * b 0 := by
   rw [lin_mul_lin]
   simp only [coeff_add, coeff_monomial]
   refine ⟨?_, ?_, ?_⟩
