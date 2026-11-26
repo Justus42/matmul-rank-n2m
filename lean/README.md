@@ -80,7 +80,7 @@ separately as `INTENDED`.
 | `YangBounds.rank_four_two_four_ge` | `25 ≤ tensorRank K 4 2 4` | Yang v3, Section 1 |
 | `YangBounds.rank_four_two_five_ge` | `31 ≤ tensorRank K 4 2 5` | Yang v3, Section 1 |
 | `YangBounds.Transponiert444.rank_four_two_four_ge_26` | `26 ≤ tensorRank K 4 2 4` | this repository |
-| `YangBounds.Upper4x2x4.rank_four_two_four_le_26` | `tensorRank K 4 2 4 ≤ 26` | value of Hopcroft–Kerr 1971, algorithm `verfahren/4x2x4-r26-s001.json` |
+| `YangBounds.Upper4x2x4.rank_four_two_four_le_26` | `tensorRank K 4 2 4 ≤ 26` | value of the formula of Hopcroft–Kerr (technical report 1969, journal 1971), algorithm `verfahren/4x2x4-r26-s001.json` |
 | `YangBounds.Gleich444.rank_four_two_four_eq_26` | `tensorRank K 4 2 4 = 26` | this repository |
 | `MatMulRank.rank_four_two_four_eq_26` | `tensorRank K 4 2 4 = 26` with the Challenge definitions | this repository |
 
@@ -95,23 +95,39 @@ lake exe cache get        # Mathlib build cache; do not run `lake update`
 lake build 2>&1 | tee build.log
 python3 ../.github/scripts/lean_report.py sorry-report . build.log
 python3 ../.github/scripts/lean_report.py gen-check . MainAxioms.lean
-lake env lean MainAxioms.lean
+lake env lean MainAxioms.lean 2>&1 | tee axioms.txt
+python3 ../.github/scripts/lean_report.py axiom-report axioms.txt
 ```
 
-These are the steps of the workflow `.github/workflows/lean-project.yml`. The expected result:
-"Build completed successfully", one warning `MatMulRank/Challenge.lean:94:8: declaration uses
-'sorry'` (the intended hole of the Challenge), "SORRY: 0" twice, and for every main theorem only
-the axioms `propext`, `Classical.choice`, `Quot.sound`. `palomar/BELEGE.md`, section 1.4,
-records such a local run with commands and output.
+These are the build and report steps of the workflow `.github/workflows/lean-project.yml`.
+The workflow also checks, before the build, that the definition block of
+`MatMulRank/Challenge.lean` and `MatMulRank/Definitions.lean` and their import lines are
+identical (step "Shared definitions of Challenge and Solution are identical"; see "Palomar
+entry" below). The expected result: "Build completed successfully"; exactly one `sorry`
+warning, `MatMulRank/Challenge.lean:94:8: declaration uses 'sorry'` (the intended hole of the
+Challenge), besides linter and deprecation warnings that do not concern `sorry`; "SORRY: 0"
+twice; and from `axiom-report` for every main theorem only the axioms `propext`,
+`Classical.choice`, `Quot.sound` ("TOTAL: STANDARD=65"). `palomar/BELEGE.md`, section 1.4,
+records such a local run with commands and output, section 9 the same on the commit named
+below.
 
 GitHub Actions is authoritative (protocol 5.1 item 4). Runs on commit
-`676cdf5deb786e81a66342606d4dd2b6f919745e`:
+`@@W@@`:
 
-* `.github/workflows/lean-project.yml`, run 45869038515, job 140079318183: success.
+* `.github/workflows/lean-project.yml`, run @@LPRUN@@, job @@LPJOB@@: success.
 * `.github/workflows/zweitlauf.yml` (fresh checkout, no build artefacts, `leanchecker` of the
   toolchain over every project module, `#print axioms`, `leanchecker --fresh` on
-  `YangBounds.Transponiert444`), run 45869043624, job 140079342228: success, 32 of 32 modules OK.
-  This workflow starts on `main` only by `workflow_dispatch` (input `ref`).
+  `YangBounds.Transponiert444`), run @@ZWRUN@@, job @@ZWJOB@@: success, 32 of 32 modules OK.
+  On `main` this workflow is not started by a push; it runs by `workflow_dispatch` (input `ref`),
+  on pushes to the branch `portierung`, and on pull requests that change the workflow file.
+
+Between `@@WS@@` and the commit that added these run numbers only text files changed
+(`README.md`, this file, `ergebnisse/rang-444.md`, `palomar/BELEGE.md`). The first runs of the
+Lean 4.36.0 state were on commit `676cdf5` (run 45869038515, job 140079318183, and run
+45869043624, job 140079342228). Since then task N-06 re-determined the import list of
+`YangBounds/Basic.lean` from this project's own build (now only `Mathlib.Data.Matrix.Basic`;
+`YangBounds/S4BedingterAusschluss.lean` imports `Mathlib.Tactic.LinearCombination` itself), with
+no statement, definition or proof changed, and task N-01 revised `formalization.yaml`.
 
 ## Palomar entry
 
@@ -126,23 +142,28 @@ How to check them:
   `MatMulRank/Definitions.lean`; the workflow `lean-project.yml` checks this (log line "shared
   definitions and imports identical").
 * Palomar compares Challenge and Solution with `lake comparator` of the submitted toolchain,
-  configured by `comparator.json`. `palomar/BELEGE.md`, section 1.7, records local runs by an
+  configured by `comparator.json`. `palomar/BELEGE.md`, sections 1.7 and 9, record local runs by an
   agent with the Lean 4.36.0 toolchain from the GitHub release: `lake comparator` with the Lean
   kernel and NanoDa ("Your solution is okay!"), the same from exports as Palomar's judge does it,
   `con-ron` on the Solution export, and a control run that rejects a forbidden axiom. These runs
   were outside Palomar's sandbox; section 1.7 lists what they do not show.
+  Section 9 repeats them on commit `@@WS@@`.
 * Palomar's own check functions (toolchain, Lean sources, `comparator.json`,
-  `formalization.yaml`, licence) ran locally on the files: `palomar/BELEGE.md`, sections 2 and 8.
+  `formalization.yaml`, licence) ran locally on the files: `palomar/BELEGE.md`, sections 2, 8 and 9.
 
 ## Earlier state: Lean 4.19.0
 
 Up to stage 5 this project ran on Lean 4.19.0 with mathlib `c44e0c8ee63ca166450922a373c7409c5d26b00b`.
 The final theorem was the lower bound `YangBounds.Transponiert444.rank_four_two_four_ge_26`
 alone, and the project depended on the Lean package `fallnlove/mm325_proof` (package
-`mm325_lower_bound`, no license, `lit/LIZENZEN.md`), connected through a separate bridge module.
-Since commit `62c3dc6` no module in the import chain of the final theorem imported that package.
+`mm325_lower_bound`, no license, `lit/LIZENZEN.md`). Up to commit `ce94c42`
+`YangBounds/Basic.lean` imported it; commit `62c3dc6` replaced that import by the 21 Mathlib
+imports of the former dependency module, and from then on only a separate bridge module
+(`YangBounds/BrueckeMM325.lean`) imported the package; no module in the import chain of the final
+theorem did.
 Stage 5 ported the library to Lean 4.36.0 on the branch `portierung`, removed the bridge and the
 dependency, added the upper bound and the Palomar files, and merged the result into `main`.
+Task N-06 then re-determined the import list of `Basic.lean` from this project's own build.
 Statements and definitions of the chain kept their content; changes of wording are listed in
 `palomar/BELEGE.md`, section 1.3, and in the port reports `prosa/s5_portierung_s5-03.md` and
 `prosa/s5_portierung_s5-17.md`. The Lean 4.19.0 state stays on the branch `lean-4.19` (commit
