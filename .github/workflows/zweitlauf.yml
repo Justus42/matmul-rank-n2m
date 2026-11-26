@@ -10,6 +10,9 @@
 #    beyond v4.29.0-rc8. The dependency mm325_lower_bound was removed in S5-03.
 # 3. `#print axioms` for YangBounds.Transponiert444.rank_four_two_four_ge_26.
 #
+# S5-16: on the branch portierung the run also starts on every push that changes lean/**,
+# so the current state of portierung gets its second run without a manual dispatch.
+#
 # Nothing under lean/ is changed. The existing workflows lean-project.yml and
 # lean-build.yml and their script are not used or touched.
 
@@ -29,6 +32,7 @@ on:
     branches: [portierung]
     paths:
       - ".github/workflows/zweitlauf.yml"
+      - "lean/**"
 
 permissions:
   contents: read
