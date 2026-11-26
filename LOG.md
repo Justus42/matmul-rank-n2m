@@ -2582,3 +2582,12 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 - Rechenblöcke nach Bericht (Abschnitt 9) und Git: Block 1 etwa 11:40 bis 11:41 UTC, Commit 4eee558 um 11:43:01; Block 2 11:45:26 bis 11:51:21 UTC, Commit ad4afaa um 11:55:24. Je ein Kern, je unter 30 Minuten, Commit dazwischen. Kein Verstoß.
 - 0 Subagenten, 0 Fremdmodell-Anfragen, nichts ins Gedächtnis geschrieben. Offenlegung: Index und vier Einzeleinträge (`yang-n3-prosa`, `yang-n3-teil3-lean`, `aussagen-abgleich-n3`, `git-regeln`), nach eigener Angabe nicht benutzt.
 - Orchestrator: Alles behauptet oder vermutet, kein Prüfer in dieser Runde, kein Fortschritt nach 2 b) daraus.
+
+**Nachtrag 26.11.2026, Runde 4: S4-18 geliefert (Lean-Fassung von B-021 D)**
+
+- PR #123 (eröffnet 11:29:30, Merge fb7f197 um 11:44:08 UTC). Commits 95ea1e1 (11:29:05, erster Entwurf), eda5a18 (11:29:17, Eintrag in den Axiom-Bericht), d0e5ae8 (11:34:58, Korrektur nach dem ersten CI-Lauf), UTC. Dauer nach Git etwa 20 Minuten (Vergabe etwa 11:24 UTC bis Merge). Der Build lief in Actions (PR-Lauf 45811912632 für d0e5ae8, success). Rechenblöcke nach Git: keine lokalen Blöcke über 30 Minuten erkennbar, die Zeit zwischen Vergabe und Merge liegt unter 30 Minuten.
+- Datei `lean/YangBounds/S4BedingterAusschluss.lean`, Satz `YangBounds.S4BedingterAusschluss.s4_07_D`, Eintrag in `MAIN_THEOREMS`. Hypothesen: `BilinearAlgorithm K 3 2 7 34` über beliebigem Körper, `alpha t (unitMatrix 0 0) = 1`, J = w·P_2 ⊔ K∙u, K′ ≤ J + a_1J + a_2J, (INJ5) über `MvPolynomial`. Hergeleitet: (A), (C), (D), (C′), die Inklusionen aus 4.1 und die Direktheit.
+- Lauf auf main 45813239767 (Commit fb7f1970c13c078f91ee0d21e53cf09b47c94281), Job 139886382749, success. Selbst im Log nachgesehen: „SORRY: 0 declaration(s) with 'declaration uses sorry' in the build log“, „SORRY: 0 'sorry' token(s) in the sources outside comments“, „AXIOM-RESULT|YangBounds.S4BedingterAusschluss.s4_07_D|propext, Quot.sound, Classical.choice“, „[STANDARD] YangBounds.S4BedingterAusschluss.s4_07_D“, „TOTAL: STANDARD=60“.
+- 0 Fremdmodell-Anfragen.
+- Status (Orchestrator): B-021 D bleibt behauptet. Punkte 1, 2 und 4 von 5.1 liegen mit diesem Job vor. Punkt 3 (Aussagen-Abgleich durch zwei Prüfer, die einander nicht sehen) läuft in Runde 5 nach Lesart (g).
+- Fundstelle (Schreibhand, ohne Wertung): Der Kopfkommentar der Lean-Datei nennt den Prüferbericht S4-12 und die Sol-Antwort zu D mit Pfad (Zeilen 47 bis 51).
