@@ -22,7 +22,7 @@ Second, independent machine check: a fresh-checkout build of `667df45` with kern
 Its statement was compared with the claim by one reviewing model instance and, independently, by a model of another family (GPT 6.2 Sol). Human review: none.
 The upper bound 26 is the known value of Hopcroft and Kerr (1971); the scheme `verfahren/4x2x4-r26-s001.json` (coefficients in {−1, 0, 1}) was accepted by two independently written exact checkers.
 There is no single Lean theorem for "rank = 26"; the equality combines the machine-checked lower bound with the known upper bound.
-The proof depends on the imported Lean package `fallnlove/mm325_proof`. One public catalogue line already states this bound without proof; see "Related claims" in [the note](ergebnisse/rang-444.md).
+Since commit `62c3dc6` no module in the import chain of this theorem imports the Lean package `fallnlove/mm325_proof`; the link to that package lives in the separate file `lean/YangBounds/BrueckeMM325.lean`, which the theorem does not import. Repeated fresh-checkout build of `62c3dc6` with kernel re-check by lean4checker v4.19.0, 29 of 29 modules OK, and only the axioms `propext`, `Classical.choice`, `Quot.sound` (run 45833618872, job 139956567190). One public catalogue line already states this bound without proof; see "Related claims" in [the note](ergebnisse/rang-444.md).
 
 The other rows are taken from the literature and are not yet all re-verified here.
 
