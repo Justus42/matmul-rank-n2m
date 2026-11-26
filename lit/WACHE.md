@@ -369,3 +369,32 @@ arXiv, Google Scholar, Semantic Scholar, MathOverflow und FMM-Lille vom Proxy pe
 Nach Angabe von Justus in seiner Nachricht vom 25.11.2026, 23:08 UTC: Eine unabhängige Recherche mit Gemini Deep Research vom 25.11.2026 fand ebenfalls keinen Beweis für R(⟨4,2,4⟩) ≥ 26. Der Bericht liegt nicht im Repo. Nicht abgedeckt waren dort ECCC, Zenodo, Zulip und MathOverflow.
 
 Eingetragen als Angabe von Justus, von diesem Thread nicht nachgeprüft. Status: behauptet.
+
+---
+
+## 26.11.2026 (Beginn der Sitzung, vor Runde 1 der Stufe 4)
+
+Zeiten aus den Git-Zeitstempeln der Commits auf dem Zweig `claude/project-thread-rz4lhh` (Start-Commit `7aaa039`). Vollständiges wörtliches Suchprotokoll: [WACHE-2026-11-26.md](WACHE-2026-11-26.md). Ausführender Thread meldet als Modellbezeichnung claude-opus-5-5. Keine Subagenten, keine Abruf-Agenten, keine Fremdmodell-Anfrage.
+
+### Ergebnis für die Abbruchregel 3
+
+**Nicht gefunden:** kein Beweis von R(⟨3,2,7⟩) ≥ 35 (alle Permutationen, jeder Körper) und kein Verfahren mit 34 Multiplikationen. Die Ranglisten FMM-Lille-Digest (Stand 24.11.2026), Perminov (16.11.2026), Perminovs `known_ranks.cpp` und Lacelles Katalog führen ⟨2,3,7⟩ einheitlich mit 35. Bester veröffentlichter Stand: untere Schranke 34 über beliebigen Körpern (Yang26 v3), obere Schranke 35 (HK71). Abbruchregel 3 greift nicht. Status: behauptet.
+
+### Pflichtpunkte nach Abschnitt 7
+
+- arXiv:2609.14393: keine neue Fassung gefunden (letzte bekannte v3 vom 12.10.2026). arXiv:2609.22054: keine neue Fassung gefunden (v1). arXiv-Seiten selbst gesperrt, Befund aus Websuche und alphaXiv.
+- fallnlove/mm325_proof `759cf4a8`: unverändert.
+- openai/math `3344da59`: unverändert, also keine neuen Commits, Familien oder Verzeichnisse in `preprints/`.
+- Neue Arbeiten seit dem letzten Eintrag (alphaXiv ab 20.11.2026): neu 2611.34814, 2611.34052, 2611.34664, alle ohne Bezug zu ⟨n,2,m⟩ oder zu Rangschranken fester Formate.
+
+### Nebenergebnis: Verfahren mit 35 für ⟨2,3,7⟩
+
+- **Perminov**, github.com/dronperminov/FastMatrixMultiplication, Commit `f70078cd`, `schemes/results/ZT/2x3x7_m35_ZT.json`: 35 Produkte, Koeffizienten aus {−1, 0, 1}, Lizenz **MIT**. Übernahme nach 11.3 möglich, mit Eintrag in `lit/LIZENZEN.md`. Kein Originalverfahren von HK71, sondern eines gleicher Länge.
+- **Lacelle**, github.com/solven-eu/matmulcatalog, Commit `5ed2ee97`, `src/main/resources/schemes/constructed/section7/2x3x7-r35-hk71-d048b18.json`: konstruktive HK-Fassung, laut Datei gültig über 𝔽₂, 𝔽₃, ℤ, ℚ, ℝ, ℂ. **Keine Lizenz**, also keine Kopie.
+- FMM-Lille 2x3x7.html (⟨2×3×7:35⟩) nicht erreichbar.
+
+Nichts davon nachgerechnet. Status: behauptet.
+
+### Einschränkungen
+
+arXiv, FMM-Lille und die GitHub-REST-API für fremde Repos aus der Umgebung gesperrt. Keine Durchsicht der cs.CC-Listen Seite für Seite, kein Scholar, MathOverflow, ECCC oder Zenodo. Keine Vollständigkeit garantiert.
