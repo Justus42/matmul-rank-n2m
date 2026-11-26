@@ -1,10 +1,14 @@
-import YangBounds.Basic
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.LinearAlgebra.Quotient.Basic
-import Mathlib.LinearAlgebra.Basis.VectorSpace
-import Mathlib.LinearAlgebra.Dimension.Constructions
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.LinearCombination
+module
+
+public import YangBounds.Basic
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+public import Mathlib.LinearAlgebra.Quotient.Basic
+public import Mathlib.LinearAlgebra.Basis.VectorSpace
+public import Mathlib.LinearAlgebra.Dimension.Constructions
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.LinearCombination
+
+@[expose] public section
 
 /-!
 # Yang v3, Theorem 1 (`n = 3`), part 3: the linear algebra after strong normalization

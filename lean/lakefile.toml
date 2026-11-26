@@ -2,18 +2,12 @@ name = "yang_bounds"
 version = "0.1.0"
 defaultTargets = ["YangBounds"]
 
-# External dependency, referenced by Git URL at a fixed commit (protocol 11.3:
-# the repository has no license, so nothing from it is copied here).
-[[require]]
-name = "mm325_lower_bound"
-git = "https://github.com/fallnlove/mm325_proof"
-rev = "759cf4a8524d4212e7832046204c90b9361ba2bb"
-
-# Same mathlib revision as the dependency (tag v4.19.0).
+# Mathlib at tag v4.36.0 (its lean-toolchain is leanprover/lean4:v4.36.0,
+# matching ./lean-toolchain exactly, as Palomar requires).
 [[require]]
 name = "mathlib"
-git = "https://github.com/leanprover-community/mathlib4.git"
-rev = "c44e0c8ee63ca166450922a373c7409c5d26b00b"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
 
 [[lean_lib]]
 name = "YangBounds"

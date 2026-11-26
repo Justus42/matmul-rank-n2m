@@ -1,6 +1,10 @@
-import YangBounds.SatzE444Buendel
-import Mathlib.LinearAlgebra.Eigenspace.Minpoly
-import Mathlib.Data.Fintype.Pigeonhole
+module
+
+public import YangBounds.SatzE444Buendel
+public import Mathlib.LinearAlgebra.Eigenspace.Minpoly
+public import Mathlib.Data.Fintype.Pigeonhole
+
+@[expose] public section
 
 /-!
 # Lemma P for `⟨4,2,4⟩`, case (5,8): proof of `LemmaPStatement`

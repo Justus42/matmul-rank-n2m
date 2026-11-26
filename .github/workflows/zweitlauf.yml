@@ -3,8 +3,11 @@
 # 1. Fresh checkout of the target commit (default: current main), build of lean/ without
 #    any carried-over build artifacts of the project. No actions/cache is used at all.
 #    Only the official mathlib cache (`lake exe cache get`) is allowed.
-# 2. Kernel re-check with lean4checker (tag matching the project toolchain) over every
-#    module of the project, plus the modules of the dependency mm325_lower_bound.
+# 2. Kernel re-check over every module of the project. Up to Lean v4.29 this used the
+#    separate repository leanprover/lean4checker (tag matching the toolchain). From the
+#    Palomar port (S5-03, Lean v4.36.0) on, the checker shipped with the toolchain
+#    (`leanchecker`, same command line) is used, because lean4checker has no tags
+#    beyond v4.29.0-rc8. The dependency mm325_lower_bound was removed in S5-03.
 # 3. `#print axioms` for YangBounds.Transponiert444.rank_four_two_four_ge_26.
 #
 # Nothing under lean/ is changed. The existing workflows lean-project.yml and
@@ -22,6 +25,10 @@ on:
   pull_request:
     paths:
       - ".github/workflows/zweitlauf.yml"
+  push:
+    branches: [portierung]
+    paths:
+      - ".github/workflows/zweitlauf.yml"
 
 permissions:
   contents: read
@@ -31,8 +38,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  TARGET_REF: ${{ github.event.inputs.ref || 'main' }}
-  L4C_REPO: https://github.com/leanprover/lean4checker
+  TARGET_REF: ${{ github.event.inputs.ref || github.event.pull_request.head.sha || github.sha }}
   FINAL_THEOREM: YangBounds.Transponiert444.rank_four_two_four_ge_26
 
 jobs:
@@ -73,7 +79,6 @@ jobs:
           tc="$(tr -d '[:space:]' < lean-toolchain)"
           echo "lean-toolchain: $tc"
           echo "LEAN_TOOLCHAIN=$tc" >> "$GITHUB_ENV"
-          echo "L4C_TAG=${tc#leanprover/lean4:}" >> "$GITHUB_ENV"
           python3 - <<'EOF'
           import json
           for p in json.load(open("lake-manifest.json"))["packages"]:
@@ -119,22 +124,16 @@ jobs:
           git status --porcelain
           git diff --exit-code
 
-      - name: Build lean4checker (tag matching the toolchain)
+      - name: Locate leanchecker shipped with the toolchain
+        working-directory: target/lean
         run: |
           set -euo pipefail
-          L4C="$RUNNER_TEMP/lean4checker"
-          git clone -q --depth 1 --branch "$L4C_TAG" "$L4C_REPO" "$L4C"
-          cd "$L4C"
-          echo "lean4checker tag: $L4C_TAG"
-          echo "lean4checker commit: $(git rev-parse HEAD)"
-          echo "lean4checker lean-toolchain: $(cat lean-toolchain)"
-          if [ "$(tr -d '[:space:]' < lean-toolchain)" != "$LEAN_TOOLCHAIN" ]; then
-            echo "ERROR: lean4checker toolchain differs from project toolchain"; exit 1
-          fi
-          lake build lean4checker
-          echo "L4C_BIN=$L4C/.lake/build/bin/lean4checker" >> "$GITHUB_ENV"
+          bin="$(dirname "$(elan which lean)")/leanchecker"
+          test -x "$bin"
+          echo "leanchecker: $bin"
+          echo "L4C_BIN=$bin" >> "$GITHUB_ENV"
 
-      - name: lean4checker over every project module (and mm325 dependency)
+      - name: leanchecker over every project module
         working-directory: target/lean
         run: |
           set -uo pipefail
@@ -144,14 +143,11 @@ jobs:
           }
           libdir() { if [ -d "$1/lib/lean" ]; then echo "$1/lib/lean"; else echo "$1/lib"; fi; }
           proj_lib="$(libdir .lake/build)"
-          dep_lib="$(libdir .lake/packages/mm325_lower_bound/.lake/build)"
           modlist "$proj_lib" > "$RUNNER_TEMP/proj_mods.txt"
-          modlist "$dep_lib" > "$RUNNER_TEMP/dep_mods.txt"
           echo "project modules ($(wc -l < "$RUNNER_TEMP/proj_mods.txt")):"; cat "$RUNNER_TEMP/proj_mods.txt"
           echo "source files lean/YangBounds/*.lean: $(ls YangBounds/*.lean | wc -l)"
-          echo "mm325 dependency modules ($(wc -l < "$RUNNER_TEMP/dep_mods.txt")):"; cat "$RUNNER_TEMP/dep_mods.txt"
           ok=0; bad=0
-          for list in proj_mods dep_mods; do
+          for list in proj_mods; do
             while read -r m; do
               [ -z "$m" ] && continue
               echo "===== lean4checker $m"
@@ -176,7 +172,7 @@ jobs:
           echo "-----"
           lake env lean "$f" 2>&1 | tee "$RUNNER_TEMP/axioms.txt"
 
-      - name: lean4checker --fresh on the final theorem's module (at most 30 minutes)
+      - name: leanchecker --fresh on the final theorem's module (at most 30 minutes)
         if: always()
         continue-on-error: true
         timeout-minutes: 30

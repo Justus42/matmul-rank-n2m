@@ -1,5 +1,9 @@
-import YangBounds.Statements
-import YangBounds.Lemma13Prime
+module
+
+public import YangBounds.Statements
+public import YangBounds.Lemma13Prime
+
+@[expose] public section
 
 /-!
 # Theorem A (“Satz A”): the four remaining cases for `⟨4,2,4⟩` of length 25

@@ -1,7 +1,11 @@
-import Mathlib.Algebra.Order.Floor.Semiring
-import Mathlib.Data.Rat.Floor
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Linarith
+module
+
+public import Mathlib.Algebra.Order.Floor.Semiring
+public import Mathlib.Data.Rat.Floor
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Linarith
+
+@[expose] public section
 
 /-!
 # The ceiling in Yang's Theorem 1 as an integer inequality

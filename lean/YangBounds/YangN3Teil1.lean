@@ -1,6 +1,10 @@
-import YangBounds.Basic
-import YangBounds.CeilBound
-import Mathlib.FieldTheory.RatFunc.Basic
+module
+
+public import YangBounds.Basic
+public import YangBounds.CeilBound
+public import Mathlib.FieldTheory.RatFunc.Basic
+
+@[expose] public section
 
 /-!
 # Yang v3, Theorem 1, part 1: reduction to infinite fields (step R1)

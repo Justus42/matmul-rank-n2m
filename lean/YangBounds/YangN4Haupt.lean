@@ -1,10 +1,14 @@
-import YangBounds.Basic
-import YangBounds.YangN3Teil1
-import YangBounds.YangN3Teil2
-import YangBounds.YangN3Teil3
-import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-import Mathlib.LinearAlgebra.Eigenspace.Triangularizable
-import Mathlib.LinearAlgebra.Dual.Lemmas
+module
+
+public import YangBounds.Basic
+public import YangBounds.YangN3Teil1
+public import YangBounds.YangN3Teil2
+public import YangBounds.YangN3Teil3
+public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+public import Mathlib.LinearAlgebra.Eigenspace.Triangularizable
+public import Mathlib.LinearAlgebra.Dual.Lemmas
+
+@[expose] public section
 
 /-!
 # Yang v3, Theorem 2 (`m ≥ n ≥ 4`): the main proof, with Lemma 13 as a hypothesis

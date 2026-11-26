@@ -1,6 +1,10 @@
-import YangBounds.LemmaP444
-import YangBounds.Endsatz444
-import YangBounds.Bruecke444
+module
+
+public import YangBounds.LemmaP444
+public import YangBounds.Endsatz444
+public import YangBounds.Bruecke444
+
+@[expose] public section
 
 /-!
 # Satz F for `⟨4,2,4⟩`, case (5,8): sub-case B is impossible (with named hypotheses)

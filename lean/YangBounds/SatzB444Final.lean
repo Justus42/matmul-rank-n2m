@@ -1,5 +1,9 @@
-import YangBounds.SatzA444
-import YangBounds.SatzB444
+module
+
+public import YangBounds.SatzA444
+public import YangBounds.SatzB444
+
+@[expose] public section
 
 /-!
 # Satz B for `⟨4,2,4⟩` at length 25 without hypotheses

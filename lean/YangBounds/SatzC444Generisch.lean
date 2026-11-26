@@ -1,6 +1,10 @@
-import YangBounds.SatzC444Kern
-import Mathlib.Algebra.DualNumber
-import Mathlib.RingTheory.Localization.FractionRing
+module
+
+public import YangBounds.SatzC444Kern
+public import Mathlib.Algebra.DualNumber
+public import Mathlib.RingTheory.Localization.FractionRing
+
+@[expose] public section
 
 /-!
 # Satz C and Folgerung C1 (generic form) for `⟨4,2,4⟩` at the generic point
