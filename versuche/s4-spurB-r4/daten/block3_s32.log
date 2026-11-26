@@ -1,0 +1,8 @@
+start R=42 P=2 B=0 target=34 seed=32
+t=9s steps=4051194 R=41
+t=9s steps=4126608 R=40
+t=9s steps=4224362 R=39
+t=13s steps=6314897 R=38
+t=16s steps=7646840 R=37
+t=37s steps=19782912 R=36
+timeout best=36 steps=732212000 flips=732211996

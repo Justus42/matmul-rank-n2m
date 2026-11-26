@@ -1,0 +1,4 @@
+start R=42 P=0 B=1 target=35 seed=21
+t=115s steps=63253139 R=41
+t=160s steps=85137924 R=40
+t=160s steps=85431052 R=39
