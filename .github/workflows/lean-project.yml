@@ -95,6 +95,7 @@ jobs:
         run: |
           set -euo pipefail
           check="$RUNNER_TEMP/MainAxioms.lean"
+          echo "commit: $(git rev-parse HEAD)"
           python3 ../.github/scripts/lean_report.py gen-check . "$check"
           lake env lean "$check" 2>&1 | tee "$RUNNER_TEMP/axioms.txt"
 

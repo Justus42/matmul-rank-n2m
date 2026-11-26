@@ -79,6 +79,10 @@ MAIN_THEOREMS = [
     ("Lemma K at the generic point over GBar K (LemmaK444.lean)", "YangBounds.LemmaK444.lemmaK_generischL"),
     ("Folgerung K1 at the generic point over GField K (LemmaK444.lean)", "YangBounds.LemmaK444.folgerungK1_generisch"),
     ("Folgerung K1 at the generic point over GBar K (LemmaK444.lean)", "YangBounds.LemmaK444.folgerungK1_generischL"),
+    # S4-09: single axiom report for the lemmas of the 3x2x7 basis (B-018, B-019).
+    ("Lemma 15(b), abstract core (YangN4Haupt.lean)", "YangBounds.YangN4Haupt.lemma15b_core"),
+    ("Lemma 15(b): rk L = d*rho implies rho = m (YangN4Haupt.lean)", "YangBounds.YangN4Haupt.lemma15b"),
+    ("Lemma I: rk L + min(2, dim N) <= 2 rk H (YangN3Teil3.lean)", "YangBounds.YangN3Teil3.lemma_I"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 
