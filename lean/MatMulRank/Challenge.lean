@@ -8,7 +8,7 @@ public import Mathlib.Order.Lattice.Nat
 @[expose] public section
 
 /-!
-# Challenge: the tensor rank of `⟨4, 2, 4⟩` matrix multiplication is at least 26
+# Challenge: the tensor rank of `⟨4, 2, 4⟩` matrix multiplication is 26
 
 This is the statement file (Challenge) for the Palomar registry. It imports only Mathlib.
 
@@ -30,24 +30,23 @@ an `l × m` matrix over `K`.
 
 ## The claim
 
-`MatMulRank.rank_four_two_four_ge_26`: for every field `K` (no assumption on the
-characteristic, finiteness or algebraic closedness), `26 ≤ R_K(⟨4, 2, 4⟩)`.
+`MatMulRank.rank_four_two_four_eq_26`: for every field `K` (no assumption on the
+characteristic, finiteness or algebraic closedness), `R_K(⟨4, 2, 4⟩) = 26`.
 
-In words: two matrices of sizes `4 × 2` and `2 × 4` cannot be multiplied by a bilinear
-algorithm with 25 or fewer multiplications, over any field.
+In words: two matrices of sizes `4 × 2` and `2 × 4` can be multiplied by a bilinear algorithm
+with 26 multiplications, but not by one with 25 or fewer, over any field.
 
-Together with the upper bound `R(⟨4, 2, 4⟩) ≤ 26` of Hopcroft and Kerr (1971), which is not
-part of this Challenge, this gives `R_K(⟨4, 2, 4⟩) = 26`. The previously known lower bound was
-25 (J. Yang, arXiv:2609.14393, Theorem 2).
+The upper bound `R(⟨4, 2, 4⟩) ≤ 26` is the known bound of Hopcroft and Kerr (1971); the
+Solution proves it with an explicit algorithm with 26 products and integer coefficients. The
+lower bound `26 ≤ R_K(⟨4, 2, 4⟩)` is the substantial part. The previously known lower bound
+was 25 (J. Yang, arXiv:2609.14393, Theorem 2).
 
 ## Limitations of the statement
 
-* Only the lower bound is stated. The equality `R_K(⟨4, 2, 4⟩) = 26` is not a theorem of this
-  Challenge.
 * The statement concerns bilinear algorithms (tensor rank), not border rank, not symmetric
   rank and not commutative algorithms.
 * `tensorRank` is written as `sInf` of the set of lengths of bilinear algorithms. With Mathlib's
-  convention `sInf ∅ = 0`, an empty set would make `26 ≤ tensorRank K 4 2 4` false, not true,
+  convention `sInf ∅ = 0`, an empty set would make `tensorRank K 4 2 4 = 26` false, not true,
   so the convention cannot make the claim vacuous. The set is not empty (schoolbook algorithm).
 -/
 
@@ -89,10 +88,10 @@ namespace MatMulRank
 
 universe u
 
-/-- **Lower bound for `⟨4, 2, 4⟩`.** For every field `K`, every bilinear algorithm for the
-product of a `4 × 2` matrix and a `2 × 4` matrix over `K` uses at least 26 multiplications:
-`26 ≤ R_K(⟨4, 2, 4⟩)`. -/
-theorem rank_four_two_four_ge_26 (K : Type u) [Field K] : 26 ≤ tensorRank K 4 2 4 := by
+/-- **The tensor rank of `⟨4, 2, 4⟩`.** For every field `K`, the least number of
+multiplications of a bilinear algorithm for the product of a `4 × 2` matrix and a `2 × 4`
+matrix over `K` is 26: `R_K(⟨4, 2, 4⟩) = 26`. -/
+theorem rank_four_two_four_eq_26 (K : Type u) [Field K] : tensorRank K 4 2 4 = 26 := by
   sorry
 
 end MatMulRank

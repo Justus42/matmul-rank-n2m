@@ -88,6 +88,10 @@ MAIN_THEOREMS = [
     # S5-14: the Palomar Solution (lean/MatMulRank/Solution.lean) and its bridge to the project.
     ("Palomar Solution: R<4,2,4> >= 26 with the Challenge definitions (MatMulRank/Solution.lean)", "MatMulRank.rank_four_two_four_ge_26"),
     ("Palomar Solution: Challenge tensorRank = project tensorRank (MatMulRank/Solution.lean)", "MatMulRank.tensorRank_eq_yangBounds"),
+    # S5-17: upper bound 26 by an explicit algorithm, equality, and the new Challenge statement.
+    ("Upper bound <4,2,4> <= 26, explicit algorithm B-010 (Upper4x2x4.lean)", "YangBounds.Upper4x2x4.rank_four_two_four_le_26"),
+    ("Rank <4,2,4> = 26, every field (Gleich444.lean)", "YangBounds.Gleich444.rank_four_two_four_eq_26"),
+    ("Palomar Solution: R<4,2,4> = 26 with the Challenge definitions (MatMulRank/Solution.lean)", "MatMulRank.rank_four_two_four_eq_26"),
 ]
 # S5-14: the Challenge contains one deliberate `sorry` (the theorem Palomar asks to prove,
 # CONTRIBUTING.md: "Deliberate holes in Challenge declarations are allowed"). It is listed

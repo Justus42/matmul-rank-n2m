@@ -2,16 +2,21 @@ module
 
 public import MatMulRank.Definitions
 public import YangBounds.Transponiert444
+public import YangBounds.Gleich444
 
 @[expose] public section
 
 /-!
-# Solution: proof of the Challenge `MatMulRank.rank_four_two_four_ge_26`
+# Solution: proof of the Challenge `MatMulRank.rank_four_two_four_eq_26`
 
 The definitions `MatMulRank.BilinearAlgorithm` and `MatMulRank.tensorRank` come from
 `MatMulRank/Definitions.lean`, which repeats the definitions of the Challenge with the same
 imports. This file proves the Challenge theorem from the project's theorem
-`YangBounds.Transponiert444.rank_four_two_four_ge_26`.
+`YangBounds.Gleich444.rank_four_two_four_eq_26`, which combines the lower bound
+`YangBounds.Transponiert444.rank_four_two_four_ge_26` with the upper bound
+`YangBounds.Upper4x2x4.rank_four_two_four_le_26` (explicit algorithm with 26 products).
+The former Challenge statement `rank_four_two_four_ge_26` (lower bound only) is kept below
+with unchanged wording.
 
 The bridge: the structures `MatMulRank.BilinearAlgorithm` and `YangBounds.BilinearAlgorithm`
 have the same fields with the same types, so algorithms convert in both directions without
@@ -70,11 +75,19 @@ theorem tensorRank_eq_yangBounds (K : Type u) [Field K] (n l m : ℕ) :
     obtain ⟨alg⟩ := hmem
     exact YangBounds.tensorRank_le (BilinearAlgorithm.toYangBounds alg)
 
-/-- **Lower bound for `⟨4, 2, 4⟩`** (statement of the Challenge). Proof: the project's theorem
+/-- **Lower bound for `⟨4, 2, 4⟩`** (statement of the Challenge up to S5-17). Proof: the
+project's theorem
 `YangBounds.Transponiert444.rank_four_two_four_ge_26`, transported along
 `tensorRank_eq_yangBounds`. -/
 theorem rank_four_two_four_ge_26 (K : Type u) [Field K] : 26 ≤ tensorRank K 4 2 4 := by
   rw [tensorRank_eq_yangBounds]
   exact YangBounds.Transponiert444.rank_four_two_four_ge_26 K
+
+/-- **The tensor rank of `⟨4, 2, 4⟩`** (statement of the Challenge). Proof: the project's
+theorem `YangBounds.Gleich444.rank_four_two_four_eq_26`, transported along
+`tensorRank_eq_yangBounds`. -/
+theorem rank_four_two_four_eq_26 (K : Type u) [Field K] : tensorRank K 4 2 4 = 26 := by
+  rw [tensorRank_eq_yangBounds]
+  exact YangBounds.Gleich444.rank_four_two_four_eq_26 K
 
 end MatMulRank
