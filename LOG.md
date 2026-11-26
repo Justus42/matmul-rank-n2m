@@ -2992,3 +2992,10 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 
 - Meldung von S5-14 (laut Orchestrator): `lake exe cache get` auf `portierung` (Stand 4cad1ca) von 15:39:53 bis 15:41:11 UTC, 9.117 Dateien, Exit 0. Lean 4.36.0 als Release-Archiv von github.com, weil release.lean-lang.org gesperrt bleibt. S5-14 baut jetzt lokal.
 - Die Frage des Orchestrators zur Lesart von 15:37 UTC ist damit vorerst gegenstandslos; der Zähler für Spur P ergibt sich am Ende von Runde 3 aus dem Bau.
+
+**Stufe 5, Runde 3: S5-12 (Prüfer K-32 bis K-35, zweite Lesung) geliefert (Schreibhand, aus Git und dem Bericht)**
+
+- PR #154, ein Commit a4f727e (15:43:23 UTC, Zweig von 1425198), Merge ddb64d1 (15:43:43 UTC). Block Zeilen 550–627 (78 Zeilen), Bearbeitungsdauer nach Git etwa 5 Minuten. Nur der Bericht geändert (568 Zeilen). 0 Subagenten, 0 Fremdmodell.
+- K-32 bis K-35 je „bestätigt“, keine echte Lücke. Ausgeschriebene Nachrechnung je Glied, Programme (Anhang A bis C) und Randfälle vorhanden. Ungenauigkeiten überwiegend wie S5-07, neu: K-33 (v) α_t, α_{t′} ≠ 0 nur stillschweigend, K-34 Menge X in K-1 (c) nicht genannt.
+- Nachträgliche Offenlegung laut Orchestrator (nicht im Bericht): nach dem Mergen `git log -1` und `git show -s` für die eigenen Commit-Zeiten.
+- Damit haben K-32 bis K-35 je zwei Bestätigungen (S5-07, S5-12). Einzelheiten in `pruefvermerke/B-033.md`.
