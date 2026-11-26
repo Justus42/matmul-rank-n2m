@@ -457,3 +457,46 @@ Zeiten aus den Git-Zeitstempeln der Commits auf dem Zweig `claude/project-thread
 ### Einschränkungen
 
 Keine Vollständigkeit garantiert. Semantic-Scholar-Stichwortsuche unbeantwortet. Von Zenodo und MathOverflow nur die neuesten zehn Treffer je Anfrage gesichtet.
+
+---
+
+## 26.11.2026 (vor Beginn von Stufe 5)
+
+Auftrag S5-LW. Durchgeführt am 26.11.2026 zwischen 14:36 und 14:50 UTC; maßgeblich sind die Git-Zeitstempel der Commits auf dem Zweig `claude/project-thread-phlypo`. Vollständiges Suchprotokoll: [WACHE-2026-11-26-S5.md](WACHE-2026-11-26-S5.md). Ausführender Thread meldet als Modellbezeichnung claude-opus-5-5. Keine Subagenten, keine Abruf-Agenten, keine Fremdmodell-Anfrage.
+
+### Ergebnis für die Abbruchregel 3
+
+**Nicht gefunden:** kein Beweis von R(⟨3,2,7⟩) ≥ 35, kein Verfahren mit 34 Multiplikationen, keine Veröffentlichung der unteren Schranke 26 für ⟨4,2,4⟩ durch Dritte, kein Eintrag im Register Palomar zu ⟨4,2,4⟩, ⟨3,2,6⟩ oder ⟨3,2,7⟩ (soweit über die Archiv-Kopien feststellbar). Abbruchregel 3 greift nicht. Status: behauptet.
+
+### Pflichtpunkte nach Abschnitt 7
+
+- arXiv:2609.14393: Versionsliste direkt gelesen, v3 vom 12.10.2026 bleibt die neueste. arXiv:2609.22054: nur v1 vom 18.09.2026.
+- fallnlove/mm325_proof `759cf4a8`: unverändert.
+- openai/math `3344da59`: unverändert, also keine neuen Commits, Familien oder Verzeichnisse in `preprints/`.
+- cs.CC: seit Wache R4 keine neue Tagesliste; arXiv-API-Suchen ohne neuen Treffer.
+- Register Palomar: palomar-registry.org und alle Unterdomains gesperrt. Ersatzweise die 1155 öffentlichen Archiv-Kopien eingereichter Repos (Organisation PalomarArchive) und die GitHub-Codesuche nach `formalization.yaml` durchgesehen: Zur Matrixmultiplikation nur ⟨3,3,3⟩ ≥ 21, ω ≤ 9/4 (zweimal), ⟨9,10,11⟩ ≤ 640, ⟨9,11,11⟩ ≤ 708. Nichts zu ⟨n,2,m⟩.
+
+### Sonst neu
+
+- solven-eu/matmulcatalog neu auf `409563ec`: Import neuer Verfahren, für ⟨2,3,7⟩ weiter nur Rang 35, für ⟨2,4,4⟩ nur 26.
+- Zenodo 24561737 (26.11.2026): Verfahren mit Rang 32 für ⟨2,4,5⟩ mit Koeffizienten in ½ℤ hat kein 2-adisch ganzzahliges Äquivalent. Betrifft 4×2×5, kein Ziel von Stufe 5.
+- ECCC TR26-346 ohne Bezug.
+
+### Erreichbarkeit
+
+| Quelle | erreichbar |
+|---|---|
+| arXiv (abs, list, API) | ja |
+| fmm.univ-lille.fr | ja |
+| eccc.weizmann.ac.il | ja, nur mit Browser-Kennung (ohne: `curl: (52) Empty reply from server`) |
+| zenodo.org, mathoverflow.net | ja |
+| api.semanticscholar.org | gedrosselt (429), Zitier-Abfrage beantwortet |
+| palomar-registry.org, www.palomar-registry.org, data.palomar-registry.org, palomarregistry.org | nein: `HTTP/1.1 403 Forbidden (agent proxy: no rule or network setting allows this host)` bzw. `curl: (56) CONNECT tunnel failed, response 403`; über http `curl: (6) Could not resolve host: palomar-registry.org` |
+| github.com/PalomarRegistry (Organisationsseite und -API) | nein: 403 „This GitHub API path is not available: sessions are bound to their configured repositories.“ Die öffentlichen Repos PalomarPolicy, PalomarSubmission, PalomarReviewer, PalomarWeb und PalomarArchive sind über git und die GitHub-Suche lesbar |
+| Google Scholar | nein |
+
+Offenlegung: Ein einzelner GET ohne Daten an `https://submit.palomar-registry.org/` lief versehentlich in der Erreichbarkeitsschleife mit und wurde vom Proxy abgewiesen (403). Nichts angezeigt, nichts abgesendet, nicht wiederholt.
+
+### Einschränkungen
+
+Register Palomar nur mittelbar geprüft. Keine Vollständigkeit garantiert.
