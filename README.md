@@ -4,7 +4,7 @@ How many multiplications are needed, at minimum, to multiply an n×2 matrix by a
 
 This repository works on the exact tensor rank of the small matrix multiplication formats ⟨n,2,m⟩ over arbitrary fields. Every result here is either a machine-checked Lean proof (lower bound) or a scheme confirmed by two independent exact checkers (upper bound).
 
-**Status:** stage 2 (⟨4,2,4⟩) reached its completion criterion: R(⟨4,2,4⟩) = 26 over every field, lower bound machine-checked in Lean (see the table and [the note](ergebnisse/rang-444.md)). Stage 3, a short exploration of ⟨4,2,5⟩ and ⟨3,2,7⟩, has not started yet. See [STATUS.md](STATUS.md).
+**Status:** stage 2 (⟨4,2,4⟩) reached its completion criterion: R(⟨4,2,4⟩) = 26 over every field, lower bound machine-checked in Lean (see the table and [the note](ergebnisse/rang-444.md)). Stage 3, a short exploration of ⟨4,2,5⟩ and ⟨3,2,7⟩, is completed. Stage 4, a narrow attack on ⟨3,2,7⟩, is running; the rank of ⟨3,2,7⟩ is open (34 or 35). See [STATUS.md](STATUS.md).
 
 ## Targets
 
