@@ -40,3 +40,4 @@ Eine Datei pro Behauptung, benannt `B-xxx.md`. Eine Behauptungsdatei enthält nu
 | B-022 | S4-06 A1 bis A6: Strukturaussagen zum Restfall (4, 6, 4) bei Länge 34 |
 | B-023 | Satz G: Gleichheitsfall r = 34 für m = 7 |
 | B-024 | Satz K: Gestalt des Restfalls in den Faktoren, ohne Lemma 15(b) |
+| B-025 | Fallunterscheidung des Restfalls R-327: „e = 3 mit (INJ5)“, „e = 3 ohne (INJ5)“, „e ≤ 2“ schöpfen den Restfall aus |

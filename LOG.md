@@ -2400,3 +2400,25 @@ Die Literaturwache dieser Sitzung läuft. Die Vergabe von Runde 3 folgt danach.
 - Gedächtnis vor der Vergabe durchgesehen (Eintrag oben, etwa 09:52 UTC).
 - Zählerstand zu Beginn der Runde: Spur A 1 von 3, Spur B 1 von 3. Laufende Fristen nach 2 b): keine.
 - Runde 3 bleibt nach Lesart (f) offen, bis die Sol-Antwort zu S4-07-D da ist oder feststeht, dass keine Anfrage gestellt wird.
+
+## 26.11.2026 · Stufe 4, Runde 3: Prüfer S4-12 und S4-13 geliefert, B-025 angelegt
+
+| Nr. | PR | Merge | Zieldatei | Commits | Dauer ab Vergabe (etwa 09:53) |
+|---|---|---|---|---|---|
+| S4-13 | #116 | bc90720 (09:59:53) | `lean/prosa/s4_327_bericht_s4-13.md` | 4810418 09:55:36, 28ffe63 09:59:33 | etwa 7 Minuten |
+| S4-12 | #117 | 5cf7f13 (10:03:09) | `lean/prosa/s4_327_bericht_s4-12.md` | 29191c8 09:55:06, 3fe49a9 09:57:37, a5eaabe 10:02:46 | etwa 10 Minuten |
+
+Jeweils nur die Zieldatei geändert. Beide: 0 eigene Subagenten, 0 Fremdmodell-Anfragen.
+
+- **S4-12 zu B-021:** D (zuerst und einzeln geprüft) **hält**, über jedem Körper, mit (INJ5) im Wortlaut. Vorbehalt: Der zweite Satz von D („Gleichwertig gesagt …“) gilt nur, wenn jede Normalform im Restfall R-327 liegt (B-017). A hält ohne Voraussetzungen. B und C halten unter den Restfall-Daten, die der Prüfer nicht geprüft hat. E (Satz X) hält unter R_K(⟨3,2,6⟩) ≥ 30, was im Wortlaut von E fehlt. Eingeblendet: Index und Einzeleinträge `hk-verfahren-a10`, `pruefer-abgleich-s1-20`, `lean-upper-3x2x6`, `verfahren-randfaelle-s1-04`, offengelegt. Rechenblöcke: Block 0 zwischen 29191c8 und 3fe49a9, Block 1 von 09:57:39 bis etwa 10:01, zusammen etwa 3½ Minuten. Kein Verstoß.
+- **S4-13 zu B-022, B-023, B-024:** B-022 A1 bis A6 halten (A3 braucht algebraisch abgeschlossenen Körper, A5 und A6 unendlichen Körper). B-023 Satz G (a) bis (g) hält. B-024: K1 und K3 halten, **K2 hält in der wörtlichen Fassung nicht**, nur nach zusätzlicher Skalierung a_r[0][0] = 1; berichtigte Fassung im Bericht (Abschnitt 5.3). Programme von B-024 nur gelesen. Eingeblendet: Index und Einzeleinträge `aussagen-abgleich-n3`, `gemini-bridge`, offengelegt.
+
+**Status (Orchestrator):** Alles bleibt behauptet. Vermerke in `pruefvermerke/B-021.md` bis `B-024.md`: je „von einem Prüfer bestätigt“ mit den Vorbehalten; bei B-024 K2 „in wörtlicher Fassung nicht bestätigt, berichtigte Fassung im Prüfbericht“. Satz X (B-021 E) zählt nach Vorgabe 2 von Justus nicht als Fortschritt.
+
+**Nach Vorgabe 1 von Justus** (der Prüfer hat S4-07-D bestätigt):
+
+- `behauptungen/B-025.md` angelegt: Fallunterscheidung des Restfalls R-327 in „e = 3 mit (INJ5)“, „e = 3 ohne (INJ5)“, „e ≤ 2“, die den Restfall ausschöpfen. Definitionen von e, w, P_d und (INJ5) wörtlich aus dem Artefakt. Die Unmöglichkeit von „e = 3 mit (INJ5)“ ist B-021 D. Prüfvermerk mit Status behauptet.
+- Zur Vollständigkeit (Schreibhand, nur Fundstelle, kein Urteil): Das Artefakt setzt in Abschnitt 3.1, Zeile 99, „e := dim(w·P_2) − 3 ∈ {0, 1, 2, 3}“. Eine Begründung für e ≤ 3 ist nicht ausgeschrieben. Im Artefakt stehen dim w·P_1 = 3 (Zeile 99) und P_2 als Polynome vom Grad ≤ 2 in zwei Variablen (Aussage B (ii)), aber nicht der Schluss daraus. e = 0 wird in Zeile 101 mit Beweis ausgeschlossen.
+- Die Sol-Anfrage zu S4-07-D stellt der Orchestrator nach 5.5 (erste von höchstens zwei in Runde 3). Eintrag folgt mit der Batch-Kennung.
+
+**Gedächtnis (Schreibhand):** Der Eintrag `gemini-bridge` enthielt einen veralteten Zwischenstand aus Stufe 1 (Plan „S1-05 Nachtrag“ und „kein Ausweichen auf OpenRouter“). Dieser Absatz ist nach `archiv/gedaechtnis/stufe01/gemini-bridge-stand-s1-05.md` archiviert und aus dem Eintrag entfernt. Kein Urteil betroffen.
