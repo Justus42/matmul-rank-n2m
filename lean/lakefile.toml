@@ -11,7 +11,7 @@ rev = "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
 
 [[lean_lib]]
 name = "YangBounds"
-globs = ["YangBounds.+"]
+globs = ["YangBounds", "YangBounds.+"]
 
 # S5-08: Palomar Challenge (MatMulRank.Challenge, imports only Mathlib), the definitions it
 # shares with the Solution (MatMulRank.Definitions) and the Solution (MatMulRank.Solution).
