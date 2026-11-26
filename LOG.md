@@ -2730,3 +2730,7 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 - **Spur A: Zähler 2 von 3.** Frist B-021 D geprüft bis Ende Runde 5: gehalten. In Runde 5 kein neuer Fortschritt nach 2 a) oder 2 b): Der Statuswechsel von B-021 D zählt nach Lesart (i) nicht erneut, S4-27 und S4-28 sind nur behauptet (kein Prüfer, kein Fremdmodell in dieser Runde).
 - **Spur B: aufgegeben** (seit Runde 4).
 - Budget: 5 von 6 Runden verbraucht. Fertig-Kriterium nicht erfüllt. Keine weitere Abbruchregel greift.
+
+**Nachtrag 26.11.2026, vor Runde 6: Gedächtnisdurchsicht (Schreibhand)**
+
+- Index (`MEMORY.md`, md5 1c3884b6…, geändert 12:12 UTC) und alle 21 Einzeleinträge durchgesehen. Seit der Durchsicht vor Runde 5 unverändert (gleiche Prüfsumme des Index, keine Datei neuer als 12:12 UTC). Keine Urteile, kein Status, keine Zähler, nichts zu Stufe 4, zu Behauptungen oder Spuren. Keine Änderung nötig.
