@@ -274,7 +274,7 @@ theorem lemma15b_core (F : Fin d → U →ₗ[K] Q) {ρ : ℕ}
     have hσker : ∀ y, σ y = 0 → ∀ k, F k y = 0 := by
       intro y hy k
       apply hkey (fun _ => y)
-      simpa [σ, LinearMap.coeFn_sum] using hy
+      simpa [σ, FunLike.coe_sum] using hy
     have hσle : LinearMap.ker σ ≤ LinearMap.ker (F i) := fun y hy => hσker y hy i
     have hσrk : finrank K (LinearMap.range σ) ≤ ρ := by
       rw [← rkComb_one]; exact hρ.2 ⟨_, rfl⟩
@@ -1004,7 +1004,7 @@ theorem lemma14 (h1 : SN1 alg) (h2 : SN2 alg) (hm : d ≤ m) {ρ : ℕ}
   let f' : Matrix (Fin 2) (Fin m) K →ₗ[K] (Fin r → K) := ∑ i, γ i • fv alg i
   have hf'apply : ∀ x t, f' x t = (∑ i, γ i * alg.alpha t (eA i 0)) * alg.beta t x := by
     intro x t
-    simp only [f', LinearMap.coeFn_sum, Finset.sum_apply, LinearMap.smul_apply, Pi.smul_apply,
+    simp only [f', FunLike.coe_sum, Finset.sum_apply, LinearMap.smul_apply, Pi.smul_apply,
       fv_apply, avec, bvec, Pi.mul_apply, LinearMap.pi_apply, smul_eq_mul, Finset.sum_mul]
     exact Finset.sum_congr rfl fun i _ => by ring
   have hf'inj : Function.Injective (f' ∘ₗ emb) := by
@@ -1015,7 +1015,7 @@ theorem lemma14 (h1 : SN1 alg) (h2 : SN2 alg) (hm : d ≤ m) {ρ : ℕ}
     have hx0 : emb y ≠ 0 := fun h => hy0 (emb_injective (by rw [h, map_zero]))
     apply hγ0
     have hsum : ∑ i, γ i • fv alg i (emb y) = 0 := by
-      simpa [f', LinearMap.coeFn_sum] using hy
+      simpa [f', FunLike.coe_sum] using hy
     exact funext fun i => Fintype.linearIndependent_iff.1 (h2 _ hx0) γ hsum i
   set X := LinearMap.range (f' ∘ₗ emb)
   have hXdim : finrank K X = m := by
@@ -1032,7 +1032,7 @@ theorem lemma14 (h1 : SN1 alg) (h2 : SN2 alg) (hm : d ≤ m) {ρ : ℕ}
   have hmap : X.map (π alg) ≤ LinearMap.range (∑ j, γ j.succ • Fq alg j) := by
     rintro _ ⟨_, ⟨y, rfl⟩, rfl⟩
     refine ⟨y, ?_⟩
-    simp only [f', LinearMap.comp_apply, LinearMap.coeFn_sum, Finset.sum_apply,
+    simp only [f', LinearMap.comp_apply, FunLike.coe_sum, Finset.sum_apply,
       LinearMap.smul_apply, map_sum, map_smul]
     rw [Fin.sum_univ_succ]
     simp only [show ∀ y, π alg (fv alg 0 (emb y)) = 0 from fun y => π_φ0 alg y, smul_zero,

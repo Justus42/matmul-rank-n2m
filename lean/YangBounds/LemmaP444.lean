@@ -754,7 +754,7 @@ theorem main [Infinite K] [FiniteDimensional K Q] (H : Hyp F) :
   have hWle : finrank K W ≤ m - 1 := by omega
   -- Step 9: `m ≤ 3`
   have hm3 : m ≤ 3 := by
-    rcases le_or_lt m 3 with h | h
+    rcases le_or_gt m 3 with h | h
     · exact h
     exfalso
     have h4 : m ≤ 4 := by
