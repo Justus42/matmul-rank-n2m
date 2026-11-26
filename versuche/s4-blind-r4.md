@@ -30,7 +30,6 @@ Stand laut diesen Quellen: **34 ≤ R_K(⟨3,2,7⟩) ≤ 35 für jeden Körper K
 
 Wichtige Beobachtung (**behauptet**, elementar): Für m = 7 ist 24m + 2 = 170 = 5 · 34. Die Lücke ist also genau der **Gleichheitsfall von Yangs Ungleichung 5r ≥ 24m + 2**. Wer r = 34 ausschließt, muss Gleichheit in Yangs Ungleichung ausschließen, so wie Tsyganov u. a. Gleichheit in 5r ≥ 24m ausgeschlossen haben.
 
-(wird fortgesetzt)
 
 ## 2. Eigene Analyse: Was ein Verfahren mit 34 Produkten erfüllen müsste
 
@@ -122,3 +121,147 @@ Programm: eigenes C-Programm (Zufallsweg im Flip-Graphen nach der Idee von Kauer
 | Saat 24 | ⟨3,2,7⟩ | 1200 s | 1,0·10⁹ | 35 |
 
 Ergebnis: kein Verfahren mit 34 Produkten über GF(2) gefunden. Drei von vier Wegen erreichen 35 (das Hopcroft–Kerr-Niveau) nach 10 bis 18 Minuten. Das ist **schwache** Evidenz für 35 und nur über GF(2); die eigentliche Frage betrifft beliebige Körper. **Vermutet:** R_{GF(2)}(⟨3,2,7⟩) = 35.
+
+### 3.2 Rechenblock 2: Levenberg–Marquardt über ℝ (11:50:51 bis 12:10:58 UTC, 4 Kerne)
+
+Programm in Anhang B (gedämpftes Gauß–Newton mit kleiner Tikhonov-Regularisierung 1e−9, Zufallsstart, je 270 s). Eichung an ⟨3,2,3⟩ mit Rang 15: 2 von 3 Saaten konvergieren auf Residuum < 1e−14.
+
+| Rang | Saaten | Residuum² (kleinste Werte) | max. Betrag der Faktoren |
+|---|---|---|---|
+| 35 (Eichung) | 100–103 | 1,0; 1,6e−3; 9,4e−4; 4,7e−4 | 10 bis 21 |
+| 34 | 100–103, 200–203, 300–303 | 6,5e−4; 9,3e−4; 2,6e−3; sonst 1,0 bis 3,0 | 8 bis 16 |
+
+Ergebnis: **ergebnislos.** Selbst für Rang 35, wo ein exaktes Verfahren existiert, erreicht kein Lauf in 270 s ein Residuum nahe null. Die kleinen Residuen bei 34 gehen mit wachsenden Faktoren einher und deuten eher auf Näherungen im Sinn des Grenzrangs als auf ein exaktes Verfahren (**vermutet**). Für eine Aussage über den Rang taugt der Block nicht; er ist hier nur der Vollständigkeit halber festgehalten.
+
+## 4. Gescheiterte und verworfene Ansätze (mit Grund)
+
+1. **Substitution Spalte für Spalte** (R(⟨3,2,m⟩) ≥ R(⟨3,2,m−1⟩) + 5): Die Standardsubstitution über eine Spalte von B gibt nur +2 (zwei B-Variablen); einen Zuwachs von 5 je Spalte konnte ich nicht begründen. Verworfen.
+2. **Andere Lage der „2"**: ⟨3,2,7⟩ ≅ ⟨7,2,3⟩; Yangs Rahmen mit n = 7, m = 3 ergibt nur triviale Ungleichungen (dim Q = r − 24 = 10, Gleichung (1) wird 18 + rk H ≤ rk L + 60). Verworfen.
+3. **F invariant machen wie bei Tsyganov u. a.**: Im Restfall ist nur die Kette Σ ⊂ F mit SΣ, TΣ ⊆ F bekannt; die nächste Stufe F_2 = Σ ist eindimensional und nicht invariant (y_0 kein Eigenvektor). Kein Widerspruch. Siehe 2.4.
+4. **Satz B zu Ende führen**: Für Stützmengen mit k ≥ 7 Punkten in allgemeiner Lage liefern die Bedingungen 1 bis 3 aus 2.5 nur Zählungen wie 3·d ≤ 2k − c_3 (d = Rang der Auswertung der Quadriken, c_3 = Rang der Auswertung der Kubiken auf den π_j), die bei |Ω| ≤ 34 nicht widersprüchlich sind. Abgebrochen aus Zeitgründen, nicht widerlegt.
+
+## 5. Ergebnis und Einschätzung
+
+* Literatur: 34 ≤ R_K(⟨3,2,7⟩) ≤ 35 über jedem Körper (Yang; Tsyganov u. a.; Hopcroft–Kerr). Kein Beweis von 35 und kein Verfahren mit 34 gefunden.
+* **Behauptet** (Satz A, Satz B): Ein Verfahren mit 34 Produkten müsste genau im Gleichheitsfall von Yangs Ungleichung liegen, mit dim N = 3, rk L = 6, dim Σ = 1, F = ⟨y_0, Sy_0, Ty_0⟩, Surjektivität von M, und die Stützpunkte von y_0 dürften sich durch Quadriken nicht trennen lassen.
+* **Vermutet:** R_K(⟨3,2,7⟩) = 35 über jedem Körper. Grundlage: (i) Hopcroft–Kerr ist für m ≤ 6 exakt; (ii) Flip-Graph über GF(2) findet 35, nicht 34; (iii) Block 2 über ℝ war ergebnislos und trägt nichts bei. Ein Beweis fehlt; die Lücke ist in 2.4 und 2.5 benannt.
+
+## 6. Suchprotokoll (wörtlich)
+
+1. WebSearch standard: `tensor rank 2x3x7 matrix multiplication lower bound Hopcroft Kerr` → Treffer u. a. arXiv:2609.22054, 2603.07280, 2609.06725.
+2. WebSearch standard: `bilinear complexity multiplication 2×3 matrix by 3×n matrix Alekseev lower bound` → arXiv:2609.22054, mathnet.ru cheb433 (Alekseev, m×2 mal 2×2).
+3. Abruf https://arxiv.org/abs/2609.22054 (v1 vom 18.09.2026) und PDF; Abruf https://arxiv.org/abs/2609.14393 und PDF (v3 vom 12.10.2026).
+4. Abruf https://fmm.univ-lille.fr/ und https://fmm.univ-lille.fr/2x3x7.html: ⟨2×3×7:35⟩.
+5. WebSearch extended: `"3,2,7" OR "2,3,7" matrix multiplication tensor rank 35 lower bound 2026` → keine Quelle für einen exakten Wert; Treffer enthielt die GitHub-Seite dieses Repos (nicht geöffnet, siehe Abschnitt 0).
+
+## Anhang A: Quelltext Flip-Graph (C)
+
+```c
+// Flip-graph random walk over GF(2) for <N,M,P> (A: N x M, B: M x P, C: N x P)
+// tensor: sum a_{k,l} b_{l,j} c_{k,j}
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
+#include <time.h>
+typedef uint64_t u64;
+#define MAXR 128
+static int N,M,P;
+static u64 A[MAXR],B[MAXR],C[MAXR]; static int R;
+static u64 rs;
+static inline u64 rnd(){ rs^=rs<<13; rs^=rs>>7; rs^=rs<<17; return rs; }
+static int ai(int k,int l){return k*M+l;} static int bi(int l,int j){return l*P+j;} static int ci(int k,int j){return k*P+j;}
+static void standard(){ R=0; for(int k=0;k<N;k++)for(int l=0;l<M;l++)for(int j=0;j<P;j++){A[R]=1ULL<<ai(k,l);B[R]=1ULL<<bi(l,j);C[R]=1ULL<<ci(k,j);R++;} }
+static int verify(){ // check sum equals tensor
+  for(int x=0;x<N*M;x++)for(int y=0;y<M*P;y++){ u64 acc=0; for(int r=0;r<R;r++) if(((A[r]>>x)&1)&&((B[r]>>y)&1)) acc^=C[r];
+    int k=x/M,l=x%M, l2=y/P, j=y%P; u64 want = (l==l2)? (1ULL<<ci(k,j)) : 0; if(acc!=want) return 0;} return 1; }
+static void delterm(int i){ R--; A[i]=A[R];B[i]=B[R];C[i]=C[R]; }
+static int reduce(){ // merge terms sharing two factors; remove zero terms. return 1 if changed
+  int ch=0; again:
+  for(int i=0;i<R;i++){ if(!A[i]||!B[i]||!C[i]){delterm(i);ch=1;goto again;} }
+  for(int i=0;i<R;i++)for(int j=i+1;j<R;j++){
+    if(A[i]==A[j]&&B[i]==B[j]){C[i]^=C[j];delterm(j);ch=1;goto again;}
+    if(A[i]==A[j]&&C[i]==C[j]){B[i]^=B[j];delterm(j);ch=1;goto again;}
+    if(B[i]==B[j]&&C[i]==C[j]){A[i]^=A[j];delterm(j);ch=1;goto again;}
+  } return ch; }
+static int flip(){ // pick random pair sharing a factor; return 0 if none
+  for(int tries=0;tries<1000;tries++){
+    int i=rnd()%R, j=rnd()%R; if(i==j) continue;
+    int w=rnd()%3;
+    for(int t=0;t<3;t++,w=(w+1)%3){
+      if(w==0 && A[i]==A[j]){ B[i]^=B[j]; C[j]^=C[i]; return 1; } // a(b_i+b_j)c_i + a b_j (c_j+c_i)
+      if(w==1 && B[i]==B[j]){ C[i]^=C[j]; A[j]^=A[i]; return 1; }
+      if(w==2 && C[i]==C[j]){ A[i]^=A[j]; B[j]^=B[i]; return 1; }
+    }
+  } return 0; }
+static void plus(){ // increase rank by 1: split a term: a b c with a = a1+a2 ...
+  int i=rnd()%R, j=rnd()%R; while(j==i) j=rnd()%R;
+  // replace (a_i,b_i,c_i) by (a_i - a_j , b_i, c_i) + (a_j, b_i, c_i)
+  u64 na=A[i]^A[j]; if(!na) return; A[i]=na; A[R]=A[j];B[R]=B[i];C[R]=C[i]; R++; }
+int main(int argc,char**argv){
+  N=atoi(argv[1]);M=atoi(argv[2]);P=atoi(argv[3]); int target=atoi(argv[4]); double tlim=atof(argv[5]); rs=strtoull(argv[6],0,10)*2654435761ULL+12345; long plateau=atol(argv[7]);
+  standard(); reduce(); int best=R; time_t t0=time(0); long steps=0, since=0;
+  static u64 bA[MAXR],bB[MAXR],bC[MAXR]; int bR=R; memcpy(bA,A,sizeof A);memcpy(bB,B,sizeof B);memcpy(bC,C,sizeof C);
+  while(difftime(time(0),t0)<tlim){
+    if(!flip()){ plus(); }
+    reduce(); steps++; since++;
+    if(R<best){ best=R; since=0; if(!verify()){printf("VERIFY FAIL\n");return 1;} printf("seed %s t=%.0f steps=%ld rank %d\n",argv[6],difftime(time(0),t0),steps,R); fflush(stdout);
+      bR=R; memcpy(bA,A,sizeof A);memcpy(bB,B,sizeof B);memcpy(bC,C,sizeof C);
+      if(R<=target){ for(int r=0;r<R;r++) printf("T %llx %llx %llx\n",(unsigned long long)A[r],(unsigned long long)B[r],(unsigned long long)C[r]); return 0; } }
+    if(since>plateau){ // restart from best with a plus transition
+      R=bR; memcpy(A,bA,sizeof A);memcpy(B,bB,sizeof B);memcpy(C,bC,sizeof C); plus(); since=0; }
+    if(R>best+3){ R=bR; memcpy(A,bA,sizeof A);memcpy(B,bB,sizeof B);memcpy(C,bC,sizeof C); }
+  }
+  printf("seed %s done steps=%ld best %d\n",argv[6],steps,best); return 0; }
+```
+
+Aufruf: `./flip N M P Ziel Sekunden Saat Plateau`, Block 1: `./flip 3 2 7 34 1200 s 20000·s` für s = 21..24; Eichung `./flip 3 2 5 25 180 s 50000` für s = 11..14.
+
+## Anhang B: Quelltext Levenberg–Marquardt (Python, numpy)
+
+```python
+import numpy as np, sys, time
+def mm_tensor(n,l,m):
+    T=np.zeros((n*l,l*m,n*m))
+    for i in range(n):
+        for j in range(l):
+            for k in range(m):
+                T[i*l+j, j*m+k, i*m+k]=1
+    return T
+def run(n,l,m,R,seed,iters=3000,tl=300,reg=1e-9):
+    rng=np.random.default_rng(seed); T=mm_tensor(n,l,m); I,J,K=T.shape
+    U=rng.normal(size=(I,R))*0.7;V=rng.normal(size=(J,R))*0.7;W=rng.normal(size=(K,R))*0.7
+    lam=1e-2; t0=time.time()
+    def res(U,V,W): return (np.einsum('ir,jr,kr->ijk',U,V,W)-T).ravel()
+    r=res(U,V,W); f=r@r
+    for it in range(iters):
+        if time.time()-t0>tl: break
+        # Jacobian
+        JU=np.einsum('ia,jr,kr->ijkar',np.eye(I),V,W).reshape(I*J*K,I*R)
+        JV=np.einsum('ir,ja,kr->ijkar',U,np.eye(J),W).reshape(I*J*K,J*R)
+        JW=np.einsum('ir,jr,ka->ijkar',U,V,np.eye(K)).reshape(I*J*K,K*R)
+        Jm=np.hstack([JU,JV,JW]); x=np.concatenate([U.ravel(),V.ravel(),W.ravel()])
+        g=Jm.T@r + reg*x; A=Jm.T@Jm
+        while True:
+            d=np.linalg.solve(A+(lam+reg)*np.eye(A.shape[0]),-g)
+            xn=x+d; Un=xn[:I*R].reshape(I,R);Vn=xn[I*R:I*R+J*R].reshape(J,R);Wn=xn[I*R+J*R:].reshape(K,R)
+            rn=res(Un,Vn,Wn); fn=rn@rn
+            if fn+reg*(xn@xn)<f+reg*(x@x): U,V,W,r,f=Un,Vn,Wn,rn,fn; lam=max(lam/3,1e-12); break
+            lam*=4
+            if lam>1e10: break
+        if lam>1e10 or f<1e-24: break
+    mx=max(abs(U).max(),abs(V).max(),abs(W).max())
+    return f,mx,it,time.time()-t0
+if __name__=="__main__":
+    n,l,m,R=map(int,sys.argv[1:5]); seeds=range(int(sys.argv[5]),int(sys.argv[6])); tl=float(sys.argv[7])
+    for s in seeds:
+        f,mx,it,dt=run(n,l,m,R,s,tl=tl)
+        print(f"fmt {n}x{l}x{m} R={R} seed={s} resid2={f:.3e} maxabs={mx:.2e} iters={it} t={dt:.0f}s",flush=True)
+```
+
+## Anhang C: Verbrauch
+
+* Subagenten: 0. Fremdmodell-Anfragen: 0.
+* Rechenblock 1: 11:28:54–11:50:33 UTC, 4 Kerne (Flip-Graph, C). Danach Commit 1313b61 (11:50:44).
+* Rechenblock 2: 11:50:51–12:10:58 UTC, 4 Kerne (Levenberg–Marquardt, Python).
+* Webabrufe: 3 Suchanfragen, 5 Seitenabrufe (Abschnitt 6).
