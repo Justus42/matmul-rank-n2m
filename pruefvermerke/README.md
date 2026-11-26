@@ -53,8 +53,8 @@ Je Behauptung gibt es eine Datei `pruefvermerke/B-xxx.md`. Sie beginnt mit der w
 | B-030 | Lemma O, Satz G, Lemma F aus S4-21 (Grundlage von B-028 und B-029) | behauptet (Lemma O, Satz G, Formeln von zwei Prüfern S4-30, S4-31 bestätigt; Lemma F im Wortlaut nicht, Zusatz α_t, α_t′ ≠ 0 offen) | S4-21, PR #127 (Merge 8a2c470) |
 | B-031 | Fall r = 34 nach Tsyganov et al.: f = 5 unmöglich, Gestalt bei f = 4 (S4-29) | behauptet | S4-29, PR #136 (Merge e54f8c8) |
 | B-032 | Verschärfung (7′), f = 5 ausgeschlossen bei r = 34 (S4-35) | behauptet | S4-35, PR #142 (Merge f43f265) |
-| B-033 | Kette zu R(⟨3,2,7⟩) ≥ 35 als ein Beweis, Glieder K-1 bis K-41 | behauptet (keine Bestätigung; je Glied zwei vorgesehen) | S5-01, PR #148 (Merge a32831a) |
-| B-034 | R(⟨4,2,4⟩) = 26 über jedem Körper, Lean `Gleich444.rank_four_two_four_eq_26` (Zweig `portierung`) | behauptet (Aussagen-Abgleich in Runde 5 vorgesehen) | S5-17, PR #161 (Merge 03d49c7 auf `portierung`) |
+| B-033 | Kette zu R(⟨3,2,7⟩) ≥ 35 als ein Beweis, Glieder K-1 bis K-41 | behauptet (jedes Glied zwei unabhängige Bestätigungen, K-40 in der Fassung von `lean/prosa/s5_327_k40.md`; Kettendatei nicht berichtigt) | S5-01, PR #148 (Merge a32831a) |
+| B-034 | R(⟨4,2,4⟩) = 26 über jedem Körper, Lean `Gleich444.rank_four_two_four_eq_26` (Zweig `portierung`) | behauptet (Aussagen-Abgleich S5-20 und Fremdmodell: „stimmt überein“; Lesart (o): Status nach Zweitlauf auf `main`) | S5-17, PR #161 (Merge 03d49c7 auf `portierung`) |
 
 Spuren der Stufe 4 (Abbruchregel 2):
 
