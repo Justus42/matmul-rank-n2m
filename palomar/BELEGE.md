@@ -21,6 +21,11 @@ Abschnitt 4 und die Zählung sind nachgeführt; alle übrigen Zeilen gelten unve
 auf `6d44bb1`, weil Lean-Code, `comparator.json`, Lakefile, Manifest und Toolchain sich nicht
 geändert haben.
 
+**Nachtrag N-01** (Nacharbeit vor der Einreichung): Nach den neuen Importlisten aus N-06 und der
+überarbeiteten `lean/formalization.yaml` sind Bau, Berichte, `leanchecker`, Comparator mit NanoDa,
+`con-ron` und Palomars Prüffunktionen auf dem Commit `a1e0deb` neu gelaufen (Abschnitt 9). Die
+Abschnitte 0 bis 8 bleiben als Belege ihres Stands stehen; Abschnitt 4 ist nicht nachgeführt.
+
 Diese Datei belegt jede Anforderung aus `palomar/ANFORDERUNGEN.md` einzeln. Ein Beleg ist ein
 Befehl mit seiner wörtlichen Ausgabe. „erfüllt“ steht nur dort, wo ein Befehl und seine Ausgabe
 hier abgedruckt sind. Nichts hier ist ein Prüfurteil im Sinne von Protokoll Abschnitt 5, und
@@ -1062,3 +1067,349 @@ $ wc -c lean/formalization.yaml
 8460 lean/formalization.yaml
 ```
 
+
+## 9. Nachtrag N-01: alle Belege neu auf Commit `a1e0deb`
+
+**Anlass.** Seit den Abschnitten 1.4 bis 1.7, 2 und 8 haben sich geändert: die Importlisten von
+`lean/YangBounds/Basic.lean` (nur noch `Mathlib.Data.Matrix.Basic`) und
+`lean/YangBounds/S4BedingterAusschluss.lean` (dazu `Mathlib.Tactic.LinearCombination`), Auftrag
+N-06, Merge `49ead0184ee60a8766c163377559d0acb34a35e7`; und `lean/formalization.yaml`, Auftrag
+N-01. Keine Aussage, keine Definition, kein Beweis, nicht `comparator.json`, nicht Lakefile,
+Manifest oder Toolchain. Deshalb sind Bau, Berichte, `leanchecker`, Comparator mit NanoDa (Läufe A
+und B), `con-ron`, Kontrolllauf und Palomars Prüffunktionen hier noch einmal gelaufen.
+
+| Gegenstand | Wert |
+| --- | --- |
+| Geprüfter Commit | `a1e0deb6d5ef38032d64c5b3813ec7a96a49ace0` auf `claude/project-thread-mr4gt5`, Elternteil `49ead01` (`main` nach N-06). Gegenüber `49ead01` geändert: `README.md`, `ergebnisse/rang-444.md`, `lean/README.md`, `lean/formalization.yaml`, `lit/QUELLEN.md` |
+| Späterer Stand | Der Commit, der diesen Abschnitt hinzufügt, und der Merge nach `main` ändern gegenüber `a1e0deb` nur Textdateien: `palomar/BELEGE.md`, `README.md`, `lean/README.md`, `ergebnisse/rang-444.md` (Lauf- und Commitnummern). Keine Lean-Datei, kein Lakefile, kein Manifest, keine Toolchain, nicht `comparator.json`, nicht `formalization.yaml`, kein Workflow |
+| Werkzeuge | wie Abschnitt 0: Lean 4.36.0 aus dem GitHub-Release, Lake 5.0.0-src+611c117, bwrap 0.9.0, PalomarSubmission `046554302064b2c83c2b924bea6db87fc5900c68`; `leanchecker`, `leanexport`, `nanoda_bin`, `con-ron` aus dem `bin/` der Toolchain |
+| GitHub Actions auf `a1e0deb` | `lean-project.yml` per `workflow_dispatch` auf dem Zweig: Lauf 45886015262, Job 140136780218, success, „TOTAL: STANDARD=65“. `zweitlauf.yml` per `workflow_dispatch` mit `ref=a1e0deb6d5ef38032d64c5b3813ec7a96a49ace0`: Lauf 45886019141, Job 140141105711, success: „CHECKED COMMIT: a1e0deb6d5ef38032d64c5b3813ec7a96a49ace0“, „olean/ilean/trace files in fresh checkout: 0“, „Build completed successfully (4271 jobs).“, „L4C-SUMMARY|checked=32|ok=32|failed=0“, „L4C-FRESH|YangBounds.Transponiert444|exit=0“ |
+| Zeit | 2026-11-26, 19:45:37Z bis 20:02:43Z (lokal, 4 Kerne) |
+
+**Was neu ist gegenüber Abschnitt 1.7.** Alles wie dort, mit diesen Unterschieden: Lauf A baut
+nicht neu, sondern spielt die eben in `built/` gebauten Module wieder ab („Replayed“); der Export
+der Challenge ist byte-gleich mit dem früheren Lauf (SHA-256 `0abc445b…`), der Export der Solution
+nicht (`1067d20d…`), weil die Importe von `Basic.lean` jetzt andere Mathlib-Module in die Umgebung
+holen. `con-ron` nahm 27008 Deklarationen an. Wie in 1.7 sind diese Läufe kein Lauf von Palomars
+`execute` in dessen Sandbox; sie liefen außerhalb des Repos, von einem Agenten.
+
+**Skript** (`runall.sh`, außerhalb des Repos; frische Klone von GitHub, `untouched/` bleibt
+unberührt, `built/` wird gebaut):
+
+```bash
+#!/usr/bin/env bash
+# usage: runall.sh <commit> <outdir>
+# Fresh clones of <commit> from GitHub, build, reports, leanchecker, comparator (A, B), con-ron,
+# control run, Palomar check functions. Everything outside the repository.
+set -uo pipefail
+C="$1"; O="$2"
+export PATH=$HOME/.elan/bin:$PATH
+N=/tmp/claude-0/n01
+rm -rf "$O"; mkdir -p "$O"; cd "$O"
+log() { echo "$@"; }
+run() { echo "\$ $*"; bash -c "$*"; echo "[exit $?]"; }
+log "commit: $C"
+log "start: $(date -u +%FT%TZ)"
+for d in untouched built; do
+  git clone -q https://github.com/Justus42/matmul-rank-n2m.git "$d" && git -C "$d" checkout -q "$C"
+  echo "$d: $(git -C "$d" rev-parse HEAD), status: [$(git -C "$d" status --porcelain | wc -l) lines]"
+done
+cd built/lean
+B="$(dirname "$(elan which lean)")"
+run "lean --version"
+run "lake --version"
+run "lake exe cache get 2>&1 | tail -4"
+log "cache end: $(date -u +%FT%TZ)"
+lake build > "$O/build.log" 2>&1; echo "lake build exit $?"
+log "build end: $(date -u +%FT%TZ)"
+run "grep -E '^(✖|error)' $O/build.log | wc -l"
+run "tail -1 $O/build.log"
+run "grep 'declaration uses' $O/build.log"
+run "grep -c '^warning' $O/build.log"
+run "git -C .. status --porcelain"
+run "python3 ../.github/scripts/lean_report.py sorry-report . $O/build.log"
+python3 ../.github/scripts/lean_report.py gen-check . "$O/MainAxioms.lean" >/dev/null
+lake env lean "$O/MainAxioms.lean" > "$O/axioms.txt" 2>&1; echo "axioms exit $?"
+run "python3 ../.github/scripts/lean_report.py axiom-report $O/axioms.txt | grep -E 'TOTAL'"
+run "grep -c '^AXIOM-RESULT' $O/axioms.txt"
+run "grep '^AXIOM-RESULT' $O/axioms.txt | grep -vc '|propext, Classical.choice, Quot.sound\$'"
+run "grep -E 'AXIOM-RESULT\|(MatMulRank\.rank|YangBounds\.(Gleich444|Upper4x2x4|Transponiert444)\.rank_four_two_four_(eq|le|ge)_26\|)' $O/axioms.txt"
+log "--- leanchecker over all project modules: $(date -u +%FT%TZ)"
+ok=0; bad=0
+for f in $(cd . && ls YangBounds/*.lean MatMulRank/*.lean); do
+  m="${f%.lean}"; m="${m//\//.}"
+  if lake env "$B/leanchecker" "$m" > /dev/null 2>&1; then ok=$((ok+1)); else bad=$((bad+1)); echo "L4C FAIL $m"; fi
+done
+echo "L4C-SUMMARY|checked=$((ok+bad))|ok=$ok|failed=$bad"
+log "--- leanchecker --fresh YangBounds.Transponiert444: $(date -u +%FT%TZ)"
+timeout 1500 lake env "$B/leanchecker" --fresh YangBounds.Transponiert444 > /dev/null 2>&1; echo "L4C-FRESH|YangBounds.Transponiert444|exit=$?"
+log "end leanchecker: $(date -u +%FT%TZ)"
+sed "s#NANODA#$B/nanoda_bin#" $N/comparator-nanoda.tmpl > comparator-nanoda.json
+log "--- Lauf A: lake comparator (start $(date -u +%FT%TZ))"
+( time COMPARATOR_BWRAP=/usr/bin/bwrap lake comparator --config comparator-nanoda.json ) > "$O/laufA.log" 2>&1; echo "exit=$?"
+grep -nE "sorry|Exporting|nanoda|kernel|okay|error|real" "$O/laufA.log" | cut -c1-200
+T="Quot Quot.mk Quot.lift Quot.ind MatMulRank.rank_four_two_four_eq_26 propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam"
+log "--- Lauf B: exports and judge from exports (start $(date -u +%FT%TZ))"
+lake env "$B/leanexport" MatMulRank.Challenge -- $T > "$O/challenge.export"; echo "challenge export exit=$?"
+lake env "$B/leanexport" MatMulRank.Solution -- $T > "$O/solution.export"; echo "solution export exit=$?"
+( cd "$O" && sha256sum challenge.export solution.export && stat -c '%s %n' challenge.export solution.export )
+mkdir -p "$O/judge" "$O/judge/home" "$O/judge/tmp"; cp comparator-nanoda.json "$O/judge/"
+python3 -c 'import json,sys; c=json.load(open(sys.argv[1])); c["permitted_axioms"]=[a for a in c["permitted_axioms"] if a!="Classical.choice"]; json.dump(c,open(sys.argv[2],"w"),indent=2)' comparator-nanoda.json "$O/judge/control-axioms.json"
+( cd "$O/judge" && time env -i PATH=$B:/usr/bin:/bin HOME="$O/judge/home" TMPDIR="$O/judge/tmp" LEAN_ABORT_ON_PANIC=1 COMPARATOR_BWRAP=/usr/bin/bwrap "$B/lake" comparator --config comparator-nanoda.json --challenge-from-export "$O/challenge.export" --solution-from-export "$O/solution.export" ) 2>&1; echo "exit=$?"
+log "--- con-ron"
+( time "$B/con-ron" --jobs=2 --verified "$O/solution.export" ) 2>&1; echo "exit=$?"
+log "--- control: permitted_axioms without Classical.choice"
+( cd "$O/judge" && env -i PATH=$B:/usr/bin:/bin HOME="$O/judge/home" TMPDIR="$O/judge/tmp" LEAN_ABORT_ON_PANIC=1 COMPARATOR_BWRAP=/usr/bin/bwrap "$B/lake" comparator --config control-axioms.json --challenge-from-export "$O/challenge.export" --solution-from-export "$O/solution.export" ) 2>&1 | tail -2; echo "exit=${PIPESTATUS[0]}"
+rm -f comparator-nanoda.json
+run "git -C .. status --porcelain"
+log "--- Palomar check functions (PalomarSubmission $(git -C $N/PalomarSubmission rev-parse HEAD))"
+python3 $N/driver.py $N/PalomarSubmission "$O/untouched" "$O/built"
+log "end: $(date -u +%FT%TZ)"
+```
+
+Vorlage `comparator-nanoda.tmpl` (die vier Schlüssel von `lean/comparator.json` und NanoDa wie in
+1.7):
+
+```json
+{
+  "challenge_module": "MatMulRank.Challenge",
+  "solution_module": "MatMulRank.Solution",
+  "theorem_names": [
+    "MatMulRank.rank_four_two_four_eq_26"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "external_kernels": {
+    "nanoda": [
+      "NANODA"
+    ]
+  }
+}
+```
+
+`driver.py` ruft einzelne Funktionen von PalomarSubmission auf (kein Netz, keine Einreichung):
+
+```python
+#!/usr/bin/env python3
+"""Run selected check functions of PalomarSubmission on a local checkout.
+
+usage: driver.py <palomar_submission_dir> <untouched_checkout> <built_checkout>
+No network access, no submission. Output: one block per check.
+"""
+import json
+import sys
+import traceback
+from pathlib import Path
+
+pal = Path(sys.argv[1]).resolve()
+repo = Path(sys.argv[2]).resolve()
+built = Path(sys.argv[3]).resolve()
+sys.path.insert(0, str(pal))
+sys.path.insert(0, str(pal / "scripts"))
+
+import verify_submission as vs  # noqa: E402
+import source_requirements as sr  # noqa: E402
+import submission_contract as sc  # noqa: E402
+
+
+def show(label, fn):
+    print(f"--- {label}")
+    try:
+        res = fn()
+        if isinstance(res, Path):
+            res = str(res)
+        print("OK", json.dumps(res, default=str) if res is not None else "")
+        return res
+    except Exception as exc:  # report, do not stop
+        print("FAIL", type(exc).__name__ + ":", exc)
+        for line in traceback.format_exception_only(type(exc), exc)[1:]:
+            print(" ", line.rstrip())
+        return None
+
+
+lean = repo / "lean"
+toolchain = (lean / "lean-toolchain").read_text().strip()
+show("supported_toolchain(lean/lean-toolchain)", lambda: vs.supported_toolchain(toolchain))
+show("validate_preservable_git_checkout(repo)", lambda: vs.validate_preservable_git_checkout(repo, "submission"))
+show("tree_size(repo) <= MAX_SOURCE_BYTES",
+     lambda: {"bytes": vs.tree_size(repo), "max": vs.MAX_SOURCE_BYTES,
+              "ok": vs.tree_size(repo) <= vs.MAX_SOURCE_BYTES})
+
+
+def inspect():
+    evidence, issues = sr.inspect_lean_sources(repo)
+    return {"evidence": evidence, "issues": [str(i) for i in issues]}
+
+
+show("inspect_lean_sources(repo)", inspect)
+show("reject_committed_build_artifacts(lean)", lambda: vs.reject_committed_build_artifacts(lean))
+packages = show("manifest_packages(lean)", lambda: vs.manifest_packages(lean)) or []
+show("load_comparator_config(lean/comparator.json)", lambda: vs.load_comparator_config(lean / "comparator.json"))
+meta = show("load_formalization_metadata(lean/formalization.yaml) [keys]",
+            lambda: sorted(sc.load_formalization_metadata(lean / "formalization.yaml").keys()))
+show("normalized_provenance(load_formalization_metadata(lean/formalization.yaml))",
+     lambda: sc.normalized_provenance(sc.load_formalization_metadata(lean / "formalization.yaml")))
+show("repository_license_file(repo)", lambda: vs.repository_license_file(repo).name)
+blean = built / "lean"
+show("check_mathlib_toolchain(built project)",
+     lambda: vs.check_mathlib_toolchain(blean, packages, checkout=built,
+                                        project_toolchain=toolchain,
+                                        project_toolchain_path="lean/lean-toolchain"))
+cfg = json.loads((lean / "comparator.json").read_text())
+show("shadowing_dependency(challenge_module)",
+     lambda: {"challenge_module": cfg["challenge_module"],
+              "shadowing_dependency": vs.shadowing_dependency(cfg["challenge_module"], packages,
+                                                              source=blean, checkout=built)})
+ch = lean / "MatMulRank" / "Challenge.lean"
+data = ch.read_bytes()
+show("Challenge size (MAX_CHALLENGE_BYTES, MAX_CHALLENGE_LINES)",
+     lambda: {"bytes": len(data), "max_bytes": vs.MAX_CHALLENGE_BYTES,
+              "lines": data.count(b"\n"), "max_lines": vs.MAX_CHALLENGE_LINES})
+```
+
+**Befehl und Ausgabe, vollständig:**
+
+```
+$ ./runall.sh a1e0deb6d5ef38032d64c5b3813ec7a96a49ace0 /tmp/claude-0/n01/work
+commit: a1e0deb6d5ef38032d64c5b3813ec7a96a49ace0
+start: 2026-11-26T19:45:37Z
+untouched: a1e0deb6d5ef38032d64c5b3813ec7a96a49ace0, status: [0 lines]
+built: a1e0deb6d5ef38032d64c5b3813ec7a96a49ace0, status: [0 lines]
+$ lean --version
+Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+[exit 0]
+$ lake --version
+Lake version 5.0.0-src+611c117 (Lean version 4.36.0)
+[exit 0]
+$ lake exe cache get 2>&1 | tail -4
+Decompressing 9116 already-cached file(s) (1 already decompressed)
+No files to download
+Decompressed 9116 already-cached file(s)
+Completed successfully in 46419 ms!
+[exit 0]
+cache end: 2026-11-26T19:47:19Z
+lake build exit 0
+build end: 2026-11-26T19:48:44Z
+$ grep -E '^(✖|error)' /tmp/claude-0/n01/work/build.log | wc -l
+0
+[exit 0]
+$ tail -1 /tmp/claude-0/n01/work/build.log
+Build completed successfully (4271 jobs).
+[exit 0]
+$ grep 'declaration uses' /tmp/claude-0/n01/work/build.log
+warning: MatMulRank/Challenge.lean:94:8: declaration uses `sorry`
+[exit 0]
+$ grep -c '^warning' /tmp/claude-0/n01/work/build.log
+124
+[exit 0]
+$ git -C .. status --porcelain
+[exit 0]
+$ python3 ../.github/scripts/lean_report.py sorry-report . /tmp/claude-0/n01/work/build.log
+========================================================================
+SORRY: 0 declaration(s) with 'declaration uses sorry' in the build log
+SORRY: 0 'sorry' token(s) in the sources outside comments
+INTENDED: 1 declaration(s) and 1 token(s) in the Palomar Challenge (MatMulRank/Challenge.lean), deliberate hole, not counted above
+  lean/MatMulRank/Challenge.lean:94
+  lean/MatMulRank/Challenge.lean:95
+========================================================================
+[exit 0]
+axioms exit 0
+$ python3 ../.github/scripts/lean_report.py axiom-report /tmp/claude-0/n01/work/axioms.txt | grep -E 'TOTAL'
+TOTAL: STANDARD=65
+[exit 0]
+$ grep -c '^AXIOM-RESULT' /tmp/claude-0/n01/work/axioms.txt
+65
+[exit 0]
+$ grep '^AXIOM-RESULT' /tmp/claude-0/n01/work/axioms.txt | grep -vc '|propext, Classical.choice, Quot.sound$'
+0
+[exit 1]
+$ grep -E 'AXIOM-RESULT\|(MatMulRank\.rank|YangBounds\.(Gleich444|Upper4x2x4|Transponiert444)\.rank_four_two_four_(eq|le|ge)_26\|)' /tmp/claude-0/n01/work/axioms.txt
+AXIOM-RESULT|YangBounds.Transponiert444.rank_four_two_four_ge_26|propext, Classical.choice, Quot.sound
+AXIOM-RESULT|MatMulRank.rank_four_two_four_ge_26|propext, Classical.choice, Quot.sound
+AXIOM-RESULT|YangBounds.Upper4x2x4.rank_four_two_four_le_26|propext, Classical.choice, Quot.sound
+AXIOM-RESULT|YangBounds.Gleich444.rank_four_two_four_eq_26|propext, Classical.choice, Quot.sound
+AXIOM-RESULT|MatMulRank.rank_four_two_four_eq_26|propext, Classical.choice, Quot.sound
+[exit 0]
+--- leanchecker over all project modules: 2026-11-26T19:48:52Z
+L4C-SUMMARY|checked=32|ok=32|failed=0
+--- leanchecker --fresh YangBounds.Transponiert444: 2026-11-26T19:51:40Z
+L4C-FRESH|YangBounds.Transponiert444|exit=0
+end leanchecker: 2026-11-26T19:58:56Z
+--- Lauf A: lake comparator (start 2026-11-26T19:58:56Z)
+exit=0
+4:warning: MatMulRank/Challenge.lean:94:8: declaration uses `sorry`
+6:Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, MatMulRank.rank_four_two_four_eq_26, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Na
+300:info: YangBounds/SatzA444.lean:411:0: 'YangBounds.SatzA444.exists_common_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+899:Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, MatMulRank.rank_four_two_four_eq_26, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, 
+900:Running nanoda kernel on solution
+901:nanoda kernel accepts the solution
+902:Running Lean default kernel on solution
+903:Lean default kernel accepts the solution
+904:Your solution is okay!
+906:real	1m25.906s
+--- Lauf B: exports and judge from exports (start 2026-11-26T20:00:22Z)
+challenge export exit=0
+solution export exit=0
+0abc445b9368069384a097f10937139b22b1c1f7589551f2a313e424a4105ce7  challenge.export
+1067d20dc984ef4e384d7098e01a96663e06395f5553fbacdbcf4dce239dcdae  solution.export
+7621188 challenge.export
+210798794 solution.export
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution
+Lean default kernel accepts the solution
+Your solution is okay!
+
+real	1m7.434s
+user	0m8.700s
+sys	0m0.324s
+exit=0
+--- con-ron
+con-ron: 1 inductive blocks modelled in-process: Lean.Syntax (30 generated records, checked by the fold as declarations and not counted as records of the file)
+con-ron: accepted 27008 declarations (--verified)
+
+real	0m48.772s
+user	1m18.809s
+sys	0m1.398s
+exit=0
+--- control: permitted_axioms without Classical.choice
+error: Illegal axiom detected: 'Classical.choice'
+exit=1
+$ git -C .. status --porcelain
+[exit 0]
+--- Palomar check functions (PalomarSubmission 046554302064b2c83c2b924bea6db87fc5900c68)
+--- supported_toolchain(lean/lean-toolchain)
+OK "v4.36.0"
+--- validate_preservable_git_checkout(repo)
+OK 
+--- tree_size(repo) <= MAX_SOURCE_BYTES
+OK {"bytes": 8954128, "max": 524288000, "ok": true}
+--- inspect_lean_sources(repo)
+OK {"evidence": {"schema_version": 1, "module_required": true, "maximum_lines": 10000, "files_checked": 35}, "issues": []}
+--- reject_committed_build_artifacts(lean)
+OK 
+--- manifest_packages(lean)
+OK [{"name": "mathlib", "manifest_name": "mathlib", "repository": "leanprover-community/mathlib4", "url": "https://github.com/leanprover-community/mathlib4", "revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"}, {"name": "plausible", "manifest_name": "plausible", "repository": "leanprover-community/plausible", "url": "https://github.com/leanprover-community/plausible", "revision": "054b228ce0ac61d767c6e71ba73a24728f191b72"}, {"name": "LeanSearchClient", "manifest_name": "LeanSearchClient", "repository": "leanprover-community/LeanSearchClient", "url": "https://github.com/leanprover-community/LeanSearchClient", "revision": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9"}, {"name": "importGraph", "manifest_name": "importGraph", "repository": "leanprover-community/import-graph", "url": "https://github.com/leanprover-community/import-graph", "revision": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0"}, {"name": "proofwidgets", "manifest_name": "proofwidgets", "repository": "leanprover-community/ProofWidgets4", "url": "https://github.com/leanprover-community/ProofWidgets4", "revision": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203"}, {"name": "aesop", "manifest_name": "aesop", "repository": "leanprover-community/aesop", "url": "https://github.com/leanprover-community/aesop", "revision": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a"}, {"name": "Qq", "manifest_name": "Qq", "repository": "leanprover-community/quote4", "url": "https://github.com/leanprover-community/quote4", "revision": "ff055a2fcc835935e0ae607339b455a5f5896b4b"}, {"name": "batteries", "manifest_name": "batteries", "repository": "leanprover-community/batteries", "url": "https://github.com/leanprover-community/batteries", "revision": "b4b25a3886a16daacaf6615c2eea7170a6e8f458"}, {"name": "Cli", "manifest_name": "Cli", "repository": "leanprover/lean4-cli", "url": "https://github.com/leanprover/lean4-cli", "revision": "50810f72af7618bee62fe9800dc26e806c188703"}]
+--- load_comparator_config(lean/comparator.json)
+OK {"challenge_module": "MatMulRank.Challenge", "solution_module": "MatMulRank.Solution", "theorem_names": ["MatMulRank.rank_four_two_four_eq_26"], "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]}
+--- load_formalization_metadata(lean/formalization.yaml) [keys]
+OK ["automation", "classification", "project", "related_formalizations", "review", "sources", "version"]
+--- normalized_provenance(load_formalization_metadata(lean/formalization.yaml))
+OK {"result_origin": "original", "repository_role": "substantive-development", "responsible_maintainers": [{"name": "Justus Jeserigk", "github": "Justus42"}], "mathematical_sources": [{"title": "Lower bound 26 for the tensor rank of <4,2,4> over every field", "authors": [], "relationship": "other", "note": "First presented in this repository (literature check of 25/26 November 2026, recorded in lit/).", "type": "original-proof"}, {"title": "New lower bounds on tensor rank of (n,2,m) matrix multiplication with GPT-6", "authors": [{"name": "Jason Yang"}], "relationship": "background", "identifier": "arXiv:2609.14393", "location": "version 3 of 12 October 2026; normal form (N1), (N2), Theorem 2, Lemma 13", "note": "Yang's Theorem 2 gives R(<n,2,m>) >= (n+2)m + n - 3 for m >= n >= 4, i.e. the bound 25 for <4,2,4>; it is formalised in this repository (YangBounds.yang_theorem_two) and used to exclude lengths below 25. The proof of the bound 26 uses Yang's normal form. One step of the written proof of Yang's Lemma 13 could not be followed; the formalisation proves the same statement by a different argument (YangBounds/YangN4Lemma13.lean). The proof of the bound 26 also uses a sharpening of Lemma 13 by an additional term (Lemma 13', YangBounds/Lemma13Prime.lean), which is not in Yang's paper.", "type": "paper"}, {"title": "On minimizing the number of multiplications necessary for matrix multiplication", "authors": [{"name": "J. E. Hopcroft"}, {"name": "L. R. Kerr"}], "relationship": "background", "identifier": "doi:10.1137/0120004", "location": "SIAM J. Appl. Math. 20(1) (1971), 30-36; read in the form of Cornell University, Department of Computer Science, Technical Report 69-44 (September 1969), hdl:1813/5902, Theorem 1 (p. 8), Theorems 5 and 6, p. 28", "note": "Technical Report 69-44, Theorem 1, states that ceil((3pn + max(n,p))/2) multiplications are sufficient to compute the product of a p x 2 and a 2 x n matrix of indeterminates without commutativity; the products are of the form (linear form in A) x (linear form in X). For p = n = 4 this gives 26. The report names no field for this bound. The upper bound 26 is part of the compared statement. It is not proved by formalising the construction of the report: YangBounds/Upper4x2x4.lean gives an explicit algorithm with 26 products (verfahren/4x2x4-r26-s001.json, found by the project's own search), and the kernel checks its tensor identity. Lower bounds in the report: ceil(7n/2) for 2 x 2 times 2 x n (Theorem 5) and 15 for 3 x 2 times 2 x 3 (Theorem 6), for programs using multiplication, addition and subtraction with integer constants and without commutativity, proved by reduction modulo 2. The report proves no lower bound for <4,2,4>; on p. 28 it conjectures that the algorithm of Theorem 1 \"is optimal for all n and p\". The journal article itself was not read and was not compared with the report.", "type": "paper"}, {"title": "Determining the tensor rank of (2, 2, m) matrix multiplication with GPT-5.6 Sol.", "authors": [{"name": "Yaroslav Shitov"}], "relationship": "background", "identifier": "doi:10.13140/RG.2.2.29432.61441", "note": "Starting point of Yang's method. The document itself was not read; cited after Yang.", "type": "paper"}, {"title": "matmulcatalog, docs/LOWER_BOUNDS.md, line 90", "authors": [], "relationship": "other", "identifier": "https://github.com/solven-eu/matmulcatalog/blob/0a9f83a0670ac70c9d82310105faf2d9ea5956e4/docs/LOWER_BOUNDS.md", "note": "A public catalogue line states \"R(<2,4,4>) >= 26 (Hopcroft-Kerr), UB 26 -> tight\" without proof or reference beyond the name; the same repository lists this lower bound as open elsewhere (paper/theory/RANK_KNOWLEDGE.md, line 297). Hopcroft and Kerr's Technical Report 69-44 contains no such lower bound; it states optimality for all p and n only as a conjecture (p. 28). Recorded as a related claim, not as a source of the proof.", "type": "other"}], "related_formalizations": [{"identifier": "https://github.com/fallnlove/mm325_proof", "relationship": "other", "note": "Lean formalisation of the rank of <3,2,5> by Tsyganov, Parkina, Samsonov and Rakhuba (arXiv:2609.22054). Up to stage 5 this repository depended on it as a Lake package (imported first by YangBounds/Basic.lean, later only by a separate bridge module); the bridge and the dependency were removed when the library was ported to Lean 4.36.0. It is not a dependency of this entry (no module of the submitted chain imports it, and the Lake files do not require it)."}]}
+--- repository_license_file(repo)
+OK "LICENSE"
+--- check_mathlib_toolchain(built project)
+OK [{"revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842", "toolchain": "leanprover/lean4:v4.36.0"}]
+--- shadowing_dependency(challenge_module)
+OK {"challenge_module": "MatMulRank.Challenge", "shadowing_dependency": null}
+--- Challenge size (MAX_CHALLENGE_BYTES, MAX_CHALLENGE_LINES)
+OK {"bytes": 4374, "max_bytes": 102400, "lines": 97, "max_lines": 1000}
+end: 2026-11-26T20:02:43Z
+```
+
+Gegenprobe: `git status --porcelain` im gebauten Klon ist vor und nach dem Comparator leer;
+`grep -vc` über die 65 `AXIOM-RESULT`-Zeilen ergibt 0 Zeilen mit anderen Axiomen (Exit 1 von
+`grep` heißt hier „keine Zeile“). Der Kontrolllauf ohne `Classical.choice` lehnt ab, wie er soll.
