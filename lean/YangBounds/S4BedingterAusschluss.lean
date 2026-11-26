@@ -45,10 +45,9 @@ Prose proof: `lean/prosa/s4_327_spurA_r2_bau.md`, Section 6 (6.2), using Section
 
 `INJ5 a₁ a₂ w u` says: for all `F G : MvPolynomial (Fin 2) K` with `totalDegree F ≤ 5`,
 `totalDegree G ≤ 3` and `w * ev F + u * ev G = 0` (equality of vectors in `K^34`) we have
-`F = 0` and `G = 0`. The hypothesis of the equation is an equation of evaluated vectors in
-`K^34`; the conclusion is about the formal polynomials `F`, `G` themselves, not about their
-evaluations. (A weaker reading, injectivity only on spaces of already evaluated functions,
-would not suffice for the degree reduction in 6.2, steps 2 and 3.)
+`F = 0` and `G = 0`. The assumed equation is an equation of evaluated vectors in `K^34`;
+the conclusion is about the formal polynomials `F`, `G` themselves, not about their
+evaluations.
 
 ## What is derived inside the file instead of being assumed
 
