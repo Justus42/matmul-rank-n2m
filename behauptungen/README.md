@@ -41,3 +41,5 @@ Eine Datei pro Behauptung, benannt `B-xxx.md`. Eine Behauptungsdatei enthält nu
 | B-023 | Satz G: Gleichheitsfall r = 34 für m = 7 |
 | B-024 | Satz K: Gestalt des Restfalls in den Faktoren, ohne Lemma 15(b) |
 | B-025 | Fallunterscheidung des Restfalls R-327: „e = 3 mit (INJ5)“, „e = 3 ohne (INJ5)“, „e ≤ 2“ schöpfen den Restfall aus |
+| B-026 | Satz R (Fall e = 3: K″ abgeschlossen unter a_1, a_2, ohne (INJ5)), Folgerungen und Gestalt im Unterfall (M21) |
+| B-027 | E2-A (nur e = 2 oder e = 3), E2-B (Gestalt bei e = 2), E2-D (bedingter Ausschluss bei e = 2 unter (INJ-B)) |

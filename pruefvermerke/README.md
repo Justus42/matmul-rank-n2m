@@ -46,6 +46,8 @@ Je Behauptung gibt es eine Datei `pruefvermerke/B-xxx.md`. Sie beginnt mit der w
 | B-023 | Satz G (Gleichheitsfall r = 34 für m = 7) | behauptet (von einem Prüfer bestätigt, S4-13) | S4-11 (Blind-Sucher), PR #110 (Merge 0ee499f) |
 | B-024 | Satz K (Gestalt des Restfalls in den Faktoren, ohne Lemma 15(b)) | behauptet (S4-13: K1, K3 bestätigt; K2 wörtlich nicht, berichtigt im Bericht) | S4-08, PR #114 (Merge 78ce5f9) |
 | B-025 | Fallunterscheidung des Restfalls R-327 nach e und (INJ5) | behauptet (Fall „e = 3 mit (INJ5)“ durch B-021 D ausgeschlossen; e ≤ 3 und Ausschluss von e = 0 von keinem Prüfer beurteilt) | Vorgabe Justus 26.11.2026, 09:47 UTC; S4-07, PR #113 |
+| B-026 | Satz R (Fall e = 3 ohne (INJ5)), Folgerungen, Gestalt im Unterfall (M21) | behauptet | S4-14, PR #120 (Merge 22cb353) |
+| B-027 | E2-A, E2-B, E2-D zum Fall e ≤ 2 | behauptet | S4-15, PR #118 (Merge fa5d7b9) |
 
 Weitere geprüfte Ergebnisse ohne eigene Behauptungsdatei:
 

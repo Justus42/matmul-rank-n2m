@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 3: Prüfer S4-12 und S4-13 geliefert, B-025 angelegt, Vorgabe für die nächste Literaturwache, Sol-Antwort zu D, Fortschritt Spur A; Zähler Spur A 0 von 3, Frist Ende Runde 5)
+Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 3 abgeschlossen; Zähler Spur A 0 von 3 mit Frist Ende Runde 5, Spur B 2 von 3; 3 von 6 Runden verbraucht; B-026 und B-027 angelegt)
 
 ## Aktuelle Stufe
 
@@ -22,6 +22,9 @@ Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 3: Prüfer S4-12 und S4-13 geliefe
 - Runde 3, S4-15 geliefert (PR #118, etwa 22 Minuten nach Git): kein vollständiger Ausschluss bei e ≤ 2. Behauptet E2-A (in jeder Normalform e ∈ {2, 3}, engt B-025 ein, ungeprüft), E2-B, E2-D (bedingter Ausschluss bei e = 2 unter (INJ-B)). Vermutet E2-V (nur Rechnung). Kein Prüfer in dieser Runde, kein Fortschritt nach 2 b) daraus
 - Runde 3, S4-14 geliefert (PR #120, etwa 35 Minuten nach Git): Fall e = 3 nicht vollständig ausgeschlossen. Behauptet Satz R (K″ abgeschlossen unter a_1, a_2 bei e = 3, ohne (INJ5)), offen nur Unterfall (M21). Vermutung S4-07-V im Wortlaut widersprochen durch S4-14 (Lage L*, dim V_C = 59), ungeprüft, Θ dort Rang 0. Kein Fortschritt nach 2 b) daraus. Ausstehend: S4-16, S4-17
 - Runde 3, S4-17 geliefert (PR #119, etwa 58 Minuten nach Git): Rang nicht bestimmt, 34 oder 35. Behauptet eigenes Verfahren mit 35 (kein neuer Wert) und Strukturaussage (rk L = 6, rk H = 4, dim N = 3, dim S = 1); vermutet R = 35. Drei Rechenblöcke, je unter 30 Minuten mit Commits dazwischen. Blindheit eingeschränkt (Gedächtnis-Index und vier Einzeleinträge eingeblendet). Ausstehend: S4-16
+- Runde 3, S4-16 geliefert (PR #121, etwa 79 Minuten nach Git): Positivprobe bei 35 nicht bestanden (Gleitkomma-Funde mit (SN1)+(K1), exaktes Runden gescheitert), nach Vorgabe 4 von Justus keine Suche bei 34. Fünf Rechenblöcke, je unter 30 Minuten mit Commits dazwischen
+- **Runde 3 von 6 abgeschlossen:** 6 Subagenten, 1 Fremdmodell-Anfrage (0,05 US-$), etwa 79 Minuten nach Git (09:53 UTC bis 64db857 um 11:12:03 UTC). Kein Ausschluss des Restfalls, kein Verfahren mit 34. **Zähler: Spur A 0 von 3** (Fortschritt nach 2 b), Frist B-021 D geprüft bis Ende Runde 5), **Spur B 2 von 3**. Budget 3 von 6 Runden verbraucht. Keine Abbruchregel greift, Fertig-Kriterium nicht erfüllt, weiter mit Runde 4
+- Vorbereitung Runde 4: B-026 (Satz R aus S4-14) und B-027 (E2-A, E2-B, E2-D aus S4-15) angelegt, behauptet. Literaturwache vor Runde 4 außerhalb der Runde, nach der Vorgabe oben. Nächste Auftragsnummer: S4-18
 - Runde 2 von 6 vergeben: S4-06 bis S4-09 etwa 07:42 UTC, S4-10 und S4-11 etwa 07:43 UTC nach Durchsicht des Gedächtnisses. 6 Subagenten, Fremdmodell in dieser Runde nicht geplant
 - Runde 2 von 6 abgeschlossen: 6 Subagenten, 0 Fremdmodell-Anfragen, etwa 50 Minuten nach Git (07:42 UTC bis 78ce5f9 um 08:31:52 UTC). Kein Ausschluss, kein Verfahren mit 34. Zähler nach Justus (09:47 UTC): Spur A 1 von 3, Spur B 1 von 3
 - Lesart (e): Rechenblöcke direkt hintereinander ohne Commit dazwischen zählen als ein Block. S4-05 hat damit die Grenze von 30 Minuten überschritten (etwa 38 Minuten), Regelverstoß ohne weitere Folge
@@ -100,7 +103,7 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S4-13 | Prüfung B-022, B-023, B-024 | Prüfer | `lean/prosa/s4_327_bericht_s4-13.md` | erledigt, PR #116 (Merge bc90720). B-022 und B-023 halten, B-024 K2 wörtlich nicht |
 | S4-14 | Spur A: e = 3 ohne (INJ5), beide Richtungen | Beweissucher | `lean/prosa/s4_327_spurA_r3_e3.md` | erledigt in Runde 3, PR #120. Kein vollständiger Ausschluss. Behauptet Satz R, offen Unterfall (M21); S4-07-V im Wortlaut widersprochen (Lage L*), ungeprüft |
 | S4-15 | Spur A: e ≤ 2, Ausschluss oder Bau | Beweissucher | `lean/prosa/s4_327_spurA_r3_e2.md` | erledigt in Runde 3, PR #118. Kein vollständiger Ausschluss. Behauptet E2-A (e ∈ {2, 3}), E2-B, E2-D (bedingt unter (INJ-B)); vermutet E2-V |
-| S4-16 | Spur B: Positivprobe bei 35, nur bei Bestehen Suche nach 34 | Verfahrenssucher | `versuche/s4-spurB-r3.md` | vergeben in Runde 3 |
+| S4-16 | Spur B: Positivprobe bei 35, nur bei Bestehen Suche nach 34 | Verfahrenssucher | `versuche/s4-spurB-r3.md` | erledigt in Runde 3, PR #121. Positivprobe bei 35 nicht bestanden (exaktes Runden gescheitert), keine Suche bei 34 |
 | S4-17 | Blind-Sucher | Blind-Sucher | `versuche/s4-blind-r3.md` | erledigt in Runde 3, PR #119. Rang nicht bestimmt. Behauptet eigenes Verfahren mit 35 und Strukturaussage für 34; vermutet R = 35. Blindheit eingeschränkt (Gedächtnis-Index und vier Einträge) |
 
 ## Stufe 3: abgeschlossen
