@@ -240,14 +240,250 @@ Frühere Varianten mit nur einem Gewicht (J = Polynome vom Grad ≤ 2 plus ein k
 
 **Lücke L4:** Die Beispieldaten modellieren nur die in Lemma 2 genannten Bedingungen. Sie sind keine Zerlegung des Tensors und sagen nichts darüber, ob ein Verfahren mit 34 existiert. Ob mein Beispiel auch alle Zwischenschritte von Yangs Abschnitt 4.1 (Lemmas 10 bis 12) erfüllt, habe ich nicht geprüft; Yangs Schranke ist bei m = 7 ohnehin 34, also folgt aus ihr ebenfalls nichts Stärkeres.
 
-## 6. Suche nach einem Verfahren mit 34
+## 6. Suche nach einem Verfahren mit 34 (kein Fund)
 
-(läuft)
+Programm aus Anhang A, Start bei meinem 35er-Verfahren aus Abschnitt 2, Zielrang 34. Bei 3 Mio. Schritten ohne Verbesserung Rücksprung auf das beste Verfahren und zwei Plus-Übergänge.
 
+| Block | Bereich | Läufe | Dauer je Lauf | Startwerte | Schritte (geschätzt) | Ergebnis |
+|---|---|---|---|---|---|---|
+| 1 | ℤ, Koeffizienten in {−1,0,1} | 4 parallel | 20 Min. (07:00 bis 07:20 UTC) | 11 bis 14 | etwa 4 × 27 Mio. | bester Rang 35 |
+| 2 | GF(2) | 4 parallel | 18 Min. (07:20 bis 07:38 UTC) | 21 bis 24 | etwa 4 × 21 Mio. | bester Rang 35 |
+
+Die Schrittzahlen sind aus einer Messung geschätzt (200 000 Schritte in 8,8 s über ℤ bzw. 10,0 s über GF(2) auf einem Kern). Ein Verfahren mit 34 über GF(2) hätte der Literatur nicht widersprochen, weil die Schranke 34 über jedem Körper gilt.
+
+Bewertung: Das ist ein schwaches Indiz für R = 35. Mein Programm ist einfach (alle Paare werden in jedem Schritt neu gesucht, kein Hashing, kein Wechsel zwischen Rängen nach festem Plan, keine Symmetrie), und veröffentlichte Flip-Graph-Suchen arbeiten mit um Größenordnungen mehr Schritten. Dass dasselbe Programm ab dem Standardverfahren für ⟨3,2,7⟩ (42) in 4 Minuten keine einzige Reduktion fand, für ⟨3,2,3⟩ und ⟨3,2,4⟩ aber schnell den bekannten Rang, zeigt, dass es für dieses Format zu schwach ist.
 
 ## 7. Was gescheitert ist und warum
 
-(folgt)
+1. **Direkte Flip-Graph-Suche ab dem Standardverfahren für ⟨3,2,7⟩** (42 Terme, 4 Min., ein Lauf): keine Reduktion. Vermutlich ist die Einschränkung auf {−1,0,1} zusammen mit dem einfachen Neustart (alle 200 000 Schritte zurück zum Standardverfahren) zu eng. Umgangen durch Zerlegung in ⟨3,2,4⟩ ⊕ ⟨3,2,3⟩.
+2. **Suche nach 34** (Abschnitt 6): kein Fund, Gründe dort.
+3. **Untere Schranke 35:** nicht erreicht. Die Lage bei r = 34 ist in 4.2 eingegrenzt, aber der letzte Schritt (Lücke L3) fehlt. Abschnitt 5 zeigt, warum die Schlusskette von Tsyganov u. a. hier allein nicht reicht.
+4. **Erste Fassung der Relaxierung** (ein Gewicht, H = J + SJ + TJ plus ein Zufallsvektor): stets Rang 33 statt 34, weil bei f = 3 schon J + SJ + TJ = H sein muss (4.2). Mit zwei Gewichten gelöst.
+5. Nicht versucht: Formalisierung in Lean, Substitutionsmethode, Suche nach Verfahren mit Symmetrie, Suche über anderen Körpern als GF(2) und ℚ (über ℤ).
 
+## 8. Verbrauch
 
+- Eigene Subagenten: 0. Fremdmodell-Anfragen: 0. Kontakt nach außen: keiner.
+- Websuche: 3 Anfragen, dazu 2 Volltexte über alphaXiv (arXiv:2609.14393, arXiv:2609.22054).
+- Rechenblöcke, alle unter 30 Minuten auf höchstens 4 Kernen: Probe ⟨3,2,7⟩ ab 42 (4 Min., 1 Kern), ⟨3,2,3⟩/⟨3,2,4⟩/⟨3,2,7⟩ (je 100 s, 3 Kerne), Block 1 (20 Min., 4 Kerne), Block 2 (18 Min., 4 Kerne), Relaxierung und Prüfprogramme (jeweils Sekunden).
+- Dauer: aus den Git-Zeitstempeln dieses Zweigs (erster Commit 06:53 UTC).
 
+## Anhang A: Flip-Graph-Programm (C, eigener Code)
+
+Übersetzen: `gcc -O2 -DP=7 -o flip327 flip.c` (über ℤ mit Koeffizienten in {−1,0,1}) bzw. zusätzlich `-DMOD2` (über GF(2)). Aufruf: `./flip327 ZIELRANG SEED MAXSCHRITTE PLATEAU [STARTDATEI]`. Die Startdatei hat das Format der Ausgabe (Kopfzeile, dann `n m p r`, dann je Term die drei Faktoren als Zeilenvektoren, getrennt durch `|`).
+
+```c
+// Flip-graph random walk over Z with coefficients in {-1,0,1} for <N,M,P>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+#ifndef N
+#define N 3
+#endif
+#ifndef M
+#define M 2
+#endif
+#ifndef P
+#define P 7
+#endif
+#define DA (N*M)
+#define DB (M*P)
+#define DC (N*P)
+#define MAXR 128
+#ifdef MOD2
+#define FIX(v) ((v)&1)
+#define BAD(v) 0
+#else
+#define FIX(v) (v)
+#define BAD(v) ((v)>1||(v)<-1)
+#endif
+typedef struct { int8_t f[3][32]; } Term;
+static const int D[3]={DA,DB,DC};
+static Term T[MAXR]; static int R;
+static uint64_t rs;
+static inline uint64_t rnd(){ rs^=rs<<13; rs^=rs>>7; rs^=rs<<17; return rs; }
+static int eqs(const int8_t*x,const int8_t*y,int d){
+  int p=1,n=1; for(int k=0;k<d;k++){ if(x[k]!=y[k]) p=0; if(x[k]!=-y[k]) n=0; if(!p&&!n) return 0;} return p?1:(n?-1:0);}
+static int iszero(const int8_t*x,int d){ for(int k=0;k<d;k++) if(x[k]) return 0; return 1;}
+static void del(int i){ T[i]=T[R-1]; R--; }
+static int reduce_all(){
+  int changed=1, any=0;
+  while(changed){ changed=0;
+    for(int i=0;i<R && !changed;i++) for(int j=i+1;j<R && !changed;j++){
+      int s[3]; for(int m=0;m<3;m++) s[m]=eqs(T[i].f[m],T[j].f[m],D[m]);
+      for(int m=0;m<3;m++){ int m1=(m+1)%3,m2=(m+2)%3;
+        if(s[m1]&&s[m2]){
+          int sg=s[m1]*s[m2]; int8_t t[32]; int ok=1;
+          for(int k=0;k<D[m];k++){ int v=T[i].f[m][k]+sg*T[j].f[m][k]; v=FIX(v); if(BAD(v)){ok=0;break;} t[k]=v; }
+          if(!ok) continue;
+          memcpy(T[i].f[m],t,D[m]); del(j); if(iszero(T[i].f[m],D[m])) del(i);
+          changed=1; any=1; break; }
+      }
+    }
+  }
+  return any;
+}
+static int ci[MAXR*MAXR*3], cj[MAXR*MAXR*3], cm[MAXR*MAXR*3], cs[MAXR*MAXR*3];
+static int flip(){
+  int nc=0;
+  for(int i=0;i<R;i++) for(int j=0;j<R;j++) if(i!=j) for(int m=0;m<3;m++){ int s=eqs(T[i].f[m],T[j].f[m],D[m]); if(s){ci[nc]=i;cj[nc]=j;cm[nc]=m;cs[nc]=s;nc++;} }
+  if(!nc) return 0;
+  for(int tries=0;tries<20;tries++){
+    int c=rnd()%nc; int i=ci[c],j=cj[c],m=cm[c],s=cs[c];
+    int m1=(m+1)%3,m2=(m+2)%3; if(rnd()&1){int t=m1;m1=m2;m2=t;}
+    int t=(rnd()&1)?1:-1;
+    int8_t nb[32], nc2[32]; int ok=1;
+    for(int k=0;k<D[m1]&&ok;k++){ int v=T[i].f[m1][k]+t*s*T[j].f[m1][k]; v=FIX(v); if(BAD(v)) ok=0; nb[k]=v; }
+    for(int k=0;k<D[m2]&&ok;k++){ int v=T[j].f[m2][k]-t*T[i].f[m2][k]; v=FIX(v); if(BAD(v)) ok=0; nc2[k]=v; }
+    if(!ok) continue;
+    memcpy(T[i].f[m1],nb,D[m1]); memcpy(T[j].f[m2],nc2,D[m2]);
+    int zi=iszero(T[i].f[m1],D[m1]), zj=iszero(T[j].f[m2],D[m2]);
+    if(zi&&zj){ if(i>j){del(i);del(j);}else{del(j);del(i);} } else if(zi) del(i); else if(zj) del(j);
+    return 1;
+  }
+  return 0;
+}
+static void plus(){
+  for(int tries=0;tries<100;tries++){
+    int i=rnd()%R,j=rnd()%R; if(i==j) continue; int m=rnd()%3, m1=(m+1)%3, m2=(m+2)%3;
+    int8_t na[32]; int ok=1;
+    for(int k=0;k<D[m];k++){ int v=T[i].f[m][k]-T[j].f[m][k]; v=FIX(v); if(BAD(v)){ok=0;break;} na[k]=v; }
+    if(!ok||iszero(na,D[m])) continue;
+    Term nt; memset(&nt,0,sizeof nt);
+    memcpy(nt.f[m],T[j].f[m],D[m]); memcpy(nt.f[m1],T[i].f[m1],D[m1]); memcpy(nt.f[m2],T[i].f[m2],D[m2]);
+    memcpy(T[i].f[m],na,D[m]); T[R++]=nt; return;
+  }
+}
+static void standard(){
+  R=0; for(int i=0;i<N;i++) for(int j=0;j<M;j++) for(int k=0;k<P;k++){ Term t; memset(&t,0,sizeof t);
+    t.f[0][i*M+j]=1; t.f[1][j*P+k]=1; t.f[2][i*P+k]=1; T[R++]=t; }
+}
+static int verify();
+static int verify_(){
+  for(int a=0;a<DA;a++) for(int b=0;b<DB;b++) for(int c=0;c<DC;c++){
+    int s=0; for(int r=0;r<R;r++) s+=T[r].f[0][a]*T[r].f[1][b]*T[r].f[2][c];
+    int i=a/M,j=a%M,j2=b/P,k=b%P,i2=c/P,k2=c%P; int e=(i==i2&&j==j2&&k==k2);
+    #ifdef MOD2
+    s&=1;
+#endif
+    if(s!=e) return 0; }
+  return 1;
+}
+static int verify(){ return verify_(); }
+static void dump(FILE*f){
+  fprintf(f,"%d %d %d %d\n",N,M,P,R);
+  for(int r=0;r<R;r++){ for(int m=0;m<3;m++){ for(int k=0;k<D[m];k++) fprintf(f,"%d ",T[r].f[m][k]); fprintf(f,"| ");} fprintf(f,"\n"); }
+}
+int main(int argc,char**argv){
+  int target=atoi(argv[1]); rs=strtoull(argv[2],0,10)*2654435761ULL+12345; long maxsteps=atol(argv[3]); long plateau=atol(argv[4]);
+  int best=1000; static Term BT[MAXR]; int BR=0;
+  if(argc>5){ FILE*f=fopen(argv[5],"r"); char buf[256]; fgets(buf,256,f); int n,m,p; fscanf(f,"%d %d %d %d",&n,&m,&p,&R);
+    for(int r=0;r<R;r++){ memset(&T[r],0,sizeof(Term)); for(int mm=0;mm<3;mm++){ for(int k=0;k<D[mm];k++){int v; fscanf(f,"%d",&v); T[r].f[mm][k]=FIX(v);} char bar[4]; fscanf(f,"%3s",bar);} }
+    fclose(f); fprintf(stderr,"loaded %d verify %d\n",R,verify()); }
+  else standard();
+  long since=0;
+  for(long st=0; st<maxsteps; st++){
+    if(!flip()) plus();
+    reduce_all();
+    if(R>MAXR-4){ memcpy(T,BT,sizeof(Term)*BR); R=BR; }
+    if(R<best){ best=R; memcpy(BT,T,sizeof(Term)*R); BR=R; since=0; fprintf(stderr,"step %ld rank %d\n",st,R); if(R<=target) break; }
+    if(++since>plateau){ memcpy(T,BT,sizeof(Term)*BR); R=BR; plus(); plus(); since=0; }
+  }
+  memcpy(T,BT,sizeof(Term)*BR); R=BR;
+  printf("# best %d verify %d\n",R,verify()); dump(stdout);
+  return 0;
+}
+```
+
+## Anhang B: Prüfprogramm für das Verfahren (Python)
+
+```python
+# Usage: python3 -I verify_md.py versuche/s4-blind-r1.md
+# Reads the first fenced json code block of the report and checks all Brent equations exactly over Z.
+import json, re, sys
+txt = open(sys.argv[1], encoding="utf-8").read()
+d = json.loads(re.search(r"```json\n(.*?)```", txt, re.S).group(1))
+n, m, p = d["format"]
+terms = d["terms"]
+assert len(terms) == d["rank"]
+bad = 0
+for i in range(n):
+    for j in range(m):
+        for j2 in range(m):
+            for k in range(p):
+                for i2 in range(n):
+                    for k2 in range(p):
+                        s = sum(t["U"][i][j] * t["V"][j2][k] * t["W"][i2][k2] for t in terms)
+                        want = 1 if (j == j2 and i == i2 and k == k2) else 0
+                        if s != want:
+                            bad += 1
+print("format", (n, m, p), "rank", len(terms), "Brent equations checked:", (n*m)*(m*p)*(n*p), "violations:", bad)
+coeffs = {c for t in terms for key in "UVW" for row in t[key] for c in row}
+print("coefficient set:", sorted(coeffs))
+sys.exit(1 if bad else 0)
+```
+
+## Anhang C: Relaxierung aus Abschnitt 5 (Python)
+
+Aufruf: `python3 -I relax.py SEED` für SEED = 1 bis 5.
+
+```python
+# Usage: python3 -I relax.py SEED
+# Test: are the hypotheses of Lemma 2 (Tsyganov et al.) satisfiable for m=7, h=13, r=34
+# with J containing no vector supported on a single (s,t)-class? Exact rank mod large prime p
+# (rank mod p <= rank over Q, so full rank mod p implies full rank over Q).
+import random
+p=(1<<61)-1
+def rank(rows):
+    M=[[x%p for x in r] for r in rows]; rk=0; ncol=len(M[0]) if M else 0
+    for c in range(ncol):
+        piv=None
+        for i in range(rk,len(M)):
+            if M[i][c]: piv=i;break
+        if piv is None: continue
+        M[rk],M[piv]=M[piv],M[rk]; inv=pow(M[rk][c],p-2,p)
+        M[rk]=[x*inv%p for x in M[rk]]
+        for i in range(len(M)):
+            if i!=rk and M[i][c]:
+                f=M[i][c]; M[i]=[(a-f*b)%p for a,b in zip(M[i],M[rk])]
+        rk+=1
+    return rk
+random.seed(int(__import__('sys').argv[1]) if len(__import__('sys').argv)>1 else 1)
+r,m=34,7
+pts=[(random.randint(-50,50),random.randint(-50,50)) for _ in range(r)]
+assert len(set(pts))==r
+z=[random.randint(-50,50) for _ in range(r)]
+mon=lambda a,b:[s**a*t**b for s,t in pts]
+w1=[random.randint(1,50) for _ in range(r)]; w2=[random.randint(1,50) for _ in range(r)]
+Jb=[[a*b for a,b in zip(w1,mon(i,j))] for i,j in [(0,0),(1,0),(0,1),(2,0),(1,1),(0,2)]]+[w2]
+mul=lambda d,v:[x*y for x,y in zip(d,v)]
+S=[s for s,t in pts]; T=[t for s,t in pts]
+Hgen=Jb+[mul(S,y) for y in Jb]+[mul(T,y) for y in Jb]
+# extract a basis of H
+Hb=[]
+for v in Hgen:
+    if rank(Hb+[v])>len(Hb): Hb.append(v)
+print('dim J',rank(Jb),'dim H',len(Hb))
+def rnd_in_H(): 
+    c=[random.randint(-9,9) for _ in Hb]; return [sum(ci*h[k] for ci,h in zip(c,Hb)) for k in range(r)]
+Y=[rnd_in_H() for _ in Jb]   # Y = X - Z on basis of J
+X=[[a+b for a,b in zip(mul(z,y),yy)] for y,yy in zip(Jb,Y)]
+imgs=[mul(z,y) for y in Jb]+[mul(S,x) for x in X]+[mul(T,x) for x in X]
+tot=rank(Hb+imgs)
+print('rank of H + images =',tot,'(need',len(Hb)+3*m,'= r =',r,')')
+# no nonzero vector of J supported on a single index (all (s_k,t_k) are distinct, so classes are singletons)
+ok=all(rank([ [y[k] for k in range(r) if k!=i] for y in Jb])==7 for i in range(r))
+print('J has no vector supported on a single index:',ok)
+# strong normalization: no nonzero y in J with y, Sy, Ty dependent  <=> no y supported on a line (or single point)
+from itertools import combinations
+bad=0
+lines=set()
+for (i,(s1,t1)),(j,(s2,t2)) in combinations(enumerate(pts),2):
+    a,b,c=t2-t1,-(s2-s1),(s2-s1)*t1-(t2-t1)*s1   # line a s + b t + c = 0
+    on=frozenset(k for k,(s,t) in enumerate(pts) if a*s+b*t+c==0)
+    lines.add(on)
+for on in lines:
+    if rank([[y[k] for k in range(r) if k not in on] for y in Jb])<7: bad+=1
+print('lines checked',len(lines),'violations of strong normalization',bad)
+```
