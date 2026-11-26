@@ -49,6 +49,8 @@ Je Behauptung gibt es eine Datei `pruefvermerke/B-xxx.md`. Sie beginnt mit der w
 | B-026 | Satz R (Fall e = 3 ohne (INJ5)), Folgerungen, Gestalt im Unterfall (M21) | behauptet (von einem Prüfer bestätigt, S4-19; Vorbehalt zu B (i)) | S4-14, PR #120 (Merge 22cb353) |
 | B-027 | E2-A, E2-B, E2-D zum Fall e ≤ 2 | behauptet (von einem Prüfer bestätigt, S4-20; Vorbehalt zur Lesart von (INJ-B)) | S4-15, PR #118 (Merge fa5d7b9) |
 | B-028 | S4-28-A, S4-28-B, S4-28-C zum Fall e = 2 ohne (INJ-B) (jede Normalform e ≤ 2) | behauptet | S4-28, PR #134 (Merge 2b8202d) |
+| B-029 | S4-27-B, S4-27-C, S4-27-D zum Fall e = 3 (irgendeine Normalform) | behauptet | S4-27, PR #135 (Merge a7ecbc7) |
+| B-030 | Lemma O, Satz G, Lemma F aus S4-21 (Grundlage von B-028 und B-029) | behauptet | S4-21, PR #127 (Merge 8a2c470) |
 
 Spuren der Stufe 4 (Abbruchregel 2):
 
