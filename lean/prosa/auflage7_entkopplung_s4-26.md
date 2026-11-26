@@ -45,10 +45,33 @@ Nicht geändert, weil außerhalb des Auftrags oder für einen grünen Lauf nicht
 - `README.md` Zeile 25 und `ergebnisse/rang-444.md` Zeilen 31, 58, 84: nennen das Paket als Voraussetzung des Beweises. Nach Vorgabe des repository owner in einem getrennten Auftrag nach dem wiederholten Zweitlauf zu ändern; hier unberührt.
 - `STATUS.md` Zeile 257 („`lean/Axioms.lean` importiert das Wurzelmodul …“) und Zeile 253 (Auflage 7): Sache des Orchestrators.
 
-Es hängt sonst nichts am Paket als diese Brücke: keine weitere Lean-Datei unter `lean/` importiert das Paket oder benutzt die vier verschobenen Deklarationen.
+Nach den Quelltexten importiert keine weitere Lean-Datei unter `lean/` das Paket oder nennt die vier verschobenen Deklarationen. Der Bau zeigt aber, dass trotzdem mehr am Paket hängt (nächster Abschnitt).
+
+## Befund: Der Endsatz hängt über ein `simp`-Lemma des Pakets mehr am Paket als die Brücke
+
+Lauf von `.github/workflows/lean-project.yml` auf diesem PR (Commit `b546caf`): Lauf 45820627478, Job 139911775768, **rot**. Wörtlich aus dem Log:
+
+```
+✖ [1752/1765] Building YangBounds.SatzB444
+error: ././././YangBounds/SatzB444.lean:414:54: simp made no progress
+```
+
+Die Stelle, `lean/YangBounds/SatzB444.lean` Zeile 414:
+
+```
+  have h12 : finrank K (Fin 3 → Fin 4 → K) = 12 := by simp
+```
+
+Bisher hat `simp` das mit einem `@[simp]`-Lemma des Pakets geschlossen, sehr wahrscheinlich `MatrixMultiplicationLowerBound.Decomposition.finrank_output : finrank K (Output K mcols) = 3 * mcols` (Paketdatei Zeile 1086). `Output K mcols` ist dort ein `abbrev` für `Fin 3 → Fin mcols → K`, das Lemma greift also auf genau diesen Ausdruck. Ohne das Paket findet die Mathlib-`simp`-Menge keinen Schritt. Die Mathlib-Umgebung ist dieselbe wie vorher (siehe oben), es fehlt nur das Lemma des Pakets.
+
+`SatzB444` liegt in der Kette des Endsatzes (`Transponiert444 → … → SatzB444Final → SatzB444`). Der Endsatz hing also nicht nur über den Import in `Basic.lean`, sondern über einen Beweisschritt am Paket. Die Stelle zu ändern hieße, einen Beweis zu ändern. Nach der Vorgabe des repository owner („Hängt mehr am Paket als diese Brücke, berichte, statt umzubauen“) ist das hier nicht gemacht. Der PR wird nicht gemergt.
+
+Weil `SatzB444` nicht baut, hat Lake die davon abhängigen Module (`SatzB444Final`, `SatzC444Kern`, `SatzC444Generisch`, `SatzE444`, `SatzE444Buendel`, `LemmaP444`, `Endsatz444`, `Bruecke444`, `SatzF444`, `LemmaK444`, `LemmaZ444`, `Transponiert444`) nicht übersetzt. Ob dort weitere Schritte stillschweigend Lemmata des Pakets benutzen, zeigt dieser Lauf nicht. Eine Textsuche nach `finrank K (Fin … → …)` in `lean/YangBounds/` findet nur noch `SatzE444.lean` Zeile 156, und dort ist der Beweis mit `Module.finrank_pi_fintype` und `Module.finrank_fin_fun` ausgeschrieben, ohne Paket. Das ist kein Nachweis.
+
+Gebaut haben in diesem Lauf unter anderem `YangBounds.Basic` (ohne Paket), `YangBounds.BrueckeMM325`, `YangBounds.S4BedingterAusschluss`, `YangBounds.Statements`, `YangBounds.YangN4Haupt`, `YangBounds.SatzA444`.
 
 ## Lauf
 
-Maßgeblich ist der Lauf von `.github/workflows/lean-project.yml` (Job „Build lean/ and report axioms“). Lauf- und Job-Nummern des PR-Laufs und des Laufs auf `main` meldet der Thread dem Orchestrator; sie stehen nicht in dieser Datei, weil jeder Commit hier den Lauf neu startet.
+Maßgeblich ist der Lauf von `.github/workflows/lean-project.yml` (Job „Build lean/ and report axioms“). Der PR-Lauf ist rot (oben). Ein Lauf auf `main` entfällt, weil nichts gemergt wird.
 
-Verbrauch: keine Subagenten, keine Fremdmodell-Anfragen, kein lokaler Lean-Bau (nur Lesen der Quelltexte und ein Klon von `fallnlove/mm325_proof` außerhalb des Repos zum Lesen der Importliste).
+Verbrauch: keine Subagenten, keine Fremdmodell-Anfragen, kein lokaler Lean-Bau (nur Lesen der Quelltexte und ein Klon von `fallnlove/mm325_proof` außerhalb des Repos zum Lesen der Importliste und der `simp`-Lemmata), ein Actions-Lauf.
