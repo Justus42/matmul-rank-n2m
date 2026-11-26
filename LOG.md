@@ -3220,3 +3220,14 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - 1 Subagent (S5-22), 0 Fremdmodell-Anfragen. Dauer nach Git etwa 27 Minuten (Vergabe etwa 17:22 UTC bis Merge 7cf6800 um 17:49:08 UTC).
 - Spur P (Orchestrator): Fertig-Kriterium erfüllt (Sammelzweig grün ohne sorry außer dem gewollten der Challenge, Axiom-Bericht, jede Anforderung einzeln belegt, Abgleich bestanden, nach `main` gemergt, Zweitlauf dort wiederholt nach Lesart (p)); offen bleiben nur P-47 bis P-49 (Einreichung durch den Eigentümer) und die fünf Punkte, die nur Palomar entscheidet. Spur K: fertig seit Runde 5. Budget 6 von 6, Fremdmodell 1 von 4 (0,01 US-$).
 - Stufe 5 endet: beide Spuren fertig, Budget verbraucht. Der Orchestrator nennt dem Eigentümer den SHA 676cdf5deb786e81a66342606d4dd2b6f919745e und hält an. Nichts wird mehr vergeben. Stufe 6 beginnt nur mit seiner Startnachricht.
+
+
+## 26.11.2026 · Anweisung von Justus: Nacharbeit vor der Einreichung, Freigabe von B-034 als Ergebnis (18:37:16 UTC, Projektchat, Wortlaut)
+
+> Vor der Einreichung eine Nacharbeit außerhalb der Runden, höchstens zwei Subagenten, kein Fremdmodell. Ich gebe „Rang von 4×2×4 gleich 26" (B-034) als Ergebnis frei.
+>
+> 1. Ein Thread bringt README.md, lean/README.md und ergebnisse/rang-444.md auf den Stand von main: Aussage MatMulRank.rank_four_two_four_eq_26 (gleich 26), Lean 4.36.0 mit Mathlib v4.36.0, die aktuellen Läufe, die Palomar-Dateien und wie man sie nachprüft. Der frühere Stand (Lean 4.19.0, nur untere Schranke, Paket mm325_proof) steht als Vorgeschichte drin, mit Verweis auf den Zweig lean-4.19. Keine Datei nennen, die es auf main nicht mehr gibt. „Human review: none" und „to our knowledge" bleiben. 3×2×7 wird weiter nur als offen genannt, und Palomar nicht als erfolgt.
+> 2. Ein Prüfer liest die drei Dateien gegen den Stand des Repos und meldet jede Angabe, die nicht stimmt.
+> 3. Keine Änderung unter lean/ außer lean/README.md. Danach nennst du mir den neuen vollen Commit-SHA mit grünen Läufen.
+
+- Ausführung (Orchestrator): N-01 (Textänderung `README.md`, `lean/README.md`, `ergebnisse/rang-444.md`, PR an `main`) vergeben etwa 18:38 UTC; N-02 (Prüfer liest die drei Dateien gegen den Stand des Repos) folgt nach dem Merge von N-01. Befunde des Prüfers arbeitet N-01 ein, kein dritter Subagent. Danach nennt der Orchestrator Justus den neuen vollen SHA mit grünen Läufen.
