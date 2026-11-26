@@ -3013,3 +3013,11 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - K-1 bis K-12 je „bestätigt“, keine echte Lücke. Ausgeschriebene Nachrechnung je Glied (12 von 12), Programm mit 40 Einzelprüfungen (Anhang A, Ausgabe Anhang B „40 of 40 checks OK“) und Randfälle vorhanden.
 - Ungenauigkeiten bei K-1, K-2, K-4, K-5, K-6, K-8 bis K-12, teils wie S5-04.
 - Damit haben K-1 bis K-12 und K-21 bis K-35 je zwei Bestätigungen. Einzelheiten in `pruefvermerke/B-033.md`.
+
+**Stufe 5, Runde 3: S5-13 (Prüfer K-36 bis K-41 mit Prüfung der Quantoren, zweite Lesung) geliefert (Schreibhand, aus Git und dem Bericht)**
+
+- PR #157, ein Commit d44c144 (15:46:34 UTC, Zweig von f24cea5), Merge 3ec3f62 (15:46:50 UTC). Block Zeilen 628–752 (125 Zeilen, Rahmen 550–553), Bearbeitungsdauer nach Git etwa 9 Minuten. Nur der Bericht geändert (843 Zeilen). 0 Subagenten, 0 Fremdmodell.
+- K-36 bis K-39 „bestätigt“, K-41 „bestätigt (als Schluss aus den Wortlauten von K-38 und K-40; ob K-40 trägt, hängt an 6.3)“, **K-40 „offen“**. Wortlaut des Prüfers: „Was fehlt: ein zitiertes Glied, dessen Wortlaut sichert, dass in jeder Normalform (mindestens für jedes (S, T) ∈ 𝒢* ∩ 𝒢_gen) ein v ∈ Ŝ mit v ≠ 0 existiert. Im Übrigen ist jeder Schritt nachgerechnet und richtig.“ Dieselbe Frage nach Prüfer in Punkt 4 der Prüfung der Quantoren (Zeile 749). Betroffene Zeilen der Kette: 725, 727, 742, 747, 749.
+- Nachrechnung je Glied, Programm (Anhang A, Ausgabe Anhang B) und Randfälle vorhanden. Strukturbeobachtung wie S5-07 (K-34, K-38, K-40 für den Endsatz entbehrlich, Gewicht auf K-35).
+- Erste Lesung S5-07 hat zu Zeile 749 nur die Unabhängigkeit von der Skalierung von w behandelt, nicht die Existenz von v.
+- Nach Anweisung des Orchestrators: bei K-40 keine zweite Bestätigung, sondern „Lücke gemeldet von S5-13“. Einzelheiten in `pruefvermerke/B-033.md`.
