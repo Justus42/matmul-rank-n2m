@@ -1,10 +1,10 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 2 läuft; B-020 geprüft)
+Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 2: fünf von sechs Aufträgen geliefert, S4-08 läuft; danach Pause bis Sonntag, 29.11.2026, auf Anweisung von Justus)
 
 ## Aktuelle Stufe
 
-**Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): läuft
+**Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): läuft, **Pause bis Sonntag, 29.11.2026** (Justus, 26.11.2026, 08:23 UTC). Keine Runde 3 vorher
 
 - Von Justus gestartet am 26.11.2026, 06:43 UTC (Wortlaut im Logbuch). Protokoll 0.6 (c721297) von ihm bestätigt
 - Budget: 6 Runden mit je bis zu 6 Subagenten, Fremdmodell nur nach 5.5. Grundlage: `erkundung/s3-08-einschaetzung-327.md`
@@ -20,6 +20,30 @@ Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 2 läuft; B-020 geprüft)
 - Fertig mit einem Lean-Satz für die untere Schranke 35 über jedem Körper (geprüft nach 5.1 samt Abgleich des Endsatzes), einem nach 5.2 bestätigten Verfahren mit 34, erschöpftem Budget oder wenn eine Abbruchregel beide Spuren beendet
 - Kein Kontakt nach außen. README und `ergebnisse/` bleiben unverändert
 
+## Wiederaufnahme
+
+Entscheidung von Justus vom 26.11.2026, 08:23 UTC (Wortlaut im Logbuch): Runde 2 abschließen, dann anhalten. **Pause bis Sonntag, 29.11.2026. Keine Runde 3 vorher.** Die Pause zählt nicht als Runde und löst keine Abbruchregel aus.
+
+**Stand bei der Pause** (vorbehaltlich der Lieferung von S4-08)
+
+- Budget Stufe 4: 2 von 6 Runden verbraucht (Runde 1: 5 Subagenten, Runde 2: 6 Subagenten), 0 Fremdmodell-Anfragen in der Stufe. Verbleibend: 4 Runden
+- Zähler Abbruchregel 2, nach Lesart (d) des Orchestrators (Runde 1 zählt als Runde ohne Fortschritt):
+  - Spur A: 2 von 3 (Runde 1 und Runde 2 ohne Fortschritt nach a) oder b))
+  - Spur B: 2 von 3, falls S4-08 kein nach 5.2 bestätigtes Verfahren mit 34 liefert
+  - Ohne Lesart (d) wären es je 1 von 3
+- Laufende Fristen nach Abbruchregel 2 b): keine. In Stufe 4 gibt es bisher keine Behauptung, die ein Prüfer und ein Fremdmodell bestätigt haben
+- Weitere Fristen: keine mit Datum außer der Pause bis 29.11.2026. Offener Punkt ohne Frist: Auflage 7 aus Stufe 2 (Endsatz von mm325_proof entkoppeln, „nicht jetzt“)
+- Geprüft in Stufe 4: B-020 (R(⟨3,2,7⟩) ≤ 35 über ℤ und jedem Körper, nach 5.2). Behauptet, von einem Prüfer bestätigt: B-017, B-018, B-019. Axiom-Bericht für `lemma15b` und `lemma_I` seit S4-09 vorhanden
+- Rang von ⟨3,2,7⟩: 34 oder 35, nicht entschieden
+
+**Zu beachten bei der Wiederaufnahme**
+
+- Literaturwache nach Abschnitt 7 zu Beginn der neuen Sitzung, vor jeder anderen Arbeit
+- Gedächtnis-Durchsicht durch die Schreibhand vor der Vergabe an Prüfer und Blind-Sucher
+- Nach Lesart (d) beendet eine Runde 3 ohne Fortschritt beide Spuren (Zähler 3 von 3) und damit die Stufe. Protokoll Abschnitt 3: Würde die strengere Lesart eine Spur oder die Stufe beenden, hält der Orchestrator an und fragt Justus
+
+**Erste Aufträge für Runde 3:** folgen vom Orchestrator nach der Lieferung von S4-08.
+
 ## Aufträge für Stufe 4
 
 | Nr. | Auftrag | Rolle | Zieldatei | Stand |
@@ -29,12 +53,12 @@ Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 2 läuft; B-020 geprüft)
 | S4-03 | Prüfung B-019 (Übertragung von Lemma I) | Prüfer | `lean/prosa/s4_327_bericht_s4-03.md` | erledigt, PR #103 (Merge c2b1de9). B-019 hält, Axiom-Bericht für `lemma_I` fehlt. Behauptet, von einem Prüfer bestätigt |
 | S4-04 | Verfahren mit 35 für 3×2×7 anlegen und nachrechnen (5.2) | Rechner | Datei unter `verfahren/`, `verfahren/3x2x7-r35-nachrechnung.md` | erledigt, PR #104 (Merge 0e3327f), `verfahren/3x2x7-r35-hk71.json`. Beide Prüfprogramme ANGENOMMEN, vom Ersteller gestartet. Behauptet bis zur Wiederholung durch einen getrennten Prüfer (Runde 2) |
 | S4-05 | Blind-Sucher | Blind-Sucher | `versuche/s4-blind-r1.md` | erledigt, PR #107 (Merge 412ad8b), `versuche/s4-blind-r1.md`. Nicht entschieden, alles behauptet |
-| S4-06 | Spur A: Ausschluss des Restfalls | Beweissucher | `lean/prosa/s4_327_spurA_r2_ausschluss.md` | vergeben in Runde 2 |
-| S4-07 | Spur A, Gegenrichtung: aus dem Restfall ein Verfahren mit 34 bauen oder Hindernis benennen | Beweissucher | `lean/prosa/s4_327_spurA_r2_bau.md` | vergeben in Runde 2 |
-| S4-08 | Spur B: Suche nach 34 mit den erzwungenen Kenngrößen | Verfahrenssucher | `versuche/s4-spurB-r2.md` | vergeben in Runde 2 |
-| S4-09 | Axiom-Bericht für `lemma15b` und `lemma_I` in Actions (nur Workflow) | Lean-Wartung | Workflow | vergeben in Runde 2 |
+| S4-06 | Spur A: Ausschluss des Restfalls | Beweissucher | `lean/prosa/s4_327_spurA_r2_ausschluss.md` | erledigt, PR #111 (Merge dfd239e). Restfall nicht ausgeschlossen, Lücke Λ, A1 bis A6 behauptet |
+| S4-07 | Spur A, Gegenrichtung: aus dem Restfall ein Verfahren mit 34 bauen oder Hindernis benennen | Beweissucher | `lean/prosa/s4_327_spurA_r2_bau.md` | erledigt, PR #113 (Merge 81fa438). Kein Verfahren gebaut, S4-07-A bis E behauptet, Vermutung S4-07-V, Lücken L-1 bis L-4 |
+| S4-08 | Spur B: Suche nach 34 mit den erzwungenen Kenngrößen | Verfahrenssucher | `versuche/s4-spurB-r2.md` | läuft (letzter Rechenblock), noch kein PR |
+| S4-09 | Axiom-Bericht für `lemma15b` und `lemma_I` in Actions (nur Workflow) | Lean-Wartung | Workflow | erledigt, PR #108 (Merge 1e4f7b8) und #112 (Merge 645af03). Lauf 45778891656, Job 139769322302: `lemma15b_core`, `lemma15b`, `lemma_I` nur Standard-Axiome, SORRY 0 |
 | S4-10 | Prüfung B-020, Wiederholung beider Läufe | Prüfer | `verfahren/3x2x7-r35-pruefung-s4-10.md` | erledigt, PR #109 (Merge e715211). B-020 geprüft nach 5.2 |
-| S4-11 | Blind-Sucher | Blind-Sucher | `versuche/s4-blind-r2.md` | vergeben in Runde 2 (etwa 07:43 UTC) |
+| S4-11 | Blind-Sucher | Blind-Sucher | `versuche/s4-blind-r2.md` | erledigt, PR #110 (Merge 0ee499f). Satz G behauptet, keine Schranke über 34. Blindheit eingeschränkt (vier Einzeleinträge eingeblendet) |
 
 ## Stufe 3: abgeschlossen
 

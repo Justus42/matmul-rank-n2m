@@ -2277,3 +2277,36 @@ Positivliste S4-10: `behauptungen/B-020.md`, `verfahren/3x2x7-r35-hk71.json`, `v
 - **Status (Orchestrator): B-020 geprüft** nach 5.2 Punkt 1 bis 3 (zwei unabhängig geschriebene Programme in zwei Sprachen, exakte Arithmetik, Zahlbereich ℤ), Läufe von einem Prüfer wiederholt, der die Datei nicht gebaut hat. Die obere Schranke 35 für ⟨3,2,7⟩ ist damit geprüft.
 - Lesart des Orchestrators: kein Fortschritt im Sinne von Abbruchregel 2, weil es die Bestätigung eines bekannten Werts ist. Zähler unverändert.
 - 0 eigene Subagenten, 0 Fremdmodell-Anfragen.
+
+---
+
+## 26.11.2026 · Entscheidung von Justus: Runde 2 abschließen, Pause bis Sonntag
+
+**Nachricht von Justus im Projektchat (Wortlaut, 26.11.2026, 08:23 UTC):**
+
+> Schließe Runde 2 ab, merge alles, führe LOG.md und STATUS.md nach und halte dann an. Pause bis Sonntag, keine Runde 3 vorher. Schreib in STATUS.md einen Abschnitt „Wiederaufnahme" mit dem Zählerstand je Spur, den laufenden Fristen und den ersten Aufträgen für Runde 3. Die Pause zählt nicht als Runde und löst keine Abbruchregel aus.
+
+Sonntag ist der 29.11.2026. Keine Runde 3 vorher.
+
+## 26.11.2026 · Stufe 4, Runde 2: Lieferungen S4-06, S4-07, S4-09, S4-11 (S4-08 läuft noch)
+
+Alle Zeiten UTC, aus Git. Vergabe S4-06 bis S4-09 etwa 07:42, S4-10 und S4-11 etwa 07:43 (erste Commits von S4-07 um 07:42:02, S4-09 um 07:42:11, S4-11 um 07:42:44).
+
+| Nr. | PR | Merge | Zieldatei | Commits | Dauer ab Vergabe |
+|---|---|---|---|---|---|
+| S4-09 | #108, #112 | 1e4f7b8 (07:49:33), 645af03 (08:05:32) | Workflow-Änderung, `lean/prosa/s4_327_axiome_s4-09.md` | 57f4bef 07:42:11, 591e6c8 08:05:05 | etwa 23 Minuten |
+| S4-10 | #109 | e715211 (07:45:24) | `verfahren/3x2x7-r35-pruefung-s4-10.md` | siehe eigenen Eintrag | etwa 3 Minuten |
+| S4-11 | #110 | 0ee499f (07:52:54) | `versuche/s4-blind-r2.md` | 9654029 07:42:44 bis bc9c772 07:52:34 | etwa 10 Minuten |
+| S4-06 | #111 | dfd239e (07:55:01) | `lean/prosa/s4_327_spurA_r2_ausschluss.md` | 97a1128 07:51:51, 8c96b57 07:54:45 | etwa 13 Minuten |
+| S4-07 | #113 | 81fa438 (08:10:50) | `lean/prosa/s4_327_spurA_r2_bau.md` | 382b132 07:42:02, a2671ea 08:04:05, 961f6c0 08:10:28 | etwa 29 Minuten |
+
+Alle melden 0 eigene Subagenten und 0 Fremdmodell-Anfragen. Status von allem: **behauptet**. Der Orchestrator setzt keinen Status hoch.
+
+- **S4-06 (Spur A, Ausschluss):** Restfall (4, 6, 4) nicht ausgeschlossen. Lücke „Λ“ (Abschnitt 8). Behauptet A1 bis A6. Offen außerdem Lücke B (Unterfall B mit glattem Kegelschnitt, Abschnitt 5) und Lücke A5-iii (Abschnitt 7.1). Gescheiterte Ansätze in Abschnitt 9, darunter die Invarianz von f₀(N) unter s und t (Weg aus `versuche/s4-blind-r1.md`, Lücke L3), die im Restfall falsch ist. A5-iii war laut Orchestrator in der ersten Fassung als gezeigt angenommen und wurde zurückgenommen. Keine Rechenblöcke. Eingeblendet: Index und Einzeleinträge `git-regeln`, `lean-upper-3x2x6`.
+- **S4-07 (Spur A, Gegenrichtung):** Kein Verfahren gebaut. Behauptet S4-07-A bis C, bedingter Ausschluss S4-07-D (e = 3 unter (INJ5)), Satz X (S4-07-E). Vermutung S4-07-V nur durch Rechnung gestützt. Lücken L-1 (Fall e ≤ 2), L-2 (von (INJ5) zu allen Lagen), L-3 (setzt B-017 bis B-019 voraus), L-4 (Bedingung (B) ungenutzt). Eingeblendet: Index und Einzeleinträge `hk-verfahren-a10`, `verfahren-randfaelle-s1-04`, `verfahren-datenformat`, `git-regeln`. Hat das Python-Paket `python-sat` per pip installiert und nicht benutzt.
+  - **Rechenblöcke gegen Lesart (e):** Laut Bericht Block 1 von 07:58 bis 08:03, Block 2 von etwa 08:03 bis 08:06. Der Zwischencommit a2671ea um 08:04:05 liegt während Block 2, also nicht zwischen den Blöcken. Nach Lesart (e) ist das ein Block von etwa 8 Minuten (07:58 bis 08:06), wie der Thread selbst zählt. Selbst der ganze Rahmen von Commit 382b132 (07:42:02) bis 961f6c0 (08:10:28) ist mit 28,5 Minuten unter 30. **Kein Verstoß.**
+- **S4-09 (Axiom-Bericht):** `.github/scripts/lean_report.py` (drei Einträge in `MAIN_THEOREMS`) und `.github/workflows/lean-project.yml` geändert, kein Quelltext unter `lean/YangBounds/`. Maßgeblicher Lauf 45778891656 (Nr. 106, Commit dfd239e), Job 139769322302, success. Der Lauf für 1e4f7b8 (45778205882) wurde durch die concurrency-Regel abgebrochen. Selbst im Log nachgesehen: „AXIOM-RESULT|YangBounds.YangN4Haupt.lemma15b_core|propext, Quot.sound, Classical.choice“, ebenso für `lemma15b` und `YangN3Teil3.lemma_I`, „SORRY: 0“ in beiden Zeilen, „TOTAL: STANDARD=59“. Damit ist die in den Vermerken zu B-018 und B-019 genannte Lücke beim Axiom-Bericht geschlossen. Am Status ändert das nichts (Entscheidung des Orchestrators).
+- **S4-11 (Blind-Sucher, als Beweissucher):** Keine Schranke über 34 bewiesen. Satz G (Gleichheitsfall r = 34) behauptet, fünf gescheiterte Ansätze, Vorschläge in Abschnitt 6. 0 Rechenblöcke. **Einschränkung der Blindheit:** Offengelegt sind der Gedächtnis-Index und vier Einzeleinträge (`hk-verfahren-a10`, `lean-upper-3x2x6`, `git-regeln`, `verfahren-randfaelle-s1-04`). Daraus kannte der Blind-Sucher die Verfahren für 3×2×5 mit 25 und 3×2×6 mit 30 und den Namen der Lean-Datei YangBounds.
+- **S4-08 (Spur B):** läuft noch. Zweig `claude/project-thread-irkx8w`, noch ohne PR. Commits 3c6af4d (07:45:27), 0083762 (07:49:46), d9cea16 (07:55:46, Block 1a 07:50:36 bis 07:55:36), 0ca1e58 (08:10:30, Block 1b). Nachtrag folgt.
+
+**Offene Pull Requests (26.11.2026, etwa 08:30 UTC):** keiner. Alte Zweige aus Stufe 2 sind per Squash gemergt und haben keinen offenen PR.
