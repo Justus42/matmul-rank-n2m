@@ -2734,3 +2734,24 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 **Nachtrag 26.11.2026, vor Runde 6: Gedächtnisdurchsicht (Schreibhand)**
 
 - Index (`MEMORY.md`, md5 1c3884b6…, geändert 12:12 UTC) und alle 21 Einzeleinträge durchgesehen. Seit der Durchsicht vor Runde 5 unverändert (gleiche Prüfsumme des Index, keine Datei neuer als 12:12 UTC). Keine Urteile, kein Status, keine Zähler, nichts zu Stufe 4, zu Behauptungen oder Spuren. Keine Änderung nötig.
+
+**Lesart-Notiz zum Zähler von Spur A nach Runde 5 (Orchestrator, 26.11.2026)**
+
+- Nach dem Wortlaut von Abschnitt 6, Abbruchregel 2 a) („ein neues Artefakt mit Status geprüft, das … einen benannten Fall der Fallunterscheidung ausschließt“) wäre für Runde 5 auch 0 von 3 lesbar, weil B-021 D in Runde 5 geprüft wurde. Eingetragen ist die strengere Lesart (i) mit 2 von 3. Die Entscheidung darüber liegt beim Repository-Eigentümer. Praktische Folge nach Hinweis der Schreibhand: keine, weil das Budget nach Runde 6 erschöpft ist, bevor Spur A in einer der beiden Lesarten nach Abbruchregel 2 enden könnte.
+
+**Runde 6 von 6 vergeben (26.11.2026, etwa 13:13 UTC, Orchestrator; letzte Runde im Budget)**
+
+- Keine Literaturwache: dieselbe Sitzung wie die Wache vor Runde 4 (Lesart a). Gedächtnisdurchsicht vor der Vergabe bestätigt (Nachtrag oben).
+- 6 Subagenten, gleichzeitig und unabhängig:
+  - S4-30: Prüfer B-030, Bericht `lean/prosa/s4_327_bericht_s4-30.md`.
+  - S4-31: Prüfer B-030, zweiter, unabhängig von S4-30, Bericht `lean/prosa/s4_327_bericht_s4-31.md`.
+  - S4-32: Prüfer B-029, Bericht `lean/prosa/s4_327_bericht_s4-32.md`.
+  - S4-33: Prüfer B-029, zweiter, unabhängig von S4-32, Bericht `lean/prosa/s4_327_bericht_s4-33.md`.
+  - S4-34: Prüfer B-028, Bericht `lean/prosa/s4_327_bericht_s4-34.md`.
+  - S4-35: unabhängiger Sucher (nicht blind), `versuche/s4-unabhaengig-r6.md`.
+- Positivlisten wie von der Schreibhand genannt (Meldung an den Orchestrator nach Abschluss von Runde 5), Prüfer mit `PROTOKOLL.md` nur Abschnitt 5. Gesperrt für alle Prüfer: `STATUS.md`, `LOG.md`, `pruefvermerke/`, `archiv/`, `s4_327_bericht*`, `s4_327_abgleich*`.
+  - B-028: `behauptungen/B-028.md`; `lean/prosa/s4_327_spurA_r5_e2.md` Abschnitte 3 bis 7; `behauptungen/B-030.md`; `lean/prosa/s4_327_spurA_r4_m21.md` Abschnitte 1 (Vorbemerkung), 3, 5.1; `behauptungen/B-027.md`; `lean/prosa/s4_327_spurA_r3_e2.md` Abschnitte 1, 3, 4; `lean/prosa/s4_327_spurA_r2_bau.md` Abschnitte 1 bis 3; `lean/prosa/yang_n3.md` Abschnitte 3 bis 5; `behauptungen/B-017.md` bis `B-019.md` für den Wortlaut des Restfalls.
+  - B-029: `behauptungen/B-029.md`; `lean/prosa/s4_327_spurA_r5_m21.md` Abschnitte 3, 5, 6, 7; `behauptungen/B-030.md`; `lean/prosa/s4_327_spurA_r4_m21.md` Abschnitte 1 (Vorbemerkung, A, B), 2, 3, 4, 5; `behauptungen/B-026.md`; `lean/prosa/s4_327_spurA_r3_e3.md` Abschnitte 1 bis 4; `lean/prosa/s4_327_spurA_r2_bau.md` Abschnitte 1 bis 4; `lean/prosa/yang_n3.md` Abschnitte 3 bis 5.
+  - B-030: wie B-029 ohne `behauptungen/B-029.md` und ohne `lean/prosa/s4_327_spurA_r5_m21.md`.
+- Fremdmodell in Runde 6: nur nach 5.5 und erst, wenn ein Prüfer den Ausschluss eines benannten Falls bestätigt hat.
+- Auflage 7: Der Zweitlauf-Prüfer ist nicht vergeben, weil S4-26 (PR #131) noch auf die Entscheidung des Repository-Eigentümers wartet.
