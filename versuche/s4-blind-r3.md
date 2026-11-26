@@ -4,11 +4,27 @@ Rolle: Blind-Sucher. Gelesen im Repo: nur `CLAUDE.md`. Alle eigenen Aussagen sin
 
 ## 0. Offenlegung eingeblendeter Gedächtniseinträge
 
-(wird ergänzt)
+Ohne mein Zutun wurden mir eingeblendet:
 
-## 1. Problemstellung
+1. Zu Beginn der Gedächtnis-Index `team/silo/MEMORY.md`, vollständig. Er enthält Projektziel, Arbeitsregeln, Angaben zum Fremdmodell und zur Rollenverteilung, die Bemerkung „Lean für 3×2×6“ sowie Verweise auf die Einzeleinträge `verfahren-datenformat` und `lean-project-ci`. Deren Inhalt wurde mir nicht gezeigt.
+2. Nach dem ersten Arbeitsschritt (Anlegen des Zweigs) wurden vier Einzeleinträge vollständig eingeblendet:
+   - `hk-verfahren-a10`: Verfahrensdateien 3×2×5 mit 25 und 3×2×6 mit 30 Produkten, Ring ℤ, im Repo vorhanden.
+   - `verfahren-randfaelle-s1-04`: Regeln zum Dateiformat der Verfahren.
+   - `git-regeln`: Arbeitsablauf mit Commit, PR und Auftragsnummer.
+   - `lean-upper-3x2x6`: Lean-Datei für die obere Schranke R(3×2×6) ≤ 30.
 
-(wird ergänzt)
+Ich habe davon nichts für die Mathematik benutzt. Ich habe keine Repo-Datei außer `CLAUDE.md` gelesen, insbesondere keine der genannten Verfahrens- oder Lean-Dateien. Mein Verfahren mit 35 Produkten ist selbst erzeugt (Abschnitt 3). Den Wert R(⟨3,2,6⟩) = 30 habe ich unabhängig davon aus Yang, arXiv:2609.14393v3, entnommen. Einen Gedächtniseintrag habe ich nicht geschrieben.
+
+## 1. Problemstellung und Ergebnis in Kürze
+
+Gesucht ist der Tensorrang R(⟨3,2,7⟩), also die kleinste Zahl von Multiplikationen in einem bilinearen Verfahren für eine 3×2- mal eine 2×7-Matrix, über einem beliebigen Körper.
+
+Ergebnis dieser Blind-Suche:
+- **Behauptet:** R_K(⟨3,2,7⟩) ≤ 35 für jeden Körper K. Zeuge ist ein eigenes Verfahren mit Koeffizienten in {−1,0,1}, ganzzahlig nachgerechnet (Abschnitt 3).
+- Aus der Literatur (nicht von mir geprüft): R_K(⟨3,2,7⟩) ≥ 34 für jeden Körper (Yang, arXiv:2609.14393v3, Satz 1: ⌈(24m+2)/5⌉ = 34).
+- **Behauptet:** Ein Verfahren mit 34 Produkten müsste eine sehr starre Struktur haben (Abschnitt 4.2). Einen Widerspruch daraus habe ich nicht gefunden.
+- **Vermutet:** R(⟨3,2,7⟩) = 35. Das stützt sich nur darauf, dass meine Suchen (Abschnitt 5) und, soweit ich sehe, die Literatur kein Verfahren mit 34 Produkten kennen. Ein Beweis ist das nicht.
+- Der exakte Wert bleibt offen: 34 oder 35.
 
 ## 2. Literaturstand (Netzrecherche 26.11.2026, Sitzungsbeginn)
 
@@ -186,7 +202,7 @@ Lücken: Die Lemmata 6, 8, 10 und 12 von Yang habe ich nur nachgelesen, nicht un
 ### 4.4 Gescheiterte Ansätze (mit Grund)
 
 - **Gleichheitsfall-Technik aus 2609.22054 auf m = 7 übertragen:** Sie greift nicht unmittelbar. Bei m = 7 und r = 34 ist 5h ≥ 9m mit h = 13 nicht scharf (65 > 63). Die verschärfte Ungleichung 4m + Δ ≤ 5h' aus Yang v3 wird bei h' = 6 zu 30 ≥ 30, ist also scharf. Daraus kommt die Struktur in 4.2, aber kein Widerspruch.
-- **Substitution einer Spalte von B:** Sie liefert nur R(⟨3,2,m⟩) ≥ R(⟨3,2,m−1⟩) + 2, also mit R(⟨3,2,6⟩) = 30 (Yang v3) nur 32. Für 35 bräuchte man +5 je Spalte, und das ist im Wesentlichen schon die volle Vermutung.
+- **Substitution einer Spalte von B:** Die einfache Form, bei der die 2 Variablen der Spalte eliminiert werden, liefert nur R(⟨3,2,m⟩) ≥ R(⟨3,2,m−1⟩) + 2, also mit R(⟨3,2,6⟩) = 30 (Yang v3) nur 32. Ob eine verfeinerte Substitution +3 je Spalte liefert, habe ich nicht ausgearbeitet; auch das reichte nur für 33. Für 35 bräuchte man +5 je Spalte, und das ist im Wesentlichen schon die volle Vermutung.
 - **Theorem 2 von Yang über die Permutation ⟨7,2,3⟩:** Es ist nicht anwendbar, weil es m ≥ n verlangt. Die Gleichung (2) ohne Lemma 14 liefert nur r ≥ 29.
 
 ## 5. Rechenblöcke
@@ -207,3 +223,247 @@ Vier Läufe zu je 1500 s, Ziel Rang 34:
 | g14 | ℤ, Koeffizienten in {−1,0,1} | Verfahren mit 35 | 300 000 | 29 529 605 | 35 |
 
 Ergebnis: Kein Verfahren mit 34 Produkten gefunden. Das ist **kein** Beweis, dass es keines gibt. Lauf g13 zeigt, dass mein Zufallslauf vom Standardverfahren aus zu schwach ist: Er kehrt nach jedem Plateau zum besten Stand zurück und kommt aus 42 nicht heraus. Für 3×2×7 taugt er nur als lokale Suche um das Verfahren mit 35. Gegenüber den Läufen in der Literatur (Perminov: Wochen auf 20 Kernen, Milliarden Schritte) ist der Aufwand klein.
+
+### Block 3 (10:25:48–10:50:16 UTC, 24,5 min, 4 Kerne): Levenberg-Marquardt über ℝ
+
+Eigenes Python-Skript `lm.py` (Anhang B). Es führt eine reelle CP-Zerlegung des 6×14×21-Tensors mit r Termen durch, mit kleinem Ridge-Term 1e-6 gegen divergierende Koeffizienten. Je Start sind es höchstens 2000 LM-Schritte, mit Zufallsstarts.
+
+Kalibrierung vorab: ⟨3,2,2⟩ mit r = 11 (Rang) erreicht Residuum 5e-11. Mit r = 10 (Grenzrang 10, Rang 11) bleibt es bei 2e-4 mit wachsenden Koeffizienten stehen.
+
+| Lauf | r | Starts | bestes Residuum (Summe der Quadrate) | größter Koeffizient |
+|---|---|---|---|---|
+| n35a | 35 | 5 | 1,1e-4 | 3,5 |
+| n34a | 34 | 6 | 1,0 | – |
+| n34b | 34 | 6 | 6,3e-4 | 5,5 |
+| n34c | 34 | 6 | 5,2e-4 | 5,9 |
+
+Ergebnis: **Ohne Aussagekraft.** Auch mit r = 35, wo ein exaktes Verfahren existiert, erreicht das Verfahren in 2000 Schritten nur 1e-4 und kein Residuum in Maschinengenauigkeit. Die Werte bei r = 34 (5e-4) liegen in derselben Größenordnung. Ein Unterschied zwischen 34 und 35 lässt sich daraus nicht ablesen. Für eine Aussage bräuchte man deutlich längere Läufe je Start, und selbst dann bliebe das Grenzrang-Problem: Ein Residuum gegen 0 bei 34 könnte von einer Grenzrang-Zerlegung kommen.
+
+## 6. Verbrauch
+
+- Subagenten: 0. Fremdmodell-Anfragen: 0.
+- Rechenblöcke: 3 (siehe Abschnitt 5), jeder höchstens 25 min auf höchstens 4 Kernen, mit Commits dazwischen (10:22:59 nach Block 2; Block 1 endete vor dem Commit 09:57:37).
+- Netz: nur lesend (Websuche, arXiv-Texte über alphaXiv).
+
+## Anhang A: Flip-Graph-Programm `fg.c`
+
+Übersetzt mit `gcc -O2 -DN=3 -DM=7`. Aufruf: `fg P seed Sekunden Zielrang L Ausgabedatei [Startdatei]`, wobei P = 2 für GF(2) und P = 0 für ℤ mit Koeffizienten in {−1,0,1} steht.
+
+```c
+// Flip-graph random walk for <N,2,M> over GF(P) (P>0) or Z with |coef|<=B (P==0).
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#ifndef N
+#define N 3
+#endif
+#ifndef K
+#define K 2
+#endif
+#ifndef M
+#define M 7
+#endif
+#define MAXR 64
+static const int D[3]={N*K,K*M,N*M};
+static int P=2,B=1;
+typedef struct {signed char v[3][32];} Term;
+static Term S[MAXR]; static int R;
+static Term Best[MAXR]; static int BR;
+static unsigned long long rs;
+static inline unsigned long long rnd(){rs^=rs<<13;rs^=rs>>7;rs^=rs<<17;return rs;}
+static inline int md(int x){ if(P){x%=P; if(x<0)x+=P;} return x;}
+static int bad(int x){return P==0 && (x>B||x<-B);}
+static int iszero(const signed char*a,int n){for(int i=0;i<n;i++)if(a[i])return 0;return 1;}
+// returns s with a==s*b (s=1 or -1 for Z / any unit for GF(P)), 0 if none
+static int eqs(const signed char*a,const signed char*b,int n){
+  int s=0; for(int i=0;i<n;i++){ if(!a[i]&&!b[i])continue; if(!a[i]||!b[i])return 0;
+    int t; if(P){ for(t=1;t<P;t++) if(md(t*b[i])==a[i])break; } else t=a[i]*b[i]; // b in{-1,1}? general
+    if(P==0){ if(a[i]!=b[i]&&a[i]!=-b[i])return 0; t=(a[i]==b[i])?1:-1;}
+    if(!s)s=t; else if(s!=t)return 0;}
+  return s;}
+static int verify(Term*X,int r){
+  for(int a=0;a<D[0];a++)for(int b=0;b<D[1];b++)for(int c=0;c<D[2];c++){
+    int i=a/K,j=a%K,j2=b/M,k=b%M,i2=c/M,k2=c%M;
+    int t=(i==i2&&j==j2&&k==k2);
+    long s=0; for(int q=0;q<r;q++) s+=X[q].v[0][a]*X[q].v[1][b]*X[q].v[2][c];
+    if(P){ if(md(s)!=t)return 0;} else if(s!=t)return 0;}
+  return 1;}
+static void del(int p){S[p]=S[R-1];R--;}
+// try reductions involving term p; returns 1 if something reduced
+static int reduce_any(){
+  for(int p=0;p<R;p++){ for(int z=0;z<3;z++) if(iszero(S[p].v[z],D[z])){del(p);return 1;} }
+  for(int p=0;p<R;p++)for(int q=p+1;q<R;q++){
+    for(int z=0;z<3;z++){ int x=(z+1)%3,y=(z+2)%3;
+      int s=eqs(S[p].v[x],S[q].v[x],D[x]); if(!s)continue;
+      int t=eqs(S[p].v[y],S[q].v[y],D[y]); if(!t)continue;
+      // term p = s*t * xq⊗yq⊗zp ; add to q
+      signed char nz[32]; int ok=1;
+      for(int i=0;i<D[z];i++){ int v=md(S[q].v[z][i]+s*t*S[p].v[z][i]); if(bad(v))ok=0; nz[i]=v;}
+      if(!ok)continue;
+      memcpy(S[q].v[z],nz,D[z]); del(p); return 1; }}
+  return 0;}
+static int flip(){
+  // collect candidate pairs
+  static int cp[MAXR*MAXR*3][4]; int nc=0;
+  for(int p=0;p<R;p++)for(int q=0;q<R;q++) if(p!=q) for(int x=0;x<3;x++){
+    int s=eqs(S[p].v[x],S[q].v[x],D[x]); if(s){cp[nc][0]=p;cp[nc][1]=q;cp[nc][2]=x;cp[nc][3]=s;nc++;}}
+  if(!nc)return 0;
+  for(int tries=0;tries<20;tries++){
+    int*c=cp[rnd()%nc]; int p=c[0],q=c[1],x=c[2],s=c[3];
+    int y=(x+1+rnd()%2)%3, z=3-x-y;
+    int lam = P==2?1 : (P==0? ((rnd()&1)?1:-1) : 1+rnd()%(P-1));
+    signed char ny[32],nz[32]; int ok=1;
+    for(int i=0;i<D[y];i++){int v=md(S[p].v[y][i]+s*lam*S[q].v[y][i]); if(bad(v))ok=0; ny[i]=v;}
+    for(int i=0;i<D[z];i++){int v=md(S[q].v[z][i]-lam*S[p].v[z][i]); if(bad(v))ok=0; nz[i]=v;}
+    if(!ok)continue;
+    memcpy(S[p].v[y],ny,D[y]); memcpy(S[q].v[z],nz,D[z]); return 1;}
+  return 0;}
+static int plus(){
+  for(int tries=0;tries<50;tries++){
+    int p=rnd()%R,q=rnd()%R; if(p==q)continue;
+    int x=rnd()%3,y=(x+1)%3,z=(x+2)%3; Term a=S[p],b=S[q],n;
+    // a⊗b⊗c + a'⊗b'⊗c' = (a−a')⊗b⊗c + a'⊗(b−b')⊗c + a'⊗b'⊗(c+c')
+    Term t1=a,t2,t3=b; int ok=1;
+    for(int i=0;i<D[x];i++){int v=md(a.v[x][i]-b.v[x][i]); if(bad(v))ok=0; t1.v[x][i]=v;}
+    memcpy(t2.v[x],b.v[x],D[x]);
+    for(int i=0;i<D[y];i++){int v=md(a.v[y][i]-b.v[y][i]); if(bad(v))ok=0; t2.v[y][i]=v;}
+    memcpy(t2.v[z],a.v[z],D[z]);
+    for(int i=0;i<D[z];i++){int v=md(a.v[z][i]+b.v[z][i]); if(bad(v))ok=0; t3.v[z][i]=v;}
+    if(!ok||R+1>MAXR)continue; (void)n;
+    S[p]=t1;S[q]=t2;S[R++]=t3; return 1;}
+  return 0;}
+static void dump(FILE*f,Term*X,int r){
+  fprintf(f,"%d\n",r); for(int q=0;q<r;q++){ for(int z=0;z<3;z++){for(int i=0;i<D[z];i++)fprintf(f,"%d ",X[q].v[z][i]>P/2&&P>2?X[q].v[z][i]-P:X[q].v[z][i]); fprintf(f,"| ");} fprintf(f,"\n");}}
+int main(int argc,char**argv){
+  P=atoi(argv[1]); rs=strtoull(argv[2],0,10)*2654435761ULL+1; int secs=atoi(argv[3]); int target=atoi(argv[4]);
+  long L=argc>5?atol(argv[5]):100000; const char*out=argc>6?argv[6]:"best.txt";
+  R=0; for(int i=0;i<N;i++)for(int j=0;j<K;j++)for(int k=0;k<M;k++){memset(&S[R],0,sizeof(Term));
+    S[R].v[0][i*K+j]=1;S[R].v[1][j*M+k]=1;S[R].v[2][i*M+k]=1;R++;}
+  if(argc>7){FILE*f=fopen(argv[7],"r"); int r; if(fscanf(f,"%d",&r)!=1)return 3; R=r; memset(S,0,sizeof(S));
+    for(int q=0;q<r;q++)for(int z=0;z<3;z++){for(int i=0;i<D[z];i++){int v; if(fscanf(f,"%d",&v)!=1)return 3; S[q].v[z][i]=md(v);} char bar[4]; if(fscanf(f,"%3s",bar)!=1)return 3;}
+    fclose(f);}
+  if(!verify(S,R)){printf("init bad\n");return 1;}
+  memcpy(Best,S,sizeof(S));BR=R; time_t t0=time(0); long steps=0,since=0; long restarts=0;
+  while(time(0)-t0<secs){
+    if(!flip()){ plus(); }
+    while(reduce_any());
+    steps++; since++;
+    if(R<BR){ if(!verify(S,R)){printf("BUG\n");return 2;} memcpy(Best,S,sizeof(S));BR=R;since=0;
+      printf("[%lds] rank %d (steps %ld)\n",(long)(time(0)-t0),R,steps);fflush(stdout);
+      FILE*f=fopen(out,"w");dump(f,Best,BR);fclose(f); if(BR<=target)break;}
+    if(since>L){ // plateau: restart from best, perform a plus
+      memcpy(S,Best,sizeof(S));R=BR; plus(); since=0; restarts++; }
+    if(R>BR+3){memcpy(S,Best,sizeof(S));R=BR;}
+  }
+  printf("done best %d steps %ld restarts %ld\n",BR,steps,restarts);
+  return 0;}
+```
+
+## Anhang B: `lm.py`, `merge.py`, `kstruct.py`
+
+```python
+# Levenberg-Marquardt for real CP decomposition of <n,2,m> with r terms, small ridge to keep norms bounded.
+import numpy as np, sys, time
+n,m,r,seed,secs=int(sys.argv[1]),int(sys.argv[2]),int(sys.argv[3]),int(sys.argv[4]),float(sys.argv[5])
+ridge=float(sys.argv[6]) if len(sys.argv)>6 else 1e-4
+k=2; I,J,K=n*k,k*m,n*m
+T=np.zeros((I,J,K))
+for i in range(n):
+  for j in range(k):
+    for kk in range(m): T[i*k+j, j*m+kk, i*m+kk]=1
+rng=np.random.default_rng(seed); t0=time.time()
+best=(1e9,None)
+while time.time()-t0<secs:
+  A=rng.standard_normal((I,r))*0.5; B=rng.standard_normal((J,r))*0.5; C=rng.standard_normal((K,r))*0.5
+  lam=1e-2
+  for it in range(int(sys.argv[7]) if len(sys.argv)>7 else 3000):
+    E=np.einsum('ir,jr,kr->ijk',A,B,C)-T; f=(E**2).sum()
+    # Jacobian blocks
+    JA=np.einsum('jr,kr->jkr',B,C) # dE_ijk/dA_ir = B_jr C_kr
+    JB=np.einsum('ir,kr->ikr',A,C)
+    JC=np.einsum('ir,jr->ijr',A,B)
+    nA,nB,nC=I*r,J*r,K*r; N=nA+nB+nC
+    Jm=np.zeros((I*J*K,N))
+    idx=np.arange(I*J*K).reshape(I,J,K)
+    for i in range(I):
+      Jm[idx[i].ravel(), i*r:(i+1)*r]=JA.reshape(J*K,r)
+    for j in range(J):
+      Jm[idx[:,j,:].ravel(), nA+j*r:nA+(j+1)*r]=JB.reshape(I*K,r)
+    for kk in range(K):
+      Jm[idx[:,:,kk].ravel(), nA+nB+kk*r:nA+nB+(kk+1)*r]=JC.reshape(I*J,r)
+    x=np.concatenate([A.ravel(),B.ravel(),C.ravel()])
+    g=Jm.T@E.ravel()+ridge*x; H=Jm.T@Jm
+    while True:
+      dx=-np.linalg.solve(H+(lam+ridge)*np.eye(N),g)
+      xn=x+dx; An=xn[:nA].reshape(I,r); Bn=xn[nA:nA+nB].reshape(J,r); Cn=xn[nA+nB:].reshape(K,r)
+      En=np.einsum('ir,jr,kr->ijk',An,Bn,Cn)-T; fn=(En**2).sum()
+      if fn+ridge*(xn@xn)<f+ridge*(x@x): A,B,C=An,Bn,Cn; lam=max(lam/3,1e-12); break
+      lam*=4
+      if lam>1e8: break
+    if lam>1e8 or fn<1e-24: break
+    if it%200==0 and time.time()-t0>secs: break
+  E=np.einsum('ir,jr,kr->ijk',A,B,C)-T; f=(E**2).sum(); nrm=max(np.abs(A).max(),np.abs(B).max(),np.abs(C).max())
+  print(f"[{time.time()-t0:.0f}s] r={r} residual={f:.3e} maxcoef={nrm:.2f} it={it}",flush=True)
+  if f<best[0]: best=(f,(A,B,C))
+print("best residual",best[0])
+```
+
+```python
+import sys
+def load(fn):
+    L=open(fn).read().split('\n'); r=int(L[0]); T=[]
+    for l in L[1:1+r]:
+        parts=[list(map(int,p.split())) for p in l.split('|')[:3]]; T.append(parts)
+    return T
+def merge(fa,ma,fb,mb):
+    A=load(fa); B=load(fb); m=ma+mb; out=[]
+    for T,mm,off in ((A,ma,0),(B,mb,ma)):
+        for a,b,c in T:
+            nb=[0]*(2*m); nc=[0]*(3*m)
+            for j in range(2):
+                for k in range(mm): nb[j*m+k+off]=b[j*mm+k]
+            for i in range(3):
+                for k in range(mm): nc[i*m+k+off]=c[i*mm+k]
+            out.append((a,nb,nc))
+    return out
+fa,ma,fb,mb,fo=sys.argv[1],int(sys.argv[2]),sys.argv[3],int(sys.argv[4]),sys.argv[5]
+out=merge(fa,ma,fb,mb)
+with open(fo,'w') as f:
+    f.write(f"{len(out)}\n")
+    for a,b,c in out: f.write(' '.join(map(str,a))+' | '+' '.join(map(str,b))+' | '+' '.join(map(str,c))+' | \n')
+```
+
+```python
+import numpy as np, sys
+fn,n,m=sys.argv[1],3,7
+L=open(fn).read().split('\n'); r=int(L[0])
+X=[[np.array(list(map(int,p.split())),float) for p in l.split('|')[:3]] for l in L[1:1+r]]
+Al=np.array([x[0] for x in X]).T  # 6 x r : alpha_r(e_ij) rows ij
+Be=np.array([x[1] for x in X]).T  # 14 x r
+Cc=np.array([x[2] for x in X]).T  # 21 x r  -> W = Cc (21 x r)
+rk=lambda M: np.linalg.matrix_rank(M,tol=1e-8)
+W=Cc; print("r",r,"rank W",rk(W),"dim K",r-rk(W))
+rng=np.random.default_rng(1)
+def dvec(Amat): return Amat.ravel()@Al
+def bvec(Bmat): return Bmat.ravel()@Be
+for trial in range(3):
+  p=rng.standard_normal(2); 
+  # basis of U^p = {B : pB=0}: rows (-p1 v, p0 v)
+  rows=[]
+  for i in range(3):
+    for k in range(m):
+      u=np.zeros(3);u[i]=1; v=np.zeros(m); v[k]=1
+      Bm=np.vstack([-p[1]*v,p[0]*v]); rows.append(dvec(np.outer(u,p))*bvec(Bm))
+  M=np.array(rows); print("p",p.round(2),"dim D^p J^p =",rk(M),"; inside K:",rk(np.vstack([M]))==rk(M) and np.allclose(W@M.T,0))
+# Psi(ker mu)
+rows=[]
+for a in range(6):
+  for b in range(14):
+    i,j=divmod(a,2); j2,k=divmod(b,m)
+    if j!=j2: rows.append(Al[a]*Be[b])
+for i in range(3):
+  for k in range(m): rows.append(Al[2*i]*Be[k]-Al[2*i+1]*Be[m+k])
+print("dim Psi(ker mu) =",rk(np.array(rows)))
+allr=np.array([Al[a]*Be[b] for a in range(6) for b in range(14)]); print("dim im Psi =",rk(allr))
+```
