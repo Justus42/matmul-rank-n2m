@@ -13,6 +13,14 @@ frischen Klon des Commits `6d44bb1` (Abschnitt 0). Ausnahme sind nur die Abschni
 Sie beschreiben den Verlauf der Portierung in S5-14 und sind als solcher stehen geblieben. Die
 Ausgaben von S5-14 und S5-16 stehen weiter in der Git-Historie dieser Datei (Stand `023a21a`).
 
+**Nachtrag S5-22** (Stufe 5, Runde 6): Der Repository-Eigentümer hat am 26.11.2026 die ihm
+vorbehaltenen Angaben gemacht. Sie stehen jetzt in `lean/formalization.yaml`, und
+`versuche/s2-19-abgleich/Check.lean` heißt `Check.lean.txt`. Palomars Prüfcode ist dafür auf dem
+Commit `4e2c720` neu gelaufen (Abschnitt 8). Die Zeilen P-13, P-29, P-32, P-35 bis P-39 in
+Abschnitt 4 und die Zählung sind nachgeführt; alle übrigen Zeilen gelten unverändert mit ihrem Beleg
+auf `6d44bb1`, weil Lean-Code, `comparator.json`, Lakefile, Manifest und Toolchain sich nicht
+geändert haben.
+
 Diese Datei belegt jede Anforderung aus `palomar/ANFORDERUNGEN.md` einzeln. Ein Beleg ist ein
 Befehl mit seiner wörtlichen Ausgabe. „erfüllt“ steht nur dort, wo ein Befehl und seine Ausgabe
 hier abgedruckt sind. Nichts hier ist ein Prüfurteil im Sinne von Protokoll Abschnitt 5, und
@@ -853,7 +861,7 @@ geblieben.
 | P-10 | erfüllt | E7: 8.032.869 Byte; Abschnitt 2 `tree_size` 8.032.869 ≤ 524.288.000 |
 | P-11 | erfüllt | E2: alle Abhängigkeiten öffentlich auf github.com, `mm325_proof` nicht im Manifest; Abschnitt 2 `package_allowlist` OK (alle neun Pakete gehören zur Mathlib-Schließung, offizielle Revision geprüft) |
 | P-12 | Hinweis | Abschnitt 1.4: Cache etwa 1 min, Bau etwa 1 min (4 Kerne); ein Lauf ohne Netz fand nicht statt |
-| P-13 | nicht erfüllt (Eigentümer) | Abschnitt 2 `inspect_lean_sources`: 36 Dateien geprüft, einziger Befund `versuche/s2-19-abgleich/Check.lean must begin with the module header keyword`; E9 dasselbe mit `grep`; E14: einzige Lean-Datei außerhalb von `lean/`. Alle 35 Dateien unter `lean/` (darunter die neuen `Upper4x2x4.lean` und `Gleich444.lean`) haben den Modulkopf. Nicht geändert, Frage beim Eigentümer |
+| P-13 | erfüllt (S5-22) | Abschnitt 8 `inspect_lean_sources` auf `4e2c720`: 35 Dateien geprüft, `issues: []`; `find` außerhalb von `lean/` findet keine `.lean`-Datei mehr. `versuche/s2-19-abgleich/Check.lean` ist auf Entscheidung des Eigentümers in `Check.lean.txt` umbenannt (Inhalt gleich, Umbenennung 100 %), Erklärung in `versuche/s2-19-abgleich/HINWEIS-Check.txt`. Früherer Stand auf `6d44bb1`: einziger Befund diese Datei |
 | P-14 | erfüllt | E9: längste Datei `lean/YangBounds/YangN4Haupt.lean` mit 1.416 Zeilen; Abschnitt 2 `inspect_lean_sources` meldet keine Überlänge (Grenze 10.000) |
 | P-15 | erfüllt | E8: 0 symbolische Verknüpfungen außerhalb `.git`/`.lake` |
 | P-16 | erfüllt, neu belegt | Abschnitt 1.4: alle Module bauen mit `module`, `public import` und `@[expose] public section`, auch `Upper4x2x4` und `Gleich444`; die Solution sieht alle gebrauchten Deklarationen (Comparator Lauf A baut sie, Abschnitt 1.7) |
@@ -869,17 +877,17 @@ geblieben.
 | P-26 | erfüllt, neu belegt | Abschnitt 1.4: `MatMulRank.rank_four_two_four_eq_26` `[propext, Classical.choice, Quot.sound]`, 0 Treffer für `sorryAx` und `ofReduceBool` in allen 65 Axiom-Ausgaben, einziges `sorry` das gewollte der Challenge; `leanchecker` über alle 32 Module und `--fresh` auf die Solution (Abschnitt 1.5). Abschnitt 1.7: Comparator meldet „nanoda kernel accepts the solution“, „Lean default kernel accepts the solution“, „Your solution is okay!“ (Exit 0); con-ron „accepted 27008 declarations“; Gegenprobe ohne `Classical.choice` scheitert mit „Illegal axiom detected“ |
 | P-27 | erfüllt, neu belegt | E11: `lean/comparator.json` im gewählten Projekt, endet auf `.json`, eine Konfiguration |
 | P-28 | entfällt | E11: kein `definition_names` |
-| P-29 | erfüllt, neu belegt | E12: 8.340 Byte, `version v0.4`; Abschnitt 2: Palomars Lader liest die Datei und meldet nur die drei Angaben des Eigentümers; Fassungen A und B bestehen |
+| P-29 | erfüllt, neu belegt (S5-22) | Abschnitt 8: 8.460 Byte, `version v0.4`; `load_formalization_metadata` OK ohne Befund |
 | P-30 | erfüllt, neu belegt | E12: `project.name` „The tensor rank of 4x2x4 matrix multiplication is 26 over every field“, 69 Zeichen (Grenze 300) |
 | P-31 | erfüllt, neu belegt | E12: `project.description` 1.198 Zeichen (Grenze 10.000) |
-| P-32 | Eigentümer (nicht erfüllt) | E12: `authors []`; Abschnitt 2: `project.authors must be a nonempty list` |
+| P-32 | erfüllt (S5-22) | Abschnitt 8: `authors` = `[{name: "Justus Jeserigk", github: "Justus42"}]` nach Angabe des Eigentümers; Palomars Lader OK |
 | P-33 | erfüllt | E12: `license Apache-2.0`; Abschnitt 2 `detect_spdx_identifier` → `"Apache-2.0"` |
 | P-34 | erfüllt, neu belegt | E12: `arxiv [cs.CC, math.AG, math.RA]`, `msc2020 [68Q17, 15A69, 14N07]`; Abschnitt 2: Fassungen A und B bestehen Palomars Lader. Die Auswahl ist ein Vorschlag (S5-08) |
-| P-35 | erfüllt, neu belegt | E12: `methods ['agent', 'other', 'other']`; Fassungen A und B bestehen |
-| P-36 | erfüllt, neu belegt | E12: `review.status agent-reviewed`; Fassungen A und B bestehen. `review.notes` in S5-21 auf die Aussage „= 26“ nachgeführt; der Aussagen-Abgleich dieser Aussage steht dort als eigener Schritt |
-| P-37 | Eigentümer (nicht erfüllt) | E12: `maintainers []`; Abschnitt 2: `project.responsible_maintainers must be a nonempty list` |
-| P-38 | Eigentümer (nicht erfüllt) | E12: zwei `relationship` sind `TODO-REPOSITORY-OWNER`; Fassungen A und B bestehen |
-| P-39 | Eigentümer (nicht erfüllt) | Abschnitt 2: `sources for a source-based result must include a formalizes, adapts, or independently-proves relationship`; Fassung A (original) und B (source-based) bestehen |
+| P-35 | erfüllt, neu belegt (S5-22) | Abschnitt 8: `methods` `agent`, `other`, `other`; Modellnamen nur, soweit `LOG.md` sie nennt (`claude-opus-5-5`, „Claude Fable 5.2“, `openai/gpt-6.2-sol`, `gemini-4-carbon`), sonst allgemein „Claude models (Anthropic)“; Lader OK |
+| P-36 | erfüllt, neu belegt (S5-22) | Abschnitt 8: `review.status agent-reviewed`; `review.notes` nennt den Aussagen-Abgleich für „= 26“ durch Prüfer und Fremdmodell als erledigt (Belege `pruefvermerke/B-034.md`, `lean/prosa/s5_abgleich_s5-20.md`, `versuche/s5-r5-sol-b034/gpt_antwort.md` auf `main`); Lader OK |
+| P-37 | erfüllt (S5-22) | Abschnitt 8: `responsible_maintainers` = `[{name: "Justus Jeserigk", github: "Justus42"}]` nach Angabe des Eigentümers; `normalized_provenance` gibt denselben Eintrag zurück |
+| P-38 | erfüllt (S5-22) | Abschnitt 8: alle `sources` mit `title` und `relationship` aus der Liste: `original-proof`/`other`, Yang `background`, Hopcroft–Kerr `background`, Shitov `background`, matmulcatalog `other`; Lader OK |
+| P-39 | erfüllt (S5-22) | Abschnitt 8: `normalized_provenance` → `result_origin: original` (Fassung A nach Entscheidung des Eigentümers, Yang `background`) |
 | P-40 | erfüllt | E12: Schlüssel `repository` fehlt (`False`) |
 | P-41 | erfüllt | E12: ein Eintrag mit `id` `https://github.com/fallnlove/mm325_proof` |
 | P-42 | Palomar | Modul-Dokumentation der Challenge und `formalization.yaml` nennen Aussage, Grenzen, Quellen und KI-Beteiligung; `lean/README.md` nennt die Palomar-Dateien nicht. Nicht geändert |
@@ -893,7 +901,12 @@ geblieben.
 | P-50 | Hinweis | – |
 | P-51 | Hinweis | Pfade `lean` und `lean/comparator.json` stehen; Modulnamen `MatMulRank.Challenge`, `MatMulRank.Solution` |
 
-Zählung (Stand S5-21): erfüllt 34 (P-1 bis P-11, P-14 bis P-21, P-23 bis P-27, P-29 bis P-31,
+Zählung (Stand S5-22, Commit `4e2c720`): erfüllt 39 (P-1 bis P-11, P-13 bis P-21, P-23 bis P-27,
+P-29 bis P-41, P-43); nicht erfüllt 0; Eigentümer 3 (P-47, P-48, P-49, die Einreichung selbst);
+Palomar 5 (P-22, P-42, P-44, P-45, P-46); entfällt 1 (P-28); Hinweis 3 (P-12, P-50, P-51).
+Zusammen 51.
+
+Frühere Zählung (Stand S5-21): erfüllt 34 (P-1 bis P-11, P-14 bis P-21, P-23 bis P-27, P-29 bis P-31,
 P-33 bis P-36, P-40, P-41, P-43); nicht erfüllt 1 (P-13, Entscheidung beim Eigentümer);
 Eigentümer 7 (P-32, P-37, P-38, P-39, P-47, P-48, P-49); Palomar 5 (P-22, P-42, P-44, P-45,
 P-46); entfällt 1 (P-28); Hinweis 3 (P-12, P-50, P-51). Zusammen 51.
@@ -976,3 +989,76 @@ Jobnummern stehen erst nach dem Merge fest und sind deshalb nicht in dieser Date
 **Frühere Aufträge an dieser Datei:** S5-14 (Commits `dd278af` bis `24845d3`, Bericht in PR #158,
 Merge `9c364ba`) und S5-16 (Commit `3226b86` und `f849c32`, PR #162, Merge `023a21a`). Ihre
 Tabellen und Verbrauchsangaben stehen in der Fassung dieser Datei auf `023a21a`.
+
+## 8. Nachtrag S5-22: Angaben des Eigentümers und Palomars Prüfcode
+
+Entscheidungen des Repository-Eigentümers vom 26.11.2026 (Projektchat, weitergereicht vom
+Orchestrator), umgesetzt auf dem Zweig `claude/project-thread-n3xdco` (abgezweigt von `portierung`
+bei `f75d77c`), Commit `4e2c720b886885fcb3cb5821b5445f9763adb6b1`:
+
+| Datei | Änderung |
+| --- | --- |
+| `lean/formalization.yaml` | `project.authors` und `project.responsible_maintainers` je genau `{name: "Justus Jeserigk", github: "Justus42"}`; Herkunft „original“ (Fassung A aus `palomar/s5-08-bericht.md` Abschnitt 6): Eintrag „Lower bound 26 for the tensor rank of <4,2,4> over every field“ mit `type: original-proof`, `relationship: other`; Yang `relationship: background`; Beschreibung „To our knowledge, the lower bound 26 is new (literature search recorded in lit/ of this repository)“; `review.notes`: Aussagen-Abgleich für „= 26“ durch Prüfer und Fremdmodell erledigt; `automation`: Modellnamen nur, soweit `LOG.md` sie belegt; Kopfkommentar ohne Platzhalter |
+| `versuche/s2-19-abgleich/Check.lean` | per `git mv` in `Check.lean.txt` umbenannt, Inhalt unverändert (SHA-256 vorher und nachher `47bc69ff…e588`) |
+| `versuche/s2-19-abgleich/HINWEIS-Check.txt` | eine Zeile Erklärung zur Umbenennung |
+| `palomar/ANFORDERUNGEN.md` | Zeile 5 bis 9: Gegenstand ist der Satz der Challenge `MatMulRank.rank_four_two_four_eq_26` |
+| `palomar/BELEGE.md` | dieser Nachtrag, Abschnitt 4 und Zählung |
+
+Belege für `LOG.md` (Stand `main` bei `fc7d9e1`) zu den Modellnamen: „Gemeldetes Modell:
+claude-opus-5-5.“ (u. a. Z. 1895); „Co-Autor „Claude Fable 5.2““ (Z. 1919); „Modell
+`openai/gpt-6.2-sol`“ (Z. 2428); „`gemini-4-carbon` über die Gemini Bridge“ (Z. 174). Den Namen
+`claude-fable-5-2` als Modell des Orchestrators belegt `LOG.md` nicht; er ist deshalb entfallen,
+der Orchestrator heißt allgemein „orchestrating Claude session (Anthropic)“.
+
+Verweise auf den alten Namen `Check.lean`: kein Workflow (Befehl unten). Die Datei selbst nennt
+in Zeile 7 ihren Aufruf mit dem alten Namen (Inhalt bleibt unverändert, darum der Hinweis). Weiter
+nennen ihn `pruefvermerke/B-008.md` (Stand von `main`, nicht geändert), `palomar/s5-08-bericht.md`,
+`palomar/ANFORDERUNGEN.md` Zeile 246 und 276 und die früheren Abschnitte dieser Datei als
+Beschreibung des damaligen Stands.
+
+Palomars Prüfcode lokal: PalomarSubmission `046554302064b2c83c2b924bea6db87fc5900c68` (frisch geklont
+am 26.11.2026 gegen 17:30Z, `HEAD` unverändert gegenüber Abschnitt 0), Treiberskript außerhalb des
+Repos mit den Funktionen `supported_toolchain`, `load_comparator_config`, `repository_license_file`
+(`scripts/verify_submission.py`), `inspect_lean_sources` (`scripts/source_requirements.py`),
+`load_formalization_metadata` und `normalized_provenance` (`scripts/submission_contract.py`), auf
+einem frischen Klon (`git clone --no-local`, `git checkout 4e2c720…`, `git status --porcelain` leer,
+kein `lake`-Aufruf). Nicht neu gelaufen, weil sich die betroffenen Dateien nicht geändert haben:
+Bau, `leanchecker`, Comparator, `package_allowlist`, `audit_challenge_sources`, Licensee. Start
+2026-11-26T17:33:40Z. Keine Verbindung zu palomar-registry.org, kein Aufruf des Einreichformulars,
+keine Einreichung. Wörtliche Ausgabe:
+
+```
+--- supported_toolchain(lean/lean-toolchain)
+OK "v4.36.0"
+--- inspect_lean_sources(repo)
+OK {"evidence": {"schema_version": 1, "module_required": true, "maximum_lines": 10000, "files_checked": 35}, "issues": []}
+--- load_comparator_config(lean/comparator.json)
+OK {"challenge_module": "MatMulRank.Challenge", "solution_module": "MatMulRank.Solution", "theorem_names": ["MatMulRank.rank_four_two_four_eq_26"], "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]}
+--- load_formalization_metadata(lean/formalization.yaml)
+OK 
+--- normalized_provenance(load_formalization_metadata(lean/formalization.yaml)) [Auszug]
+OK {"result_origin": "original", "responsible_maintainers": [{"name": "Justus Jeserigk", "github": "Justus42"}], "authors": [{"name": "Justus Jeserigk", "github": "Justus42"}], "sources": [["original-proof", "other"], ["paper", "background"], ["paper", "background"], ["paper", "background"], ["other", "other"]], "automation_models": [["claude-opus-5-5", "Claude Fable 5.2"], ["openai/gpt-6.2-sol"], ["gemini-4-carbon"]], "review_status": "agent-reviewed"}
+--- repository_license_file(repo)
+OK {"file": "LICENSE"}
+```
+
+Befehle auf demselben Klon:
+
+```
+$ git rev-parse HEAD
+4e2c720b886885fcb3cb5821b5445f9763adb6b1
+$ find . \( -name .git -o -name .lake -o -path ./lean \) -prune -o -name '*.lean' -print
+[exit 0]
+$ git diff --find-renames --stat f75d77c HEAD -- versuche/s2-19-abgleich
+ versuche/s2-19-abgleich/{Check.lean => Check.lean.txt} | 0
+ versuche/s2-19-abgleich/HINWEIS-Check.txt              | 1 +
+ 2 files changed, 1 insertion(+)
+$ git diff -M --summary f75d77c HEAD -- versuche/s2-19-abgleich
+ rename versuche/s2-19-abgleich/{Check.lean => Check.lean.txt} (100%)
+ create mode 100644 versuche/s2-19-abgleich/HINWEIS-Check.txt
+$ grep -rn "Check.lean" .github
+[exit 1]
+$ wc -c lean/formalization.yaml
+8460 lean/formalization.yaml
+```
+
