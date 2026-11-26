@@ -10,6 +10,14 @@ public import YangBounds.SatzC444Generisch
 
 Task S2-36 (stage 2, round 9, track A, role: formaliser, slot “Zusammensetzen”).
 
+**Note (task N-01, 26 November 2026).** This file records an intermediate, conditional state of
+the chain. The final theorem `YangBounds.Transponiert444.rank_four_two_four_ge_26` does not take
+the route described below (base change to `AlgebraicClosure K` by R1, then the two hypotheses).
+It goes through the generic normal form over `K(S,T)` read over its algebraic closure
+(`Bruecke444.genAlgL`), Satz F, Lemma Z (`LemmaZ444`) and the transposed decomposition
+(`Transponiert444`), and it uses from this file only `fall58_of_nichtSymmetrisch`. The theorems
+of this file are kept as stated.
+
 ## The final theorem
 
 `rank_four_two_four_ge_26_of` states, in the rank notion of `Basic.lean` and in the form of
@@ -60,8 +68,8 @@ from an arbitrary `alg : BilinearAlgorithm K 4 2 4 25`, and the rank form is pro
 decomposition of length 25 in the case `(5,8)` is neither in the full sub-case A nor in
 sub-case B. Then the generic normal form of `SatzC444Generisch.lean` (`folgerungC1_generisch`
 over the infinite field `GField K`) closes the chain without any bridge. This shows where the
-bridge is needed at all: only because Satz E (`satzE`) and the planned exclusion of sub-case B
-use `[IsAlgClosed _]`, while the generic point lives in `GField K`, which is not algebraically
+bridge is needed at all: only because Satz E (`satzE`) and the exclusion of sub-case B as
+planned at the time use `[IsAlgClosed _]`, while the generic point lives in `GField K`, which is not algebraically
 closed, and (N2) and non-symmetry do not pass automatically to an algebraic closure.
 
 No `sorry`, no own axiom, no `native_decide`.

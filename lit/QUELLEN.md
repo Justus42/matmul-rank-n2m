@@ -2,7 +2,7 @@
 
 Jede Quelle mit: Fundstelle, was wir daraus verwenden, ob selbst gelesen oder nur zitiert gesehen.
 
-Letzte Bearbeitung: 25.11.2026, Aufträge A-04, A-05, A-06 (Rolle Literaturwächter, Stufe 0, Runde 1).
+Letzte Bearbeitung: 26.11.2026, Auftrag N-01 (Nacharbeit vor der Einreichung: Zeile HK71, Bemerkung zu Lacelle26). Davor: 25.11.2026, Aufträge A-04, A-05, A-06 (Rolle Literaturwächter, Stufe 0, Runde 1).
 
 ## Quellenliste
 
@@ -69,6 +69,7 @@ Status: **behauptet**.
 - **Satz 1 von TPSR26 und von Yang26 sind nicht gleich.** TPSR26 behauptet R(⟨3,2,m⟩) > 24m/5 für alle m ≥ 1. Yang26 v3 behauptet das stärkere ⌈(24m+2)/5⌉ für m ≥ 3. Laut Yang26 S. 1 zeigte eine frühe Fassung von Yang nur ⌈24m/5⌉, TPSR26 verbesserte das, und v3 verbesserte es weiter. Beim Aussagen-Abgleich in A-03 ist der Lean-Satz deshalb mit TPSR26 Satz 1 zu vergleichen, nicht mit Yang26.
 - **Normalisierung in Yang26:** Der Beweis nimmt ohne Einschränkung einen unendlichen Körper an, durch Übergang zum algebraischen Abschluss (Abschnitt 2). Lemma 9 setzt einen algebraisch abgeschlossenen Körper voraus. TPSR26 begründet den Übergang ausdrücklich (Erweiterung auf K(t)). Für Stufe 1 ist das eine Stelle, die die Formalisierung sauber abdecken muss. Status: vermutet, keine Lücke festgestellt.
 - **HK-Formel konstruktiv:** Lacelle26 Abschnitt 7 berichtet, das HK-Paper von 1971 enthalte nicht für alle Fälle eine ausgeführte Konstruktion, und legt maschinell geprüfte ganzzahlige Verfahren vor, die die Formel bei 459 von 465 Formaten ⟨2,p,n⟩ mit 3 ≤ p ≤ 32 erreichen. Die sechs Ausnahmen sind große Formate. Für unsere Formate (⟨2,3,5⟩, ⟨2,3,6⟩, ⟨2,3,7⟩, ⟨2,4,4⟩) ist das kein Problem, aber es spricht dafür, die HK-Verfahren in A-10 nicht aus dem Originalpaper, sondern aus einer Quelle mit ausgeschriebenen Koeffizienten zu nehmen. Status: behauptet.
+  Nachtrag N-01 (26.11.2026): Zum Technischen Bericht TR 69-44 von 1969 passt diese Angabe. Auf S. 10 (PDF 12) heißt es beim Grundbaustein „Several cases exist. We treat only the case where …“; die übrigen Fälle sind dort nicht ausgeführt (`palomar/nacharbeit/n-05-bericht.md`, Abschnitt 4). Den SIAM-Artikel von 1971 hat das Projekt nicht gelesen, für ihn ist die Angabe nicht verglichen.
 
 ## Offene Quellenfragen
 

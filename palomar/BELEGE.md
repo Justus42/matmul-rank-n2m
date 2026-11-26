@@ -844,6 +844,8 @@ distinct True
 
 ## 4. Stand je Anforderung (S5-21, Commit `6d44bb1`)
 
+Für den Stand nach N-06 und N-01 ist Abschnitt 9 maßgeblich; die Zeilen dieses Abschnitts sind nicht einzeln nachgeführt.
+
 Kürzel: **erfüllt** (mit Beleg in dieser Datei), **nicht erfüllt** (mit Beleg),
 **Eigentümer** (braucht eine Angabe oder Handlung des Repository-Eigentümers),
 **Palomar** (nur Palomars redaktionelle KI-Prüfung entscheidet, nicht vorab belegbar),

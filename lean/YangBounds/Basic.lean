@@ -29,7 +29,7 @@ and `tensorRank K n l m` is the smallest such `r`.
 This file does not import the former external dependency `fallnlove/mm325_proof`.
 The connection to it (`tensorRank_three_two_eq`, `tpsr_lower_bound`) lived in
 `YangBounds/BrueckeMM325.lean` (task S4-26, condition 7), which task S5-03 removed; it stays
-reachable via the tag `lean-4.19`.
+reachable via the branch `lean-4.19`.
 -/
 
 namespace YangBounds
