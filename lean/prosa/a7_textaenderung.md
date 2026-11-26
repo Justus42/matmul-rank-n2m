@@ -103,7 +103,7 @@ Begründung je Stelle:
 | `ergebnisse/rang-444.md` 59 | Abschnitt 4 | nennt das Paket als nicht mehr Voraussetzung und die Brücke |
 | `ergebnisse/rang-444.md` 85 | Quelle [TPSR26] mit Lean-Repository | Quelle und Vorlage; Gegenstand der Brücke |
 
-Nicht geändert, aber zu beachten: `ergebnisse/rang-444.md` Zeile 29 nennt als „Lean source state“ `c3c3884` mit „`lean/YangBounds/` unchanged since then (checked with `git diff` up to the commit of this note)“. Das ist durch die Einschränkung auf den Commit der Notiz vom 25.11.2026 weiter richtig, `lean/YangBounds/` hat sich seither aber geändert (Basic.lean, SatzB444.lean, neue BrueckeMM325.lean). Die Zeile nennt das Paket nicht; eine Änderung gehört nicht zu diesem Auftrag. Ebenso die Datumszeile der Notiz (25.11.2026) und Zeile 20 der README (Stand `c3c3884`).
+Nicht geändert, aber zu beachten: `ergebnisse/rang-444.md` Zeile 28 nennt als „Lean source state“ `c3c3884` mit „`lean/YangBounds/` unchanged since then (checked with `git diff` up to the commit of this note)“. Das ist durch die Einschränkung auf den Commit der Notiz vom 25.11.2026 weiter richtig, `lean/YangBounds/` hat sich seither aber geändert (Basic.lean, SatzB444.lean, neue BrueckeMM325.lean). Die Zeile nennt das Paket nicht; eine Änderung gehört nicht zu diesem Auftrag. Ebenso die Datumszeile der Notiz (25.11.2026) und Zeile 20 der README (Stand `c3c3884`).
 
 ## 3. `lean/README.md` (nicht geändert)
 
