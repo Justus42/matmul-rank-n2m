@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 4: Runde 1 abgeschlossen, Runde 2 vergeben)
+Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 2 läuft; B-020 geprüft)
 
 ## Aktuelle Stufe
 
@@ -16,6 +16,7 @@ Zuletzt geändert: 26.11.2026 (Stufe 4: Runde 1 abgeschlossen, Runde 2 vergeben)
 - Abbruchregel 2 (Lesart d, strenger): Runde 1 zählt als Runde ohne Fortschritt. Zähler 1 von 3 für Spur A und 1 von 3 für Spur B
 - Runde 2 von 6 vergeben: S4-06 bis S4-09 etwa 07:42 UTC, S4-10 und S4-11 etwa 07:43 UTC nach Durchsicht des Gedächtnisses. 6 Subagenten, Fremdmodell in dieser Runde nicht geplant
 - Lesart (e): Rechenblöcke direkt hintereinander ohne Commit dazwischen zählen als ein Block. S4-05 hat damit die Grenze von 30 Minuten überschritten (etwa 38 Minuten), Regelverstoß ohne weitere Folge
+- B-020 (R(⟨3,2,7⟩) ≤ 35 über ℤ, also über jedem Körper): **geprüft** nach 5.2, Läufe wiederholt durch S4-10. Kein Fortschritt nach Abbruchregel 2 (Lesart des Orchestrators)
 - Fertig mit einem Lean-Satz für die untere Schranke 35 über jedem Körper (geprüft nach 5.1 samt Abgleich des Endsatzes), einem nach 5.2 bestätigten Verfahren mit 34, erschöpftem Budget oder wenn eine Abbruchregel beide Spuren beendet
 - Kein Kontakt nach außen. README und `ergebnisse/` bleiben unverändert
 
@@ -32,7 +33,7 @@ Zuletzt geändert: 26.11.2026 (Stufe 4: Runde 1 abgeschlossen, Runde 2 vergeben)
 | S4-07 | Spur A, Gegenrichtung: aus dem Restfall ein Verfahren mit 34 bauen oder Hindernis benennen | Beweissucher | `lean/prosa/s4_327_spurA_r2_bau.md` | vergeben in Runde 2 |
 | S4-08 | Spur B: Suche nach 34 mit den erzwungenen Kenngrößen | Verfahrenssucher | `versuche/s4-spurB-r2.md` | vergeben in Runde 2 |
 | S4-09 | Axiom-Bericht für `lemma15b` und `lemma_I` in Actions (nur Workflow) | Lean-Wartung | Workflow | vergeben in Runde 2 |
-| S4-10 | Prüfung B-020, Wiederholung beider Läufe | Prüfer | `verfahren/3x2x7-r35-pruefung-s4-10.md` | vergeben in Runde 2 (etwa 07:43 UTC) |
+| S4-10 | Prüfung B-020, Wiederholung beider Läufe | Prüfer | `verfahren/3x2x7-r35-pruefung-s4-10.md` | erledigt, PR #109 (Merge e715211). B-020 geprüft nach 5.2 |
 | S4-11 | Blind-Sucher | Blind-Sucher | `versuche/s4-blind-r2.md` | vergeben in Runde 2 (etwa 07:43 UTC) |
 
 ## Stufe 3: abgeschlossen

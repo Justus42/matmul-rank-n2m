@@ -2268,3 +2268,12 @@ Positivliste S4-10: `behauptungen/B-020.md`, `verfahren/3x2x7-r35-hk71.json`, `v
 **Nachtrag 26.11.2026, Runde 2:** S4-10 (Prüfer B-020) und S4-11 (Blind-Sucher, diesmal als Beweissucher) vergeben etwa 07:43 UTC. Runde 2 hat damit 6 Subagenten, 0 Fremdmodell-Anfragen.
 
 **Lesart (e) des Orchestrators (strengere Fassung):** Rechenblöcke direkt hintereinander ohne Commit dazwischen zählen als ein Block. Danach hat S4-05 die Grenze von 30 Minuten überschritten (zwei Blöcke von 07:00 bis 07:38 UTC, etwa 38 Minuten, kein Commit dazwischen; Commits 2a7e08b um 07:06:59 und bb81c05 um 07:39:28). **Regelverstoß von S4-05 (CLAUDE.md Regel 15, Protokoll Abschnitt 6), ohne weitere Folge.** In die Aufträge S4-08 und S4-11 hat der Orchestrator geschrieben, dass zwischen zwei Blöcken ein Commit liegen muss.
+
+## 26.11.2026 · Stufe 4, Runde 2: S4-10 geliefert, B-020 geprüft
+
+- S4-10 (Prüfer B-020): `verfahren/3x2x7-r35-pruefung-s4-10.md`, PR #109 (Merge e715211 um 07:45:24 UTC). Commits b504f2a (07:42:42) und c1c31c2 (07:45:07). Nur diese eine Datei geändert. Dauer nach Git etwa 3 Minuten ab erstem Commit. Der erste Commit liegt vor der genannten Vergabe „etwa 07:43 UTC“, die Vergabe war also spätestens 07:42 UTC.
+- Ergebnis laut Bericht, auf main nachgesehen: frischer Clone von 25561a6, SHA-256 stimmt, Python und frisch gebautes Rust je ANGENOMMEN mit Rückgabewert 0, zwei verfälschte Kopien von beiden abgelehnt, eigene Nachrechnung aller 1764 Gleichungen ohne Verletzung, Koeffizienten −2 bis 2, gilt über ℤ und jedem Körper.
+- Offenlegung: Index und fünf Einzeleinträge eingeblendet (nur Prüfprogramm- und Formathinweise). Verweis auf die Nachrechnungsdatei gesehen, nicht gelesen. „forced update“ von cbc6d61 (erster Commit des Repos) in einem alten Clone der Arbeitsumgebung, kein Umschreiben von main.
+- **Status (Orchestrator): B-020 geprüft** nach 5.2 Punkt 1 bis 3 (zwei unabhängig geschriebene Programme in zwei Sprachen, exakte Arithmetik, Zahlbereich ℤ), Läufe von einem Prüfer wiederholt, der die Datei nicht gebaut hat. Die obere Schranke 35 für ⟨3,2,7⟩ ist damit geprüft.
+- Lesart des Orchestrators: kein Fortschritt im Sinne von Abbruchregel 2, weil es die Bestätigung eines bekannten Werts ist. Zähler unverändert.
+- 0 eigene Subagenten, 0 Fremdmodell-Anfragen.

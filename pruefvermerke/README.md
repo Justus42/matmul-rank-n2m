@@ -40,7 +40,7 @@ Je Behauptung gibt es eine Datei `pruefvermerke/B-xxx.md`. Sie beginnt mit der w
 | B-017 | Restfall-Rechnung ⟨3,2,7⟩ bei Länge 34, Rolle n = 3: genau ein Restfall (4, 6, 4); ohne Lemma I zusätzlich (3, 5, 3) | behauptet (von einem Prüfer bestätigt, S4-01) | S3-04 (PR #95) und S3-03 (PR #96), Programm `erkundung/s3-04-restfaelle-327.py` |
 | B-018 | Lemma 15(b) bei d = 2: rk L = d·ρ ⇒ ρ = m, über algebraisch abgeschlossenem Körper | behauptet (von einem Prüfer bestätigt, S4-02) | Prosa `lean/prosa/yang_n4.md` (S1-03), Lean `YangN4Haupt.lemma15b` (S1-16), Job 139535850068 |
 | B-019 | Lemma I gilt für jede Normalform des Rahmens yang_n4 mit d = 2 (Bedingung C2 im Programm S3-04) | behauptet (von einem Prüfer bestätigt, S4-03) | `yang_n3.md` Lemma I (S1-02), `YangN3Teil3.lemma_I` (S1-11), Wortlaut vom Orchestrator |
-| B-020 | Rang von ⟨3,2,7⟩ ist höchstens 35 über ℤ (also über jedem Körper), Verfahren `verfahren/3x2x7-r35-hk71.json` | behauptet | S4-04 (PR #104), eigener Bau nach Hopcroft-Kerr. Wiederholung der Läufe durch einen getrennten Prüfer in Runde 2 |
+| B-020 | Rang von ⟨3,2,7⟩ ist höchstens 35 über ℤ (also über jedem Körper), Verfahren `verfahren/3x2x7-r35-hk71.json` | geprüft | S4-04 (PR #104), eigener Bau nach Hopcroft-Kerr. Läufe beider Prüfprogramme wiederholt durch S4-10 (PR #109), nach 5.2 Punkt 1 bis 3 |
 
 Weitere geprüfte Ergebnisse ohne eigene Behauptungsdatei:
 
@@ -48,4 +48,4 @@ Weitere geprüfte Ergebnisse ohne eigene Behauptungsdatei:
 |---|---|---|
 | Rang von ⟨3,2,6⟩ ist höchstens 30, über ℤ (also über jedem Körper) | geprüft | `verfahren/3x2x6-r30-hk71.json`, A-10, beide Prüfprogramme ANGENOMMEN (Runde 3 der Stufe 0) |
 
-Aus B-002 und B-004 folgt rechnerisch: Rang von ⟨3,2,6⟩ ist 30, Rang von ⟨3,2,7⟩ ist 34 oder 35. Aus B-003 und B-004: Rang von ⟨4,2,4⟩ ist 25 oder 26.
+Aus B-002 und B-004 folgt rechnerisch: Rang von ⟨3,2,6⟩ ist 30, Rang von ⟨3,2,7⟩ ist 34 oder 35 (obere Schranke 35 auch durch B-020 geprüft). Aus B-003 und B-004: Rang von ⟨4,2,4⟩ ist 25 oder 26.
