@@ -2860,3 +2860,20 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - Am Diff f16a7e8^1..f16a7e8 geprüft: geändert sind nur `README.md` (1 Zeile, Zeile 25), `ergebnisse/rang-444.md` (Zeilen 31, 37 neu, 59, 85; 4 Zeilen ersetzt, 1 neu) und der Bericht. Inhalt: Seit 62c3dc6 importiert kein Modul der Importkette des Endsatzes das Paket `fallnlove/mm325_proof`; die Brücke steht in `lean/YangBounds/BrueckeMM325.lean`; neue Tabellenzeile zum wiederholten Zweitlauf (Lauf 45833618872, Job 139956567190). Die Änderung an README und `ergebnisse/` beruht auf der Entscheidung von Justus vom 26.11.2026, 13:16:37 UTC (Wortlaut oben).
 - Offen laut Bericht, nach „Offene Kleinigkeiten“ in STATUS (Orchestrator vergibt dafür nichts): `ergebnisse/rang-444.md` Zeile 28 nennt als Quellstand noch c3c3884; `lean/README.md` Zeilen 26 und 132 veraltet.
 - **Auflage 7 ist abgeschlossen** (Umbau S4-26, Zweitlauf A7-Z, Textänderung A7-T).
+
+**Literaturwache vor Stufe 5 (S5-LW, außerhalb der Runden) geliefert (Schreibhand, aus Git und dem Bericht)**
+
+- PR #145, ein Commit c76ca15 (14:47:03 UTC, Zweig von 7a5c077), Merge e671dad (14:47:17 UTC). Vergeben etwa 14:36 UTC, Dauer nach Git etwa 11 Minuten. Geändert: `lit/WACHE-2026-11-26-S5.md` (neu) und `lit/WACHE.md` (nur ergänzt). 1 Subagent, 0 Fremdmodell-Anfragen.
+- Befund laut Bericht: nichts Neues zu ⟨3,2,7⟩ und ⟨4,2,4⟩. arXiv:2609.14393 v3, arXiv:2609.22054 v1, `fallnlove/mm325_proof` 759cf4a8 und `openai/math` 3344da59 unverändert. Abbruchregel 3 greift nicht.
+- Palomar: Website nicht erreichbar (palomar-registry.org samt www und data sowie palomarregistry.org: 403 vom Proxy bzw. kein DNS; Organisationsseite github.com/PalomarRegistry: 403). Ersatzweise 1155 Kopien in PalomarArchive durchgesehen, nichts zu ⟨n,2,m⟩.
+- **Abweichung von CLAUDE.md Regel 9 (vom Thread selbst offengelegt):** In der Erreichbarkeitsschleife ging ein einzelner GET-Aufruf ohne Daten an `https://submit.palomar-registry.org/` (Startseite der Einreich-Domain). Der Proxy hat ihn mit `curl: (56) CONNECT tunnel failed, response 403` abgewiesen; der Server wurde nicht erreicht, kein Formular angezeigt, nichts gesendet. Nicht wiederholt.
+
+**Tag `lean-4.19` und Lesart (j) (Orchestrator)**
+
+- Der Push des Tags `lean-4.19` auf 71240f8 wurde von der Plattform mit HTTP 403 abgewiesen (Schreibhand, drei Versuche, kein Force-Push). Der Zweig `portierung` steht auf 71240f8. Der Orchestrator hat den Repository-Eigentümer um 14:41 UTC gebeten, das Tag auf 71240f8 selbst zu setzen. Stand bei diesem Eintrag laut `git ls-remote`: Tag nicht vorhanden.
+- **Lesart (j)**, strengere Lesart nach der Auslegungsregel: Kein Auftrag der Spur P wird vergeben, bevor das Tag steht, auch nicht der Auftrag zu `palomar/ANFORDERUNGEN.md`. Runde 1 bleibt offen; Aufträge der Spur P kommen in dieselbe Runde, sobald das Tag steht und solange S5-01 noch läuft, sonst in Runde 2.
+
+## 26.11.2026 · Stufe 5, Runde 1 vergeben (etwa 14:49 UTC)
+
+- S5-01, Spur K: Zusammenführung der Kette zu ⟨3,2,7⟩ in `lean/prosa/s5_327_kette.md`. 1 Subagent, kein Fremdmodell.
+- Spur P: noch kein Auftrag (Lesart (j), Tag `lean-4.19` steht nicht).

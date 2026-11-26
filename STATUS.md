@@ -1,10 +1,12 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 5 von Justus um 14:32 UTC gestartet, Protokoll 0.7; noch kein Auftrag einer Runde vergeben. Auflage 7 abgeschlossen. Literaturwache S5-LW läuft)
+Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 1 vergeben: S5-01 Spur K; Spur P wartet auf das Tag lean-4.19, Lesart j. Auflage 7 abgeschlossen. Literaturwache S5-LW erledigt)
 
 ## Aktuelle Stufe
 
-**Stufe 5: Portierung für Palomar (Spur P) und Festigung der Kette zu 3×2×7 ohne Lean (Spur K)** (Protokoll 0.7, Abschnitt 3): von Justus gestartet am 26.11.2026, 14:32:59 UTC (Wortlaut im Logbuch). Protokoll 0.7 (1c15770) von ihm bestätigt. Budget: 6 Runden (beide Spuren zusammen), je bis zu 6 Subagenten, höchstens 4 Fremdmodell-Anfragen. Reihenfolge: Abschluss Auflage 7 (A7-Z läuft, dann Textänderung), Literaturwache, dann Runde 1. Noch kein Auftrag vergeben
+**Stufe 5: Portierung für Palomar (Spur P) und Festigung der Kette zu 3×2×7 ohne Lean (Spur K)** (Protokoll 0.7, Abschnitt 3): von Justus gestartet am 26.11.2026, 14:32:59 UTC (Wortlaut im Logbuch). Protokoll 0.7 (1c15770) von ihm bestätigt. Budget: 6 Runden (beide Spuren zusammen), je bis zu 6 Subagenten, höchstens 4 Fremdmodell-Anfragen. Reihenfolge: Abschluss Auflage 7 (A7-Z läuft, dann Textänderung), Literaturwache, dann Runde 1. Literaturwache S5-LW erledigt (PR #145). Tag `lean-4.19` auf 71240f8: Push mit 403 abgewiesen, der Orchestrator hat Justus um 14:41 UTC gebeten, es selbst zu setzen; Zweig `portierung` steht auf 71240f8
+- **Lesart (j)** (Orchestrator): Kein Auftrag der Spur P, bevor das Tag steht, auch nicht zu `palomar/ANFORDERUNGEN.md`. Runde 1 bleibt offen; Spur P kommt in dieselbe Runde, sobald das Tag steht und solange S5-01 läuft, sonst in Runde 2
+- **Runde 1 vergeben etwa 14:49 UTC:** S5-01 (Spur K, Zusammenführung der Kette in `lean/prosa/s5_327_kette.md`), 1 Subagent, kein Fremdmodell
 
 **Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): **beendet nach Runde 6, Budget erschöpft, Fertig-Kriterium nicht erfüllt** (Zusammenfassung im Abschnitt „Abschluss Stufe 4“). Verlauf: Nach Runde 4 angehalten (Abbruchregel 2 für Spur B, Bericht an Justus), Runde 5 von Justus um 12:27 UTC freigegeben. Spur B aufgegeben, Spur A läuft. Die Pause bis 29.11.2026 (Justus, 08:23 UTC) hat Justus um 09:47 UTC aufgehoben, Runde 3 darf starten
 
@@ -228,7 +230,8 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S4-35 | Unabhängiger Sucher (nicht blind) | Unabhängiger Sucher (nicht blind) | `versuche/s4-unabhaengig-r6.md` | erledigt, PR #142 (Merge f43f265). Rang nicht bestimmt; B-032 angelegt, behauptet |
 | A7-Z | Zweitlauf-Prüfer Auflage 7 (wiederholter Lauf, nur Beweiskörper gegenüber `main` geändert) | Prüfer | `lean/prosa/a7_zweitlauf_bericht.md` | erledigt, PR #143 (Merge 7a5c077). Lauf 45833618872, Job 139956567190 auf 62c3dc6. B-016 bleibt geprüft |
 | A7-T | Textänderung README und `ergebnisse/rang-444.md` (Abschluss Auflage 7) | Schreiber | `lean/prosa/a7_textaenderung.md` | erledigt, PR #144 (Merge f16a7e8). Auflage 7 abgeschlossen |
-| S5-LW | Literaturwache vor Stufe 5 (Abschnitt 7, mit Palomar) | Literaturwächter | `lit/WACHE-2026-11-26-S5.md` | vergeben etwa 14:36 UTC, außerhalb der Runden |
+| S5-LW | Literaturwache vor Stufe 5 (Abschnitt 7, mit Palomar) | Literaturwächter | `lit/WACHE-2026-11-26-S5.md` | erledigt, PR #145 (Merge e671dad). Nichts Neues, Abbruchregel 3 greift nicht. Abweichung von CLAUDE.md Regel 9 (ein GET an die Einreich-Domain, vom Proxy abgewiesen, nichts gesendet) |
+| S5-01 | Spur K: Zusammenführung der Kette zu 3×2×7 | Beweissucher | `lean/prosa/s5_327_kette.md` | vergeben in Runde 1 der Stufe 5, etwa 14:49 UTC |
 
 ## Stufe 3: abgeschlossen
 
