@@ -1,5 +1,9 @@
-import YangBounds.SatzF444
-import YangBounds.LemmaK444
+module
+
+public import YangBounds.SatzF444
+public import YangBounds.LemmaK444
+
+@[expose] public section
 
 /-!
 # Lemma Z for `⟨4,2,4⟩` at the generic normal form (many distinct points)
@@ -655,7 +659,6 @@ theorem quadGleich_of_rel {s t : Fin 25} (hrel : Rel (genAlg alg) s t) :
     intro j
     rw [bvecs_dot_basisVec, bvecs_dot_basisVec, hb, smul_dotProduct, smul_eq_mul]
   have hprod := congrArg₂ (· * ·) (hA k) (hB j)
-  simp only at hprod
   rw [genAlg_alpha_basis, genAlg_alpha_basis, genAlg_beta_basis, genAlg_beta_basis] at hprod
   have hdet : ((Tg K).det)⁻¹ ≠ 0 := inv_ne_zero (det_Tg_ne_zero K)
   have key := generisch_produkt (Amat alg t k 0) (Amat alg t k 1) (Bmat alg t j 0)

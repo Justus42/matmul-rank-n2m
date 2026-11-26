@@ -1,10 +1,14 @@
-import YangBounds.Basic
-import Mathlib.Algebra.MvPolynomial.Funext
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.LinearAlgebra.Matrix.ToLin
-import Mathlib.LinearAlgebra.Matrix.Nondegenerate
-import Mathlib.LinearAlgebra.Determinant
-import Mathlib.LinearAlgebra.Basis.VectorSpace
+module
+
+public import YangBounds.Basic
+public import Mathlib.Algebra.MvPolynomial.Funext
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.ToLin
+public import Mathlib.LinearAlgebra.Matrix.Nondegenerate
+public import Mathlib.LinearAlgebra.Determinant
+public import Mathlib.LinearAlgebra.Basis.VectorSpace
+
+@[expose] public section
 
 /-!
 # Yang v3, Theorem 1 (`n = 3`), part 2: strong normalization
@@ -440,7 +444,11 @@ theorem exists_suppPoly [Infinite K] (sp : Finset (Fin r)) :
       rw [← LinearMap.det_toMatrix']
       congr 1
       ext i j
-      simp [LinearMap.toMatrix'_apply]
+      simp only [LinearMap.toMatrix'_apply, LinearMap.coe_comp, Function.comp_apply, Matrix.of_apply]
+      have hs : (Pi.single j 1 : Fin 3 → K) = fun j' => if j' = j then 1 else 0 := by
+        funext j'
+        simp [Pi.single_apply]
+      rw [hs]
     refine ⟨fun x => LinearMap.det (G ∘ₗ lmap alg (rowT x) w0), ⟨?_, ?_⟩, ?_⟩
     · simp only [hdet]
       apply IsPolyFun.det

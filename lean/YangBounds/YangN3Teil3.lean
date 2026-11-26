@@ -1,10 +1,14 @@
-import YangBounds.Basic
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.LinearAlgebra.Quotient.Basic
-import Mathlib.LinearAlgebra.Basis.VectorSpace
-import Mathlib.LinearAlgebra.Dimension.Constructions
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.LinearCombination
+module
+
+public import YangBounds.Basic
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+public import Mathlib.LinearAlgebra.Quotient.Basic
+public import Mathlib.LinearAlgebra.Basis.VectorSpace
+public import Mathlib.LinearAlgebra.Dimension.Constructions
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.LinearCombination
+
+@[expose] public section
 
 /-!
 # Yang v3, Theorem 1 (`n = 3`), part 3: the linear algebra after strong normalization
@@ -324,6 +328,7 @@ theorem lemma_B (h1 : SN1 alg) (h2 : SN2 alg) (S : Submodule K (Matrix (Fin 2) (
       subst this
       simp only [Pi.sub_apply, Pi.smul_apply, smul_eq_mul]
       field_simp
+      simp
     · simp [hw'E k h, hwE k h]
   -- `w = f_0(v)` with `v ∈ S`, `v ≠ 0`
   obtain ⟨v, hvS, rfl⟩ := Submodule.mem_map.1 hwX
@@ -425,7 +430,8 @@ theorem γ_apply (y : Fin m → K) :
       - avec alg (e32 0 0) * bvec alg (Matrix.of ![y, 0]) := g_emb alg y
 
 theorem π_eq_zero_iff (t : Fin r → K) : π alg t = 0 ↔ ∃ y, φ alg 0 y = t := by
-  simp only [π, Submodule.mkQ_apply, Submodule.Quotient.mk_eq_zero, J, LinearMap.mem_range]
+  show (J alg).mkQ t = 0 ↔ _
+  rw [Submodule.mkQ_apply, Submodule.Quotient.mk_eq_zero, J, LinearMap.mem_range]
 
 /-- **Lemma C.** For `x ∈ U`, `f_0(x), f_1(x), f_2(x), g(x) ∈ ker W`. -/
 theorem lemma_C_f (i : Fin 3) (y : Fin m → K) : φ alg i y ∈ LinearMap.ker (W alg) := by
@@ -452,7 +458,8 @@ theorem finrank_Kbar (h1 : SN1 alg) : finrank K (Kbar alg) + 4 * m = r := by
   have h := finrank_map_mkQ_add (LinearMap.ker (W alg)) (J alg) (J_le_ker alg)
   have h3 := G3_finrank_ker_W alg
   rw [finrank_J alg h1] at h
-  simp only [Kbar, π]
+  have hK : Kbar alg = (LinearMap.ker (W alg)).map (J alg).mkQ := rfl
+  rw [hK]
   omega
 
 theorem range_le_Kbar {V : Type*} [AddCommGroup V] [Module K V] (ψ : V →ₗ[K] (Fin r → K))
@@ -487,7 +494,7 @@ theorem lemma_F (h1 : SN1 alg) :
   apply le_antisymm
   · rintro ⟨⟨u₁, u₂⟩, x⟩ hker
     rw [LinearMap.mem_ker] at hker
-    simp only [Φ, LinearMap.prod_apply, Pi.prod, Prod.mk_eq_zero, LinearMap.comp_apply,
+    simp only [Φ, LinearMap.prod_apply, Function.prod_apply, Prod.mk_eq_zero, LinearMap.comp_apply,
       LinearMap.fst_apply] at hker
     obtain ⟨hL, h2, h3⟩ := hker
     simp only [L, Fq, LinearMap.coprod_apply, LinearMap.comp_apply, ← map_add,
@@ -522,17 +529,17 @@ theorem lemma_F (h1 : SN1 alg) :
     have hz : (Matrix.of ![(0 : Fin m → K), 0] : Matrix (Fin 2) (Fin m) K) = 0 := by
       ext i j; fin_cases i <;> rfl
     simp only [hz, map_zero, mul_zero, sub_zero, zero_sub, neg_zero] at hy₁ hy₂
-    simp only [H, LinearMap.prod_apply, Pi.prod, Fq, LinearMap.comp_apply, LinearMap.neg_apply,
+    simp only [H, LinearMap.prod_apply, Function.prod_apply, Fq, LinearMap.comp_apply, LinearMap.neg_apply,
       Prod.mk_eq_zero, neg_eq_zero, π_eq_zero_iff]
     constructor
     · exact ⟨y₁, by rw [φ_apply, φ_apply]; exact hy₁⟩
     · exact ⟨-y₂, by rw [map_neg, φ_apply, φ_apply, hy₂, neg_neg]⟩
   · rintro _ ⟨x, hx, rfl⟩
     replace hx : H alg x = 0 := hx
-    simp only [H, LinearMap.prod_apply, Pi.prod, Prod.mk_eq_zero, LinearMap.neg_apply, neg_eq_zero,
-      Fq, LinearMap.comp_apply, Pi.prod] at hx
+    simp only [H, LinearMap.prod_apply, Function.prod_apply, Prod.mk_eq_zero, LinearMap.neg_apply, neg_eq_zero,
+      Fq, LinearMap.comp_apply, Function.prod_apply] at hx
     show Φ alg ((0, 0), x) = 0
-    simp only [Φ, Φ₂, Φ₃, L, Fq, LinearMap.prod_apply, Pi.prod, LinearMap.comp_apply, LinearMap.inr_apply,
+    simp only [Φ, Φ₂, Φ₃, L, Fq, LinearMap.prod_apply, Function.prod_apply, LinearMap.comp_apply, LinearMap.inr_apply,
       LinearMap.fst_apply, LinearMap.coprod_apply, LinearMap.sub_apply, LinearMap.neg_apply,
       P1, P2, P3, LinearMap.snd_apply, map_zero, map_sub, map_neg, hx.1, hx.2, sub_zero, neg_zero,
       add_zero, Prod.mk_eq_zero, and_self]
@@ -606,7 +613,7 @@ theorem lemma_H (h1 : SN1 alg) :
   have hσ₂ : ∀ x ∈ N alg, φ alg 0 (σ x).2 = -φ alg 1 x := by
     intro x hx
     obtain ⟨-, ⟨y, hy⟩⟩ := (mem_N_iff alg x).1 hx
-    simp only [hσ, LinearMap.prod_apply, Pi.prod, LinearMap.comp_apply, LinearMap.neg_apply]
+    simp only [hσ, LinearMap.prod_apply, Function.prod_apply, LinearMap.comp_apply, LinearMap.neg_apply]
     rw [← hy, ← map_neg, hψ']
   -- Step 1: `σ(N) ⊆ ker ℓ ⊆ ker L`
   have step1 : (N alg).map σ ≤ LinearMap.ker (L alg) := by
@@ -626,7 +633,7 @@ theorem lemma_H (h1 : SN1 alg) :
     rintro ⟨a, b⟩ ⟨ha, hb⟩
     replace ha : H alg a = 0 := ha
     replace hb : H alg b = 0 := hb
-    simp only [H, LinearMap.prod_apply, Pi.prod, Prod.mk_eq_zero] at ha hb
+    simp only [H, LinearMap.prod_apply, Function.prod_apply, Prod.mk_eq_zero] at ha hb
     show L alg (a, b) = 0
     simp only [L, LinearMap.coprod_apply, hb.1]
     have := ha.2
@@ -708,7 +715,7 @@ theorem yang_n3_of_stronglyNormalized (hm : 2 ≤ m) (h1 : SN1 alg) (h2 : SN2 al
   have hNH := LinearMap.finrank_range_add_finrank_ker (H alg)
   rw [Module.finrank_fin_fun] at hNH
   have : finrank K (N alg) = finrank K (LinearMap.ker (H alg)) := rfl
-  rcases le_or_lt 2 (finrank K (N alg)) with hn | hn
+  rcases le_or_gt 2 (finrank K (N alg)) with hn | hn
   · rw [min_eq_left hn] at hI
     omega
   · have hqm : m ≤ finrank K (Kbar alg) := by omega

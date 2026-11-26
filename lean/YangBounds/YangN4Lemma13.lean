@@ -1,10 +1,14 @@
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.LinearAlgebra.Dimension.RankNullity
-import Mathlib.LinearAlgebra.Dimension.Constructions
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.LinearAlgebra.Quotient.Basic
-import Mathlib.LinearAlgebra.Pi
-import Mathlib.Algebra.BigOperators.Fin
+module
+
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+public import Mathlib.LinearAlgebra.Dimension.RankNullity
+public import Mathlib.LinearAlgebra.Dimension.Constructions
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Quotient.Basic
+public import Mathlib.LinearAlgebra.Pi
+public import Mathlib.Algebra.BigOperators.Fin
+
+@[expose] public section
 
 /-!
 # Yang v3, Lemma 13 (case `n ≥ 4`)
@@ -121,7 +125,7 @@ variable {V : Type v} [AddCommGroup V] [Module K V] {Y : Type w} [AddCommGroup Y
 
 theorem sumMap_apply {d : ℕ} (F : Fin d → V →ₗ[K] Y) (u : Fin d → V) :
     sumMap F u = ∑ i, F i (u i) := by
-  simp [sumMap, LinearMap.coeFn_sum, Finset.sum_apply]
+  simp [sumMap, FunLike.coe_sum, Finset.sum_apply]
 
 theorem mem_skewSpace {d : ℕ} {c : Fin d → Fin d → V} :
     c ∈ skewSpace K V d ↔ (∀ i, c i i = 0) ∧ ∀ i j, c j i = -c i j := Iff.rfl
@@ -184,7 +188,7 @@ def mixU (ξ : Matrix (Fin d) (Fin d) K) (u : Fin d → U) : Fin d → U :=
 
 theorem mixF_apply (ξ : Matrix (Fin d) (Fin d) K) (F : Fin d → U →ₗ[K] Q) (i : Fin d) (x : U) :
     mixF ξ F i x = ∑ j, ξ i j • F j x := by
-  simp [mixF, LinearMap.coeFn_sum, Finset.sum_apply]
+  simp [mixF, FunLike.coe_sum, Finset.sum_apply]
 
 /-- `L'(u) = L(uξ)`. -/
 theorem sumMap_mixF (ξ : Matrix (Fin d) (Fin d) K) (F : Fin d → U →ₗ[K] Q) (u : Fin d → U) :
@@ -261,7 +265,7 @@ theorem finrank_range_skewExt_mixF_le [FiniteDimensional K Q] {ξ ξ' : Matrix (
   let N : (Fin d → Q) →ₗ[K] (Fin d → Q) :=
     LinearMap.pi fun a => ∑ b, ξ' b a • (LinearMap.proj b : (Fin d → Q) →ₗ[K] Q)
   have hN : ∀ z a, N z a = ∑ b, ξ' b a • z b := fun z a => by
-    simp [N, LinearMap.coeFn_sum, Finset.sum_apply]
+    simp [N, FunLike.coe_sum, Finset.sum_apply]
   have hle : LinearMap.range (skewExt (sumMap (mixF ξ F))) ≤
       (LinearMap.range (skewExt (sumMap F))).map N := by
     rintro _ ⟨c, rfl⟩

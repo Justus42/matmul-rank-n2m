@@ -1,6 +1,10 @@
-import YangBounds.SatzE444Buendel
-import Mathlib.LinearAlgebra.Eigenspace.Minpoly
-import Mathlib.Data.Fintype.Pigeonhole
+module
+
+public import YangBounds.SatzE444Buendel
+public import Mathlib.LinearAlgebra.Eigenspace.Minpoly
+public import Mathlib.Data.Fintype.Pigeonhole
+
+@[expose] public section
 
 /-!
 # Lemma P for `⟨4,2,4⟩`, case (5,8): proof of `LemmaPStatement`
@@ -439,7 +443,7 @@ theorem pencil_bound {K : Type u} [Field K] {Q : Type v} [AddCommGroup Q] [Modul
     exact LinearMap.ker_eq_bot.1 (Submodule.finrank_eq_zero.1 hk0)
   let e : Z ≃ₗ[K] E := LinearEquiv.ofBijective f₁ ⟨hf₁inj, hf₁surj⟩
   let Tm : Module.End K E := f₂ ∘ₗ e.symm.toLinearMap
-  have hmaps : Set.MapsTo (fun t => b t / a t) S Tm.HasEigenvalue := by
+  have hmaps : Set.MapsTo (fun t => b t / a t) S {μ | Tm.HasEigenvalue μ} := by
     intro t ht
     have hz : (a t • k t, b t • k t) ∈ Z := by
       show Φ _ = 0
@@ -524,7 +528,7 @@ theorem main [Infinite K] [FiniteDimensional K Q] (H : Hyp F) :
     by_contra h
     push_neg at h
     exact Module.Finite.not_linearIndependent_of_infinite kv
-      (linearIndependent_iff_not_mem_span.2 h)
+      (linearIndependent_iff_notMem_span.2 h)
   obtain ⟨t₀, ht₀⟩ : ∃ t₀ : T, t₀ ≠ t₁ := by
     obtain ⟨a, b, hab⟩ := exists_pair_ne T
     by_cases h : a = t₁
@@ -750,7 +754,7 @@ theorem main [Infinite K] [FiniteDimensional K Q] (H : Hyp F) :
   have hWle : finrank K W ≤ m - 1 := by omega
   -- Step 9: `m ≤ 3`
   have hm3 : m ≤ 3 := by
-    rcases le_or_lt m 3 with h | h
+    rcases le_or_gt m 3 with h | h
     · exact h
     exfalso
     have h4 : m ≤ 4 := by

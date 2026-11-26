@@ -1,9 +1,13 @@
-import YangBounds.SatzC444Generisch
-import YangBounds.LemmaP444
-import YangBounds.Endsatz444
-import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-import Mathlib.Algebra.MvPolynomial.Funext
-import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
+module
+
+public import YangBounds.SatzC444Generisch
+public import YangBounds.LemmaP444
+public import YangBounds.Endsatz444
+public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+public import Mathlib.Algebra.MvPolynomial.Funext
+public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
+
+@[expose] public section
 
 /-!
 # The bridge to an algebraically closed field for `⟨4,2,4⟩`
@@ -409,7 +413,8 @@ theorem genInjL (w : Matrix (Fin 2) (Fin 4) (GBar K)) (hw : w ≠ 0) :
       (N (fun j => x (Sum.inr (0, j)))).submatrix f id := by
     intro x
     ext i a
-    simp only [RingHom.mapMatrix_apply, Matrix.map_apply, Matrix.submatrix_apply, id, Npoly, N]
+    change evB x (Npoly i a) = N (fun j => x (Sum.inr (0, j))) (f i) a
+    simp only [Npoly, N]
     split_ifs with hb
     · rw [evB_polyForm, halgL]
       have hU : (fun i' => evB x (if a = i' then 1 else 0)) = basisVec a := by

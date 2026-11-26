@@ -1,6 +1,10 @@
-import YangBounds.SatzC444Kern
-import Mathlib.Algebra.DualNumber
-import Mathlib.RingTheory.Localization.FractionRing
+module
+
+public import YangBounds.SatzC444Kern
+public import Mathlib.Algebra.DualNumber
+public import Mathlib.RingTheory.Localization.FractionRing
+
+@[expose] public section
 
 /-!
 # Satz C and Folgerung C1 (generic form) for `⟨4,2,4⟩` at the generic point
@@ -378,7 +382,8 @@ theorem genInj (w : Matrix (Fin 2) (Fin 4) (GField K)) (hw : w ≠ 0) :
       (N (fun j => x (Sum.inr (0, j)))).submatrix f id := by
     intro x
     ext i a
-    simp only [RingHom.mapMatrix_apply, Matrix.map_apply, Matrix.submatrix_apply, id, Npoly, N]
+    change evL K x (Npoly i a) = N (fun j => x (Sum.inr (0, j))) (f i) a
+    simp only [Npoly, N]
     split_ifs with hb
     · rw [evL_polyForm, halgL, baseChange_alpha]
       have hU : (fun i' => evL K x (if a = i' then 1 else 0)) = basisVec a := by

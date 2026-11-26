@@ -1,7 +1,11 @@
-import YangBounds.SatzA444
-import YangBounds.SatzB444Final
-import Mathlib.FieldTheory.IsAlgClosed.Basic
-import Mathlib.RingTheory.Polynomial.Basic
+module
+
+public import YangBounds.SatzA444
+public import YangBounds.SatzB444Final
+public import Mathlib.FieldTheory.IsAlgClosed.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+
+@[expose] public section
 
 /-!
 # Satz E for `⟨4,2,4⟩` at length 25: sub-case A of the case (5,8) is impossible
@@ -273,8 +277,8 @@ theorem point_lemma (A : ℕ → K) (B1 B2 a0 : K) (ha0 : a0 ≠ 0)
       refine ⟨A 3 ^ 2 / (a0 * B2 ^ 6), fun b h hb k hk => ?_⟩
       simp only [hB1, e0, e1, e2, mul_zero, zero_mul, zero_add, add_zero] at hb
       have hb' : b = h 4 * (A 3 * B2) / a0 := by
-        field_simp
-        rw [mul_comm, hb]
+        rw [eq_div_iff ha0, mul_comm]
+        exact hb
       subst hb'
       interval_cases k <;> simp [mono, hB1, e0, e1, e2] <;> field_simp <;> ring
   · -- `σ_t = (B_1 : B_2)` with `B_1 ≠ 0`
@@ -294,8 +298,8 @@ theorem point_lemma (A : ℕ → K) (B1 B2 a0 : K) (ha0 : a0 ≠ 0)
     refine ⟨A 0 ^ 2 / (a0 * B1 ^ 6), fun b h hb k hk => ?_⟩
     have hb' : b = (h 0 * (A 0 * B1) + h 1 * (A 1 * B1) + h 2 * (A 2 * B1) +
         h 3 * (A 3 * B1) + h 4 * (A 3 * B2)) / a0 := by
-      field_simp
-      rw [mul_comm, hb]
+      rw [eq_div_iff ha0, mul_comm]
+      exact hb
     subst hb'
     interval_cases k <;> simp only [mono, e1, e2, e3] <;> norm_num only <;> field_simp <;>
       rw [div_eq_iff (by simp [hB1, ha0])] <;> ring
@@ -494,6 +498,7 @@ theorem finrank_JHat_le_eight [IsAlgClosed K] (h1 : SN1 (d := 3) alg) (h2 : SN2 
         (∑ i, u 2 i * SatzB444.avecs alg t i) * alg.beta t (emb x1) := hc 1
     have hc2 : (∑ i, u 2 i * SatzB444.avecs alg t i) * alg.beta t (emb x2) =
         (∑ i, u 3 i * SatzB444.avecs alg t i) * alg.beta t (emb x1) := hc 2
+    open Fin.NatCast in
     obtain ⟨c, hcc⟩ := point_lemma (fun k : ℕ => ∑ i, u (k : Fin 4) i * SatzB444.avecs alg t i)
       (alg.beta t (emb x1)) (alg.beta t (emb x2)) _ (SatzB444.avecs_zero_ne alg h1 t)
       (by simpa using hc0) (by simpa using hc1) (by simpa using hc2)

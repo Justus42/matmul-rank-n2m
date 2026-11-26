@@ -1,4 +1,8 @@
-import YangBounds
+module
+
+public import YangBounds
+
+@[expose] public section
 
 /-! Axiom report for the stage-1 statements. Run with `lake env lean Axioms.lean`.
 Since S1-17 no proof is open; an occurrence of `sorryAx` here would be an error. -/

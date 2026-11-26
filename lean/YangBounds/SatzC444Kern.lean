@@ -1,4 +1,8 @@
-import YangBounds.SatzB444Final
+module
+
+public import YangBounds.SatzB444Final
+
+@[expose] public section
 
 /-!
 # Satz C for `⟨4,2,4⟩`: the algebraic core (identity (Kl), quadric, contradiction)

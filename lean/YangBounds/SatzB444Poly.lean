@@ -1,8 +1,12 @@
-import Mathlib.RingTheory.MvPolynomial.Homogeneous
-import Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex
-import Mathlib.RingTheory.Polynomial.UniqueFactorization
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.LinearAlgebra.LinearIndependent.Lemmas
+module
+
+public import Mathlib.RingTheory.MvPolynomial.Homogeneous
+public import Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex
+public import Mathlib.RingTheory.Polynomial.UniqueFactorization
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+public import Mathlib.LinearAlgebra.LinearIndependent.Lemmas
+
+@[expose] public section
 
 /-!
 # Polynomial algebra for Lemma S (task S2-15)
@@ -54,7 +58,7 @@ theorem lin_apply (y : Fin 4 → K) : lin y = ∑ l, C (y l) * X l := rfl
 @[simp] theorem eval_lin (v y : Fin 4 → K) : eval v (lin y) = ∑ l, y l * v l := by
   simp [lin_apply]
 
-theorem coeff_lin (y : Fin 4 → K) (l : Fin 4) : coeff (Finsupp.single l 1) (lin y) = y l := by
+theorem coeff_lin (y : Fin 4 → K) (l : Fin 4) : (lin y).coeff (Finsupp.single l 1) = y l := by
   classical
   rw [lin_apply, coeff_sum]
   simp only [coeff_C_mul, coeff_X']
@@ -89,13 +93,13 @@ theorem totalDegree_lin {y : Fin 4 → K} (hy : y ≠ 0) : (lin y).totalDegree =
 theorem totalDegree_mul_eq {f g : Poly K} (hf : f ≠ 0) (hg : g ≠ 0) :
     (f * g).totalDegree = f.totalDegree + g.totalDegree := by
   rw [← degree_degLexDegree, ← degree_degLexDegree (f := f), ← degree_degLexDegree (f := g),
-    MonomialOrder.degree_mul hf hg, Finsupp.degree_add]
+    MonomialOrder.degree_mul hf hg, map_add]
 
 /-- A monomial of degree `1` is `x_l`. -/
 theorem eq_single_of_degree_eq_one {d : Fin 4 →₀ ℕ} (hd : d.degree = 1) :
     ∃ l, d = Finsupp.single l 1 := by
   classical
-  unfold Finsupp.degree at hd
+  rw [Finsupp.degree_apply] at hd
   have hne : d.support.Nonempty := by
     rw [Finset.nonempty_iff_ne_empty]
     intro h
@@ -113,14 +117,14 @@ theorem eq_single_of_degree_eq_one {d : Fin 4 →₀ ℕ} (hd : d.degree = 1) :
   by_cases hj : j = i
   · subst hj
     simp [hdi1]
-  · rw [Finsupp.single_eq_of_ne (Ne.symm hj)]
+  · rw [Finsupp.single_apply, if_neg (Ne.symm hj)]
     by_cases hjs : j ∈ d.support
     · exact hrest j (Finset.mem_erase.mpr ⟨hj, hjs⟩)
-    · exact Finsupp.not_mem_support_iff.mp hjs
+    · exact Finsupp.notMem_support_iff.mp hjs
 
 /-- A homogeneous polynomial of degree `1` is a linear form. -/
 theorem eq_lin_of_isHomogeneous_one {g : Poly K} (hg : g.IsHomogeneous 1) :
-    g = lin (fun l => coeff (Finsupp.single l 1) g) := by
+    g = lin (fun l => g.coeff (Finsupp.single l 1)) := by
   ext d
   by_cases hd : d.degree = 1
   · obtain ⟨l, rfl⟩ := eq_single_of_degree_eq_one hd
@@ -139,7 +143,7 @@ theorem isHomogeneous_one_of_mul {f g : Poly K} (hf : f.IsHomogeneous 1) (hf0 : 
   have hgdeg : g.totalDegree = 1 := by omega
   have hsum := sum_homogeneousComponent g
   rw [hgdeg, Finset.sum_range_succ, Finset.sum_range_one, homogeneousComponent_zero] at hsum
-  set c := coeff 0 g
+  set c := g.coeff 0
   set g1 := homogeneousComponent 1 g
   have hg1 : g1.IsHomogeneous 1 := homogeneousComponent_isHomogeneous 1 g
   -- `f * C c = f * g - f * g1` is homogeneous of degree 1 and of degree 2
@@ -158,7 +162,7 @@ theorem isHomogeneous_one_of_mul {f g : Poly K} (hf : f.IsHomogeneous 1) (hf0 : 
 
 /-- If `f` is a nonzero linear form and `f * g` is a linear form, then `g` is a constant. -/
 theorem eq_C_of_mul {f g : Poly K} (hf : f.IsHomogeneous 1) (hf0 : f ≠ 0)
-    (h : (f * g).IsHomogeneous 1) : g = C (coeff 0 g) := by
+    (h : (f * g).IsHomogeneous 1) : g = C (g.coeff 0) := by
   by_cases hg : g = 0
   · rw [hg]; simp
   have hfg : f * g ≠ 0 := mul_ne_zero hf0 hg
@@ -182,7 +186,7 @@ theorem irreducible_lin {y : Fin 4 → K} (hy : y ≠ 0) : Irreducible (lin y) :
     have hunit : ∀ p : Poly K, p ≠ 0 → p.totalDegree = 0 → IsUnit p := by
       intro p hp hp0
       rw [totalDegree_eq_zero_iff_eq_C.mp hp0] at hp ⊢
-      have : coeff 0 p ≠ 0 := by
+      have : p.coeff 0 ≠ 0 := by
         intro h0; rw [h0, C_0] at hp; exact hp rfl
       exact (isUnit_iff_ne_zero.mpr this).map C
     rcases Nat.eq_zero_or_pos a.totalDegree with h0 | h0
@@ -236,7 +240,7 @@ theorem syz_two {q₁ q₂ : Poly K} (hq₁ : q₁.IsHomogeneous 2)
   · -- `ℓ_α = ℓ_β · g` with `g` a constant `κ`; then `ℓ_β (κ q₁ + q₂) = 0`
     have hgC := eq_C_of_mul (lin_isHomogeneous β) (lin_ne_zero hβ)
       (by rw [← hg]; exact lin_isHomogeneous α)
-    set κ := coeff 0 g
+    set κ := g.coeff 0
     have h2 : lin β * (κ • q₁ + (1 : K) • q₂) = 0 := by
       rw [hgC] at hg
       calc lin β * (κ • q₁ + (1 : K) • q₂) = lin α * q₁ + lin β * q₂ := by
@@ -248,7 +252,7 @@ theorem syz_two {q₁ q₂ : Poly K} (hq₁ : q₁.IsHomogeneous 2)
   · -- `q₁ = ℓ_β · g` with `g` a linear form: a product in `I`
     have hg1 := isHomogeneous_one_of_mul (lin_isHomogeneous β) (lin_ne_zero hβ)
       (by rw [← hg]; exact hq₁)
-    set y' := fun l => coeff (Finsupp.single l 1) g
+    set y' := fun l => g.coeff (Finsupp.single l 1)
     have hgl : g = lin y' := eq_lin_of_isHomogeneous_one hg1
     have hy' : y' ≠ 0 := by
       intro h0

@@ -1,6 +1,10 @@
-import YangBounds.LemmaP444
-import YangBounds.Endsatz444
-import YangBounds.Bruecke444
+module
+
+public import YangBounds.LemmaP444
+public import YangBounds.Endsatz444
+public import YangBounds.Bruecke444
+
+@[expose] public section
 
 /-!
 # Satz F for `⟨4,2,4⟩`, case (5,8): sub-case B is impossible (with named hypotheses)
@@ -107,7 +111,7 @@ noncomputable def homComp (e : ℕ) (c p q : K[X]) : K[X] :=
 
 theorem eval_homComp (e : ℕ) (c p q : K[X]) (x : K) :
     (homComp e c p q).eval x = evalH e c (p.eval x) (q.eval x) := by
-  simp [homComp, evalH, eval_finset_sum]
+  simp [homComp, evalH, eval_finsetSum]
 
 theorem natDegree_homComp_le (e d : ℕ) (c p q : K[X]) (hp : p.natDegree ≤ d)
     (hq : q.natDegree ≤ d) : (homComp e c p q).natDegree ≤ d * e := by
@@ -126,13 +130,13 @@ theorem natDegree_homComp_le (e d : ℕ) (c p q : K[X]) (hp : p.natDegree ≤ d)
 theorem coeff_homComp (e d : ℕ) (c p q : K[X]) (hp : p.natDegree ≤ d) (hq : q.natDegree ≤ d) :
     (homComp e c p q).coeff (d * e) = evalH e c (p.coeff d) (q.coeff d) := by
   unfold homComp evalH
-  rw [finset_sum_coeff]
+  rw [finsetSum_coeff]
   refine Finset.sum_congr rfl fun k hk => ?_
   have hk' : k ≤ e := Nat.lt_succ_iff.1 (Finset.mem_range.1 hk)
   have hidx : d * e = k * d + (e - k) * d := by
     rw [← add_mul, Nat.add_sub_cancel' hk', mul_comm]
   rw [hidx, mul_assoc, coeff_C_mul,
-    coeff_mul_of_natDegree_le (natDegree_pow_le_of_le k hq) (natDegree_pow_le_of_le _ hp),
+    coeff_mul_add_eq_of_natDegree_le (natDegree_pow_le_of_le k hq) (natDegree_pow_le_of_le _ hp),
     coeff_pow_of_natDegree_le hq, coeff_pow_of_natDegree_le hp]
   ring
 
@@ -439,7 +443,6 @@ theorem satzF_kern [IsAlgClosed K] {r : ℕ} (a b : Fin r → Fin 4 → K)
     have := hw t
     have := hpA t
     field_simp
-    ring
   have hx : ∀ t, x t = qB.eval (y t) / pB.eval (y t) := fun t => by
     show (b t ⬝ᵥ w1) / (b t ⬝ᵥ w0) = _
     rw [hB0 t, hB1 t]
@@ -447,7 +450,6 @@ theorem satzF_kern [IsAlgClosed K] {r : ℕ} (a b : Fin r → Fin 4 → K)
     have := hu t
     have := hpB t
     field_simp
-    ring
   -- the chart forms of `a_t` and `b_t`
   have haC : ∀ t, a t = (ca t * (b t ⬝ᵥ w0) ^ 3) • Na *ᵥ mom 1 (x t) := fun t => by
     conv_lhs => rw [ha t]
@@ -481,7 +483,6 @@ theorem satzF_kern [IsAlgClosed K] {r : ℕ} (a b : Fin r → Fin 4 → K)
     have := hpB' t
     rw [hxy]
     field_simp
-    ring
   -- the parameters `x_t`, `t ∈ T`, are pairwise distinct
   have hinj : Set.InjOn x T := by
     intro s hs t ht hst
@@ -631,7 +632,6 @@ theorem kubik_seite [IsAlgClosed K] {r : ℕ} (x z : Fin r → Fin 4 → K)
         rw [mulVec_mulVec, nonsing_inv_mul _ hV, one_mulVec]
     _ = _ := by
         rw [hchain, mulVec_smul]
-        simp only [hVz]
 
 end Seite
 

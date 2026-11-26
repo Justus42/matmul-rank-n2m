@@ -1,6 +1,10 @@
-import YangBounds.Statements
-import YangBounds.SatzB444Poly
-import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+module
+
+public import YangBounds.Statements
+public import YangBounds.SatzB444Poly
+public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+
+@[expose] public section
 
 /-!
 # Satz B for `⟨4,2,4⟩` at length 25: the cases (4,7) and (5,7) are impossible

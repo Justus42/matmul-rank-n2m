@@ -1,4 +1,8 @@
-import YangBounds.YangN4Lemma13
+module
+
+public import YangBounds.YangN4Lemma13
+
+@[expose] public section
 
 /-!
 # Lemma 13′: a sharpening of Yang's Lemma 13
@@ -262,7 +266,7 @@ theorem iSup_map_le_iSup_map_mixF {e : ℕ} (γ : Fin (e + 2) → K) {k : Fin (e
     have hsum : γ i • F i x = -∑ l ∈ Finset.univ.erase i, γ l • F l x := by
       rw [eq_neg_iff_add_eq_zero,
         Finset.add_sum_erase _ (fun l => γ l • F l x) (Finset.mem_univ i)]
-      simpa [hG, LinearMap.coeFn_sum, Finset.sum_apply] using hGx
+      simpa [hG, FunLike.coe_sum, Finset.sum_apply] using hGx
     have hmem : γ i • F i x ∈ R := by
       rw [hsum]
       refine R.neg_mem (R.sum_mem fun l hl => R.smul_mem _ ?_)

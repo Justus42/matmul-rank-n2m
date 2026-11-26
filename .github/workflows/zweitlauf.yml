@@ -3,9 +3,18 @@
 # 1. Fresh checkout of the target commit (default: current main), build of lean/ without
 #    any carried-over build artifacts of the project. No actions/cache is used at all.
 #    Only the official mathlib cache (`lake exe cache get`) is allowed.
-# 2. Kernel re-check with lean4checker (tag matching the project toolchain) over every
-#    module of the project, plus the modules of the dependency mm325_lower_bound.
+# 2. Kernel re-check over every module of the project. Up to Lean v4.29 this used the
+#    separate repository leanprover/lean4checker (tag matching the toolchain). From the
+#    Palomar port (S5-03, Lean v4.36.0) on, the checker shipped with the toolchain
+#    (`leanchecker`, same command line) is used, because lean4checker has no tags
+#    beyond v4.29.0-rc8. The dependency mm325_lower_bound was removed in S5-03.
 # 3. `#print axioms` for YangBounds.Transponiert444.rank_four_two_four_ge_26.
+#    S5-21: also for YangBounds.Gleich444.rank_four_two_four_eq_26 and for the Palomar
+#    Solution theorem MatMulRank.rank_four_two_four_eq_26 (statement of the Challenge).
+#    The Challenge itself is not imported, because it declares the same name.
+#
+# S5-16: on the branch portierung the run also starts on every push that changes lean/**,
+# so the current state of portierung gets its second run without a manual dispatch.
 #
 # Nothing under lean/ is changed. The existing workflows lean-project.yml and
 # lean-build.yml and their script are not used or touched.
@@ -22,6 +31,11 @@ on:
   pull_request:
     paths:
       - ".github/workflows/zweitlauf.yml"
+  push:
+    branches: [portierung]
+    paths:
+      - ".github/workflows/zweitlauf.yml"
+      - "lean/**"
 
 permissions:
   contents: read
@@ -31,9 +45,9 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  TARGET_REF: ${{ github.event.inputs.ref || 'main' }}
-  L4C_REPO: https://github.com/leanprover/lean4checker
+  TARGET_REF: ${{ github.event.inputs.ref || github.event.pull_request.head.sha || github.sha }}
   FINAL_THEOREM: YangBounds.Transponiert444.rank_four_two_four_ge_26
+  EXTRA_THEOREMS: YangBounds.Gleich444.rank_four_two_four_eq_26 MatMulRank.rank_four_two_four_eq_26
 
 jobs:
   zweitlauf:
@@ -73,7 +87,6 @@ jobs:
           tc="$(tr -d '[:space:]' < lean-toolchain)"
           echo "lean-toolchain: $tc"
           echo "LEAN_TOOLCHAIN=$tc" >> "$GITHUB_ENV"
-          echo "L4C_TAG=${tc#leanprover/lean4:}" >> "$GITHUB_ENV"
           python3 - <<'EOF'
           import json
           for p in json.load(open("lake-manifest.json"))["packages"]:
@@ -119,22 +132,16 @@ jobs:
           git status --porcelain
           git diff --exit-code
 
-      - name: Build lean4checker (tag matching the toolchain)
+      - name: Locate leanchecker shipped with the toolchain
+        working-directory: target/lean
         run: |
           set -euo pipefail
-          L4C="$RUNNER_TEMP/lean4checker"
-          git clone -q --depth 1 --branch "$L4C_TAG" "$L4C_REPO" "$L4C"
-          cd "$L4C"
-          echo "lean4checker tag: $L4C_TAG"
-          echo "lean4checker commit: $(git rev-parse HEAD)"
-          echo "lean4checker lean-toolchain: $(cat lean-toolchain)"
-          if [ "$(tr -d '[:space:]' < lean-toolchain)" != "$LEAN_TOOLCHAIN" ]; then
-            echo "ERROR: lean4checker toolchain differs from project toolchain"; exit 1
-          fi
-          lake build lean4checker
-          echo "L4C_BIN=$L4C/.lake/build/bin/lean4checker" >> "$GITHUB_ENV"
+          bin="$(dirname "$(elan which lean)")/leanchecker"
+          test -x "$bin"
+          echo "leanchecker: $bin"
+          echo "L4C_BIN=$bin" >> "$GITHUB_ENV"
 
-      - name: lean4checker over every project module (and mm325 dependency)
+      - name: leanchecker over every project module
         working-directory: target/lean
         run: |
           set -uo pipefail
@@ -144,14 +151,11 @@ jobs:
           }
           libdir() { if [ -d "$1/lib/lean" ]; then echo "$1/lib/lean"; else echo "$1/lib"; fi; }
           proj_lib="$(libdir .lake/build)"
-          dep_lib="$(libdir .lake/packages/mm325_lower_bound/.lake/build)"
           modlist "$proj_lib" > "$RUNNER_TEMP/proj_mods.txt"
-          modlist "$dep_lib" > "$RUNNER_TEMP/dep_mods.txt"
           echo "project modules ($(wc -l < "$RUNNER_TEMP/proj_mods.txt")):"; cat "$RUNNER_TEMP/proj_mods.txt"
           echo "source files lean/YangBounds/*.lean: $(ls YangBounds/*.lean | wc -l)"
-          echo "mm325 dependency modules ($(wc -l < "$RUNNER_TEMP/dep_mods.txt")):"; cat "$RUNNER_TEMP/dep_mods.txt"
           ok=0; bad=0
-          for list in proj_mods dep_mods; do
+          for list in proj_mods; do
             while read -r m; do
               [ -z "$m" ] && continue
               echo "===== lean4checker $m"
@@ -165,18 +169,23 @@ jobs:
           echo "L4C-SUMMARY|checked=$((ok+bad))|ok=$ok|failed=$bad" > "$RUNNER_TEMP/l4c_summary.txt"
           [ $bad -eq 0 ]
 
-      - name: "#print axioms for the final theorem"
+      - name: "#print axioms for the final theorem and the statement 26"
         if: always()
         working-directory: target/lean
         run: |
           set -euo pipefail
           f="$RUNNER_TEMP/ZweitlaufAxioms.lean"
-          printf 'import YangBounds.Transponiert444\n#check @%s\n#print axioms %s\n' "$FINAL_THEOREM" "$FINAL_THEOREM" > "$f"
+          {
+            printf 'import YangBounds.Transponiert444\nimport YangBounds.Gleich444\nimport MatMulRank.Solution\n'
+            for t in $FINAL_THEOREM $EXTRA_THEOREMS; do
+              printf '#check @%s\n#print axioms %s\n' "$t" "$t"
+            done
+          } > "$f"
           cat "$f"
           echo "-----"
           lake env lean "$f" 2>&1 | tee "$RUNNER_TEMP/axioms.txt"
 
-      - name: lean4checker --fresh on the final theorem's module (at most 30 minutes)
+      - name: leanchecker --fresh on the final theorem's module (at most 30 minutes)
         if: always()
         continue-on-error: true
         timeout-minutes: 30

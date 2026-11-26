@@ -1,31 +1,35 @@
-import Mathlib.Data.Matrix.Mul
-import Mathlib.Data.Nat.Find
-import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Logic.Equiv.Fin.Basic
+module
+
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.Data.Nat.Find
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Logic.Equiv.Fin.Basic
 -- S4-26 (condition 7): the Mathlib modules below are exactly the Mathlib imports of the
 -- former dependency module `MatrixMultiplicationLowerBound25` that this file no longer
 -- imports, so that every downstream file sees the same Mathlib environment as before.
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.Ring
-import Mathlib.LinearAlgebra.Quotient.Basic
-import Mathlib.Tactic.Abel
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.Algebra.Module.Submodule.Lattice
-import Mathlib.Algebra.Module.Pi
-import Mathlib.Algebra.Field.Basic
-import Mathlib.LinearAlgebra.Dual.Lemmas
-import Mathlib.LinearAlgebra.Pi
-import Mathlib.Algebra.Polynomial.Roots
-import Mathlib.LinearAlgebra.Dimension.Constructions
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Push
-import Mathlib.LinearAlgebra.Basis.Prod
-import Mathlib.LinearAlgebra.StdBasis
-import Mathlib.LinearAlgebra.BilinearMap
-import Mathlib.FieldTheory.RatFunc.Basic
-import Mathlib.Tactic.NormNum
+public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.Ring
+public import Mathlib.LinearAlgebra.Quotient.Basic
+public import Mathlib.Tactic.Abel
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+public import Mathlib.Algebra.Module.Submodule.Lattice
+public import Mathlib.Algebra.Module.Pi
+public import Mathlib.Algebra.Field.Basic
+public import Mathlib.LinearAlgebra.Dual.Lemmas
+public import Mathlib.LinearAlgebra.Pi
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.LinearAlgebra.Dimension.Constructions
+public import Mathlib.Tactic.LinearCombination
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Push
+public import Mathlib.LinearAlgebra.Basis.Prod
+public import Mathlib.LinearAlgebra.StdBasis
+public import Mathlib.LinearAlgebra.BilinearMap
+public import Mathlib.FieldTheory.RatFunc.Basic
+public import Mathlib.Tactic.NormNum
+
+@[expose] public section
 
 /-!
 # Bilinear algorithms and the tensor rank of `⟨n, l, m⟩`
@@ -44,10 +48,10 @@ linear maps `α_r : F^{k×l} → F`, `β_r : F^{l×m} → F` and matrices `C_r �
 `BilinearAlgorithm K n l m r` is exactly such a decomposition of length `r` over the field `K`,
 and `tensorRank K n l m` is the smallest such `r`.
 
-This file does not import the external dependency `fallnlove/mm325_proof`.
-The connection to it (`tensorRank_three_two_eq`, `tpsr_lower_bound`) lives in
-`YangBounds/BrueckeMM325.lean`, which no file of the chain of the final theorem imports
-(task S4-26, condition 7).
+This file does not import the former external dependency `fallnlove/mm325_proof`.
+The connection to it (`tensorRank_three_two_eq`, `tpsr_lower_bound`) lived in
+`YangBounds/BrueckeMM325.lean` (task S4-26, condition 7), which task S5-03 removed; it stays
+reachable via the tag `lean-4.19`.
 -/
 
 namespace YangBounds
@@ -75,6 +79,11 @@ def entryForm {a b : ℕ} (i : Fin a) (j : Fin b) : Matrix (Fin a) (Fin b) K →
   map_add' _ _ := rfl
   map_smul' _ _ := rfl
 
+/-- Evaluation of `entryForm` (added in S5-14: with the module system `simp [entryForm]` no
+longer reduces the application). -/
+theorem entryForm_apply {a b : ℕ} (i : Fin a) (j : Fin b) (M : Matrix (Fin a) (Fin b) K) :
+    entryForm i j M = M i j := rfl
+
 /-- The matrix unit with a `1` at position `(i, j)`. -/
 def unitMatrix {a b : ℕ} (i : Fin a) (j : Fin b) : Matrix (Fin a) (Fin b) K :=
   Matrix.of fun i' j' => if i' = i ∧ j' = j then 1 else 0
@@ -97,7 +106,7 @@ noncomputable def standardAlgorithm (K : Type u) [Field K] (n l m : ℕ) :
     · apply Finset.sum_congr rfl
       intro k _
       rw [Finset.sum_eq_single b]
-      · simp
+      · simp only [ite_true, and_self]; rfl
       · intro j _ hj
         simp [Ne.symm hj]
       · simp
