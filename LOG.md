@@ -2638,3 +2638,12 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 - Budget: 4 von 6 Runden verbraucht. Fertig-Kriterium der Stufe nicht erfüllt (Budget nicht erschöpft, nur eine Spur beendet).
 - Der Orchestrator hält an und berichtet Justus, weil eine Abbruchregel gegriffen hat (Anweisung von Justus vom 25.11.2026). Runde 5 wird erst nach seiner Antwort vergeben.
 - Plan des Orchestrators für Runde 5 (bei Vergabe neu zu lesen): (1) und (2) zwei Abgleich-Prüfer für `s4_07_D` gegen B-021 D, die einander nicht sehen, mit der Positivliste im Logbuch und Job 139899962532; (3) Wartungsauftrag Auflage 7 nach Vorgabe von Justus; (4) Spur A: Lücke L-21 bzw. S4-21-V im Unterfall (M21); (5) Spur A: Fall e = 2 ohne (INJ-B); (6) unabhängiger Sucher (nicht blind). Prüfer für S4-21-G, S4-21-K, S4-21-L haben dann keinen Platz und kämen in Runde 6. Vor der Runde: Literaturwache nur, wenn eine neue Sitzung beginnt, und Gedächtnisdurchsicht.
+
+**Nachtrag 26.11.2026: Entscheidung von Justus zu Runde 5 (12:27:48 UTC, Entscheidungskarte, über den Orchestrator)**
+
+- Frage auf der Karte: „Spur B ist nach Abbruchregel 2 beendet. Soll Runde 5 jetzt nur mit Spur A und dem Wartungsauftrag zu Auflage 7 starten?“ Justus wählte „Runde 5 starten“.
+
+**Nachtrag 26.11.2026, vor Runde 5: Gedächtnisdurchsicht (Schreibhand)**
+
+- Index (`MEMORY.md`, md5 1c3884b6…, geändert 12:12 UTC) und alle 21 Einzeleinträge durchgesehen. Neu im Index seit der letzten Durchsicht: die Regel von Justus zur Benennung „blind“ bzw. „unabhängiger Sucher (nicht blind)“ und seine Entscheidung, je Runde einen unabhängigen Sucher zu vergeben; die Anweisungen zur Gedächtnisdurchsicht und zu den Suchern sind auf „unabhängige Sucher“ umgestellt. Das sind Arbeitsregeln, kein Urteil, kein Befund, kein Zwischenstand. Hinweis ohne Wertung: Der Index gibt Abschnitt 6 als „pro Runde mindestens ein unabhängiger Sucher“ wieder; im Protokoll steht „Blind-Sucher“, die Abweichung beruht auf der Entscheidung von Justus (11:55 UTC).
+- Einzeleinträge seit der letzten Durchsicht unverändert. Nichts zu Stufe 4, zu Behauptungen, Status, Zählern oder Spuren. Keine Änderung nötig.
