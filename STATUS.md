@@ -1,11 +1,11 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 1 vergeben: S5-01 Spur K; Spur P wartet auf das Tag lean-4.19, Lesart j. Auflage 7 abgeschlossen. Literaturwache S5-LW erledigt)
+Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 1: S5-01 Spur K vergeben; Zweig lean-4.19 auf 71240f8 statt Tag, Spur P darf starten. Auflage 7 abgeschlossen)
 
 ## Aktuelle Stufe
 
-**Stufe 5: Portierung für Palomar (Spur P) und Festigung der Kette zu 3×2×7 ohne Lean (Spur K)** (Protokoll 0.7, Abschnitt 3): von Justus gestartet am 26.11.2026, 14:32:59 UTC (Wortlaut im Logbuch). Protokoll 0.7 (1c15770) von ihm bestätigt. Budget: 6 Runden (beide Spuren zusammen), je bis zu 6 Subagenten, höchstens 4 Fremdmodell-Anfragen. Reihenfolge: Abschluss Auflage 7 (A7-Z läuft, dann Textänderung), Literaturwache, dann Runde 1. Literaturwache S5-LW erledigt (PR #145). Tag `lean-4.19` auf 71240f8: Push mit 403 abgewiesen, der Orchestrator hat Justus um 14:41 UTC gebeten, es selbst zu setzen; Zweig `portierung` steht auf 71240f8
-- **Lesart (j)** (Orchestrator): Kein Auftrag der Spur P, bevor das Tag steht, auch nicht zu `palomar/ANFORDERUNGEN.md`. Runde 1 bleibt offen; Spur P kommt in dieselbe Runde, sobald das Tag steht und solange S5-01 läuft, sonst in Runde 2
+**Stufe 5: Portierung für Palomar (Spur P) und Festigung der Kette zu 3×2×7 ohne Lean (Spur K)** (Protokoll 0.7, Abschnitt 3): von Justus gestartet am 26.11.2026, 14:32:59 UTC (Wortlaut im Logbuch). Protokoll 0.7 (1c15770) von ihm bestätigt. Budget: 6 Runden (beide Spuren zusammen), je bis zu 6 Subagenten, höchstens 4 Fremdmodell-Anfragen. Reihenfolge: Abschluss Auflage 7 (A7-Z läuft, dann Textänderung), Literaturwache, dann Runde 1. Literaturwache S5-LW erledigt (PR #145). Tag `lean-4.19`: Push mit 403 abgewiesen. Nach Entscheidung von Justus (14:50 UTC, Wortlaut im Logbuch) statt des Tags der Zweig `lean-4.19` auf 71240f8, wird nie verändert. Zweig `portierung` steht ebenfalls auf 71240f8
+- ~~Lesart (j)~~ erledigt mit dem Zweig `lean-4.19`, Spur P darf starten. Früherer Wortlaut: Kein Auftrag der Spur P, bevor das Tag steht, auch nicht zu `palomar/ANFORDERUNGEN.md`. Runde 1 bleibt offen; Spur P kommt in dieselbe Runde, sobald das Tag steht und solange S5-01 läuft, sonst in Runde 2
 - **Runde 1 vergeben etwa 14:49 UTC:** S5-01 (Spur K, Zusammenführung der Kette in `lean/prosa/s5_327_kette.md`), 1 Subagent, kein Fremdmodell
 
 **Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): **beendet nach Runde 6, Budget erschöpft, Fertig-Kriterium nicht erfüllt** (Zusammenfassung im Abschnitt „Abschluss Stufe 4“). Verlauf: Nach Runde 4 angehalten (Abbruchregel 2 für Spur B, Bericht an Justus), Runde 5 von Justus um 12:27 UTC freigegeben. Spur B aufgegeben, Spur A läuft. Die Pause bis 29.11.2026 (Justus, 08:23 UTC) hat Justus um 09:47 UTC aufgehoben, Runde 3 darf starten

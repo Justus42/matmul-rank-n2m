@@ -2877,3 +2877,14 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 
 - S5-01, Spur K: Zusammenführung der Kette zu ⟨3,2,7⟩ in `lean/prosa/s5_327_kette.md`. 1 Subagent, kein Fremdmodell.
 - Spur P: noch kein Auftrag (Lesart (j), Tag `lean-4.19` steht nicht).
+
+**Entscheidung von Justus zum Tag `lean-4.19` (26.11.2026, 14:50:45 UTC, über den Orchestrator), Wortlaut:**
+
+> Zwei Punkte.
+>
+> 1. Tag: Lege statt des Tags den Zweig lean-4.19 auf 71240f8 an und verändere ihn danach nie. Das erfüllt die Vorgabe aus Abschnitt 3, ich entscheide das so. Vermerke Commit und Entscheidung im Logbuch. Danach darf Spur P starten.
+> 2. Umgebung: Ergänze die Freigabeliste deiner Umgebung selbst um palomar-registry.org und *.palomar-registry.org, ich bestätige per Klick. Prüfe außerdem mit einem kurzen Testlauf, ob ein Thread die Lean-Version für die Portierung und den Mathlib-Cache lokal laden kann. Fehlen dafür Domains, beantrage genau diese und keine weiteren. Die Literaturwache liest das Register dann beim nächsten Durchgang direkt.
+
+- Ausgeführt von der Schreibhand: Zweig `lean-4.19` auf Commit `71240f81988ae10323af035c3273a45b5038ac3a` angelegt und gepusht (etwa 14:51 UTC). `git ls-remote`: `refs/heads/lean-4.19` und `refs/heads/portierung` stehen beide auf 71240f8. Der Zweig `lean-4.19` wird nie verändert. Das lokal angelegte Tag ist gelöscht, auf dem Server gab es nie eins.
+- Lesart (j) ist damit erledigt (Orchestrator): Spur P darf starten. Der Zweig `portierung` bleibt auf 71240f8 als Ausgangspunkt.
+- Punkt 2 (Freigabeliste, Testlauf Lean und Mathlib-Cache) übernimmt der Orchestrator.
