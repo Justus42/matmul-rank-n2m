@@ -1,10 +1,10 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 5 abgeschlossen, Runde 6 vergeben: Merge `portierung` nach `main`; Fragen an den Repository-Eigentümer offen)
+Zuletzt geändert: 26.11.2026 (Stufe 5 beendet nach Runde 6: beide Spuren fertig, B-034 geprüft, Stand der Einreichung 676cdf5deb786e81a66342606d4dd2b6f919745e; Orchestrator hält an)
 
 ## Aktuelle Stufe
 
-**Stufe 5: Portierung für Palomar (Spur P) und Festigung der Kette zu 3×2×7 ohne Lean (Spur K)** (Protokoll 0.7, Abschnitt 3): von Justus gestartet am 26.11.2026, 14:32:59 UTC (Wortlaut im Logbuch). Protokoll 0.7 (1c15770) von ihm bestätigt. Budget: 6 Runden (beide Spuren zusammen), je bis zu 6 Subagenten, höchstens 4 Fremdmodell-Anfragen. Reihenfolge: Abschluss Auflage 7 (A7-Z läuft, dann Textänderung), Literaturwache, dann Runde 1. Literaturwache S5-LW erledigt (PR #145). Tag `lean-4.19`: Push mit 403 abgewiesen. Nach Entscheidung von Justus (14:50 UTC, Wortlaut im Logbuch) statt des Tags der Zweig `lean-4.19` auf 71240f8, wird nie verändert. Zweig `portierung` steht ebenfalls auf 71240f8
+**Stufe 5: Portierung für Palomar (Spur P) und Festigung der Kette zu 3×2×7 ohne Lean (Spur K)** (Protokoll 0.7, Abschnitt 3): **beendet nach Runde 6, beide Spuren fertig, Budget verbraucht** (Zusammenfassung im Abschnitt „Abschluss Stufe 5“). Von Justus gestartet am 26.11.2026, 14:32:59 UTC (Wortlaut im Logbuch). Protokoll 0.7 (1c15770) von ihm bestätigt. Budget: 6 Runden (beide Spuren zusammen), je bis zu 6 Subagenten, höchstens 4 Fremdmodell-Anfragen. Reihenfolge: Abschluss Auflage 7 (A7-Z läuft, dann Textänderung), Literaturwache, dann Runde 1. Literaturwache S5-LW erledigt (PR #145). Tag `lean-4.19`: Push mit 403 abgewiesen. Nach Entscheidung von Justus (14:50 UTC, Wortlaut im Logbuch) statt des Tags der Zweig `lean-4.19` auf 71240f8, wird nie verändert. Zweig `portierung` steht ebenfalls auf 71240f8
 - ~~Lesart (j)~~ erledigt mit dem Zweig `lean-4.19`, Spur P darf starten. Früherer Wortlaut: Kein Auftrag der Spur P, bevor das Tag steht, auch nicht zu `palomar/ANFORDERUNGEN.md`. Runde 1 bleibt offen; Spur P kommt in dieselbe Runde, sobald das Tag steht und solange S5-01 läuft, sonst in Runde 2
 - **Runde 1 vergeben etwa 14:49 UTC:** S5-01 (Spur K, Zusammenführung der Kette in `lean/prosa/s5_327_kette.md`); etwa 14:53 UTC dazu S5-02 (Spur P, `palomar/ANFORDERUNGEN.md`) und S5-03 (Spur P, Portierung, Bericht `lean/prosa/s5_portierung_s5-03.md`), beide mit PR an `portierung`. 3 Subagenten, kein Fremdmodell
 - Runde 1, S5-01 geliefert (PR #148, etwa 27 Minuten nach Git): Kette als ein Beweis in `lean/prosa/s5_327_kette.md`, Glieder K-1 bis K-41. B-033 angelegt, behauptet; je Glied zwei unabhängige Bestätigungen vorgesehen (`pruefvermerke/B-033.md`), Urteile aus Stufe 4 zählen nicht. Fünf neue Beweiswege und Herleitungen von Hand nach Wertung des Orchestrators Teil des Auftrags, kein neuer Beweisangriff; Nebenbefund 12.16 wird nicht weiterverfolgt. S5-03 geliefert ohne lokalen Bau (PR #147 an `portierung`), Läufe failure, cache.mathlib.org gesperrt (Freigabe seit 14:59 UTC bei Justus beantragt). 
@@ -27,6 +27,8 @@ Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 5 abgeschlossen, Runde 6 vergeben:
 - **Runde 5 von 6 abgeschlossen (Orchestrator):** 4 Subagenten (S5-18 bis S5-21), 1 Fremdmodell-Anfrage (0,01 US-$), etwa 12 Minuten nach Git (16:53 UTC bis Merge f75d77c um 17:05:15 UTC). **Spur K: Fertig-Kriterium erfüllt**, B-033 behauptet, Fremdmodell Spur K 0 von 3. **Spur P: Fortschritt, Zähler 0 von 3**; offen Merge nach `main` mit Zweitlauf dort, P-13 und sieben Eigentümer-Punkte beim Repository-Eigentümer. Budget 5 von 6 Runden, Fremdmodell 1 von 4
 - **Runde 6 von 6 vergeben etwa 17:22 UTC (letzte Runde im Budget):** S5-22, Merge `portierung` (f75d77c) nach `main` mit Merge-Commit, beide Workflows auf `main` grün. 1 Subagent, kein Fremdmodell. Lesart (p): Zweitlauf auf dem Merge-Commit von `main`, von der Schreibhand am Job-Log nachgesehen
 - ~~Fragen an den Repository-Eigentümer (16:11 UTC), offen~~ **beantwortet von Justus am 26.11.2026, 17:31:34 UTC** (Wortlaut im Logbuch): Autor und verantwortlicher Betreuer in `formalization.yaml` „Justus Jeserigk, GitHub-Login Justus42. Sonst niemand.“; Herkunft „original (Fassung A)“, Yang „background“; P-13: `versuche/s2-19-abgleich/Check.lean` in `Check.lean.txt` umbenennen, Inhalt unverändert, eine Zeile Erklärung im selben Verzeichnis; „To our knowledge, the lower bound 26 is new“ mit Verweis auf `lit/`; `review.notes`: Abgleich „= 26“ durch Prüfer und Fremdmodell erledigt; Modellnamen unter `automation` nur, soweit im Logbuch belegt. „Nach dem Merge nach main und dem Zweitlauf nennst du mir den vollen Commit-SHA für die Einreichung und hältst an.“ Ausführung (Orchestrator): S5-22 um 17:32 UTC um diese sechs Punkte erweitert, über `portierung`, erneuter Merge nach `main`; fc7d9e1 ist nicht der Stand der Einreichung. Früherer Wortlaut: **Fragen an den Repository-Eigentümer (16:11 UTC), offen:** ob ein Auftrag `versuche/s2-19-abgleich/Check.lean` anpassen oder entfernen darf (P-13); Angaben für `formalization.yaml` (Autoren, Betreuer, original oder source-based). Bis zur Antwort bleibt die Datei unberührt
+- Runde 6, S5-22 geliefert: Merge nach `main` bei **676cdf5deb786e81a66342606d4dd2b6f919745e** mit den sechs Punkten von Justus; `lean-project.yml` (Job 140079318183) und `zweitlauf.yml` (Job 140079342228) auf diesem Commit grün. **B-034 geprüft** (Orchestrator)
+- **Runde 6 von 6 abgeschlossen, Stufe 5 beendet (Orchestrator):** 1 Subagent, 0 Fremdmodell-Anfragen, etwa 27 Minuten nach Git. Spur P: Fertig-Kriterium erfüllt; offen nur P-47 bis P-49 (Einreichung durch den Eigentümer) und fünf Punkte, die nur Palomar entscheidet. Spur K: fertig seit Runde 5. Budget 6 von 6, Fremdmodell 1 von 4 (0,01 US-$). Der Orchestrator nennt dem Eigentümer den SHA und hält an; Stufe 6 beginnt nur mit seiner Startnachricht
 - **Offene Fragen aus S5-02** (`palomar/ANFORDERUNGEN.md` auf `portierung`): (1) Modulpflicht auch für `versuche/s2-19-abgleich/Check.lean` außerhalb von `lean/`; (2) Endung `.git` an der Mathlib-URL im Manifest; (3) `tensorRank` benutzt `exists_bilinearAlgorithm`, Platz in der Challenge; (4) original oder source-based, Entscheidung von Justus; (5) Inhalt von `llms.txt` unbekannt; (6) Prüfprogramm con-ron nur bis v4.35.0 hinterlegt
 - Umgebung: Freigabe für palomar-registry.org, *.palomar-registry.org und lakecache.blob.core.windows.net bei Justus beantragt (14:52 UTC). Gesperrt laut Probe des Orchestrators: lakecache.blob.core.windows.net, release.lean-lang.org, mathlib4.lean-cache.cloud, reservoir.lean-lang.org, lean-lang.org. Genauer Bedarf aus der Werkzeugprobe in S5-03
 
@@ -95,6 +97,48 @@ Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 5 abgeschlossen, Runde 6 vergeben:
 - B-020 (R(⟨3,2,7⟩) ≤ 35 über ℤ, also über jedem Körper): **geprüft** nach 5.2, Läufe wiederholt durch S4-10. Kein Fortschritt nach Abbruchregel 2 (Lesart des Orchestrators)
 - Fertig mit einem Lean-Satz für die untere Schranke 35 über jedem Körper (geprüft nach 5.1 samt Abgleich des Endsatzes), einem nach 5.2 bestätigten Verfahren mit 34, erschöpftem Budget oder wenn eine Abbruchregel beide Spuren beendet
 - Kein Kontakt nach außen. README und `ergebnisse/` bleiben unverändert
+
+## Abschluss Stufe 5
+
+Zusammengestellt von der Schreibhand im Auftrag des Orchestrators, nur aus `LOG.md` und `pruefvermerke/`. Status setzt der Orchestrator.
+
+**Ende:** Stufe 5 endet nach Runde 6: beide Spuren haben nach Wertung des Orchestrators ihr Fertig-Kriterium erfüllt, das Budget von 6 Runden ist verbraucht. Spur K seit Runde 5 (jedes Glied der Kette zwei unabhängige Bestätigungen, K-40 in der Fassung von `lean/prosa/s5_327_k40.md`). Spur P seit Runde 6 (Sammelzweig grün ohne `sorry` außer dem gewollten der Challenge, Axiom-Bericht, jede Anforderung einzeln belegt, Aussagen-Abgleich bestanden, nach `main` gemergt, Zweitlauf dort nach Lesart (p)). Stand der Einreichung: **676cdf5deb786e81a66342606d4dd2b6f919745e** (Orchestrator nennt ihn dem Eigentümer und hält an). Nichts wird mehr vergeben; Stufe 6 beginnt nur mit einer Startnachricht von Justus. README und `ergebnisse/` sind in Stufe 5 unverändert. Keine Einreichung durch einen Agenten.
+
+**Was geprüft ist:** B-034, R(⟨4,2,4⟩) = 26 über jedem Körper, Lean `YangBounds.Gleich444.rank_four_two_four_eq_26` und `MatMulRank.rank_four_two_four_eq_26` (5.1: Job 140079318183 und Zweitlauf Job 140079342228 auf 676cdf5; Abgleich S5-20 und Fremdmodell). Öffentlich als Ergebnis bezeichnet wird es erst nach Freigabe des Repository-Eigentümers. B-033 bleibt behauptet.
+
+**Behauptungen der Stufe 5:**
+
+| Nr. | Inhalt (kurz) | Status | Bestätigt von |
+|---|---|---|---|
+| B-033 | Kette zu R(⟨3,2,7⟩) ≥ 35 als ein Beweis, Glieder K-1 bis K-41 (`lean/prosa/s5_327_kette.md` bei d6469d8; K-40 neu in `lean/prosa/s5_327_k40.md` bei fa1b7aa) | behauptet | K-1 bis K-39 und K-41: erste Lesung S5-04 bis S5-07, zweite Lesung S5-09 bis S5-13; K-40 alter Wortlaut: S5-07 bestätigt, S5-13 Lücke („offen“); K-40 neuer Wortlaut (S5-15): S5-18 und S5-19, unabhängig. Kein Fremdmodell |
+| B-034 | R(⟨4,2,4⟩) = 26 über jedem Körper, Lean, Aussage der Palomar-Challenge | geprüft | Abgleich S5-20 und Fremdmodell (GPT 6.2 Sol, Runde 5), je „stimmt überein“ mit Vorbehalten; Bau, Axiome und Zweitlauf auf 676cdf5 |
+
+**Spur P, Stand der Palomar-Anforderungen** (laut Meldung zu S5-22, `palomar/BELEGE.md` bei 676cdf5): 39 erfüllt, keine nicht erfüllt; beim Eigentümer nur P-47 bis P-49 (Einreichung); fünf Punkte entscheidet nur Palomar (P-22, P-42, P-44 bis P-46). Comparator mit NanoDa und con-ron lokal angenommen (S5-16, S5-21), außerhalb von Palomars Sandbox. Angaben des Eigentümers nach seiner Entscheidung vom 26.11.2026, 17:31:34 UTC, in `lean/formalization.yaml`; P-13 durch Umbenennung in `Check.lean.txt`.
+
+**Offene Punkte:**
+
+- Die Kettendatei `lean/prosa/s5_327_kette.md` ist nicht berichtigt: Ungenauigkeiten in der Sammelliste von `pruefvermerke/B-033.md`, neuer Wortlaut von K-40 nur in `lean/prosa/s5_327_k40.md`.
+- Strukturhinweis der Prüfer (S5-07, dazu Nebenbefund 12.16 aus S5-01): Nach den Wortlauten liegt das Gewicht der Kette auf K-35 und K-37 (und den Gliedern, auf die sie sich stützen); die Fallunterscheidung nach e ist logisch überzählig. Nicht weiterverfolgt (kein neuer Beweisangriff in Stufe 5).
+- B-033 ist behauptet und nicht in Lean formalisiert.
+- Kein Fremdmodell in Spur K (0 von 3; Entscheidung beim Repository-Eigentümer).
+- Nicht auf der Positivliste der K-40-Prüfer: Zeile 381 der Kette, Einleitungssatz von K-33, Wortlaute von K-8, K-18, K-38.
+- Lesarten der Stufe 5 (Wortlaut im Logbuch): (k) strengere Zählung der Fortschrittsregel in Runde 1; (l) eine Anforderung gilt nur mit Befehl und Ausgabe als belegt; (m) Aussagen-Abgleich erst in Runde 5 auf festem Wortlaut, Merge und Zweitlauf in Runde 6; (n) eine vorgelegte, von keinem Prüfer gelesene Schließung zählt nicht als „Lücke geschlossen“; (o) B-034 bleibt behauptet bis Merge nach `main` und Zweitlauf dort; (p) „Zweitlauf dort wiederholt“ heißt der Lauf von `zweitlauf.yml` auf dem Merge-Commit von `main`, von der Schreibhand am Job-Log nachgesehen, ohne eigenen Prüfer.
+- Kurze Bearbeitungsdauern der Prüfer nach Git: Runde 2 etwa 3 bis 5 Minuten je Block, Runde 3 etwa 5 bis 9 Minuten (S5-10 etwa 31), Runde 5 etwa 1 bis 3 Minuten (S5-18, S5-19, S5-20), jeweils ab der gemeldeten Vergabezeit; Zweige mit einem Commit zeigen keinen früheren Beginn.
+- `main`-Commit 7cf6800 (Bericht S5-22) und die späteren Logbuch-Commits liegen nach dem SHA der Einreichung 676cdf5deb786e81a66342606d4dd2b6f919745e.
+- Nicht nachgestellt: Palomars äußere Sandbox, kanonische Challenge unter Alias, bwrap 0.12.0, Bau ohne Netz.
+
+**Verbrauch je Runde (Dauer nach Git):**
+
+| Runde | Subagenten | Fremdmodell | Dauer | Zähler am Ende (Spur P / Spur K) |
+|---|---|---|---|---|
+| vor Runde 1 | 1 (S5-LW, Literaturwache) | 0 | – | – |
+| 1 | 3 (S5-01 bis S5-03) | 0 | etwa 29 Minuten | 1 von 3 / 1 von 3 |
+| 2 | 5 (S5-04 bis S5-08) | 0 | etwa 11 Minuten | 2 von 3 / 0 von 3 |
+| 3 | 6 (S5-09 bis S5-14) | 0 | etwa 32 Minuten | 0 von 3 / 0 von 3 |
+| 4 | 3 (S5-15 bis S5-17) | 0 | etwa 22 Minuten | 0 von 3 / 1 von 3 |
+| 5 | 4 (S5-18 bis S5-21) | 1 (0,01 US-$) | etwa 12 Minuten | 0 von 3 / Fertig-Kriterium erfüllt |
+| 6 | 1 (S5-22) | 0 | etwa 27 Minuten | Fertig-Kriterium erfüllt / – |
+| **Summe** | **23** (davon 1 außerhalb der Runden) | **1 von 4** (0,01 US-$) | | |
 
 ## Abschluss Stufe 4
 
@@ -274,7 +318,7 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S5-19 | Spur K: Prüfer für den neuen Wortlaut von K-40, unabhängig von S5-18 | Prüfer | `lean/prosa/s5_kette_bericht_s5-19.md` | erledigt, PR #165 (Merge ba0dbad). Neuer Wortlaut von K-40 (a) und (b) bestätigt, Zeilen 101–111 bestätigt; Ungenauigkeiten wie S5-18 |
 | S5-20 | Aussagen-Abgleich zu B-034 nach 5.1 Punkt 3 | Prüfer | `lean/prosa/s5_abgleich_s5-20.md` | erledigt, PR #163 (Merge e5b4fc0). Urteil „stimmt überein“ mit Vorbehalten (Definitions.lean, Comparator, `sInf`); B-034 bleibt behauptet bis zur Sol-Antwort |
 | S5-21 | Spur P: BELEGE auf Stand „gleich 26“, `formalization.yaml` (ohne Felder des Eigentümers), Axiom-Ausgabe im Zweitlauf; keine Lean-Datei | Formalisierer | `palomar/BELEGE.md` | geliefert, PR #166 an `portierung` (Merge f75d77c). Comparator mit NanoDa (Läufe A, B) für `rank_four_two_four_eq_26` angenommen, con-ron 27008 Deklarationen; erfüllt 34, P-13 nicht erfüllt. Jobs 140064238306 und 140064239318 grün |
-| S5-22 | Merge `portierung` (f75d77c) nach `main` mit Merge-Commit, beide Workflows auf `main` grün | Formalisierer | `lean/prosa/s5_merge_s5-22.md` | vergeben in Runde 6, etwa 17:22 UTC; erster Merge fc7d9e1 (PR #167) auf `main`; um 17:32 UTC um die sechs Punkte von Justus erweitert, erneuter Merge folgt |
+| S5-22 | Merge `portierung` (f75d77c) nach `main` mit Merge-Commit, beide Workflows auf `main` grün | Formalisierer | `lean/prosa/s5_merge_s5-22.md` | erledigt: PR #167 (Merge fc7d9e1), PR #168 an `portierung` (Merge 72e593f), PR #169 (Merge 676cdf5deb786e81a66342606d4dd2b6f919745e), Bericht PR #170 (Merge 7cf6800). Jobs 140079318183 und 140079342228 auf 676cdf5 grün |
 
 ## Stufe 3: abgeschlossen
 
