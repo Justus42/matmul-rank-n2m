@@ -2521,3 +2521,11 @@ Wortlaut Justus (26.11.2026, 10:09:04 UTC):
 - Hinweis der Schreibhand (ohne Wertung): `lean/prosa/s4_327_spurA_r3_e3.md` auf der Positivliste von S4-19 enthält in Abschnitt 2 die Klammer „Status dort: behauptet, B-017 bis B-019 von je einem Prüfer bestätigt“. In B-026 ist sie ausgelassen, im Artefakt steht sie.
 - **Lesart (g) des Orchestrators:** Für „geprüft“ von B-021 D nach 5.1 muss der Lean-Satz in Runde 4 grün auf main stehen. Die zwei Abgleich-Prüfer laufen in Runde 5.
 - Fremdmodell in Runde 4: nach 5.5 nur, wenn ein Prüfer einen neuen Ausschluss eines benannten Falls bestätigt. Bisher 0.
+
+**Nachtrag 26.11.2026, Runde 4: S4-19 geliefert (Prüfer B-026)**
+
+- PR #124 (Merge 15be75f um 11:32:21 UTC), Bericht `lean/prosa/s4_327_bericht_s4-19.md`. Commits a70809f (11:24:26), 910edd0 (11:31:49), UTC. Dauer nach Git etwa 8 Minuten (Vergabe etwa 11:24 UTC bis Merge).
+- Urteile: A (Satz R) hält, über jedem Körper und jeder Charakteristik, ohne algebraischen Abschluss, Koszul-Stelle zusätzlich auf anderem Weg nachgerechnet, Gleichwertigkeit mit der Dimensionsaussage hält. B (i) hält inhaltlich bei Lesart von (INJ5) als Injektivität auf P_5 ⊕ P_3, der Zusatz „das ist S4-07-D“ ist nicht entscheidbar (Stelle nicht auf der Positivliste). B (ii), B (iii), C (i) bis (iv) halten.
+- Rechenblock 11:26:34 bis 11:31:06 UTC, kein Verstoß. 0 Subagenten, 0 Fremdmodell-Anfragen. Offenlegung: Index und vier Einzeleinträge (`pruefer-abgleich-s1-20`, `pruefer-rust`, `pruefer-python-s1-07`, `hk-verfahren-a10`).
+- Fundstelle (Schreibhand, ohne Wertung): Der Bericht nennt als Spur die Klammer über B-017 bis B-019 „im Artefakt Abschnitt 2 und B-026“. In B-026 steht sie nicht (dort „[…]“), nur im Artefakt.
+- Status (Orchestrator): B-026 behauptet, von einem Prüfer bestätigt, Vorbehalt zu B (i). Keine Sol-Anfrage: Satz R schließt keinen benannten Fall von B-025 aus und ändert keine Schranke, zählt also nicht als Fortschritt nach 2 b), und 5.5 lässt die Anfrage dann nicht zu.
