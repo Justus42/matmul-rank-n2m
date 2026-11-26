@@ -144,3 +144,47 @@ Rohdaten des Verfahrens in diesem Format:
 -1 -1 1 1 -1 -1 | 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 | 0 0 0 0 0 0 0 0 0 0 -1 0 0 0 0 0 0 0 0 0 0 | 
 0 1 1 0 0 0 | 0 0 0 0 1 1 0 0 0 0 0 0 0 1 | 0 0 0 -1 -1 1 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 | 
 ```
+
+## 4. Untere Schranke: was ein Verfahren mit 34 Produkten erfüllen müsste
+
+Ziel war, die Lücke 34/35 von unten zu schließen. Das ist mir **nicht** gelungen. Was ich habe, ist eine Strukturaussage über ein hypothetisches Verfahren mit 34 Produkten und eine Beobachtung, warum reines Dimensionszählen nicht reicht.
+
+### 4.1 Umformulierung (behauptet, elementar)
+
+Ein Verfahren der Länge r für ⟨3,2,m⟩ ist dasselbe wie Linearformen α_ρ auf F^{3×2}, β_ρ auf F^{2×m} und eine lineare Abbildung W: F^r → F^{3×m} mit W(Ψ(A⊗B)) = AB, wobei Ψ(A⊗B) := (α_ρ(A)·β_ρ(B))_ρ ∈ F^r. Mit μ: F^{3×2}⊗F^{2×m} → F^{3×m} (Multiplikation) gilt dann ker Ψ ⊆ ker μ und Ψ(ker μ) ⊆ K := ker W. Da W surjektiv ist, ist dim K = r − 3m. Für m = 7 und r = 34 also dim K = 13.
+
+Für einen Zeilenvektor p ∈ F^{1×2} sei U^p := {B ∈ F^{2×m} : pB = 0} (Dimension m) und 𝒟^p := {α(up) : u ∈ F^3} mit α(A) := (α_ρ(A))_ρ. Für u ∈ F^3 und x ∈ U^p ist (up)x = u(px) = 0, also liegt Ψ(F^3 p ⊗ U^p) = 𝒟^p · β(U^p) (komponentenweises Produkt) in K.
+
+### 4.2 Satz (behauptet): Struktur eines Verfahrens mit 34 Produkten
+
+Annahme: Es gibt ein Verfahren der Länge 34 für ⟨3,2,7⟩ über einem Körper F. Nach Übergang zum algebraischen Abschluss (die Länge bleibt) und der starken Normierung aus Yang, arXiv:2609.14393v3, Lemma 6, gilt mit den Bezeichnungen dort (U, f_i, g, J = f_0(U), F_i = f_i + J, L, H, N, S, Δ), n = 3, m = 7:
+
+1. rk L = dim(K/J) = 6, also K = J + f_1(U) + f_2(U). Für generisches p heißt das K = 𝒟^p · β(U^p): die 21 Produkte spannen genau 13 Dimensionen auf, und diese 13 Dimensionen sind ganz K.
+2. rk H = 4, dim N = 3, Δ = 2.
+3. dim S = 1. Ist S = ⟨x⟩, dann ist f_0(N) = ⟨f_0(x), f_1(x), f_2(x)⟩.
+4. Die Abbildung Φ aus Yangs Lemma 10 ist surjektiv auf (K/J)^3.
+5. Dasselbe gilt mit vertauschten Spalten von A (und Zeilen von B). Insbesondere gilt K = 𝒟_0·J_p = 𝒟_1·J_q mit 𝒟_c := ⟨α(e_{i,c}) : i⟩, J_p := β(Zeile 0 = 0), J_q := β(Zeile 1 = 0). Dazu ist F^34 = K ⊕ 𝒟_1·J_p = K ⊕ 𝒟_0·J_q, und beide Summanden 𝒟_1·J_p und 𝒟_0·J_q haben die volle Dimension 21.
+
+Beweis. Ich verwende Yangs Lemmata 6, 8, 10 und 12 als gegeben (nicht von mir geprüft, nur nachgelesen). Mit h' := dim K/J = r − 4m = 6:
+
+- Lemma 10 und Rangsatz (Gleichung (1) bei Yang): 2m + rk H ≤ rk L + 2h', also 14 + rk H ≤ rk L + 12.
+- rk L ≤ h' = 6. Daraus folgt rk H ≤ 4. Weil H auf U^{∧2} ≅ U definiert ist und Kern N hat, ist dim N = 7 − rk H ≥ 3.
+- Yang zeigt Δ = 2 rk H − rk L ≥ min(2, dim N) = 2.
+- Aus 2 rk H ≥ rk L + 2 und rk H ≤ rk L − 2 folgt rk L + 2 ≤ 2 rk L − 4, also rk L ≥ 6. Zusammen mit rk L ≤ 6 gilt rk L = 6. Dann folgt rk H ≤ 4 und 2 rk H ≥ 8, also rk H = 4, dim N = 3 und Δ = 2. Damit sind Punkt 1 (L surjektiv auf K/J) und Punkt 2 gezeigt.
+- Lemma 12: dim S ≥ dim N − Δ = 1. Lemma 8 auf S ≠ 0 angewandt: dim S + 2 ≤ dim(f_0(S)+f_1(S)+f_2(S)) ≤ dim f_0(N) = 3, also dim S = 1. Ist S = ⟨x⟩, dann sind f_0(x), f_1(x), f_2(x) nach starker Normierung linear unabhängig und liegen in f_0(N), das Dimension 3 hat. Das ist Punkt 3.
+- Punkt 4: Der Definitionsbereich von Φ hat Dimension 2m + m = 21, der Kern ist 0 ⊕ N mit Dimension 3. Das Bild hat also Dimension 18 = rk L + 2h' = dim (K/J)^3.
+- Punkt 1, Umformulierung: Nach der Normierung ist e_{i,0} = u_i p für eine generische Zeile p und eine Basis u_0, u_1, u_2. Dann ist J + f_1(U) + f_2(U) = Σ_i α(u_i p)·β(U^p) = 𝒟^p·β(U^p). Die Normierungsbedingungen sind offen und dicht in p. Deshalb gilt die Aussage für generisches p.
+- Punkt 5: Die Vertauschung der Spalten von A und der Zeilen von B ist eine Symmetrie des Tensors. Sie ändert W nicht, also auch K nicht. Die Normierungsbedingungen für beide Spalten sind gleichzeitig generisch erfüllbar (dieselbe generische Wahl von u_0 und zwei generische Zeilen p, p'). Für die Zerlegung F^34 = K ⊕ 𝒟_1·J_p: W bildet α(e_{i1})·β(x) für x ∈ U^{(1,0)} (Zeile 0 von x ist null, Zeile 1 ist v) auf e_{i1}x = e_i v ab. Das sind 21 Bilder, die F^{3×7} aufspannen. Also hat 𝒟_1·J_p Dimension 21 und schneidet K nur in 0, und 21 + 13 = 34. Für 𝒟_0·J_q gilt das genauso. ∎
+
+Lücken: Die Lemmata 6, 8, 10 und 12 von Yang habe ich nur nachgelesen, nicht unabhängig geprüft. Lemma 6 setzt einen unendlichen Körper voraus. Der Übergang zum algebraischen Abschluss ist zulässig, weil ein Verfahren über F auch eines über dem Abschluss ist.
+
+### 4.3 Beobachtung (behauptet): Punkt 1 allein ist kein Widerspruch
+
+1. Mein eigenes Verfahren mit 35 Produkten (Abschnitt 3) erfüllt die Entsprechung von Punkt 1 mit Gleichheit: dim K = 14, und für drei zufällige p ist dim 𝒟^p·β(U^p) = 14 = dim K. Dasselbe gilt für dim Ψ(ker μ) = 14 und dim Bild Ψ = 35. Das habe ich numerisch per Matrixrang mit ganzzahligen Eingangsdaten und Toleranz 1e-8 gerechnet. Auch das Verfahren mit 35 Produkten ist also in diesem Sinn „straff“. Die Straffheit allein unterscheidet 34 nicht von 35.
+2. Reines Zählen von dim(𝒟·J) für einen 3-dimensionalen Raum 𝒟 von Diagonalmatrizen und einen 7-dimensionalen Raum J reicht nicht für 13 oder mehr. Polynom-Modell: Die Koordinaten sind Auswertungen in r Punkten allgemeiner Lage der Ebene, 𝒟 = ⟨1, x, y⟩ und J = ⟨1, x, y, x², xy, y², x³⟩. Dann ist 𝒟·J ⊆ Polynome vom Grad ≤ 3 plus ⟨x⁴, x³y⟩, also hat 𝒟·J Dimension 12. Die starke Normierung (d·w ≠ 0 für d ≠ 0, w ≠ 0) ist bei genügend vielen Punkten in allgemeiner Lage erfüllt. Ein Beweis von R ≥ 35 muss also die Kopplung der beiden Spalten von A ausnutzen, so wie Yang es mit g tut (Punkt 5 und die Bedingung α(e_{i0})·β(q) − α(e_{i1})·β(p) ∈ K). Eine Schranke allein aus dim 𝒟^p J^p reicht nicht.
+
+### 4.4 Gescheiterte Ansätze (mit Grund)
+
+- **Gleichheitsfall-Technik aus 2609.22054 auf m = 7 übertragen:** Sie greift nicht unmittelbar. Bei m = 7 und r = 34 ist 5h ≥ 9m mit h = 13 nicht scharf (65 > 63). Die verschärfte Ungleichung 4m + Δ ≤ 5h' aus Yang v3 wird bei h' = 6 zu 30 ≥ 30, ist also scharf. Daraus kommt die Struktur in 4.2, aber kein Widerspruch.
+- **Substitution einer Spalte von B:** Sie liefert nur R(⟨3,2,m⟩) ≥ R(⟨3,2,m−1⟩) + 2, also mit R(⟨3,2,6⟩) = 30 (Yang v3) nur 32. Für 35 bräuchte man +5 je Spalte, und das ist im Wesentlichen schon die volle Vermutung.
+- **Theorem 2 von Yang über die Permutation ⟨7,2,3⟩:** Es ist nicht anwendbar, weil es m ≥ n verlangt. Die Gleichung (2) ohne Lemma 14 liefert nur r ≥ 29.
