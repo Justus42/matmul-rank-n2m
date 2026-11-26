@@ -142,11 +142,12 @@ def normal_form(scheme, m, rng, lo=-40, hi=40):
     return out, info
 
 
-def to_json(scheme, ident, m, notes):
+def to_json(scheme, ident, m, notes, parent):
     return {
         "format_version": 1, "id": ident, "n": 3, "k": 2, "m": m, "rank": len(scheme), "ring": "Q",
-        "origin": {"source": "eigene Suche", "method": "nf_check.py (S4-16)", "created": "2026-11-26",
-                   "created_by": "Verfahrenssucher, S4-16"},
+        "origin": {"source": "exakter Basiswechsel des bekannten Verfahrens " + parent + " (keine neue Suche)",
+                   "method": "nf_check.py (S4-16)", "created": "2026-11-26",
+                   "created_by": "Verfahrenssucher, S4-16", "derived_from": parent},
         "notes": notes,
         "products": [{"u": [[fstr(x) for x in r] for r in u], "v": [[fstr(x) for x in r] for r in v],
                       "w": [[fstr(x) for x in r] for r in w]} for (u, v, w) in scheme],
@@ -173,7 +174,7 @@ def main():
         if be == 0 and sn1 and k1:
             ident = out.rsplit("/", 1)[-1][:-5]
             with open(out, "w", encoding="utf-8") as fh:
-                json.dump(to_json(res, ident, m, f"Normalform (SN1)+(K1) von {d['id']}, S={info['S']}, T={info['T']}"),
+                json.dump(to_json(res, ident, m, f"Normalform (SN1)+(K1) von {d['id']}, S={info['S']}, T={info['T']}", d['id']),
                           fh, ensure_ascii=False, indent=1)
             print(f"  written {out}")
             return 0

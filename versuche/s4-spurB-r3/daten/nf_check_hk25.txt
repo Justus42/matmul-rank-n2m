@@ -1,0 +1,3 @@
+../../verfahren/3x2x5-r25-hk71.json: m=5 R=25 brent errors before: 0
+  try 0: {'S': [['-23', '32', '-32'], ['-8', '-25', '23'], ['17', '20', '8']], 'T': [['-14', '-28'], ['22', '-37']], 'dimN': 1} -> brent errors 0, SN1 True, K1 True, K2 False
+  written daten/3x2x5-r25-nf-hk71.json
