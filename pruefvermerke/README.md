@@ -49,6 +49,13 @@ Je Behauptung gibt es eine Datei `pruefvermerke/B-xxx.md`. Sie beginnt mit der w
 | B-026 | Satz R (Fall e = 3 ohne (INJ5)), Folgerungen, Gestalt im Unterfall (M21) | behauptet (von einem Prüfer bestätigt, S4-19; Vorbehalt zu B (i)) | S4-14, PR #120 (Merge 22cb353) |
 | B-027 | E2-A, E2-B, E2-D zum Fall e ≤ 2 | behauptet (von einem Prüfer bestätigt, S4-20; Vorbehalt zur Lesart von (INJ-B)) | S4-15, PR #118 (Merge fa5d7b9) |
 
+Spuren der Stufe 4 (Abbruchregel 2):
+
+| Spur | Status | Bemerkung |
+|---|---|---|
+| Spur A (Ausschluss des Restfalls R-327) | läuft | Zähler 1 von 3 nach Runde 4. Frist: B-021 D geprüft bis Ende Runde 5 |
+| Spur B (Suche nach einem Verfahren mit 34) | aufgegeben | Orchestrator, 26.11.2026, Abschluss Runde 4: drei Runden in Folge ohne Fortschritt (Runden 2, 3, 4), Zähler 3 von 3. Kein Verfahren mit 34. Runde 2 ohne geeichtes Werkzeug, Runde 3 Positivprobe bei 35 nicht bestanden, Runde 4 Probe bestanden, aber Suche bei 34 ohne Fund und ohne vollständig abgesuchten Teilraum |
+
 Weitere geprüfte Ergebnisse ohne eigene Behauptungsdatei:
 
 | Aussage | Status | Beleg |

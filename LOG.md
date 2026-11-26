@@ -2622,3 +2622,19 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 - Spur A: Zähler 0 von 3 nach Runde 3, Runde 4 ohne neuen Fortschritt nach 2 a) oder b), also **1 von 3**. Frist B-021 D geprüft bis Ende Runde 5 läuft.
 - Abgleich der Schreibhand mit Logbuch und Protokoll: stimmt. Zähler Spur B nach Justus (09:47 UTC) 1 von 3 nach Runde 2, nach Runde 3 2 von 3 (Rundenabschluss Runde 3), Runde 4 ohne Fortschritt ergibt 3 von 3. Wortlaut Abschnitt 6, Abbruchregel 2: „3 Runden in Folge ohne Fortschritt: Spur endet mit Status aufgegeben.“
 - Der Orchestrator schließt Runde 4 ab, sobald die Nacharbeit von S4-18 gemeldet ist, und hält dann an und berichtet Justus, weil eine Abbruchregel gegriffen hat.
+
+**Nachtrag 26.11.2026, Runde 4: Nacharbeit S4-18 geliefert**
+
+- PR #128 (Merge 3eb57a5 um 12:10:38 UTC), Commits 66d63c3 (11:58:42) und e71c1ad (11:58:51), UTC. Diff selbst nachgesehen: nur der Kopfkommentar zu (INJ5) geändert, kein Lean-Code. Die Verweise auf den Prüferbericht S4-12 und die Sol-Antwort sind entfernt. In `lean/YangBounds/S4BedingterAusschluss.lean` stehen keine Verweise auf Prüfberichte, Fremdmodell-Antworten oder Urteile mehr (selbst durchsucht).
+- Lauf 45817224211 auf main (Commit 3eb57a5feb8596d88a4de5245b7cbe6f823b4c31), Job 139899962532, success. Selbst im Log nachgesehen: „SORRY: 0 declaration(s) with 'declaration uses sorry' in the build log“, „SORRY: 0 'sorry' token(s) in the sources outside comments“, „'YangBounds.S4BedingterAusschluss.s4_07_D' depends on axioms: [propext, Classical.choice, Quot.sound]“, „TOTAL: STANDARD=60“.
+- Maßgeblich für 5.1 Punkte 1, 2 und 4 von B-021 D ist jetzt Job 139899962532.
+
+**Runde 4 von 6 abgeschlossen (26.11.2026, Orchestrator)**
+
+- 6 Subagenten (S4-18 bis S4-23, dazu die Nacharbeit von S4-18 ohne eigenen Platz), 0 Fremdmodell-Anfragen. Dauer nach Git etwa 48 Minuten (Vergabe etwa 11:24 UTC bis zum letzten Merge der Runde, 74aa77d um 12:11:47 UTC; die Nacharbeit wurde um 12:10:38 UTC gemergt, ihr Lauf auf main endete 12:16:56 UTC).
+- Ergebnisse: B-021 D in Lean grün auf main (`s4_07_D`, Job 139899962532). B-026 und B-027 von je einem Prüfer bestätigt. S4-21: (M21) nicht vollständig ausgeschlossen. S4-22: Positivprobe bei 35 bestanden, Suche bei 34 ohne Fund. S4-23: Rang nicht bestimmt. Kein Ausschluss des Restfalls, kein Verfahren mit 34.
+- **Spur B: Zähler 3 von 3, Abbruchregel 2 greift. Spur B endet mit Status aufgegeben.** Grund: drei Runden in Folge ohne Verfahren mit 34. Runde 2 ohne geeichtes Werkzeug, Runde 3 Positivprobe nicht bestanden, Runde 4 Probe bestanden, aber Suche bei 34 ohne Fund und ohne vollständig abgesuchten Teilraum.
+- **Spur A: Zähler 1 von 3.** Frist: B-021 D geprüft bis Ende Runde 5. 5.1 Punkte 1, 2 und 4 liegen mit Job 139899962532 vor, Punkt 3 (zwei Abgleich-Prüfer) steht für Runde 5 aus.
+- Budget: 4 von 6 Runden verbraucht. Fertig-Kriterium der Stufe nicht erfüllt (Budget nicht erschöpft, nur eine Spur beendet).
+- Der Orchestrator hält an und berichtet Justus, weil eine Abbruchregel gegriffen hat (Anweisung von Justus vom 25.11.2026). Runde 5 wird erst nach seiner Antwort vergeben.
+- Plan des Orchestrators für Runde 5 (bei Vergabe neu zu lesen): (1) und (2) zwei Abgleich-Prüfer für `s4_07_D` gegen B-021 D, die einander nicht sehen, mit der Positivliste im Logbuch und Job 139899962532; (3) Wartungsauftrag Auflage 7 nach Vorgabe von Justus; (4) Spur A: Lücke L-21 bzw. S4-21-V im Unterfall (M21); (5) Spur A: Fall e = 2 ohne (INJ-B); (6) unabhängiger Sucher (nicht blind). Prüfer für S4-21-G, S4-21-K, S4-21-L haben dann keinen Platz und kämen in Runde 6. Vor der Runde: Literaturwache nur, wenn eine neue Sitzung beginnt, und Gedächtnisdurchsicht.
