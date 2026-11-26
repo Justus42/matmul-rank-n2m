@@ -135,7 +135,7 @@ class VP:
         J = -(Dp[:, None, :] * C[self.prod][None, :, :].transpose(0, 2, 1)).reshape(-1, self.N)
         return res, J[:, self.free], C, brent
 
-    def lm(self, z, iters, tlimit, reg, rho=0.0, decay=0.95, verbose=False, tol=1e-28):
+    def lm(self, z, iters, tlimit, reg, rho=0.0, decay=0.95, verbose=False, tol=1e-28, hold=False):
         """Levenberg-Marquardt on |res|^2 + reg |z|^2; reg and the ridge rho decay by
         `decay` per iteration and are set to 0 once the Brent residual is below 1e-6.
         Returns (z, Brent residual norm, iterations)."""
@@ -152,7 +152,7 @@ class VP:
             f = r @ r
             g = J.T @ r + reg * z
             H = J.T @ J
-            fobj = f + reg * (z @ z)
+            fobj = f + float(np.sum(reg * z * z))
             accepted = False
             while lmb < 1e12:
                 Hd = H + np.diag(lmb * (1.0 + np.diag(H)) + reg)
@@ -163,21 +163,23 @@ class VP:
                     continue
                 z2 = z + dz
                 r2, _, _, b2 = self.res_jac(z2, want_jac=False, rho=rho)
-                if r2 @ r2 + reg * (z2 @ z2) < fobj:
+                if r2 @ r2 + float(np.sum(reg * z2 * z2)) < fobj:
                     z, brent = z2, b2
                     lmb = max(lmb / 5, 1e-15)
                     accepted = True
                     break
                 lmb *= 4
-            if brent < 1e-6:
+            if hold:
+                pass
+            elif brent < 1e-6:
                 reg, rho = 0.0, 0.0
             else:
                 reg *= decay
                 rho *= decay
             if verbose and it % 25 == 0:
-                print(f"  it {it} res {brent**0.5:.3e} max {np.abs(z).max():.2f} lmb {lmb:.1e} reg {reg:.1e} rho {rho:.1e}",
+                print(f"  it {it} res {brent**0.5:.3e} max {np.abs(z).max():.2f} lmb {lmb:.1e} reg {np.max(reg):.1e} rho {rho:.1e}",
                       flush=True)
-            if not accepted and reg == 0.0 and rho == 0.0:
+            if not accepted and (hold or (np.max(reg) == 0.0 and rho == 0.0)):
                 break
             if not accepted:
                 lmb = 1e-3

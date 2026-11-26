@@ -27,8 +27,7 @@ import varpro
 from exact import brent_errors, check_k1, check_k2, fstr
 
 n, k = 3, 2
-SIMPLE = sorted({Fraction(s * p, q) for s in (1, -1) for p, q in
-                 ((0, 1), (1, 1), (2, 1), (1, 2), (3, 1), (1, 3), (3, 2), (2, 3), (4, 1), (1, 4))},
+SIMPLE = sorted({Fraction(p, q) for p in range(-5, 6) for q in range(1, 6)},
                 key=lambda f: (abs(f.numerator) + f.denominator, f))
 WEIGHT = {f: 1.0 + 0.5 * (abs(f.numerator) + f.denominator - 1) for f in SIMPLE}
 
@@ -107,6 +106,92 @@ def exact_factors(vp, fixed_frac):
     return Ufr, Vfr
 
 
+U_FIRST = True
+PHASES = [
+    [Fraction(0)],
+    [Fraction(0), Fraction(1), Fraction(-1)],
+    [Fraction(0), Fraction(1), Fraction(-1), Fraction(2), Fraction(-2), Fraction(1, 2), Fraction(-1, 2)],
+    SIMPLE,
+]
+
+
+def nearest_in(val, values):
+    return min((abs(val - float(f)), f) for f in values)
+
+
+def round_once(vp, x, time_limit, rnd, log, max_tries=6):
+    """One rounding pass from the float point x (full parameter vector)."""
+    fixed, frac, bad = {}, {}, set()
+    t0 = time.time()
+    vp.set_fixed({})
+    z = x.copy()
+    while True:
+        if time.time() - t0 > time_limit:
+            log("  time limit")
+            return None
+        xfull = vp.expand(z)
+        free = [q for q in range(vp.N) if q not in fixed]
+        if not free:
+            return frac
+        changed = False
+        for q in free:
+            d, f = nearest(xfull[q])
+            if d < 1e-9:
+                fixed[q], frac[q], changed = float(f), f, True
+        if changed:
+            vp.set_fixed(fixed)
+            z = xfull[vp.free]
+            continue
+        ok = False
+        ufree = [q for q in free if vp.names[q][0] == "u"]
+        pool = ufree if (U_FIRST and ufree) else free
+        for ph, values in enumerate(PHASES):
+            cands = []
+            for q in pool:
+                if (ph, q) in bad:
+                    continue
+                d, f = nearest_in(xfull[q], values)
+                if d < 0.6:
+                    cands.append((d * (1 + 0.2 * rnd.random()), q, f))
+            cands.sort()
+            for d, q, f in cands[:max_tries]:
+                trial = dict(fixed)
+                trial[q] = float(f)
+                vp.set_fixed(trial)
+                z2 = np.array([xfull[p] for p in vp.free])
+                z2, res, it = vp.lm(z2, 15, 10.0, 0.0, rho=0.0, tol=1e-28)
+                if 1e-10 <= res < 1e-5:
+                    z2, res, it = vp.lm(z2, 60, 20.0, 0.0, rho=0.0, tol=1e-28)
+                if res < 1e-10:
+                    fixed, z, ok = trial, z2, True
+                    frac[q] = f
+                    break
+                bad.add((ph, q))
+            vp.set_fixed(fixed)
+            if ok:
+                break
+        if not ok:
+            log(f"  stuck: {len(free)} free parameters left, t {time.time()-t0:.0f}s")
+            # the point is (locally) isolated: try rational reconstruction of the rest
+            z, res, _ = vp.lm(z, 40, 20.0, 0.0, rho=0.0, tol=1e-30)
+            xfull = vp.expand(z)
+            for D in (12, 100, 1000, 10000, 10 ** 6):
+                fr = dict(frac)
+                for q in free:
+                    fr[q] = Fraction(xfull[q]).limit_denominator(D)
+                errs = max(abs(float(fr[q]) - xfull[q]) for q in free)
+                if errs > 1e-9:
+                    continue
+                log(f"  reconstruction with denominators <= {D} (max error {errs:.1e})")
+                return fr
+            log(f"  no rational reconstruction (res {res:.1e}); sample: "
+                + ", ".join(f"{xfull[q]:.12f}" for q in free[:6]))
+            return None
+        bad = {(ph, q) for (ph, q) in bad if ph > 0} if False else set()
+        if len(fixed) % 20 == 0:
+            log(f"  fixed {len(fixed)}/{vp.N}, t {time.time()-t0:.0f}s")
+
+
 def round_candidate(cand, time_limit=600.0, seed=1, log=print):
     m, R = cand["m"], cand["R"]
     vp = varpro.VP(m, R, cand["sn1"], cand["k1"])
@@ -114,65 +199,21 @@ def round_candidate(cand, time_limit=600.0, seed=1, log=print):
     V = np.array(cand["V"]).reshape(R, k * m)
     x = np.array([U[r, a] if t == "u" else V[r, a] for (t, r, a) in vp.names])
     rnd = random.Random(seed)
-    fixed = {}
-    frac = {}
-    bad = set()
     t0 = time.time()
-    vp.set_fixed({})
-    z = x.copy()
-    while True:
-        if time.time() - t0 > time_limit:
-            log("time limit")
-            return None
-        xfull = vp.expand(z)
-        free = [q for q in range(vp.N) if q not in fixed]
-        if not free:
-            break
-        # fix everything already at a simple value
-        cands = []
-        changed = False
-        for q in free:
-            d, f = nearest(xfull[q])
-            if d < 1e-9:
-                fixed[q] = float(f)
-                frac[q] = f
-                changed = True
-            elif q not in bad:
-                cands.append((d, q, f))
-        if changed:
-            vp.set_fixed(fixed)
-            z = xfull[vp.free]
+    attempt = 0
+    while time.time() - t0 < time_limit - 5:
+        log(f" attempt {attempt}")
+        frac = round_once(vp, x, time_limit - (time.time() - t0), rnd, log)
+        attempt += 1
+        if frac is None:
             continue
-        if not cands:
-            log(f"stuck: {len(free)} free parameters, none can be fixed")
-            return None
-        cands.sort()
-        ok = False
-        for d, q, f in cands[:8]:
-            trial = dict(fixed)
-            trial[q] = float(f)
-            vp.set_fixed(trial)
-            z2 = np.array([xfull[p] for p in vp.free])
-            z2, res, it = vp.lm(z2, 200, 30.0, 0.0, rho=0.0, tol=1e-28)
-            if res < 1e-10:
-                fixed, z, ok = trial, z2, True
-                frac[q] = f
-                break
-            bad.add(q)
-            vp.set_fixed(fixed)
-        if not ok:
-            vp.set_fixed(fixed)
-            z = np.array([xfull[p] for p in vp.free])
+        Ufr, Vfr = exact_factors(vp, frac)
+        W = exact_w(m, R, Ufr, Vfr)
+        if W is None:
+            log("  exact solve for w: inconsistent")
             continue
-        log(f"  fixed {len(fixed)}/{vp.N}, last d={d:.2e} -> {f}, t {time.time()-t0:.0f}s")
-        bad.clear()
-    Ufr, Vfr = exact_factors(vp, frac)
-    W = exact_w(m, R, Ufr, Vfr)
-    if W is None:
-        log("exact solve for w: inconsistent")
-        return None
-    sch = to_scheme(m, R, Ufr, Vfr, W)
-    return sch
+        return to_scheme(m, R, Ufr, Vfr, W)
+    return None
 
 
 def scheme_json(sch, ident, m, ring, method, notes):
