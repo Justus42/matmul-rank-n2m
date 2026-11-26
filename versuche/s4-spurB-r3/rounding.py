@@ -106,7 +106,10 @@ def exact_factors(vp, fixed_frac):
     return Ufr, Vfr
 
 
-U_FIRST = True
+U_FIRST = False
+STRUCT = True
+STRUCT_D = [4, 6, 3, 8, 2, 12]
+LADDER = [(1, 0.5), (2, 0.3), (4, 0.15), (12, 0.05), (50, 0.01), (200, 0.002), (1000, 1e-4)]
 PHASES = [
     [Fraction(0)],
     [Fraction(0), Fraction(1), Fraction(-1)],
@@ -119,12 +122,17 @@ def nearest_in(val, values):
     return min((abs(val - float(f)), f) for f in values)
 
 
-def round_once(vp, x, time_limit, rnd, log, max_tries=6):
+def round_once(vp, x, time_limit, rnd, log, max_tries=10, init=None):
     """One rounding pass from the float point x (full parameter vector)."""
     fixed, frac, bad = {}, {}, set()
     t0 = time.time()
     vp.set_fixed({})
     z = x.copy()
+    prio = []
+    if init is not None:
+        z, fixed, frac, prio = init
+        fixed, frac = dict(fixed), dict(frac)
+        vp.set_fixed(fixed)
     while True:
         if time.time() - t0 > time_limit:
             log("  time limit")
@@ -135,8 +143,8 @@ def round_once(vp, x, time_limit, rnd, log, max_tries=6):
             return frac
         changed = False
         for q in free:
-            d, f = nearest(xfull[q])
-            if d < 1e-9:
+            f = Fraction(xfull[q]).limit_denominator(1000)
+            if abs(xfull[q] - float(f)) < 1e-11:
                 fixed[q], frac[q], changed = float(f), f, True
         if changed:
             vp.set_fixed(fixed)
@@ -144,32 +152,28 @@ def round_once(vp, x, time_limit, rnd, log, max_tries=6):
             continue
         ok = False
         ufree = [q for q in free if vp.names[q][0] == "u"]
-        pool = ufree if (U_FIRST and ufree) else free
-        for ph, values in enumerate(PHASES):
-            cands = []
-            for q in pool:
-                if (ph, q) in bad:
-                    continue
-                d, f = nearest_in(xfull[q], values)
-                if d < 0.6:
-                    cands.append((d * (1 + 0.2 * rnd.random()), q, f))
-            cands.sort()
-            for d, q, f in cands[:max_tries]:
-                trial = dict(fixed)
-                trial[q] = float(f)
-                vp.set_fixed(trial)
-                z2 = np.array([xfull[p] for p in vp.free])
-                z2, res, it = vp.lm(z2, 15, 10.0, 0.0, rho=0.0, tol=1e-28)
-                if 1e-10 <= res < 1e-5:
-                    z2, res, it = vp.lm(z2, 60, 20.0, 0.0, rho=0.0, tol=1e-28)
-                if res < 1e-10:
-                    fixed, z, ok = trial, z2, True
-                    frac[q] = f
+        pfree = [q for q in prio if q not in fixed]
+        pool = pfree if pfree else (ufree if (U_FIRST and ufree) else free)
+        if not pfree and STRUCT and ufree:
+            pool = ufree
+        cands = []
+        for q in pool:
+            for lvl, (D, tol) in enumerate(LADDER):
+                f = Fraction(xfull[q]).limit_denominator(D)
+                d = abs(xfull[q] - float(f))
+                if d < tol and (lvl, q) not in bad:
+                    cands.append((lvl, d * (1 + 0.2 * rnd.random()), q, f))
                     break
-                bad.add((ph, q))
-            vp.set_fixed(fixed)
-            if ok:
+        cands.sort()
+        for lvl, d, q, f in cands[:max_tries]:
+            res_ = continuation(vp, z, fixed, {q: float(f)}, steps=3)
+            if res_ is not None:
+                z, fixed = res_
+                frac[q] = f
+                ok = True
                 break
+            bad.add((lvl, q))
+        vp.set_fixed(fixed)
         if not ok:
             log(f"  stuck: {len(free)} free parameters left, t {time.time()-t0:.0f}s")
             # the point is (locally) isolated: try rational reconstruction of the rest
@@ -192,6 +196,128 @@ def round_once(vp, x, time_limit, rnd, log, max_tries=6):
             log(f"  fixed {len(fixed)}/{vp.N}, t {time.time()-t0:.0f}s")
 
 
+def continuation(vp, z, fixed, targets, steps=10, log=print):
+    """Move the parameters in `targets` (index -> value) gradually from their current
+    values to the targets, re-solving after each step. Returns (z, fixed) or None."""
+    xfull = vp.expand(z)
+    start = {q: xfull[q] for q in targets}
+    for s_ in range(1, steps + 1):
+        trial = dict(fixed)
+        for q, t in targets.items():
+            trial[q] = start[q] + (t - start[q]) * s_ / steps
+        vp.set_fixed(trial)
+        z2 = np.array([xfull[p] for p in vp.free])
+        z2, res, it = vp.lm(z2, 60, 30.0, 0.0, rho=0.0, tol=1e-28)
+        if res > 1e-8:
+            vp.set_fixed(fixed)
+            return None
+        xfull = vp.expand(z2)
+    if res > 1e-10:
+        vp.set_fixed(fixed)
+        return None
+    return z2, trial
+
+
+def groups(vals, tol=1e-6):
+    """Cluster equal values; returns list of (value, [indices])."""
+    out = []
+    for i, v in sorted(enumerate(vals), key=lambda t: t[1]):
+        if out and abs(out[-1][0] - v) < tol:
+            out[-1][1].append(i)
+        else:
+            out.append((v, [i]))
+    return out
+
+
+def struct_stage(vp, x, rnd, log, D=4):
+    """Exact gauge and moduli fixing for the U side (rank-1 alpha_r = a b^T):
+    b-points u_r[0][1] and a-points (u_r[1][0], u_r[2][0]); first an affine change
+    (gauge: two b-points to 0, 1; three a-points to (0,0), (1,0), (0,1)), then the
+    remaining points to nearby simple fractions, each by continuation."""
+    R = vp.R
+    idx = {(r, a): q for q, (t, r, a) in enumerate(vp.names) if t == "u"}
+    U = np.zeros((R, 6))
+    U[:, 0] = 1.0
+    for (r, a), q in idx.items():
+        U[r, a] = x[q]
+    rank1 = [r for r in range(R) if np.linalg.matrix_rank(U[r].reshape(3, 2), 1e-7) == 1]
+    vp.set_fixed({})
+    z = x.copy()
+    fixed = {}
+    frac = {}
+    # b-points
+    gb = groups([U[r, 1] for r in rank1])
+    if len(gb) >= 2:
+        v0, v1 = gb[0][0], gb[-1][0]
+        for DD in (D, 2 * D, 4 * D, 8 * D, 16 * D):
+            tgt = {}
+            for v, members in gb:
+                t = (v - v0) / (v1 - v0)
+                f = Fraction(t).limit_denominator(DD)
+                for i in members:
+                    tgt[idx[(rank1[i], 1)]] = f
+            if len({f for f in tgt.values()}) == len(gb):
+                break
+        else:
+            log("  b-points collide after rounding")
+            return None
+        res = continuation(vp, z, fixed, {q: float(f) for q, f in tgt.items()}, log=log)
+        if res is None:
+            log("  b-point continuation failed")
+            return None
+        z, fixed = res
+        frac.update(tgt)
+        log(f"  b-points fixed: {sorted(set(str(f) for f in tgt.values()))}")
+    # a-points
+    xfull = vp.expand(z)
+    pts = [(xfull[idx[(r, 2)]], xfull[idx[(r, 4)]]) for r in rank1]
+    ga = []
+    for i, p in enumerate(pts):
+        for g in ga:
+            if abs(g[0][0] - p[0]) < 1e-6 and abs(g[0][1] - p[1]) < 1e-6:
+                g[1].append(i)
+                break
+        else:
+            ga.append((p, [i]))
+    if len(ga) >= 3:
+        P = np.array([g[0] for g in ga])
+        # pick three points spanning a large triangle
+        best = None
+        for i in range(len(P)):
+            for j in range(i + 1, len(P)):
+                for kk in range(j + 1, len(P)):
+                    d1, d2 = P[j] - P[i], P[kk] - P[i]
+                    ar = abs(d1[0] * d2[1] - d1[1] * d2[0])
+                    if best is None or ar > best[0]:
+                        best = (ar, i, j, kk)
+        _, i0, i1, i2 = best
+        Mx = np.column_stack([P[i1] - P[i0], P[i2] - P[i0]])
+        Mi = np.linalg.inv(Mx)
+        tgt = None
+        for DD in (1, 2, 3, 4, 6, 8):
+            tri = [tuple(Fraction(c).limit_denominator(DD) for c in P[g]) for g in (i0, i1, i2)]
+            det = (tri[1][0] - tri[0][0]) * (tri[2][1] - tri[0][1]) - (tri[1][1] - tri[0][1]) * (tri[2][0] - tri[0][0])
+            if det != 0:
+                tgt = {}
+                for gi, (f0, f1) in zip((i0, i1, i2), tri):
+                    for i in ga[gi][1]:
+                        tgt[idx[(rank1[i], 2)]] = f0
+                        tgt[idx[(rank1[i], 4)]] = f1
+                break
+        if tgt is None:
+            return None
+        log(f"  a-point gauge: three points to {[tuple(str(c) for c in t) for t in tri]}")
+        res = continuation(vp, z, fixed, {q: float(f) for q, f in tgt.items()}, steps=20, log=log)
+        if res is None:
+            log("  a-point continuation failed")
+            return None
+        z, fixed = res
+        frac.update(tgt)
+        log("  a-points fixed")
+    prio = [idx[(r, a)] for r in rank1 for a in (2, 4)]
+    return z, fixed, frac, prio
+
+
 def round_candidate(cand, time_limit=600.0, seed=1, log=print):
     m, R = cand["m"], cand["R"]
     vp = varpro.VP(m, R, cand["sn1"], cand["k1"])
@@ -203,7 +329,13 @@ def round_candidate(cand, time_limit=600.0, seed=1, log=print):
     attempt = 0
     while time.time() - t0 < time_limit - 5:
         log(f" attempt {attempt}")
-        frac = round_once(vp, x, time_limit - (time.time() - t0), rnd, log)
+        init = None
+        if STRUCT:
+            init = struct_stage(vp, x, rnd, log, D=STRUCT_D[attempt % len(STRUCT_D)])
+            if init is None:
+                attempt += 1
+                continue
+        frac = round_once(vp, x, time_limit - (time.time() - t0), rnd, log, init=init)
         attempt += 1
         if frac is None:
             continue
