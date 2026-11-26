@@ -2562,3 +2562,14 @@ Wortlaut Justus (26.11.2026, 11:40:32 UTC):
 **Zu 3 (Auflage 7):** Vorgabe für Runde 5: ein Wartungsauftrag, zählt als einer der sechs Subagenten, Inhalt wörtlich nach Punkt 3 oben.
 - **Lesart (h) des Orchestrators:** „Danach läuft der Axiom-Bericht neu, und ein Prüfer wiederholt den Zweitlauf“ hängt vom Wartungsauftrag ab. Nach Abschnitt 6 läuft der Prüfer für den Zweitlauf deshalb frühestens in der Runde nach dem Wartungsauftrag, also in Runde 6, ebenso die Änderung von README und `ergebnisse/rang-444.md`, die erst nach dem bestätigten Zweitlauf erfolgt. Der Axiom-Bericht läuft automatisch im Workflow des Wartungs-PRs.
 - Runde 5 braucht außerdem zwei Plätze für die Abgleich-Prüfer zu B-021 D (Lesart g).
+
+**Nachtrag 26.11.2026: Entscheidung von Justus (11:55 UTC, über den Orchestrator)**
+
+Wortlaut Justus (26.11.2026, 11:55:55 UTC):
+
+> Einverstanden mit beidem. Vergib weiter einen unabhängigen Sucher je Runde und vermerke im Logbuch, dass die Vorgabe „Blind-Sucher“ aus Abschnitt 6 auf dieser Plattform nicht erfüllbar ist und ich das so entschieden habe.
+>
+> Zum Zweitlauf: Er und die Änderung von README und ergebnisse/rang-444.md gehören zu Auflage 7 aus Stufe 2, nicht zu Stufe 4. Endet Stufe 4 vor Runde 6, vergibst du diese beiden Aufträge trotzdem noch, als Abschluss der Auflage. Sonst nichts über das Stufenende hinaus.
+
+- (1) Die Vorgabe „Blind-Sucher“ aus Abschnitt 6 des Protokolls ist auf dieser Plattform nicht erfüllbar, weil der Gedächtnisindex jedem Thread eingeblendet wird. Justus hat entschieden: Je Runde läuft weiter ein unabhängiger Sucher (nicht blind).
+- (2) Der wiederholte Zweitlauf und die Änderung von README und `ergebnisse/rang-444.md` gehören zu Auflage 7 aus Stufe 2, nicht zu Stufe 4. Endet Stufe 4 vor Runde 6, werden diese beiden Aufträge trotzdem noch vergeben, als Abschluss der Auflage. Sonst nichts über das Stufenende hinaus.
