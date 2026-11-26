@@ -3231,3 +3231,42 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 > 3. Keine Änderung unter lean/ außer lean/README.md. Danach nennst du mir den neuen vollen Commit-SHA mit grünen Läufen.
 
 - Ausführung (Orchestrator): N-01 (Textänderung `README.md`, `lean/README.md`, `ergebnisse/rang-444.md`, PR an `main`) vergeben etwa 18:38 UTC; N-02 (Prüfer liest die drei Dateien gegen den Stand des Repos) folgt nach dem Merge von N-01. Befunde des Prüfers arbeitet N-01 ein, kein dritter Subagent. Danach nennt der Orchestrator Justus den neuen vollen SHA mit grünen Läufen.
+
+
+## 26.11.2026 · Weitere Anweisung von Justus: drei Prüfaufträge vor dem neuen SHA (18:44:51 UTC, Projektchat, Wortlaut)
+
+> Drei weitere Prüfaufträge vor dem neuen SHA, je ein Prüfer, kein Fremdmodell:
+>
+> 1. Die Beschreibung des Beweiswegs in lean/formalization.yaml gegen die Lean-Kette lesen und jede Angabe melden, die nicht stimmt.
+> 2. Die frühen Lean-Dateien (Basic.lean und was aus Stufe 0 und 1 stammt) mit fallnlove/mm325_proof vergleichen: Gibt es übernommene Passagen?
+> 3. Den Technischen Bericht TR 69-44 von Hopcroft und Kerr (Cornell eCommons, hdl.handle.net/1813/5902) lesen und die Quellennotiz danach berichtigen: Welche unteren Schranken beweist die Arbeit?
+
+- Lesart des Orchestrators: Die Berichtigung der Quellennotiz in `lean/formalization.yaml` ist durch diese Anweisung gedeckt, obwohl 18:37 UTC „keine Änderung unter lean/ außer lean/README.md“ sagte; die Prüfer schlagen den Wortlaut vor, N-01 arbeitet ein. Kein Prüfer ändert `formalization.yaml`.
+- Vergeben etwa 18:48 UTC, je ein Prüfer, kein Fremdmodell, außerhalb der Runden: N-03 (Beweisweg in `lean/formalization.yaml` Z. 1–3, 9–27, 36–92 gegen die 31 Dateien der Kette und `verfahren/4x2x4-r26-s001.json`, Bericht `palomar/nacharbeit/n-03-bericht.md`); N-04 (Lean-Dateien aus Stufe 1, `main` 676cdf5, `lean-4.19`, erste Fassungen, gegen `fallnlove/mm325_proof` bei 759cf4a8, Bericht `palomar/nacharbeit/n-04-bericht.md`); N-05 (Hopcroft-Kerr TR 69-44 gegen `formalization.yaml` Z. 13–27 und 40–84, Bericht `palomar/nacharbeit/n-05-bericht.md`). Berichte bewusst nicht unter `lean/`. Gedächtnisdurchsicht: Bestätigung der Schreibhand (gesendet nach 18:38 UTC, vor der Vergabe an N-03 bis N-05).
+
+**Nacharbeit: N-01 (Texte README, lean/README, Ergebnistext) geliefert (Schreibhand, aus Git)**
+
+- PR #171, ein Commit f153c86 (18:43:13 UTC, Zweig von c992da6), Merge 5d813c73f357616d4ce39890eceaa25e2aca96d6 (18:43:29 UTC). Dauer nach Git etwa 5 Minuten (Vergabe etwa 18:38 UTC).
+- Diff des Merges (Schreibhand): genau drei Dateien, `README.md`, `ergebnisse/rang-444.md`, `lean/README.md` (226 Zeilen hinzu, 152 entfernt). Unter `lean/` nur `lean/README.md`, keine Datei unter `lean/prosa/` (die Meldung nennt einen Bericht unter `lean/prosa/`; im Merge ist keiner). Vorgabe von Justus (18:37 UTC, Punkt 3) eingehalten.
+- Läufe laut Meldung: `lean-project.yml` Lauf 45878194606 / Job 140110543788, `zweitlauf.yml` per Dispatch Lauf 45878204342 / Job 140110580621, beide success (von der Schreibhand nicht gelesen; 5d813c7 ist wegen der Einarbeitung nicht der letzte Stand).
+
+**Nacharbeit: N-03 (Prüfer, Beweisweg in formalization.yaml) geliefert (Schreibhand, aus Git und Bericht)**
+
+- PR #172, Commit 0b3f31a (18:50:58 UTC, Zweig von 676cdf5), Merge 4cf4e36 (18:51:13 UTC). Nur `palomar/nacharbeit/n-03-bericht.md` (109 Zeilen). Dauer nach Git etwa 3 Minuten (Vergabe etwa 18:48 UTC).
+- Abweichungen laut Bericht, Abschnitt 4, je mit Vorschlag (Englisch): (1) D12, Z. 25–26: „four residual rank cases, a symmetric case, and two sub-cases of the case (5,8)“ stellt ineinander liegende Fälle nebeneinander; (2) D10, Z. 23: „follows Yang's normal-form method“ unterschlägt die eigenen Schritte (Satz A bis F, Lemma 13′, P, K, Z, Brücke, transponierte Zerlegung); (3) D11, Z. 24–25: Reihenfolge umgekehrt, generische Normalform über K(S, T), dann dessen Abschluss, nicht der von K; (4) Q18, Z. 91: mm325_proof war nach `Basic.lean` früher eine Abhängigkeit mit eigenem Brückenmodul, nicht nur eine Vorlage; (5) Q10, Z. 51–56: Lemma 13′ (Verschärfung von Yangs Lemma 13) wird benutzt und nicht genannt („Lücke ohne falsche Angabe“). Am Code bestätigt u. a.: Aussage über jedem Körper, Definition des Tensorrangs, Verfahren mit 26 Produkten und Koeffizienten in {−1, 0, 1} gleich der JSON-Datei, `decide +kernel`, `yang_theorem_two`, kein Import von mm325_proof in der Kette. Nebenbefund: Kommentare in `Endsatz444.lean` (Z. 29–34, 38–50) beschreiben einen Weg, den die eingereichte Kette nicht nimmt.
+- Offenlegung: Index und fünf Einzeleinträge (`aussagen-abgleich-n3`, `lean-build-cloud`, `lean-yang-bounds`, `lean-yang-n3-zusammensetzung`, `lean-project-ci`), „Keiner dieser Einträge enthält ein Prüfurteil zu `formalization.yaml`.“; Dateinamen in `palomar/`; Kopf von `main` `5d813c7`.
+
+**Nacharbeit: N-04 (Prüfer, frühe Lean-Dateien gegen fallnlove/mm325_proof) geliefert (Schreibhand, aus Git und Bericht)**
+
+- PR #173, Commit 45f66d8 (18:50:59 UTC, Zweig von 5d813c7), Merge 3e8d6a4 (18:51:16 UTC). Nur `palomar/nacharbeit/n-04-bericht.md` (417 Zeilen, drei Programme im Anhang). Dauer nach Git etwa 3 Minuten (Vergabe etwa 18:48 UTC).
+- Befund laut Bericht: „In keinem der drei Stände findet der Vergleich eine Passage aus Beweiscode, Definitionen oder Kommentaren, die aus der fremden Datei abgeschrieben ist.“ Wörtlich gleich nur die Importliste in `YangBounds/Basic.lean` (`lean-4.19` Z. 8 bis 28, `main` Z. 10 bis 30 mit `public import`; 21 Zeilen, die vollständige Importliste der fremden Datei in derselben Reihenfolge, Herkunft im Kommentar darüber genannt, S4-26); in der Erstfassung nicht vorhanden. Klasse (b): `BilinearAlgorithm` mit denselben Feldnamen und derselben Korrektheitsgleichung wie `MatrixAlgorithm` (laut Docstring gewollt), Schema `tensorRank`/`_attained`/`_le` mit `Nat.find`, Zeilen aus Mathlib-Standardschreibweise. Klasse (c): nur gleiche Namen `J`, `H`, `finrank_J`. Die Brücke hat das Paket importiert, nicht kopiert. Ein Selbsttest mit umbenannter Abschrift von 21 Zeilen wurde gefunden.
+- Offenlegung: Index und vier Einzeleinträge (`mm325-lizenz`, `gemini-bridge`, `lean-build-cloud`, `aussagen-abgleich-n3`); `git fetch --unshallow` ausgeführt, Betreffzeilen der acht Erst-Commits gesehen. Nebenbeobachtung im Bericht: `Basic.lean` auf `main` (Z. 51–54) spricht von „the tag `lean-4.19`“. Hinweis der Schreibhand: Es gibt nur den Zweig `lean-4.19` (Tag mit 403 abgewiesen, Entscheidung von Justus 14:50 UTC).
+
+**Nacharbeit: N-05 (Hopcroft-Kerr TR 69-44) zweimal abgebrochen (Orchestrator)**
+
+- Erst hdl.handle.net und ecommons.cornell.edu gesperrt (von Justus 18:53 UTC freigegeben), dann cf003.cdn.4science.cloud gesperrt; Freigabe von *.cdn.4science.cloud bei Justus beantragt 18:55 UTC. Kein Bericht, nichts aus Sekundärquellen. N-05 zählt mit zwei abgebrochenen Anläufen als ein Auftrag (Orchestrator).
+
+**Nacharbeit: N-02 vergeben (etwa 18:57 UTC)**
+
+- Prüfer der drei Texte bei 5d813c7, Bericht `palomar/nacharbeit/n-02-bericht.md`. Gesperrt: `STATUS.md`, `LOG.md`, `pruefvermerke/`, `archiv/`, `lean/prosa/`, `palomar/nacharbeit/`; Angaben, die nur dort nachsehbar sind, meldet er als nicht entscheidbar, die Schreibhand sieht nach.
+- Zahl der Subagenten der Nacharbeit (Orchestrator): Justus hat zwei (18:37 UTC) und drei weitere Prüfer (18:44 UTC) angewiesen, zusammen fünf Aufträge N-01 bis N-05.
