@@ -34,3 +34,4 @@ Eine Datei pro Behauptung, benannt `B-xxx.md`. Eine Behauptungsdatei enthält nu
 | B-016 | R(⟨4,2,4⟩) ≥ 26 über jedem Körper, Lean-Endsatz `Transponiert444.rank_four_two_four_ge_26` |
 | B-017 | Restfall-Rechnung ⟨3,2,7⟩ bei Länge 34, Rolle n = 3: genau ein Restfall (ρ, rk L, rk H) = (4, 6, 4); ohne Lemma I zusätzlich (3, 5, 3) |
 | B-018 | Lemma 15(b) bei d = 2: rk L = d·ρ ⇒ ρ = m, über algebraisch abgeschlossenem Körper |
+| B-019 | Lemma I (Δ ≥ min(2, dim N), Rahmen yang_n3) gilt für jede Normalform des Rahmens yang_n4 mit d = 2, so wie C2 im Programm S3-04 es benutzt |

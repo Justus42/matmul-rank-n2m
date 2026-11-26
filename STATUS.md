@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 4 von Justus gestartet, Protokoll 0.6; Behauptungsdateien B-017 und B-018 angelegt)
+Zuletzt geändert: 26.11.2026 (Stufe 4 von Justus gestartet, Protokoll 0.6; Behauptungsdateien B-017 bis B-019 angelegt)
 
 ## Aktuelle Stufe
 
@@ -10,8 +10,8 @@ Zuletzt geändert: 26.11.2026 (Stufe 4 von Justus gestartet, Protokoll 0.6; Beha
 - Budget: 6 Runden mit je bis zu 6 Subagenten, Fremdmodell nur nach 5.5. Grundlage: `erkundung/s3-08-einschaetzung-327.md`
 - Runde 1 ist nur Prüfung der Grundlage: Prüfer für die Restfall-Rechnung, für Lemma 15(b) bei d = 2 und für die Übertragung von Lemma I auf die Normalform, dazu die Nachrechnung des Verfahrens mit 35 nach 5.2 und der Blind-Sucher. Ab Runde 2 Spur A (Ausschluss des Restfalls) und Spur B (Suche nach 34)
 - Literaturwache vor Runde 1, außerhalb der Runde (Lesart des Orchestrators): Thread „Literatur zu 3×2×7 sichten“, vergeben etwa 06:47 UTC, 1 Subagent, 0 Fremdmodell-Anfragen. Runde 1 erst nach ihrer Meldung
-- Behauptungsdateien für Runde 1: `behauptungen/B-017.md` (Restfall-Rechnung), `behauptungen/B-018.md` (Lemma 15(b) bei d = 2). Für die Übertragung von Lemma I gibt es noch keine Datei, weil die Aussage in den Quellen nicht eindeutig steht (an den Orchestrator gemeldet). Status setzt der Orchestrator
-- Runde 1: noch nicht vergeben
+- Behauptungsdateien für Runde 1: `behauptungen/B-017.md` (Restfall-Rechnung), `behauptungen/B-018.md` (Lemma 15(b) bei d = 2), `behauptungen/B-019.md` (Übertragung von Lemma I, Wortlaut der Aussage vom Orchestrator). Status setzt der Orchestrator
+- Runde 1: noch nicht vergeben. Geplant (Orchestrator): S4-01 Prüfer B-017, S4-02 Prüfer B-018, S4-03 Prüfer B-019, S4-04 Verfahren mit 35 für 3×2×7 als Datei anlegen und mit beiden Prüfprogrammen nachrechnen, S4-05 Blind-Sucher. Vergabe nach Meldung der Literaturwache. Die Berichte S3-03 und S3-04 kommen auf keine Positivliste
 - Fertig mit einem Lean-Satz für die untere Schranke 35 über jedem Körper (geprüft nach 5.1 samt Abgleich des Endsatzes), einem nach 5.2 bestätigten Verfahren mit 34, erschöpftem Budget oder wenn eine Abbruchregel beide Spuren beendet
 - Kein Kontakt nach außen. README und `ergebnisse/` bleiben unverändert
 

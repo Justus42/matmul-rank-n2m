@@ -2165,3 +2165,5 @@ Damit ist Protokoll 0.6 von Justus bestätigt. Stufe 4: 3×2×7 bei Länge 34, B
 - Keine Prüfvermerke angelegt. Den Status setzt der Orchestrator.
 
 **Gedächtnis:** Index (Fassung 0.6, synchronisiert 06:45 UTC) und alle 21 Einzeleinträge durchgesehen. Nichts über Behauptungen, Prüfurteile, Befunde oder Zwischenstände. Nichts geändert.
+
+**Nachtrag 26.11.2026, etwa 06:55 UTC:** Auf Anweisung des Orchestrators `behauptungen/B-019.md` angelegt (Übertragung von Lemma I auf die Normalform des Rahmens yang_n4 mit d = 2). Der Wortlaut der Aussage stammt vom Orchestrator. Dazu stehen C2 im Wortlaut des Programms S3-04, Lemma I im Wortlaut von `yang_n3.md` und die Lean-Fassung `lemma_I`. Geplante Runde 1 laut Orchestrator: S4-01 bis S4-03 Prüfer für B-017 bis B-019, S4-04 Verfahren mit 35 für 3×2×7 anlegen und nachrechnen, S4-05 Blind-Sucher. Die Berichte S3-03 und S3-04 kommen auf keine Positivliste.
