@@ -2492,3 +2492,7 @@ Wortlaut Justus (26.11.2026, 10:09:04 UTC):
 - Zähler Abbruchregel 2: **Spur A 0 von 3** (Fortschritt nach 2 b) in Runde 3, Frist B-021 D geprüft bis Ende Runde 5). **Spur B 2 von 3** (kein Fortschritt).
 - Budget: 3 von 6 Runden verbraucht. Keine Abbruchregel greift, Fertig-Kriterium nicht erfüllt. Der Orchestrator macht mit Runde 4 weiter.
 - Vorbereitung Runde 4: B-026 (Satz R, Folgerungen, Gestalt im Unterfall (M21), aus S4-14) und B-027 (E2-A, E2-B, E2-D, aus S4-15) angelegt, Status behauptet. Die Literaturwache vor Runde 4 vergibt der Orchestrator außerhalb der Runde, mit den freigegebenen Quellen nach der Vorgabe von Justus (10:09 UTC).
+
+**Nachtrag 26.11.2026, vor Runde 4: Gedächtnisdurchsicht (Schreibhand)**
+
+- Index (`MEMORY.md`, md5 31d5da4c…, geändert 10:16 UTC) und alle 21 Einzeleinträge durchgesehen. Neu im Index seit der letzten Durchsicht: der Ablauf der Sol-Anfragen (Orchestrator stellt und holt ab) und die Vorgabe von Justus zur Literaturwache (10:09 UTC). Beides sind Arbeitsregeln, kein Urteil, kein Befund, kein Zwischenstand. Einzeleinträge seit der letzten Durchsicht unverändert (letzte Änderung `gemini-bridge` 10:04 UTC durch die Schreibhand). Nichts zu Stufe 4, zu Behauptungen, Status oder Zählern. Keine Änderung nötig.
