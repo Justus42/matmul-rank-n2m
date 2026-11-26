@@ -398,3 +398,28 @@ Nichts davon nachgerechnet. Status: behauptet.
 ### Einschränkungen
 
 arXiv, FMM-Lille und die GitHub-REST-API für fremde Repos aus der Umgebung gesperrt. Keine Durchsicht der cs.CC-Listen Seite für Seite, kein Scholar, MathOverflow, ECCC oder Zenodo. Keine Vollständigkeit garantiert.
+
+---
+
+## 26.11.2026 (Beginn der Sitzung, vor Runde 3 der Stufe 4)
+
+Zeiten aus den Git-Zeitstempeln der Commits auf dem Zweig `claude/project-thread-t2kvsv` (Start-Commit `8468ba8`). Vollständiges wörtliches Suchprotokoll: [WACHE-2026-11-26-R3.md](WACHE-2026-11-26-R3.md). Ausführender Thread meldet als Modellbezeichnung claude-opus-5-5. Keine Subagenten, keine Abruf-Agenten, keine Fremdmodell-Anfrage.
+
+### Ergebnis für die Abbruchregel 3
+
+**Nicht gefunden:** kein Beweis von R(⟨3,2,7⟩) ≥ 35 (alle Permutationen, jeder Körper), kein Verfahren mit 34 Multiplikationen, keine neue Schranke für das Format. Bester veröffentlichter Stand unverändert: untere Schranke 34 (Yang26 v3), obere Schranke 35 (HK71). Abbruchregel 3 greift nicht. Status: behauptet.
+
+### Pflichtpunkte nach Abschnitt 7
+
+- arXiv:2609.14393 und arXiv:2609.22054: keine neue Fassung gefunden (v3 bzw. v1). Befund aus Websuche und alphaXiv, arXiv selbst gesperrt.
+- fallnlove/mm325_proof `759cf4a8`: unverändert.
+- openai/math `3344da59`: unverändert, also keine neuen Commits, Familien oder Verzeichnisse in `preprints/`.
+- Neue Arbeiten (alphaXiv ab 24.11.2026): nichts nach dem 25.11.2026 im Index; einzige bisher nicht genannte Arbeit 2611.31807 (rangerhaltende lineare Abbildungen), ohne Bezug.
+
+### Erneuter Versuch der gesperrten Quellen
+
+arXiv (Abstract-, Listen-, API- und OAI-Seiten), FMM-Lille sowie Scholar, Semantic Scholar, ECCC, Zenodo und MathOverflow: weiter Code 000. GitHub-REST-API für fremde Repos: weiter 403, auch über `gh api`. Rechner von Justus: nicht verbunden. Erreichbar: GitHub über git, raw.githubusercontent.com, alphaXiv-Werkzeug, Websuche, GitHub-Codesuche. Die Ranglisten (FMM-Lille-Digest, Perminov, Lacelle, Kauers) haben denselben Commit wie heute früh und führen ⟨2,3,7⟩ weiter mit 35.
+
+### Einschränkungen
+
+Keine Vollständigkeit garantiert, kein Durchgang der cs.CC-Listen, sehr neue Einreichungen eventuell noch nicht indexiert.
