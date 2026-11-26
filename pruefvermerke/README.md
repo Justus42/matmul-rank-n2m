@@ -48,9 +48,9 @@ Je Behauptung gibt es eine Datei `pruefvermerke/B-xxx.md`. Sie beginnt mit der w
 | B-025 | Fallunterscheidung des Restfalls R-327 nach e und (INJ5) | behauptet (Fall „e = 3 mit (INJ5)“ durch B-021 D geprüft ausgeschlossen, bedingt auf die Lage; Vollständigkeit 0 ≤ e ≤ 3, e ≠ 0, e ≠ 1 von einem Prüfer bestätigt, S4-20) | Vorgabe Justus 26.11.2026, 09:47 UTC; S4-07, PR #113 |
 | B-026 | Satz R (Fall e = 3 ohne (INJ5)), Folgerungen, Gestalt im Unterfall (M21) | behauptet (von einem Prüfer bestätigt, S4-19; Vorbehalt zu B (i)) | S4-14, PR #120 (Merge 22cb353) |
 | B-027 | E2-A, E2-B, E2-D zum Fall e ≤ 2 | behauptet (von einem Prüfer bestätigt, S4-20; Vorbehalt zur Lesart von (INJ-B)) | S4-15, PR #118 (Merge fa5d7b9) |
-| B-028 | S4-28-A, S4-28-B, S4-28-C zum Fall e = 2 ohne (INJ-B) (jede Normalform e ≤ 2) | behauptet | S4-28, PR #134 (Merge 2b8202d) |
-| B-029 | S4-27-B, S4-27-C, S4-27-D zum Fall e = 3 (irgendeine Normalform) | behauptet | S4-27, PR #135 (Merge a7ecbc7) |
-| B-030 | Lemma O, Satz G, Lemma F aus S4-21 (Grundlage von B-028 und B-029) | behauptet | S4-21, PR #127 (Merge 8a2c470) |
+| B-028 | S4-28-A, S4-28-B, S4-28-C zum Fall e = 2 ohne (INJ-B) (jede Normalform e ≤ 2) | behauptet (ein Prüfer S4-34 bestätigt) | S4-28, PR #134 (Merge 2b8202d) |
+| B-029 | S4-27-B, S4-27-C, S4-27-D zum Fall e = 3 (irgendeine Normalform) | behauptet (zwei Prüfer S4-32, S4-33 und Fremdmodell bestätigt, bedingt auf die Grundlagen; Fortschritt Spur A nach 2 b) in Runde 6, Frist in Stufe 4 nicht erfüllbar) | S4-27, PR #135 (Merge a7ecbc7) |
+| B-030 | Lemma O, Satz G, Lemma F aus S4-21 (Grundlage von B-028 und B-029) | behauptet (Lemma O, Satz G, Formeln von zwei Prüfern S4-30, S4-31 bestätigt; Lemma F im Wortlaut nicht, Zusatz α_t, α_t′ ≠ 0 offen) | S4-21, PR #127 (Merge 8a2c470) |
 | B-031 | Fall r = 34 nach Tsyganov et al.: f = 5 unmöglich, Gestalt bei f = 4 (S4-29) | behauptet | S4-29, PR #136 (Merge e54f8c8) |
 
 Spuren der Stufe 4 (Abbruchregel 2):

@@ -2781,3 +2781,13 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 - Urteile: S4-28-A (i) bis (iv), S4-28-B (i) bis (v), S4-28-C erster Satz und „Gleichwertig“-Satz bestätigt; Zusatz „dicht und offen“ nur unter S4-21-A (B-030). Vier Hinweise zum Wortlaut ohne Folge für das Urteil. Der Beweis braucht den Beweis von Lemma A aus `yang_n3.md` (Schritte 1 bis 5), nicht nur die Aussage; vom Prüfer nachvollzogen. Offenlegung im Wortlaut in `pruefvermerke/B-028.md` (u. a. Commit-Meldungen mit Zählerstand, Abschnitt 2 von `yang_n3.md` zusätzlich gelesen).
 - Status B-028 (Orchestrator): behauptet.
 - Offen in Runde 6: S4-35 und die Sol-Antwort zu B-029 (beim Abholversuch um etwa 13:18 UTC noch in_progress).
+
+**Runde 6: Sol-Antwort zu B-029 und Wertung des Orchestrators (26.11.2026)**
+
+- Antwort fertig 13:22 UTC (Batch `openrouter:batch-1795698947-pgF8OgwNW9RGvgO1RH1f`, GPT 6.2 Sol, Denkstufe high, 8.016 Tokens, 0,03 US-$). Von der Schreibhand mit `batch_job` abgeholt und wörtlich abgelegt: `versuche/s4-r6-sol-b029/gpt_antwort.md`.
+- Urteile laut Antwort: S4-27-B folgt; S4-27-C folgt unter der Normalform mit (C′), der Zusatz „aus (B) und (C) allein“ ist aus dem Auftragstext nicht entscheidbar ((C) dort nicht definiert) und folgt in der Lesart ohne Normalformrahmen nicht (Gegenbeispiel ohne (G3)); S4-27-D folgt. Dazu eine eigene zweite Herleitung des lokalen Schlusses.
+- Hinweis ohne Wertung (Schreibhand): Die Voraussetzungen im Auftragstext hat der Orchestrator selbst zusammengestellt, nicht wörtlich aus dem Repo übernommen; die Frage nach „(C)“ geht auf diese Liste zurück.
+- **Wertung des Orchestrators (Wortlaut sinngemäß wie mitgeteilt):** Der Ausschluss des benannten Falls „e = 3 ohne (INJ5)“ (S4-27-D, B-029) ist von zwei Prüfern (S4-32, S4-33) und vom Fremdmodell bestätigt, jeweils bedingt auf die Grundlagen in Abschnitt 2 der Quelle (Restfall, S4-07, Satz R, Satz G). Das zählt als Fortschritt von Spur A nach Regel 2 b) in Runde 6. Die Frist für „geprüft“ liefe bis zum Ende der übernächsten Runde; das Budget endet aber mit Runde 6, die Frist kann innerhalb von Stufe 4 nicht mehr erfüllt werden. Status von B-029 bleibt behauptet.
+- Keine Sol-Anfrage zu B-028: Der Beweis ist ohne große Teile von S4-15 und S4-07 nicht in einen Auftragstext zu fassen, und 5.5 verlangt Sparsamkeit.
+- Offener Punkt aus allen drei Stimmen: Der Wortlaut „aus (B) und (C) allein“ in S4-27-C ist zu eng gefasst.
+- Fremdmodell in Stufe 4 bisher: 2 Anfragen (Runde 3: 1, Runde 6: 1).
