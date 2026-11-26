@@ -2,27 +2,60 @@
 
 How many multiplications are needed, at minimum, to multiply an n×2 matrix by a 2×m matrix?
 
-This repository works on the exact tensor rank of the small matrix multiplication formats ⟨n,2,m⟩ over arbitrary fields. Every result here is either a machine-checked Lean proof (lower bound) or a scheme confirmed by two independent exact checkers (upper bound).
+This repository works on the exact tensor rank of the small matrix multiplication formats ⟨n,2,m⟩ over arbitrary fields. Lower bounds here count only as machine-checked Lean proofs; upper bounds count only as schemes confirmed by two independent exact checkers (for ⟨4,2,4⟩ the upper bound is also a Lean theorem).
 
-**Status:** stage 2 (⟨4,2,4⟩) reached its completion criterion: R(⟨4,2,4⟩) = 26 over every field, lower bound machine-checked in Lean (see the table and [the note](ergebnisse/rang-444.md)). Stage 3, a short exploration of ⟨4,2,5⟩ and ⟨3,2,7⟩, is completed. Stage 4, a narrow attack on ⟨3,2,7⟩, is running; the rank of ⟨3,2,7⟩ is open (34 or 35). See [STATUS.md](STATUS.md).
+**Status:** R(⟨4,2,4⟩) = 26 over every field, stated and proved as one Lean theorem, `MatMulRank.rank_four_two_four_eq_26`, on Lean 4.36.0 with Mathlib v4.36.0 (see the table and [the note](ergebnisse/rang-444.md)). Stage 5 has ended: the Lean library was ported from Lean 4.19.0 to Lean 4.36.0, and the files for an entry in the Palomar registry were prepared in `lean/`. Nothing has been submitted to Palomar. The rank of ⟨3,2,7⟩ is open (34 ≤ R ≤ 35). See [STATUS.md](STATUS.md).
 
 ## Targets
 
 | Format | Lower bound | Upper bound | State |
 |---|---|---|---|
 | ⟨3,2,6⟩ | 30 | 30 | settled by Yang (v3); Lean formalization of Yang's bound in this repository (status geprüft). The theorem is Yang's |
-| ⟨4,2,4⟩ | **26** | 26 | **rank 26 over every field**. Lower bound: Lean proof in this repository (status geprüft), to our knowledge the first proof (literature check of 25/26 November 2026). Upper bound: Hopcroft–Kerr (1971), scheme over ℤ re-checked here. See [the note](ergebnisse/rang-444.md) |
-| ⟨3,2,7⟩ | 34 | 35 | open (gap computed from the published formulas) |
+| ⟨4,2,4⟩ | **26** | 26 | **rank 26 over every field**, Lean theorem `MatMulRank.rank_four_two_four_eq_26` (status geprüft). Lower bound: to our knowledge the first proof (literature checks of 25 and 26 November 2026). Upper bound: the known value of Hopcroft–Kerr (1971). See [the note](ergebnisse/rang-444.md) |
+| ⟨3,2,7⟩ | 34 | 35 | open |
 | ⟨4,2,5⟩ | 31 | 32 | open |
 
-The lower bound 26 for ⟨4,2,4⟩ is the Lean theorem
-`YangBounds.Transponiert444.rank_four_two_four_ge_26 (K : Type u) [Field K] : 26 ≤ tensorRank K 4 2 4`
-(Lean 4.19.0, mathlib `c44e0c8`, source state `c3c3884`; GitHub Actions run 45699204903, job 139504538345: no `sorry`, only the axioms `propext`, `Classical.choice`, `Quot.sound`).
-Second, independent machine check: a fresh-checkout build of `667df45` with kernel re-check by lean4checker v4.19.0, 27 of 27 modules OK (run 45706606136, job 139530090202); the statement elaborated in a fresh file `lean/Zweitlauf/B016Aussage.lean` (run 45708303302, job 139535849738); and a build from source in a second environment at `64554f9`, whose log is not in the repository.
-Its statement was compared with the claim by one reviewing model instance and, independently, by a model of another family (GPT 6.2 Sol). Human review: none.
-The upper bound 26 is the known value of Hopcroft and Kerr (1971); the scheme `verfahren/4x2x4-r26-s001.json` (coefficients in {−1, 0, 1}) was accepted by two independently written exact checkers.
-There is no single Lean theorem for "rank = 26"; the equality combines the machine-checked lower bound with the known upper bound.
-Since commit `62c3dc6` no module in the import chain of this theorem imports the Lean package `fallnlove/mm325_proof`; the link to that package lives in the separate file `lean/YangBounds/BrueckeMM325.lean`, which the theorem does not import. Repeated fresh-checkout build of `62c3dc6` with kernel re-check by lean4checker v4.19.0, 29 of 29 modules OK, and only the axioms `propext`, `Classical.choice`, `Quot.sound` (run 45833618872, job 139956567190). One public catalogue line already states this bound without proof; see "Related claims" in [the note](ergebnisse/rang-444.md).
+### ⟨4,2,4⟩ in Lean
+
+The statement, in `lean/MatMulRank/Challenge.lean` (line 94), with the definitions `MatMulRank.BilinearAlgorithm` and `MatMulRank.tensorRank` of the same file, which imports only Mathlib:
+
+```lean
+theorem rank_four_two_four_eq_26 (K : Type u) [Field K] : tensorRank K 4 2 4 = 26
+```
+
+The Challenge file states the theorem with `sorry` on purpose: this is the format of the Palomar registry. The proof is in `lean/MatMulRank/Solution.lean`. It transfers the project theorem `YangBounds.Gleich444.rank_four_two_four_eq_26`, which combines
+
+- the lower bound `YangBounds.Transponiert444.rank_four_two_four_ge_26` (`26 ≤ tensorRank K 4 2 4`, `lean/YangBounds/Transponiert444.lean`), and
+- the upper bound `YangBounds.Upper4x2x4.rank_four_two_four_le_26` (`tensorRank K 4 2 4 ≤ 26`, `lean/YangBounds/Upper4x2x4.lean`): an explicit algorithm with 26 products, taken from the scheme `verfahren/4x2x4-r26-s001.json` (coefficients in {−1, 0, 1}), whose tensor identity is checked by the Lean kernel. The same scheme was accepted by two independently written exact checkers. The value 26 is the known upper bound of Hopcroft and Kerr (1971).
+
+Machine checks on commit `676cdf5deb786e81a66342606d4dd2b6f919745e` (Lean 4.36.0, Mathlib v4.36.0 = commit `fc4f59e577feb1a4956671bc04ac18aaaf8cd842`):
+
+- `lean-project.yml`, run 45869038515, job 140079318183: build successful, no `sorry` except the intended one in the Challenge, and `MatMulRank.rank_four_two_four_eq_26`, `YangBounds.Gleich444.rank_four_two_four_eq_26`, `YangBounds.Upper4x2x4.rank_four_two_four_le_26` and `YangBounds.Transponiert444.rank_four_two_four_ge_26` depend only on the axioms `propext`, `Classical.choice`, `Quot.sound`.
+- `zweitlauf.yml`, run 45869043624, job 140079342228: fresh checkout without build artefacts, build, kernel re-check with `leanchecker` of the Lean 4.36.0 toolchain, 32 of 32 project modules OK, the same axioms, and `leanchecker --fresh` on `YangBounds.Transponiert444` with exit 0.
+
+Between `676cdf5` and the commit that added this text, no Lean file, no Lake file, no workflow and no file of the Palomar entry changed. The statement of the Challenge was compared with the claim "R_K(⟨4,2,4⟩) = 26 for every field K" by one reviewing model instance and, independently, by a model of another family (GPT 6.2 Sol). Both found that it matches; their reservations are recorded in `pruefvermerke/B-034.md`. Human review: none.
+
+### Palomar files
+
+The entry is prepared, not submitted. Only the repository owner submits.
+
+| File | Content |
+|---|---|
+| `lean/MatMulRank/Challenge.lean` | statement file: definitions and theorem, imports only Mathlib |
+| `lean/MatMulRank/Definitions.lean` | the definitions of the Challenge, character for character, for the Solution |
+| `lean/MatMulRank/Solution.lean` | proof of the Challenge theorem from the project library `YangBounds` |
+| `lean/comparator.json` | Challenge module, Solution module, theorem name, permitted axioms |
+| `lean/formalization.yaml` | metadata of the entry (sources, AI disclosure, review status) |
+| `palomar/ANFORDERUNGEN.md` | Palomar's requirements, with references to Palomar's rules (German) |
+| `palomar/BELEGE.md` | one piece of evidence (command and output) per requirement (German) |
+
+How to check them: build `lean/` as described in [lean/README.md](lean/README.md), or read the two job logs above. `palomar/BELEGE.md` records local runs, by an agent and outside Palomar's sandbox, of `lake comparator` (Lean kernel and NanoDa), of `con-ron` on the export, and of Palomar's own check functions (section 1.7, section 2 and section 8), with commands and output.
+
+### Earlier state (Lean 4.19.0, lower bound only)
+
+Up to stage 5 the project ran on Lean 4.19.0 with mathlib `c44e0c8`, and the result was the lower bound `YangBounds.Transponiert444.rank_four_two_four_ge_26` alone; the equality combined it with the known upper bound outside Lean. The project then also depended on the Lean package `fallnlove/mm325_proof` (package `mm325_lower_bound`); since commit `62c3dc6` no module in the import chain of the final theorem imported it, and stage 5 removed the dependency. This state is kept on the branch [`lean-4.19`](https://github.com/Justus42/matmul-rank-n2m/tree/lean-4.19) (commit `71240f81988ae10323af035c3273a45b5038ac3a`). Its machine checks: GitHub Actions run 45699204903, job 139504538345 (source state `c3c3884`); fresh-checkout build with lean4checker v4.19.0, 27 of 27 modules OK (run 45706606136, job 139530090202, commit `667df45`); the statement in a fresh file `lean/Zweitlauf/B016Aussage.lean` (run 45708303302, job 139535849738); repeated at `62c3dc6`, 29 of 29 modules OK (run 45833618872, job 139956567190). Details in [the note](ergebnisse/rang-444.md), section 2.
+
+One public catalogue line already states this bound without proof; see "Related claims" in [the note](ergebnisse/rang-444.md).
 
 The other rows are taken from the literature and are not yet all re-verified here.
 
@@ -32,6 +65,8 @@ The other rows are taken from the literature and are not yet all re-verified her
 1. Formalize the bounds of Yang's third version in Lean.
 2. Attack ⟨4,2,4⟩ from both sides: a proof of 26, or a scheme with 25.
 3. A short exploration of ⟨4,2,5⟩ and ⟨3,2,7⟩: does an attack on a further format pay off?
+4. A narrow attack on ⟨3,2,7⟩.
+5. Port of the Lean library for the Palomar registry, and a second reading of the written ⟨3,2,7⟩ argument without Lean.
 
 The full working rules are in [PROTOKOLL.md](PROTOKOLL.md) (German).
 
@@ -39,7 +74,7 @@ The full working rules are in [PROTOKOLL.md](PROTOKOLL.md) (German).
 
 This is an experiment in AI-driven mathematical research, run by a non-mathematician.
 
-- The mathematical work is done by AI models: an orchestrating Claude session (Anthropic, Claude Fable 5.2 as reported by the model) that assigns single tasks to further Claude sessions (mostly Claude Opus 5.5 by their own reports and commit trailers). Models from other families are used only for cross-checks: GPT 6.2 Sol (OpenAI, via OpenRouter) for independent statement checks and second readings, and earlier a Gemini model (Google). The full AI disclosure for ⟨4,2,4⟩ is in Section 8 of [the note](ergebnisse/rang-444.md). No human mathematician has reviewed the results.
+- The mathematical work is done by AI models: an orchestrating Claude session (Anthropic) that assigns single tasks to further Claude sessions. Task sessions that reported their model reported `claude-opus-5-5` (`LOG.md`); the commit trailers mostly name Claude Opus 5.5. Models from other families are used only for cross-checks: GPT 6.2 Sol (OpenAI, via OpenRouter) for independent statement checks and second readings, and earlier a Gemini model (Google). The full AI disclosure for ⟨4,2,4⟩ is in Section 8 of [the note](ergebnisse/rang-444.md). No human mathematician has reviewed the results.
 - No claim counts because a model says so. A lower bound counts only with a Lean proof that builds without `sorry`, uses only standard axioms, and whose statement was independently compared with the claim. A scheme counts only if two independently written exact-arithmetic checkers accept it.
 - Failed approaches are kept in `versuche/`.
 - The words "proved" and "solved" are used only for items with status **geprüft** (verified).
