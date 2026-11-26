@@ -2332,3 +2332,30 @@ Alle melden 0 eigene Subagenten und 0 Fremdmodell-Anfragen. Status von allem: **
 **Der Orchestrator hält an.** Pause bis Sonntag, 29.11.2026, auf Anweisung von Justus. Keine Vergabe vorher. Die Pause zählt nicht als Runde und löst keine Abbruchregel aus.
 
 **Plan des Orchestrators für Runde 3 (26.11.2026),** bei Wiederaufnahme gegen Abschnitt 3 und den dann geltenden Stand neu zu lesen: steht in STATUS.md unter „Wiederaufnahme“.
+
+---
+
+## 26.11.2026 · Entscheidung von Justus: Pause aufgehoben, Lesart (d) gilt nicht, Vorgaben für Runde 3
+
+**Nachricht von Justus im Projektchat (Wortlaut, 26.11.2026, 09:47 UTC):**
+
+> Pause aufgehoben, Runde 3 kann starten. Lesart (d) gilt nicht: Abbruchregel 2 zählt je Spur, und die Spuren gibt es laut Abschnitt 3 erst ab Runde 2. Zähler nach Runde 2: Spur A 1 von 3, Spur B 1 von 3. Trag das mit diesem Wortlaut ins Logbuch ein.
+>
+> Zu Runde 3:
+>
+> 1. Der Prüfer für S4-07 hat Vorrang. Bestätigt er den bedingten Ausschluss S4-07-D, lege die Fallunterscheidung des Restfalls als eigene Behauptung an (e = 3 mit (INJ5), e = 3 ohne (INJ5), e ≤ 2) und hole eine Sol-Anfrage zu S4-07-D ein. Bestätigen beide, zählt das als Fortschritt von Spur A nach 2 b) in Runde 3, mit der üblichen Frist.
+> 2. Satz X zählt nicht als Fortschritt.
+> 3. Höchstens zwei Sol-Anfragen in der Runde, keine ohne vorherige Bestätigung durch einen Prüfer.
+> 4. Spur B: zuerst die Positivprobe bei 35. Findet das Werkzeug das bekannte Verfahren nicht, endet der Auftrag mit diesem Befund und sucht nicht bei 34.
+>
+> Sonst gilt dein Plan aus „Wiederaufnahme".
+
+**Folgen:**
+
+- Die Pause ist aufgehoben. Runde 3 darf starten.
+- **Lesart (d) gilt nicht. Zähler nach Runde 2: Spur A 1 von 3, Spur B 1 von 3.** Die Angaben „2 von 3“ in den Einträgen zu Runde 1 und Runde 2 oben sind damit überholt (das Logbuch wird nicht umgeschrieben).
+- Die Vorbedingung „Antwort von Justus zu Lesart (d)“ aus „Wiederaufnahme“ ist erfüllt.
+- Vorgaben 1 bis 4 für Runde 3 gelten zusätzlich zum Plan des Orchestrators. Sie stehen in STATUS.md unter „Wiederaufnahme“.
+- Die Literaturwache für diese Sitzung vergibt der Orchestrator vor der Runde. Nach der bisherigen Lesart zählt sie nicht als Aufgabe der Runde.
+
+**Gedächtnis vor der Vergabe an Prüfer und Blind-Sucher (Schreibhand, etwa 09:52 UTC):** Index (unverändert seit 06:45 UTC) und alle 21 Einzeleinträge durchgesehen. Nichts über Behauptungen, Prüfurteile, Befunde, Zähler, Lesarten oder Rundenverlauf von Stufe 4. Die Einträge `hk-verfahren-a10` und `lean-upper-3x2x6` enthalten nur Dateipfade, PR-Nummern und Bautechnik zu 3×2×5, 3×2×6 und der Lean-Datei. Sie verraten einem Blind-Sucher aber, dass das Projekt Verfahren für 3×2×5 und 3×2×6 und eine Lean-Familie YangBounds hat. Kein Urteil. Nichts geändert. Freigegeben.

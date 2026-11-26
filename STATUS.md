@@ -1,10 +1,10 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 2 abgeschlossen; Orchestrator hält an, Pause bis Sonntag, 29.11.2026, auf Anweisung von Justus)
+Zuletzt geändert: 26.11.2026 (Pause von Justus aufgehoben, Lesart (d) gilt nicht, Zähler je 1 von 3; Runde 3 in Vorbereitung)
 
 ## Aktuelle Stufe
 
-**Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): läuft, **Pause bis Sonntag, 29.11.2026** (Justus, 26.11.2026, 08:23 UTC). Keine Runde 3 vorher
+**Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): läuft. Die Pause bis 29.11.2026 (Justus, 08:23 UTC) hat Justus um 09:47 UTC aufgehoben, Runde 3 darf starten
 
 - Von Justus gestartet am 26.11.2026, 06:43 UTC (Wortlaut im Logbuch). Protokoll 0.6 (c721297) von ihm bestätigt
 - Budget: 6 Runden mit je bis zu 6 Subagenten, Fremdmodell nur nach 5.5. Grundlage: `erkundung/s3-08-einschaetzung-327.md`
@@ -13,9 +13,9 @@ Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 2 abgeschlossen; Orchestrator häl
 - Behauptungsdateien für Runde 1: `behauptungen/B-017.md` (Restfall-Rechnung), `behauptungen/B-018.md` (Lemma 15(b) bei d = 2), `behauptungen/B-019.md` (Übertragung von Lemma I, Wortlaut der Aussage vom Orchestrator). Status behauptet (`pruefvermerke/`)
 - Runde 1 von 6 vergeben etwa 06:52 UTC: 5 Subagenten, 0 Fremdmodell-Anfragen. S4-01 bis S4-03 Prüfer für B-017 bis B-019, S4-04 Verfahren mit 35 anlegen und nachrechnen, S4-05 Blind-Sucher. Die Berichte S3-03 und S3-04 stehen auf keiner Positivliste
 - Runde 1 von 6 abgeschlossen: 5 Subagenten, 0 Fremdmodell-Anfragen, etwa 48 Minuten nach Git (06:52 UTC bis 412ad8b um 07:40:05 UTC). Haltebedingung nicht erfüllt (Lesart c). B-017 bis B-019 behauptet, von einem Prüfer bestätigt. B-020 (obere Schranke 35) behauptet
-- Abbruchregel 2 (Lesart d, strenger): Runde 1 zählt als Runde ohne Fortschritt. Zähler 1 von 3 für Spur A und 1 von 3 für Spur B
+- Abbruchregel 2: Lesart (d) des Orchestrators gilt nicht (Justus, 26.11.2026, 09:47 UTC). Die Spuren gibt es erst ab Runde 2. Zähler nach Runde 2: Spur A 1 von 3, Spur B 1 von 3
 - Runde 2 von 6 vergeben: S4-06 bis S4-09 etwa 07:42 UTC, S4-10 und S4-11 etwa 07:43 UTC nach Durchsicht des Gedächtnisses. 6 Subagenten, Fremdmodell in dieser Runde nicht geplant
-- Runde 2 von 6 abgeschlossen: 6 Subagenten, 0 Fremdmodell-Anfragen, etwa 50 Minuten nach Git (07:42 UTC bis 78ce5f9 um 08:31:52 UTC). Kein Ausschluss, kein Verfahren mit 34. Zähler (Lesart d): Spur A 2 von 3, Spur B 2 von 3
+- Runde 2 von 6 abgeschlossen: 6 Subagenten, 0 Fremdmodell-Anfragen, etwa 50 Minuten nach Git (07:42 UTC bis 78ce5f9 um 08:31:52 UTC). Kein Ausschluss, kein Verfahren mit 34. Zähler nach Justus (09:47 UTC): Spur A 1 von 3, Spur B 1 von 3
 - Lesart (e): Rechenblöcke direkt hintereinander ohne Commit dazwischen zählen als ein Block. S4-05 hat damit die Grenze von 30 Minuten überschritten (etwa 38 Minuten), Regelverstoß ohne weitere Folge
 - B-020 (R(⟨3,2,7⟩) ≤ 35 über ℤ, also über jedem Körper): **geprüft** nach 5.2, Läufe wiederholt durch S4-10. Kein Fortschritt nach Abbruchregel 2 (Lesart des Orchestrators)
 - Fertig mit einem Lean-Satz für die untere Schranke 35 über jedem Körper (geprüft nach 5.1 samt Abgleich des Endsatzes), einem nach 5.2 bestätigten Verfahren mit 34, erschöpftem Budget oder wenn eine Abbruchregel beide Spuren beendet
@@ -23,25 +23,22 @@ Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 2 abgeschlossen; Orchestrator häl
 
 ## Wiederaufnahme
 
-Entscheidung von Justus vom 26.11.2026, 08:23 UTC (Wortlaut im Logbuch): Runde 2 abschließen, dann anhalten. **Pause bis Sonntag, 29.11.2026. Keine Runde 3 vorher.** Die Pause zählt nicht als Runde und löst keine Abbruchregel aus.
+Entscheidung von Justus vom 26.11.2026, 08:23 UTC: Runde 2 abschließen, dann Pause bis Sonntag, 29.11.2026. Die Pause zählt nicht als Runde und löst keine Abbruchregel aus. **Am 26.11.2026 um 09:47 UTC hat Justus die Pause aufgehoben, Runde 3 darf starten** (beides im Wortlaut im Logbuch).
 
 **Stand bei der Pause** (Runde 2 abgeschlossen, 26.11.2026, 08:31 UTC)
 
 - Budget Stufe 4: 2 von 6 Runden verbraucht (Runde 1: 5 Subagenten, Runde 2: 6 Subagenten), 0 Fremdmodell-Anfragen in der Stufe. Verbleibend: 4 Runden
-- Zähler Abbruchregel 2, nach Lesart (d) des Orchestrators (Runde 1 zählt als Runde ohne Fortschritt):
-  - Spur A: 2 von 3 (Runde 1 und Runde 2 ohne Fortschritt nach a) oder b))
-  - Spur B: 2 von 3 (S4-08 ohne Fund)
-  - Ohne Lesart (d) wären es je 1 von 3
+- Zähler Abbruchregel 2 (Wortlaut Justus, 09:47 UTC): „Zähler nach Runde 2: Spur A 1 von 3, Spur B 1 von 3.“ Lesart (d) gilt nicht
 - Laufende Fristen nach Abbruchregel 2 b): keine. In Stufe 4 gibt es bisher keine Behauptung, die ein Prüfer und ein Fremdmodell bestätigt haben
-- Weitere Fristen: keine mit Datum außer der Pause bis 29.11.2026. Offener Punkt ohne Frist: Auflage 7 aus Stufe 2 (Endsatz von mm325_proof entkoppeln, „nicht jetzt“)
+- Weitere Fristen: keine mit Datum (die Pause bis 29.11.2026 ist aufgehoben). Offener Punkt ohne Frist: Auflage 7 aus Stufe 2 (Endsatz von mm325_proof entkoppeln, „nicht jetzt“)
 - Geprüft in Stufe 4: B-020 (R(⟨3,2,7⟩) ≤ 35 über ℤ und jedem Körper, nach 5.2). Behauptet, von einem Prüfer bestätigt: B-017, B-018, B-019. Axiom-Bericht für `lemma15b` und `lemma_I` seit S4-09 vorhanden
 - Rang von ⟨3,2,7⟩: 34 oder 35, nicht entschieden
 
 **Zu beachten bei der Wiederaufnahme**
 
 - Literaturwache nach Abschnitt 7 zu Beginn der neuen Sitzung, vor jeder anderen Arbeit
-- Gedächtnis-Durchsicht durch die Schreibhand vor der Vergabe an Prüfer und Blind-Sucher
-- Nach Lesart (d) beendet eine Runde 3 ohne Fortschritt beide Spuren (Zähler 3 von 3) und damit die Stufe. Protokoll Abschnitt 3: Würde die strengere Lesart eine Spur oder die Stufe beenden, hält der Orchestrator an und fragt Justus
+- Gedächtnis-Durchsicht durch die Schreibhand vor der Vergabe an Prüfer und Blind-Sucher (für Runde 3 erledigt)
+- Eine Runde 3 ohne Fortschritt bringt beide Spuren auf 2 von 3, beendet also keine Spur
 
 **Erste Aufträge für Runde 3: Plan des Orchestrators vom 26.11.2026.** Bei Wiederaufnahme gegen Abschnitt 3 des Protokolls und den dann geltenden Stand neu zu lesen.
 
@@ -49,7 +46,8 @@ Vor der Runde:
 
 - Literaturwache nach Abschnitt 7 (neue Sitzung)
 - Gedächtnisdurchsicht vor der Vergabe an Prüfer und Blind-Sucher
-- Antwort von Justus zu Lesart (d), die der Orchestrator ihm vorlegt. **Ohne seine Antwort beginnt Runde 3 nicht**
+- Antwort von Justus zu Lesart (d): **erfüllt** (26.11.2026, 09:47 UTC, Lesart (d) gilt nicht)
+- Gedächtnisdurchsicht: **erledigt** (etwa 09:52 UTC, nichts gefunden, was nicht hingehört)
 
 Aufträge:
 
@@ -59,6 +57,15 @@ Aufträge:
 4. Prüfer: S4-06 A1 bis A6 zusammen mit Satz G aus S4-11 und Satz K aus S4-08, soweit sie dieselbe Struktur behaupten (genaue Dateipfade im Auftrag)
 5. Spur B: Suche nach 34 mit den erzwungenen Kenngrößen, erst nach bestandener Positivprobe bei 35 mit demselben Werkzeug und über einem Körper, über dem die starke Normalform für die bekannten Verfahren zulässig ist
 6. Blind-Sucher für 3×2×7
+
+**Vorgaben von Justus für Runde 3 (26.11.2026, 09:47 UTC), zusätzlich zum Plan:**
+
+1. Der Prüfer für S4-07 hat Vorrang. Bestätigt er den bedingten Ausschluss S4-07-D, wird die Fallunterscheidung des Restfalls als eigene Behauptung angelegt (e = 3 mit (INJ5), e = 3 ohne (INJ5), e ≤ 2) und eine Sol-Anfrage zu S4-07-D eingeholt. Bestätigen beide, zählt das als Fortschritt von Spur A nach 2 b) in Runde 3, mit der üblichen Frist (Status geprüft bis Ende der übernächsten Runde, also Ende Runde 5)
+2. Satz X (S4-07-E) zählt nicht als Fortschritt
+3. Höchstens zwei Sol-Anfragen in der Runde, keine ohne vorherige Bestätigung durch einen Prüfer
+4. Spur B: zuerst die Positivprobe bei 35. Findet das Werkzeug das bekannte Verfahren nicht, endet der Auftrag mit diesem Befund und sucht nicht bei 34
+
+Sonst gilt der Plan oben.
 
 Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 Minuten auf 4 Kernen, mit Commit dazwischen (Lesart e, in jeden Auftrag). Keine eigenen Subagenten. Fremdmodell nur nach 5.5, falls ein Ausschluss aus 1 oder 2 als Fortschritt nach 2 b) zählen soll.
 
