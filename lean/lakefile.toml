@@ -1,6 +1,6 @@
 name = "yang_bounds"
 version = "0.1.0"
-defaultTargets = ["YangBounds"]
+defaultTargets = ["YangBounds", "MatMulRank"]
 
 # Mathlib at tag v4.36.0 (its lean-toolchain is leanprover/lean4:v4.36.0,
 # matching ./lean-toolchain exactly, as Palomar requires).
@@ -12,3 +12,9 @@ rev = "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
 [[lean_lib]]
 name = "YangBounds"
 globs = ["YangBounds.+"]
+
+# S5-08: Palomar Challenge (MatMulRank.Challenge, imports only Mathlib), the definitions it
+# shares with the Solution (MatMulRank.Definitions) and the Solution (MatMulRank.Solution).
+[[lean_lib]]
+name = "MatMulRank"
+globs = ["MatMulRank.+"]
