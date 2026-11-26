@@ -10,7 +10,12 @@
 
 ## 1. Ergebnis in Kürze
 
-PLATZHALTER
+1. **Kein Fund.** Kein Verfahren mit 34 für ⟨3,2,7⟩, über keinem Körper. **Kein Teilraum ist vollständig abgesucht**: Alle vier SAT-Läufe endeten an der Zeitgrenze ohne Ergebnis, es gibt kein UNSAT und kein Zertifikat. Alles in Abschnitt 4 und 5 ist Stichprobe.
+2. **Eichung (Abschnitt 2):** Die Kenngrößen der bekannten Verfahren sind gemessen. Beide 35er-Verfahren haben (ρ, rk L, rk H) = (6, 7, 6), dim N = 1, dim S = 0, das Verfahren für 3×2×5 (4, 5, 4) mit s = 0, das für 3×2×6 (6, 6, 6) mit s = 0, passend zu S3-04 Probe 4. Der Restfall der Länge 34 verlangt (4, 6, 4), dim N = 3, dim S = 1. Das liegt weit von allen geeichten Verfahren entfernt.
+3. **Übersetzung (Abschnitt 3, Satz K, behauptet):** Jede stark normalisierte Zerlegung der Länge 34 erfüllt nach einem Basiswechsel der Spalten von B und C die Bedingungen (K1) und (K2): Für jedes Produkt ist der Anteil von β_r an Zeile 1, Spalten 5 bis 7 von B bis auf einen Faktor der Anteil von α_r an Spalte 0 von A, und drei quadratische Vektoren liegen in J. Der Beweis braucht weder Lemma 15(b) noch einen algebraisch abgeschlossenen Körper, nur die starke Normalform.
+4. **Grenze über kleinen Körpern:** Keines der bekannten Verfahren für 25, 30, 35 lässt über GF(2) die starke Normalform zu, das 35er-Verfahren auch über GF(3) nicht. Ein SAT-Ansatz über GF(2) mit (SN1), (K1), (K2) durchsucht deshalb eine Klasse, die keines der bekannten optimalen Verfahren enthält.
+5. **Werkzeug nicht geeicht:** Die Positivprobe (SAT über GF(2) ohne Ansatz bei 35, wo ein Verfahren existiert) fand in 20 Minuten nichts, ebenso die Levenberg-Marquardt-Probe bei 35 in 5 Minuten nicht exakt. Ein Ausbleiben eines Funds bei 34 ist daher kein Indiz.
+6. Runde 2 wurde vom Orchestrator nach Block 2 abgeschlossen (Anweisung von Justus). Kein weiterer Block, kein neuer Ansatz.
 
 ---
 
@@ -62,4 +67,51 @@ Bezeichnungen wie in `lean/prosa/yang_n3.md`: Produkt r ist α_r(A)·β_r(B)·C_
 - **Über kleinen Körpern** greift der Satz nur für Zerlegungen, die dort selbst stark normalisierbar sind. Probe mit `s4-spurB-r2/sn_gf2.py`: Keines der vier Verfahren aus Abschnitt 2 (25, 30, 35, 35) lässt über GF(2) auch nur (SN1) zu, das 35er-Verfahren `3x2x7-r35-hk71` auch über GF(3) nicht (für jede Zeile p gibt es kein u mit α_r(u·p) ≠ 0 für alle r). Eine SAT-Suche über GF(2) mit (SN1), (K1), (K2) durchsucht also eine Klasse, in der keines der bekannten optimalen Verfahren liegt. Ein UNSAT dort sagt nichts über Zerlegungen über GF(2), die erst über GF(2ᵏ) normalisierbar sind.
 - **Über ℝ** ist der Ansatz ohne Verlust: Für eine reelle Zerlegung ist die Menge der guten (S, T) Zariski-offen und nicht leer, enthält also reelle Punkte, und N, S, x₀, y₁, y₂ sind dann reell.
 
-PLATZHALTER-SUCHE
+---
+
+## 4. Rechenblock 1: Levenberg-Marquardt über ℝ in der Normalform (Stichprobe)
+
+Programm `s4-spurB-r2/lm_normalform.py` (numpy, Gleitkomma, nur zur Suche; ein Treffer hätte exakt nachgerechnet werden müssen), Startskript `block_lm.sh`, 4 Kerne, je Lauf eigene Saat und harte Zeitgrenze.
+
+| Block | Beginn bis Ende (UTC) | Inhalt | Ergebnis |
+|---|---|---|---|
+| 1a | 07:50:36 bis 07:55:36 | Positivprobe: freie Zerlegung mit 35, 4 Läufe je 300 s, Saaten 100, 1100, 2100, 3100 | kein exaktes Verfahren. Restnorm 2,8·10⁻³ und 3,2·10⁻³ (2 Läufe, langsam fallend), 1,0 und 1,4 (2 Läufe). Daten `daten/block1a_kontrolle35.log` |
+| 1b | 07:55:54 bis 08:10:24 | Rang 34 mit (SN1), (K1), (K2) als Gleichungen, 12 Läufe je 290 s, Saaten 500 bis 502, 1500 bis 1502, 2500 bis 2502, 3500 bis 3502 | kein Fund. Restnormen 0,12 (1 Lauf), sonst 1,0, 1,41 oder 1,73, also hängen geblieben mit 1 bis 3 fehlenden Einträgen; Koeffizienten wachsen auf 22 bis 54. Daten `daten/block1b_k1_34.log` |
+
+Zwischen 1a und 1b liegt Commit `S4-08: Block 1a` (07:55:46 UTC). Bewertung: Die Positivprobe zeigt, dass das Verfahren selbst bei 35 in 5 Minuten nicht bis zur Lösung kommt. Block 1b ist deshalb eine schwache Stichprobe, kein Indiz gegen ein Verfahren mit 34 über ℝ. Komplexe Zerlegungen sind nicht abgedeckt.
+
+## 5. Rechenblock 2: SAT über GF(2) (Stichprobe, kein Zertifikat)
+
+Kodierer `s4-spurB-r2/sat327.py` (eigener Code; Brent-Gleichungen als UND-Gatter und XOR-Ketten, alle 1764 Gleichungen; Ansatzschalter `--sn1`, `--k1`, `--k2`, dazu `--lex` gegen Umnummerierung der Produkte; Dekodierer rechnet jede Lösung unabhängig von der CNF nach). Probe des Kodierers an ⟨3,2,2⟩: Rang 11 SAT, Lösung vom Dekodierer mit 0 verletzten Gleichungen bestätigt. Rang 10 (UNSAT nach bekanntem Rang 11) in 200 s nicht entschieden, also selbst dort kein UNSAT in kurzer Zeit.
+
+Löser kissat (github.com/arminbiere/kissat, Commit 8af8e56f174b778aef3aa45af9f739b2a5f492c2, MIT), nur als externes Programm, `--seed=1`. Für a34 und sn34 wurde ein DRAT-Beweis mitgeschrieben, für den Fall eines UNSAT mit drat-trim (Commit 2e3b2dc0ecf938addbd779d42877b6ed69d9a985, MIT) zu prüfen. Weil kein UNSAT kam, sind die Beweisdateien (2,6 und 3,0 GB) gelöscht. Nichts davon ist ins Repo kopiert.
+
+Block 2: 08:10:41 bis 08:30:41 UTC, 4 Läufe parallel, je 1200 s (Commit davor 08:10:30 UTC).
+
+| Lauf | Kodierung | Variablen / Klauseln | SHA-256 der CNF | Ergebnis |
+|---|---|---|---|---|
+| a34 | R = 34, `--sn1 --k1 --k2 --lex` | 123616 / 427164 | siehe unten | Zeitgrenze, 17,4 Mio. Konflikte |
+| sn34 | R = 34, `--sn1 --lex` | 123065 / 425056 | siehe unten | Zeitgrenze, 17,0 Mio. Konflikte |
+| sn35 | R = 35, `--sn1 --lex` (Probe: gibt es SN1 über GF(2) bei 35 überhaupt?) | 126737 / 437715 | siehe unten | Zeitgrenze, 17,7 Mio. Konflikte |
+| p35 | R = 35, `--lex`, ohne Ansatz (Positivprobe, Lösung existiert) | 126737 / 437680 | siehe unten | Zeitgrenze, 17,0 Mio. Konflikte |
+
+SHA-256: a34 `2c848cc10747f4e63a18921fa9bcfe492377c9fbf8951edff746b8df7898432b`, sn34 `6242683166957825f238eb12894e7f0310a85b56cf23761ba6206530ad9aa14c`, sn35 `bb99b10d8a86e5b8d83a24a557e4efbc264c32eee429fdcebb7712b2a73f4398`, p35 `2ec2ee2250790a48e845c44b910e3b07f630f6e762c127043cdfcb87de7d70e7`. Die CNF-Dateien (je etwa 8 MB) liegen nicht im Repo, `sat327.py encode` erzeugt sie deterministisch neu. Auszüge der Löserausgaben: `daten/block2_*.txt`, Zeiten `daten/block2_sat.log`.
+
+Bewertung: Die Positivprobe p35 ist gescheitert. Der Löser findet in 20 Minuten nicht einmal ein Verfahren, das sicher existiert. Damit sagt das Ausbleiben eines Ergebnisses bei a34 und sn34 nichts. **Kein Teil des Suchraums ist vollständig abgesucht.**
+
+## 6. Was gescheitert ist und warum (für `versuche/`)
+
+1. **Vollständige SAT-Suche über GF(2) mit dem Ansatz:** zu groß. Auch mit (SN1), (K1), (K2) und Lex-Ordnung bleibt ein Problem mit über 120 000 Variablen, das kissat in 20 Minuten weder löst noch widerlegt; schon ⟨3,2,2⟩ bei Rang 10 wird in 200 s nicht widerlegt. Dazu der inhaltliche Mangel aus 3.2: Über GF(2) ist die starke Normalform eine echte Einschränkung, die keines der bekannten optimalen Verfahren erfüllt.
+2. **Zyklische Symmetrie ℤ₇ auf den Spalten** (überlegt, nicht gerechnet): unbrauchbar. Bei einer Wirkung ohne Fixprodukte müsste 7 die Länge teilen. Bei der Wirkung nur auf den Spalten von B und C zerfällt F₂[ℤ₇] in F₂ × F₈ × F₈, und auf jedem F₈-Anteil braucht man mindestens 6 Bahnen, also mindestens 42 Produkte. Gleiches gilt für jede andere Wirkung der Ordnung 7 mit nichttrivialem Anteil auf den Spalten. Diese Überlegung ist behauptet und nicht nachgerechnet.
+3. **Levenberg-Marquardt:** hängt in Plateaus mit Restnorm 1, √2, √3 fest; die Positivprobe bei 35 erreicht in 5 Minuten keine exakte Lösung.
+
+## 7. Vorschläge für eine spätere Runde (nur Hinweise)
+
+- Den Ansatz (SN1), (K1), (K2) über einem Körper prüfen, der die Normalform zulässt (GF(p) mit p ≥ 5 oder ℚ), mit kleineren Teilproblemen: etwa zuerst nur die Einschränkung auf die Spalten 5 bis 7 (ein ⟨3,2,3⟩-Teilverfahren mit an α gekoppeltem β), deren Länge und Struktur der Satz K weiter eingrenzen könnte.
+- Ein SAT-Werkzeug zuerst an der Positivprobe bei 35 eichen (mehr Zeit, Symmetriebrechung, Teilbelegungen aus bekannten Verfahren), bevor man UNSAT erwartet.
+- Satz K ist eine Aussage für Spur A: Er ist ohne Lemma 15(b) und über jedem Körper mit Normalform gültig und gibt dem Restfall eine konkrete Gestalt. Prüfen müsste ihn ein Prüfer.
+
+## 8. Verbrauch
+
+- Rechenblöcke: 1a 07:50:36 bis 07:55:36, 1b 07:55:54 bis 08:10:24, 2 08:10:41 bis 08:30:41 UTC, je 4 Kerne, jeder unter 30 Minuten, zwischen allen ein Commit. Dazu kurze Läufe unter 5 Minuten: Eichung der Kenngrößen, Normalform-Probe über GF(2) und GF(3), Probe des Kodierers an ⟨3,2,2⟩ (200 s). Nichts läuft weiter.
+- Subagenten: 0. Fremdmodell-Anfragen: 0.
