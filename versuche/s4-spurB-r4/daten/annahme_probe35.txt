@@ -1,0 +1,3 @@
+3x2x7-r35-s422a: R=35 exact Brent check over Q: 0 violated equations
+  (SN1)+(K1) over Q: reached, exact re-check 0 violated, SN1=True, K1=True
+  Kenngroessen: {'q': 7, 'rho': 5, 'rkF1': 5, 'rkF2': 5, 'rkL': 7, 'rkH': 5, 's': 0, 'dimN': 2, 'Delta': 3, 'dimS': 0}
