@@ -2942,3 +2942,12 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - Positivliste der Prüfer: `CLAUDE.md`, `PROTOKOLL.md` nur Abschnitt 5, aus `lean/prosa/s5_327_kette.md` (Stand d6469d8) die Zeilen 12–108, der eigene Block, die Zeilen 753–806, aus früheren Blöcken nur die Aussagen zitierter Glieder. Gesperrt: Kopf, Abschnitte 12 bis 14, alles andere im Repo und die Git-Historie. Je Glied die erste von zwei Lesungen; die zweite folgt in Runde 3 mit anderen Prüfern.
 - Bisher 5 Subagenten, kein Fremdmodell. Ein sechster Platz (Bau der Kette auf `portierung`) kommt in diese Runde, falls cache.mathlib.org freigegeben wird, solange die Runde offen ist.
 - `lean/prosa/s5_327_kette.md` wird nicht geändert, solange Prüfer daran lesen.
+
+**Stufe 5, Runde 2: S5-04, S5-05, S5-06 (Prüfer der Kette, erste Lesung) geliefert (Schreibhand, aus Git und den Berichten)**
+
+- S5-04 (K-1 bis K-12, Zeilen 109–248, 140 Zeilen): PR #149, Commit 546e50d (15:25:02 UTC), Merge 592d6d6 (15:25:18 UTC). Alle zwölf Glieder „bestätigt“, K-8 mit dem Zusatz „kleine Beweislücke bei „Proportionalität“, siehe 2.8, ohne Folgen für die Richtigkeit“. Keine echte Lücke.
+- S5-05 (K-13 bis K-20, Zeilen 249–378, 130 Zeilen): PR #150, Commit d07de9c (15:25:17 UTC), Merge a8311ee (15:25:33 UTC). Alle acht Glieder „bestätigt“, keine echte Lücke, zehn Ungenauigkeiten im Wortlaut.
+- S5-06 (K-21 bis K-31, Zeilen 379–549, 171 Zeilen): PR #151, Commit 26194bf (15:25:49 UTC), Merge 9a77df1 (15:26:08 UTC). Alle elf Glieder „bestätigt“, keine echte Lücke, Ungenauigkeiten U1 bis U4.
+- Alle drei Zweige gehen von 8ce8481 aus, je ein Commit, je nur der Bericht geändert. Bearbeitungsdauer nach Git (Vergabe etwa 15:22 UTC bis Bericht-Commit): etwa 3, 3 und 4 Minuten; S5-06 nennt laut Orchestrator 15:20 UTC als Beginn. Rechenblöcke je unter einer Minute. 0 Subagenten, 0 Fremdmodell-Anfragen.
+- Offenlegungen: Index und Einzeleinträge des Gedächtnisses eingeblendet (ohne Urteile zur Kette); Überschriften von `PROTOKOLL.md`; Verzeichnisnamen; S5-05 und S5-06 sahen durch `grep` erste Beweiszeilen anderer Blöcke, S5-06 einen abgeschnittenen Zeilenanfang aus Abschnitt 14; S5-05 einen Commit-Zeitstempel (d6469d8). Wortlaut in `pruefvermerke/B-033.md`.
+- Eingetragen als erste Bestätigung je Glied in `pruefvermerke/B-033.md` (K-1 bis K-31). Die Ungenauigkeiten stehen in der Sammelliste dort; sie werden später in einem Zug berichtigt. Offen in Runde 2: S5-07, S5-08.

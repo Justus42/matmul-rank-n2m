@@ -239,9 +239,9 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S5-01 | Spur K: Zusammenführung der Kette zu 3×2×7 | Beweissucher | `lean/prosa/s5_327_kette.md` | erledigt, PR #148 (Merge a32831a). Glieder K-1 bis K-41, B-033 angelegt |
 | S5-02 | Spur P: Anforderungen von Palomar | Bearbeiter | `palomar/ANFORDERUNGEN.md` | erledigt, PR #146 an `portierung` (Merge 9539e90). P-1 bis P-51, sechs offene Fragen (siehe Stufe 5) |
 | S5-03 | Spur P: Portierung (Werkzeugprobe, Toolchain und Mathlib, Brücke und `mm325_proof` entfernen, Module in Importreihenfolge) | Formalisierer | `lean/prosa/s5_portierung_s5-03.md` | geliefert ohne lokalen Bau, PR #147 an `portierung` (Merge c4339fb). Lean v4.36.0, Mathlib v4.36.0. Läufe auf d28375f alle failure, kein Modul der Kette baut. cache.mathlib.org gesperrt |
-| S5-04 | Spur K: Prüfer K-1 bis K-12 (Zeilen 109–248), erste Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-04.md` | vergeben in Runde 2, etwa 15:22 UTC |
-| S5-05 | Spur K: Prüfer K-13 bis K-20 (Zeilen 249–378), erste Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-05.md` | vergeben in Runde 2, etwa 15:22 UTC |
-| S5-06 | Spur K: Prüfer K-21 bis K-31 (Zeilen 379–549), erste Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-06.md` | vergeben in Runde 2, etwa 15:22 UTC |
+| S5-04 | Spur K: Prüfer K-1 bis K-12 (Zeilen 109–248), erste Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-04.md` | erledigt, PR #149 (Merge 592d6d6). Eingetragen in `pruefvermerke/B-033.md` |
+| S5-05 | Spur K: Prüfer K-13 bis K-20 (Zeilen 249–378), erste Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-05.md` | erledigt, PR #150 (Merge a8311ee). Eingetragen in `pruefvermerke/B-033.md` |
+| S5-06 | Spur K: Prüfer K-21 bis K-31 (Zeilen 379–549), erste Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-06.md` | erledigt, PR #151 (Merge 9a77df1). Eingetragen in `pruefvermerke/B-033.md` |
 | S5-07 | Spur K: Prüfer K-32 bis K-41 (Zeilen 550–752), erste Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-07.md` | vergeben in Runde 2, etwa 15:22 UTC |
 | S5-08 | Spur P: Aussagen-Datei, Lösungs-Modul, `comparator.json`, `formalization.yaml` (Platzhalter) | Formalisierer | `palomar/s5-08-bericht.md` | vergeben in Runde 2, etwa 15:22 UTC, PR an `portierung` |
 
