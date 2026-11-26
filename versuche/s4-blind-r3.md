@@ -188,3 +188,22 @@ Lücken: Die Lemmata 6, 8, 10 und 12 von Yang habe ich nur nachgelesen, nicht un
 - **Gleichheitsfall-Technik aus 2609.22054 auf m = 7 übertragen:** Sie greift nicht unmittelbar. Bei m = 7 und r = 34 ist 5h ≥ 9m mit h = 13 nicht scharf (65 > 63). Die verschärfte Ungleichung 4m + Δ ≤ 5h' aus Yang v3 wird bei h' = 6 zu 30 ≥ 30, ist also scharf. Daraus kommt die Struktur in 4.2, aber kein Widerspruch.
 - **Substitution einer Spalte von B:** Sie liefert nur R(⟨3,2,m⟩) ≥ R(⟨3,2,m−1⟩) + 2, also mit R(⟨3,2,6⟩) = 30 (Yang v3) nur 32. Für 35 bräuchte man +5 je Spalte, und das ist im Wesentlichen schon die volle Vermutung.
 - **Theorem 2 von Yang über die Permutation ⟨7,2,3⟩:** Es ist nicht anwendbar, weil es m ≥ n verlangt. Die Gleichung (2) ohne Lemma 14 liefert nur r ≥ 29.
+
+## 5. Rechenblöcke
+
+### Block 1 (Vorversuche, 09:55–09:57 UTC laut Systemuhr, insgesamt unter 30 min, 1–2 Kerne)
+
+Eigenes C-Programm `fg.c` (Flip-Graph-Zufallslauf, Quelltext im Anhang A). Es lief zuerst als Test auf ⟨2,2,2⟩ (erreicht 7), ⟨3,2,2⟩ (11), ⟨3,2,3⟩ (15) und ⟨3,2,4⟩ (20) über GF(2). Danach lief es über ℤ mit Koeffizienten in {−1,0,1} für ⟨3,2,3⟩ (15) und ⟨3,2,4⟩ (20). Daraus entstand das Verfahren in Abschnitt 3.
+
+### Block 2 (09:57:43–10:22:43 UTC, 25 min, 4 Kerne): Suche nach 34
+
+Vier Läufe zu je 1500 s, Ziel Rang 34:
+
+| Lauf | Ring | Start | Plateau-Länge L | Schritte | Ergebnis |
+|---|---|---|---|---|---|
+| g11 | GF(2) | Verfahren mit 35 (mod 2) | 200 000 | 29 832 104 | 35 |
+| g12 | GF(2) | Verfahren mit 35 (mod 2) | 1 000 000 | 29 727 244 | 35 |
+| g13 | GF(2) | Standardverfahren mit 42 | 300 000 | 18 732 254 | 42 (keine Verkleinerung) |
+| g14 | ℤ, Koeffizienten in {−1,0,1} | Verfahren mit 35 | 300 000 | 29 529 605 | 35 |
+
+Ergebnis: Kein Verfahren mit 34 Produkten gefunden. Das ist **kein** Beweis, dass es keines gibt. Lauf g13 zeigt, dass mein Zufallslauf vom Standardverfahren aus zu schwach ist: Er kehrt nach jedem Plateau zum besten Stand zurück und kommt aus 42 nicht heraus. Für 3×2×7 taugt er nur als lokale Suche um das Verfahren mit 35. Gegenüber den Läufen in der Literatur (Perminov: Wochen auf 20 Kernen, Milliarden Schritte) ist der Aufwand klein.
