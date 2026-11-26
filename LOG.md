@@ -3270,3 +3270,13 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 
 - Prüfer der drei Texte bei 5d813c7, Bericht `palomar/nacharbeit/n-02-bericht.md`. Gesperrt: `STATUS.md`, `LOG.md`, `pruefvermerke/`, `archiv/`, `lean/prosa/`, `palomar/nacharbeit/`; Angaben, die nur dort nachsehbar sind, meldet er als nicht entscheidbar, die Schreibhand sieht nach.
 - Zahl der Subagenten der Nacharbeit (Orchestrator): Justus hat zwei (18:37 UTC) und drei weitere Prüfer (18:44 UTC) angewiesen, zusammen fünf Aufträge N-01 bis N-05.
+
+
+## 26.11.2026 · Entscheidung von Justus: Importe kürzen, Freigabe *.cdn.4science.cloud, SHA erst nach Einarbeitung (19:04:36 UTC, Projektchat, Wortlaut)
+
+> 1. Importe: Ja, kürzen. Ein Auftrag reduziert die Importe in lean/YangBounds/Basic.lean auf das, was die Kette zum Bauen braucht, und ordnet sie alphabetisch. Geändert werden nur Importzeilen und der Herkunftskommentar, bei Bedarf auch Importzeilen in Dateien weiter hinten. Kein Beweis und keine Aussage wird angefasst. Geht es nicht ohne Beweisänderung, berichtet der Thread, statt umzubauen. Danach laufen Bau, Zweitlauf und Comparator neu.
+> 2. Die Domain *.cdn.4science.cloud gebe ich frei.
+> 3. Den neuen SHA nennst du mir erst, wenn alle Prüfberichte eingearbeitet sind und alle Läufe auf genau diesem Commit grün sind.
+
+- Vorausgegangen: Frage des Orchestrators von 18:59 UTC nach dem Befund N-04.
+- Ausführung (Orchestrator): vergeben etwa 19:06 UTC N-06 (Importe in `lean/YangBounds/Basic.lean`, nur Importzeilen und Herkunftskommentar, bei Bedarf Importzeilen weiter hinten, PR an `main`, danach Bau, Zweitlauf, Comparator) und N-05 dritter Anlauf (TR 69-44). N-02 läuft. Danach ein letzter Auftrag an N-01: Befunde aus N-02, N-03, N-05 einarbeiten, Comparator und beide Workflows auf dem letzten Commit.
