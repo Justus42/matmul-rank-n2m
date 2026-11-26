@@ -50,7 +50,7 @@ Ohne mein Zutun wurde mir zu Beginn der Sitzung Folgendes eingeblendet:
 > - Lean lokal: Toolchain über GitHub-Release; eine Prüfdatei braucht `import YangBounds.Statements` (YangBounds.olean wird bei Teilziel nicht gebaut).
 > Verwandt: [[lean-build-cloud]]
 
-Keiner dieser Texte enthält ein Urteil zu B-018 oder ein erwünschtes Ergebnis. Den Hinweis „Toolchain über GitHub-Release“ habe ich für den lokalen Zusatzlauf (Abschnitt 4.3) genutzt.
+Keiner dieser Texte enthält ein Urteil zu B-018 oder ein erwünschtes Ergebnis. Den Hinweis „Toolchain über GitHub-Release“ habe ich für den lokalen Zusatzlauf (Abschnitt 4.2) genutzt.
 
 ### 0.2 Spuren und Abweichungen
 
@@ -148,16 +148,38 @@ Geprüft über die GitHub-API (Job-Metadaten und vollständiges Job-Protokoll, 1
 
 ### 4.1 Axiome
 
-Der Axiomenbericht des Jobs nennt `lemma15b` nicht einzeln. Er nennt `YangBounds.yang_theorem_two` mit nur `propext`, `Classical.choice`, `Quot.sound`. In der geprüften Datei benutzt `core` (Zeile 1341) den Satz `lemma15b` (Fall n = 4), und `yang_theorem_two_of_lemma13` hängt über `main_algClosed` an `core`. Dass `yang_theorem_two` in `Statements.lean` über diesen Weg bewiesen wird, steht nur im Kopfkommentar der Datei; `Statements.lean` ist nicht auf meiner Liste. Deshalb habe ich die Axiome von `lemma15b` zusätzlich direkt bestimmt (4.3).
+Der Axiomenbericht des Jobs nennt `lemma15b` nicht einzeln. Er nennt `YangBounds.yang_theorem_two` mit nur `propext`, `Classical.choice`, `Quot.sound`. In der geprüften Datei benutzt `core` (Zeile 1341) den Satz `lemma15b` (Fall n = 4), und `yang_theorem_two_of_lemma13` hängt über `main_algClosed` an `core`. Dass `yang_theorem_two` in `Statements.lean` über diesen Weg bewiesen wird, steht nur im Kopfkommentar der Datei; `Statements.lean` ist nicht auf meiner Liste. Deshalb habe ich versucht, die Axiome von `lemma15b` zusätzlich direkt zu bestimmen (4.2).
 
-### 4.3 Lokaler Zusatzlauf
+### 4.2 Lokaler Zusatzlauf (gescheitert)
 
-(wird nachgetragen)
+Ich habe versucht, `#print axioms YangBounds.YangN4Haupt.lemma15b` lokal auszuführen (Lean 4.19.0 aus dem GitHub-Release). Der Abruf des mathlib-Caches (`lake exe cache get`) scheiterte in meiner Umgebung an HTTP 403 für jede Datei; mathlib aus den Quellen zu bauen passt nicht in einen Rechenblock von 30 Minuten. Abgebrochen nach rund 5 Minuten. Es gibt also keinen direkten Axiomenbericht für `lemma15b`, weder aus dem Job noch lokal. Ein lokaler Lauf wäre nach Protokoll 5.1 Nr. 4 ohnehin nicht maßgeblich.
 
-**Urteil T3:** (wird nachgetragen)
+**Urteil T3: hält** für die geprüfte Frage: Der Job 139535850068 hat genau Commit `ad10846` gebaut, `YangBounds.YangN4Haupt` ist ohne Fehler und ohne Warnung gebaut, der Bau endete mit „Build completed successfully“, und es gibt 0 `sorry` im Bauprotokoll und in den Quellen. Die Datei ist seither unverändert.
+
+**Zusatz zu Axiomen (Protokoll 5.1 Nr. 2): nicht entscheidbar innerhalb der Positivliste.** In `YangN4Haupt.lean` steht keine Axiom-Deklaration. Mittelbar spricht für Standard-Axiome, dass `yang_theorem_two` nur `propext`, `Classical.choice`, `Quot.sound` zeigt und, wenn es wie im Dateikopf beschrieben über `core` bewiesen ist, `lemma15b` einschließt. Diesen Weg über `Statements.lean` kann ich nicht nachsehen. Benannte Reparatur: `#print axioms YangBounds.YangN4Haupt.lemma15b` in den Axiomenbericht des Actions-Laufs aufnehmen.
 
 ---
 
 ## 5. T4: Zahlenform „rk L = d·ρ ⇒ ρ = m“
 
-(wird nachgetragen)
+Die in B-018 zitierte Form lautet „rk L = d·ρ ⇒ ρ = m“ mit den Voraussetzungen „n ≥ 3 (bzw. d ≥ 2), K algebraisch abgeschlossen“. Die Dateien unter `erkundung/`, in denen sie benutzt wird, habe ich nicht gelesen; ich urteile nur über die Form, wie B-018 sie wiedergibt.
+
+- Mit d = 2: aus rk L = 2ρ folgt ρ = m (und damit rk L = 2m). Das ist `lemma15b` mit d = 2, `hd : 2 ≤ 2`, wörtlich. Die Folgerung ist richtig.
+- **Aber die Liste der Voraussetzungen ist unvollständig.** Der Satz (Prosa wie Lean) braucht zusätzlich (N1) und (N2) für genau die Zerlegung, aus der L, F_i, J und ρ gebildet werden, und ρ muss das Maximum über alle γ ∈ K^d sein (nicht über eine Auswahl). Ohne (N1) sind G5, G6 und damit J, dim J = m und die Symmetrie f_j(u_i) = f_i(u_j) nicht verfügbar; ohne (N2) fällt Lemma 9. Die Zahlenform ohne diese Annahmen ist so nicht durch den Satz gedeckt.
+- Wer die Form auf eine gegebene Zerlegung der Länge r anwendet, muss beachten: Die Normalisierung (R2 und Lemma 6, in Lean `exists_normalized`, Zeile 1311) liefert eine Zerlegung der Länge **r′ ≤ r**, nicht zwingend r (Nullformen α_t fallen weg), und arbeitet über einem unendlichen, für Lemma 15(b) algebraisch abgeschlossenen Körper (Übergang zum algebraischen Abschluss). Alle Größen der Zahlenform (rk L, ρ, und daraus abgeleitete wie dim Q = r − (n+1)m) gehören zur normalisierten Zerlegung über dem Abschluss.
+
+**Urteil T4: hält mit benannter Reparatur.** Reparatur: Die Voraussetzungen der Zahlenform lauten „d ≥ 2 (n ≥ 3), K algebraisch abgeschlossen, die Zerlegung erfüllt (N1) und (N2), ρ = max über alle γ ∈ K^d von rk(Σγ_iF_i)“; bei Anwendung auf eine Zerlegung der Länge r ist mit der normalisierten Länge r′ ≤ r zu rechnen. Ob die Restfall-Rechnung diese Annahmen tatsächlich hat, liegt außerhalb dieses Auftrags.
+
+---
+
+## 6. Zusammenfassung der Urteile
+
+| Teil | Urteil |
+|---|---|
+| T1 Prosa-Beweis Lemma 15(b) bei n = 3 (d = 2), mit Lemma 9 | hält |
+| T2 Lean-Satz `lemma15b` ist die behauptete Aussage (Objekte, Körper, Zahl, Voraussetzungen), anwendbar bei d = 2 | hält (Definition von `BilinearAlgorithm` außerhalb der Positivliste, nicht eingesehen) |
+| T3 Bau in Job 139535850068 ohne `sorry` | hält |
+| T3 Zusatz: nur Standard-Axiome für `lemma15b` | nicht entscheidbar innerhalb der Positivliste; Reparatur: `#print axioms` für `lemma15b` im Actions-Lauf |
+| T4 Zahlenform „rk L = d·ρ ⇒ ρ = m“ | hält mit benannter Reparatur: (N1), (N2) und ρ als volles Maximum als Voraussetzungen ergänzen; Länge r′ ≤ r nach Normalisierung beachten |
+
+Verbrauch: keine Subagenten, keine Fremdmodell-Anfrage. Ein lokaler Rechenversuch von rund 5 Minuten (abgebrochen, siehe 4.2).
