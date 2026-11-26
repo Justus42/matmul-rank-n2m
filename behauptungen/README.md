@@ -49,3 +49,4 @@ Eine Datei pro Behauptung, benannt `B-xxx.md`. Eine Behauptungsdatei enthält nu
 | B-031 | Fall r = 34 in den Bezeichnungen von Tsyganov et al.: Hilfssätze 1 und 2, Satz A (f = 5 unmöglich), Satz B (Gestalt bei f = 4) |
 | B-032 | Verschärfung (7′) von Ungleichung (7) nach Tsyganov et al. bei r = 34: f = 5 ausgeschlossen (S4-35) |
 | B-033 | Kette zu R(⟨3,2,7⟩) ≥ 35 als ein Beweis, Glieder K-1 bis K-41 (S5-01, Spur K) |
+| B-034 | R(⟨4,2,4⟩) = 26 über jedem Körper, Lean `Gleich444.rank_four_two_four_eq_26`, Aussage der Palomar-Challenge (S5-17, Spur P) |
