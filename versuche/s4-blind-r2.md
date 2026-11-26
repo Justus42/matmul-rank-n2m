@@ -79,3 +79,76 @@ Suchprotokoll: zwei Websuchen (Stichworte „lower bound tensor rank matrix mult
 Literaturstand für beliebige Körper also: **34 ≤ R(⟨3,2,7⟩) ≤ 35**. Eine Arbeit, die 35 als untere Schranke zeigt, habe ich nicht gefunden.
 
 Bemerkung: m = 7 ist genau der kleinste Fall m ≥ 3 mit m ≡ 2 (mod 5), in dem Yangs Schranke (24m+2)/5 ganzzahlig ist. Dann läuft Yangs Argument für r = 34 in einen Fall, in dem **jede** Ungleichung mit Gleichheit gilt. Darauf setzt der Versuch in Abschnitt 2 bis 4 an: den Gleichheitsfall auszuschließen würde R(⟨3,2,7⟩) = 35 ergeben.
+
+## 2. Ergebnis in Kürze
+
+* Eine untere Schranke über 34 habe ich **nicht** bewiesen. R(⟨3,2,7⟩) ∈ {34, 35} bleibt offen.
+* Behauptet (vollständig ausgeschrieben in Abschnitt 4, nicht geprüft): **Satz G.** Hat ⟨3,2,7⟩ eine Zerlegung der Länge 34 über einem Körper K, dann ist jede Ungleichung in Yangs Beweis scharf, und die Zerlegung hat nach Normierung eine sehr starre Gestalt: Es gibt einen Vektor ω ≠ 0 im Unterraum J (Dimension 7), so dass alle Produkte von ω mit Polynomen vom Grad ≤ 2 in den beiden Diagonalen p₁, p₂ wieder in J liegen; der Raum 𝒫²ω hat Dimension 5 oder 6; ω hat mindestens 28 (Fall A) bzw. 22 (Fall B) von 34 Koordinaten ungleich null; in Fall B liegen die zugehörigen Punkte auf genau einem Kegelschnitt, in Fall A auf keiner Kubik.
+* Den Widerspruch aus dieser Gestalt habe ich nicht gefunden. Abschnitt 5 sagt genau, welche Beziehungen der Zerlegung Yangs Zählung nicht benutzt, und dass der Widerspruch, wenn es ihn gibt, aus ihnen kommen muss.
+* Kein Verfahren gefunden, also kein maschinenlesbarer Anhang. Keine Rechnung ausgeführt.
+
+## 3. Bezeichnungen und benutzte Tatsachen aus der Literatur
+
+K ein Körper; ohne Einschränkung unendlich (Übergang zu K(t) erhält die Länge einer Zerlegung und macht die Schranke höchstens kleiner). m = 7, r = Länge der Zerlegung
+AB = Σ_{t=1}^{r} α_t(A) β_t(B) C_t, A ∈ K^{3×2}, B ∈ K^{2×m}.
+
+Wie bei Yang: D(A) = diag(α_t(A)) ∈ K^{r×r}, ℬ(B) = (β_t(B))_t ∈ K^r, W(z) = Σ z_t C_t, also AB = W D(A) ℬ(B). Diagonalmatrizen fasse ich als Vektoren in K^r auf; Produkt von Diagonalmatrix und Vektor ist dann das koordinatenweise Produkt, geschrieben xy. Für Unterräume X, Y ⊆ K^r ist XY der Spann aller Produkte.
+
+**Normierung (Yang, Lemma 6, Literatur, hier nicht erneut bewiesen).** Nach Basiswechsel in Zeilen und Spalten von A und Reskalierung der Summanden gilt α_t(e₀₀) = 1 für alle t, und (starke Normierung) für jedes v ∈ K^{2×m}, v ≠ 0, sind D(e₀₀)ℬ(v), D(e₁₀)ℬ(v), D(e₂₀)ℬ(v) linear unabhängig.
+
+Setze p_i := D(e_{i0}) (i = 1, 2), 𝒫 := span(1, p₁, p₂) ⊆ K^r, 𝒫^k := Spann aller Produkte von k Faktoren aus 𝒫 (wegen 1 ∈ 𝒫 sind das die Polynome vom Grad ≤ k in p₁, p₂). Ferner z_i := D(e_{i1}), 𝒯 := span(z₀, z₁, z₂).
+U := {B : erste Zeile 0} ≅ K^m, b(v) := ℬ([0; v]), b'(v) := ℬ([v; 0]), J := b(K^m), H := ker W.
+
+Aus der Zerlegungsgleichung mit A = Einheitsmatrizen e_{ij} und B = [0;v] bzw. [v;0] folgt sofort (vollständige Liste):
+
+(R1) W(b(v)) = 0 und W(p_i b(v)) = 0, also 𝒫J ⊆ H.
+(R2) W(z_i b(v)) = e_i ⊗ v (i = 0,1,2).
+(R3) W(b'(v)) = e₀ ⊗ v, W(p_i b'(v)) = e_i ⊗ v.
+(R4) W(z_i b'(v)) = 0, also 𝒯J' ⊆ H mit J' := b'(K^m).
+
+Folgerungen: W ist surjektiv, dim H = r − 3m; b ist injektiv, dim J = m; aus (R2): die Abbildung 𝒯 ⊗ J → K^r/H, z ⊗ y ↦ zy + H ist injektiv (ihr Bild unter W ist ganz K^{3×m}). Insbesondere gilt für jeden Unterraum J₀ ⊆ J:
+
+(C4) dim 𝒯J₀ = 3·dim J₀ und 𝒯J₀ ∩ H = 0.
+
+Aus (R2), (R3): (E) z_i b(v) − p_i b'(v) ∈ H für i = 0,1,2 (mit p₀ := 1).
+
+Yangs Größen (in dieser Schreibweise; f₀ = b, J = f₀(U)): Q := H/J, q := dim Q = r − 4m; F_i : J → Q, y ↦ p_i y + J; s := dim(F₁(J) + F₂(J)) = dim(𝒫J) − m ≤ q; N := {y ∈ J : p₁y, p₂y ∈ J}, n₀ := dim N; rk 𝐇 = m − n₀ (𝐇(y) = (F₂y, −F₁y)); Δ := 2(m − n₀) − s.
+
+Benutzte Aussagen aus Yang (arXiv:2609.14393 v3), deren Beweise ich nachgerechnet habe:
+* (Y-Gl.1, Lemma 10) 2m + (m − n₀) ≤ s + 2q.
+* (Y-L8) Für jeden Unterraum 0 ≠ S ⊆ J: dim 𝒫S ≥ dim S + 2. (Beweis über die Fahne der Koordinatenunterräume und starke Normierung.)
+* (Y-L12) Mit S := {y ∈ N : p₁y, p₂y ∈ N} gilt dim S ≥ n₀ − Δ. (Die Abbildung τ : N → ker L, y ↦ (σ₂y, −σ₁y) ist injektiv, ker L hat Dimension 2m − s, enthält N×N, und S = τ⁻¹(N×N).)
+* Folgerung Δ ≥ min(2, n₀): Ist S ≠ 0, liefert Y-L8 auf S wegen 𝒫S ⊆ N die Ungleichung n₀ ≥ dim S + 2 ≥ n₀ − Δ + 2.
+
+## 4. Satz G (Gleichheitsfall r = 34 für m = 7) mit Beweis
+
+**Satz G.** Sei m = 7 und eine Zerlegung der Länge r = 34 wie in Abschnitt 3 normiert. Setze J_k := {y ∈ J : 𝒫^k y ⊆ J} (also J₀ = J, J₁ = N). Dann gilt:
+
+(a) 𝒫J = H, dim H = 13, s = q = 6.
+(b) dim J₁ = 3, Δ = 2.
+(c) dim J₂ = 1, J₂ = ⟨ω⟩, und J₁ = 𝒫ω.
+(d) J₃ = 0. Insbesondere enthält J keinen von p₁, p₂ invarianten Unterraum ≠ 0, und 𝒫²ω ⊄ J₁.
+(e) 𝒫²ω ⊆ J und dim 𝒫²ω ∈ {5, 6}.
+(f) Fall A (dim 𝒫²ω = 6): J = 𝒫²ω ⊕ ⟨u⟩, dim 𝒫³ω = 10, H = 𝒫³ω ⊕ 𝒫u.
+    Fall B (dim 𝒫²ω = 5): Es gibt bis auf Skalar genau ein Polynom Q₀ ≠ 0 vom Grad ≤ 2 mit Q₀(p₁,p₂)ω = 0; J = 𝒫²ω ⊕ ⟨u₁,u₂⟩, dim 𝒫³ω = 7, H = 𝒫³ω ⊕ 𝒫u₁ ⊕ 𝒫u₂.
+(g) Sei Σ := {t : ω_t ≠ 0}. Dann ist 𝒫³ω ⊕ 𝒯𝒫²ω eine direkte Summe von Vektoren mit Träger in Σ, der Dimension 28 (Fall A) bzw. 22 (Fall B). Also |Σ| ≥ 28 bzw. |Σ| ≥ 22. In Fall A liegen die Punkte (p₁(t), p₂(t)), t ∈ Σ, auf keiner affinen Kubik (mindestens 10 verschiedene Punkte); in Fall B liegen sie alle auf dem Kegelschnitt Q₀ = 0.
+
+**Beweis.** q = r − 4m = 6. Nach Y-Gl.1: 21 − n₀ ≤ s + 12, also n₀ ≥ 9 − s ≥ 3 wegen s ≤ q = 6.
+
+Fall Δ ≤ 1: dann n₀ ≤ Δ ≤ 1 (aus Δ ≥ min(2,n₀)), Widerspruch zu n₀ ≥ 3. Also Δ ≥ 2, d. h. 2(7 − n₀) − s ≥ 2, also n₀ ≤ 6 − s/2. Zusammen mit n₀ ≥ 9 − s: 9 − s ≤ 6 − s/2, also s ≥ 6. Mit s ≤ 6 folgt s = 6, dann n₀ ≥ 3 und n₀ ≤ 3, also n₀ = 3 und Δ = 2(7−3) − 6 = 2. Damit (b).
+
+(a): s = q heißt dim(𝒫J/J) = dim(H/J), und 𝒫J ⊆ H nach (R1), also 𝒫J = H.
+
+(c): Yangs S ist {y ∈ J₁ : p₁y, p₂y ∈ J₁} = {y ∈ J₁ : 𝒫y ⊆ J₁}. Für y ∈ J gilt 𝒫y ⊆ J₁ genau dann, wenn 𝒫y ⊆ J und 𝒫²y ⊆ J, also genau dann, wenn y ∈ J₂ (da 1 ∈ 𝒫, ist J₂ ⊆ J₁). Also S = J₂. Nach Y-L12 ist dim J₂ ≥ n₀ − Δ = 1. Nach Y-L8 angewandt auf S = J₂ ≠ 0 mit 𝒫J₂ ⊆ J₁: dim J₂ + 2 ≤ dim J₁ = 3, also dim J₂ ≤ 1. Sei J₂ = ⟨ω⟩. Dann 𝒫ω ⊆ J₁, und dim 𝒫ω = 3 nach starker Normierung, also 𝒫ω = J₁.
+
+(d): Sei y ∈ J₃, y ≠ 0. Dann y ∈ J₂ und für jedes ℓ ∈ 𝒫 ist 𝒫²(ℓy) ⊆ 𝒫³y ⊆ J, also ℓy ∈ J₂. Somit 𝒫y ⊆ J₂ = ⟨ω⟩, dim 𝒫y ≤ 1, Widerspruch zur starken Normierung. Ein p-invarianter Unterraum V ≠ 0 von J läge in jedem J_k, insbesondere in J₃. Wäre 𝒫²ω ⊆ J₁, dann wäre J₁ = 𝒫ω invariant (𝒫J₁ = 𝒫²ω ⊆ J₁), Widerspruch.
+
+(e): ω ∈ J₂ heißt 𝒫²ω ⊆ J. Y-L8 auf J₁ = 𝒫ω: dim 𝒫²ω = dim 𝒫J₁ ≥ 3 + 2 = 5. Und 𝒫² hat Dimension ≤ 6 (1, p₁, p₂, p₁², p₁p₂, p₂²).
+
+(f): Nach (a) und (e) ist H = 𝒫J ⊇ 𝒫(𝒫²ω) = 𝒫³ω. Fall A: J = 𝒫²ω ⊕ ⟨u⟩, also H = 𝒫³ω + 𝒫u, 13 ≤ dim 𝒫³ω + 3, also dim 𝒫³ω ≥ 10; und ≤ 10, da es 10 Monome vom Grad ≤ 3 in zwei Variablen gibt. Dann ist die Summe direkt. Fall B: Die Auswertung g ↦ g(p₁,p₂)ω auf Polynomen vom Grad ≤ 2 hat einen eindimensionalen Kern ⟨Q₀⟩. Dann liegen Q₀, p₁Q₀, p₂Q₀ (linear unabhängig, Grad ≤ 3) im Kern der Auswertung auf Grad ≤ 3, also dim 𝒫³ω ≤ 10 − 3 = 7. J = 𝒫²ω ⊕ ⟨u₁,u₂⟩ gibt 13 ≤ dim 𝒫³ω + 6, also = 7 und die Summe ist direkt.
+
+(g): 𝒫³ω ⊆ H nach (f). 𝒫²ω ⊆ J, also nach (C4): dim 𝒯𝒫²ω = 3·dim 𝒫²ω (18 bzw. 15) und 𝒯𝒫²ω ∩ H = 0. Also ist 𝒫³ω + 𝒯𝒫²ω direkt, mit Dimension 10 + 18 = 28 bzw. 7 + 15 = 22. Alle diese Vektoren sind Produkte mit ω, haben also Träger in Σ; ein Raum von Vektoren mit Träger in Σ hat Dimension ≤ |Σ|. Die Aussagen über die Punkte: Die Auswertung der Polynome vom Grad ≤ 3 an den Punkten (p₁(t), p₂(t)), t ∈ Σ, gewichtet mit ω_t ≠ 0, ist in Fall A injektiv; das heißt, keine Kubik verschwindet an allen diesen Punkten, und es sind mindestens 10 verschiedene. In Fall B verschwindet Q₀ an allen diesen Punkten. ∎
+
+**Lücken im Beweis von Satz G.** Keine bekannte; benutzt werden nur (R1)–(R4), Yangs Lemma 6 (Normierung, inklusive der Wahl über unendlichem Körper), Lemma 8, Lemma 10 (Gl. 1) und Lemma 12. Diese Lemmata habe ich Zeile für Zeile nachgerechnet, sie aber nicht formalisiert. Prüfbedarf: ob Yangs Lemma 6 tatsächlich gleichzeitig α_t(e₀₀) = 1 für alle t und die starke Normierung liefert (es liefert D(e₀₀) invertierbar; die Reskalierung auf 1 ist eine Diagonalskalierung von α_t und C_t, die die starke Normierung erhält, weil sie J, p_i J nur koordinatenweise mit einer festen invertierbaren Diagonale multipliziert).
+
+**Symmetrie (vermutet, nicht ausgeschrieben).** Vertauscht man die beiden Spalten von A und die beiden Zeilen von B, erhält man wieder eine Zerlegung von ⟨3,2,7⟩ der Länge 34. Nach Normierung mit z₀ statt 1 gilt dann Satz G auch für (𝒯, J'): 𝒯J' = H, ein ω' mit 𝒯²ω' ⊆ z₀J' usw. Ebenso für jede generische Spaltenkombination. Für eine Normierung braucht man z₀ invertierbar; das ist eine generische Bedingung an den Spaltenbasiswechsel, den Lemma 6 ohnehin generisch wählt. Ich habe nicht ausgeschrieben, dass beide Normierungen gleichzeitig mit derselben Zerlegung möglich sind.
