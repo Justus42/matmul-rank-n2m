@@ -27,3 +27,5 @@ Stand der Literatur nach meiner Suche: 34 ≤ R(⟨3,2,7⟩) ≤ 35 über jedem 
 ## 5. Gescheiterte Ansätze
 
 ## 6. Rechenblöcke und Verbrauch
+
+- Block 1 (12:35–12:50 UTC, 1 Kern): numerische Suche (Levenberg-Marquardt mit Rundung auf {−1,0,1}) nach ganzzahligen Teilverfahren für ⟨3,2,3⟩ mit Rang 15. Exakte reelle Lösungen gefunden (etwa 1 von 20 Startwerten), das Runden auf ganze Zahlen ist in keinem Lauf gelungen. Kein Ergebnis.
