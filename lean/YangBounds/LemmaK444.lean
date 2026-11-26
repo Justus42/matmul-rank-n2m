@@ -86,7 +86,7 @@ theorem lin_eq_monomial (a : Fin 2 → K) :
   simp only [lin, C_mul_X_eq_monomial]
 
 theorem coeff_lin (a : Fin 2 → K) (i : Fin 2) : (lin a).coeff (Finsupp.single i 1) = a i := by
-  rw [lin_eq_monomial, coeff_add, coeff_monomial, coeff_monomial]
+  rw [lin_eq_monomial, MvPolynomial.coeff_add, coeff_monomial, coeff_monomial]
   fin_cases i
   · simp [single_ne_single]
     intro h
@@ -99,7 +99,8 @@ theorem lin_eq_zero_iff (a : Fin 2 → K) : lin a = 0 ↔ a = 0 := by
   constructor
   · intro h
     funext i
-    rw [← coeff_lin a i, h, coeff_zero, Pi.zero_apply]
+    rw [← coeff_lin a i, h]
+    simp
   · rintro rfl
     simp [lin]
 
@@ -145,7 +146,7 @@ theorem coeff_lin_mul_lin (a b : Fin 2 → K) :
     (lin a * lin b).coeff m00 = a 0 * b 0 ∧ (lin a * lin b).coeff m11 = a 1 * b 1 ∧
       (lin a * lin b).coeff m01 = a 0 * b 1 + a 1 * b 0 := by
   rw [lin_mul_lin]
-  simp only [coeff_add, coeff_monomial]
+  simp only [MvPolynomial.coeff_add, coeff_monomial]
   refine ⟨?_, ?_, ?_⟩
   · simp [m00_ne_m01.symm, m00_ne_m11.symm]
   · simp [m00_ne_m11, m11_ne_m01.symm]
@@ -379,13 +380,13 @@ theorem lemmaK {X Y X' Y' : Matrix (Fin n) (Fin 2) K} (hX : X ≠ 0) (hY : Y ≠
       funext i
       apply lin_injective
       apply mul_left_cancel₀ hla
-      rw [minor i, hlbc, Pi.smul_apply, lin_smul]
+      rw [minor i, hlbc, show (c • X) i = c • X i from rfl, lin_smul]
       ring
     have hY' : Y = c • Y' := by
       funext j
       apply lin_injective
       apply mul_left_cancel₀ hla
-      rw [h i0 j, ← hb_def, hlbc, Pi.smul_apply, lin_smul]
+      rw [h i0 j, ← hb_def, hlbc, show (c • Y') j = c • Y' j from rfl, lin_smul]
       ring
     refine ⟨c, hc0, hX', ?_⟩
     rw [hY', smul_smul, inv_mul_cancel₀ hc0, one_smul]
@@ -425,7 +426,7 @@ theorem lemmaK_exklusiv {X Y X' Y' : Matrix (Fin n) (Fin 2) K} :
     funext i k
     have := congrFun (congrFun (hX'.symm.trans hX'') i) k
     rw [hX] at this
-    simp only [Matrix.smul_apply, vecMulVec_apply, smul_eq_mul] at this ⊢
+    simp only [Matrix.smul_apply, vecMulVec_apply, Pi.smul_apply, smul_eq_mul] at this ⊢
     field_simp
     linear_combination this
   exact det2_eq_zero_of_vecMulVec_eq hx h
