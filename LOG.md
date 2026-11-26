@@ -2816,3 +2816,25 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 - Lauf 45831268262, Job 139948343053 auf 62c3dc6: success (13:39:29 bis 13:46:47 UTC). Im Log: `SORRY: 0 declaration(s) with 'declaration uses sorry' in the build log`, `SORRY: 0 'sorry' token(s) in the sources outside comments`; `'YangBounds.Transponiert444.rank_four_two_four_ge_26' depends on axioms: [propext, Classical.choice, Quot.sound]` mit `[STANDARD]`; `TOTAL: STANDARD=60`. Angaben des Orchestrators (Merge, Lauf, Job, grün, SORRY 0/0, eine Beweisänderung) stimmen mit Git und Log überein.
 - `lean/README.md` Zeilen 26 und 132 sind laut Bericht veraltet (Zeile 26 nennt die Abhängigkeit `mm325_lower_bound`, Zeile 132 drei `sorry` aus früherem Stand). Nicht geändert.
 - Zweitlauf-Prüfer A7-Z vergeben etwa 13:54 UTC, Bericht `lean/prosa/a7_zweitlauf_bericht.md`; bestätigt auch, dass sich gegenüber `main` nur Beweiskörper geändert haben. Die Textänderung in README und `ergebnisse/rang-444.md` folgt erst nach seinem Bericht.
+
+## 26.11.2026 · Regeländerung durch Justus: Protokoll 0.7
+
+Eingetragen im Auftrag von Justus aus einem Chat außerhalb des Projekts, nach seiner Zustimmung vom 26.11.2026, 15:06 MEZ. Der Orchestrator hat an dieser Änderung nicht mitgewirkt. Justus bestätigt den Commit in seiner Startnachricht.
+
+**Anlass:** Stufe 4 ist beendet (Budget erschöpft). Der Endsatz zu 4×2×4 ist seit Auflage 7 vom Paket `mm325_proof` gelöst. Für 3×2×7 liegt eine vollständige, ungeprüfte Kette vor. Für 4×2×4 gibt es mit dem Register Palomar einen Meldeweg ohne Mail, der eine neuere Lean-Version verlangt.
+
+**Geändert in `PROTOKOLL.md`:**
+
+- Abschnitt 2: Zeile zu 3×2×7 nennt die geprüfte obere Schranke (B-020)
+- Abschnitt 3: neue Stufe 5 mit zwei Spuren. Spur P portiert die Lean-Bibliothek auf die von Palomar verlangte Lean-Version und bereitet die Einreichung vor. Spur K führt die Kette zu 3×2×7 in einem Dokument zusammen und lässt jedes Glied von zwei Prüfern lesen, ohne Lean. Eigene Fortschrittsregel für Abbruchregel 2. Stufe 6 (3×2×7 in Lean) ist vorgesehen und beginnt nur mit eigener Startnachricht von Justus
+- Abschnitt 4: Die Rolle Blind-Sucher heißt unabhängiger Sucher, weil die Plattform jedem Thread den Gedächtnis-Index einblendet. In Stufe 5 läuft keiner
+- Abschnitt 6: Budget Stufe 5: 6 Runden mit je bis zu 6 Subagenten, höchstens 4 Fremdmodell-Anfragen. Stufe 6: 12 Runden, erst nach Startnachricht
+- Abschnitt 7: Die Literaturwache sieht auch im Register Palomar nach
+- Abschnitt 8: Verzeichnis `palomar/`
+- Abschnitt 9: Meldeweg über Palomar, Einreichung nur durch Justus selbst
+- Abschnitt 11.1: Commit-Betreffe und Titel ohne Zählerstände, Fristen, Budgets, Statuswörter oder Urteile. Sammelzweig `portierung` für Spur P
+- Abschnitt 11.4: Grenze jetzt Stufe 5, kein neuer Beweisangriff, keine Einreichung durch Agenten
+
+**Geändert in `CLAUDE.md`:** Rollenname, Ausnahme für Portierungsaufträge in Regel 2, Commit-Betreffe in Regel 3, Verbot von Einreichungen in Regel 9, Abschnitt für den Orchestrator auf Stufe 5 gebracht.
+
+**Nicht geändert:** Abschnitt 5. Status aller Behauptungen. README und `ergebnisse/`.
