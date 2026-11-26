@@ -1,4 +1,5 @@
-# formalization.yaml for the Palomar entry of MatMulRank.rank_four_two_four_ge_26 (task S5-08).
+# formalization.yaml for the Palomar entry of MatMulRank.rank_four_two_four_eq_26 (task S5-08,
+# statement, name, description, Hopcroft-Kerr note and review.notes updated in task S5-21).
 #
 # PLACEHOLDERS: every place marked "TODO-REPOSITORY-OWNER" must be filled in by the
 # repository owner before any submission. No agent fills these fields and no agent submits.
@@ -12,16 +13,18 @@
 version: v0.4
 
 project:
-  name: "The tensor rank of 4x2x4 matrix multiplication is at least 26 over every field"
+  name: "The tensor rank of 4x2x4 matrix multiplication is 26 over every field"
   description: >-
     For a field K, the tensor rank R_K(<n,l,m>) is the least number r of products in a bilinear
     algorithm A*B = sum_{k<r} alpha_k(A) beta_k(B) C_k for the product of an n x l and an
     l x m matrix over K (alpha_k, beta_k linear forms, C_k fixed matrices). This entry proves
-    in Lean 4 with Mathlib that R_K(<4,2,4>) >= 26 for every field K, with no assumption on the
-    characteristic, finiteness or algebraic closedness of K. Together with the upper bound 26
-    of Hopcroft and Kerr (1971), which is not formalised here, this gives R_K(<4,2,4>) = 26.
-    The previously known lower bound was 25 (J. Yang, arXiv:2609.14393, Theorem 2, which the
-    development also formalises). The proof follows Yang's normal-form method for <n,2,m>:
+    in Lean 4 with Mathlib that R_K(<4,2,4>) = 26 for every field K, with no assumption on the
+    characteristic, finiteness or algebraic closedness of K. The upper bound 26 is the known
+    value of Hopcroft and Kerr (1971); here it is proved by an explicit algorithm with 26
+    products and integer coefficients in {-1, 0, 1}, found by the project's own search and
+    checked by the Lean kernel. The lower bound 26 is new; the previously known lower bound
+    was 25 (J. Yang, arXiv:2609.14393, Theorem 2, which the development also formalises).
+    The proof of the lower bound follows Yang's normal-form method for <n,2,m>:
     a decomposition of length 25 is moved over an algebraically closed field into a generic
     normal form and excluded case by case (four residual rank cases, a symmetric case, and two
     sub-cases of the case (5,8)). The work was carried out by AI models directed by the
@@ -60,9 +63,12 @@ sources:
     location: "SIAM J. Appl. Math. 20(1) (1971), 30-36"
     relationship: background
     note: >-
-      Upper bound ceil((3nm + max(n,m))/2), which gives R(<4,2,4>) <= 26. Not formalised
-      here and not part of the compared statement. The original article was not read; the
-      formula is cited identically by Yang (arXiv:2609.14393) and other sources.
+      Upper bound ceil((3nm + max(n,m))/2), which gives R(<4,2,4>) <= 26. The upper bound 26
+      is part of the compared statement. It is not proved by formalising the construction of
+      the article: YangBounds/Upper4x2x4.lean gives an explicit algorithm with 26 products
+      (verfahren/4x2x4-r26-s001.json, found by the project's own search), and the kernel
+      checks its tensor identity. The original article was not read; the formula is cited
+      identically by Yang (arXiv:2609.14393) and other sources.
   - title: "Determining the tensor rank of (2, 2, m) matrix multiplication with GPT-5.6 Sol."
     authors: ["Yaroslav Shitov"]
     type: paper
@@ -116,14 +122,18 @@ review:
     - "Claude sessions in reviewer roles, separate from the authoring sessions"
     - "GPT 6.2 Sol (OpenAI), statement check"
   notes: >-
-    No human mathematician has reviewed the proof. The project theorem
-    YangBounds.Transponiert444.rank_four_two_four_ge_26 was built in GitHub Actions on
+    No human mathematician has reviewed the proof. The project theorem for the lower bound,
+    YangBounds.Transponiert444.rank_four_two_four_ge_26, was built in GitHub Actions on
     Lean 4.19.0 and re-checked with lean4checker, and its statement was compared with the
     claim by a reviewing model instance and by GPT 6.2 Sol (ergebnisse/rang-444.md, section 2;
     records in pruefvermerke/). The library was then ported to Lean 4.36.0 and Mathlib v4.36.0
-    and builds there in GitHub Actions, with MatMulRank.rank_four_two_four_ge_26 depending only
+    and builds there in GitHub Actions. The upper bound was then added
+    (YangBounds.Upper4x2x4.rank_four_two_four_le_26) and combined with the lower bound into
+    YangBounds.Gleich444.rank_four_two_four_eq_26; the Challenge now states
+    MatMulRank.rank_four_two_four_eq_26 (tensorRank K 4 2 4 = 26). These theorems depend only
     on propext, Classical.choice and Quot.sound. On this state, lake comparator of the Lean
     4.36.0 toolchain, with Lean's kernel and NanoDa, accepted the Solution against the
     Challenge, and con-ron accepted the Solution export (run by an agent outside Palomar;
-    commands and output in palomar/BELEGE.md, section 1.7). The statement comparison of the
-    Challenge file MatMulRank/Challenge.lean itself is a separate step.
+    commands and output in palomar/BELEGE.md, section 1.7). The earlier statement checks
+    concern the lower bound only. The statement comparison of the Challenge file
+    MatMulRank/Challenge.lean with the statement "= 26" is a separate step.

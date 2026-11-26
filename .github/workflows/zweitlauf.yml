@@ -9,6 +9,9 @@
 #    (`leanchecker`, same command line) is used, because lean4checker has no tags
 #    beyond v4.29.0-rc8. The dependency mm325_lower_bound was removed in S5-03.
 # 3. `#print axioms` for YangBounds.Transponiert444.rank_four_two_four_ge_26.
+#    S5-21: also for YangBounds.Gleich444.rank_four_two_four_eq_26 and for the Palomar
+#    Solution theorem MatMulRank.rank_four_two_four_eq_26 (statement of the Challenge).
+#    The Challenge itself is not imported, because it declares the same name.
 #
 # S5-16: on the branch portierung the run also starts on every push that changes lean/**,
 # so the current state of portierung gets its second run without a manual dispatch.
@@ -44,6 +47,7 @@ concurrency:
 env:
   TARGET_REF: ${{ github.event.inputs.ref || github.event.pull_request.head.sha || github.sha }}
   FINAL_THEOREM: YangBounds.Transponiert444.rank_four_two_four_ge_26
+  EXTRA_THEOREMS: YangBounds.Gleich444.rank_four_two_four_eq_26 MatMulRank.rank_four_two_four_eq_26
 
 jobs:
   zweitlauf:
@@ -165,13 +169,18 @@ jobs:
           echo "L4C-SUMMARY|checked=$((ok+bad))|ok=$ok|failed=$bad" > "$RUNNER_TEMP/l4c_summary.txt"
           [ $bad -eq 0 ]
 
-      - name: "#print axioms for the final theorem"
+      - name: "#print axioms for the final theorem and the statement 26"
         if: always()
         working-directory: target/lean
         run: |
           set -euo pipefail
           f="$RUNNER_TEMP/ZweitlaufAxioms.lean"
-          printf 'import YangBounds.Transponiert444\n#check @%s\n#print axioms %s\n' "$FINAL_THEOREM" "$FINAL_THEOREM" > "$f"
+          {
+            printf 'import YangBounds.Transponiert444\nimport YangBounds.Gleich444\nimport MatMulRank.Solution\n'
+            for t in $FINAL_THEOREM $EXTRA_THEOREMS; do
+              printf '#check @%s\n#print axioms %s\n' "$t" "$t"
+            done
+          } > "$f"
           cat "$f"
           echo "-----"
           lake env lean "$f" 2>&1 | tee "$RUNNER_TEMP/axioms.txt"
