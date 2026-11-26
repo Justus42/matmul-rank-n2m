@@ -229,7 +229,7 @@ L4C-RESULT|YangBounds.YangN4Lemma13|exit=0|4s
 diesem Zwischenstand ein Bauziel; weil `zweitlauf.yml` jedes gebaute Modul prüft, hätte das den
 Zweitlauf rot gemacht. Deshalb ist die Glob-Erweiterung mit Commit `24845d3` zurückgenommen.
 
-`leanchecker --fresh MatMulRank.Solution`: `lake env leanchecker --fresh MatMulRank.Solution` (lokale Arbeitskopie, Stand `24845d3`, Start 2026-11-26T15:54Z) endete mit Exit 0 nach 440 s, ohne Ausgabe. `--fresh` prüft alle Deklarationen der Umgebung der Solution neu, also auch die ganze Kette und die gebrauchten Teile von Mathlib
+`leanchecker --fresh MatMulRank.Solution`: `lake env leanchecker --fresh MatMulRank.Solution` (lokale Arbeitskopie, Stand `24845d3`, Start 2026-11-26T15:54Z) endete mit Exit 0 nach 440 s, ohne Ausgabe. `--fresh` prüft alle Deklarationen der Umgebung der Solution neu, also auch die ganze Kette und alle importierten Module von Mathlib
 
 ### 1.6 Was der Bau nicht zeigt
 
