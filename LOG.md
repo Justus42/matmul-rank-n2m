@@ -2573,3 +2573,12 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 
 - (1) Die Vorgabe „Blind-Sucher“ aus Abschnitt 6 des Protokolls ist auf dieser Plattform nicht erfüllbar, weil der Gedächtnisindex jedem Thread eingeblendet wird. Justus hat entschieden: Je Runde läuft weiter ein unabhängiger Sucher (nicht blind).
 - (2) Der wiederholte Zweitlauf und die Änderung von README und `ergebnisse/rang-444.md` gehören zu Auflage 7 aus Stufe 2, nicht zu Stufe 4. Endet Stufe 4 vor Runde 6, werden diese beiden Aufträge trotzdem noch vergeben, als Abschluss der Auflage. Sonst nichts über das Stufenende hinaus.
+
+**Nachtrag 26.11.2026, Runde 4: S4-21 geliefert (Spur A, Unterfall (M21) bei e = 3)**
+
+- PR #127 (Merge 8a2c470 um 11:55:42 UTC), Zieldatei `lean/prosa/s4_327_spurA_r4_m21.md`. Commits 4eee558 (11:43:01, Zwischenstand nach Rechenblock 1), ad4afaa (11:55:24), UTC. Dauer nach Git etwa 32 Minuten (Vergabe etwa 11:24 UTC bis Merge). Erster Commit erst etwa 19 Minuten nach der Vergabe.
+- Ergebnis laut Bericht: Unterfall (M21) nicht vollständig ausgeschlossen, kein Verfahren. Behauptet (gestützt auf Satz R aus S4-14 und die freie Wahl der Normalform nach Lemma A): S4-21-G (genau 26 der α_t haben Rang 1, genau 8 Rang 2, usw.), S4-21-K (die β_t der 8 Rang-2-Produkte spannen höchstens 6 Dimensionen; benutzt die Brent-Gruppe (B)), S4-21-L. Vermutet: S4-21-V, nur durch Rechnung gestützt, Lücke L-21.
+- **Namensgleichheit:** „Satz G“ und „Satz K“ in diesem Bericht sind nicht B-023 (Satz G aus S4-11) und nicht B-024 (Satz K aus S4-08). Sie werden in STATUS, LOG und Vermerken stets mit Auftragsnummer geführt: S4-21-G, S4-21-K, S4-21-L.
+- Rechenblöcke nach Bericht (Abschnitt 9) und Git: Block 1 etwa 11:40 bis 11:41 UTC, Commit 4eee558 um 11:43:01; Block 2 11:45:26 bis 11:51:21 UTC, Commit ad4afaa um 11:55:24. Je ein Kern, je unter 30 Minuten, Commit dazwischen. Kein Verstoß.
+- 0 Subagenten, 0 Fremdmodell-Anfragen, nichts ins Gedächtnis geschrieben. Offenlegung: Index und vier Einzeleinträge (`yang-n3-prosa`, `yang-n3-teil3-lean`, `aussagen-abgleich-n3`, `git-regeln`), nach eigener Angabe nicht benutzt.
+- Orchestrator: Alles behauptet oder vermutet, kein Prüfer in dieser Runde, kein Fortschritt nach 2 b) daraus.
