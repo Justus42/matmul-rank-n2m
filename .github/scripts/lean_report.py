@@ -83,6 +83,8 @@ MAIN_THEOREMS = [
     ("Lemma 15(b), abstract core (YangN4Haupt.lean)", "YangBounds.YangN4Haupt.lemma15b_core"),
     ("Lemma 15(b): rk L = d*rho implies rho = m (YangN4Haupt.lean)", "YangBounds.YangN4Haupt.lemma15b"),
     ("Lemma I: rk L + min(2, dim N) <= 2 rk H (YangN3Teil3.lean)", "YangBounds.YangN3Teil3.lemma_I"),
+    # S4-18: conditional exclusion S4-07-D (B-021 D, first sentence), named hypotheses.
+    ("S4-07-D <3,2,7>, length 34: setting of S4-07-C with (INJ5) is impossible (S4BedingterAusschluss.lean)", "YangBounds.S4BedingterAusschluss.s4_07_D"),
 ]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 
