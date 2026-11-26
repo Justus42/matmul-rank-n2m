@@ -64,7 +64,7 @@ keine Sperre umgangen.
 nur für den bequemen elan-Weg nötig; der Umweg über GitHub-Releases funktioniert
 (`elan toolchain link leanprover/lean4:v4.36.0 <Verzeichnis>`).
 
-Wiederholte Proben von `cache.mathlib.org` um 15:01 und 15:03 UTC: weiter gesperrt.
+Wiederholte Proben von `cache.mathlib.org` um 15:01, 15:03 und 15:17 UTC: weiter gesperrt. Auf Weisung des Orchestrators schließt der Auftrag ohne lokalen Bau; der Bau ist ein eigener Auftrag der nächsten Runde.
 
 ## 4. Stand je Modul der Kette
 
@@ -158,14 +158,46 @@ Definition der Kette ist unverändert. Prüfbar mit
 
 ## 7. Lauf- und Jobnummern
 
-Lokal kein Bau. Actions-Läufe des Pull Requests: siehe Abschnitt 9 (nachgetragen nach dem
-Öffnen). Actions wurden nicht als Ersatz für den lokalen Bau benutzt; die Läufe entstehen von
-selbst durch den Pull Request.
+Lokal kein Bau. Die drei Workflows liefen automatisch auf dem Pull Request #147, Kopf-Commit
+`d28375fdd47c4d0fa2812e1eb78e4d595f0345cc` (Start 15:04:18 UTC). Sie wurden nur gelesen, nicht
+als Ersatz für den lokalen Bau benutzt; es gab keine Nachbesserung über Actions.
+
+| Workflow | Lauf | Job | Ergebnis |
+|---|---|---|---|
+| Lean build (own project lean/), `lean-project.yml` | 45845334184 | 139997391796 | failure: `lake build` scheitert |
+| Second run B-016, `zweitlauf-b016.yml` | 45845334273 | 139997392125 | failure |
+| Second run (fresh build + leanchecker), `zweitlauf.yml` | 45845334066 | 139997391393 | failure |
+
+Der Mathlib-Cache war in Actions ladbar. Aus dem Log von Job 139997391796: `lake build`
+meldet „Some required targets logged failures: YangBounds.Basic, YangBounds.SatzB444Poly,
+YangBounds.YangN4Lemma13“. Erste dort sichtbare Fehlermeldungen:
+
+- `YangBounds/YangN4Lemma13.lean:128:16: Unknown constant LinearMap.coeFn_sum` (auch Z. 191, 268)
+- `YangBounds/SatzB444Poly.lean:165:43: Function expected at coeff` (der Bezeichner `coeff`
+  ist unbekannt, Folgefehler Z. 167, 171, 189, 241, 255)
+- `YangBounds.Basic`: Fehler im gekürzten Log nicht sichtbar (nur die letzten Zeilen gelesen)
+- Warnungen: `push_neg` ist veraltet („Prefer using `push Not`“), ungenutzte `simp`-Argumente
+
+Alle anderen Module hängen von `Basic` ab und wurden deshalb nicht gebaut. Die beiden
+Zweitlauf-Jobs scheitern aus demselben Grund (sie bauen dieselbe Bibliothek); ihre Logs habe
+ich nicht im Einzelnen gelesen. Damit gilt in der Tabelle in Abschnitt 4: `Basic`,
+`SatzB444Poly`, `YangN4Lemma13` bauen nicht (erste Fehlermeldung wie oben, aus Actions, nicht
+lokal), alle übrigen sind nicht gebaut. `CeilBound` (nur Mathlib-Importe) taucht nicht in der
+Fehlerliste auf; ob es gebaut wurde, lässt der gelesene Ausschnitt nicht erkennen.
+
+### 7.1 Was genau ungeprüft ist
+
+- jede Änderung an Lean-Dateien: Modulköpfe, die sieben Namensersetzungen;
+- ob das Muster `@[expose] public section` für alle Dateien trägt;
+- `leanchecker` in `zweitlauf.yml` (lokal nur an einem Testmodul ausprobiert);
+- die Axiom-Berichte (nicht gelaufen, weil der Bau scheitert);
+- ob die Mathlib-URL ohne `.git` von Palomar so verlangt ist (OF-2, strengere Lesart).
 
 ## 8. Offen, und in welcher Reihenfolge es weitergehen sollte
 
 1. `cache.mathlib.org` freigeben lassen (beantragt beim Repository-Eigentümer über den
-   Orchestrator). Dann `lake exe cache get` im Verzeichnis `lean/`.
+   Orchestrator). Dann `lake exe cache get` im Verzeichnis `lean/`. Erste bekannte Baustellen:
+   `Basic`, `YangN4Lemma13` (`LinearMap.coeFn_sum`), `SatzB444Poly` (`coeff`).
 2. Module in der Reihenfolge der Tabelle in Abschnitt 4 einzeln bauen
    (`lake build YangBounds.Basic`, dann weiter), Fehler je Modul beheben. Erwartet: weitere
    umbenannte Lemmata, geändertes `simp`-/`field_simp`-Verhalten, Modulsystem-Fragen.
@@ -181,7 +213,8 @@ Commits (UTC, aus Git):
 
 - `c364523` 2026-11-26T15:01:35Z: Toolchain, Manifest, Modulköpfe und Workflows
 - `1a279fb` 2026-11-26T15:02:48Z: umbenannte Mathlib-Namen in Beweiskörpern
-- dieser Bericht: siehe Git
+- `d28375f` 2026-11-26T15:03:56Z: Bericht
+- Nachtrag Lauf- und Jobnummern: siehe Git
 
 Verbrauch: keine Subagenten, keine Fremdmodell-Anfrage, kein Rechenblock über 30 Minuten
 (größter Block: `lake update` mit Klonen der Pakete, wenige Minuten, abgebrochen im
