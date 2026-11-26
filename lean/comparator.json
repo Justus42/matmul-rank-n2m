@@ -1,0 +1,6 @@
+{
+  "challenge_module": "MatMulRank.Challenge",
+  "solution_module": "MatMulRank.Solution",
+  "theorem_names": ["MatMulRank.rank_four_two_four_ge_26"],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}

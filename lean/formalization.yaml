@@ -1,0 +1,124 @@
+# formalization.yaml for the Palomar entry of MatMulRank.rank_four_two_four_ge_26 (task S5-08).
+#
+# PLACEHOLDERS: every place marked "TODO-REPOSITORY-OWNER" must be filled in by the
+# repository owner before any submission. No agent fills these fields and no agent submits.
+#   1. project.authors                  (humans only, Palomar rule)
+#   2. project.responsible_maintainers  (humans only, Palomar rule)
+#   3. the origin of the result: "original" or "source-based". This decides the entry with
+#      type original-proof and the relationship of the Yang source. Both prepared variants are
+#      in palomar/s5-08-bericht.md, section 6.
+# As long as a placeholder is present, the file does not pass Palomar's mechanical check
+# (on purpose).
+version: v0.4
+
+project:
+  name: "The tensor rank of 4x2x4 matrix multiplication is at least 26 over every field"
+  description: >-
+    For a field K, the tensor rank R_K(<n,l,m>) is the least number r of products in a bilinear
+    algorithm A*B = sum_{k<r} alpha_k(A) beta_k(B) C_k for the product of an n x l and an
+    l x m matrix over K (alpha_k, beta_k linear forms, C_k fixed matrices). This entry proves
+    in Lean 4 with Mathlib that R_K(<4,2,4>) >= 26 for every field K, with no assumption on the
+    characteristic, finiteness or algebraic closedness of K. Together with the upper bound 26
+    of Hopcroft and Kerr (1971), which is not formalised here, this gives R_K(<4,2,4>) = 26.
+    The previously known lower bound was 25 (J. Yang, arXiv:2609.14393, Theorem 2, which the
+    development also formalises). The proof follows Yang's normal-form method for <n,2,m>:
+    a decomposition of length 25 is moved over an algebraically closed field into a generic
+    normal form and excluded case by case (four residual rank cases, a symmetric case, and two
+    sub-cases of the case (5,8)). The work was carried out by AI models directed by the
+    repository owner; no human mathematician has reviewed the proof.
+  # TODO-REPOSITORY-OWNER: list each human author (no AI model, agent, system or tool).
+  # Left empty on purpose: Palomar's mechanical check fails until this is filled in.
+  authors: []
+  # TODO-REPOSITORY-OWNER: list each human responsible maintainer (no AI model, agent,
+  # system or tool). Left empty on purpose: the mechanical check fails until it is filled in.
+  responsible_maintainers: []
+  license: Apache-2.0
+
+classification:
+  arxiv: [cs.CC, math.AG, math.RA]
+  msc2020: [68Q17, 15A69, 14N07]
+
+sources:
+  - title: "TODO-REPOSITORY-OWNER: origin of the result (original or source-based), see palomar/s5-08-bericht.md section 6"
+    relationship: "TODO-REPOSITORY-OWNER"
+  - title: "New lower bounds on tensor rank of (n,2,m) matrix multiplication with GPT-6"
+    authors: ["Jason Yang"]
+    type: paper
+    id: "arXiv:2609.14393"
+    location: "version 3 of 12 October 2026; normal form (N1), (N2), Theorem 2, Lemma 13"
+    relationship: "TODO-REPOSITORY-OWNER"
+    note: >-
+      Yang's Theorem 2 gives R(<n,2,m>) >= (n+2)m + n - 3 for m >= n >= 4, i.e. the bound 25
+      for <4,2,4>; it is formalised in this repository (YangBounds.yang_theorem_two) and used
+      to exclude lengths below 25. The proof of the bound 26 uses Yang's normal form. One step
+      of the written proof of Yang's Lemma 13 could not be followed; the formalisation proves
+      the same statement by a different argument (YangBounds/YangN4Lemma13.lean).
+  - title: "On minimizing the number of multiplications necessary for matrix multiplication"
+    authors: ["J. E. Hopcroft", "L. R. Kerr"]
+    type: paper
+    id: "doi:10.1137/0120004"
+    location: "SIAM J. Appl. Math. 20(1) (1971), 30-36"
+    relationship: background
+    note: >-
+      Upper bound ceil((3nm + max(n,m))/2), which gives R(<4,2,4>) <= 26. Not formalised
+      here and not part of the compared statement. The original article was not read; the
+      formula is cited identically by Yang (arXiv:2609.14393) and other sources.
+  - title: "Determining the tensor rank of (2, 2, m) matrix multiplication with GPT-5.6 Sol."
+    authors: ["Yaroslav Shitov"]
+    type: paper
+    id: "doi:10.13140/RG.2.2.29432.61441"
+    relationship: background
+    note: "Starting point of Yang's method. The document itself was not read; cited after Yang."
+  - title: "matmulcatalog, docs/LOWER_BOUNDS.md, line 90"
+    type: other
+    id: "https://github.com/solven-eu/matmulcatalog/blob/0a9f83a0670ac70c9d82310105faf2d9ea5956e4/docs/LOWER_BOUNDS.md"
+    relationship: other
+    note: >-
+      A public catalogue line states "R(<2,4,4>) >= 26 (Hopcroft-Kerr), UB 26 -> tight"
+      without proof or reference beyond the name; the same repository lists this lower bound
+      as open elsewhere (paper/theory/RANK_KNOWLEDGE.md, line 297). Recorded as a related
+      claim, not as a source of the proof.
+
+related_formalizations:
+  - id: "https://github.com/fallnlove/mm325_proof"
+    relationship: other
+    note: >-
+      Lean formalisation of the rank of <3,2,5> by Tsyganov, Parkina, Samsonov and Rakhuba
+      (arXiv:2609.22054). It served as a template in early stages of this repository; it is
+      not a dependency of this entry (no module of the submitted chain imports it).
+
+automation:
+  methods:
+    - method: agent
+      models: ["claude-fable-5-2", "claude-opus-5-5"]
+      framework: "Claude Code"
+      tool_setup: >-
+        An orchestrating Claude session (Anthropic; Claude Fable 5.2 as reported by the model)
+        assigned single tasks to further Claude sessions (mostly Claude Opus 5.5 by their own
+        reports and commit trailers). These sessions wrote the prose proofs, the Lean
+        formalisation, this Challenge and Solution, the reviews and the literature checks.
+    - method: other
+      models: ["GPT 6.2 Sol"]
+      tool_setup: >-
+        GPT 6.2 Sol (OpenAI, via OpenRouter, high reasoning effort, batch), used only for
+        independent cross-checks: statement checks and second readings of reviews.
+    - method: other
+      models: ["gemini-4-carbon"]
+      tool_setup: "A Gemini model (Google), used for cross-checks in the early stages only."
+  notes: >-
+    The repository owner, who is not a mathematician, directed the work and set the rules
+    (PROTOKOLL.md). Full AI disclosure: ergebnisse/rang-444.md, section 8. Failed attempts:
+    versuche/. Review records: pruefvermerke/.
+
+review:
+  status: agent-reviewed
+  reviewers:
+    - "Claude sessions in reviewer roles, separate from the authoring sessions"
+    - "GPT 6.2 Sol (OpenAI), statement check"
+  notes: >-
+    No human mathematician has reviewed the proof. The project theorem
+    YangBounds.Transponiert444.rank_four_two_four_ge_26 was built in GitHub Actions on
+    Lean 4.19.0 and re-checked with lean4checker, and its statement was compared with the
+    claim by a reviewing model instance and by GPT 6.2 Sol (ergebnisse/rang-444.md, section 2;
+    records in pruefvermerke/). The Challenge file MatMulRank/Challenge.lean is new; its own
+    statement comparison and the build on Lean 4.36.0 are separate steps.
