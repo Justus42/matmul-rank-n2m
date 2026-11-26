@@ -2853,3 +2853,10 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 
 - A7-Z: PR #143, Commit 0300578 (14:34:39 UTC), Merge 7a5c077 (14:34:53 UTC), Bericht `lean/prosa/a7_zweitlauf_bericht.md`. Lauf 45833618872, Job 139956567190 auf 62c3dc6 (13:54 bis 14:14:26 UTC), von der Schreibhand am Job-Log nachgesehen. Zweitlauf, „nur Beweiskörper geändert“ und Importkette ohne `mm325_proof` laut Bericht bestätigt. B-016 bleibt geprüft (Orchestrator); Zweitlauf auf dem Stand 62c3dc6 wiederholt. Einzelheiten und Offenlegung im Wortlaut in `pruefvermerke/B-016.md`. 0 Fremdmodell-Anfragen.
 - Vergeben etwa 14:36 UTC, beide außerhalb der Runden von Stufe 5: A7-T (Textänderung README und `ergebnisse/rang-444.md`, Bericht `lean/prosa/a7_textaenderung.md`) und S5-LW (Literaturwache vor Stufe 5 nach Abschnitt 7 mit Palomar, `lit/WACHE-2026-11-26-S5.md`).
+
+**Auflage 7 abgeschlossen: A7-T geliefert (Schreibhand, aus Git und dem Bericht)**
+
+- A7-T: PR #144, Commits 8317a73 (14:37:24 UTC) und 6bc88fa (14:37:30 UTC, Zeilenangabe im Bericht), Zweig von 7a5c077, Merge f16a7e8 (14:37:54 UTC). Bericht `lean/prosa/a7_textaenderung.md`. 0 Fremdmodell-Anfragen.
+- Am Diff f16a7e8^1..f16a7e8 geprüft: geändert sind nur `README.md` (1 Zeile, Zeile 25), `ergebnisse/rang-444.md` (Zeilen 31, 37 neu, 59, 85; 4 Zeilen ersetzt, 1 neu) und der Bericht. Inhalt: Seit 62c3dc6 importiert kein Modul der Importkette des Endsatzes das Paket `fallnlove/mm325_proof`; die Brücke steht in `lean/YangBounds/BrueckeMM325.lean`; neue Tabellenzeile zum wiederholten Zweitlauf (Lauf 45833618872, Job 139956567190). Die Änderung an README und `ergebnisse/` beruht auf der Entscheidung von Justus vom 26.11.2026, 13:16:37 UTC (Wortlaut oben).
+- Offen laut Bericht, nach „Offene Kleinigkeiten“ in STATUS (Orchestrator vergibt dafür nichts): `ergebnisse/rang-444.md` Zeile 28 nennt als Quellstand noch c3c3884; `lean/README.md` Zeilen 26 und 132 veraltet.
+- **Auflage 7 ist abgeschlossen** (Umbau S4-26, Zweitlauf A7-Z, Textänderung A7-T).

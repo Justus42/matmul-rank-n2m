@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 5 von Justus um 14:32 UTC gestartet, Protokoll 0.7; noch kein Auftrag einer Runde vergeben. Auflage 7: Zweitlauf A7-Z erledigt, Textänderung A7-T und Literaturwache S5-LW laufen)
+Zuletzt geändert: 26.11.2026 (Stufe 5 von Justus um 14:32 UTC gestartet, Protokoll 0.7; noch kein Auftrag einer Runde vergeben. Auflage 7 abgeschlossen. Literaturwache S5-LW läuft)
 
 ## Aktuelle Stufe
 
@@ -227,7 +227,7 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S4-34 | Prüfer B-028 (S4-28-A, B, C) | Prüfer | `lean/prosa/s4_327_bericht_s4-34.md` | erledigt in Runde 6, PR #141. A, B, C bestätigt; Zusatz „dicht und offen“ nur unter S4-21-A |
 | S4-35 | Unabhängiger Sucher (nicht blind) | Unabhängiger Sucher (nicht blind) | `versuche/s4-unabhaengig-r6.md` | erledigt, PR #142 (Merge f43f265). Rang nicht bestimmt; B-032 angelegt, behauptet |
 | A7-Z | Zweitlauf-Prüfer Auflage 7 (wiederholter Lauf, nur Beweiskörper gegenüber `main` geändert) | Prüfer | `lean/prosa/a7_zweitlauf_bericht.md` | erledigt, PR #143 (Merge 7a5c077). Lauf 45833618872, Job 139956567190 auf 62c3dc6. B-016 bleibt geprüft |
-| A7-T | Textänderung README und `ergebnisse/rang-444.md` (Abschluss Auflage 7) | Schreiber | `lean/prosa/a7_textaenderung.md` | vergeben etwa 14:36 UTC, außerhalb der Runden von Stufe 5 |
+| A7-T | Textänderung README und `ergebnisse/rang-444.md` (Abschluss Auflage 7) | Schreiber | `lean/prosa/a7_textaenderung.md` | erledigt, PR #144 (Merge f16a7e8). Auflage 7 abgeschlossen |
 | S5-LW | Literaturwache vor Stufe 5 (Abschnitt 7, mit Palomar) | Literaturwächter | `lit/WACHE-2026-11-26-S5.md` | vergeben etwa 14:36 UTC, außerhalb der Runden |
 
 ## Stufe 3: abgeschlossen
@@ -351,7 +351,9 @@ Grenze von Spur A (Literaturwache): Eine Schranke über 𝔽₂ schließt kein V
 
 ## Offene Kleinigkeiten
 
-- **Für später (Auflage 7 von Justus, 25.11.2026):** die Kette des Endsatzes vom Paket `mm325_proof` entkoppeln. Nicht jetzt beginnen
+- ~~Für später (Auflage 7 von Justus, 25.11.2026): die Kette des Endsatzes vom Paket `mm325_proof` entkoppeln.~~ Erledigt am 26.11.2026 (S4-26, A7-Z, A7-T)
+- `ergebnisse/rang-444.md` Zeile 28 nennt als Lean-Quellstand noch `c3c3884` (laut Bericht A7-T)
+- `lean/README.md` Zeilen 26 und 132 veraltet: Zeile 26 nennt die Abhängigkeit `mm325_lower_bound` ohne die Trennung in `BrueckeMM325.lean`, Zeile 132 drei `sorry` aus früherem Stand (laut Berichten S4-26 und A7-T)
 
 - Label „(R-C1)“ in `.github/scripts/lean_report.py` Zeile 43, erscheint im Actions-Log (Rest aus PR #80)
 - Veraltete Kommentare „open“ in `lean/YangBounds/Statements.lean` und `lean/YangBounds/Upper3x2x6.lean` (Nebenbefund S1-18)
