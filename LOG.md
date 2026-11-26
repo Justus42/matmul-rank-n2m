@@ -2422,3 +2422,12 @@ Jeweils nur die Zieldatei geändert. Beide: 0 eigene Subagenten, 0 Fremdmodell-A
 - Die Sol-Anfrage zu S4-07-D stellt der Orchestrator nach 5.5 (erste von höchstens zwei in Runde 3). Eintrag folgt mit der Batch-Kennung.
 
 **Gedächtnis (Schreibhand):** Der Eintrag `gemini-bridge` enthielt einen veralteten Zwischenstand aus Stufe 1 (Plan „S1-05 Nachtrag“ und „kein Ausweichen auf OpenRouter“). Dieser Absatz ist nach `archiv/gedaechtnis/stufe01/gemini-bridge-stand-s1-05.md` archiviert und aus dem Eintrag entfernt. Kein Urteil betroffen.
+
+**Nachtrag 26.11.2026, Runde 3: Sol-Anfrage 1 von höchstens 2 gestellt (Orchestrator, nach 5.5 und Vorgabe 1 von Justus)**
+
+- Batch-Kennung `openrouter:batch-1795687520-iFCKAiiJIQ1lIli8h29y`, Modell `openai/gpt-6.2-sol`, Denkstufe high, Batch, abgegeben 26.11.2026 um 10:05 UTC, Ausgabegrenze 32.000 Tokens.
+- Gegenstand: nur S4-07-D (B-021 D) mit (INJ5) im Wortlaut.
+- Mitgegeben wörtlich: Vorbemerkung und Aussagen B, C, D aus `behauptungen/B-021.md`, aus `lean/prosa/s4_327_spurA_r2_bau.md` die Abschnitte 1, 2, 3, 4.1, 4.2 und 6. Weggelassen: Abschnitte 0, 4.3, 4.4, 5, 7 bis 9, Anhang, und `yang_n3.md` (im Auftrag als nicht vorliegende Quelle benannt, Übernahmen aus Abschnitt 1 als ausdrückliche Voraussetzung).
+- Nicht mitgegeben: Urteil des Prüfers, Zähler, Fristen, erwünschtes Ergebnis.
+- Ein erster Aufruf mit Dateipfaden wurde von der Bridge abgelehnt (Repo nicht freigegeben), ohne dass das Modell aufgerufen wurde. Er zählt nicht als Anfrage.
+- Fremdmodell-Anfragen in Runde 3 bisher: 1. Antwort folgt.
