@@ -3032,3 +3032,17 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - Anforderungen laut Bericht (Abschnitt 4): 32 erfüllt mit Beleg; P-26 teilweise (Comparator fehlt); P-23 braucht Comparator-Lauf; P-13 nicht erfüllt (`versuche/s2-19-abgleich/Check.lean` ohne Modulkopf, außerhalb des Auftrags); P-32, P-37 bis P-39, P-47 bis P-49 brauchen Angaben des Repository-Eigentümers; P-22, P-42, P-44 bis P-46 nur durch Palomar entscheidbar. `lean_report.py` angepasst (Backticks in der `sorry`-Warnung von Lean 4.36.0, Challenge getrennt gezählt, zwei Hauptsätze aus `MatMulRank` ergänzt).
 - Offen laut Bericht: grüner Lauf in Actions auf `portierung`, `review.notes` in `lean/formalization.yaml`.
 - Hinweis ohne Wertung (Schreibhand): Der Push des Merges hat nur `lean-project.yml` ausgelöst. `zweitlauf.yml` läuft bei einem Push auf `portierung` nur, wenn sich die Workflow-Datei selbst ändert; sonst nur per `workflow_dispatch`.
+
+**Stufe 5, Runde 3: Lauf in Actions auf `portierung` für 9c364ba (Schreibhand, aus dem Joblog)**
+
+- Workflow `lean-project.yml` („Lean build (own project lean/)“), Lauf 45854965737 (Nummer 182), Job 140030812193 „Build lean/ and report axioms“, ausgelöst durch den Push des Merges 9c364ba, 16:02:30 bis 16:05:20 UTC. Ergebnis: **success**. Toolchain `leanprover/lean4:v4.36.0`, Mathlib `fc4f59e577feb1a4956671bc04ac18aaaf8cd842`.
+- Joblog wörtlich: „shared definitions and imports identical“; „Build completed successfully (4267 jobs).“; einzige `sorry`-Warnung „warning: MatMulRank/Challenge.lean:95:8: declaration uses `sorry`“.
+- SORRY-Zeilen wörtlich:
+  - „SORRY: 0 declaration(s) with 'declaration uses sorry' in the build log“
+  - „SORRY: 0 'sorry' token(s) in the sources outside comments“
+  - „INTENDED: 1 declaration(s) and 1 token(s) in the Palomar Challenge (MatMulRank/Challenge.lean), deliberate hole, not counted above“ (Stellen `lean/MatMulRank/Challenge.lean:95` und `:96`)
+- Axiom-Zeilen wörtlich:
+  - „AXIOM-RESULT|YangBounds.Transponiert444.rank_four_two_four_ge_26|propext, Classical.choice, Quot.sound“
+  - „AXIOM-RESULT|MatMulRank.rank_four_two_four_ge_26|propext, Classical.choice, Quot.sound“
+  - „TOTAL: STANDARD=62“
+- `zweitlauf.yml` (frischer Bau und `leanchecker`) lief für 9c364ba nicht; Auslösung per Push nur bei Änderung der Workflow-Datei, sonst `workflow_dispatch`.
