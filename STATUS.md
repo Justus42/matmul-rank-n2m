@@ -1,8 +1,21 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 3 abgeschlossen, Orchestrator hat angehalten und an Justus berichtet, Protokoll 0.5)
+Zuletzt geändert: 26.11.2026 (Stufe 4 von Justus gestartet, Protokoll 0.6; Behauptungsdateien B-017 und B-018 angelegt)
 
 ## Aktuelle Stufe
+
+**Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): läuft
+
+- Von Justus gestartet am 26.11.2026, 06:43 UTC (Wortlaut im Logbuch). Protokoll 0.6 (c721297) von ihm bestätigt
+- Budget: 6 Runden mit je bis zu 6 Subagenten, Fremdmodell nur nach 5.5. Grundlage: `erkundung/s3-08-einschaetzung-327.md`
+- Runde 1 ist nur Prüfung der Grundlage: Prüfer für die Restfall-Rechnung, für Lemma 15(b) bei d = 2 und für die Übertragung von Lemma I auf die Normalform, dazu die Nachrechnung des Verfahrens mit 35 nach 5.2 und der Blind-Sucher. Ab Runde 2 Spur A (Ausschluss des Restfalls) und Spur B (Suche nach 34)
+- Literaturwache vor Runde 1, außerhalb der Runde (Lesart des Orchestrators): Thread „Literatur zu 3×2×7 sichten“, vergeben etwa 06:47 UTC, 1 Subagent, 0 Fremdmodell-Anfragen. Runde 1 erst nach ihrer Meldung
+- Behauptungsdateien für Runde 1: `behauptungen/B-017.md` (Restfall-Rechnung), `behauptungen/B-018.md` (Lemma 15(b) bei d = 2). Für die Übertragung von Lemma I gibt es noch keine Datei, weil die Aussage in den Quellen nicht eindeutig steht (an den Orchestrator gemeldet). Status setzt der Orchestrator
+- Runde 1: noch nicht vergeben
+- Fertig mit einem Lean-Satz für die untere Schranke 35 über jedem Körper (geprüft nach 5.1 samt Abgleich des Endsatzes), einem nach 5.2 bestätigten Verfahren mit 34, erschöpftem Budget oder wenn eine Abbruchregel beide Spuren beendet
+- Kein Kontakt nach außen. README und `ergebnisse/` bleiben unverändert
+
+## Stufe 3: abgeschlossen
 
 **Stufe 3: Erkundung 4×2×5 (Länge 31) und 3×2×7 (Länge 34)** (Protokoll 0.5, Abschnitt 3): abgeschlossen
 

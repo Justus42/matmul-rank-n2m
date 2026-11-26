@@ -2139,3 +2139,29 @@ Hinweis für den Orchestrator an Stufe 4 angepasst.
 **Nicht Teil von Stufe 4**
 
 Das lesbare Aufschreiben des Beweises zu 4×2×4, das Entkoppeln vom Paket mm325_proof und ein Zenodo-Release. Kein Kontakt nach außen.
+
+---
+
+## 26.11.2026 · Start von Stufe 4 durch Justus (Protokoll 0.6)
+
+**Nachricht von Justus im Projektchat (Wortlaut, 26.11.2026, 06:43 UTC):**
+
+> Protokoll 0.6 (Commit c721297) stammt von mir. Lies Abschnitt 3, 6 und 11.4 und CLAUDE.md neu und starte Stufe 4.
+
+Damit ist Protokoll 0.6 von Justus bestätigt. Stufe 4: 3×2×7 bei Länge 34, Budget 6 Runden mit je bis zu 6 Subagenten, Fremdmodell nur nach 5.5. Runde 1 ist nur Prüfung der Grundlage.
+
+**Lesart des Orchestrators (strengere Lesart, nach Protokoll Abschnitt 3 vermerkt):**
+
+- (a) Die Literaturwache (Abschnitt 7) läuft vor Runde 1, außerhalb der Runde, und wird offen ausgewiesen: Thread „Literatur zu 3×2×7 sichten“, vergeben etwa 06:47 UTC, 1 Subagent, 0 Fremdmodell-Anfragen. Runde 1 wird erst nach ihrer Meldung vergeben.
+- (b) Prüfer bekommen nur Behauptung und Artefakt. Für die drei Prüfgegenstände der Runde 1 gab es noch keine Behauptungsdateien. Sie werden nach 5.4 angelegt (nur Aussage, Herkunft, Artefakt), mit wörtlich übernommenen Aussagen.
+
+**Gegengelesen (Schreibhand):** (a) und (b) widersprechen Abschnitt 3 und 6 nicht. Beide sind strenger als der Wortlaut. Die Wache zählt nach (a) nicht zum Rundenbudget, ihr Verbrauch steht hier.
+
+**Behauptungsdateien angelegt (Auftrag des Orchestrators):**
+
+- `behauptungen/B-017.md`: Restfall-Rechnung ⟨3,2,7⟩ bei Länge 34, Rolle n = 3, mit und ohne Lemma I. Aussage wörtlich aus S3-04 und S3-03, Abschnitt 1, Punkt 1.
+- `behauptungen/B-018.md`: Lemma 15(b) bei d = 2. Aussage wörtlich aus `lean/prosa/yang_n4.md` und dem Lean-Satz `lemma15b`, dazu die Form B8 aus S3-04 und L15b aus S3-03.
+- Übertragung von Lemma I auf die Normalform des yang_n4-Rahmens: **keine Datei angelegt.** Die Aussage steht in den Quellen nicht eindeutig. S3-03, Abschnitt 7, Punkt 2 sagt nur, die Objekte „sollten übereinstimmen“, und „Eine Lean-Brücke zwischen beiden Rahmen gibt es nicht“. S3-04 führt die Lemmata G, H, I unter „Übernommen (ohne eigene Prüfung)“ und formuliert keine Übertragung. Dem Orchestrator gemeldet.
+- Keine Prüfvermerke angelegt. Den Status setzt der Orchestrator.
+
+**Gedächtnis:** Index (Fassung 0.6, synchronisiert 06:45 UTC) und alle 21 Einzeleinträge durchgesehen. Nichts über Behauptungen, Prüfurteile, Befunde oder Zwischenstände. Nichts geändert.

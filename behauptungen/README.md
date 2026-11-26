@@ -32,3 +32,5 @@ Eine Datei pro Behauptung, benannt `B-xxx.md`. Eine Behauptungsdatei enthält nu
 | B-014 | Im Restfall (5,8) ist Unterfall B unmöglich (Lemma K, Lemma Z, Satz F). Folgerung F2: mit B-007 bis B-013 R(⟨4,2,4⟩) ≥ 26 über jedem Körper |
 | B-015 | Brücke: Zu jeder Zerlegung von ⟨4,2,4⟩ der Länge 25 über einem Körper K erfüllt die generische Normalform über dem algebraischen Abschluss von K(S,T) (N1), (N2), liegt im Fall (5,8) und ist nicht symmetrisch |
 | B-016 | R(⟨4,2,4⟩) ≥ 26 über jedem Körper, Lean-Endsatz `Transponiert444.rank_four_two_four_ge_26` |
+| B-017 | Restfall-Rechnung ⟨3,2,7⟩ bei Länge 34, Rolle n = 3: genau ein Restfall (ρ, rk L, rk H) = (4, 6, 4); ohne Lemma I zusätzlich (3, 5, 3) |
+| B-018 | Lemma 15(b) bei d = 2: rk L = d·ρ ⇒ ρ = m, über algebraisch abgeschlossenem Körper |
