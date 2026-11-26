@@ -29,3 +29,4 @@ Stand der Literatur nach meiner Suche: 34 ≤ R(⟨3,2,7⟩) ≤ 35 über jedem 
 ## 6. Rechenblöcke und Verbrauch
 
 - Block 1 (12:35–12:50 UTC, 1 Kern): numerische Suche (Levenberg-Marquardt mit Rundung auf {−1,0,1}) nach ganzzahligen Teilverfahren für ⟨3,2,3⟩ mit Rang 15. Exakte reelle Lösungen gefunden (etwa 1 von 20 Startwerten), das Runden auf ganze Zahlen ist in keinem Lauf gelungen. Kein Ergebnis.
+- Block 2 (12:51–13:02 UTC, bis 4 Kerne): (a) simuliertes Abkühlen über Produkte mit Faktoren aus höchstens zwei Variablen und Koeffizienten ±1, (b) Levenberg-Marquardt mit Ansatz zyklischer Symmetrie (Z/3 auf Zeilen von A und Spalten von B, 5 Bahnen) und schrittweisem Runden. Keine ganzzahlige Lösung für ⟨3,2,3⟩ mit Rang 15 gefunden; Methode (a) fand zur Kontrolle nicht einmal Strassens ⟨2,2,2⟩ mit 7, ist also zu schwach. Ergebnis: Eigenbau der Teilverfahren aufgegeben, siehe Abschnitt 5.
