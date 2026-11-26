@@ -54,7 +54,7 @@ Je Behauptung gibt es eine Datei `pruefvermerke/B-xxx.md`. Sie beginnt mit der w
 | B-031 | Fall r = 34 nach Tsyganov et al.: f = 5 unmöglich, Gestalt bei f = 4 (S4-29) | behauptet | S4-29, PR #136 (Merge e54f8c8) |
 | B-032 | Verschärfung (7′), f = 5 ausgeschlossen bei r = 34 (S4-35) | behauptet | S4-35, PR #142 (Merge f43f265) |
 | B-033 | Kette zu R(⟨3,2,7⟩) ≥ 35 als ein Beweis, Glieder K-1 bis K-41 | behauptet (jedes Glied zwei unabhängige Bestätigungen, K-40 in der Fassung von `lean/prosa/s5_327_k40.md`; Kettendatei nicht berichtigt) | S5-01, PR #148 (Merge a32831a) |
-| B-034 | R(⟨4,2,4⟩) = 26 über jedem Körper, Lean `Gleich444.rank_four_two_four_eq_26` (Zweig `portierung`) | **geprüft** (5.1: Jobs 140079318183 und 140079342228 auf 676cdf5, Abgleich S5-20 und Fremdmodell) | S5-17, PR #161 (Merge 03d49c7 auf `portierung`) |
+| B-034 | R(⟨4,2,4⟩) = 26 über jedem Körper, Lean `Gleich444.rank_four_two_four_eq_26` (`main`, 676cdf5) | **geprüft** (5.1: Jobs 140079318183 und 140079342228 auf 676cdf5, Abgleich S5-20 und Fremdmodell) | S5-17, PR #161 (Merge 03d49c7 auf `portierung`) |
 
 Spuren der Stufe 4 (Abbruchregel 2):
 
