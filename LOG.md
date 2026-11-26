@@ -3006,3 +3006,10 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - K-21 bis K-31 je „bestätigt“ (K-27 „mit dem Hinweis zur Liste“), keine echte Lücke. Ausgeschriebene Nachrechnung je Glied (11 von 11), Programm (Anhang A, Ausgabe Anhang B) und Randfälle vorhanden. Gegenprobe am Verfahren der Länge 39, weil keines der Länge 34 bekannt ist.
 - Ungenauigkeiten teils wie S5-06 (U1 bis U3), neu: K-21 Zeichen ℬ̂ (Zeile 393), Injektivität in (d); K-23 Unabhängigkeit von e von v; K-30 (d) dim b_0K′ = 13 nur implizit.
 - Damit haben K-21 bis K-35 je zwei Bestätigungen (S5-06/S5-07, S5-11/S5-12). Einzelheiten in `pruefvermerke/B-033.md`.
+
+**Stufe 5, Runde 3: S5-09 (Prüfer K-1 bis K-12, zweite Lesung) geliefert (Schreibhand, aus Git und dem Bericht)**
+
+- PR #156, ein Commit 4e13905 (15:45:59 UTC, Zweig von de8f853), Merge 893eedf (15:46:15 UTC). Block Zeilen 109–248 (140 Zeilen), Bearbeitungsdauer nach Git etwa 8 Minuten. Nur der Bericht geändert (903 Zeilen). 0 Subagenten, 0 Fremdmodell.
+- K-1 bis K-12 je „bestätigt“, keine echte Lücke. Ausgeschriebene Nachrechnung je Glied (12 von 12), Programm mit 40 Einzelprüfungen (Anhang A, Ausgabe Anhang B „40 of 40 checks OK“) und Randfälle vorhanden.
+- Ungenauigkeiten bei K-1, K-2, K-4, K-5, K-6, K-8 bis K-12, teils wie S5-04.
+- Damit haben K-1 bis K-12 und K-21 bis K-35 je zwei Bestätigungen. Einzelheiten in `pruefvermerke/B-033.md`.

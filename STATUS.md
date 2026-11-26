@@ -249,7 +249,7 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S5-06 | Spur K: Prüfer K-21 bis K-31 (Zeilen 379–549), erste Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-06.md` | erledigt, PR #151 (Merge 9a77df1). Eingetragen in `pruefvermerke/B-033.md` |
 | S5-07 | Spur K: Prüfer K-32 bis K-41 (Zeilen 550–752), erste Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-07.md` | erledigt, PR #152 (Merge 3565149). Eingetragen in `pruefvermerke/B-033.md`; Hinweis zur Struktur vermerkt |
 | S5-08 | Spur P: Aussagen-Datei, Lösungs-Modul, `comparator.json`, `formalization.yaml` (Platzhalter) | Formalisierer | `palomar/s5-08-bericht.md` | geliefert, nicht gebaut, PR #153 an `portierung` (Merge 4cad1ca). Challenge, Definitions, Solution, `comparator.json`, `formalization.yaml` (Platzhalter für Justus) |
-| S5-09 | Spur K: Prüfer K-1 bis K-12 (Zeilen 109–248), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-09.md` | vergeben in Runde 3, etwa 15:38 UTC |
+| S5-09 | Spur K: Prüfer K-1 bis K-12 (Zeilen 109–248), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-09.md` | erledigt, PR #156 (Merge 893eedf). K-1 bis K-12 zweite Bestätigung |
 | S5-10 | Spur K: Prüfer K-13 bis K-20 (Zeilen 249–378), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-10.md` | vergeben in Runde 3, etwa 15:38 UTC |
 | S5-11 | Spur K: Prüfer K-21 bis K-31 (Zeilen 379–549), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-11.md` | erledigt, PR #155 (Merge e66f391). K-21 bis K-31 zweite Bestätigung |
 | S5-12 | Spur K: Prüfer K-32 bis K-35 (Zeilen 550–627), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-12.md` | erledigt, PR #154 (Merge ddb64d1). K-32 bis K-35 zweite Bestätigung |
