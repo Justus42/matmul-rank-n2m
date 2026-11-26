@@ -3120,3 +3120,11 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - Urteil im Wortlaut: „**Stimmt überein.**“ für `MatMulRank.rank_four_two_four_eq_26` (Challenge Zeile 94, 03d49c7) gegen B-034. Vorbehalte: `Definitions.lean` nicht gelesen (Gleichheit nur über den `diff`-Schritt im Job-Log), Comparator im Job nicht gelaufen, `sInf`-Konvention nicht in der Mathlib-Quelle nachgelesen, untere Schranke (`Transponiert444.lean`) nicht Gegenstand. Einzelheiten in `pruefvermerke/B-034.md`.
 - Offenlegung: Index und drei Einzeleinträge des Gedächtnisses eingeblendet (`aussagen-abgleich-n3`, `gemini-bridge`, `lean-build-cloud`), laut Bericht ohne Bezug zu B-034.
 - Status (Orchestrator): B-034 bleibt behauptet, bis die Sol-Antwort vorliegt.
+
+
+**Stufe 5, Runde 5: S5-18 (Prüfer, neuer Wortlaut von K-40) geliefert (Schreibhand, aus Git und Bericht)**
+
+- PR #164, ein Commit 2edf2b7 (16:54:59 UTC), Zweig von dc1c993, Merge 41de2c2 (16:55:13 UTC). Nur `lean/prosa/s5_kette_bericht_s5-18.md` hinzugefügt. Dauer nach Git etwa 2 Minuten ab der gemeldeten Vergabe (etwa 16:53 UTC).
+- Urteile im Wortlaut: K-40 (a) „bestätigt“, (b) „bestätigt“; Voraussetzungsliste „bestätigt bis auf die fehlende Nennung von K-8 (Ungenauigkeit im Wortlaut der Liste, keine Beweislücke)“; Z. 103 „bestätigt“ mit Vorbehalt (K-18, K-38 nicht auf der Positivliste); Z. 107 und Z. 111 „bestätigt“. „Echte Lücken: keine gefunden.“ Ausgeschriebene Nachrechnung und exaktes Programm mit Ausgabe liegen vor.
+- Eingetragen in `pruefvermerke/B-033.md` als erste Bestätigung des neuen Wortlauts von K-40 (Auftrag des Orchestrators); S5-19 steht aus. Ungenauigkeiten in die Sammelliste übernommen.
+- Offenlegung: Index und zwei Einzeleinträge (`aussagen-abgleich-n3`, `gemini-bridge`). Meldung „`s5_327_k40.md` existiert auf `main` nicht, aus fa1b7aa gelesen“: laut Git existiert die Datei auf dem Ausgangspunkt dc1c993 und ist inhaltsgleich mit fa1b7aa; die Ursache der Meldung ist aus Git nicht feststellbar.
