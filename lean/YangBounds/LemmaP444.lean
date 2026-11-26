@@ -1,6 +1,10 @@
-import YangBounds.SatzE444Buendel
-import Mathlib.LinearAlgebra.Eigenspace.Minpoly
-import Mathlib.Data.Fintype.Pigeonhole
+module
+
+public import YangBounds.SatzE444Buendel
+public import Mathlib.LinearAlgebra.Eigenspace.Minpoly
+public import Mathlib.Data.Fintype.Pigeonhole
+
+@[expose] public section
 
 /-!
 # Lemma P for `⟨4,2,4⟩`, case (5,8): proof of `LemmaPStatement`
@@ -524,7 +528,7 @@ theorem main [Infinite K] [FiniteDimensional K Q] (H : Hyp F) :
     by_contra h
     push_neg at h
     exact Module.Finite.not_linearIndependent_of_infinite kv
-      (linearIndependent_iff_not_mem_span.2 h)
+      (linearIndependent_iff_notMem_span.2 h)
   obtain ⟨t₀, ht₀⟩ : ∃ t₀ : T, t₀ ≠ t₁ := by
     obtain ⟨a, b, hab⟩ := exists_pair_ne T
     by_cases h : a = t₁

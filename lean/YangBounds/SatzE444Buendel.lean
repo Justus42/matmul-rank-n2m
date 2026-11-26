@@ -1,4 +1,8 @@
-import YangBounds.SatzE444
+module
+
+public import YangBounds.SatzE444
+
+@[expose] public section
 
 /-!
 # Lemma P for `⟨4,2,4⟩`, case (5,8): the sub-cases A and B, and what remains

@@ -22,7 +22,7 @@ main theorem gets a `#print axioms` check, the build in GitHub Actions is author
 
 | File | Content |
 |---|---|
-| `lakefile.toml`, `lean-toolchain`, `lake-manifest.json` | Lean 4.19.0, mathlib `c44e0c8` (tag v4.19.0), dependency `mm325_lower_bound` |
+| `lakefile.toml`, `lean-toolchain`, `lake-manifest.json` | Lean 4.36.0, mathlib `fc4f59e` (tag v4.36.0); since S5-03 (branch `portierung`) no other dependency. The Lean 4.19.0 state with `mm325_lower_bound` stays reachable via the tag `lean-4.19` |
 | `YangBounds/Basic.lean` | definitions (`BilinearAlgorithm`, `tensorRank`), schoolbook algorithm, bridge to the dependency |
 | `YangBounds/Statements.lean` | Yang's two bounds, the upper bound for ⟨3,2,6⟩, and the consequences |
 | `YangBounds/CeilBound.lean` | `ceil_bound_iff` (moved out of `Statements.lean` in S1-13 to avoid an import cycle) |
@@ -33,12 +33,12 @@ main theorem gets a `#print axioms` check, the build in GitHub Actions is author
 | `YangBounds.lean` | library root |
 | `Axioms.lean` | `#print axioms` for all main statements (not part of the library) |
 
-## Dependency `fallnlove/mm325_proof`
+## Former dependency `fallnlove/mm325_proof`
 
-The repository has no license (`lit/LIZENZEN.md`, A-01). Following protocol 11.3 it is a
-Lake dependency by Git URL at commit `759cf4a8524d4212e7832046204c90b9361ba2bb`; no code
-from it is copied into this repository. `lake-manifest.json` pins it together with mathlib
-and all transitive packages at exactly the revisions of the dependency's own manifest.
+Up to the tag `lean-4.19` the project depended on `fallnlove/mm325_proof` (no license,
+`lit/LIZENZEN.md`, A-01) through the bridge `YangBounds/BrueckeMM325.lean` and
+`AxiomsMM325.lean`. No file of the chain of the final theorem imported it. Task S5-03 removed
+the bridge and the dependency on the branch `portierung` (protocol 0.7, stage 5, track P).
 
 ## Definitions
 
@@ -52,11 +52,8 @@ and all transitive packages at exactly the revisions of the dependency's own man
   minimum is genuine (no default value). Sanity check `tensorRank_le_mul`: `R ≤ n·l·m`.
 * `K : Type u` with `[Field K]` only: arbitrary fields, any universe, no assumption on the
   characteristic or on cardinality.
-* For `n = 3`, `l = 2`, `BilinearAlgorithm` has exactly the fields of the dependency's
-  `MatrixAlgorithm`. `tensorRank_three_two_eq` proves
-  `tensorRank K 3 2 m = MatrixMultiplicationLowerBound.matrixTensorRank K m`, and
-  `tpsr_lower_bound` transports the dependency's theorem `24 m < 5 R` (Tsyganov et al.,
-  arXiv:2609.22054, Theorem 1) to our rank, with the dependency's proof.
+* Up to the tag `lean-4.19`, `tensorRank_three_two_eq` and `tpsr_lower_bound` connected this
+  rank to the former dependency; both lived in `BrueckeMM325.lean` and were removed in S5-03.
 
 ## Target statements
 

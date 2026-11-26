@@ -1,5 +1,9 @@
-import YangBounds.LemmaP444
-import YangBounds.SatzC444Generisch
+module
+
+public import YangBounds.LemmaP444
+public import YangBounds.SatzC444Generisch
+
+@[expose] public section
 
 /-!
 # The final theorem `R(⟨4,2,4⟩) ≥ 26`, assembled from the existing theorems and two hypotheses

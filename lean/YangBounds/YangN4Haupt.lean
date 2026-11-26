@@ -1,10 +1,14 @@
-import YangBounds.Basic
-import YangBounds.YangN3Teil1
-import YangBounds.YangN3Teil2
-import YangBounds.YangN3Teil3
-import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-import Mathlib.LinearAlgebra.Eigenspace.Triangularizable
-import Mathlib.LinearAlgebra.Dual.Lemmas
+module
+
+public import YangBounds.Basic
+public import YangBounds.YangN3Teil1
+public import YangBounds.YangN3Teil2
+public import YangBounds.YangN3Teil3
+public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+public import Mathlib.LinearAlgebra.Eigenspace.Triangularizable
+public import Mathlib.LinearAlgebra.Dual.Lemmas
+
+@[expose] public section
 
 /-!
 # Yang v3, Theorem 2 (`m ≥ n ≥ 4`): the main proof, with Lemma 13 as a hypothesis
@@ -955,9 +959,9 @@ theorem exists_coords (Js : Submodule K (Fin r → K)) :
       have := Submodule.finrank_le Js
       simpa using this
     by_cases hb : Js ⊓ coordZero I = ⊥
-    · obtain ⟨t, -, ht⟩ := Finset.exists_mem_not_mem_of_card_lt_card
+    · obtain ⟨t, -, ht⟩ := Finset.exists_mem_notMem_of_card_lt_card
         (s := I) (t := (Finset.univ : Finset (Fin r))) (by simp [hIc]; omega)
-      refine ⟨insert t I, by rw [Finset.card_insert_of_not_mem ht, hIc], ?_⟩
+      refine ⟨insert t I, by rw [Finset.card_insert_of_notMem ht, hIc], ?_⟩
       have hle : Js ⊓ coordZero (insert t I) ≤ Js ⊓ coordZero I :=
         inf_le_inf_left _ (coordZero_anti (Finset.subset_insert _ _))
       have := Submodule.finrank_mono hle
@@ -966,7 +970,7 @@ theorem exists_coords (Js : Submodule K (Fin r → K)) :
     · obtain ⟨x, hx, hx0⟩ := (Submodule.ne_bot_iff _).1 hb
       obtain ⟨t, ht⟩ := Function.ne_iff.1 hx0
       have htI : t ∉ I := fun h => ht (hx.2 t h)
-      refine ⟨insert t I, by rw [Finset.card_insert_of_not_mem htI, hIc], ?_⟩
+      refine ⟨insert t I, by rw [Finset.card_insert_of_notMem htI, hIc], ?_⟩
       have hlt : Js ⊓ coordZero (insert t I) < Js ⊓ coordZero I := by
         refine lt_of_le_of_ne (inf_le_inf_left _ (coordZero_anti (Finset.subset_insert _ _)))
           fun h => ?_

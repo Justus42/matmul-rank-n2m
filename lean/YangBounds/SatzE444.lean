@@ -1,7 +1,11 @@
-import YangBounds.SatzA444
-import YangBounds.SatzB444Final
-import Mathlib.FieldTheory.IsAlgClosed.Basic
-import Mathlib.RingTheory.Polynomial.Basic
+module
+
+public import YangBounds.SatzA444
+public import YangBounds.SatzB444Final
+public import Mathlib.FieldTheory.IsAlgClosed.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+
+@[expose] public section
 
 /-!
 # Satz E for `⟨4,2,4⟩` at length 25: sub-case A of the case (5,8) is impossible

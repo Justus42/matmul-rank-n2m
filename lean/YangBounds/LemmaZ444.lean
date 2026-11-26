@@ -1,5 +1,9 @@
-import YangBounds.SatzF444
-import YangBounds.LemmaK444
+module
+
+public import YangBounds.SatzF444
+public import YangBounds.LemmaK444
+
+@[expose] public section
 
 /-!
 # Lemma Z for `⟨4,2,4⟩` at the generic normal form (many distinct points)

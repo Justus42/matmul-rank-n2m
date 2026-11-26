@@ -1,10 +1,14 @@
-import YangBounds.Basic
-import Mathlib.Algebra.MvPolynomial.Funext
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.LinearAlgebra.Matrix.ToLin
-import Mathlib.LinearAlgebra.Matrix.Nondegenerate
-import Mathlib.LinearAlgebra.Determinant
-import Mathlib.LinearAlgebra.Basis.VectorSpace
+module
+
+public import YangBounds.Basic
+public import Mathlib.Algebra.MvPolynomial.Funext
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.ToLin
+public import Mathlib.LinearAlgebra.Matrix.Nondegenerate
+public import Mathlib.LinearAlgebra.Determinant
+public import Mathlib.LinearAlgebra.Basis.VectorSpace
+
+@[expose] public section
 
 /-!
 # Yang v3, Theorem 1 (`n = 3`), part 2: strong normalization

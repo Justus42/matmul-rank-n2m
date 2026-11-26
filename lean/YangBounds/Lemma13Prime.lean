@@ -1,4 +1,8 @@
-import YangBounds.YangN4Lemma13
+module
+
+public import YangBounds.YangN4Lemma13
+
+@[expose] public section
 
 /-!
 # Lemma 13′: a sharpening of Yang's Lemma 13

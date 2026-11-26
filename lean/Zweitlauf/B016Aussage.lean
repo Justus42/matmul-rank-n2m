@@ -1,5 +1,9 @@
-import YangBounds.Basic
-import YangBounds.Transponiert444
+module
+
+public import YangBounds.Basic
+public import YangBounds.Transponiert444
+
+@[expose] public section
 
 /-!
 # S2-56: the final statement for `⟨4,2,4⟩`, restated in a fresh file

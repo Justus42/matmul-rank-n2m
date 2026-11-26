@@ -1,4 +1,8 @@
-import YangBounds.Bruecke444
+module
+
+public import YangBounds.Bruecke444
+
+@[expose] public section
 
 /-!
 # Lemma K and Folgerung K1 (two factorisations of a quadratic rank-one map)

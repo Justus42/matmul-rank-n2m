@@ -1,6 +1,10 @@
-import YangBounds.YangN3Teil1
-import YangBounds.YangN3Teil2
-import YangBounds.YangN3Teil3
+module
+
+public import YangBounds.YangN3Teil1
+public import YangBounds.YangN3Teil2
+public import YangBounds.YangN3Teil3
+
+@[expose] public section
 
 /-!
 # Yang v3, Theorem 1 (`n = 3`): assembly of the three parts

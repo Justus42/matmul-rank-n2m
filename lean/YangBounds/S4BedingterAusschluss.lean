@@ -1,7 +1,11 @@
-import YangBounds.Basic
-import Mathlib.RingTheory.MvPolynomial.Basic
-import Mathlib.Algebra.MvPolynomial.CommRing
-import Mathlib.Algebra.MvPolynomial.Degrees
+module
+
+public import YangBounds.Basic
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.Algebra.MvPolynomial.CommRing
+public import Mathlib.Algebra.MvPolynomial.Degrees
+
+@[expose] public section
 
 /-!
 # S4-07-D: conditional exclusion for `⟨3,2,7⟩` of length 34 (case e = 3 with (INJ5))

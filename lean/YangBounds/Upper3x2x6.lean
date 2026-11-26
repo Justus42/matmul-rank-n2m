@@ -1,9 +1,13 @@
-import YangBounds.Basic
-import Mathlib.Data.Fin.VecNotation
-import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Data.Int.Cast.Lemmas
-import Mathlib.Tactic.Ring
+module
+
+public import YangBounds.Basic
+public import Mathlib.Data.Fin.VecNotation
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Data.Int.Cast.Lemmas
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 /-!
 # Upper bound `R(⟨3, 2, 6⟩) ≤ 30` over every field

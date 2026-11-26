@@ -1,13 +1,17 @@
-import YangBounds.Basic
-import YangBounds.CeilBound
-import YangBounds.YangN3
-import YangBounds.Upper3x2x6
-import YangBounds.YangN4Lemma13
-import YangBounds.YangN4Haupt
-import Mathlib.Algebra.Order.Floor.Semiring
-import Mathlib.Data.Rat.Floor
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Linarith
+module
+
+public import YangBounds.Basic
+public import YangBounds.CeilBound
+public import YangBounds.YangN3
+public import YangBounds.Upper3x2x6
+public import YangBounds.YangN4Lemma13
+public import YangBounds.YangN4Haupt
+public import Mathlib.Algebra.Order.Floor.Semiring
+public import Mathlib.Data.Rat.Floor
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Linarith
+
+@[expose] public section
 
 /-!
 # Target statements of stage 1 (Yang v3)

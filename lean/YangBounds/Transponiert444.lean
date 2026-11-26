@@ -1,5 +1,9 @@
-import YangBounds.SatzF444
-import YangBounds.LemmaZ444
+module
+
+public import YangBounds.SatzF444
+public import YangBounds.LemmaZ444
+
+@[expose] public section
 
 /-!
 # The transposed decomposition at the same point: hypothesis (B3′) of Satz F for `⟨4,2,4⟩`

@@ -11,7 +11,7 @@ on:
       - ".github/workflows/zweitlauf-b016.yml"
       - "lean/Zweitlauf/**"
   push:
-    branches: [main]
+    branches: [main, portierung]
     paths:
       - ".github/workflows/zweitlauf-b016.yml"
       - "lean/Zweitlauf/**"
