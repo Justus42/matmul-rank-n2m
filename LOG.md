@@ -2167,3 +2167,61 @@ Damit ist Protokoll 0.6 von Justus bestätigt. Stufe 4: 3×2×7 bei Länge 34, B
 **Gedächtnis:** Index (Fassung 0.6, synchronisiert 06:45 UTC) und alle 21 Einzeleinträge durchgesehen. Nichts über Behauptungen, Prüfurteile, Befunde oder Zwischenstände. Nichts geändert.
 
 **Nachtrag 26.11.2026, etwa 06:55 UTC:** Auf Anweisung des Orchestrators `behauptungen/B-019.md` angelegt (Übertragung von Lemma I auf die Normalform des Rahmens yang_n4 mit d = 2). Der Wortlaut der Aussage stammt vom Orchestrator. Dazu stehen C2 im Wortlaut des Programms S3-04, Lemma I im Wortlaut von `yang_n3.md` und die Lean-Fassung `lemma_I`. Geplante Runde 1 laut Orchestrator: S4-01 bis S4-03 Prüfer für B-017 bis B-019, S4-04 Verfahren mit 35 für 3×2×7 anlegen und nachrechnen, S4-05 Blind-Sucher. Die Berichte S3-03 und S3-04 kommen auf keine Positivliste.
+
+---
+
+## 26.11.2026 · Literaturwache vor Stufe 4, Runde 1 (außerhalb der Runde)
+
+- Auftrag: Thread „Literatur zu 3×2×7 sichten“, Pflichtpunkte nach Abschnitt 7 und gezielt 3×2×7 (Schranke 35 oder Verfahren mit 34), Nebenfrage nach dem Verfahren mit 35.
+- Ergebnis: `lit/WACHE-2026-11-26.md` und Eintrag in `lit/WACHE.md`, PR #102 (Merge 2335284). **Kein Beweis von 35 und kein Verfahren mit 34 gefunden. Abbruchregel 3 greift nicht.** Pflichtpunkte ohne Neues (mm325_proof unverändert bei 759cf4a, openai/math unverändert, keine neue Fassung von 2609.14393 oder 2609.22054 gefunden). Status: behauptet.
+- Lücken laut Bericht: arxiv.org, export.arxiv.org und fmm.univ-lille.fr per curl gesperrt, GitHub-REST-API für fremde Repos 403. Versionslisten nur über Websuche und alphaXiv.
+- Nebenergebnis (Abschnitt D): Verfahren mit 35 für ⟨2,3,7⟩ unter MIT bei dronperminov/FastMatrixMultiplication (Commit f70078cd, `schemes/results/ZT/2x3x7_m35_ZT.json`). solven-eu/matmulcatalog (Commit 5ed2ee97, nach Hopcroft-Kerr gebaut) ohne Lizenzangabe. FMM-Lille nicht gelesen. Übernahme nur nach Protokoll 11.3.
+- Dauer nach Git: erster Commit 7aaa039 um 06:45:26 UTC, letzter Commit 0eb9e70 um 06:50:46 UTC, Merge um 06:51:14 UTC. Also etwa 6 Minuten.
+- **Widerspruch:** Der Orchestrator nannte als Vergabe „etwa 06:47 UTC“. Der erste Commit der Wache liegt um 06:45:26 UTC, also vorher. Die Vergabe muss spätestens um 06:45 UTC gewesen sein.
+- Verbrauch: 1 Subagent (der Thread selbst, keine eigenen Subagenten), 0 Fremdmodell-Anfragen. Gemeldetes Modell: claude-opus-5-5.
+
+## 26.11.2026 · Stufe 4, Runde 1 von 6 vergeben (etwa 06:52 UTC)
+
+Nur Prüfung der Grundlage (Protokoll 0.6, Abschnitt 3). 5 Subagenten, keine Fremdmodell-Anfrage, keine eigenen Subagenten der Threads.
+
+| Nr. | Auftrag | Zieldatei |
+|---|---|---|
+| S4-01 | Prüfer B-017 (Restfall-Rechnung). Laut Auftrag jede Bedingung des Programms, auch C1 (rk H = ρ + s) im Block für n = 3. Deshalb keine eigene Behauptung für C1 | `lean/prosa/s4_327_bericht_s4-01.md` |
+| S4-02 | Prüfer B-018 (Lemma 15(b) bei d = 2) | `lean/prosa/s4_327_bericht_s4-02.md` |
+| S4-03 | Prüfer B-019 (Übertragung von Lemma I) | `lean/prosa/s4_327_bericht_s4-03.md` |
+| S4-04 | Verfahren mit 35 für 3×2×7 als Datei anlegen, mit beiden Prüfprogrammen nachrechnen (5.2) | Datei unter `verfahren/`, Bericht `verfahren/3x2x7-r35-nachrechnung.md` |
+| S4-05 | Blind-Sucher | `versuche/s4-blind-r1.md` |
+
+- Positivlisten wie von der Schreibhand genannt. Die Berichte S3-03 und S3-04 stehen auf keiner Liste.
+- Gedächtnis vor der Vergabe durchgesehen (siehe Eintrag „Start von Stufe 4“): nichts gefunden, was nicht hingehört.
+- Prüfvermerke `pruefvermerke/B-017.md` bis `B-019.md` mit Status behauptet angelegt, im Auftrag des Orchestrators.
+
+## 26.11.2026 · Stufe 4, Runde 1: Zwischenstand (4 von 5 Aufträgen geliefert, S4-05 läuft)
+
+**Lieferungen (auf main nachgesehen)**
+
+| Nr. | PR | Merge | Zieldatei | erster Commit | Merge-Zeit | Dauer ab Vergabe (etwa 06:52 UTC) |
+|---|---|---|---|---|---|---|
+| S4-03 | #103 | c2b1de9 | `lean/prosa/s4_327_bericht_s4-03.md` | 06:53:40 | 06:56:21 | etwa 4 Minuten |
+| S4-04 | #104 | 0e3327f | `verfahren/3x2x7-r35-hk71.json`, `verfahren/3x2x7-r35-nachrechnung.md` | 06:53:32 | 06:56:42 | etwa 5 Minuten |
+| S4-02 | #105 | ed289e7 | `lean/prosa/s4_327_bericht_s4-02.md` | 06:55:57 | 06:56:55 | etwa 5 Minuten |
+| S4-01 | #106 | 9541f51 | `lean/prosa/s4_327_bericht_s4-01.md` | 06:55:26 | 06:57:23 | etwa 5 Minuten |
+
+Alle UTC, aus Git. Alle vier melden 0 eigene Subagenten und 0 Fremdmodell-Anfragen.
+
+**Urteile der Prüfer (aus den Berichten, gegengelesen)**
+
+- S4-01 zu B-017: T1 bis T6 hält. T4: C1 (rk H = ρ + s) steht in keiner Quelle wörtlich, der Prüfer hat sie hergeleitet, die Liste hängt nach seiner Nachrechnung nicht davon ab. T5 mit Ergänzung: die normalisierte Länge kann sinken, für Längen bis 33 bleibt kein Fall. T7 (Abgleich mit S3-03 und S3-04) nicht entscheidbar, nicht auf der Positivliste. Eingeblendet: Index und zwei Einzeleinträge (`lean-upper-3x2x6`, `hk-verfahren-a10`).
+- S4-02 zu B-018: Prosa hält, Lean-Satz hält, Bau hält. Axiom-Bericht für `lemma15b` einzeln fehlt: nicht entscheidbar. Zahlenform hält mit Reparatur ((N1), (N2), ρ als volles Maximum, Länge r′ ≤ r). Offengelegt: einmal `ls` im Wurzelverzeichnis, Namen `zweitlauf.yml` und `lean/Zweitlauf` in einer Diff-Ausgabe gesehen.
+- S4-03 zu B-019: hält in allen vier Teilen. H stimmt mit der Identifikation c ↦ c_{1,2} sogar ohne Vorzeichen. `lemma_I` nicht einzeln im Axiom-Bericht. Der Prüfer konnte den sorry-Abschnitt des Logs wegen 403 nicht lesen. Die Schreibhand hat diesen Abschnitt im selben Job selbst gelesen: „SORRY: 0“ in beiden Zeilen.
+- S4-04: Verfahren selbst nach Hopcroft-Kerr gebaut, über ℤ, Koeffizienten −2 bis 2. Beide Prüfprogramme ANGENOMMEN, Rückgabewert 0. Gegenprobe mit Vorzeichenfehler von beiden abgelehnt. Keine fremden Daten. SHA-256 der Datei auf main stimmt mit dem Bericht überein (8a2445a6…). Beide Läufe hat der Ersteller selbst gestartet.
+
+**Statusentscheidungen des Orchestrators (strengere Lesart)**
+
+1. B-017, B-018, B-019 bleiben **behauptet**, mit Vermerk „von einem Prüfer bestätigt“ samt den genannten Ergänzungen und Reparaturen. Geprüft nach 5.1 setzt er nicht, weil je nur ein Leser vorliegt, Prosa-Teile dabei sind und der Axiom-Bericht für `lemma15b` und `lemma_I` einzeln fehlt.
+2. Verfahren mit 35 (obere Schranke 35 für 3×2×7): bleibt **behauptet**, bis ein Prüfer, der die Datei nicht gebaut hat, die beiden Läufe wiederholt. Vergabe in Runde 2.
+3. Haltebedingung von Runde 1 (mehr als zwei Restfälle oder nicht behebbarer Fehler in einem der beiden Lemmata): nach den Berichten nicht erfüllt. Weiter mit Runde 2 nach Abschluss von S4-05.
+
+**Gegengelesen (Schreibhand):** Die Urteile finden sich so in den Berichten. Zu Punkt 2: In Stufe 0 hat A-10 die Verfahren für 3×2×5 und 3×2×6 gebaut und beide Prüfprogramme selbst laufen lassen. Ein getrennter Prüfer hat die Läufe nicht wiederholt, der Status wurde trotzdem auf geprüft gesetzt (Eintrag Stufe 0, Runde 3). Bei B-010 (4×2×4 mit 26) hat dagegen ein getrennter Prüfer (S2-11) die Läufe wiederholt. Die strengere Lesart folgt dem Muster von B-010.
+
+**Nachtrag 26.11.2026, etwa 07:00 UTC:** Auf Anweisung des Orchestrators `behauptungen/B-020.md` angelegt (R(⟨3,2,7⟩) ≤ 35 über ℤ, Artefakt `verfahren/3x2x7-r35-hk71.json` mit SHA-256, Herkunft S4-04, ohne Ausgaben der Läufe und ohne Urteil), dazu `pruefvermerke/B-020.md` mit Status behauptet. Die Zeile für die Schranke 35 in der Liste „ohne eigene Behauptungsdatei“ ist durch die Zeile B-020 in der Übersicht ersetzt. Der Orchestrator bleibt beim Muster von B-010 und vergibt die Wiederholung der Läufe in Runde 2.
