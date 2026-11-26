@@ -30,6 +30,8 @@ main theorem gets a `#print axioms` check, the build in GitHub Actions is author
 | `YangBounds/YangN4Lemma13.lean` | Lemma 13 in the repaired form (S1-15) |
 | `YangBounds/YangN4Haupt.lean` | main proof of Theorem 2 with Lemma 13 as a hypothesis (S1-16) |
 | `YangBounds/Upper3x2x6.lean` | explicit algorithm with 30 products for ⟨3,2,6⟩ (S1-12) |
+| `YangBounds/Upper4x2x4.lean` | explicit algorithm with 26 products for ⟨4,2,4⟩ (`verfahren/4x2x4-r26-s001.json`), `rank_four_two_four_le_26` (S5-17) |
+| `YangBounds/Gleich444.lean` | `rank_four_two_four_eq_26`: `tensorRank K 4 2 4 = 26` from the upper bound and `Transponiert444.rank_four_two_four_ge_26` (S5-17) |
 | `YangBounds.lean` | library root |
 | `Axioms.lean` | `#print axioms` for all main statements (not part of the library) |
 
