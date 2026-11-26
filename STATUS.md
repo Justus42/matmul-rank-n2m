@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 3, Runde 1 abgeschlossen, Runde 2 von 2 läuft, Protokoll 0.5)
+Zuletzt geändert: 26.11.2026 (Stufe 3: Fertig-Kriterium erfüllt, Orchestrator hält an; S3-09 läuft zu Ende, Protokoll 0.5)
 
 ## Aktuelle Stufe
 
@@ -10,7 +10,7 @@ Zuletzt geändert: 26.11.2026 (Stufe 3, Runde 1 abgeschlossen, Runde 2 von 2 lä
 - Begonnen 26.11.2026, nachdem die Auflagen 1 bis 8 der Freigabe zu Stufe 2 erledigt waren (PR #92, efc2eee)
 - Runde 1 von 2 abgeschlossen: 6 Subagenten, 0 Fremdmodell-Anfragen, etwa 47 Minuten nach Git (Vergabe etwa 23:15 UTC bis a0f4ae5). Alles behauptet
 - Runde 2 von 2 (letzte) läuft seit etwa 00:03 UTC: S3-07, S3-08 und S3-09 vergeben (3 Subagenten, 0 Fremdmodell-Anfragen). Danach hält der Orchestrator an
-- Fertig-Kriterium noch nicht erfüllt: Einschätzung je Format mit Empfehlung fehlt
+- **Fertig-Kriterium erfüllt** (Lesart des Orchestrators, gegengelesen): Einschätzungen `erkundung/s3-07-einschaetzung-425.md` (4×2×5: „Angriff lohnt nicht“ als Übertragung der Kette) und `erkundung/s3-08-einschaetzung-327.md` (3×2×7: „Angriff lohnt“, eng auf den Restfall (4, 6, 4)). Alles behauptet. **Orchestrator vergibt nichts mehr, hält an und berichtet an Justus.** S3-09 läuft zu Ende
 - Fertig, wenn je Format eine Einschätzung unter `erkundung/` liegt (Restfälle mit beiden Rechnungen, übertragbare und nicht übertragbare Teile, Empfehlung) oder das Budget erschöpft ist. Danach hält der Orchestrator an
 - Kein Kontakt nach außen (Auflage 5)
 
@@ -24,8 +24,8 @@ Zuletzt geändert: 26.11.2026 (Stufe 3, Runde 1 abgeschlossen, Runde 2 von 2 lä
 | S3-04 | Restfall-Rechnung 3×2×7 bei Länge 34, unabhängig von S3-03 | Rechner | `erkundung/s3-04-restfaelle-327.md`, `erkundung/s3-04-restfaelle-327.py` | erledigt in Runde 1, PR #95. Ein Restfall (4, 6, 4), transponiert 201. Behauptet |
 | S3-05 | Übertragbarkeit der Lean-Kette und Abzählargument für beide Formate | Erkunder | `erkundung/s3-05-uebertragung.md` | erledigt in Runde 1, PR #97. Behauptet |
 | S3-06 | Blind-Suche, mit Suche nach einem Verfahren mit 31 für 4×2×5 | Blind-Sucher | `erkundung/s3-06-blind-425.md` | erledigt in Runde 1, PR #98. Kein Verfahren mit 31 oder 32, über GF(2) 13 mit 33 |
-| S3-07 | Einschätzung 4×2×5 mit Empfehlung | Erkunder | `erkundung/s3-07-einschaetzung-425.md` | vergeben in Runde 2 |
-| S3-08 | Einschätzung 3×2×7 mit Empfehlung | Erkunder | `erkundung/s3-08-einschaetzung-327.md` | vergeben in Runde 2 |
+| S3-07 | Einschätzung 4×2×5 mit Empfehlung | Erkunder | `erkundung/s3-07-einschaetzung-425.md` | erledigt in Runde 2, PR #99 (57010c8). Empfehlung „Angriff lohnt nicht“ als Übertragung der Kette. Behauptet |
+| S3-08 | Einschätzung 3×2×7 mit Empfehlung | Erkunder | `erkundung/s3-08-einschaetzung-327.md` | erledigt in Runde 2, PR #100 (2e2d268). Empfehlung „Angriff lohnt“, eng auf (4, 6, 4). Behauptet |
 | S3-09 | Blind-Suche, Verfahren mit 31 für 4×2×5 über Körpern der Charakteristik ≠ 2 | Blind-Sucher | `erkundung/s3-09-blind-425.md` | vergeben in Runde 2 (etwa 00:05 UTC) |
 
 ## Stufe 2: abgeschlossen

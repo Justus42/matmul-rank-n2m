@@ -2051,3 +2051,32 @@ Von Justus angeordneter Abschluss nach Runde 12, keine eigene Runde.
 - Hinweis der Schreibhand: Für S3-07 und S3-08 nannte der Orchestrator um 00:03 UTC als Vergabezeit „etwa 00:10 UTC“. Die Angabe liegt nach der Meldung selbst und muss beim Abschluss der Runde geklärt werden.
 
 - Nachtrag (Orchestrator, 00:05 UTC): Die Angabe „etwa 00:10 UTC“ war ein Fehler des Orchestrators. S3-07 und S3-08 wurden um etwa 00:03 bis 00:04 UTC vergeben. Runde 2 wird ab 00:03 UTC gemessen, sonst nach den ersten Commits der Threads.
+
+### 26.11.2026, Stufe 3, Runde 2: Einschätzungen geliefert, Fertig-Kriterium Stufe 3 (Schreibhand im Auftrag des Orchestrators)
+
+**Lieferungen (auf main nachgesehen; Inhalt laut Threads, alles Status behauptet)**
+
+| Auftrag | PR, Merge | Datei | Commits (UTC) | Dauer nach Git ab 00:03 UTC |
+|---|---|---|---|---|
+| S3-07, Einschätzung 4×2×5 | #99, 57010c8 (00:06:51) | `erkundung/s3-07-einschaetzung-425.md` | bfd43c5 00:04:13, f55ade5 00:06:33 | etwa 4 Minuten |
+| S3-08, Einschätzung 3×2×7 | #100, 2e2d268 (00:07:17) | `erkundung/s3-08-einschaetzung-327.md` | 699cdf8 00:04:47, 45ff117 00:07:02 | etwa 4 Minuten |
+
+- Beide Threads melden 0 eigene Subagenten und 0 Fremdmodell-Anfragen.
+- S3-07 (4×2×5, Länge 31): **Empfehlung „Angriff lohnt nicht“** als Übertragung der Kette zu 4×2×4.
+  - 7 Restfälle, in der transponierten Lage 20. Beide Rechnungen stimmen Fall für Fall überein.
+  - Fünf Fälle liegen im halbsymmetrischen Zweig, ohne Gegenstück zu Satz B, Lemma S und Satz C.
+  - Abzählargument: rechnerisch 16 gegen 13, greift nur im Fall (3, 6, 9).
+  - Offen: S3-01 und S3-02 beurteilen Lemma V anders als S3-05.
+- S3-08 (3×2×7, Länge 34): **Empfehlung „Angriff lohnt“**, eng gefasst auf den einen Restfall (4, 6, 4).
+  - Die Kette ist nicht übertragbar.
+  - Der Fall hängt an Lemma 15(b) bei d = 2 und an Lemma I. Beide sind ungeprüft.
+  - Abzählargument: rechnerisch 17 gegen 13, kommt wegen dim N = 3 nicht zum Zug.
+- Unter `lean/` ist nichts geändert.
+
+**Fertig-Kriterium Stufe 3 (Lesart des Orchestrators, von der Schreibhand gegengelesen)**
+
+- Je Format liegt unter `erkundung/` eine Einschätzung mit den Restfällen aus beiden Rechnungen, den übertragbaren und nicht übertragbaren Teilen und einer Empfehlung. Damit ist das Fertig-Kriterium nach Protokoll 0.5, Abschnitt 3 erfüllt.
+- Gegenlesen: Beide Dateien enthalten alle drei verlangten Teile. Gleiche Lesart.
+- **Der Orchestrator vergibt nichts mehr und hält an** (Protokoll 0.5, Abschnitt 3 und 11.4). Er berichtet an Justus.
+- S3-09 (Blind-Sucher) läuft noch zu Ende. Der Abschluss von Runde 2 folgt mit seiner Meldung.
+- Status: alles behauptet.
