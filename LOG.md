@@ -2538,3 +2538,27 @@ Wortlaut Justus (26.11.2026, 10:09:04 UTC):
 - Offenlegung: Index und fünf Einzeleinträge (`pruefer-abgleich-s1-20`, `pruefer-rust`, `pruefer-python-s1-07`, `hk-verfahren-a10`, `verfahren-randfaelle-s1-04`). Spuren: Verzeichnislisten, Betreffzeilen der letzten Commits auf main (darunter „S4-16: … Positivprobe bei 35 nicht bestanden“), in `s4_327_spurA_r2_bau.md` die Angabe zu B-017 bis B-019 „von je einem Prüfer bestätigt“.
 - Fundstelle (Schreibhand, ohne Wertung): Positivliste `s4_327_spurA_r2_bau.md` Abschnitte 1 bis 3, gelesen hat der Prüfer Abschnitte 0 bis 3 (Begründung im Bericht).
 - Status (Orchestrator): B-027 behauptet, von einem Prüfer bestätigt, Vorbehalt zur Lesart von (INJ-B). Bei B-025 vermerkt: Vollständigkeit der Fallunterscheidung (0 ≤ e ≤ 3, e ≠ 0, e ≠ 1) jetzt von einem Prüfer bestätigt, damit auch der Punkt, den Sol beim Ausschluss von e = 0 offen ließ. Keine Sol-Anfrage: Weder E2-A noch E2-D schließt einen der drei benannten Fälle von B-025 aus, also kein Fortschritt nach 2 b) und kein Fall für 5.5.
+
+**Nachtrag 26.11.2026: Anweisungen von Justus (11:40 UTC, über den Orchestrator)**
+
+Wortlaut Justus (26.11.2026, 11:40:32 UTC):
+
+> Drei Punkte, keiner unterbricht Runde 4.
+>
+> 1. README: Die Statuszeile nennt Stufe 3 als nicht begonnen. Bring sie auf Stand: Stufe 3 abgeschlossen, Stufe 4 läuft, Rang von <3,2,7> offen (34 oder 35). Nur der Stand, keine Aussage aus Stufe 4 als Ergebnis.
+> 2. Nenne einen Sucher in STATUS, LOG und Berichten nur „blind“, wenn ihm nichts aus dem Projektgedächtnis eingeblendet war. Sonst heißt er „unabhängiger Sucher (nicht blind)“. Vermerke das im Logbuch auch für S4-05, S4-11 und S4-17, soweit es zutrifft.
+> 3. Auflage 7 ist freigegeben. Vergib in Runde 5 einen Wartungsauftrag, er zählt als einer der sechs Subagenten. Die Brücke zu `mm325_proof` am Ende von `lean/YangBounds/Basic.lean` und die zugehörigen Zeilen in `lean/Axioms.lean` wandern in eine eigene Datei außerhalb der Kette des Endsatzes, `Basic.lean` importiert das Paket nicht mehr. Danach läuft der Axiom-Bericht für `rank_four_two_four_ge_26` neu, und ein Prüfer wiederholt den Zweitlauf. README und `ergebnisse/rang-444.md` nennen das Paket dann nicht mehr als Voraussetzung des Beweises. Hängt mehr am Paket als diese Brücke, berichte, statt umzubauen.
+
+**Zu 1 (README):** Nach dem Orchestrator geht die ausdrückliche Anweisung der Regel „README bleibt unverändert“ für genau diese Zeile vor. Runde 4 hat schon sechs Subagenten, deshalb hat die Schreibhand die Änderung gemacht. Geändert ist nur die Statuszeile, auf Englisch: „Stage 3, a short exploration of ⟨4,2,5⟩ and ⟨3,2,7⟩, is completed. Stage 4, a narrow attack on ⟨3,2,7⟩, is running; the rank of ⟨3,2,7⟩ is open (34 or 35).“ (vorher: „Stage 3, a short exploration of ⟨4,2,5⟩ and ⟨3,2,7⟩, has not started yet.“). Der Plan-Abschnitt nennt keinen Stand und bleibt unverändert. PR #126, Commit 4843349, Merge aa0b426. Kein Subagent.
+
+**Zu 2 (Benennung):** Ab jetzt heißt ein Sucher in STATUS, LOG und Berichten nur „blind“, wenn ihm nichts aus dem Projektgedächtnis eingeblendet war, sonst „unabhängiger Sucher (nicht blind)“. Nach den Offenlegungen in den Berichten:
+- S4-05 (`versuche/s4-blind-r1.md`, Abschnitt 0): Index zu Sitzungsbeginn und Einzeleinträge nach dem ersten Shell-Befehl eingeblendet. **Unabhängiger Sucher (nicht blind).**
+- S4-11 (`versuche/s4-blind-r2.md`, Abschnitt 0): Index und vier Einzeleinträge eingeblendet. **Unabhängiger Sucher (nicht blind).**
+- S4-17 (`versuche/s4-blind-r3.md`, Abschnitt 0): Index und vier Einzeleinträge eingeblendet. **Unabhängiger Sucher (nicht blind).**
+- S4-23 (Runde 4, läuft): hat gemeldet, dass ihm der Index eingeblendet wurde. **Unabhängiger Sucher (nicht blind).** In STATUS und Auftragstabelle umbenannt.
+- Frühere Einträge im Logbuch mit „Blind-Sucher“ bleiben unverändert stehen, dieser Nachtrag gilt für sie.
+- Hinweis ohne Wertung (Orchestrator): Der Gedächtnisindex wird jedem Thread automatisch eingeblendet. Nach dieser Regel war bisher kein Sucher der Stufe 4 blind. Abschnitt 6 verlangt je Runde einen Blind-Sucher. Ob das mit dieser Plattform erfüllbar ist, legt der Orchestrator Justus vor.
+
+**Zu 3 (Auflage 7):** Vorgabe für Runde 5: ein Wartungsauftrag, zählt als einer der sechs Subagenten, Inhalt wörtlich nach Punkt 3 oben.
+- **Lesart (h) des Orchestrators:** „Danach läuft der Axiom-Bericht neu, und ein Prüfer wiederholt den Zweitlauf“ hängt vom Wartungsauftrag ab. Nach Abschnitt 6 läuft der Prüfer für den Zweitlauf deshalb frühestens in der Runde nach dem Wartungsauftrag, also in Runde 6, ebenso die Änderung von README und `ergebnisse/rang-444.md`, die erst nach dem bestätigten Zweitlauf erfolgt. Der Axiom-Bericht läuft automatisch im Workflow des Wartungs-PRs.
+- Runde 5 braucht außerdem zwei Plätze für die Abgleich-Prüfer zu B-021 D (Lesart g).
