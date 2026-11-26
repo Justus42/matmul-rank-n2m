@@ -2049,3 +2049,5 @@ Von Justus angeordneter Abschluss nach Runde 12, keine eigene Runde.
 - S3-09 (Blind-Sucher, Verfahren mit 31 für 4×2×5 über Körpern der Charakteristik ungleich 2, Ziel `erkundung/s3-09-blind-425.md`) wurde um etwa 00:05 UTC vergeben, nach der Durchsicht des Gedächtnisses.
 - Runde 2 hat damit 3 Subagenten (S3-07, S3-08, S3-09), 0 Fremdmodell-Anfragen.
 - Hinweis der Schreibhand: Für S3-07 und S3-08 nannte der Orchestrator um 00:03 UTC als Vergabezeit „etwa 00:10 UTC“. Die Angabe liegt nach der Meldung selbst und muss beim Abschluss der Runde geklärt werden.
+
+- Nachtrag (Orchestrator, 00:05 UTC): Die Angabe „etwa 00:10 UTC“ war ein Fehler des Orchestrators. S3-07 und S3-08 wurden um etwa 00:03 bis 00:04 UTC vergeben. Runde 2 wird ab 00:03 UTC gemessen, sonst nach den ersten Commits der Threads.

@@ -9,7 +9,7 @@ Zuletzt geändert: 26.11.2026 (Stufe 3, Runde 1 abgeschlossen, Runde 2 von 2 lä
 - Budget: 2 Runden mit je bis zu 6 Subagenten, keine Fremdmodell-Anfrage, keine eigenen Subagenten der Threads. Kein Beweisangriff. Nichts erhält den Status geprüft außer einem nach 5.2 bestätigten Verfahren
 - Begonnen 26.11.2026, nachdem die Auflagen 1 bis 8 der Freigabe zu Stufe 2 erledigt waren (PR #92, efc2eee)
 - Runde 1 von 2 abgeschlossen: 6 Subagenten, 0 Fremdmodell-Anfragen, etwa 47 Minuten nach Git (Vergabe etwa 23:15 UTC bis a0f4ae5). Alles behauptet
-- Runde 2 von 2 (letzte) läuft seit etwa 00:10 UTC: S3-07, S3-08 und S3-09 vergeben (3 Subagenten, 0 Fremdmodell-Anfragen). Danach hält der Orchestrator an
+- Runde 2 von 2 (letzte) läuft seit etwa 00:03 UTC: S3-07, S3-08 und S3-09 vergeben (3 Subagenten, 0 Fremdmodell-Anfragen). Danach hält der Orchestrator an
 - Fertig-Kriterium noch nicht erfüllt: Einschätzung je Format mit Empfehlung fehlt
 - Fertig, wenn je Format eine Einschätzung unter `erkundung/` liegt (Restfälle mit beiden Rechnungen, übertragbare und nicht übertragbare Teile, Empfehlung) oder das Budget erschöpft ist. Danach hält der Orchestrator an
 - Kein Kontakt nach außen (Auflage 5)
