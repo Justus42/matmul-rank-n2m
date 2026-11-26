@@ -2598,3 +2598,11 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 - Nacharbeit desselben Subagenten, kein siebter Platz.
 - Maßgeblich für 5.1 Punkte 1, 2 und 4 wird dann die neue Job-Nummer (Meldung folgt). Job 139886382749 bleibt als Nachweis für Commit fb7f197 stehen.
 - Positivliste der beiden Abgleich-Prüfer in Runde 5: `CLAUDE.md`, `PROTOKOLL.md` nur Abschnitt 5, `behauptungen/B-021.md`, `lean/YangBounds/S4BedingterAusschluss.lean` ganz, `lean/YangBounds/Basic.lean` nur `BilinearAlgorithm` und `unitMatrix`, `lean/prosa/s4_327_spurA_r2_bau.md` nur Abschnitte 1 und 3.1 (ohne Abschnitt 0), dazu Lauf und Job der neuen Fassung.
+
+**Nachtrag 26.11.2026, Runde 4: S4-23 geliefert (unabhängiger Sucher, nicht blind)**
+
+- PR #129 (Merge ae1f427 um 12:11:34 UTC), Zieldatei `versuche/s4-blind-r4.md`. Commits 9223afb (11:25:51), 1313b61 (11:50:44), dbf4ed6 (12:11:13), UTC. Dauer nach Git etwa 47 Minuten (Vergabe etwa 11:24 UTC bis Merge).
+- Ergebnis laut Bericht: Rang nicht bestimmt, 34 oder 35. Behauptet: S4-23-A (Gleichheitsfall von Yangs Ungleichung, starre Struktur) und S4-23-B (Stützpunkte nicht durch Kegelschnitte trennbar). Die Namen „Satz A“ und „Satz B“ im Bericht werden mit Auftragsnummer geführt. Vermutet: R = 35.
+- Rechenblöcke gegen Lesart (e) und Git: Block 1 11:28:54 bis 11:50:33 UTC (etwa 22 Minuten, 4 Kerne, Flip-Graph über GF(2): drei von vier Läufen erreichen 35, keiner 34), Commit 1313b61 um 11:50:44; Block 2 11:50:51 bis 12:10:58 UTC (etwa 20 Minuten, 4 Kerne, Levenberg-Marquardt über ℝ, ergebnislos), Commit dbf4ed6 um 12:11:13. Je unter 30 Minuten, Commit dazwischen. Kein Verstoß.
+- 0 Subagenten, 0 Fremdmodell-Anfragen. Offenlegung: Index und vier Einzeleinträge (`hk-verfahren-a10`, `verfahren-randfaelle-s1-04`, `git-regeln`, `lean-upper-3x2x6`), nach eigener Angabe nicht benutzt. Ein Websuchtreffer zitierte die README dieses Repos („⟨3,2,7⟩ … 34 | 35 | open“), die Seite wurde nach eigener Angabe nicht geöffnet.
+- Orchestrator: Alles behauptet oder vermutet. Es fehlen noch S4-22 und die Nacharbeit von S4-18.
