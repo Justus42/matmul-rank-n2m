@@ -233,9 +233,11 @@ theorem mem_rep20_of (hinj : INJ5 a₁ a₂ w u) {c : T → K}
     simp only [map_mul, ev_X0]; ring
   obtain ⟨hC2, hE2⟩ := reduce_step hinj hC1 hE1 h2'
   have hC3 : C.totalDegree ≤ 2 :=
-    totalDegree_le_of_X_mul (totalDegree_le_of_X_mul (d := 3) (by rw [← mul_assoc]; exact hC2))
+    totalDegree_le_of_X_mul (i := 0) (d := 2)
+      (totalDegree_le_of_X_mul (i := 0) (p := X 0 * C) (d := 3) hC2)
   have hE3 : E.totalDegree ≤ 0 :=
-    totalDegree_le_of_X_mul (totalDegree_le_of_X_mul (d := 1) (by rw [← mul_assoc]; exact hE2))
+    totalDegree_le_of_X_mul (i := 0) (d := 0)
+      (totalDegree_le_of_X_mul (i := 0) (p := X 0 * E) (d := 1) hE2)
   exact mem_rep.mpr ⟨C, E, hC3, hE3, hCE⟩
 
 end Poly
@@ -288,15 +290,18 @@ theorem unitMatrix_mul_unitMatrix (i : Fin 3) (j j' : Fin 2) (k : Fin m) :
 
 /-- Brent equation (A): `W(a_i·q_k) = 0`. -/
 theorem W_aq (i : Fin 3) (k : Fin m) : Wmap alg (aVec alg i * qVec alg k) = 0 := by
-  rw [aVec, qVec, brent, unitMatrix_mul_unitMatrix]; simp
+  show Wmap alg ((fun t => alg.alpha t (unitMatrix i 0)) * (fun t => alg.beta t (unitMatrix 1 k))) = 0
+  rw [brent, unitMatrix_mul_unitMatrix]; simp
 
 /-- `W(a_i·p_k) = e_{ik}`. -/
 theorem W_ap (i : Fin 3) (k : Fin m) : Wmap alg (aVec alg i * pVec alg k) = unitMatrix i k := by
-  rw [aVec, pVec, brent, unitMatrix_mul_unitMatrix]; simp
+  show Wmap alg ((fun t => alg.alpha t (unitMatrix i 0)) * (fun t => alg.beta t (unitMatrix 0 k))) = _
+  rw [brent, unitMatrix_mul_unitMatrix]; simp
 
 /-- `W(b_i·q_k) = e_{ik}`. -/
 theorem W_bq (i : Fin 3) (k : Fin m) : Wmap alg (bVec alg i * qVec alg k) = unitMatrix i k := by
-  rw [bVec, qVec, brent, unitMatrix_mul_unitMatrix]; simp
+  show Wmap alg ((fun t => alg.alpha t (unitMatrix i 1)) * (fun t => alg.beta t (unitMatrix 1 k))) = _
+  rw [brent, unitMatrix_mul_unitMatrix]; simp
 
 theorem mem_Jspace {j : Fin r → K} :
     j ∈ Jspace alg ↔ ∃ y : Fin m → K, ∑ k, y k • qVec alg k = j :=
@@ -423,7 +428,7 @@ theorem rep20_le (hJ : Jspace alg = mulP (aVec alg 1) (aVec alg 2) w 2 ⊔ K ∙
   rw [hG0, Submodule.mem_span_singleton]
   refine ⟨coeff 0 G, ?_⟩
   ext t
-  simp [ev]
+  simp [ev, mul_comm]
 
 /-- `J ⊆ w·P_2 + u·P_0` when `J = w·P_2 + K·u`. -/
 theorem le_rep20 (hJ : Jspace alg = mulP (aVec alg 1) (aVec alg 2) w 2 ⊔ K ∙ u) :
@@ -450,9 +455,9 @@ theorem s4_07_D_allg
   have hc1 := c_mul_w_mem_rep20 hnorm hKr hwJ hINJ5 1 (Or.inl rfl)
   have hc2 := c_mul_w_mem_rep20 hnorm hKr hwJ hINJ5 2 (Or.inr rfl)
   -- the element (0, w·a_2, −w·a_1) of J³_0 and its Θ-value
-  have hj1 : w * a₂ ∈ Jspace alg := hwJ (mem_mulP.mpr ⟨X 1, by rw [totalDegree_X], by simp⟩)
+  have hj1 : w * a₂ ∈ Jspace alg := hwJ (mem_mulP.mpr ⟨X 1, by rw [totalDegree_X]; norm_num, by simp⟩)
   have hj2 : -(w * a₁) ∈ Jspace alg :=
-    Submodule.neg_mem _ (hwJ (mem_mulP.mpr ⟨X 0, by rw [totalDegree_X], by simp⟩))
+    Submodule.neg_mem _ (hwJ (mem_mulP.mpr ⟨X 0, by rw [totalDegree_X]; norm_num, by simp⟩))
   have hΘ : bVec alg 1 * (w * a₂) + bVec alg 2 * -(w * a₁) =
       a₂ * (cVec alg 1 * w) - a₁ * (cVec alg 2 * w) := by
     simp only [cVec, a₁, a₂]; ring
@@ -484,7 +489,7 @@ theorem s4_07_D (alg : BilinearAlgorithm K 3 2 7 34)
 theorem s4_07_D_keinVerfahren :
     ¬ ∃ (alg : BilinearAlgorithm K 3 2 7 34) (w u : Fin 34 → K),
       (∀ t, alg.alpha t (unitMatrix 0 0) = 1) ∧
-      Jspace alg = mulP (aVec alg 1) (aVec alg 2) w 2 ⊔ K ∙ u ∧
+      Jspace alg = mulP (aVec alg 1) (aVec alg 2) w 2 ⊔ (K ∙ u) ∧
       Kprime alg ≤ Jspace alg ⊔ (Jspace alg).map (LinearMap.mulLeft K (aVec alg 1)) ⊔
         (Jspace alg).map (LinearMap.mulLeft K (aVec alg 2)) ∧
       INJ5 (aVec alg 1) (aVec alg 2) w u := by
