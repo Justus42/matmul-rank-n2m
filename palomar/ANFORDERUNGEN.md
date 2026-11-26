@@ -2,8 +2,11 @@
 
 Auftrag S5-02 (Stufe 5, Runde 1, Spur P). Gelesen am 26.11.2026 ab 14:52 UTC (Klone der Repos).
 
-Gegenstand der späteren Einreichung: das Lean-Projekt in `lean/`, Endsatz
-`YangBounds.Transponiert444.rank_four_two_four_ge_26` (`26 ≤ tensorRank K 4 2 4` für jeden Körper `K`).
+Gegenstand der späteren Einreichung: das Lean-Projekt in `lean/`, Satz der Challenge
+`MatMulRank.rank_four_two_four_eq_26` (`tensorRank K 4 2 4 = 26` für jeden Körper `K`), bewiesen in
+`lean/MatMulRank/Solution.lean` über `YangBounds.Gleich444.rank_four_two_four_eq_26`. Bis S5-17 hieß
+der Endsatz `YangBounds.Transponiert444.rank_four_two_four_ge_26` (`26 ≤ tensorRank K 4 2 4`); diese
+Zeile nachgeführt in S5-22.
 
 Diese Datei beschreibt nur, was Palomar verlangt. Sie füllt keine Felder aus und entscheidet nichts.
 Die Felder für Autoren und verantwortliche Betreuer füllt nur der Repository-Eigentümer.
