@@ -1,6 +1,6 @@
 # Protokoll: Exakter Rang kleiner Matrixmultiplikations-Formate
 
-Stand: 25.11.2026 · Version 0.5 · Diese Datei ist das Gedächtnis des Projekts. Jeder Chat und jeder Subagent liest sie zuerst.
+Stand: 26.11.2026 · Version 0.6 · Diese Datei ist das Gedächtnis des Projekts. Jeder Chat und jeder Subagent liest sie zuerst.
 
 ---
 
@@ -29,7 +29,7 @@ Stimmen beide überein, ist das Format gelöst. Unsere Ziele sind Formate, bei d
 |---|---|---|---|
 | 3×2×5 | 25 | 25 | gelöst, Lean-Beweis (Tsyganov u. a.) |
 | 3×2×6 | 30 | 30 | gelöst laut Yang v3, **nicht formalisiert gefunden** |
-| 3×2×7 | 34 | 35 | selbst aus den Formeln berechnet |
+| 3×2×7 | 34 | 35 | untere Schranke: folgt aus B-002 (Lean, geprüft). Obere: Hopcroft-Kerr-Formel, das Verfahren ist hier noch nicht nachgerechnet |
 | 4×2×4 | 26 | 26 | untere Schranke: Lean-Satz in diesem Repo (B-016), obere: Hopcroft-Kerr, hier nachgeprüft (B-010). Bis Version 0.4.1: 25 nach Yang v3 |
 | 4×2×5 | 31 | 32 | Yang v3; Quelle des 32er-Verfahrens in Stufe 0 nachtragen (Hopcroft-Kerr-Formel ergäbe 33) |
 
@@ -53,7 +53,7 @@ Alle Zahlen dieser Tabelle gelten als **ungeprüft übernommen**, bis Stufe 0 si
 
 Jede Stufe hat ein Fertig-Kriterium, das eine Maschine entscheidet. Eine Stufe gilt erst als erreicht, wenn die Prüfung nach Abschnitt 5 bestanden ist.
 
-**Stufenwechsel:** Der Orchestrator wechselt von Stufe 0 zu 1 und von Stufe 1 zu 2 selbst, sobald das Fertig-Kriterium erfüllt und im Logbuch belegt ist. Stufe 3 hat seit Version 0.5 ein Budget. Sie beginnt, sobald die Auflagen aus Justus' Freigabe zu Stufe 2 erledigt sind. Nach Stufe 3 hält der Orchestrator an; eine weitere Stufe gibt es erst nach neuer Entscheidung von Justus.
+**Stufenwechsel:** Der Orchestrator wechselt von Stufe 0 zu 1 und von Stufe 1 zu 2 selbst, sobald das Fertig-Kriterium erfüllt und im Logbuch belegt ist. Stufe 3 hat seit Version 0.5 ein Budget. Sie beginnt, sobald die Auflagen aus Justus' Freigabe zu Stufe 2 erledigt sind. Nach Stufe 3 hält der Orchestrator an. Stufe 4 hat Justus mit Version 0.6 beschlossen. Sie beginnt mit seiner Startnachricht. Nach Stufe 4 hält der Orchestrator an; eine weitere Stufe gibt es erst nach neuer Entscheidung von Justus.
 
 ### Stufe 0: Nachbau und Bestandsaufnahme
 
@@ -100,6 +100,31 @@ Dazu für 4×2×5 die Gegenrichtung: Suche nach einem Verfahren mit 31, geprüft
 Nichts aus Stufe 3 erhält den Status geprüft, außer einem nach 5.2 bestätigten Verfahren. Alles andere bleibt vermutet oder behauptet.
 
 **Fertig, wenn:** je Format eine Einschätzung unter `erkundung/` liegt: Zahl und Liste der Restfälle mit beiden Rechnungen, übertragbare und nicht übertragbare Teile, Empfehlung „Angriff lohnt" oder „lohnt nicht" mit Begründung. Oder wenn das Budget erschöpft ist.
+
+### Stufe 4: 3×2×7 (34 oder 35?), enger Angriff auf den einen Restfall
+
+Grundlage ist die Einschätzung `erkundung/s3-08-einschaetzung-327.md`. Danach bleibt bei Länge 34 genau ein Restfall. Die Kette zu 4×2×4 überträgt sich nicht. Gebraucht wird ein neues Argument oder ein Verfahren. Die Erfolgschance ist gering. Ein sauber begründetes Scheitern ist ein zulässiges Ergebnis dieser Stufe.
+
+**Runde 1 ist nur Prüfung der Grundlage.** Es laufen ausschließlich:
+
+- Prüfer für die Restfall-Rechnung, für Lemma 15(b) bei d = 2 und für die Übertragung von Lemma I auf die Normalform
+- die Nachrechnung des bekannten Verfahrens mit 35 für 3×2×7 nach 5.2. Ohne geprüfte obere Schranke lässt sich der Rang am Ende nicht benennen
+- der Blind-Sucher
+
+Ergibt die Prüfung mehr als zwei Restfälle oder einen Fehler in einem der beiden Lemmata, der sich in Runde 1 nicht beheben lässt, hält der Orchestrator an und berichtet.
+
+**Ab Runde 2 zwei Spuren,** parallel und gleichberechtigt wie in Stufe 2:
+
+- **Spur A (Ausschluss):** Prosa-Beweis, dass der Restfall unmöglich ist. Lean erst, wenn ein Prüfer und das Fremdmodell den Prosa-Beweis bestätigt haben
+- **Spur B (Verfahren):** Suche nach einem Verfahren mit 34. Die im Restfall erzwungenen Kenngrößen dienen als Vorgabe. Zu jedem Fund gehört die Angabe, über welchen Körpern er gilt
+
+Ein Auftrag der Spur A darf den Restfall in beide Richtungen angreifen.
+
+**Fertig, wenn:** entweder ein Lean-Satz für die untere Schranke 35 über jedem Körper vorliegt, geprüft nach 5.1 samt Abgleich des Endsatzes, oder ein nach 5.2 bestätigtes Verfahren mit 34. Oder wenn das Budget erschöpft ist oder eine Abbruchregel beide Spuren beendet.
+
+**Auslegungsfragen in Stufe 4:** Justus ist während dieser Stufe nicht ständig erreichbar. Löst eine Auslegungsfrage keine Abbruchregel aus, nimmt der Orchestrator die strengere Lesart, vermerkt sie im Logbuch und arbeitet weiter. Würde die strengere Lesart eine Spur oder die Stufe beenden, hält er an und fragt.
+
+Nichts aus Stufe 4 wird ohne Freigabe von Justus öffentlich als Ergebnis bezeichnet. README und `ergebnisse/` bleiben unverändert.
 
 ---
 
@@ -199,6 +224,7 @@ Subagenten vergeben keine eigenen Subagenten. Braucht ein Auftrag Hilfe, meldet 
 | 1 | 8 |
 | 2 | 24 (beide Spuren zusammen; bis Version 0.3: 12) |
 | 3 | 2, je bis zu 6 Subagenten, keine Fremdmodell-Anfrage |
+| 4 | 6, je bis zu 6 Subagenten, Fremdmodell nur nach 5.5 |
 
 Die Zahlen sind Startwerte. Nur Justus ändert sie.
 
@@ -317,11 +343,11 @@ Auch der Orchestrator darf nicht:
 - PROTOKOLL.md oder CLAUDE.md ändern
 - selbst beweisen oder prüfen (Abschnitte 4 und 5)
 - etwas veröffentlichen oder nach außen Kontakt aufnehmen (Abschnitt 9)
-- über Stufe 3 hinaus weiterarbeiten oder in Stufe 3 einen vollen Beweisangriff beginnen
+- über Stufe 4 hinaus weiterarbeiten oder in Stufe 4 ein anderes Format als 3×2×7 angreifen
 
 Er hält an und berichtet an Justus, wenn:
 
 - eine Abbruchregel greift
-- das Fertig-Kriterium von Stufe 2 oder von Stufe 3 erfüllt ist
+- das Fertig-Kriterium von Stufe 2, 3 oder 4 erfüllt ist
 - die Plattform eine nötige Aktion verweigert und es keinen Ausweg nach diesem Protokoll gibt
 - eine Regel dieses Protokolls geändert werden müsste, um weiterzukommen

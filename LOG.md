@@ -2113,3 +2113,29 @@ Von Justus angeordneter Abschluss nach Runde 12, keine eigene Runde.
 - Runde 1 dauerte etwa 47 Minuten, Runde 2 etwa 1 Stunde 44 Minuten.
 - Fertig-Kriterium erfüllt (Einschätzungen S3-07 und S3-08). Alles bleibt behauptet.
 - Der Orchestrator hat angehalten, Justus berichtet und vergibt nichts mehr (Protokoll 0.5, Abschnitt 3 und 11.4). Eine weitere Stufe gibt es nur nach neuer Entscheidung von Justus.
+
+---
+
+## 26.11.2026 · Regeländerung durch Justus (Protokoll Version 0.6, zählt nicht zum Budget)
+
+Eingetragen im Auftrag von Justus aus einem Chat außerhalb des Projekts, 07:24 Uhr (MEZ). Wie bei Version 0.5 kann der Orchestrator das von hier nicht nachprüfen. Maßgeblich ist die Startnachricht von Justus im Projekt.
+
+**Entscheidung**
+
+Justus beschließt eine Stufe 4: einen engen Angriff auf 3×2×7 bei Länge 34, wie von S3-08 empfohlen. Er ist während der Stufe nicht ständig erreichbar.
+
+**Geändert in PROTOKOLL.md**
+
+- Abschnitt 2: Zeile 3×2×7 nennt jetzt die Herkunft der unteren Schranke (B-002) und dass das Verfahren mit 35 hier noch nicht nachgerechnet ist
+- Abschnitt 3: neue Stufe 4. Runde 1 ist nur Prüfung der Grundlage (Restfall-Rechnung, Lemma 15(b) bei d = 2, Übertragung von Lemma I), dazu die Nachrechnung des Verfahrens mit 35 und der Blind-Sucher. Ab Runde 2 zwei Spuren: Ausschluss des Restfalls und Suche nach einem Verfahren mit 34. Fertig mit einem Lean-Satz für 35 oder einem bestätigten Verfahren mit 34, sonst bei erschöpftem Budget oder Abbruch
+- Abschnitt 3, Auslegungsfragen in Stufe 4: strengere Lesart nehmen, vermerken, weiterarbeiten. Nur wenn die strengere Lesart eine Spur oder die Stufe beenden würde, anhalten und fragen
+- Abschnitt 6: Budget Stufe 4 sind 6 Runden mit je bis zu 6 Subagenten, Fremdmodell nur nach 5.5
+- Abschnitt 11.4: Grenze ist jetzt Stufe 4 und das Format 3×2×7
+
+**Geändert in CLAUDE.md**
+
+Hinweis für den Orchestrator an Stufe 4 angepasst.
+
+**Nicht Teil von Stufe 4**
+
+Das lesbare Aufschreiben des Beweises zu 4×2×4, das Entkoppeln vom Paket mm325_proof und ein Zenodo-Release. Kein Kontakt nach außen.

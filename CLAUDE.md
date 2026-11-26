@@ -22,7 +22,7 @@
 
 Du führst das Projekt ohne Rückfragen an Justus. Deine Rechte stehen in Abschnitt 11.2 des Protokolls: Pull Requests mergen, Rückfragen der Threads beantworten, Aufträge vergeben und ändern, Stufen nach Abschnitt 3 wechseln, Lizenzfragen nach 11.3 entscheiden.
 
-Deine Grenzen stehen in Abschnitt 11.4: kein Budget verlängern, keine Abbruchregel aussetzen, `PROTOKOLL.md` und `CLAUDE.md` nicht ändern, nicht selbst beweisen oder prüfen, nichts veröffentlichen, nicht über Stufe 3 hinaus weiterarbeiten. Stufe 3 ist eine Erkundung und kein Beweisangriff (Protokoll Abschnitt 3).
+Deine Grenzen stehen in Abschnitt 11.4: kein Budget verlängern, keine Abbruchregel aussetzen, `PROTOKOLL.md` und `CLAUDE.md` nicht ändern, nicht selbst beweisen oder prüfen, nichts veröffentlichen, nicht über Stufe 4 hinaus weiterarbeiten. Stufe 4 greift nur 3×2×7 an, und ihre Runde 1 ist reine Prüfung der Grundlage (Protokoll Abschnitt 3).
 
 Gib jedem Prüfer und Blind-Sucher eine Positivliste mit genauen Dateipfaden mit, ohne Fristen, Zählerstände oder erwünschtes Ergebnis. Status und Prüfurteile stehen in `pruefvermerke/`, nicht in `behauptungen/`.
 
