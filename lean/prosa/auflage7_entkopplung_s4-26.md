@@ -64,14 +64,39 @@ Die Stelle, `lean/YangBounds/SatzB444.lean` Zeile 414:
 
 Bisher hat `simp` das mit einem `@[simp]`-Lemma des Pakets geschlossen, sehr wahrscheinlich `MatrixMultiplicationLowerBound.Decomposition.finrank_output : finrank K (Output K mcols) = 3 * mcols` (Paketdatei Zeile 1086). `Output K mcols` ist dort ein `abbrev` für `Fin 3 → Fin mcols → K`, das Lemma greift also auf genau diesen Ausdruck. Ohne das Paket findet die Mathlib-`simp`-Menge keinen Schritt. Die Mathlib-Umgebung ist dieselbe wie vorher (siehe oben), es fehlt nur das Lemma des Pakets.
 
-`SatzB444` liegt in der Kette des Endsatzes (`Transponiert444 → … → SatzB444Final → SatzB444`). Der Endsatz hing also nicht nur über den Import in `Basic.lean`, sondern über einen Beweisschritt am Paket. Die Stelle zu ändern hieße, einen Beweis zu ändern. Nach der Vorgabe des repository owner („Hängt mehr am Paket als diese Brücke, berichte, statt umzubauen“) ist das hier nicht gemacht. Der PR wird nicht gemergt.
+`SatzB444` liegt in der Kette des Endsatzes (`Transponiert444 → … → SatzB444Final → SatzB444`). Der Endsatz hing also nicht nur über den Import in `Basic.lean`, sondern über einen Beweisschritt am Paket. Die Stelle zu ändern hieß, einen Beweis zu ändern. Nach der Vorgabe des repository owner („Hängt mehr am Paket als diese Brücke, berichte, statt umzubauen“) wurde zunächst berichtet und nicht gemergt. Am 26.11.2026, 13:16 UTC hat der repository owner erlaubt, Beweisschritte zu ändern, die ohne das Paket nicht mehr bauen, unter vier Bedingungen: nur Beweiskörper, Ersatz nur durch Mathlib; Bau wiederholen bis grün und jede Stelle mit Datei, Zeile, altem und neuem Wortlaut auflisten; bei mehr als einem lokalen Ersatz je Stelle oder mehr als zehn Stellen berichten statt weiterbauen; Abschluss von Auflage 7 außerhalb der Plätze von Runde 6. Ergebnis im nächsten Abschnitt.
 
-Weil `SatzB444` nicht baut, hat Lake die davon abhängigen Module (`SatzB444Final`, `SatzC444Kern`, `SatzC444Generisch`, `SatzE444`, `SatzE444Buendel`, `LemmaP444`, `Endsatz444`, `Bruecke444`, `SatzF444`, `LemmaK444`, `LemmaZ444`, `Transponiert444`) nicht übersetzt. Ob dort weitere Schritte stillschweigend Lemmata des Pakets benutzen, zeigt dieser Lauf nicht. Eine Textsuche nach `finrank K (Fin … → …)` in `lean/YangBounds/` findet nur noch `SatzE444.lean` Zeile 156, und dort ist der Beweis mit `Module.finrank_pi_fintype` und `Module.finrank_fin_fun` ausgeschrieben, ohne Paket. Das ist kein Nachweis.
+Im ersten Lauf hatte Lake, weil `SatzB444` nicht baute, die davon abhängigen Module (`SatzB444Final`, `SatzC444Kern`, `SatzC444Generisch`, `SatzE444`, `SatzE444Buendel`, `LemmaP444`, `Endsatz444`, `Bruecke444`, `SatzF444`, `LemmaK444`, `LemmaZ444`, `Transponiert444`) nicht übersetzt. Ob dort weitere Schritte stillschweigend Lemmata des Pakets benutzen, zeigte erst der Lauf nach der Änderung (unten): keine. Eine Textsuche nach `finrank K (Fin … → …)` in `lean/YangBounds/` findet nur noch `SatzE444.lean` Zeile 156, und dort ist der Beweis mit `Module.finrank_pi_fintype` und `Module.finrank_fin_fun` ausgeschrieben, ohne Paket. Das ist kein Nachweis.
 
-Gebaut haben in diesem Lauf unter anderem `YangBounds.Basic` (ohne Paket), `YangBounds.BrueckeMM325`, `YangBounds.S4BedingterAusschluss`, `YangBounds.Statements`, `YangBounds.YangN4Haupt`, `YangBounds.SatzA444`.
+Gebaut hatten im ersten Lauf unter anderem `YangBounds.Basic` (ohne Paket), `YangBounds.BrueckeMM325`, `YangBounds.S4BedingterAusschluss`, `YangBounds.Statements`, `YangBounds.YangN4Haupt`, `YangBounds.SatzA444`.
+
+## Geänderte Beweisstellen
+
+Genau eine Stelle. Keine Satzaussage und keine Definition geändert, nur der Beweiskörper eines `have` innerhalb eines Beweises; der Ersatz benutzt nur Mathlib (`Module.finrank_pi_fintype`, dasselbe Lemma wie schon in `SatzE444.lean` Zeile 157).
+
+| Datei | Zeile | alter Wortlaut | neuer Wortlaut |
+|---|---|---|---|
+| `lean/YangBounds/SatzB444.lean` | 414 | `  have h12 : finrank K (Fin 3 → Fin 4 → K) = 12 := by simp` | `  have h12 : finrank K (Fin 3 → Fin 4 → K) = 12 := by rw [Module.finrank_pi_fintype]; simp` |
+
+Mit dieser einen Änderung baut die ganze Bibliothek ohne das Paket in der Kette (Lauf unten). Weitere Stellen gab es nicht.
 
 ## Lauf
 
-Maßgeblich ist der Lauf von `.github/workflows/lean-project.yml` (Job „Build lean/ and report axioms“). Der PR-Lauf ist rot (oben). Ein Lauf auf `main` entfällt, weil nichts gemergt wird.
+Maßgeblich ist der Lauf von `.github/workflows/lean-project.yml` (Job „Build lean/ and report axioms“).
 
-Verbrauch: keine Subagenten, keine Fremdmodell-Anfragen, kein lokaler Lean-Bau (nur Lesen der Quelltexte und ein Klon von `fallnlove/mm325_proof` außerhalb des Repos zum Lesen der Importliste und der `simp`-Lemmata), ein Actions-Lauf.
+- Rot, ohne die Beweisänderung: Lauf 45820627478 / Job 139911775768 (Commit `b546caf`) und Lauf 45821296681 / Job 139913920194 (Commit `67538f5`, nur Bericht geändert), beide mit `SatzB444.lean:414:54: simp made no progress`.
+- Grün, mit der Beweisänderung: Lauf 45827654513 / Job 139935849007 (PR-Kopf `72a4208`, geprüfter Merge-Stand `04fd39a`). Wörtlich aus dem Log:
+
+```
+✔ [1748/1765] Built YangBounds.BrueckeMM325
+ℹ [1764/1765] Built YangBounds.Transponiert444
+SORRY: 0 declaration(s) with 'declaration uses sorry' in the build log
+SORRY: 0 'sorry' token(s) in the sources outside comments
+'YangBounds.Transponiert444.rank_four_two_four_ge_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+AXIOM-RESULT|YangBounds.Transponiert444.rank_four_two_four_ge_26|propext, Quot.sound, Classical.choice
+TOTAL: STANDARD=60
+```
+
+Lauf- und Job-Nummer des Laufs auf `main` nach dem Merge meldet der Thread dem Orchestrator; sie stehen nicht in dieser Datei, weil jeder Commit hier den Lauf neu startet. Dieser Bericht selbst startet auf dem PR noch einen Lauf; gemergt wird erst, wenn auch der grün ist.
+
+Verbrauch: keine Subagenten, keine Fremdmodell-Anfragen, kein lokaler Lean-Bau (nur Lesen der Quelltexte und ein Klon von `fallnlove/mm325_proof` außerhalb des Repos zum Lesen der Importliste und der `simp`-Lemmata), drei Actions-Läufe bis zu diesem Stand.
