@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 4 von Justus gestartet, Protokoll 0.6; Behauptungsdateien B-017 bis B-019 angelegt)
+Zuletzt geändert: 26.11.2026 (Stufe 4 von Justus gestartet, Protokoll 0.6; Runde 1 vergeben)
 
 ## Aktuelle Stufe
 
@@ -9,11 +9,21 @@ Zuletzt geändert: 26.11.2026 (Stufe 4 von Justus gestartet, Protokoll 0.6; Beha
 - Von Justus gestartet am 26.11.2026, 06:43 UTC (Wortlaut im Logbuch). Protokoll 0.6 (c721297) von ihm bestätigt
 - Budget: 6 Runden mit je bis zu 6 Subagenten, Fremdmodell nur nach 5.5. Grundlage: `erkundung/s3-08-einschaetzung-327.md`
 - Runde 1 ist nur Prüfung der Grundlage: Prüfer für die Restfall-Rechnung, für Lemma 15(b) bei d = 2 und für die Übertragung von Lemma I auf die Normalform, dazu die Nachrechnung des Verfahrens mit 35 nach 5.2 und der Blind-Sucher. Ab Runde 2 Spur A (Ausschluss des Restfalls) und Spur B (Suche nach 34)
-- Literaturwache vor Runde 1, außerhalb der Runde (Lesart des Orchestrators): Thread „Literatur zu 3×2×7 sichten“, vergeben etwa 06:47 UTC, 1 Subagent, 0 Fremdmodell-Anfragen. Runde 1 erst nach ihrer Meldung
-- Behauptungsdateien für Runde 1: `behauptungen/B-017.md` (Restfall-Rechnung), `behauptungen/B-018.md` (Lemma 15(b) bei d = 2), `behauptungen/B-019.md` (Übertragung von Lemma I, Wortlaut der Aussage vom Orchestrator). Status setzt der Orchestrator
-- Runde 1: noch nicht vergeben. Geplant (Orchestrator): S4-01 Prüfer B-017, S4-02 Prüfer B-018, S4-03 Prüfer B-019, S4-04 Verfahren mit 35 für 3×2×7 als Datei anlegen und mit beiden Prüfprogrammen nachrechnen, S4-05 Blind-Sucher. Vergabe nach Meldung der Literaturwache. Die Berichte S3-03 und S3-04 kommen auf keine Positivliste
+- Literaturwache vor Runde 1, außerhalb der Runde: erledigt, PR #102 (Merge 2335284), etwa 6 Minuten nach Git (06:45:26 bis 06:51:14 UTC), 1 Subagent, 0 Fremdmodell-Anfragen. Nichts zu 35 oder 34 gefunden, Abbruchregel 3 greift nicht. Nebenergebnis: Verfahren mit 35 unter MIT bei dronperminov/FastMatrixMultiplication
+- Behauptungsdateien für Runde 1: `behauptungen/B-017.md` (Restfall-Rechnung), `behauptungen/B-018.md` (Lemma 15(b) bei d = 2), `behauptungen/B-019.md` (Übertragung von Lemma I, Wortlaut der Aussage vom Orchestrator). Status behauptet (`pruefvermerke/`)
+- Runde 1 von 6 vergeben etwa 06:52 UTC: 5 Subagenten, 0 Fremdmodell-Anfragen. S4-01 bis S4-03 Prüfer für B-017 bis B-019, S4-04 Verfahren mit 35 anlegen und nachrechnen, S4-05 Blind-Sucher. Die Berichte S3-03 und S3-04 stehen auf keiner Positivliste
 - Fertig mit einem Lean-Satz für die untere Schranke 35 über jedem Körper (geprüft nach 5.1 samt Abgleich des Endsatzes), einem nach 5.2 bestätigten Verfahren mit 34, erschöpftem Budget oder wenn eine Abbruchregel beide Spuren beendet
 - Kein Kontakt nach außen. README und `ergebnisse/` bleiben unverändert
+
+## Aufträge für Stufe 4
+
+| Nr. | Auftrag | Rolle | Zieldatei | Stand |
+|---|---|---|---|---|
+| S4-01 | Prüfung B-017 (Restfall-Rechnung, alle Bedingungen samt C1) | Prüfer | `lean/prosa/s4_327_bericht_s4-01.md` | vergeben in Runde 1 |
+| S4-02 | Prüfung B-018 (Lemma 15(b) bei d = 2) | Prüfer | `lean/prosa/s4_327_bericht_s4-02.md` | vergeben in Runde 1 |
+| S4-03 | Prüfung B-019 (Übertragung von Lemma I) | Prüfer | `lean/prosa/s4_327_bericht_s4-03.md` | vergeben in Runde 1 |
+| S4-04 | Verfahren mit 35 für 3×2×7 anlegen und nachrechnen (5.2) | Rechner | Datei unter `verfahren/`, `verfahren/3x2x7-r35-nachrechnung.md` | vergeben in Runde 1 |
+| S4-05 | Blind-Sucher | Blind-Sucher | `versuche/s4-blind-r1.md` | vergeben in Runde 1 |
 
 ## Stufe 3: abgeschlossen
 

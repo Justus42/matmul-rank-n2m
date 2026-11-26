@@ -2167,3 +2167,31 @@ Damit ist Protokoll 0.6 von Justus bestätigt. Stufe 4: 3×2×7 bei Länge 34, B
 **Gedächtnis:** Index (Fassung 0.6, synchronisiert 06:45 UTC) und alle 21 Einzeleinträge durchgesehen. Nichts über Behauptungen, Prüfurteile, Befunde oder Zwischenstände. Nichts geändert.
 
 **Nachtrag 26.11.2026, etwa 06:55 UTC:** Auf Anweisung des Orchestrators `behauptungen/B-019.md` angelegt (Übertragung von Lemma I auf die Normalform des Rahmens yang_n4 mit d = 2). Der Wortlaut der Aussage stammt vom Orchestrator. Dazu stehen C2 im Wortlaut des Programms S3-04, Lemma I im Wortlaut von `yang_n3.md` und die Lean-Fassung `lemma_I`. Geplante Runde 1 laut Orchestrator: S4-01 bis S4-03 Prüfer für B-017 bis B-019, S4-04 Verfahren mit 35 für 3×2×7 anlegen und nachrechnen, S4-05 Blind-Sucher. Die Berichte S3-03 und S3-04 kommen auf keine Positivliste.
+
+---
+
+## 26.11.2026 · Literaturwache vor Stufe 4, Runde 1 (außerhalb der Runde)
+
+- Auftrag: Thread „Literatur zu 3×2×7 sichten“, Pflichtpunkte nach Abschnitt 7 und gezielt 3×2×7 (Schranke 35 oder Verfahren mit 34), Nebenfrage nach dem Verfahren mit 35.
+- Ergebnis: `lit/WACHE-2026-11-26.md` und Eintrag in `lit/WACHE.md`, PR #102 (Merge 2335284). **Kein Beweis von 35 und kein Verfahren mit 34 gefunden. Abbruchregel 3 greift nicht.** Pflichtpunkte ohne Neues (mm325_proof unverändert bei 759cf4a, openai/math unverändert, keine neue Fassung von 2609.14393 oder 2609.22054 gefunden). Status: behauptet.
+- Lücken laut Bericht: arxiv.org, export.arxiv.org und fmm.univ-lille.fr per curl gesperrt, GitHub-REST-API für fremde Repos 403. Versionslisten nur über Websuche und alphaXiv.
+- Nebenergebnis (Abschnitt D): Verfahren mit 35 für ⟨2,3,7⟩ unter MIT bei dronperminov/FastMatrixMultiplication (Commit f70078cd, `schemes/results/ZT/2x3x7_m35_ZT.json`). solven-eu/matmulcatalog (Commit 5ed2ee97, nach Hopcroft-Kerr gebaut) ohne Lizenzangabe. FMM-Lille nicht gelesen. Übernahme nur nach Protokoll 11.3.
+- Dauer nach Git: erster Commit 7aaa039 um 06:45:26 UTC, letzter Commit 0eb9e70 um 06:50:46 UTC, Merge um 06:51:14 UTC. Also etwa 6 Minuten.
+- **Widerspruch:** Der Orchestrator nannte als Vergabe „etwa 06:47 UTC“. Der erste Commit der Wache liegt um 06:45:26 UTC, also vorher. Die Vergabe muss spätestens um 06:45 UTC gewesen sein.
+- Verbrauch: 1 Subagent (der Thread selbst, keine eigenen Subagenten), 0 Fremdmodell-Anfragen. Gemeldetes Modell: claude-opus-5-5.
+
+## 26.11.2026 · Stufe 4, Runde 1 von 6 vergeben (etwa 06:52 UTC)
+
+Nur Prüfung der Grundlage (Protokoll 0.6, Abschnitt 3). 5 Subagenten, keine Fremdmodell-Anfrage, keine eigenen Subagenten der Threads.
+
+| Nr. | Auftrag | Zieldatei |
+|---|---|---|
+| S4-01 | Prüfer B-017 (Restfall-Rechnung). Laut Auftrag jede Bedingung des Programms, auch C1 (rk H = ρ + s) im Block für n = 3. Deshalb keine eigene Behauptung für C1 | `lean/prosa/s4_327_bericht_s4-01.md` |
+| S4-02 | Prüfer B-018 (Lemma 15(b) bei d = 2) | `lean/prosa/s4_327_bericht_s4-02.md` |
+| S4-03 | Prüfer B-019 (Übertragung von Lemma I) | `lean/prosa/s4_327_bericht_s4-03.md` |
+| S4-04 | Verfahren mit 35 für 3×2×7 als Datei anlegen, mit beiden Prüfprogrammen nachrechnen (5.2) | Datei unter `verfahren/`, Bericht `verfahren/3x2x7-r35-nachrechnung.md` |
+| S4-05 | Blind-Sucher | `versuche/s4-blind-r1.md` |
+
+- Positivlisten wie von der Schreibhand genannt. Die Berichte S3-03 und S3-04 stehen auf keiner Liste.
+- Gedächtnis vor der Vergabe durchgesehen (siehe Eintrag „Start von Stufe 4“): nichts gefunden, was nicht hingehört.
+- Prüfvermerke `pruefvermerke/B-017.md` bis `B-019.md` mit Status behauptet angelegt, im Auftrag des Orchestrators.
