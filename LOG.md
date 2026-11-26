@@ -2999,3 +2999,10 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - K-32 bis K-35 je „bestätigt“, keine echte Lücke. Ausgeschriebene Nachrechnung je Glied, Programme (Anhang A bis C) und Randfälle vorhanden. Ungenauigkeiten überwiegend wie S5-07, neu: K-33 (v) α_t, α_{t′} ≠ 0 nur stillschweigend, K-34 Menge X in K-1 (c) nicht genannt.
 - Nachträgliche Offenlegung laut Orchestrator (nicht im Bericht): nach dem Mergen `git log -1` und `git show -s` für die eigenen Commit-Zeiten.
 - Damit haben K-32 bis K-35 je zwei Bestätigungen (S5-07, S5-12). Einzelheiten in `pruefvermerke/B-033.md`.
+
+**Stufe 5, Runde 3: S5-11 (Prüfer K-21 bis K-31, zweite Lesung) geliefert (Schreibhand, aus Git und dem Bericht)**
+
+- PR #155, ein Commit ccb776b (15:44:01 UTC, Zweig von 1425198), Merge e66f391 (15:44:17 UTC). Block Zeilen 379–549 (171 Zeilen), Bearbeitungsdauer nach Git etwa 6 Minuten. Nur der Bericht geändert (831 Zeilen). 0 Subagenten, 0 Fremdmodell.
+- K-21 bis K-31 je „bestätigt“ (K-27 „mit dem Hinweis zur Liste“), keine echte Lücke. Ausgeschriebene Nachrechnung je Glied (11 von 11), Programm (Anhang A, Ausgabe Anhang B) und Randfälle vorhanden. Gegenprobe am Verfahren der Länge 39, weil keines der Länge 34 bekannt ist.
+- Ungenauigkeiten teils wie S5-06 (U1 bis U3), neu: K-21 Zeichen ℬ̂ (Zeile 393), Injektivität in (d); K-23 Unabhängigkeit von e von v; K-30 (d) dim b_0K′ = 13 nur implizit.
+- Damit haben K-21 bis K-35 je zwei Bestätigungen (S5-06/S5-07, S5-11/S5-12). Einzelheiten in `pruefvermerke/B-033.md`.
