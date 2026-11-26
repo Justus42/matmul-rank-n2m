@@ -2496,3 +2496,28 @@ Wortlaut Justus (26.11.2026, 10:09:04 UTC):
 **Nachtrag 26.11.2026, vor Runde 4: Gedächtnisdurchsicht (Schreibhand)**
 
 - Index (`MEMORY.md`, md5 31d5da4c…, geändert 10:16 UTC) und alle 21 Einzeleinträge durchgesehen. Neu im Index seit der letzten Durchsicht: der Ablauf der Sol-Anfragen (Orchestrator stellt und holt ab) und die Vorgabe von Justus zur Literaturwache (10:09 UTC). Beides sind Arbeitsregeln, kein Urteil, kein Befund, kein Zwischenstand. Einzeleinträge seit der letzten Durchsicht unverändert (letzte Änderung `gemini-bridge` 10:04 UTC durch die Schreibhand). Nichts zu Stufe 4, zu Behauptungen, Status oder Zählern. Keine Änderung nötig.
+
+**Nachtrag 26.11.2026: Literaturwache vor Runde 4, außerhalb der Runde (Lesart a)**
+
+- PR #122 (Merge 6a4d586 um 11:21:22 UTC), Zieldatei `lit/WACHE-2026-11-26-R4.md`, Eintrag in `lit/WACHE.md`. Commits c422348 (11:15:26), 3eb47a1 (11:20:49), 6885688 (11:21:04), alle UTC. Dauer nach Git etwa 8 Minuten (Vergabe etwa 11:13 UTC bis Merge). 1 Subagent, 0 Fremdmodell-Anfragen.
+- Ergebnis: nichts gefunden (kein Beweis für 35, kein Verfahren mit 34, keine neue Schranke). Abbruchregel 3 greift nicht.
+- Erstmals direkt gelesen: arXiv (2609.14393 bis v3 vom 12.10.2026, 2609.22054 nur v1 vom 18.09.2026), cs.CC (recent, new), FMM-Lille 2x3x7 (35), ECCC (nur mit Browser-Kennung erreichbar), Zenodo, MathOverflow. Semantic Scholar durchgelassen, aber gedrosselt (429, 2 von 9 Anfragen beantwortet). Weiter gesperrt: Google Scholar, GitHub-REST-API für fremde Repos.
+- Damit ist die Vorgabe von Justus von 10:09 UTC für die nächste Literaturwache erfüllt.
+
+**Nachtrag 26.11.2026: Entscheidung des Orchestrators zu B-026**
+
+- Teil B (Folgerungen S4-14-B) bleibt in B-026.
+
+**Runde 4 von 6 vergeben (26.11.2026, etwa 11:24 UTC, Orchestrator)**
+
+- 6 Subagenten, gleichzeitig und unabhängig:
+  - S4-18: Lean-Formalisierung von B-021 D (erster Satz) mit ausdrücklichen Hypothesen, `lean/YangBounds/S4BedingterAusschluss.lean`, Satz `YangBounds.S4BedingterAusschluss.s4_07_D`, Eintrag in `MAIN_THEOREMS`. Zulässig nach Abschnitt 3, weil Prüfer und Fremdmodell den Prosa-Beweis bestätigt haben. Kein Merge mit sorry.
+  - S4-19: Prüfer B-026, Zieldatei `lean/prosa/s4_327_bericht_s4-19.md`. Positivliste: `CLAUDE.md`, Protokoll Abschnitt 5, `behauptungen/B-026.md`, `lean/prosa/s4_327_spurA_r3_e3.md`, `lean/prosa/s4_327_spurA_r2_bau.md` Abschnitte 1 bis 4, `lean/prosa/yang_n3.md`.
+  - S4-20: Prüfer B-027 (E2-A zuerst, in drei Schritten: e ≤ 3, e ≠ 0, e ≠ 1), Zieldatei `lean/prosa/s4_327_bericht_s4-20.md`. Positivliste: `CLAUDE.md`, Protokoll Abschnitt 5, `behauptungen/B-027.md`, `lean/prosa/s4_327_spurA_r3_e2.md`, `lean/prosa/s4_327_spurA_r2_bau.md` Abschnitte 1 bis 3, `lean/prosa/yang_n3.md`.
+  - S4-21: Spur A, Unterfall (M21) bei e = 3, beide Richtungen, Zieldatei `lean/prosa/s4_327_spurA_r4_m21.md`.
+  - S4-22: Spur B, Positivprobe bei 35 mit exaktem Ergebnis, sonst Ende mit Befund (Vorgabe 4 von Justus gilt weiter), Zieldatei `versuche/s4-spurB-r4.md`.
+  - S4-23: Blind-Sucher, Zieldatei `versuche/s4-blind-r4.md`.
+- Prüfern und Blind-Sucher wurden keine Fristen, Zähler oder erwünschten Ergebnisse mitgegeben. Gedächtnisdurchsicht vorher bestätigt (Nachtrag oben).
+- Hinweis der Schreibhand (ohne Wertung): `lean/prosa/s4_327_spurA_r3_e3.md` auf der Positivliste von S4-19 enthält in Abschnitt 2 die Klammer „Status dort: behauptet, B-017 bis B-019 von je einem Prüfer bestätigt“. In B-026 ist sie ausgelassen, im Artefakt steht sie.
+- **Lesart (g) des Orchestrators:** Für „geprüft“ von B-021 D nach 5.1 muss der Lean-Satz in Runde 4 grün auf main stehen. Die zwei Abgleich-Prüfer laufen in Runde 5.
+- Fremdmodell in Runde 4: nach 5.5 nur, wenn ein Prüfer einen neuen Ausschluss eines benannten Falls bestätigt. Bisher 0.
