@@ -51,12 +51,13 @@ Je Behauptung gibt es eine Datei `pruefvermerke/B-xxx.md`. Sie beginnt mit der w
 | B-028 | S4-28-A, S4-28-B, S4-28-C zum Fall e = 2 ohne (INJ-B) (jede Normalform e ≤ 2) | behauptet | S4-28, PR #134 (Merge 2b8202d) |
 | B-029 | S4-27-B, S4-27-C, S4-27-D zum Fall e = 3 (irgendeine Normalform) | behauptet | S4-27, PR #135 (Merge a7ecbc7) |
 | B-030 | Lemma O, Satz G, Lemma F aus S4-21 (Grundlage von B-028 und B-029) | behauptet | S4-21, PR #127 (Merge 8a2c470) |
+| B-031 | Fall r = 34 nach Tsyganov et al.: f = 5 unmöglich, Gestalt bei f = 4 (S4-29) | behauptet | S4-29, PR #136 (Merge e54f8c8) |
 
 Spuren der Stufe 4 (Abbruchregel 2):
 
 | Spur | Status | Bemerkung |
 |---|---|---|
-| Spur A (Ausschluss des Restfalls R-327) | läuft | Zähler 1 von 3 nach Runde 4. Frist B-021 D geprüft bis Ende Runde 5: gehalten (Runde 5). Lesart (i): zählt in Runde 5 nicht noch einmal |
+| Spur A (Ausschluss des Restfalls R-327) | läuft | Zähler 2 von 3 nach Runde 5. Frist B-021 D geprüft bis Ende Runde 5: gehalten. Runde 5 ohne neuen Fortschritt (Lesart (i); S4-27, S4-28 nur behauptet) |
 | Spur B (Suche nach einem Verfahren mit 34) | aufgegeben | Orchestrator, 26.11.2026, Abschluss Runde 4: drei Runden in Folge ohne Fortschritt (Runden 2, 3, 4), Zähler 3 von 3. Kein Verfahren mit 34. Runde 2 ohne geeichtes Werkzeug, Runde 3 Positivprobe bei 35 nicht bestanden, Runde 4 Probe bestanden, aber Suche bei 34 ohne Fund und ohne vollständig abgesuchten Teilraum |
 
 Weitere geprüfte Ergebnisse ohne eigene Behauptungsdatei:
