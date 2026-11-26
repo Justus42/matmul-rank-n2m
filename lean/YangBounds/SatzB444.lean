@@ -411,7 +411,7 @@ theorem eight_le_of_ker {W : Type*} [AddCommGroup W] [Module K W]
     have := Submodule.finrank_le ((LinearMap.ker f).map κ)
     simpa using this
   have hrn := LinearMap.finrank_range_add_finrank_ker f
-  have h12 : finrank K (Fin 3 → Fin 4 → K) = 12 := by simp
+  have h12 : finrank K (Fin 3 → Fin 4 → K) = 12 := by rw [Module.finrank_pi_fintype]; simp
   omega
 
 set_option maxHeartbeats 1600000 in
