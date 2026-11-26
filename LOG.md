@@ -2647,3 +2647,18 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 
 - Index (`MEMORY.md`, md5 1c3884b6…, geändert 12:12 UTC) und alle 21 Einzeleinträge durchgesehen. Neu im Index seit der letzten Durchsicht: die Regel von Justus zur Benennung „blind“ bzw. „unabhängiger Sucher (nicht blind)“ und seine Entscheidung, je Runde einen unabhängigen Sucher zu vergeben; die Anweisungen zur Gedächtnisdurchsicht und zu den Suchern sind auf „unabhängige Sucher“ umgestellt. Das sind Arbeitsregeln, kein Urteil, kein Befund, kein Zwischenstand. Hinweis ohne Wertung: Der Index gibt Abschnitt 6 als „pro Runde mindestens ein unabhängiger Sucher“ wieder; im Protokoll steht „Blind-Sucher“, die Abweichung beruht auf der Entscheidung von Justus (11:55 UTC).
 - Einzeleinträge seit der letzten Durchsicht unverändert. Nichts zu Stufe 4, zu Behauptungen, Status, Zählern oder Spuren. Keine Änderung nötig.
+
+**Runde 5 von 6 vergeben (26.11.2026, etwa 12:31 UTC, Orchestrator)**
+
+- Keine neue Literaturwache: gleiche Sitzung, letzte Wache um 11:21 UTC (PR #122). Lesart wie bisher: Die Wache nach Abschnitt 7 läuft zu Beginn jeder Sitzung und außerhalb der Runden (Lesart a).
+- 6 Subagenten, gleichzeitig und unabhängig:
+  - S4-24: Prüfer, Aussagen-Abgleich `YangBounds.S4BedingterAusschluss.s4_07_D` gegen B-021 D (erster Satz), Zieldatei `lean/prosa/s4_327_abgleich_s4-24.md`.
+  - S4-25: Prüfer, derselbe Abgleich unabhängig, Zieldatei `lean/prosa/s4_327_abgleich_s4-25.md`. Zusätzlich Sperre für Dateien `s4_327_abgleich*` und `s4_327_bericht*`.
+  - Positivliste für S4-24 und S4-25: `CLAUDE.md`, `PROTOKOLL.md` nur Abschnitt 5, `behauptungen/B-021.md` (Vorbemerkung, C, D), `lean/YangBounds/S4BedingterAusschluss.lean` Stand 3eb57a5, `lean/YangBounds/Basic.lean` Zeilen 40 bis 46 und 56 bis 57, `lean/prosa/s4_327_spurA_r2_bau.md` Abschnitte 1 und 3.1, Job 139899962532. Ohne Fristen, Zähler oder erwünschtes Ergebnis.
+  - S4-26: Lean-Wartung, Auflage 7 aus Stufe 2: Brücke zu `mm325_proof` aus `lean/YangBounds/Basic.lean` und die Zeilen aus `lean/Axioms.lean` in eine eigene Datei außerhalb der Kette des Endsatzes, Bericht `lean/prosa/auflage7_entkopplung_s4-26.md`. Zählt nach Justus als einer der sechs. Kein Zweitlauf, keine Änderung an README oder `ergebnisse/` in diesem Auftrag.
+  - S4-27: Spur A, Schritt S4-21-V im Unterfall (M21), beide Richtungen, Zieldatei `lean/prosa/s4_327_spurA_r5_m21.md`.
+  - S4-28: Spur A, Fall e = 2 ohne (INJ-B), beide Richtungen, Zieldatei `lean/prosa/s4_327_spurA_r5_e2.md`.
+  - S4-29: unabhängiger Sucher (nicht blind), Zieldatei `versuche/s4-unabhaengig-r5.md`.
+- Spur B: aufgegeben, kein Auftrag.
+- Fremdmodell in Runde 5: nach 5.5 nur, wenn ein Prüfer einen neuen Ausschluss eines benannten Falls bestätigt. Das ist in dieser Runde nicht möglich, also voraussichtlich 0.
+- Gedächtnisdurchsicht vor der Vergabe bestätigt (Nachtrag oben).

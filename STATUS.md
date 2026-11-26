@@ -1,10 +1,10 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 4 abgeschlossen; Spur B aufgegeben nach Abbruchregel 2; Spur A 1 von 3, Frist B-021 D geprüft bis Ende Runde 5; Orchestrator hält an und berichtet)
+Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 5 vergeben; Spur B aufgegeben; Spur A 1 von 3, Frist B-021 D geprüft bis Ende Runde 5)
 
 ## Aktuelle Stufe
 
-**Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): läuft, nach Runde 4 angehalten (Abbruchregel 2 für Spur B, Bericht an Justus). Spur B aufgegeben, Spur A läuft. Die Pause bis 29.11.2026 (Justus, 08:23 UTC) hat Justus um 09:47 UTC aufgehoben, Runde 3 darf starten
+**Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): läuft. Nach Runde 4 angehalten (Abbruchregel 2 für Spur B, Bericht an Justus), Runde 5 von Justus um 12:27 UTC freigegeben. Spur B aufgegeben, Spur A läuft. Die Pause bis 29.11.2026 (Justus, 08:23 UTC) hat Justus um 09:47 UTC aufgehoben, Runde 3 darf starten
 
 - Von Justus gestartet am 26.11.2026, 06:43 UTC (Wortlaut im Logbuch). Protokoll 0.6 (c721297) von ihm bestätigt
 - Budget: 6 Runden mit je bis zu 6 Subagenten, Fremdmodell nur nach 5.5. Grundlage: `erkundung/s3-08-einschaetzung-327.md`
@@ -39,6 +39,7 @@ Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 4 abgeschlossen; Spur B aufgegeben
 - **Runde 4 von 6 abgeschlossen:** 6 Subagenten, 0 Fremdmodell-Anfragen, etwa 48 Minuten nach Git (11:24 UTC bis 74aa77d um 12:11:47 UTC). Kein Ausschluss des Restfalls, kein Verfahren mit 34. **Spur B: 3 von 3, Abbruchregel 2 greift, Spur B aufgegeben** (drei Runden ohne Verfahren mit 34). **Spur A: 1 von 3**, Frist B-021 D geprüft bis Ende Runde 5 (Punkt 3 von 5.1, zwei Abgleich-Prüfer, steht aus). Budget 4 von 6 Runden verbraucht. Fertig-Kriterium nicht erfüllt
 - **Orchestrator hält an und berichtet Justus** (Abbruchregel gegriffen). Runde 5 erst nach seiner Antwort
 - **Justus, 12:27:48 UTC:** „Runde 5 starten“ (nur Spur A und Wartungsauftrag zu Auflage 7). Gedächtnisdurchsicht vor Runde 5 bestätigt. Nächste Auftragsnummer: S4-24
+- **Runde 5 von 6 vergeben etwa 12:31 UTC:** 6 Subagenten (S4-24 und S4-25 Abgleich-Prüfer für `s4_07_D` gegen B-021 D, unabhängig voneinander; S4-26 Lean-Wartung Auflage 7; S4-27 Spur A Schritt S4-21-V im Unterfall (M21); S4-28 Spur A Fall e = 2 ohne (INJ-B); S4-29 unabhängiger Sucher (nicht blind)). Keine neue Literaturwache (gleiche Sitzung, Lesart a). Spur B aufgegeben, kein Auftrag. Fremdmodell voraussichtlich 0
 - **Plan für Runde 5** (Orchestrator, bei Vergabe neu zu lesen): (1) und (2) zwei Abgleich-Prüfer für `s4_07_D` gegen B-021 D, die einander nicht sehen (Positivliste im Logbuch, Job 139899962532); (3) Wartungsauftrag Auflage 7; (4) Spur A: Lücke L-21 bzw. S4-21-V im Unterfall (M21); (5) Spur A: Fall e = 2 ohne (INJ-B); (6) unabhängiger Sucher (nicht blind). Prüfer für S4-21-G, S4-21-K, S4-21-L erst in Runde 6. Vor der Runde: Literaturwache nur bei neuer Sitzung, Gedächtnisdurchsicht
 - **Anweisungen von Justus (11:40 UTC, Wortlaut im Logbuch):** (1) README-Statuszeile auf Stand gebracht (PR #126, Merge aa0b426). (2) Ein Sucher heißt nur „blind“, wenn ihm nichts aus dem Projektgedächtnis eingeblendet war, sonst „unabhängiger Sucher (nicht blind)“. S4-05, S4-11, S4-17 und S4-23 waren nicht blind. Ob ein Blind-Sucher je Runde (Abschnitt 6) auf dieser Plattform möglich ist, legt der Orchestrator Justus vor. (3) Auflage 7 freigegeben: **Vorgabe für Runde 5:** ein Wartungsauftrag (zählt als einer der sechs Subagenten): Brücke zu `mm325_proof` aus `lean/YangBounds/Basic.lean` und die zugehörigen Zeilen in `lean/Axioms.lean` in eine eigene Datei außerhalb der Kette des Endsatzes, `Basic.lean` importiert das Paket nicht mehr; hängt mehr am Paket, berichten statt umbauen. Lesart (h): Axiom-Bericht läuft im Workflow des Wartungs-PRs; Prüfer für den Zweitlauf und Änderung von README und `ergebnisse/rang-444.md` frühestens in Runde 6. Runde 5 braucht außerdem zwei Plätze für die Abgleich-Prüfer zu B-021 D
 - **Entscheidung von Justus (11:55 UTC, Wortlaut im Logbuch):** (1) Die Vorgabe „Blind-Sucher“ aus Abschnitt 6 ist auf dieser Plattform nicht erfüllbar (Gedächtnisindex wird jedem Thread eingeblendet); je Runde läuft weiter ein unabhängiger Sucher (nicht blind). (2) Wiederholter Zweitlauf und Änderung von README und `ergebnisse/rang-444.md` gehören zu Auflage 7 aus Stufe 2, nicht zu Stufe 4. Endet Stufe 4 vor Runde 6, werden diese beiden Aufträge trotzdem noch vergeben, als Abschluss der Auflage; sonst nichts über das Stufenende hinaus
@@ -128,6 +129,12 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S4-21 | Spur A: Unterfall (M21) bei e = 3, beide Richtungen | Beweissucher | `lean/prosa/s4_327_spurA_r4_m21.md` | erledigt in Runde 4, PR #127. (M21) nicht vollständig ausgeschlossen. Behauptet S4-21-G, S4-21-K, S4-21-L (nicht B-023/B-024); vermutet S4-21-V, Lücke L-21 |
 | S4-22 | Spur B: Positivprobe bei 35 mit exaktem Ergebnis, sonst Ende mit Befund | Verfahrenssucher | `versuche/s4-spurB-r4.md` | erledigt in Runde 4, PR #130. Positivprobe bei 35 bestanden (über ℚ exakt nachgerechnet), Suche bei 34 ohne Fund |
 | S4-23 | Unabhängiger Sucher (nicht blind) | Unabhängiger Sucher (nicht blind) | `versuche/s4-blind-r4.md` | erledigt in Runde 4, PR #129. Rang nicht bestimmt. Behauptet S4-23-A, S4-23-B; vermutet R = 35. Eingeblendet: Index und vier Einzeleinträge |
+| S4-24 | Aussagen-Abgleich `s4_07_D` gegen B-021 D (erster Satz) | Prüfer | `lean/prosa/s4_327_abgleich_s4-24.md` | vergeben in Runde 5 |
+| S4-25 | Aussagen-Abgleich `s4_07_D` gegen B-021 D, unabhängig von S4-24 | Prüfer | `lean/prosa/s4_327_abgleich_s4-25.md` | vergeben in Runde 5 |
+| S4-26 | Lean-Wartung Auflage 7 (Brücke zu `mm325_proof` aus der Kette des Endsatzes) | Formalisierer | `lean/prosa/auflage7_entkopplung_s4-26.md` | vergeben in Runde 5 |
+| S4-27 | Spur A: Schritt S4-21-V im Unterfall (M21), beide Richtungen | Beweissucher | `lean/prosa/s4_327_spurA_r5_m21.md` | vergeben in Runde 5 |
+| S4-28 | Spur A: Fall e = 2 ohne (INJ-B), beide Richtungen | Beweissucher | `lean/prosa/s4_327_spurA_r5_e2.md` | vergeben in Runde 5 |
+| S4-29 | Unabhängiger Sucher (nicht blind) | Unabhängiger Sucher (nicht blind) | `versuche/s4-unabhaengig-r5.md` | vergeben in Runde 5 |
 
 ## Stufe 3: abgeschlossen
 
