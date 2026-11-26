@@ -83,7 +83,17 @@ jobs:
           # The manifest must stay untouched (no lake update).
           git diff --exit-code -- lake-manifest.json lakefile.toml lean-toolchain
 
-      - name: Build library YangBounds (all modules)
+      - name: Shared definitions of Challenge and Solution are identical (S5-08)
+        run: |
+          set -euo pipefail
+          block() { sed -n '/^-- BEGIN SHARED DEFINITIONS/,/^-- END SHARED DEFINITIONS/p' "$1"; }
+          hdr() { sed -n '1,/^@\[expose\] public section/p' "$1"; }
+          test -n "$(block MatMulRank/Challenge.lean)"
+          diff <(block MatMulRank/Challenge.lean) <(block MatMulRank/Definitions.lean)
+          diff <(hdr MatMulRank/Challenge.lean) <(hdr MatMulRank/Definitions.lean)
+          echo "shared definitions and imports identical"
+
+      - name: Build libraries YangBounds and MatMulRank (all modules)
         run: |
           set -euo pipefail
           lake build 2>&1 | tee "$RUNNER_TEMP/build.txt"
