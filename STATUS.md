@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 2 abgeschlossen: K-1 bis K-41 je eine erste Bestätigung; Spur P ohne Bau, cache.mathlib.org gesperrt)
+Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 3 vergeben: zweite Lesung der Kette, S5-14 Spur P; Frage an Justus zu Spur P offen)
 
 ## Aktuelle Stufe
 
@@ -13,6 +13,8 @@ Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 2 abgeschlossen: K-1 bis K-41 je e
 - Runde 2, S5-04 bis S5-07 geliefert: K-1 bis K-41 haben je eine erste Bestätigung, keine echte Lücke, Ungenauigkeiten im Wortlaut gesammelt in `pruefvermerke/B-033.md` (Berichtigung später in einem Zug). Hinweis von S5-07 zur Struktur (Fallunterscheidung nach e logisch überzählig) vermerkt, Kette unverändert. Offen in Runde 2: S5-08
 - **Runde 2 von 6 abgeschlossen:** 5 Subagenten (S5-04 bis S5-08), 0 Fremdmodell-Anfragen, etwa 11 Minuten nach Git (15:22 UTC bis 4cad1ca um 15:33:15 UTC). Sechster Platz leer (cache.mathlib.org nicht freigegeben). **Spur K 0 von 3** (41 Glieder mit erster Bestätigung). **Spur P 2 von 3** (kein Modul baut; Lesart (l): Beleg für P-24 im Bericht S5-08 ohne Befehl und Ausgabe). Budget 2 von 6 Runden verbraucht
 - Offen aus S5-08: Platzhalter in `formalization.yaml` (Autoren, Betreuer, „original/source-based“) für Justus; P-13 wegen `versuche/s2-19-abgleich/Check.lean` (OF-1); `lean_report.py` nicht angepasst
+- **Runde 3 von 6 vergeben etwa 15:38 UTC:** S5-09 bis S5-13 Prüfer der Kette (zweite Lesung, andere Prüfer, ausgeschriebene Nachrechnung je Glied verlangt), S5-14 Spur P (Cache-Probe, Belege mit Befehl und Ausgabe in `palomar/BELEGE.md`). 6 Subagenten, kein Fremdmodell
+- **Frage an Justus (15:37 UTC):** Spur P stünde ohne cache.mathlib.org nach Runde 3 bei 3 von 3; der Orchestrator schließt Runde 3 für Spur P nicht mit 3 von 3 ab, bevor Justus geantwortet hat
 - **Offene Fragen aus S5-02** (`palomar/ANFORDERUNGEN.md` auf `portierung`): (1) Modulpflicht auch für `versuche/s2-19-abgleich/Check.lean` außerhalb von `lean/`; (2) Endung `.git` an der Mathlib-URL im Manifest; (3) `tensorRank` benutzt `exists_bilinearAlgorithm`, Platz in der Challenge; (4) original oder source-based, Entscheidung von Justus; (5) Inhalt von `llms.txt` unbekannt; (6) Prüfprogramm con-ron nur bis v4.35.0 hinterlegt
 - Umgebung: Freigabe für palomar-registry.org, *.palomar-registry.org und lakecache.blob.core.windows.net bei Justus beantragt (14:52 UTC). Gesperrt laut Probe des Orchestrators: lakecache.blob.core.windows.net, release.lean-lang.org, mathlib4.lean-cache.cloud, reservoir.lean-lang.org, lean-lang.org. Genauer Bedarf aus der Werkzeugprobe in S5-03
 
@@ -247,6 +249,12 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S5-06 | Spur K: Prüfer K-21 bis K-31 (Zeilen 379–549), erste Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-06.md` | erledigt, PR #151 (Merge 9a77df1). Eingetragen in `pruefvermerke/B-033.md` |
 | S5-07 | Spur K: Prüfer K-32 bis K-41 (Zeilen 550–752), erste Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-07.md` | erledigt, PR #152 (Merge 3565149). Eingetragen in `pruefvermerke/B-033.md`; Hinweis zur Struktur vermerkt |
 | S5-08 | Spur P: Aussagen-Datei, Lösungs-Modul, `comparator.json`, `formalization.yaml` (Platzhalter) | Formalisierer | `palomar/s5-08-bericht.md` | geliefert, nicht gebaut, PR #153 an `portierung` (Merge 4cad1ca). Challenge, Definitions, Solution, `comparator.json`, `formalization.yaml` (Platzhalter für Justus) |
+| S5-09 | Spur K: Prüfer K-1 bis K-12 (Zeilen 109–248), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-09.md` | vergeben in Runde 3, etwa 15:38 UTC |
+| S5-10 | Spur K: Prüfer K-13 bis K-20 (Zeilen 249–378), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-10.md` | vergeben in Runde 3, etwa 15:38 UTC |
+| S5-11 | Spur K: Prüfer K-21 bis K-31 (Zeilen 379–549), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-11.md` | vergeben in Runde 3, etwa 15:38 UTC |
+| S5-12 | Spur K: Prüfer K-32 bis K-35 (Zeilen 550–627), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-12.md` | vergeben in Runde 3, etwa 15:38 UTC |
+| S5-13 | Spur K: Prüfer K-36 bis K-41 mit Prüfung der Quantoren (Zeilen 628–752, Rahmen 550–553), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-13.md` | vergeben in Runde 3, etwa 15:38 UTC |
+| S5-14 | Spur P: Cache-Probe, ggf. Bau der Kette auf `portierung`, Belege je Anforderung | Formalisierer | `palomar/BELEGE.md` | vergeben in Runde 3, etwa 15:38 UTC, PR an `portierung` |
 
 ## Stufe 3: abgeschlossen
 
