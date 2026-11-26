@@ -6,6 +6,10 @@
 # result ("original", variant A of palomar/s5-08-bericht.md, section 6, with the Yang source as
 # background), the wording "To our knowledge, the lower bound 26 is new", review.notes, and
 # model names under automation only where LOG.md records them. No agent submits.
+#
+# Task N-01 (26 November 2026): the description of the proof, the notes on Yang and on
+# Hopcroft and Kerr, the note on the catalogue line, the note on fallnlove/mm325_proof and
+# review.notes updated after the reviews in palomar/nacharbeit/ (n-03 and n-05).
 version: v0.4
 
 project:
@@ -15,15 +19,26 @@ project:
     algorithm A*B = sum_{k<r} alpha_k(A) beta_k(B) C_k for the product of an n x l and an
     l x m matrix over K (alpha_k, beta_k linear forms, C_k fixed matrices). This entry proves
     in Lean 4 with Mathlib that R_K(<4,2,4>) = 26 for every field K, with no assumption on the
-    characteristic, finiteness or algebraic closedness of K. The upper bound 26 is the known
-    value of Hopcroft and Kerr (1971); here it is proved by an explicit algorithm with 26
-    products and integer coefficients in {-1, 0, 1}, found by the project's own search and
-    checked by the Lean kernel. To our knowledge, the lower bound 26 is new (literature search
-    recorded in lit/ of this repository); the previously known lower bound was 25 (J. Yang, arXiv:2609.14393, Theorem 2, which the development also formalises).
-    The proof of the lower bound follows Yang's normal-form method for <n,2,m>:
-    a decomposition of length 25 is moved over an algebraically closed field into a generic
-    normal form and excluded case by case (four residual rank cases, a symmetric case, and two
-    sub-cases of the case (5,8)). The work was carried out by AI models directed by the
+    characteristic, finiteness or algebraic closedness of K. The upper bound 26 is the value
+    for p = n = 4 of the formula ceil((3pn + max(n,p))/2) of Hopcroft and Kerr (Cornell
+    Technical Report 69-44, 1969, Theorem 1; SIAM J. Appl. Math. 20 (1971)); here it is proved
+    by an explicit algorithm with 26 products and integer coefficients in {-1, 0, 1}, found by
+    the project's own search and checked by the Lean kernel. In that report Hopcroft and Kerr
+    conjectured (p. 28) that their algorithm is optimal for all p and n, which for <4,2,4>
+    means 26 multiplications; they proved lower bounds only for 2 x 2 times 2 x n and
+    3 x 2 times 2 x 3, for programs with integer constants and without commutativity, by
+    reduction modulo 2. To our knowledge, a proof of the lower bound 26 is new (literature
+    search recorded in lit/ of this repository); the previously known proved lower bound was 25
+    (J. Yang, arXiv:2609.14393, Theorem 2, which the development also formalises).
+    The proof of the lower bound builds on Yang's normal form (N1), (N2) for <n,2,m> and
+    extends it with new steps. Lengths below 25 are excluded by Yang's Theorem 2. A
+    decomposition of length 25 is put into a generic normal form over the field of rational
+    functions K(S, T) and read over its algebraic closure. There, Theorem A leaves four rank
+    cases (3,6), (4,7), (5,7), (5,8); Theorem B excludes (4,7) and (5,7) and shows that (3,6) is
+    symmetric; Theorem C shows that the generic normal form is not symmetric. The case (5,8)
+    splits into two sub-cases: sub-case A is excluded by Theorem E, and in sub-case B
+    Theorem F, with Lemma Z and the transposed decomposition, forces a symmetry, which
+    Theorem C excludes. The work was carried out by AI models directed by the
     repository owner; no human mathematician has reviewed the proof.
   authors:
     - name: "Justus Jeserigk"
@@ -53,20 +68,29 @@ sources:
       for <4,2,4>; it is formalised in this repository (YangBounds.yang_theorem_two) and used
       to exclude lengths below 25. The proof of the bound 26 uses Yang's normal form. One step
       of the written proof of Yang's Lemma 13 could not be followed; the formalisation proves
-      the same statement by a different argument (YangBounds/YangN4Lemma13.lean).
+      the same statement by a different argument (YangBounds/YangN4Lemma13.lean). The proof of
+      the bound 26 also uses a sharpening of Lemma 13 by an additional term (Lemma 13',
+      YangBounds/Lemma13Prime.lean), which is not in Yang's paper.
   - title: "On minimizing the number of multiplications necessary for matrix multiplication"
     authors: ["J. E. Hopcroft", "L. R. Kerr"]
     type: paper
     id: "doi:10.1137/0120004"
-    location: "SIAM J. Appl. Math. 20(1) (1971), 30-36"
+    location: "SIAM J. Appl. Math. 20(1) (1971), 30-36; read in the form of Cornell University, Department of Computer Science, Technical Report 69-44 (September 1969), hdl:1813/5902, Theorem 1 (p. 8), Theorems 5 and 6, p. 28"
     relationship: background
     note: >-
-      Upper bound ceil((3nm + max(n,m))/2), which gives R(<4,2,4>) <= 26. The upper bound 26
-      is part of the compared statement. It is not proved by formalising the construction of
-      the article: YangBounds/Upper4x2x4.lean gives an explicit algorithm with 26 products
-      (verfahren/4x2x4-r26-s001.json, found by the project's own search), and the kernel
-      checks its tensor identity. The original article was not read; the formula is cited
-      identically by Yang (arXiv:2609.14393) and other sources.
+      Technical Report 69-44, Theorem 1, states that ceil((3pn + max(n,p))/2) multiplications
+      are sufficient to compute the product of a p x 2 and a 2 x n matrix of indeterminates
+      without commutativity; the products are of the form (linear form in A) x (linear form
+      in X). For p = n = 4 this gives 26. The report names no field for this bound. The upper
+      bound 26 is part of the compared statement. It is not proved by formalising the
+      construction of the report: YangBounds/Upper4x2x4.lean gives an explicit algorithm with
+      26 products (verfahren/4x2x4-r26-s001.json, found by the project's own search), and the
+      kernel checks its tensor identity. Lower bounds in the report: ceil(7n/2) for 2 x 2 times
+      2 x n (Theorem 5) and 15 for 3 x 2 times 2 x 3 (Theorem 6), for programs using
+      multiplication, addition and subtraction with integer constants and without
+      commutativity, proved by reduction modulo 2. The report proves no lower bound for
+      <4,2,4>; on p. 28 it conjectures that the algorithm of Theorem 1 "is optimal for all n
+      and p". The journal article itself was not read and was not compared with the report.
   - title: "Determining the tensor rank of (2, 2, m) matrix multiplication with GPT-5.6 Sol."
     authors: ["Yaroslav Shitov"]
     type: paper
@@ -80,16 +104,21 @@ sources:
     note: >-
       A public catalogue line states "R(<2,4,4>) >= 26 (Hopcroft-Kerr), UB 26 -> tight"
       without proof or reference beyond the name; the same repository lists this lower bound
-      as open elsewhere (paper/theory/RANK_KNOWLEDGE.md, line 297). Recorded as a related
-      claim, not as a source of the proof.
+      as open elsewhere (paper/theory/RANK_KNOWLEDGE.md, line 297). Hopcroft and Kerr's
+      Technical Report 69-44 contains no such lower bound; it states optimality for all p and
+      n only as a conjecture (p. 28). Recorded as a related claim, not as a source of the
+      proof.
 
 related_formalizations:
   - id: "https://github.com/fallnlove/mm325_proof"
     relationship: other
     note: >-
       Lean formalisation of the rank of <3,2,5> by Tsyganov, Parkina, Samsonov and Rakhuba
-      (arXiv:2609.22054). It served as a template in early stages of this repository; it is
-      not a dependency of this entry (no module of the submitted chain imports it).
+      (arXiv:2609.22054). Up to stage 5 this repository depended on it as a Lake package
+      (imported first by YangBounds/Basic.lean, later only by a separate bridge module); the
+      bridge and the dependency were removed when the library was ported to Lean 4.36.0. It is
+      not a dependency of this entry (no module of the submitted chain imports it, and the Lake
+      files do not require it).
 
 automation:
   methods:
@@ -141,3 +170,10 @@ review:
     with the claim "= 26" independently by a reviewing model instance and by GPT 6.2 Sol;
     both found that it matches (LOG.md; pruefvermerke/B-034.md;
     lean/prosa/s5_abgleich_s5-20.md; versuche/s5-r5-sol-b034/gpt_antwort.md).
+    Before submission two further reviewing model instances read parts of the entry: one
+    read the proof outline in this file against the Lean files of the chain
+    (palomar/nacharbeit/n-03-bericht.md); one compared the early Lean files with
+    fallnlove/mm325_proof and found no passage of proof code, definitions or comments copied
+    from it, the only verbatim match being the import list of YangBounds/Basic.lean
+    (palomar/nacharbeit/n-04-bericht.md). The repository owner then decided that this
+    import list be reduced to what the chain needs (LOG.md, 26 November 2026).
