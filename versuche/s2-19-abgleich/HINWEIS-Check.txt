@@ -1,0 +1,1 @@
+Check.lean.txt ist die unveränderte frühere Datei Check.lean (S2-19), umbenannt in S5-22 auf Entscheidung des Repository-Eigentümers vom 26.11.2026, weil Palomar für jede .lean-Datei im Repo den Modulkopf verlangt (P-13); zum Ausführen wieder als Check.lean speichern.

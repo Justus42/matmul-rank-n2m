@@ -1,15 +1,11 @@
 # formalization.yaml for the Palomar entry of MatMulRank.rank_four_two_four_eq_26 (task S5-08,
 # statement, name, description, Hopcroft-Kerr note and review.notes updated in task S5-21).
 #
-# PLACEHOLDERS: every place marked "TODO-REPOSITORY-OWNER" must be filled in by the
-# repository owner before any submission. No agent fills these fields and no agent submits.
-#   1. project.authors                  (humans only, Palomar rule)
-#   2. project.responsible_maintainers  (humans only, Palomar rule)
-#   3. the origin of the result: "original" or "source-based". This decides the entry with
-#      type original-proof and the relationship of the Yang source. Both prepared variants are
-#      in palomar/s5-08-bericht.md, section 6.
-# As long as a placeholder is present, the file does not pass Palomar's mechanical check
-# (on purpose).
+# Task S5-22: the fields reserved for the repository owner are filled in as the repository
+# owner decided on 26 November 2026: author and responsible maintainer, the origin of the
+# result ("original", variant A of palomar/s5-08-bericht.md, section 6, with the Yang source as
+# background), the wording "To our knowledge, the lower bound 26 is new", review.notes, and
+# model names under automation only where LOG.md records them. No agent submits.
 version: v0.4
 
 project:
@@ -22,19 +18,19 @@ project:
     characteristic, finiteness or algebraic closedness of K. The upper bound 26 is the known
     value of Hopcroft and Kerr (1971); here it is proved by an explicit algorithm with 26
     products and integer coefficients in {-1, 0, 1}, found by the project's own search and
-    checked by the Lean kernel. The lower bound 26 is new; the previously known lower bound
-    was 25 (J. Yang, arXiv:2609.14393, Theorem 2, which the development also formalises).
+    checked by the Lean kernel. To our knowledge, the lower bound 26 is new (literature search
+    recorded in lit/ of this repository); the previously known lower bound was 25 (J. Yang, arXiv:2609.14393, Theorem 2, which the development also formalises).
     The proof of the lower bound follows Yang's normal-form method for <n,2,m>:
     a decomposition of length 25 is moved over an algebraically closed field into a generic
     normal form and excluded case by case (four residual rank cases, a symmetric case, and two
     sub-cases of the case (5,8)). The work was carried out by AI models directed by the
     repository owner; no human mathematician has reviewed the proof.
-  # TODO-REPOSITORY-OWNER: list each human author (no AI model, agent, system or tool).
-  # Left empty on purpose: Palomar's mechanical check fails until this is filled in.
-  authors: []
-  # TODO-REPOSITORY-OWNER: list each human responsible maintainer (no AI model, agent,
-  # system or tool). Left empty on purpose: the mechanical check fails until it is filled in.
-  responsible_maintainers: []
+  authors:
+    - name: "Justus Jeserigk"
+      github: "Justus42"
+  responsible_maintainers:
+    - name: "Justus Jeserigk"
+      github: "Justus42"
   license: Apache-2.0
 
 classification:
@@ -42,14 +38,16 @@ classification:
   msc2020: [68Q17, 15A69, 14N07]
 
 sources:
-  - title: "TODO-REPOSITORY-OWNER: origin of the result (original or source-based), see palomar/s5-08-bericht.md section 6"
-    relationship: "TODO-REPOSITORY-OWNER"
+  - title: "Lower bound 26 for the tensor rank of <4,2,4> over every field"
+    type: original-proof
+    relationship: other
+    note: "First presented in this repository (literature check of 25/26 November 2026, recorded in lit/)."
   - title: "New lower bounds on tensor rank of (n,2,m) matrix multiplication with GPT-6"
     authors: ["Jason Yang"]
     type: paper
     id: "arXiv:2609.14393"
     location: "version 3 of 12 October 2026; normal form (N1), (N2), Theorem 2, Lemma 13"
-    relationship: "TODO-REPOSITORY-OWNER"
+    relationship: background
     note: >-
       Yang's Theorem 2 gives R(<n,2,m>) >= (n+2)m + n - 3 for m >= n >= 4, i.e. the bound 25
       for <4,2,4>; it is formalised in this repository (YangBounds.yang_theorem_two) and used
@@ -96,18 +94,22 @@ related_formalizations:
 automation:
   methods:
     - method: agent
-      models: ["claude-fable-5-2", "claude-opus-5-5"]
+      models: ["claude-opus-5-5", "Claude Fable 5.2"]
       framework: "Claude Code"
       tool_setup: >-
-        An orchestrating Claude session (Anthropic; Claude Fable 5.2 as reported by the model)
-        assigned single tasks to further Claude sessions (mostly Claude Opus 5.5 by their own
-        reports and commit trailers). These sessions wrote the prose proofs, the Lean
-        formalisation, this Challenge and Solution, the reviews and the literature checks.
+        An orchestrating Claude session (Anthropic) assigned single tasks to further Claude
+        sessions. These sessions wrote the prose proofs, the Lean formalisation, this Challenge
+        and Solution, the reviews and the literature checks. Model names are given only where
+        the project log (LOG.md) records them: claude-opus-5-5 as the model reported by task
+        sessions, and Claude Fable 5.2 as co-author of a commit by a Claude session. The model
+        of the other sessions, including the orchestrating session, is not recorded there; they
+        were Claude models (Anthropic).
     - method: other
-      models: ["GPT 6.2 Sol"]
+      models: ["openai/gpt-6.2-sol"]
       tool_setup: >-
-        GPT 6.2 Sol (OpenAI, via OpenRouter, high reasoning effort, batch), used only for
-        independent cross-checks: statement checks and second readings of reviews.
+        GPT 6.2 Sol (OpenAI, openai/gpt-6.2-sol via OpenRouter, high reasoning effort, batch),
+        used only for independent cross-checks: statement checks and second readings of
+        reviews.
     - method: other
       models: ["gemini-4-carbon"]
       tool_setup: "A Gemini model (Google), used for cross-checks in the early stages only."
@@ -134,6 +136,8 @@ review:
     on propext, Classical.choice and Quot.sound. On this state, lake comparator of the Lean
     4.36.0 toolchain, with Lean's kernel and NanoDa, accepted the Solution against the
     Challenge, and con-ron accepted the Solution export (run by an agent outside Palomar;
-    commands and output in palomar/BELEGE.md, section 1.7). The earlier statement checks
-    concern the lower bound only. The statement comparison of the Challenge file
-    MatMulRank/Challenge.lean with the statement "= 26" is a separate step.
+    commands and output in palomar/BELEGE.md, section 1.7). The statement of the Challenge
+    file MatMulRank/Challenge.lean, MatMulRank.rank_four_two_four_eq_26, was then compared
+    with the claim "= 26" independently by a reviewing model instance and by GPT 6.2 Sol;
+    both found that it matches (LOG.md; pruefvermerke/B-034.md;
+    lean/prosa/s5_abgleich_s5-20.md; versuche/s5-r5-sol-b034/gpt_antwort.md).
