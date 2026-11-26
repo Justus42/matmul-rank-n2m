@@ -1,0 +1,2 @@
+c conflicts:                         17731816            14849.71 per second
+c process-time:                        19m 54s            1194.08 seconds
