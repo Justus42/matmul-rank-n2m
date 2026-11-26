@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 3: Prüfer S4-12 und S4-13 geliefert, B-025 angelegt; Zähler je 1 von 3)
+Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 3: Prüfer S4-12 und S4-13 geliefert, B-025 angelegt, Vorgabe für die nächste Literaturwache; Zähler je 1 von 3)
 
 ## Aktuelle Stufe
 
@@ -14,7 +14,8 @@ Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 3: Prüfer S4-12 und S4-13 geliefe
 - Runde 1 von 6 vergeben etwa 06:52 UTC: 5 Subagenten, 0 Fremdmodell-Anfragen. S4-01 bis S4-03 Prüfer für B-017 bis B-019, S4-04 Verfahren mit 35 anlegen und nachrechnen, S4-05 Blind-Sucher. Die Berichte S3-03 und S3-04 stehen auf keiner Positivliste
 - Runde 1 von 6 abgeschlossen: 5 Subagenten, 0 Fremdmodell-Anfragen, etwa 48 Minuten nach Git (06:52 UTC bis 412ad8b um 07:40:05 UTC). Haltebedingung nicht erfüllt (Lesart c). B-017 bis B-019 behauptet, von einem Prüfer bestätigt. B-020 (obere Schranke 35) behauptet
 - Abbruchregel 2: Lesart (d) des Orchestrators gilt nicht (Justus, 26.11.2026, 09:47 UTC). Die Spuren gibt es erst ab Runde 2. Zähler nach Runde 2: Spur A 1 von 3, Spur B 1 von 3
-- Literaturwache vor Runde 3: PR #115 (Merge 35e2449), etwa 3 Minuten nach Git, nichts gefunden, Abbruchregel 3 greift nicht. 1 Subagent, 0 Fremdmodell-Anfragen
+- Literaturwache vor Runde 3: PR #115 (Merge 35e2449), etwa 3 Minuten nach Git, nichts gefunden, Abbruchregel 3 greift nicht. 1 Subagent, 0 Fremdmodell-Anfragen. Lief noch mit den bisherigen Netzsperren
+- **Vorgabe für die nächste Literaturwache** (Justus, 26.11.2026, 10:09 UTC, Wortlaut im Logbuch): Die Umgebung lässt jetzt arxiv.org samt Unterdomains, fmm.univ-lille.fr, eccc.weizmann.ac.il, zenodo.org, mathoverflow.net und api.semanticscholar.org durch. Die Wache liest direkt die Versionslisten von 2609.14393 und 2609.22054, die neuen Einträge in cs.CC und die FMM-Lille-Seite zu 2x3x7 und hält fest, was erreichbar war
 - Runde 3 von 6 vergeben etwa 09:53 UTC: 6 Subagenten (S4-12 bis S4-17), Fremdmodell höchstens zwei Sol-Anfragen, keine ohne Prüferbestätigung, bisher 1. Bleibt offen bis zur Sol-Antwort zu S4-07-D oder bis feststeht, dass keine Anfrage gestellt wird (Lesart f)
 - Runde 3, Zwischenstand: S4-12 und S4-13 geliefert. B-021 bis B-024 behauptet, von einem Prüfer bestätigt (B-024 K2 nur berichtigt). B-025 (Fallunterscheidung) angelegt, behauptet. Sol-Anfrage zu S4-07-D gestellt 10:05 UTC (1 von höchstens 2, Batch `openrouter:batch-1795687520-iFCKAiiJIQ1lIli8h29y`), Antwort steht aus
 - Runde 2 von 6 vergeben: S4-06 bis S4-09 etwa 07:42 UTC, S4-10 und S4-11 etwa 07:43 UTC nach Durchsicht des Gedächtnisses. 6 Subagenten, Fremdmodell in dieser Runde nicht geplant

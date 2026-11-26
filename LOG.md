@@ -2431,3 +2431,12 @@ Jeweils nur die Zieldatei geändert. Beide: 0 eigene Subagenten, 0 Fremdmodell-A
 - Nicht mitgegeben: Urteil des Prüfers, Zähler, Fristen, erwünschtes Ergebnis.
 - Ein erster Aufruf mit Dateipfaden wurde von der Bridge abgelehnt (Repo nicht freigegeben), ohne dass das Modell aufgerufen wurde. Er zählt nicht als Anfrage.
 - Fremdmodell-Anfragen in Runde 3 bisher: 1. Antwort folgt.
+
+**Nachtrag 26.11.2026, Runde 3: Vorgabe von Justus für die nächste Literaturwache (10:09 UTC, über den Orchestrator)**
+
+Wortlaut Justus (26.11.2026, 10:09:04 UTC):
+
+> Die Umgebung lässt jetzt arxiv.org samt Unterdomains, fmm.univ-lille.fr, eccc.weizmann.ac.il, zenodo.org, mathoverflow.net und api.semanticscholar.org durch. Die nächste Literaturwache liest die Versionslisten von 2609.14393 und 2609.22054, die neuen Einträge in cs.CC und die FMM-Lille-Seite zu 2x3x7 direkt und hält fest, was erreichbar war.
+
+- Als Vorgabe für die nächste Literaturwache in STATUS.md eingetragen.
+- Die Literaturwache vor Runde 3 (PR #115) lief noch mit den bisherigen Netzsperren. Das bleibt so vermerkt, sie wird nicht nachträglich anders bewertet.
