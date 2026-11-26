@@ -2838,3 +2838,13 @@ Eingetragen im Auftrag von Justus aus einem Chat außerhalb des Projekts, nach s
 **Geändert in `CLAUDE.md`:** Rollenname, Ausnahme für Portierungsaufträge in Regel 2, Commit-Betreffe in Regel 3, Verbot von Einreichungen in Regel 9, Abschnitt für den Orchestrator auf Stufe 5 gebracht.
 
 **Nicht geändert:** Abschnitt 5. Status aller Behauptungen. README und `ergebnisse/`.
+
+## 26.11.2026 · Startnachricht von Justus zu Stufe 5 (14:32:59 UTC)
+
+Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht):
+
+> Ich bin Justus. Protokoll 0.7 (Commit 1c15770) stammt von mir. Lies PROTOKOLL.md Abschnitt 3, 4, 6, 7, 9 und 11 sowie CLAUDE.md neu, dann STATUS.md und LOG.md. Du bist der Orchestrator mit den Rechten aus Abschnitt 11. Schließe zuerst Auflage 7 ab, falls Zweitlauf oder Textänderung noch offen sind. Führe dann die Literaturwache aus und starte Stufe 5 mit beiden Spuren. Kann ein Thread Lean, den Mathlib-Cache oder ein anderes Werkzeug nicht laden, nenne mir die gesperrten Domains, statt über Actions zu bauen.
+
+- Damit ist Protokoll 0.7 (Commit 1c15770) von Justus bestätigt. Stufe 5 ist gestartet (Spur P: Portierung für Palomar, Spur K: Kette zu 3×2×7 ohne Lean); Budget nach Abschnitt 6: 6 Runden mit je bis zu 6 Subagenten, höchstens 4 Fremdmodell-Anfragen.
+- Reihenfolge laut Orchestrator: erst Abschluss von Auflage 7 (Zweitlauf A7-Z läuft noch, danach Textänderung in README und `ergebnisse/rang-444.md`), dann Literaturwache, dann Stufe 5 mit beiden Spuren. Noch kein Auftrag der Stufe 5 vergeben.
+- Schreibhand: PROTOKOLL.md 0.7 und CLAUDE.md neu gelesen. Ab jetzt gilt 11.1 auch für die Commit-Betreffe der Schreibhand (keine Zählerstände, Fristen, Budgets, Statuswörter oder Urteile).

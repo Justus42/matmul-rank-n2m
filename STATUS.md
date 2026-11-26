@@ -1,8 +1,10 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 4 beendet nach Runde 6, Budget erschöpft, Fertig-Kriterium nicht erfüllt; Auflage 7: S4-26 gemergt, Zweitlauf-Prüfer A7-Z läuft)
+Zuletzt geändert: 26.11.2026 (Stufe 5 von Justus um 14:32 UTC gestartet, Protokoll 0.7; noch kein Auftrag vergeben. Zuerst Abschluss Auflage 7: Zweitlauf-Prüfer A7-Z läuft)
 
 ## Aktuelle Stufe
+
+**Stufe 5: Portierung für Palomar (Spur P) und Festigung der Kette zu 3×2×7 ohne Lean (Spur K)** (Protokoll 0.7, Abschnitt 3): von Justus gestartet am 26.11.2026, 14:32:59 UTC (Wortlaut im Logbuch). Protokoll 0.7 (1c15770) von ihm bestätigt. Budget: 6 Runden (beide Spuren zusammen), je bis zu 6 Subagenten, höchstens 4 Fremdmodell-Anfragen. Reihenfolge: Abschluss Auflage 7 (A7-Z läuft, dann Textänderung), Literaturwache, dann Runde 1. Noch kein Auftrag vergeben
 
 **Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): **beendet nach Runde 6, Budget erschöpft, Fertig-Kriterium nicht erfüllt** (Zusammenfassung im Abschnitt „Abschluss Stufe 4“). Verlauf: Nach Runde 4 angehalten (Abbruchregel 2 für Spur B, Bericht an Justus), Runde 5 von Justus um 12:27 UTC freigegeben. Spur B aufgegeben, Spur A läuft. Die Pause bis 29.11.2026 (Justus, 08:23 UTC) hat Justus um 09:47 UTC aufgehoben, Runde 3 darf starten
 
