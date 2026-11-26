@@ -2774,3 +2774,10 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 > 4. Der Auftrag läuft als Abschluss von Auflage 7 außerhalb der sechs Plätze von Runde 6, ohne Sol. Danach folgen wie besprochen der wiederholte Zweitlauf durch einen Prüfer und erst dann die Textänderung in README und `ergebnisse/rang-444.md`. Der Prüfer bestätigt auch, dass sich gegenüber `main` nur Beweiskörper geändert haben.
 
 - Orchestrator: S4-26 arbeitet auf PR #131 weiter, als Abschluss von Auflage 7 außerhalb der sechs Plätze von Runde 6, ohne Sol. Danach folgen der Zweitlauf-Prüfer und erst dann die Textänderung.
+
+**Runde 6: S4-34 (Prüfer B-028) geliefert (Schreibhand, aus Git und dem Bericht)**
+
+- PR #141, Zweig von 93c0df0, Commits 951e655 (13:16:39 UTC) und 56ddaae (13:16:45, Verweis korrigiert), Merge 069e1d8 (13:16:59 UTC). Ein Rechenblock von etwa 5 Sekunden. 0 Subagenten, 0 Fremdmodell.
+- Urteile: S4-28-A (i) bis (iv), S4-28-B (i) bis (v), S4-28-C erster Satz und „Gleichwertig“-Satz bestätigt; Zusatz „dicht und offen“ nur unter S4-21-A (B-030). Vier Hinweise zum Wortlaut ohne Folge für das Urteil. Der Beweis braucht den Beweis von Lemma A aus `yang_n3.md` (Schritte 1 bis 5), nicht nur die Aussage; vom Prüfer nachvollzogen. Offenlegung im Wortlaut in `pruefvermerke/B-028.md` (u. a. Commit-Meldungen mit Zählerstand, Abschnitt 2 von `yang_n3.md` zusätzlich gelesen).
+- Status B-028 (Orchestrator): behauptet.
+- Offen in Runde 6: S4-35 und die Sol-Antwort zu B-029 (beim Abholversuch um etwa 13:18 UTC noch in_progress).
