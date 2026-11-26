@@ -254,7 +254,7 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S5-11 | Spur K: Prüfer K-21 bis K-31 (Zeilen 379–549), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-11.md` | erledigt, PR #155 (Merge e66f391). K-21 bis K-31 zweite Bestätigung |
 | S5-12 | Spur K: Prüfer K-32 bis K-35 (Zeilen 550–627), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-12.md` | erledigt, PR #154 (Merge ddb64d1). K-32 bis K-35 zweite Bestätigung |
 | S5-13 | Spur K: Prüfer K-36 bis K-41 mit Prüfung der Quantoren (Zeilen 628–752, Rahmen 550–553), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-13.md` | erledigt, PR #157 (Merge 3ec3f62). K-36 bis K-39 und K-41 zweite Bestätigung; zu K-40 Lücke gemeldet (Urteil „offen“) |
-| S5-14 | Spur P: Cache-Probe, ggf. Bau der Kette auf `portierung`, Belege je Anforderung | Formalisierer | `palomar/BELEGE.md` | vergeben in Runde 3, etwa 15:38 UTC, PR an `portierung` |
+| S5-14 | Spur P: Cache-Probe, ggf. Bau der Kette auf `portierung`, Belege je Anforderung | Formalisierer | `palomar/BELEGE.md` | geliefert, PR #158 an `portierung` (Merge 9c364ba, Code-Stand 24845d3). Lokal bauen alle 26 Module der Kette, S4BedingterAusschluss, Challenge, Definitions, Solution auf Lean 4.36.0; Wortlaut von fünf Aussagen geändert (Schreibweise `p.coeff m`), neuer Hilfssatz `entryForm_apply`. Anforderungen: 32 mit Beleg erfüllt, P-26 teilweise, P-13 nicht erfüllt, P-23 braucht Comparator. Lauf in Actions siehe Logbuch |
 
 ## Stufe 3: abgeschlossen
 
