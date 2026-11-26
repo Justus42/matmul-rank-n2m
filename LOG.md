@@ -2195,3 +2195,31 @@ Nur Prüfung der Grundlage (Protokoll 0.6, Abschnitt 3). 5 Subagenten, keine Fre
 - Positivlisten wie von der Schreibhand genannt. Die Berichte S3-03 und S3-04 stehen auf keiner Liste.
 - Gedächtnis vor der Vergabe durchgesehen (siehe Eintrag „Start von Stufe 4“): nichts gefunden, was nicht hingehört.
 - Prüfvermerke `pruefvermerke/B-017.md` bis `B-019.md` mit Status behauptet angelegt, im Auftrag des Orchestrators.
+
+## 26.11.2026 · Stufe 4, Runde 1: Zwischenstand (4 von 5 Aufträgen geliefert, S4-05 läuft)
+
+**Lieferungen (auf main nachgesehen)**
+
+| Nr. | PR | Merge | Zieldatei | erster Commit | Merge-Zeit | Dauer ab Vergabe (etwa 06:52 UTC) |
+|---|---|---|---|---|---|---|
+| S4-03 | #103 | c2b1de9 | `lean/prosa/s4_327_bericht_s4-03.md` | 06:53:40 | 06:56:21 | etwa 4 Minuten |
+| S4-04 | #104 | 0e3327f | `verfahren/3x2x7-r35-hk71.json`, `verfahren/3x2x7-r35-nachrechnung.md` | 06:53:32 | 06:56:42 | etwa 5 Minuten |
+| S4-02 | #105 | ed289e7 | `lean/prosa/s4_327_bericht_s4-02.md` | 06:55:57 | 06:56:55 | etwa 5 Minuten |
+| S4-01 | #106 | 9541f51 | `lean/prosa/s4_327_bericht_s4-01.md` | 06:55:26 | 06:57:23 | etwa 5 Minuten |
+
+Alle UTC, aus Git. Alle vier melden 0 eigene Subagenten und 0 Fremdmodell-Anfragen.
+
+**Urteile der Prüfer (aus den Berichten, gegengelesen)**
+
+- S4-01 zu B-017: T1 bis T6 hält. T4: C1 (rk H = ρ + s) steht in keiner Quelle wörtlich, der Prüfer hat sie hergeleitet, die Liste hängt nach seiner Nachrechnung nicht davon ab. T5 mit Ergänzung: die normalisierte Länge kann sinken, für Längen bis 33 bleibt kein Fall. T7 (Abgleich mit S3-03 und S3-04) nicht entscheidbar, nicht auf der Positivliste. Eingeblendet: Index und zwei Einzeleinträge (`lean-upper-3x2x6`, `hk-verfahren-a10`).
+- S4-02 zu B-018: Prosa hält, Lean-Satz hält, Bau hält. Axiom-Bericht für `lemma15b` einzeln fehlt: nicht entscheidbar. Zahlenform hält mit Reparatur ((N1), (N2), ρ als volles Maximum, Länge r′ ≤ r). Offengelegt: einmal `ls` im Wurzelverzeichnis, Namen `zweitlauf.yml` und `lean/Zweitlauf` in einer Diff-Ausgabe gesehen.
+- S4-03 zu B-019: hält in allen vier Teilen. H stimmt mit der Identifikation c ↦ c_{1,2} sogar ohne Vorzeichen. `lemma_I` nicht einzeln im Axiom-Bericht. Der Prüfer konnte den sorry-Abschnitt des Logs wegen 403 nicht lesen. Die Schreibhand hat diesen Abschnitt im selben Job selbst gelesen: „SORRY: 0“ in beiden Zeilen.
+- S4-04: Verfahren selbst nach Hopcroft-Kerr gebaut, über ℤ, Koeffizienten −2 bis 2. Beide Prüfprogramme ANGENOMMEN, Rückgabewert 0. Gegenprobe mit Vorzeichenfehler von beiden abgelehnt. Keine fremden Daten. SHA-256 der Datei auf main stimmt mit dem Bericht überein (8a2445a6…). Beide Läufe hat der Ersteller selbst gestartet.
+
+**Statusentscheidungen des Orchestrators (strengere Lesart)**
+
+1. B-017, B-018, B-019 bleiben **behauptet**, mit Vermerk „von einem Prüfer bestätigt“ samt den genannten Ergänzungen und Reparaturen. Geprüft nach 5.1 setzt er nicht, weil je nur ein Leser vorliegt, Prosa-Teile dabei sind und der Axiom-Bericht für `lemma15b` und `lemma_I` einzeln fehlt.
+2. Verfahren mit 35 (obere Schranke 35 für 3×2×7): bleibt **behauptet**, bis ein Prüfer, der die Datei nicht gebaut hat, die beiden Läufe wiederholt. Vergabe in Runde 2.
+3. Haltebedingung von Runde 1 (mehr als zwei Restfälle oder nicht behebbarer Fehler in einem der beiden Lemmata): nach den Berichten nicht erfüllt. Weiter mit Runde 2 nach Abschluss von S4-05.
+
+**Gegengelesen (Schreibhand):** Die Urteile finden sich so in den Berichten. Zu Punkt 2: In Stufe 0 hat A-10 die Verfahren für 3×2×5 und 3×2×6 gebaut und beide Prüfprogramme selbst laufen lassen. Ein getrennter Prüfer hat die Läufe nicht wiederholt, der Status wurde trotzdem auf geprüft gesetzt (Eintrag Stufe 0, Runde 3). Bei B-010 (4×2×4 mit 26) hat dagegen ein getrennter Prüfer (S2-11) die Läufe wiederholt. Die strengere Lesart folgt dem Muster von B-010.
