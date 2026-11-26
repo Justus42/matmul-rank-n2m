@@ -152,3 +152,43 @@ Fall Δ ≤ 1: dann n₀ ≤ Δ ≤ 1 (aus Δ ≥ min(2,n₀)), Widerspruch zu n
 **Lücken im Beweis von Satz G.** Keine bekannte; benutzt werden nur (R1)–(R4), Yangs Lemma 6 (Normierung, inklusive der Wahl über unendlichem Körper), Lemma 8, Lemma 10 (Gl. 1) und Lemma 12. Diese Lemmata habe ich Zeile für Zeile nachgerechnet, sie aber nicht formalisiert. Prüfbedarf: ob Yangs Lemma 6 tatsächlich gleichzeitig α_t(e₀₀) = 1 für alle t und die starke Normierung liefert (es liefert D(e₀₀) invertierbar; die Reskalierung auf 1 ist eine Diagonalskalierung von α_t und C_t, die die starke Normierung erhält, weil sie J, p_i J nur koordinatenweise mit einer festen invertierbaren Diagonale multipliziert).
 
 **Symmetrie (vermutet, nicht ausgeschrieben).** Vertauscht man die beiden Spalten von A und die beiden Zeilen von B, erhält man wieder eine Zerlegung von ⟨3,2,7⟩ der Länge 34. Nach Normierung mit z₀ statt 1 gilt dann Satz G auch für (𝒯, J'): 𝒯J' = H, ein ω' mit 𝒯²ω' ⊆ z₀J' usw. Ebenso für jede generische Spaltenkombination. Für eine Normierung braucht man z₀ invertierbar; das ist eine generische Bedingung an den Spaltenbasiswechsel, den Lemma 6 ohnehin generisch wählt. Ich habe nicht ausgeschrieben, dass beide Normierungen gleichzeitig mit derselben Zerlegung möglich sind.
+
+## 5. Was gescheitert ist und wo die Methode nicht weiterreicht
+
+### 5.1 Welche Beziehungen Yangs Zählung benutzt und welche nicht
+
+Yangs Beweis für n = 3 benutzt aus (R1)–(R4) und (E) nur:
+* 𝒫J ⊆ H (R1),
+* die Relation (E) für i = 0 (Yangs Abbildung g) und, im Injektivitätsbeweis von Lemma 10, (R3) für i = 1, 2 unter W,
+* die starke Normierung.
+
+Nicht in die Dimensionszählung gehen ein: (E) für i = 1, 2 (also z_i b(v) − p_i b'(v) ∈ H), (R4) 𝒯J' ⊆ H, und die Bedingung (C4) als Komplementbedingung (K^r = H ⊕ 𝒯J, dim 13 + 21 = 34). Satz G (g) zeigt, dass (C4) zusammen mit dem Gleichheitsfall schon starke Trägerbedingungen erzwingt. Ein Widerspruch im Gleichheitsfall muss, wenn es ihn gibt, aus diesen nicht benutzten Beziehungen kommen; aus den in Satz G gesammelten Dimensionsdaten allein folgt er nicht (sie sind untereinander verträglich; ein Modell, das zusätzlich alle Beziehungen erfüllt, habe ich aber weder gebaut noch ausgeschlossen).
+
+### 5.2 Gescheiterte Ansätze
+
+1. **Tsyganovs Eigenvektor-Argument direkt.** Es braucht einen nichttrivialen p₁,p₂-invarianten Unterraum in J. Satz G (d) zeigt: Im Gleichheitsfall r = 34 gibt es keinen (J₃ = 0). Das Argument greift hier also nicht, anders als bei 24m/5 für m durch 5 teilbar. Grund: Yangs Schranke (24m+2)/5 ist um 2/5 stärker, und ihr Gleichheitsfall führt nur bis zur Tiefe 2 der Filtration J ⊇ J₁ ⊇ J₂ ⊇ J₃, nicht zu einem invarianten Raum.
+
+2. **Surjektivität von Yangs Abbildung Φ im Gleichheitsfall.** Gleichheit in Gl. 1 heißt nur, dass Φ : J³/(0 ⊕ N) → Q³ ein Isomorphismus ist. Das folgt aus Dimensionsgleichheit und Yangs Injektivität; es liefert keine neue Bedingung.
+
+3. **Spaltenmischung (Bündel in λ).** Mit Spalte e₀ + λe₁ statt e₀ erhält man über K(λ) eine weitere normierte Zerlegung, also ein ω_λ mit Satz G. Entwicklung nach λ an λ = 0 (ω_λ = ω + λω⁽¹⁾ + …, die Spezialisierung liegt in J₂, ist also ω) gibt in Ordnung λ¹ für jedes Polynom g vom Grad ≤ 3: (∇g · ζ)ω + g·ω⁽¹⁾ ∈ H. Nachgerechnet: das ist für g = ℓ·q genau die Relation (E) angewandt auf b(v) = qω. Es entsteht also nichts Neues. Gescheitert, weil die Mischung nur (E) neu verpackt.
+
+4. **Ansatz „J ∩ z₀J' = 0 ⇒ r ≥ 5m“.** H enthält J und z₀J', beide der Dimension m. Wäre J ∩ z₀J' = 0, folgte dim H ≥ 2m, also r ≥ 5m = 35. Ich habe dafür keinen Beweis. Für ⟨2,2,m⟩ (Rang 7m/2, dim H = 3m/2 < 2m) ist die entsprechende Aussage falsch, ein Beweis muss also die dritte Zeile von A wirklich benutzen. Aufgegeben aus Zeitgründen, nicht widerlegt.
+
+5. **Zählung pro Faser (vermutet, nicht ausgeschrieben).** Tsyganovs Normierungslemma (α_t mit gleichem Punkt (p₁(t),p₂(t)) spannen höchstens 2 Dimensionen) würde in Satz G (g) jede Faser über einem Punkt mit höchstens 2 Dimensionen beitragen lassen, also mindestens 14 (Fall A) bzw. 11 (Fall B) verschiedene Punkte in Σ geben. Offen ist, ob Tsyganovs Normierung gleichzeitig mit Yangs starker Normierung erreichbar ist; ich vermute ja (beides sind generische Bedingungen), habe es aber nicht ausgeschrieben.
+
+### 5.3 Genaue Stelle, an der die bekannten Methoden enden
+
+* Yangs Methode (Quotient H/J, Abbildungen F₁, F₂, g, Lemma 8, Lemma 12) liefert für m = 7 genau 34 und kann 34 nicht ausschließen, ohne neue Information: im Gleichheitsfall sind alle ihre Ungleichungen scharf (Satz G (a), (b), (c)), es bleibt kein Spielraum, den eine feinere Abschätzung derselben Größen nutzen könnte.
+* Tsyganovs Gleichheitsfall-Technik braucht einen invarianten Unterraum; der existiert in diesem Gleichheitsfall nachweislich nicht (Satz G (d)).
+* Benötigt wird ein Argument, das die Relationen (E) für i = 1, 2 und/oder die Komplementbedingung K^r = H ⊕ 𝒯J über die reine Dimensionszählung hinaus benutzt. Satz G liefert dafür den Ausgangspunkt: einen festen Vektor ω mit großem Träger, 𝒫²ω ⊆ J, und eine Zerlegung von K^34 in 𝒫³ω ⊕ 𝒯𝒫²ω ⊕ (Rest der Dimension 6 bzw. 12).
+
+## 6. Vorschläge für weitere Aufträge (nicht ausgeführt)
+
+1. Satz G prüfen lassen (Abschnitt 4 ist in sich abgeschlossen, braucht nur Yangs Lemmata 6, 8, 10, 12).
+2. Fall B getrennt angreifen: alle Punkte von Σ (mindestens 22 Koordinaten) liegen auf einem Kegelschnitt; nach einem Basiswechsel in den Zeilen von A ist das eine sehr spezielle Lage, in der sich (E) für i = 1, 2 mit der Parametrisierung des Kegelschnitts ausschreiben lässt.
+3. Fall A: Zerlegung K^34 = 𝒫³ω ⊕ 𝒯𝒫²ω ⊕ 𝒫u ⊕ 𝒯u (Dimensionen 10 + 18 + 3 + 3, folgt aus Satz G (f), (g) und (C4)) in die Relationen (E) einsetzen.
+4. Rechnerisch: Über kleinen endlichen Körpern nach Zerlegungen der Länge 34 suchen, die die Gestalt aus Satz G haben (Träger von ω ≥ 22). Das grenzt den Suchraum stark ein. Ein Fund über F_p wäre ein Gegenbeispiel nur über diesem Körper; ein Nichtfund beweist nichts für beliebige Körper.
+
+## 7. Verbrauch
+
+Subagenten: 0. Fremdmodell-Anfragen: 0. Rechenblöcke: 0 (keine Programme ausgeführt). Websuchen: 3, Volltextabrufe über alphaXiv: 4. Dauer: aus den Git-Zeitstempeln dieses Zweigs ablesbar.
