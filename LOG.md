@@ -3111,3 +3111,12 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - Fremdmodell (Orchestrator): Sol-Anfrage zum Aussagen-Abgleich der Challenge, gestellt 16:51 UTC, **Nr. 1 von 4 in Stufe 5** (die eine für Spur P), Batch `openrouter:batch-1795711860-xothKGbjihV4e3USCcdQ`, high. Wörtlich mitgegeben: `Challenge.lean` bei 03d49c7 und die behauptete Aussage in Worten, kein Urteil, kein erwünschtes Ergebnis. Die Antwort wird wörtlich nachgetragen.
 - Gedächtnisdurchsicht: Die Bestätigung der Schreibhand von 16:14 UTC gilt; seither hat nur der Orchestrator den Index auf Protokoll 0.7 nachgeführt (Regeltext). Keine neue Durchsicht.
 - Plan für Runde 6 (Orchestrator, bei Vergabe neu zu lesen): `portierung` nach `main` mergen und dort den Zweitlauf laufen lassen; der Rest von Spur K je nach Urteil.
+
+
+**Stufe 5, Runde 5: S5-20 (Prüfer, Aussagen-Abgleich zu B-034) geliefert (Schreibhand, aus Git und Bericht)**
+
+- PR #163, ein Commit c5e97be (16:54:24 UTC), Zweig von dc1c993 (16:30:45 UTC), Merge e5b4fc0 (16:54:37 UTC). Nur `lean/prosa/s5_abgleich_s5-20.md` hinzugefügt. Bearbeitungsdauer nach Git etwa 1 bis 2 Minuten ab der gemeldeten Vergabe (etwa 16:53 UTC); der Zweig hat nur einen Commit, ein früherer Zeitpunkt ist aus Git nicht ablesbar.
+- Auf dem Zweig (dc1c993) stand kein Urteil zu B-034: `pruefvermerke/B-034.md` dort nur mit Status behauptet und „Aussagen-Abgleich … steht aus“.
+- Urteil im Wortlaut: „**Stimmt überein.**“ für `MatMulRank.rank_four_two_four_eq_26` (Challenge Zeile 94, 03d49c7) gegen B-034. Vorbehalte: `Definitions.lean` nicht gelesen (Gleichheit nur über den `diff`-Schritt im Job-Log), Comparator im Job nicht gelaufen, `sInf`-Konvention nicht in der Mathlib-Quelle nachgelesen, untere Schranke (`Transponiert444.lean`) nicht Gegenstand. Einzelheiten in `pruefvermerke/B-034.md`.
+- Offenlegung: Index und drei Einzeleinträge des Gedächtnisses eingeblendet (`aussagen-abgleich-n3`, `gemini-bridge`, `lean-build-cloud`), laut Bericht ohne Bezug zu B-034.
+- Status (Orchestrator): B-034 bleibt behauptet, bis die Sol-Antwort vorliegt.

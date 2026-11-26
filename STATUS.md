@@ -267,7 +267,7 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S5-17 | Spur P: obere Schranke 26 für ⟨4,2,4⟩ als Lean-Satz aus dem Verfahren B-010, danach Challenge „Rang gleich 26“ (nur bei grünem Bau) | Formalisierer | `lean/prosa/s5_portierung_s5-17.md` | geliefert, PR #161 an `portierung` (Merge 03d49c7). Neu `Upper4x2x4.rank_four_two_four_le_26`, `Gleich444.rank_four_two_four_eq_26`; Challenge jetzt `tensorRank K 4 2 4 = 26`. Lauf 45858657049, Job 140043585790 grün. Als B-034 behauptet |
 | S5-18 | Spur K: Prüfer für den neuen Wortlaut von K-40 | Prüfer | `lean/prosa/s5_kette_bericht_s5-18.md` | vergeben in Runde 5, etwa 16:53 UTC |
 | S5-19 | Spur K: Prüfer für den neuen Wortlaut von K-40, unabhängig von S5-18 | Prüfer | `lean/prosa/s5_kette_bericht_s5-19.md` | vergeben in Runde 5, etwa 16:53 UTC |
-| S5-20 | Aussagen-Abgleich zu B-034 nach 5.1 Punkt 3 | Prüfer | `lean/prosa/s5_abgleich_s5-20.md` | vergeben in Runde 5, etwa 16:53 UTC, PR an `main` |
+| S5-20 | Aussagen-Abgleich zu B-034 nach 5.1 Punkt 3 | Prüfer | `lean/prosa/s5_abgleich_s5-20.md` | erledigt, PR #163 (Merge e5b4fc0). Urteil „stimmt überein“ mit Vorbehalten (Definitions.lean, Comparator, `sInf`); B-034 bleibt behauptet bis zur Sol-Antwort |
 | S5-21 | Spur P: BELEGE auf Stand „gleich 26“, `formalization.yaml` (ohne Felder des Eigentümers), Axiom-Ausgabe im Zweitlauf; keine Lean-Datei | Formalisierer | `palomar/BELEGE.md` | vergeben in Runde 5, etwa 16:53 UTC, PR an `portierung` |
 
 ## Stufe 3: abgeschlossen
