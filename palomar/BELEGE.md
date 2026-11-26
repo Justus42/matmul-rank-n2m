@@ -4,6 +4,11 @@ Auftrag S5-14, Stufe 5, Runde 3, Spur P (Portierungsauftrag). Zweig `claude/proj
 abgezweigt von `portierung` bei `4cad1ca2250fbdf7bd1369f7b411581895e5e10b`. Ziel des Pull Requests
 ist `portierung`.
 
+**Nachtrag S5-16** (Stufe 5, Runde 4, Spur P): Comparator und NanoDa liefen auf dem Stand
+`9c364ba08e3e0181ee56cf347f8f01bc8b963531` von `portierung` (Merge von S5-14, Code-Stand wie
+`24845d3`). Befehle und Ausgaben stehen in Abschnitt 1.7; geändert sind die Zeilen zu P-23,
+P-26 und P-36 in Abschnitt 4 sowie die Abschnitte 6 und 7. Zweig `claude/project-thread-0i13pp`.
+
 Diese Datei belegt jede Anforderung aus `palomar/ANFORDERUNGEN.md` einzeln. Ein Beleg ist ein
 Befehl mit seiner wörtlichen Ausgabe. „erfüllt“ steht nur dort, wo ein Befehl und seine Ausgabe
 hier abgedruckt sind. Nichts hier ist ein Prüfurteil im Sinne von Protokoll Abschnitt 5, und
@@ -233,13 +238,156 @@ Zweitlauf rot gemacht. Deshalb ist die Glob-Erweiterung mit Commit `24845d3` zur
 
 ### 1.6 Was der Bau nicht zeigt
 
-- Comparator und NanoDa (Palomars Vergleich von Challenge und Solution, P-23, P-26) liefen
-  nicht. Sie sind nicht in PalomarSubmission enthalten, sondern werden dort aus eigenen
-  Repos geholt und in einer Sandbox gebaut. Ob `MatMulRank.rank_four_two_four_ge_26` in
-  Challenge und Solution gleich elaboriert, ist damit offen.
+- (Stand S5-14) Comparator und NanoDa (Palomars Vergleich von Challenge und Solution, P-23,
+  P-26) liefen in S5-14 nicht. Nachtrag S5-16: Sie sind Teil der Lean-Toolchain 4.36.0
+  (`lake comparator`, `leanexport`, `nanoda_bin`, `con-ron`) und liefen auf `9c364ba`,
+  Abschnitt 1.7.
 - Der Bau in GitHub Actions auf diesem Stand ist nicht Teil dieses Auftrags (Fertig-Kriterium
   der Spur P). Er läuft nach dem Merge nach `portierung` automatisch.
 - Der Bau lief nicht ohne Netz (P-12).
+
+### 1.7 Comparator und NanoDa (Nachtrag S5-16)
+
+**Bezug.** Alle Läufe dieses Abschnitts beziehen sich auf den Commit
+`9c364ba08e3e0181ee56cf347f8f01bc8b963531` (Spitze von `portierung` beim Start von S5-16).
+Arbeitskopie mit `git clone --no-local` aus dem lokalen Repo und `git checkout 9c364ba`;
+`git status --porcelain` danach leer. Die Dateien `lean/MatMulRank/Challenge.lean`,
+`lean/MatMulRank/Solution.lean` und `lean/comparator.json` dieses Commits sind unverändert benutzt.
+
+**Woher die Werkzeuge kommen.** Palomar baut Comparator und NanoDa nicht selbst. Laut
+PalomarSubmission `046554302064b2c83c2b924bea6db87fc5900c68`, `.github/workflows/submission.yml`
+(Schritt „Install the submitted Lean toolchain“): „The submitted toolchain judges the submission:
+its `lake comparator`, `leanexport`, `leanchecker` and bundled kernels. Nothing else is built.“
+`scripts/verify_submission.py` Z. 68: `PROTECTED_KERNELS = (("nanoda", "nanoda_bin"), ("con-ron",
+"con-ron"))`. Die Toolchain kam aus dem GitHub-Release (`release.lean-lang.org` ist gesperrt):
+
+```
+$ curl -sSfL -o lean.zip https://github.com/leanprover/lean4/releases/download/v4.36.0/lean-4.36.0-linux.zip
+$ unzip -q lean.zip && ls lean-4.36.0-linux/bin
+beam-daemon cadical clang con-leche con-ron lake ld.lld lean lean-beam lean-beam-mcp lean4lean
+leanc leanchecker leanchecker-paranoid leanexport leanir leanmake leantar llvm-ar nanoda_bin
+$ curl -sSfL -o elan.tar.gz https://github.com/leanprover/elan/releases/download/v4.2.3/elan-x86_64-unknown-linux-gnu.tar.gz
+$ sha256sum elan.tar.gz
+df0b2b3a439961ffcbb3985214365ffe40f49bc871df04dff268c7d8e21ca8b2  elan.tar.gz
+$ elan toolchain link leanprover/lean4:v4.36.0 …/lean-4.36.0-linux
+$ lean --version
+Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+$ sha256sum bin/lake bin/leanexport bin/nanoda_bin bin/con-ron /usr/bin/bwrap
+42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2  bin/lake
+8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5  bin/leanexport
+8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8  bin/nanoda_bin
+4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef  bin/con-ron
+e318903862396f96de3df57264e0158682b952fd3fb53ac23d876413e7b30f71  /usr/bin/bwrap
+```
+
+Der Hash von `elan.tar.gz` ist der, den `submission.yml` verlangt. Der Hash von `con-ron` ist
+der `binary_sha256` in `checker-revisions.json` von PalomarSubmission. `lake comparator` braucht
+`bwrap`; installiert mit `apt-get install bubblewrap` (Ubuntu, `bubblewrap 0.9.0`). Palomar baut
+`bwrap` v0.12.0 aus den Quellen. Keine Domain war gesperrt, die für diese Läufe nötig war.
+
+**Vorbereitung.** `lake exe cache get` (Exit 0, „Decompressed 9117 file(s)“), dann
+
+```
+$ lake build MatMulRank.Solution MatMulRank.Challenge
+…
+info: YangBounds/Transponiert444.lean:678:0: 'YangBounds.Transponiert444.rank_four_two_four_ge_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [4262/4263] Built MatMulRank.Solution (881ms)
+Build completed successfully (4263 jobs).
+```
+
+Konfiguration für die Läufe (außerhalb des Repos, `/tmp/w/cmp/comparator-nanoda.json`): die vier
+Schlüssel von `lean/comparator.json` unverändert, dazu wie bei Palomar
+(`protected_comparator_config`, `verify_submission.py` Z. 1207–1235) der Schlüssel
+`external_kernels` mit NanoDa:
+
+```json
+{
+  "challenge_module": "MatMulRank.Challenge",
+  "solution_module": "MatMulRank.Solution",
+  "theorem_names": ["MatMulRank.rank_four_two_four_ge_26"],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "external_kernels": {"nanoda": ["/root/.elan/toolchains/leanprover--lean4---v4.36.0/bin/nanoda_bin"]}
+}
+```
+
+**Lauf A: `lake comparator` baut und exportiert selbst** (in `lean/`, mit Sandbox `bwrap`):
+
+```
+$ lake comparator --config /tmp/w/cmp/comparator-nanoda.json
+Resolving dependencies
+Building MatMulRank.Challenge
+⚠ [2128/2129] Replayed MatMulRank.Challenge
+warning: MatMulRank/Challenge.lean:95:8: declaration uses `sorry`
+Build completed successfully (2129 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, MatMulRank.rank_four_two_four_ge_26, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from MatMulRank.Challenge
+… (Bau der Solution, Warnungen und Axiom-Ausgaben der Kette)
+Build completed successfully (4261 jobs).
+Exporting #[… dieselbe Liste …] from MatMulRank.Solution
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution
+Lean default kernel accepts the solution
+Your solution is okay!
+
+real	1m16.332s
+exit=0
+```
+
+Im ganzen Protokoll von Lauf A steht `sorry` genau einmal, in der Zeile zur Challenge
+(`Challenge.lean:95:8`, die gewollte Lücke).
+
+**Lauf B: wie Palomars Richter, aus Exporten.** Palomar exportiert Challenge und Solution mit
+`leanexport <Modul> -- <Ziele>` (`export_module`, Z. 5356–5385; Ziele aus
+`comparator_export_targets`, Z. 5343–5353, gleich der Liste aus Lauf A) und ruft dann
+`lake comparator --config … --challenge-from-export … --solution-from-export …` in einem leeren
+Verzeichnis mit `PATH` nur auf Toolchain und Systemverzeichnisse (`judge_exports`, Z. 5491–5545).
+
+```
+$ T="Quot Quot.mk Quot.lift Quot.ind MatMulRank.rank_four_two_four_ge_26 propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam"
+$ lake env $B/leanexport MatMulRank.Challenge -- $T > challenge.export   # Exit 0
+$ lake env $B/leanexport MatMulRank.Solution -- $T > solution.export     # Exit 0
+$ sha256sum *.export
+364717abab7bed81901cd164d3d8edaf4b1c56dc7c104b96c7114cb02f577db5  challenge.export   (7.621.143 Byte)
+71669e02451d0b6087020b005e86a3ca8b6b4ba6ba7bfc797d23e8792b1d6d1f  solution.export    (210.547.528 Byte)
+$ cd <leeres Verzeichnis> && env -i PATH=$B:/usr/bin:/bin HOME=… TMPDIR=… LEAN_ABORT_ON_PANIC=1 \
+    COMPARATOR_BWRAP=/usr/bin/bwrap $B/lake comparator --config comparator-nanoda.json \
+    --challenge-from-export challenge.export --solution-from-export solution.export
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution
+Lean default kernel accepts the solution
+Your solution is okay!
+
+real	0m59.449s
+exit=0
+```
+
+**con-ron** (Palomar spielt ihn nach Lean und NanoDa nach, `replay_con_ron`, Z. 5216:
+`[binary, "--jobs=2", "--verified", solution_export]`):
+
+```
+$ $B/con-ron --jobs=2 --verified solution.export
+con-ron: 1 inductive blocks modelled in-process: Lean.Syntax (30 generated records, checked by the fold as declarations and not counted as records of the file)
+con-ron: accepted 26995 declarations (--verified)
+
+real	0m39.205s
+exit=0
+```
+
+**Gegenprobe** (zeigt, dass der Vergleich die Axiome prüft): dieselben Exporte, in der
+Konfiguration `permitted_axioms` ohne `Classical.choice`:
+
+```
+$ … lake comparator --config control-axioms.json --challenge-from-export challenge.export --solution-from-export solution.export
+Error: Illegal axiom detected: 'Classical.choice'
+exit=1
+```
+
+**Was diese Läufe nicht zeigen.** Sie sind kein Lauf von Palomars Prüfcode `execute`. Es
+fehlen: Palomars äußere Sandbox um Bau und Export; der Bau der Challenge aus einer kanonischen
+Kopie unter einem Modul-Alias (`compile_canonical_challenge`, Z. 6320–6335); `bwrap` v0.12.0
+statt 0.9.0; ein Bau ohne Netz. Der Bau der Solution nutzte die vorher gebauten Module
+(„Replayed“). Kein Aufruf von palomar-registry.org oder submit.palomar-registry.org.
 
 ## 2. Ausgaben von Palomars Prüfcode
 
@@ -578,10 +726,10 @@ belegbar), **Hinweis** (keine prüfbare Anforderung).
 | P-20 | erfüllt | E10: vier `public import Mathlib.…`; Abschnitt 2 `audit_challenge_sources` mit `lean --src-deps`: `untrusted_sources: []`, `trust_level: high`, einzige Herkunft `leanprover-community/mathlib4` |
 | P-21 | erfüllt | Abschnitt 2 `shadowing_dependency`: `null` für `MatMulRank.Challenge`; E10: kein `MatMulRank` an der Wurzel eines Pakets |
 | P-22 | redaktionell | E10: nur Mathlib-Importe; vor `structure BilinearAlgorithm`, `def tensorRank` und dem Satz steht je ein Docstring (Zeilen 68, 80, 94 enden mit `-/`); Modul-Dokumentation nennt Aussage und Grenzen. Ob das genügt, entscheidet die KI-Prüfung |
-| P-23 | braucht Bau | Comparator lief nicht (Abschnitt 1.6). Vorbereitet: gemeinsame Definitionen gleich (Abschnitt 1.4, `diff`) |
+| P-23 | erfüllt (S5-16, Commit `9c364ba`) | Abschnitt 1.7, Läufe A und B: `lake comparator` vergleicht Challenge und Solution und meldet „Your solution is okay!“, Exit 0. Damit sind die erreichten Deklarationen, auch `tensorRank` mit `exists_bilinearAlgorithm` (OF-3), in beiden Exporten gleich; sonst käme „Const does not match between challenge and target“ |
 | P-24 | erfüllt | E11: genau die vier Pflichtschlüssel; Abschnitt 2 `load_comparator_config` OK |
 | P-25 | erfüllt | E11: `permitted_axioms` = `propext`, `Quot.sound`, `Classical.choice`; Abschnitt 1.4: der verglichene Satz der Solution hängt genau von diesen ab |
-| P-26 | erfüllt für Bau und Axiom-Bericht; Comparator braucht Bau | Abschnitt 1.4: `MatMulRank.rank_four_two_four_ge_26` (Solution) `[propext, Classical.choice, Quot.sound]`, kein `sorryAx`, kein `Lean.ofReduceBool`; einziges `sorry` des Baus ist das gewollte der Challenge; `leanchecker` Abschnitt 1.5. Die Bestätigung durch Comparator und NanoDa fehlt |
+| P-26 | erfüllt (S5-16, Commit `9c364ba`) | Abschnitt 1.4: `MatMulRank.rank_four_two_four_ge_26` (Solution) `[propext, Classical.choice, Quot.sound]`, kein `sorryAx`, kein `Lean.ofReduceBool`; `leanchecker` Abschnitt 1.5. Abschnitt 1.7: Comparator mit `permitted_axioms` `propext`, `Quot.sound`, `Classical.choice` meldet „nanoda kernel accepts the solution“, „Lean default kernel accepts the solution“, „Your solution is okay!“ (Exit 0); con-ron „accepted 26995 declarations“; Gegenprobe ohne `Classical.choice` scheitert mit „Illegal axiom detected“ |
 | P-27 | erfüllt | E11: `lean/comparator.json` im gewählten Projekt, endet auf `.json`, eine Konfiguration |
 | P-28 | entfällt | E11: kein `definition_names` |
 | P-29 | erfüllt | E12: 7.036 Byte, `version v0.4`; Abschnitt 2: Palomars Lader (`UniqueKeySafeLoader`) liest die Datei und meldet nur die drei Angaben des Eigentümers; Fassungen A und B bestehen |
@@ -591,7 +739,7 @@ belegbar), **Hinweis** (keine prüfbare Anforderung).
 | P-33 | erfüllt | E12: `license Apache-2.0`; Abschnitt 2 `detect_spdx_identifier` → `"Apache-2.0"` |
 | P-34 | erfüllt | E12: `arxiv [cs.CC, math.AG, math.RA]`, `msc2020 [68Q17, 15A69, 14N07]`; Abschnitt 2: Fassungen A und B bestehen Palomars Lader, der die Codes gegen seine Listen prüft. Die Auswahl ist ein Vorschlag (S5-08) |
 | P-35 | erfüllt | E12: `methods ['agent', 'other', 'other']`; Fassungen A und B bestehen |
-| P-36 | erfüllt | E12: `review.status agent-reviewed`; Fassungen A und B bestehen. Der Text von `review.notes` nennt den Bau auf Lean 4.36.0 noch als ausstehend und ist nach Actions-Lauf und Aussagen-Abgleich nachzuführen (Abschnitt 6) |
+| P-36 | erfüllt | E12: `review.status agent-reviewed`; Fassungen A und B bestehen. `review.notes` in S5-16 nachgeführt (Bau auf Lean 4.36.0, Comparator); der Aussagen-Abgleich der Challenge steht dort weiter als eigener Schritt (Abschnitt 6) |
 | P-37 | Eigentümer (nicht erfüllt) | E12: `maintainers []`; Abschnitt 2: `project.responsible_maintainers must be a nonempty list` |
 | P-38 | Eigentümer (nicht erfüllt) | E12: zwei `relationship` sind `TODO-REPOSITORY-OWNER`; Abschnitt 2 meldet die Herkunft; Fassungen A und B bestehen |
 | P-39 | Eigentümer (nicht erfüllt) | Abschnitt 2: `sources for a source-based result must include a formalizes, adapts, or independently-proves relationship`; Fassung A (original) und B (source-based) bestehen |
@@ -608,9 +756,8 @@ belegbar), **Hinweis** (keine prüfbare Anforderung).
 | P-50 | Hinweis | – |
 | P-51 | Hinweis | Pfade `lean` und `lean/comparator.json` stehen; Modulnamen `MatMulRank.Challenge`, `MatMulRank.Solution` |
 
-Zählung: erfüllt 32 (P-1 bis P-11, P-14 bis P-21, P-24, P-25, P-27, P-29 bis P-31, P-33 bis P-36,
-P-40, P-41, P-43), dazu P-26 teilweise; nicht erfüllt 1 (P-13, außerhalb von `lean/`); braucht
-Bau 1 (P-23) und P-26 für Comparator; Eigentümer 7 (P-32, P-37, P-38, P-39, P-47, P-48, P-49);
+Zählung (Stand S5-16): erfüllt 34 (P-1 bis P-11, P-14 bis P-21, P-23 bis P-27, P-29 bis P-31,
+P-33 bis P-36, P-40, P-41, P-43); nicht erfüllt 1 (P-13, außerhalb von `lean/`); Eigentümer 7 (P-32, P-37, P-38, P-39, P-47, P-48, P-49);
 redaktionell 5 (P-22, P-42, P-44, P-45, P-46); entfällt 1 (P-28); Hinweis 3 (P-12, P-50, P-51).
 
 ## 5. Änderungen dieses Auftrags
@@ -633,12 +780,14 @@ Nicht geändert: `versuche/s2-19-abgleich/Check.lean` (außerhalb des Bereichs, 
    (OF-1 aus `palomar/ANFORDERUNGEN.md`).
 2. **P-32, P-37, P-38, P-39**: Autoren, verantwortliche Betreuer und die Wahl „original“ oder
    „source-based“ füllt der Repository-Eigentümer. Beide Fassungen bestehen Palomars Lader.
-3. **P-23, P-26**: Comparator- und NanoDa-Lauf fehlen.
+3. **P-23, P-26**: (S5-16) Comparator, NanoDa und con-ron liefen lokal auf `9c364ba`
+   (Abschnitt 1.7). Ein Lauf von Palomars eigenem `execute` mit äußerer Sandbox und kanonischer
+   Challenge steht aus; er geschieht erst bei der Einreichung.
 4. **Actions**: Grüner Lauf von `lean-project.yml` und `zweitlauf.yml` auf `portierung` nach dem
    Merge steht aus (Fertig-Kriterium). Lokal bauen alle Bauziele, und alle 30 gebauten Module
    bestehen `leanchecker`.
-5. **`lean/formalization.yaml`, `review.notes`**: nennt den Bau auf Lean 4.36.0 und den
-   Aussagen-Abgleich der Challenge als ausstehend. Nach Actions-Lauf und Abgleich nachführen.
+5. **`lean/formalization.yaml`, `review.notes`**: in S5-16 um den Bau auf Lean 4.36.0 und den
+   Comparator-Lauf ergänzt. Nach dem Aussagen-Abgleich der Challenge erneut nachführen.
 6. **`lean/Axioms.lean`** importiert das Wurzelmodul, das kein Bauziel ist (Abschnitt 1.2).
 7. **P-42**: `lean/README.md` erwähnt die Palomar-Dateien nicht.
 8. Warnungen im Bau (keine Fehler): `push_neg` ist veraltet („Prefer using `push Not`“),
@@ -662,6 +811,23 @@ Verbrauch: keine Subagenten, keine Fremdmodell-Anfrage. Rechenblöcke: `lake exe
 (etwa 3,5 min), `leanchecker` über alle Module (etwa 3 min), `leanchecker --fresh` (siehe
 Abschnitt 1.5, Zeitgrenze 25 min). Kein Block über 30 Minuten.
 
-Eingeblendetes Projektgedächtnis: der Index (`MEMORY.md`) mit Hinweisen zum Projekt, zu Rollen,
+**Nachtrag S5-16** (Zweig `claude/project-thread-0i13pp`, abgezweigt von `portierung` bei
+`9c364ba08e3e0181ee56cf347f8f01bc8b963531`):
+
+| Commit | Zeit (UTC, Commit-Zeit) | Betreff |
+| --- | --- | --- |
+| `3226b86` | 2026-11-26T16:15:47Z | S5-16 Zweitlauf bei Änderungen unter lean/ auf portierung starten |
+| (dieser Nachtrag) | siehe Git | S5-16 Comparator und NanoDa in den Belegen, review.notes nachgeführt |
+
+Geändert in S5-16: `palomar/BELEGE.md` (diese Datei), `lean/formalization.yaml` (nur
+`review.notes`), `.github/workflows/zweitlauf.yml` (Auslöser `push` auf `portierung` jetzt auch
+bei Änderungen unter `lean/**`; sonst unverändert). Verbrauch S5-16: keine Subagenten, keine
+Fremdmodell-Anfrage. Rechenblöcke: `lake exe cache get` (etwa 2 min), Bau (1,2 min), Lauf A
+(1,3 min), Exporte (unter 1 min), Lauf B (1 min), con-ron (0,7 min). Kein Block über 30 Minuten.
+Eingeblendet war in S5-16 der Index des Projektgedächtnisses und zwei Einzeleinträge zu Lean in
+der Cloud und zum Workflow `lean-project.yml`; keine Prüfurteile. Nichts ins Gedächtnis
+geschrieben.
+
+Eingeblendetes Projektgedächtnis (S5-14): der Index (`MEMORY.md`) mit Hinweisen zum Projekt, zu Rollen,
 Fremdmodell, Literaturwache und Merge-Verhalten; keine Prüfurteile. Ich habe nichts ins
 Gedächtnis geschrieben.

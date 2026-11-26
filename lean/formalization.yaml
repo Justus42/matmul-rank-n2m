@@ -120,5 +120,10 @@ review:
     YangBounds.Transponiert444.rank_four_two_four_ge_26 was built in GitHub Actions on
     Lean 4.19.0 and re-checked with lean4checker, and its statement was compared with the
     claim by a reviewing model instance and by GPT 6.2 Sol (ergebnisse/rang-444.md, section 2;
-    records in pruefvermerke/). The Challenge file MatMulRank/Challenge.lean is new; its own
-    statement comparison and the build on Lean 4.36.0 are separate steps.
+    records in pruefvermerke/). The library was then ported to Lean 4.36.0 and Mathlib v4.36.0
+    and builds there in GitHub Actions, with MatMulRank.rank_four_two_four_ge_26 depending only
+    on propext, Classical.choice and Quot.sound. On this state, lake comparator of the Lean
+    4.36.0 toolchain, with Lean's kernel and NanoDa, accepted the Solution against the
+    Challenge, and con-ron accepted the Solution export (run by an agent outside Palomar;
+    commands and output in palomar/BELEGE.md, section 1.7). The statement comparison of the
+    Challenge file MatMulRank/Challenge.lean itself is a separate step.
