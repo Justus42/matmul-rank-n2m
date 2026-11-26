@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 3 vergeben: zweite Lesung der Kette, S5-14 Spur P; Frage an Justus zu Spur P offen)
+Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 3 abgeschlossen, Runde 4 vergeben: Beweissucher K-40, Spur P Comparator und obere Schranke; Fragen an den Repository-Eigentümer offen)
 
 ## Aktuelle Stufe
 
@@ -15,6 +15,10 @@ Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 3 vergeben: zweite Lesung der Kett
 - Offen aus S5-08: Platzhalter in `formalization.yaml` (Autoren, Betreuer, „original/source-based“) für Justus; P-13 wegen `versuche/s2-19-abgleich/Check.lean` (OF-1); `lean_report.py` nicht angepasst
 - **Runde 3 von 6 vergeben etwa 15:38 UTC:** S5-09 bis S5-13 Prüfer der Kette (zweite Lesung, andere Prüfer, ausgeschriebene Nachrechnung je Glied verlangt), S5-14 Spur P (Cache-Probe, Belege mit Befehl und Ausgabe in `palomar/BELEGE.md`). 6 Subagenten, kein Fremdmodell
 - ~~Frage an Justus (15:37 UTC) zu Spur P~~ vorerst gegenstandslos: Justus hat um 15:37 UTC cache.mathlib.org freigegeben (Wortlaut im Logbuch). S5-14: Cache auf `portierung` geladen (15:39:53 bis 15:41:11 UTC, 9.117 Dateien, Exit 0), Bau läuft. Zähler Spur P am Ende von Runde 3 aus dem Bau
+- Runde 3, S5-09 bis S5-14 geliefert: K-1 bis K-39 und K-41 haben je zwei Bestätigungen (erste Lesung S5-04 bis S5-07, zweite Lesung S5-09 bis S5-13). **K-40: Lücke gemeldet von S5-13** (Urteil „offen“: kein zitierter Wortlaut sichert, dass in jeder Normalform ein v ∈ Ŝ mit v ≠ 0 existiert; Zeilen 725, 727, 742, 747, 749). Spur P: S5-14 baut die Kette auf Lean 4.36.0, Lauf in Actions auf `portierung` grün (Lauf 45854965737, Job 140030812193), 32 Anforderungen mit Beleg erfüllt
+- **Runde 3 von 6 abgeschlossen (Orchestrator):** 6 Subagenten (S5-09 bis S5-14), 0 Fremdmodell-Anfragen, etwa 32 Minuten nach Git (Vergabe etwa 15:38 UTC bis Merge 5407e79 um 16:09:37 UTC). Spur K: neue unabhängige Bestätigungen und eine gemeldete Lücke (K-40), Fortschritt, **Zähler 0 von 3**. Spur P: Module der Kette bauen neu auf `portierung`, Anforderungen mit Befehl und Ausgabe belegt (Lesart (l)), Fortschritt, **Zähler 0 von 3**. Budget 3 von 6 Runden verbraucht, Fremdmodell 0 von 4. Fertig-Kriterium keiner Spur erfüllt, keine Abbruchregel greift
+- **Runde 4 von 6 vergeben etwa 16:13 UTC:** S5-15 (Spur K, Beweissucher K-40), S5-16 und S5-17 (Spur P). 3 Subagenten, kein Fremdmodell, kein Prüfer. Lesart (m): Aussagen-Abgleich der Challenge (ein Prüfer und Sol) erst in Runde 5 auf festem Wortlaut, Merge nach `main` und Zweitlauf in Runde 6
+- **Fragen an den Repository-Eigentümer (16:11 UTC), offen:** ob ein Auftrag `versuche/s2-19-abgleich/Check.lean` anpassen oder entfernen darf (P-13); Angaben für `formalization.yaml` (Autoren, Betreuer, original oder source-based). Bis zur Antwort bleibt die Datei unberührt
 - **Offene Fragen aus S5-02** (`palomar/ANFORDERUNGEN.md` auf `portierung`): (1) Modulpflicht auch für `versuche/s2-19-abgleich/Check.lean` außerhalb von `lean/`; (2) Endung `.git` an der Mathlib-URL im Manifest; (3) `tensorRank` benutzt `exists_bilinearAlgorithm`, Platz in der Challenge; (4) original oder source-based, Entscheidung von Justus; (5) Inhalt von `llms.txt` unbekannt; (6) Prüfprogramm con-ron nur bis v4.35.0 hinterlegt
 - Umgebung: Freigabe für palomar-registry.org, *.palomar-registry.org und lakecache.blob.core.windows.net bei Justus beantragt (14:52 UTC). Gesperrt laut Probe des Orchestrators: lakecache.blob.core.windows.net, release.lean-lang.org, mathlib4.lean-cache.cloud, reservoir.lean-lang.org, lean-lang.org. Genauer Bedarf aus der Werkzeugprobe in S5-03
 
@@ -250,11 +254,14 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S5-07 | Spur K: Prüfer K-32 bis K-41 (Zeilen 550–752), erste Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-07.md` | erledigt, PR #152 (Merge 3565149). Eingetragen in `pruefvermerke/B-033.md`; Hinweis zur Struktur vermerkt |
 | S5-08 | Spur P: Aussagen-Datei, Lösungs-Modul, `comparator.json`, `formalization.yaml` (Platzhalter) | Formalisierer | `palomar/s5-08-bericht.md` | geliefert, nicht gebaut, PR #153 an `portierung` (Merge 4cad1ca). Challenge, Definitions, Solution, `comparator.json`, `formalization.yaml` (Platzhalter für Justus) |
 | S5-09 | Spur K: Prüfer K-1 bis K-12 (Zeilen 109–248), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-09.md` | erledigt, PR #156 (Merge 893eedf). K-1 bis K-12 zweite Bestätigung |
-| S5-10 | Spur K: Prüfer K-13 bis K-20 (Zeilen 249–378), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-10.md` | vergeben in Runde 3, etwa 15:38 UTC |
+| S5-10 | Spur K: Prüfer K-13 bis K-20 (Zeilen 249–378), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-10.md` | erledigt, PR #159 (Merge 5407e79). K-13 bis K-20 zweite Bestätigung |
 | S5-11 | Spur K: Prüfer K-21 bis K-31 (Zeilen 379–549), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-11.md` | erledigt, PR #155 (Merge e66f391). K-21 bis K-31 zweite Bestätigung |
 | S5-12 | Spur K: Prüfer K-32 bis K-35 (Zeilen 550–627), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-12.md` | erledigt, PR #154 (Merge ddb64d1). K-32 bis K-35 zweite Bestätigung |
 | S5-13 | Spur K: Prüfer K-36 bis K-41 mit Prüfung der Quantoren (Zeilen 628–752, Rahmen 550–553), zweite Lesung | Prüfer | `lean/prosa/s5_kette_bericht_s5-13.md` | erledigt, PR #157 (Merge 3ec3f62). K-36 bis K-39 und K-41 zweite Bestätigung; zu K-40 Lücke gemeldet (Urteil „offen“) |
 | S5-14 | Spur P: Cache-Probe, ggf. Bau der Kette auf `portierung`, Belege je Anforderung | Formalisierer | `palomar/BELEGE.md` | geliefert, PR #158 an `portierung` (Merge 9c364ba, Code-Stand 24845d3). Lokal bauen alle 26 Module der Kette, S4BedingterAusschluss, Challenge, Definitions, Solution auf Lean 4.36.0; Wortlaut von fünf Aussagen geändert (Schreibweise `p.coeff m`), neuer Hilfssatz `entryForm_apply`. Anforderungen: 32 mit Beleg erfüllt, P-26 teilweise, P-13 nicht erfüllt, P-23 braucht Comparator. Lauf in Actions siehe Logbuch |
+| S5-15 | Spur K: Beweissucher, Lücke in K-40 schließen oder bestätigen (Kettendatei unverändert) | Beweissucher | `lean/prosa/s5_327_k40.md` | vergeben in Runde 4, etwa 16:13 UTC, PR an `main` |
+| S5-16 | Spur P: Comparator und NanoDa lokal (P-23, P-26), `review.notes` in `lean/formalization.yaml`, `zweitlauf.yml` auf `portierung` zum Laufen bringen | Formalisierer | `palomar/BELEGE.md` | vergeben in Runde 4, etwa 16:13 UTC, PR an `portierung` |
+| S5-17 | Spur P: obere Schranke 26 für ⟨4,2,4⟩ als Lean-Satz aus dem Verfahren B-010, danach Challenge „Rang gleich 26“ (nur bei grünem Bau) | Formalisierer | `lean/prosa/s5_portierung_s5-17.md` | vergeben in Runde 4, etwa 16:13 UTC, PR an `portierung` |
 
 ## Stufe 3: abgeschlossen
 

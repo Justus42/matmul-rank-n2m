@@ -3046,3 +3046,25 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
   - „AXIOM-RESULT|MatMulRank.rank_four_two_four_ge_26|propext, Classical.choice, Quot.sound“
   - „TOTAL: STANDARD=62“
 - `zweitlauf.yml` (frischer Bau und `leanchecker`) lief für 9c364ba nicht; Auslösung per Push nur bei Änderung der Workflow-Datei, sonst `workflow_dispatch`.
+
+**Stufe 5, Runde 3: S5-10 (Prüfer K-13 bis K-20, zweite Lesung) geliefert (Schreibhand, aus Git und dem Bericht)**
+
+- PR #159, zwei Commits 5ea1f4d (16:07:52 UTC, Zweig von 1425198) und 1d722fa (16:09:07 UTC), Merge 5407e79 (16:09:37 UTC). Block Zeilen 249–378 (130 Zeilen), Bearbeitungsdauer nach Git etwa 31 Minuten. Längster Rechenblock laut Bericht 13 Minuten. Nur der Bericht geändert (1321 Zeilen). 0 Subagenten, 0 Fremdmodell.
+- K-13 bis K-20 je „bestätigt“, keine echte Lücke. Ausgeschriebene Nachrechnung je Glied (8 von 8), Programme (Anhänge A bis E) und Randfälle vorhanden. Ungenauigkeiten bei K-14 bis K-20 und im Rahmen (Zeile 251), teils wie S5-05. Der Satz zu „(3, 5, 3) ohne K-17“ in Zeile 364 ist nach dem Prüfer nicht nachprüfbar (Programm gesperrt) und nicht Teil des Beweises.
+- Damit haben alle Glieder K-1 bis K-41 außer K-40 je zwei Bestätigungen; zu K-40 ist eine Lücke gemeldet (S5-13). Einzelheiten in `pruefvermerke/B-033.md`.
+
+## 26.11.2026 · Stufe 5, Runde 3 von 6 abgeschlossen (Orchestrator)
+
+- 6 Subagenten (S5-09 bis S5-14), 0 Fremdmodell-Anfragen. Dauer nach Git etwa 32 Minuten (Vergabe etwa 15:38 UTC bis Merge 5407e79 um 16:09:37 UTC).
+- Spur K (Orchestrator): neue unabhängige Bestätigungen und eine gemeldete Lücke (K-40), Fortschritt nach Abschnitt 3, **Zähler 0 von 3**.
+- Spur P (Orchestrator): Module der Kette bauen neu auf `portierung` (Lauf 45854965737, Job 140030812193 grün), dazu Anforderungen mit Befehl und Ausgabe belegt (Lesart (l)), Fortschritt, **Zähler 0 von 3**.
+- Budget 3 von 6 Runden verbraucht, Fremdmodell 0 von 4. Fertig-Kriterium keiner Spur erfüllt, keine Abbruchregel greift.
+
+## 26.11.2026 · Stufe 5, Runde 4 von 6 vergeben (etwa 16:13 UTC)
+
+- S5-15, Spur K, Beweissucher: Lücke in K-40 schließen oder bestätigen, Zieldatei `lean/prosa/s5_327_k40.md`, PR an `main`. Die Kettendatei bleibt unverändert.
+- S5-16, Spur P: Comparator und NanoDa lokal für P-23 und P-26, `review.notes` in `lean/formalization.yaml`, `zweitlauf.yml` auf `portierung` zum Laufen bringen, Zieldatei `palomar/BELEGE.md`, PR an `portierung`.
+- S5-17, Spur P: obere Schranke 26 für ⟨4,2,4⟩ als Lean-Satz aus dem Verfahren B-010, danach Aussage der Challenge „Rang gleich 26“ (Protokoll Abschnitt 3: „Reicht das Budget …“), Bericht `lean/prosa/s5_portierung_s5-17.md`, PR an `portierung`. Baut es nicht grün, bleibt die Challenge bei „mindestens 26“.
+- 3 Subagenten, kein Fremdmodell, kein Prüfer.
+- **Lesart (m) (Orchestrator):** Der Aussagen-Abgleich der Aussagen-Datei (ein Prüfer und Sol) läuft erst in Runde 5 auf dem dann festen Wortlaut, weil nur eine Fremdmodell-Anfrage für Spur P erlaubt ist; Merge nach `main` und Zweitlauf in Runde 6. Das Budget reicht dafür ohne Reserve. Plan für Runde 5, bei Vergabe neu zu lesen: Abgleich-Prüfer für die Challenge, je nach Ergebnis von S5-15 zwei Prüfer für den neuen Wortlaut von K-40, Sol-Anfragen in Spur K nur zu Gliedern mit zwei Bestätigungen.
+- **Fragen an den Repository-Eigentümer (Orchestrator, 16:11 UTC):** ob ein Auftrag `versuche/s2-19-abgleich/Check.lean` anpassen oder entfernen darf (P-13), und Angaben für `formalization.yaml` (Autoren, Betreuer, original oder source-based). Bis zur Antwort bleibt die Datei unberührt (strengere Lesart).
