@@ -52,12 +52,13 @@ Je Behauptung gibt es eine Datei `pruefvermerke/B-xxx.md`. Sie beginnt mit der w
 | B-029 | S4-27-B, S4-27-C, S4-27-D zum Fall e = 3 (irgendeine Normalform) | behauptet (zwei Prüfer S4-32, S4-33 und Fremdmodell bestätigt, bedingt auf die Grundlagen; Fortschritt Spur A nach 2 b) in Runde 6, Frist in Stufe 4 nicht erfüllbar) | S4-27, PR #135 (Merge a7ecbc7) |
 | B-030 | Lemma O, Satz G, Lemma F aus S4-21 (Grundlage von B-028 und B-029) | behauptet (Lemma O, Satz G, Formeln von zwei Prüfern S4-30, S4-31 bestätigt; Lemma F im Wortlaut nicht, Zusatz α_t, α_t′ ≠ 0 offen) | S4-21, PR #127 (Merge 8a2c470) |
 | B-031 | Fall r = 34 nach Tsyganov et al.: f = 5 unmöglich, Gestalt bei f = 4 (S4-29) | behauptet | S4-29, PR #136 (Merge e54f8c8) |
+| B-032 | Verschärfung (7′), f = 5 ausgeschlossen bei r = 34 (S4-35) | behauptet | S4-35, PR #142 (Merge f43f265) |
 
 Spuren der Stufe 4 (Abbruchregel 2):
 
 | Spur | Status | Bemerkung |
 |---|---|---|
-| Spur A (Ausschluss des Restfalls R-327) | läuft | Zähler 2 von 3 nach Runde 5. Frist B-021 D geprüft bis Ende Runde 5: gehalten. Runde 5 ohne neuen Fortschritt (Lesart (i); S4-27, S4-28 nur behauptet) |
+| Spur A (Ausschluss des Restfalls R-327) | Stufe 4 beendet (Budget erschöpft) | Zähler 0 von 3 nach Runde 6 (Fortschritt nach 2 b) mit B-029; Frist für geprüft in Stufe 4 nicht erfüllbar) |
 | Spur B (Suche nach einem Verfahren mit 34) | aufgegeben | Orchestrator, 26.11.2026, Abschluss Runde 4: drei Runden in Folge ohne Fortschritt (Runden 2, 3, 4), Zähler 3 von 3. Kein Verfahren mit 34. Runde 2 ohne geeichtes Werkzeug, Runde 3 Positivprobe bei 35 nicht bestanden, Runde 4 Probe bestanden, aber Suche bei 34 ohne Fund und ohne vollständig abgesuchten Teilraum |
 
 Weitere geprüfte Ergebnisse ohne eigene Behauptungsdatei:

@@ -47,3 +47,4 @@ Eine Datei pro Behauptung, benannt `B-xxx.md`. Eine Behauptungsdatei enthält nu
 | B-029 | S4-27-B (Festlegung von κ auf Y), S4-27-C (lokaler Widerspruch), S4-27-D (kein Verfahren der Länge 34 mit irgendeiner Normalform e = 3, bedingt auf die Grundlagen) |
 | B-030 | Aus S4-21: Lemma O (Offenheit von e = 3), Satz G (Gestalt bei e = 3, „S4-21-G“), Lemma F |
 | B-031 | Fall r = 34 in den Bezeichnungen von Tsyganov et al.: Hilfssätze 1 und 2, Satz A (f = 5 unmöglich), Satz B (Gestalt bei f = 4) |
+| B-032 | Verschärfung (7′) von Ungleichung (7) nach Tsyganov et al. bei r = 34: f = 5 ausgeschlossen (S4-35) |

@@ -1,10 +1,10 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 6 von 6 vergeben; Spur A 2 von 3 (Lesart i); Spur B aufgegeben; S4-26 (Auflage 7) PR #131 offen, wartet auf Justus)
+Zuletzt geändert: 26.11.2026 (Stufe 4 beendet nach Runde 6, Budget erschöpft, Fertig-Kriterium nicht erfüllt; Auflage 7: S4-26 gemergt, Zweitlauf-Prüfer A7-Z läuft)
 
 ## Aktuelle Stufe
 
-**Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): läuft. Nach Runde 4 angehalten (Abbruchregel 2 für Spur B, Bericht an Justus), Runde 5 von Justus um 12:27 UTC freigegeben. Spur B aufgegeben, Spur A läuft. Die Pause bis 29.11.2026 (Justus, 08:23 UTC) hat Justus um 09:47 UTC aufgehoben, Runde 3 darf starten
+**Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): **beendet nach Runde 6, Budget erschöpft, Fertig-Kriterium nicht erfüllt** (Zusammenfassung im Abschnitt „Abschluss Stufe 4“). Verlauf: Nach Runde 4 angehalten (Abbruchregel 2 für Spur B, Bericht an Justus), Runde 5 von Justus um 12:27 UTC freigegeben. Spur B aufgegeben, Spur A läuft. Die Pause bis 29.11.2026 (Justus, 08:23 UTC) hat Justus um 09:47 UTC aufgehoben, Runde 3 darf starten
 
 - Von Justus gestartet am 26.11.2026, 06:43 UTC (Wortlaut im Logbuch). Protokoll 0.6 (c721297) von ihm bestätigt
 - Budget: 6 Runden mit je bis zu 6 Subagenten, Fremdmodell nur nach 5.5. Grundlage: `erkundung/s3-08-einschaetzung-327.md`
@@ -57,6 +57,9 @@ Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 6 von 6 vergeben; Spur A 2 von 3 (
 - **Runde 6, Fortschritt Spur A nach 2 b)** (Orchestrator): Ausschluss des benannten Falls „e = 3 ohne (INJ5)“ (S4-27-D, B-029) von zwei Prüfern und dem Fremdmodell bestätigt, bedingt auf Restfall, S4-07, Satz R, Satz G. Status behauptet. Frist für geprüft (Ende der übernächsten Runde) innerhalb von Stufe 4 nicht mehr erfüllbar, weil das Budget mit Runde 6 endet. Offener Punkt: Wortlaut „aus (B) und (C) allein“ in S4-27-C zu eng. Offen in Runde 6: S4-35
 - Abweichung von 5.4 (Fristen und Zähler): Die vier Prüfer sahen einen Zählerstand in einem Commit-Betreff der Schreibhand; kein Urteil sichtbar, Prüfungen gelten. Ab jetzt keine Zähler, Urteile oder Budgetstände in Commit-Betreffen
 - **Auflage 7, Entscheidung von Justus 13:16 UTC (Wortlaut im Logbuch):** S4-26 darf auf PR #131 Beweiskörper ändern, die ohne das Paket nicht bauen (beginnend `SatzB444.lean` Zeile 414), nur durch Mathlib, höchstens zehn Stellen, je lokaler Ersatz; außerhalb der sechs Plätze von Runde 6, ohne Sol. Danach Zweitlauf-Prüfer (bestätigt auch: nur Beweiskörper geändert), dann Textänderung in README und `ergebnisse/rang-444.md`
+- Runde 6, S4-35 geliefert (PR #142, Merge f43f265 um 13:52:20 UTC): Rang nicht bestimmt, 34 ≤ R ≤ 35. Eigenes Verfahren mit 35 (Flip-Graph über GF(2), auf ℤ gehoben, nicht unter `verfahren/`), Suche bei 34 ohne Fund. Verschärfung (7′) als B-032 angelegt, behauptet (gleiche Folgerung wie B-031 Satz A). Zwei Rechenblöcke mit Commit 00da560 dazwischen, je unter 30 Minuten; Abstand Commit zu Block 1 nur 7 Sekunden (Hinweis im Logbuch)
+- **Runde 6 von 6 abgeschlossen:** 6 Subagenten (S4-30 bis S4-35), 1 Fremdmodell-Anfrage (0,03 US-$), etwa 39 Minuten nach Git (Vergabe etwa 13:13 UTC bis Merge f43f265 um 13:52:20 UTC). **Spur A 0 von 3** (Fortschritt nach 2 b) mit B-029, Frist in Stufe 4 nicht erfüllbar), **Spur B aufgegeben**. Budget 6 von 6 Runden verbraucht. **Stufe 4 endet, Budget erschöpft, Fertig-Kriterium nicht erfüllt.** Nach Stufe 4 wird nichts mehr vergeben außer dem Abschluss von Auflage 7
+- **Auflage 7 (außerhalb von Stufe 4):** S4-26 gemergt (PR #131, Merge 62c3dc6 um 13:39:22 UTC). Lauf 45831268262, Job 139948343053 grün, SORRY 0/0, `rank_four_two_four_ge_26` nur Standard-Axiome, TOTAL STANDARD=60; eine Beweisänderung (`SatzB444.lean` Zeile 414), von der Schreibhand an Git und Log nachgeprüft. `lean/README.md` Zeilen 26 und 132 laut Bericht veraltet, nicht geändert. Zweitlauf-Prüfer A7-Z vergeben etwa 13:54 UTC (`lean/prosa/a7_zweitlauf_bericht.md`). Textänderung in README und `ergebnisse/rang-444.md` erst nach seinem Bericht
 - **Plan für Runde 5** (Orchestrator, bei Vergabe neu zu lesen): (1) und (2) zwei Abgleich-Prüfer für `s4_07_D` gegen B-021 D, die einander nicht sehen (Positivliste im Logbuch, Job 139899962532); (3) Wartungsauftrag Auflage 7; (4) Spur A: Lücke L-21 bzw. S4-21-V im Unterfall (M21); (5) Spur A: Fall e = 2 ohne (INJ-B); (6) unabhängiger Sucher (nicht blind). Prüfer für S4-21-G, S4-21-K, S4-21-L erst in Runde 6. Vor der Runde: Literaturwache nur bei neuer Sitzung, Gedächtnisdurchsicht
 - **Anweisungen von Justus (11:40 UTC, Wortlaut im Logbuch):** (1) README-Statuszeile auf Stand gebracht (PR #126, Merge aa0b426). (2) Ein Sucher heißt nur „blind“, wenn ihm nichts aus dem Projektgedächtnis eingeblendet war, sonst „unabhängiger Sucher (nicht blind)“. S4-05, S4-11, S4-17 und S4-23 waren nicht blind. Ob ein Blind-Sucher je Runde (Abschnitt 6) auf dieser Plattform möglich ist, legt der Orchestrator Justus vor. (3) Auflage 7 freigegeben: **Vorgabe für Runde 5:** ein Wartungsauftrag (zählt als einer der sechs Subagenten): Brücke zu `mm325_proof` aus `lean/YangBounds/Basic.lean` und die zugehörigen Zeilen in `lean/Axioms.lean` in eine eigene Datei außerhalb der Kette des Endsatzes, `Basic.lean` importiert das Paket nicht mehr; hängt mehr am Paket, berichten statt umbauen. Lesart (h): Axiom-Bericht läuft im Workflow des Wartungs-PRs; Prüfer für den Zweitlauf und Änderung von README und `ergebnisse/rang-444.md` frühestens in Runde 6. Runde 5 braucht außerdem zwei Plätze für die Abgleich-Prüfer zu B-021 D
 - **Entscheidung von Justus (11:55 UTC, Wortlaut im Logbuch):** (1) Die Vorgabe „Blind-Sucher“ aus Abschnitt 6 ist auf dieser Plattform nicht erfüllbar (Gedächtnisindex wird jedem Thread eingeblendet); je Runde läuft weiter ein unabhängiger Sucher (nicht blind). (2) Wiederholter Zweitlauf und Änderung von README und `ergebnisse/rang-444.md` gehören zu Auflage 7 aus Stufe 2, nicht zu Stufe 4. Endet Stufe 4 vor Runde 6, werden diese beiden Aufträge trotzdem noch vergeben, als Abschluss der Auflage; sonst nichts über das Stufenende hinaus
@@ -66,6 +69,69 @@ Zuletzt geändert: 26.11.2026 (Stufe 4, Runde 6 von 6 vergeben; Spur A 2 von 3 (
 - B-020 (R(⟨3,2,7⟩) ≤ 35 über ℤ, also über jedem Körper): **geprüft** nach 5.2, Läufe wiederholt durch S4-10. Kein Fortschritt nach Abbruchregel 2 (Lesart des Orchestrators)
 - Fertig mit einem Lean-Satz für die untere Schranke 35 über jedem Körper (geprüft nach 5.1 samt Abgleich des Endsatzes), einem nach 5.2 bestätigten Verfahren mit 34, erschöpftem Budget oder wenn eine Abbruchregel beide Spuren beendet
 - Kein Kontakt nach außen. README und `ergebnisse/` bleiben unverändert
+
+## Abschluss Stufe 4
+
+Zusammengestellt von der Schreibhand im Auftrag des Orchestrators, nur aus `LOG.md` und `pruefvermerke/`. Status setzt der Orchestrator.
+
+**Ende:** Stufe 4 endet nach Runde 6, weil das Budget von 6 Runden erschöpft ist. Das Fertig-Kriterium (Lean-Satz für die untere Schranke 35 über jedem Körper, geprüft nach 5.1, oder ein nach 5.2 bestätigtes Verfahren mit 34) ist nicht erfüllt. Spur A: 0 von 3 nach Runde 6, nicht aufgegeben, mit der Stufe beendet. Spur B: aufgegeben nach Runde 4 (Abbruchregel 2). Nach Stufe 4 wird nichts mehr vergeben außer dem Abschluss von Auflage 7 (Zweitlauf-Prüfer A7-Z, dann Textänderung). README und `ergebnisse/` sind in Stufe 4 unverändert.
+
+**Schranken für R(⟨3,2,7⟩):** 34 ≤ R ≤ 35.
+
+- Untere Schranke 34 aus der Literatur: Yangs Satz 1 (B-002, geprüft), für m = 7 ist ⌈(24·7+2)/5⌉ = 34.
+- Obere Schranke 35: B-020, geprüft (eigenes Verfahren `verfahren/3x2x7-r35-hk71.json` über ℤ, S4-04, Läufe wiederholt durch S4-10, nach 5.2).
+
+**Was geprüft ist:**
+
+- B-020 (obere Schranke 35).
+- B-021 D, erster Satz: Ausschluss des Falls „e = 3 mit (INJ5)“ (über formale Polynome), Lean-Satz `YangBounds.S4BedingterAusschluss.s4_07_D`, Job 139899962532, Abgleich S4-24 und S4-25. Die Lage (B-017 bis B-019) ist dort als Hypothese angenommen, ihre Herleitung ist nicht in Lean.
+
+**Behauptungen B-017 bis B-032:**
+
+| Nr. | Inhalt (kurz) | Status | Bestätigt von |
+|---|---|---|---|
+| B-017 | Restfall-Rechnung, genau ein Restfall (4, 6, 4) | behauptet | ein Prüfer (S4-01) |
+| B-018 | Lemma 15(b) bei d = 2 | behauptet | ein Prüfer (S4-02) |
+| B-019 | Lemma I für jede Normalform (yang_n4, d = 2) | behauptet | ein Prüfer (S4-03) |
+| B-020 | R(⟨3,2,7⟩) ≤ 35 über ℤ | geprüft | S4-04, S4-10 (5.2) |
+| B-021 | S4-07-A bis E | D erster Satz geprüft; A, B, C, E und D zweiter Satz behauptet | Lean `s4_07_D` (Job 139899962532), Abgleich S4-24, S4-25; ein Prüfer (S4-12); Fremdmodell zu D (Runde 3) |
+| B-022 | S4-06 A1 bis A6 | behauptet | ein Prüfer (S4-13) |
+| B-023 | Satz G (Gleichheitsfall r = 34, m = 7) | behauptet | ein Prüfer (S4-13) |
+| B-024 | Satz K | behauptet | ein Prüfer (S4-13; K1, K3 bestätigt, K2 berichtigt) |
+| B-025 | Fallunterscheidung nach e und (INJ5) | behauptet | Fall „e = 3 mit (INJ5)“ durch B-021 D geprüft ausgeschlossen, bedingt auf die Lage; Vollständigkeit ein Prüfer (S4-20) |
+| B-026 | Satz R (e = 3 ohne (INJ5)), Gestalt im Unterfall (M21) | behauptet | ein Prüfer (S4-19; Vorbehalt zu B (i)) |
+| B-027 | E2-A, E2-B, E2-D (e ≤ 2) | behauptet | ein Prüfer (S4-20); E2-D laut S4-28-A gegenstandslos, ungeprüft |
+| B-028 | S4-28-A bis C (jede Normalform e ≤ 2 unmöglich) | behauptet | ein Prüfer (S4-34); „dicht und offen“ nur unter S4-21-A |
+| B-029 | S4-27-B bis D (Normalform mit e = 3 unmöglich) | behauptet | zwei Prüfer (S4-32, S4-33) und Fremdmodell (Runde 6), bedingt auf die Grundlagen |
+| B-030 | Lemma O, Satz G, Lemma F aus S4-21 | behauptet | zwei Prüfer (S4-30, S4-31) für Lemma O, Satz G, Formeln; Lemma F im Wortlaut nicht bestätigt |
+| B-031 | Fall r = 34 nach Tsyganov et al.: f = 5 unmöglich, Gestalt bei f = 4 | behauptet | kein Prüfer |
+| B-032 | Verschärfung (7′), f = 5 ausgeschlossen bei r = 34 | behauptet | kein Prüfer |
+
+**Die Kette zum Restfall:** Restfall B-017 bis B-019, S4-07 (B-021), B-026 (Satz R), B-030 (Lemma O, Satz G, Lemma F), B-029 (Normalform mit e = 3 unmöglich), B-028 (jede Normalform e ≤ 2 unmöglich). Hielten alle Glieder und passten sie zueinander, wäre jedes Verfahren der Länge 34 ausgeschlossen. **Diese Kette ist nicht geprüft und wird nicht als Ergebnis bezeichnet.**
+
+**Offene Punkte:**
+
+- Lemma F (B-030) braucht die Voraussetzung α_t, α_{t′} ≠ 0; der Wortlaut ist nicht geändert. B-028 stützt sich direkt darauf, B-029 über Satz G.
+- Der Wortlaut „aus (B) und (C) allein“ in S4-27-C (B-029) ist zu eng gefasst (alle drei Stimmen).
+- Die Glieder des Restfalls (B-017 bis B-019, B-022 bis B-024, B-026 bis B-028) haben je nur einen Prüfer.
+- Die Kette ist nicht in Lean formalisiert, außer B-021 D erster Satz.
+- Abweichungen von 5.4 (Fristen und Zähler): Prüfer in Runde 6 sahen Zähler- und Budgetstand in Commit-Betreffen der Schreibhand (12e461c, dazu 3815b6c mit einem Status). Kein Urteil sichtbar, die Prüfungen gelten.
+- Ein Blind-Sucher nach Abschnitt 6 war auf dieser Plattform nicht erreichbar (Entscheidung von Justus, 11:55 UTC); je Runde lief ein unabhängiger Sucher (nicht blind).
+
+**Verbrauch (aus dem Logbuch, Dauern nach Git):**
+
+| Runde | Subagenten | Fremdmodell | Dauer nach Git |
+|---|---|---|---|
+| 1 | 5 | 0 | etwa 48 Minuten |
+| 2 | 6 | 0 | etwa 50 Minuten |
+| 3 | 6 | 1 (0,05 US-$) | etwa 79 Minuten |
+| 4 | 6 | 0 | etwa 48 Minuten |
+| 5 | 6 | 0 | etwa 36 Minuten |
+| 6 | 6 | 1 (0,03 US-$) | etwa 39 Minuten |
+| Summe Runden | 35 | 2 (0,08 US-$) | etwa 5 Stunden |
+
+- Außerhalb der Runden: 3 Literaturwachen (PR #102, #115, #122), je 1 Subagent. Zusammen 38 Subagenten in Stufe 4. S4-26 (Auflage 7) belegte einen Platz in Runde 5 und arbeitete danach außerhalb der Plätze weiter; der Zweitlauf-Prüfer A7-Z zählt nicht zu Stufe 4.
+- Dauer von Stufe 4 nach Git: Start durch Justus 06:43 UTC (erste Literaturwache ab 06:45:26 UTC) bis Merge f43f265 um 13:52:20 UTC, etwa 7 Stunden 9 Minuten, einschließlich der Pause nach Runde 2 (bis 09:47 UTC) und des Halts nach Runde 4 (bis 12:27 UTC).
 
 ## Wiederaufnahme
 
@@ -148,7 +214,7 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S4-23 | Unabhängiger Sucher (nicht blind) | Unabhängiger Sucher (nicht blind) | `versuche/s4-blind-r4.md` | erledigt in Runde 4, PR #129. Rang nicht bestimmt. Behauptet S4-23-A, S4-23-B; vermutet R = 35. Eingeblendet: Index und vier Einzeleinträge |
 | S4-24 | Aussagen-Abgleich `s4_07_D` gegen B-021 D (erster Satz) | Prüfer | `lean/prosa/s4_327_abgleich_s4-24.md` | erledigt in Runde 5, PR #132. Stimmt überein (formale Lesart von (INJ5)), Vorbehalte V1, V2 |
 | S4-25 | Aussagen-Abgleich `s4_07_D` gegen B-021 D, unabhängig von S4-24 | Prüfer | `lean/prosa/s4_327_abgleich_s4-25.md` | erledigt in Runde 5, PR #133. Stimmt überein (formale Lesart von (INJ5)), gleicher Lesart-Vorbehalt |
-| S4-26 | Lean-Wartung Auflage 7 (Brücke zu `mm325_proof` aus der Kette des Endsatzes) | Formalisierer | `lean/prosa/auflage7_entkopplung_s4-26.md` | geliefert in Runde 5, PR #131 offen, Lauf rot (Job 139911775768). Nach Entscheidung von Justus (13:16 UTC) weiter auf PR #131: Beweiskörper durch Mathlib ersetzen, außerhalb der Plätze von Runde 6 |
+| S4-26 | Lean-Wartung Auflage 7 (Brücke zu `mm325_proof` aus der Kette des Endsatzes) | Formalisierer | `lean/prosa/auflage7_entkopplung_s4-26.md` | erledigt (Abschluss Auflage 7, außerhalb der Plätze von Runde 6), PR #131 (Merge 62c3dc6). Erster Lauf rot (Job 139911775768); nach Entscheidung von Justus (13:16 UTC) eine Beweisänderung (`SatzB444.lean` Zeile 414), Lauf 45831268262, Job 139948343053 grün, SORRY 0/0 |
 | S4-27 | Spur A: Schritt S4-21-V im Unterfall (M21), beide Richtungen | Beweissucher | `lean/prosa/s4_327_spurA_r5_m21.md` | erledigt in Runde 5, PR #135. Behauptet S4-27-B, C, D (B-029): kein Verfahren mit irgendeiner Normalform e = 3, ohne S4-21-V |
 | S4-28 | Spur A: Fall e = 2 ohne (INJ-B), beide Richtungen | Beweissucher | `lean/prosa/s4_327_spurA_r5_e2.md` | erledigt in Runde 5, PR #134. Behauptet S4-28-A, B, C (B-028): kein Verfahren, bei dem jede Normalform e ≤ 2 hat |
 | S4-29 | Unabhängiger Sucher (nicht blind) | Unabhängiger Sucher (nicht blind) | `versuche/s4-unabhaengig-r5.md` | erledigt in Runde 5, PR #136. Rang nicht bestimmt (34 ≤ R ≤ 35). Behauptet Satz A (f = 5 unmöglich), Satz B (Gestalt bei f = 4) in B-031; vermutet R = 35. Eingeblendet: Index und fünf Einzeleinträge |
@@ -157,7 +223,8 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S4-32 | Prüfer B-029 (S4-27-B, C, D) | Prüfer | `lean/prosa/s4_327_bericht_s4-32.md` | erledigt in Runde 6, PR #137. B, C, D bestätigt (D bedingt auf die Grundlagen) |
 | S4-33 | Prüfer B-029, unabhängig von S4-32 | Prüfer | `lean/prosa/s4_327_bericht_s4-33.md` | erledigt in Runde 6, PR #138. B, C, D erster Satz bestätigt (bedingt); D zweiter Satz nur in einer Lesart |
 | S4-34 | Prüfer B-028 (S4-28-A, B, C) | Prüfer | `lean/prosa/s4_327_bericht_s4-34.md` | erledigt in Runde 6, PR #141. A, B, C bestätigt; Zusatz „dicht und offen“ nur unter S4-21-A |
-| S4-35 | Unabhängiger Sucher (nicht blind) | Unabhängiger Sucher (nicht blind) | `versuche/s4-unabhaengig-r6.md` | vergeben in Runde 6 |
+| S4-35 | Unabhängiger Sucher (nicht blind) | Unabhängiger Sucher (nicht blind) | `versuche/s4-unabhaengig-r6.md` | erledigt, PR #142 (Merge f43f265). Rang nicht bestimmt; B-032 angelegt, behauptet |
+| A7-Z | Zweitlauf-Prüfer Auflage 7 (wiederholter Lauf, nur Beweiskörper gegenüber `main` geändert) | Prüfer | `lean/prosa/a7_zweitlauf_bericht.md` | vergeben etwa 13:54 UTC, außerhalb von Stufe 4 |
 
 ## Stufe 3: abgeschlossen
 

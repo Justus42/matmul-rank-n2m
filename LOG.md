@@ -2791,3 +2791,28 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 - Keine Sol-Anfrage zu B-028: Der Beweis ist ohne große Teile von S4-15 und S4-07 nicht in einen Auftragstext zu fassen, und 5.5 verlangt Sparsamkeit.
 - Offener Punkt aus allen drei Stimmen: Der Wortlaut „aus (B) und (C) allein“ in S4-27-C ist zu eng gefasst.
 - Fremdmodell in Stufe 4 bisher: 2 Anfragen (Runde 3: 1, Runde 6: 1).
+
+**Runde 6: S4-35 (unabhängiger Sucher, nicht blind) geliefert (Schreibhand, aus Git und dem Bericht)**
+
+- PR #142, Datei `versuche/s4-unabhaengig-r6.md`. Commits 00da560 (13:26:16 UTC) und d58fa26 (13:51:52 UTC), Merge f43f265 (13:52:20 UTC). 0 Subagenten, 0 Fremdmodell-Anfragen.
+- Ergebnis laut Bericht: Rang nicht bestimmt, 34 ≤ R(⟨3,2,7⟩) ≤ 35 (Schranken aus der Literatur, kein neuer Wert). Eigenes Verfahren mit 35 über einen Flip-Graphen über GF(2), auf ℤ gehoben, nicht unter `verfahren/` abgelegt. Suche bei 34 ohne Fund. Eigene Verschärfung (7′) im Fall r = 34: f = 5 ausgeschlossen (Abschnitt 4.2, von der Quelle selbst als „vermutet richtig“ bezeichnet). B-032 angelegt, behauptet, ohne Prüfer.
+- Hinweis ohne Wertung: Die Folgerung von B-032 (f = 5 ausgeschlossen bei r = 34) ist dieselbe wie B-031 Satz A (S4-29); die Herleitungen sind verschieden.
+- Rechenblöcke nach Lesart (e) (Schreibhand, aus Bericht und Git): Vorläufe etwa 13:17 bis 13:26 UTC (etwa 9 Minuten, 4 Kerne), dann Commit 00da560 (13:26:16), dann Block 1 von 13:26:23 bis 13:51:26 UTC (etwa 25 Minuten, 4 Kerne), dann Commit d58fa26. Formal zwei Blöcke mit Commit dazwischen, je unter 30 Minuten. Hinweis ohne Wertung: Zwischen Commit 00da560 und dem Beginn von Block 1 liegen 7 Sekunden; ohne den Commit wären es zusammen etwa 34 Minuten.
+- Offenlegung im Wortlaut des Berichts (Abschnitt 0), zusammengefasst nach Punkten: eingeblendet waren der Gedächtnis-Index und die Einzeleinträge `hk-verfahren-a10`, `lean-upper-3x2x6`, `gemini-bridge`, `git-regeln`, `verfahren-datenformat`; die arXiv-Nummer war aus dem Index bekannt; ein Suchtreffer fasste die GitHub-Seite des Repos zusammen; `ls versuche` zeigte Dateinamen; gelesen wurde nur `CLAUDE.md`.
+
+**Runde 6 von 6 abgeschlossen (Orchestrator, 26.11.2026)**
+
+- 6 Subagenten (S4-30 bis S4-35), 1 Fremdmodell-Anfrage (Sol zu B-029, 0,03 US-$). Dauer nach Git etwa 39 Minuten (Vergabe etwa 13:13 UTC, S4-31 nennt 13:10 UTC, bis Merge f43f265 um 13:52:20 UTC).
+- Spur A: Zähler 0 von 3 nach Runde 6 (Fortschritt nach 2 b) mit B-029; Frist für geprüft in Stufe 4 nicht erfüllbar). Spur B: aufgegeben. Budget: 6 von 6 Runden verbraucht.
+- **Stufe 4 endet, weil das Budget erschöpft ist. Das Fertig-Kriterium ist nicht erfüllt.** Nach Stufe 4 wird nichts mehr vergeben außer dem Abschluss von Auflage 7.
+- README und `ergebnisse/` bleiben unverändert.
+
+**Auflage 7 (außerhalb von Stufe 4): S4-26 abgeschlossen, an Git und am Log nachgeprüft (Schreibhand)**
+
+- PR #131, Merge 62c3dc6 (13:39:22 UTC). Commits auf dem Zweig: dd30475, b546caf, 67538f5, 72a4208 (13:17:00 UTC, Ersatz in Zeile 414), 25f8d82 (13:30:36 UTC, Bericht). Geänderte Dateien: `lean/Axioms.lean` (−2), `lean/AxiomsMM325.lean` (+7), `lean/YangBounds/Basic.lean` (63 Zeilen), `lean/YangBounds/BrueckeMM325.lean` (+58), `lean/YangBounds/SatzB444.lean` (1 Zeile), `lean/prosa/auflage7_entkopplung_s4-26.md` (+102).
+- Einzige Beweisänderung, `lean/YangBounds/SatzB444.lean` Zeile 414, aus dem Diff:
+  - alt: `have h12 : finrank K (Fin 3 → Fin 4 → K) = 12 := by simp`
+  - neu: `have h12 : finrank K (Fin 3 → Fin 4 → K) = 12 := by rw [Module.finrank_pi_fintype]; simp`
+- Lauf 45831268262, Job 139948343053 auf 62c3dc6: success (13:39:29 bis 13:46:47 UTC). Im Log: `SORRY: 0 declaration(s) with 'declaration uses sorry' in the build log`, `SORRY: 0 'sorry' token(s) in the sources outside comments`; `'YangBounds.Transponiert444.rank_four_two_four_ge_26' depends on axioms: [propext, Classical.choice, Quot.sound]` mit `[STANDARD]`; `TOTAL: STANDARD=60`. Angaben des Orchestrators (Merge, Lauf, Job, grün, SORRY 0/0, eine Beweisänderung) stimmen mit Git und Log überein.
+- `lean/README.md` Zeilen 26 und 132 sind laut Bericht veraltet (Zeile 26 nennt die Abhängigkeit `mm325_lower_bound`, Zeile 132 drei `sorry` aus früherem Stand). Nicht geändert.
+- Zweitlauf-Prüfer A7-Z vergeben etwa 13:54 UTC, Bericht `lean/prosa/a7_zweitlauf_bericht.md`; bestätigt auch, dass sich gegenüber `main` nur Beweiskörper geändert haben. Die Textänderung in README und `ergebnisse/rang-444.md` folgt erst nach seinem Bericht.
