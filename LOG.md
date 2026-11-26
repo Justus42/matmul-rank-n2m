@@ -2888,3 +2888,15 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - Ausgeführt von der Schreibhand: Zweig `lean-4.19` auf Commit `71240f81988ae10323af035c3273a45b5038ac3a` angelegt und gepusht (etwa 14:51 UTC). `git ls-remote`: `refs/heads/lean-4.19` und `refs/heads/portierung` stehen beide auf 71240f8. Der Zweig `lean-4.19` wird nie verändert. Das lokal angelegte Tag ist gelöscht, auf dem Server gab es nie eins.
 - Lesart (j) ist damit erledigt (Orchestrator): Spur P darf starten. Der Zweig `portierung` bleibt auf 71240f8 als Ausgangspunkt.
 - Punkt 2 (Freigabeliste, Testlauf Lean und Mathlib-Cache) übernimmt der Orchestrator.
+
+**Stufe 5, Runde 1: Spur P vergeben (etwa 14:53 UTC, in derselben Runde wie S5-01)**
+
+- S5-02, Spur P: Anforderungen von Palomar, Zieldatei `palomar/ANFORDERUNGEN.md`, Pull Request an `portierung`.
+- S5-03, Spur P: Portierungsauftrag (Werkzeugprobe, Umstellung von Toolchain und Mathlib, Brücke und `mm325_proof` entfernen, Module in Importreihenfolge), Bericht `lean/prosa/s5_portierung_s5-03.md`, Pull Request an `portierung`.
+- Runde 1 hat damit 3 Subagenten (S5-01, S5-02, S5-03), kein Fremdmodell.
+
+**Umgebung: Freigabeliste und Ladbarkeit von Lean (Punkt 2 der Nachricht von Justus, 14:50 UTC)**
+
+- Justus hat verlangt, die Freigabeliste um palomar-registry.org und *.palomar-registry.org zu ergänzen und die Ladbarkeit von Lean und Mathlib-Cache zu testen (Wortlaut oben).
+- Der Orchestrator kann die Freigabeliste nicht selbst ändern (kein Werkzeug) und hat Justus um 14:52 UTC gebeten, palomar-registry.org, *.palomar-registry.org und lakecache.blob.core.windows.net selbst einzutragen.
+- Probe des Orchestrators (laut seiner Meldung): erreichbar GitHub-Releases für elan und Lean 4.35.0-rc2, Mathlib über git und `toolchains.json`; gesperrt lakecache.blob.core.windows.net, release.lean-lang.org, mathlib4.lean-cache.cloud, reservoir.lean-lang.org, lean-lang.org. Der genaue Bedarf an Domains folgt aus der Werkzeugprobe in S5-03.

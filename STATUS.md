@@ -1,12 +1,13 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 1: S5-01 Spur K vergeben; Zweig lean-4.19 auf 71240f8 statt Tag, Spur P darf starten. Auflage 7 abgeschlossen)
+Zuletzt geändert: 26.11.2026 (Stufe 5, Runde 1 vergeben: S5-01 Spur K, S5-02 und S5-03 Spur P; Zweig lean-4.19 auf 71240f8 statt Tag. Auflage 7 abgeschlossen)
 
 ## Aktuelle Stufe
 
 **Stufe 5: Portierung für Palomar (Spur P) und Festigung der Kette zu 3×2×7 ohne Lean (Spur K)** (Protokoll 0.7, Abschnitt 3): von Justus gestartet am 26.11.2026, 14:32:59 UTC (Wortlaut im Logbuch). Protokoll 0.7 (1c15770) von ihm bestätigt. Budget: 6 Runden (beide Spuren zusammen), je bis zu 6 Subagenten, höchstens 4 Fremdmodell-Anfragen. Reihenfolge: Abschluss Auflage 7 (A7-Z läuft, dann Textänderung), Literaturwache, dann Runde 1. Literaturwache S5-LW erledigt (PR #145). Tag `lean-4.19`: Push mit 403 abgewiesen. Nach Entscheidung von Justus (14:50 UTC, Wortlaut im Logbuch) statt des Tags der Zweig `lean-4.19` auf 71240f8, wird nie verändert. Zweig `portierung` steht ebenfalls auf 71240f8
 - ~~Lesart (j)~~ erledigt mit dem Zweig `lean-4.19`, Spur P darf starten. Früherer Wortlaut: Kein Auftrag der Spur P, bevor das Tag steht, auch nicht zu `palomar/ANFORDERUNGEN.md`. Runde 1 bleibt offen; Spur P kommt in dieselbe Runde, sobald das Tag steht und solange S5-01 läuft, sonst in Runde 2
-- **Runde 1 vergeben etwa 14:49 UTC:** S5-01 (Spur K, Zusammenführung der Kette in `lean/prosa/s5_327_kette.md`), 1 Subagent, kein Fremdmodell
+- **Runde 1 vergeben etwa 14:49 UTC:** S5-01 (Spur K, Zusammenführung der Kette in `lean/prosa/s5_327_kette.md`); etwa 14:53 UTC dazu S5-02 (Spur P, `palomar/ANFORDERUNGEN.md`) und S5-03 (Spur P, Portierung, Bericht `lean/prosa/s5_portierung_s5-03.md`), beide mit PR an `portierung`. 3 Subagenten, kein Fremdmodell
+- Umgebung: Freigabe für palomar-registry.org, *.palomar-registry.org und lakecache.blob.core.windows.net bei Justus beantragt (14:52 UTC). Gesperrt laut Probe des Orchestrators: lakecache.blob.core.windows.net, release.lean-lang.org, mathlib4.lean-cache.cloud, reservoir.lean-lang.org, lean-lang.org. Genauer Bedarf aus der Werkzeugprobe in S5-03
 
 **Stufe 4: enger Angriff auf 3×2×7 (34 oder 35?)** (Protokoll 0.6, Abschnitt 3): **beendet nach Runde 6, Budget erschöpft, Fertig-Kriterium nicht erfüllt** (Zusammenfassung im Abschnitt „Abschluss Stufe 4“). Verlauf: Nach Runde 4 angehalten (Abbruchregel 2 für Spur B, Bericht an Justus), Runde 5 von Justus um 12:27 UTC freigegeben. Spur B aufgegeben, Spur A läuft. Die Pause bis 29.11.2026 (Justus, 08:23 UTC) hat Justus um 09:47 UTC aufgehoben, Runde 3 darf starten
 
@@ -232,6 +233,8 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | A7-T | Textänderung README und `ergebnisse/rang-444.md` (Abschluss Auflage 7) | Schreiber | `lean/prosa/a7_textaenderung.md` | erledigt, PR #144 (Merge f16a7e8). Auflage 7 abgeschlossen |
 | S5-LW | Literaturwache vor Stufe 5 (Abschnitt 7, mit Palomar) | Literaturwächter | `lit/WACHE-2026-11-26-S5.md` | erledigt, PR #145 (Merge e671dad). Nichts Neues, Abbruchregel 3 greift nicht. Abweichung von CLAUDE.md Regel 9 (ein GET an die Einreich-Domain, vom Proxy abgewiesen, nichts gesendet) |
 | S5-01 | Spur K: Zusammenführung der Kette zu 3×2×7 | Beweissucher | `lean/prosa/s5_327_kette.md` | vergeben in Runde 1 der Stufe 5, etwa 14:49 UTC |
+| S5-02 | Spur P: Anforderungen von Palomar | Bearbeiter | `palomar/ANFORDERUNGEN.md` | vergeben in Runde 1 der Stufe 5, etwa 14:53 UTC, PR an `portierung` |
+| S5-03 | Spur P: Portierung (Werkzeugprobe, Toolchain und Mathlib, Brücke und `mm325_proof` entfernen, Module in Importreihenfolge) | Formalisierer | `lean/prosa/s5_portierung_s5-03.md` | vergeben in Runde 1 der Stufe 5, etwa 14:53 UTC, PR an `portierung` |
 
 ## Stufe 3: abgeschlossen
 
