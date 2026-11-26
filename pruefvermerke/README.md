@@ -41,11 +41,11 @@ Je Behauptung gibt es eine Datei `pruefvermerke/B-xxx.md`. Sie beginnt mit der w
 | B-018 | Lemma 15(b) bei d = 2: rk L = d·ρ ⇒ ρ = m, über algebraisch abgeschlossenem Körper | behauptet (von einem Prüfer bestätigt, S4-02) | Prosa `lean/prosa/yang_n4.md` (S1-03), Lean `YangN4Haupt.lemma15b` (S1-16), Job 139535850068 |
 | B-019 | Lemma I gilt für jede Normalform des Rahmens yang_n4 mit d = 2 (Bedingung C2 im Programm S3-04) | behauptet (von einem Prüfer bestätigt, S4-03) | `yang_n3.md` Lemma I (S1-02), `YangN3Teil3.lemma_I` (S1-11), Wortlaut vom Orchestrator |
 | B-020 | Rang von ⟨3,2,7⟩ ist höchstens 35 über ℤ (also über jedem Körper), Verfahren `verfahren/3x2x7-r35-hk71.json` | geprüft | S4-04 (PR #104), eigener Bau nach Hopcroft-Kerr. Läufe beider Prüfprogramme wiederholt durch S4-10 (PR #109), nach 5.2 Punkt 1 bis 3 |
-| B-021 | S4-07-A bis E (Umformulierung, Zerlegungssatz, Gestalt bei e = 3, bedingter Ausschluss D unter (INJ5), Satz X) | behauptet (von einem Prüfer bestätigt, S4-12; D hält, D auch vom Fremdmodell unabhängig bestätigt, Fortschritt Spur A in Runde 3, Frist geprüft bis Ende Runde 5; Vorbehalte im Vermerk) | S4-07, PR #113 (Merge 81fa438) |
+| B-021 | S4-07-A bis E (Umformulierung, Zerlegungssatz, Gestalt bei e = 3, bedingter Ausschluss D unter (INJ5), Satz X) | D erster Satz (mit (INJ5) über formale Polynome): geprüft (Runde 5; Job 139899962532, Abgleich S4-24 und S4-25; Lage als Hypothesen angenommen). A, B, C, E und D zweiter Satz: behauptet (von einem Prüfer bestätigt, S4-12). Vorbehalte im Vermerk | S4-07, PR #113 (Merge 81fa438); Lean S4-18, PR #123, #128 |
 | B-022 | S4-06 A1 bis A6 (Strukturaussagen zum Restfall) | behauptet (von einem Prüfer bestätigt, S4-13) | S4-06, PR #111 (Merge dfd239e) |
 | B-023 | Satz G (Gleichheitsfall r = 34 für m = 7) | behauptet (von einem Prüfer bestätigt, S4-13) | S4-11 (Blind-Sucher), PR #110 (Merge 0ee499f) |
 | B-024 | Satz K (Gestalt des Restfalls in den Faktoren, ohne Lemma 15(b)) | behauptet (S4-13: K1, K3 bestätigt; K2 wörtlich nicht, berichtigt im Bericht) | S4-08, PR #114 (Merge 78ce5f9) |
-| B-025 | Fallunterscheidung des Restfalls R-327 nach e und (INJ5) | behauptet (Fall „e = 3 mit (INJ5)“ durch B-021 D ausgeschlossen; Vollständigkeit 0 ≤ e ≤ 3, e ≠ 0, e ≠ 1 von einem Prüfer bestätigt, S4-20) | Vorgabe Justus 26.11.2026, 09:47 UTC; S4-07, PR #113 |
+| B-025 | Fallunterscheidung des Restfalls R-327 nach e und (INJ5) | behauptet (Fall „e = 3 mit (INJ5)“ durch B-021 D geprüft ausgeschlossen, bedingt auf die Lage; Vollständigkeit 0 ≤ e ≤ 3, e ≠ 0, e ≠ 1 von einem Prüfer bestätigt, S4-20) | Vorgabe Justus 26.11.2026, 09:47 UTC; S4-07, PR #113 |
 | B-026 | Satz R (Fall e = 3 ohne (INJ5)), Folgerungen, Gestalt im Unterfall (M21) | behauptet (von einem Prüfer bestätigt, S4-19; Vorbehalt zu B (i)) | S4-14, PR #120 (Merge 22cb353) |
 | B-027 | E2-A, E2-B, E2-D zum Fall e ≤ 2 | behauptet (von einem Prüfer bestätigt, S4-20; Vorbehalt zur Lesart von (INJ-B)) | S4-15, PR #118 (Merge fa5d7b9) |
 
@@ -53,7 +53,7 @@ Spuren der Stufe 4 (Abbruchregel 2):
 
 | Spur | Status | Bemerkung |
 |---|---|---|
-| Spur A (Ausschluss des Restfalls R-327) | läuft | Zähler 1 von 3 nach Runde 4. Frist: B-021 D geprüft bis Ende Runde 5 |
+| Spur A (Ausschluss des Restfalls R-327) | läuft | Zähler 1 von 3 nach Runde 4. Frist B-021 D geprüft bis Ende Runde 5: gehalten (Runde 5). Lesart (i): zählt in Runde 5 nicht noch einmal |
 | Spur B (Suche nach einem Verfahren mit 34) | aufgegeben | Orchestrator, 26.11.2026, Abschluss Runde 4: drei Runden in Folge ohne Fortschritt (Runden 2, 3, 4), Zähler 3 von 3. Kein Verfahren mit 34. Runde 2 ohne geeichtes Werkzeug, Runde 3 Positivprobe bei 35 nicht bestanden, Runde 4 Probe bestanden, aber Suche bei 34 ohne Fund und ohne vollständig abgesuchten Teilraum |
 
 Weitere geprüfte Ergebnisse ohne eigene Behauptungsdatei:
