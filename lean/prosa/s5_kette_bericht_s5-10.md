@@ -33,7 +33,7 @@ Je Glied: Wortlaut und Quantoren, Liste der Voraussetzungen gegen die im Beweis 
 Rechnerische Gegenprobe (Programme im Anhang, Python 3, nur exakte Arithmetik: ganze Zahlen modulo p, `fractions.Fraction` für ℚ, eigene Arithmetik für GF(4)):
 
 1. **Echte Verfahren.** Naives Verfahren (Länge 6m) und ein Verfahren mit Strassen-Blöcken (für m = 2 Länge 11), verändert durch zufällige gültigkeitserhaltende Schritte (Term aufspalten in α, β oder C; Paar (α, β, C), (α, β, −C) hinzufügen), dann zufälliger Basiswechsel (S, T) nach 1.3, bis (SN1) und (SN2) gelten. Die Brent-Gleichungen werden für jedes Verfahren nachgerechnet. Körper GF(2), GF(3), GF(5), GF(7), ℚ; m = 1, 2, 3. Aus den Definitionen in 1.2 werden K′, J, Q, rk L, rk H, N, Δ, Ŝ, ρ, ker Φ berechnet und alle Aussagen von K-13 bis K-17 und K-20 (a) geprüft.
-2. **Modelle mit N ≠ 0 und Ŝ ≠ 0.** In echten kleinen Verfahren ist N stets 0 (nach (G) ist N ≠ 0 erst bei r < 5m erzwungen, siehe 3.3). K-13, K-16, K-17 und K-20 benutzen aber nur: die Diagonalmatrizen D(e_{i0}) mit (SN1), ein injektives ℬ, U, J = f_0(U) und Abbildungen nach Q = K′/J, deren Ränge mit denen nach K^r/J übereinstimmen (J ⊆ K′ ⊆ K^r). Ich wähle deshalb a_1, a_2 ∈ K^r (normiert a_0 = 1) mit wenigen a-Punkten (große Fasern, entartete Lagen) und die q-Vektoren als v·P_2 = {v, a_1v, a_2v, a_1²v, a_1a_2v, a_2²v} (eventuell mit Zufallsvektoren ergänzt). Das erzwingt N ⊇ v·P_1 und Ŝ ∋ v. (SN2) wird exakt geprüft.
+2. **Modelle mit N ≠ 0 und Ŝ ≠ 0.** In echten kleinen Verfahren ist N stets 0 (nach (G) ist N ≠ 0 erst bei r < 5m erzwungen, siehe 3.3). K-13, K-16, K-17 und K-20 benutzen aber nur: die Diagonalmatrizen D(e_{i0}) mit (SN1), ein injektives ℬ, U, J = f_0(U) und Abbildungen nach Q = K′/J, deren Ränge mit denen nach K^r/J übereinstimmen (J ⊆ K′ ⊆ K^r). Ich wähle deshalb a_1, a_2 ∈ K^r (normiert a_0 = 1) mit wenigen a-Punkten (große Fasern, entartete Lagen) und die q-Vektoren als v·P_2 = {v, a_1v, a_2v, a_1²v, a_1a_2v, a_2²v} (eventuell mit Zufallsvektoren ergänzt). Bei m ≥ 6 (ganz v·P_2 unter den q-Vektoren) erzwingt das, dass N das Urbild von v·P_1 enthält und Ŝ das Urbild von v. (SN2) wird exakt geprüft.
 3. **Ganzzahlige Fallunterscheidung** für K-18 (a) und K-19: vollständige Aufzählung aller (rk L, rk H, dim Ŝ).
 
 (SN2) wird exakt so geprüft: f_0(x), f_1(x), f_2(x) sind genau dann linear abhängig, wenn es c ≠ 0 in K³ mit (c_0D(e_{00}) + c_1D(e_{10}) + c_2D(e_{20}))ℬ(x) = 0 gibt, also ℬ(x) auf Z_c := {t : c·(α_t(e_{00}), α_t(e_{10}), α_t(e_{20})) = 0} getragen ist. Weil ℬ injektiv ist, gilt (SN2) genau dann, wenn für jedes c die Zeilen von ℬ außerhalb Z_c Rang 2m haben. Die maximalen Z_c sind die „Ebenen“ durch zwei unabhängige Punkte; das Programm prüft alle. Über GF(p) mit p^{2m} ≤ 5000 wurde das zusätzlich durch Durchlaufen aller x ≠ 0 bestätigt.
@@ -214,7 +214,7 @@ Das ist der Wortlaut von K-19. Gegenproben durch Weglassen je einer Bedingung (A
 - ohne K-16: (6, 4, 3, 2, 0) und (6, 4, 3, 2, 1). K-16 wird also für dim Ŝ = 1 gebraucht, wie im Beweis (Schritt 7).
 - ohne die K-13-Folgerung: zusätzlich dim Ŝ = 2, 3. Gebraucht für Schritt 8.
 - ohne K-17 (aber mit K-16 und der K-13-Folgerung): weiterhin nur (6, 4, 3, 2, 1). Das ist folgerichtig, denn K-17 ist aus genau diesen beiden Bedingungen bewiesen. Der Satz in Z. 364 („ohne Lemma I (K-17) bliebe ein weiterer Fall (3, 5, 3)“) bezieht sich auf das Bedingungssystem des dort genannten Programms, das ich nicht gesehen habe; ich kann ihn deshalb nicht nachprüfen. Er ist ausdrücklich nicht Teil des Beweises und berührt das Urteil nicht.
-- zum Vergleich r = 35 (dim Q = 7): 13 Fälle bleiben; die Schranke ist also bei 34 scharf in dem Sinn, dass erst dort die Fallunterscheidung auf einen Fall zusammenfällt.
+- zum Vergleich r = 35 (dim Q = 7): 15 Fälle bleiben; die Schranke ist also bei 34 scharf in dem Sinn, dass erst dort die Fallunterscheidung auf einen Fall zusammenfällt.
 
 Zur „Rechnung zur Kontrolle“ (Z. 353 bis 364): nicht Teil des Beweises, Programm von mir nicht gesehen. Meine eigene Abzählung kommt ohne ρ zum selben Tupel für (rk L, rk H, dim N, Δ, dim Ŝ).
 
@@ -250,7 +250,7 @@ Zur „Rechnung zur Kontrolle“ (Z. 353 bis 364): nicht Teil des Beweises, Prog
 
 **Nachrechnung Restfall** (Z. 376): K-19: rk L = 6, rk H = 4. (a): ρ ≤ rk H = 4 und 2ρ ≥ rk L = 6, also 3 ≤ ρ ≤ 4. Bei ρ = 3 wäre rk L = 6 = 2ρ, (b) (K algebraisch abgeschlossen) gäbe ρ = m = 7 ≠ 3. Also ρ = 4.
 
-**Rechnung.** (a) in allen echten Verfahren und Modellen erfüllt (ρ über GF(p) durch Durchlaufen aller γ ∈ GF(p)², über ℚ exakt als generischer Rang: ein von 0 verschiedener Minor des Büschels (1, t) hat Grad ≤ m, also erreichen unter m + 2 Werten von t einer den generischen Rang; dazu γ = (0, 1)). Fälle mit rk L = 2ρ (Prämisse von (b)) traten in den Modellen 44-mal auf und in vielen echten Verfahren; in allen war ρ = m, auch über GF(p) und ℚ, die nicht algebraisch abgeschlossen sind. Eine Gegenprobe zur Notwendigkeit der Abgeschlossenheit habe ich nicht gesucht; der Beweis braucht sie nur für den Eigenvektor in Schritt 7.
+**Rechnung.** (a) in allen echten Verfahren und Modellen erfüllt (ρ über GF(p) durch Durchlaufen aller γ ∈ GF(p)², über ℚ exakt als generischer Rang: ein von 0 verschiedener Minor des Büschels (1, t) hat Grad ≤ m, also erreichen unter m + 2 Werten von t einer den generischen Rang; dazu γ = (0, 1)). Fälle mit rk L = 2ρ (Prämisse von (b)) traten in 82 der 92 echten Verfahren und in 44 Modellen auf; in allen war ρ = m, auch über GF(p) und ℚ, die nicht algebraisch abgeschlossen sind. Eine Gegenprobe zur Notwendigkeit der Abgeschlossenheit habe ich nicht gesucht; der Beweis braucht sie nur für den Eigenvektor in Schritt 7.
 
 **Urteil K-20: bestätigt.** Kleine Ungenauigkeiten: unerklärtes d, F statt K in der Definition von ρ, (D1) nicht in der Liste, Zwischenschritt N = 0 ⇒ ρ = m nicht ausgeschrieben. K-20 geht laut Z. 30 und Z. 806 nicht in den Endsatz ein; das habe ich in der Tabelle Z. 753 bis 806 bestätigt gefunden (K-20 hat „benutzt von: –“).
 
@@ -258,7 +258,19 @@ Zur „Rechnung zur Kontrolle“ (Z. 353 bis 364): nicht Teil des Beweises, Prog
 
 ## 4. Zusammenfassung der Rechnung
 
-ERGEBNISSE_PLATZHALTER
+Alle Läufe am 26.11.2026 in dieser Sitzung, jeder Rechenblock unter 30 Minuten (Laufzeiten: Anhang A 12 s, Anhang B 5 min, Anhang C 13 min, Anhang D unter 1 s, Anhang E 4 s). In keinem Lauf trat eine Verletzung einer geprüften Aussage auf (Liste `failures` jeweils leer, Zähler `failures: 0`).
+
+**A. Echte Verfahren** (`check_k13_k20.py 1`): 92 Verfahren mit (SN1), (SN2) und nachgerechneten Brent-Gleichungen: GF(2) 5, GF(3) 15, GF(5) 24, GF(7) 24, ℚ 24; m = 1, 2, 3; Längen r = 6 bis 27, darunter das Strassen-Verfahren der Länge 11 für ⟨3,2,2⟩ (dim Q = 3, rk L = 3, rk H = 2, Δ = 1). Geprüft: (T5), K-14 (i) bis (iii), K-15 (ker Φ direkt berechnet, dim ker Φ = dim N, u_1 = u_2 = 0), (G), K-16, K-17, K-13 (vollständig über alle Unterräume, wenn ≤ 3000, sonst 60 Zufallsunterräume), K-20 (a). (SN2) über GF(p) mit p^{2m} ≤ 5000 zusätzlich durch Durchlaufen aller x bestätigt (keine Abweichung zwischen beiden Prüfungen). In allen echten Verfahren ist N = 0 (Grund: siehe 3.3).
+
+**B. Modelle** (`synthetic.py 2`): 55 Modelle über GF(2), GF(3), GF(5), ℚ, m = 2, 3, 4, 6, 7, mit dim N ∈ {0, 1, 2, 3}; zwei Modelle über ℚ mit dim N = 3, dim Ŝ = 1. K-13 (bei kleinen Räumen vollständig), K-16, K-17, K-20 (a) ohne Verletzung. Prämisse rk L = 2ρ von K-20 (b) 44-mal, stets ρ = m.
+
+**C. Modelle mit Ŝ ≠ 0** (`focused.py 3`): 20 Modelle mit dim N = 3, dim Ŝ = 1 über GF(5) (4), GF(7) (8), ℚ (8), m = 6, 7. Beispiele: (rk L, rk H, dim N, Δ, dim Ŝ, ρ) = (3, 3, 3, 3, 1, 3), (5, 4, 3, 3, 1, 4), (4, 4, 3, 4, 1, 3). Über GF(3) und GF(4) fand dieser Lauf keine Modelle mit (SN2).
+
+**E. Charakteristik 2** (`char2.py 5`): 6 Modelle über GF(4) mit dim N = 3, dim Ŝ = 1, m = 6 und 7, r = 30 bis 39. Für m = 7 ergaben sich genau die Zahlen des Restfalls: rk L = 6, rk H = 4, dim N = 3, Δ = 2, dim Ŝ = 1, ρ = 4. Dort ist K-16 mit Gleichheit erfüllt (dim Ŝ = dim N − Δ) und K-17 mit Gleichheit (Δ = 2). Das ist ein Modell, kein Verfahren (die Brent-Gleichungen sind dort nicht gestellt), zeigt aber, dass die Aussagen K-13, K-16, K-17, K-20 (a) an der Grenze in Charakteristik 2 nicht verletzt werden.
+
+**D. Ganzzahlige Fallunterscheidung** (`enum_variants.py`): für m = 7 kein Fall bei r = 28 bis 33, genau ein Fall (6, 4, 3, 2, 1) bei r = 34, 15 Fälle bei r = 35. Weglassen je einer Bedingung bei r = 34: siehe 3.7.
+
+**Grenzen der Rechnung.** K-15 ist nur an echten Verfahren mit N = 0 geprüft (dort Injektivität von Φ). K-18 und K-19 sind Aussagen über Verfahren der Länge 33 oder 34 für ⟨3,2,7⟩, die ich nicht erzeugen kann; für sie gibt es nur die Abzählung D. K-20 (b) habe ich nur mit erfüllter Prämisse und N = 0 gesehen. Zufallssuche ersetzt keinen Beweis; die Urteile beruhen auf der Nachrechnung in Abschnitt 3.
 
 ---
 
@@ -285,4 +297,1025 @@ Abhängigkeiten: Die Voraussetzungszeilen des Blocks stimmen mit den Zeilen der 
 
 Die Programme liegen nur hier im Bericht (eine Datei je Auftrag). Aufruf jeweils aus einem Verzeichnis, das die Dateien enthält.
 
-ANHANG_PLATZHALTER
+### Anhang A: `check_k13_k20.py`
+
+Aufruf: `python3 check_k13_k20.py 1`. SHA-256 `e3462004f06bd59aaa88d5920e1ea0d17b80f5e96d1a8cd883ad27e9b33a659a`.
+
+```python
+#!/usr/bin/env python3
+"""Exact-arithmetic checks for chain links K-13 .. K-20 (<3,2,m> schemes).
+
+Fields: GF(p) (integers mod p) and Q (fractions.Fraction). No floats.
+Schemes: naive, Strassen-block based, modified by random validity-preserving
+moves (splitting a term, adding a cancelling pair), then a random basis change
+(S, T) until (SN1) and (SN2) hold. All objects of Section 1.2 are computed
+from their definitions and the statements of K-13 .. K-20 are tested.
+"""
+import itertools
+import random
+import sys
+from fractions import Fraction
+
+
+# ---------------------------------------------------------------- fields
+class GF:
+    def __init__(self, p):
+        self.p = p
+        self.name = "GF(%d)" % p
+        self.finite = True
+
+    def c(self, x):
+        return x % self.p
+
+    def add(self, a, b):
+        return (a + b) % self.p
+
+    def sub(self, a, b):
+        return (a - b) % self.p
+
+    def mul(self, a, b):
+        return (a * b) % self.p
+
+    def neg(self, a):
+        return (-a) % self.p
+
+    def inv(self, a):
+        assert a % self.p != 0
+        return pow(a, self.p - 2, self.p)
+
+    def iszero(self, a):
+        return a % self.p == 0
+
+    def rand(self, rng):
+        return rng.randrange(self.p)
+
+    def elements(self):
+        return list(range(self.p))
+
+
+class QQ:
+    name = "Q"
+    finite = False
+
+    def c(self, x):
+        return Fraction(x)
+
+    def add(self, a, b):
+        return a + b
+
+    def sub(self, a, b):
+        return a - b
+
+    def mul(self, a, b):
+        return a * b
+
+    def neg(self, a):
+        return -a
+
+    def inv(self, a):
+        assert a != 0
+        return 1 / Fraction(a)
+
+    def iszero(self, a):
+        return a == 0
+
+    def rand(self, rng):
+        return Fraction(rng.randint(-3, 3))
+
+
+# ---------------------------------------------------------------- linear algebra
+def rref(Fd, M, ncols):
+    """Row-reduce a list of rows (copy). Returns (rows, pivot columns)."""
+    A = [list(r) for r in M]
+    piv = []
+    row = 0
+    for col in range(ncols):
+        pr = None
+        for i in range(row, len(A)):
+            if not Fd.iszero(A[i][col]):
+                pr = i
+                break
+        if pr is None:
+            continue
+        A[row], A[pr] = A[pr], A[row]
+        iv = Fd.inv(A[row][col])
+        A[row] = [Fd.mul(iv, x) for x in A[row]]
+        for i in range(len(A)):
+            if i != row and not Fd.iszero(A[i][col]):
+                f = A[i][col]
+                A[i] = [Fd.sub(x, Fd.mul(f, y)) for x, y in zip(A[i], A[row])]
+        piv.append(col)
+        row += 1
+        if row == len(A):
+            break
+    return A[:row], piv
+
+
+def rank_cols(Fd, cols, dim):
+    """Rank of a list of column vectors of length dim."""
+    if not cols:
+        return 0
+    return len(rref(Fd, cols, dim)[0])
+
+
+def nullspace(Fd, M, ncols):
+    """Basis of {c : M c = 0}, M given as list of rows."""
+    R, piv = rref(Fd, M, ncols) if M else ([], [])
+    free = [j for j in range(ncols) if j not in piv]
+    basis = []
+    for fj in free:
+        v = [Fd.c(0)] * ncols
+        v[fj] = Fd.c(1)
+        for i, pc in enumerate(piv):
+            v[pc] = Fd.neg(R[i][fj])
+        basis.append(v)
+    return basis
+
+
+def matvec(Fd, Mcols, c):
+    """Mcols: list of columns; returns sum c_j col_j."""
+    n = len(Mcols[0])
+    out = [Fd.c(0)] * n
+    for cj, col in zip(c, Mcols):
+        if Fd.iszero(cj):
+            continue
+        out = [Fd.add(o, Fd.mul(cj, x)) for o, x in zip(out, col)]
+    return out
+
+
+def transpose(cols, n):
+    return [[col[i] for col in cols] for i in range(n)]
+
+
+def kernel_mod(Fd, imgs, sub, n):
+    """imgs: list of k column vectors (length n) = images of basis vectors.
+    sub: list of column vectors spanning a subspace S.  Returns a basis of
+    {c in K^k : sum c_j imgs_j in S} (as coordinate vectors)."""
+    k = len(imgs)
+    cols = imgs + sub
+    if not cols:
+        return []
+    rows = transpose(cols, n)
+    ns = nullspace(Fd, rows, len(cols))
+    vecs = [v[:k] for v in ns]
+    if not vecs:
+        return []
+    R, _ = rref(Fd, vecs, k)
+    return R
+
+
+def in_span(Fd, v, basis, n):
+    return rank_cols(Fd, basis + [v], n) == rank_cols(Fd, basis, n)
+
+
+# ---------------------------------------------------------------- schemes
+# alpha: 3x2 matrix (list of rows), beta: 2xm, C: 3xm.
+def zeros(a, b, Fd):
+    return [[Fd.c(0)] * b for _ in range(a)]
+
+
+def E(a, b, i, j, Fd):
+    M = zeros(a, b, Fd)
+    M[i][j] = Fd.c(1)
+    return M
+
+
+def naive(m, Fd):
+    T = []
+    for i in range(3):
+        for j in range(2):
+            for l in range(m):
+                T.append((E(3, 2, i, j, Fd), E(2, m, j, l, Fd), E(3, m, i, l, Fd)))
+    return T
+
+
+def lin(Fd, shape, terms):
+    a, b = shape
+    M = zeros(a, b, Fd)
+    for coef, (i, j) in terms:
+        M[i][j] = Fd.add(M[i][j], Fd.c(coef))
+    return M
+
+
+def strassen_block(m, Fd, rows=(0, 1)):
+    """<3,2,m>: Strassen on rows `rows` of A and column pairs of B, rest naive."""
+    r0, r1 = rows
+    other = [i for i in range(3) if i not in rows][0]
+    T = []
+    l = 0
+    while l + 1 < m:
+        c0, c1 = l, l + 1
+        A = lambda terms: lin(Fd, (3, 2), terms)
+        B = lambda terms: lin(Fd, (2, m), terms)
+        C = lambda terms: lin(Fd, (3, m), terms)
+        a11, a12, a21, a22 = (r0, 0), (r0, 1), (r1, 0), (r1, 1)
+        b11, b12, b21, b22 = (0, c0), (0, c1), (1, c0), (1, c1)
+        c11, c12, c21, c22 = (r0, c0), (r0, c1), (r1, c0), (r1, c1)
+        T += [
+            (A([(1, a11), (1, a22)]), B([(1, b11), (1, b22)]), C([(1, c11), (1, c22)])),
+            (A([(1, a21), (1, a22)]), B([(1, b11)]), C([(1, c21), (-1, c22)])),
+            (A([(1, a11)]), B([(1, b12), (-1, b22)]), C([(1, c12), (1, c22)])),
+            (A([(1, a22)]), B([(1, b21), (-1, b11)]), C([(1, c11), (1, c21)])),
+            (A([(1, a11), (1, a12)]), B([(1, b22)]), C([(-1, c11), (1, c12)])),
+            (A([(1, a21), (-1, a11)]), B([(1, b11), (1, b12)]), C([(1, c22)])),
+            (A([(1, a12), (-1, a22)]), B([(1, b21), (1, b22)]), C([(1, c11)])),
+        ]
+        l += 2
+    if l < m:
+        for i in rows:
+            for j in range(2):
+                T.append((E(3, 2, i, j, Fd), E(2, m, j, l, Fd), E(3, m, i, l, Fd)))
+    for j in range(2):
+        for ll in range(m):
+            T.append((E(3, 2, other, j, Fd), E(2, m, j, ll, Fd), E(3, m, other, ll, Fd)))
+    return T
+
+
+def madd(Fd, X, Y, s=1):
+    return [[Fd.add(x, Fd.mul(Fd.c(s), y)) for x, y in zip(rx, ry)] for rx, ry in zip(X, Y)]
+
+
+def mrand(Fd, a, b, rng):
+    return [[Fd.rand(rng) for _ in range(b)] for _ in range(a)]
+
+
+def mmul(Fd, X, Y):
+    return [[_dot(Fd, X[i], [Y[k][j] for k in range(len(Y))])
+             for j in range(len(Y[0]))] for i in range(len(X))]
+
+
+def _dot(Fd, u, v):
+    s = Fd.c(0)
+    for a, b in zip(u, v):
+        s = Fd.add(s, Fd.mul(a, b))
+    return s
+
+
+def mT(X):
+    return [list(r) for r in zip(*X)]
+
+
+def minv(Fd, X):
+    n = len(X)
+    aug = [list(X[i]) + [Fd.c(1 if i == j else 0) for j in range(n)] for i in range(n)]
+    R, piv = rref(Fd, aug, 2 * n)
+    if piv[:n] != list(range(n)) or len(R) < n:
+        return None
+    return [r[n:] for r in R]
+
+
+def brent_ok(Fd, T, m):
+    for i in range(3):
+        for j in range(2):
+            for k in range(2):
+                for l in range(m):
+                    S = zeros(3, m, Fd)
+                    for (al, be, C) in T:
+                        f = Fd.mul(al[i][j], be[k][l])
+                        if not Fd.iszero(f):
+                            S = madd(Fd, S, [[Fd.mul(f, x) for x in row] for row in C])
+                    target = E(3, m, i, l, Fd) if j == k else zeros(3, m, Fd)
+                    if any(not Fd.iszero(Fd.sub(S[a][b], target[a][b]))
+                           for a in range(3) for b in range(m)):
+                        return False
+    return True
+
+
+def random_moves(Fd, T, m, rng, nmoves):
+    T = list(T)
+    for _ in range(nmoves):
+        kind = rng.randrange(4)
+        if kind == 0:  # split alpha
+            t = rng.randrange(len(T))
+            al, be, C = T[t]
+            a1 = mrand(Fd, 3, 2, rng)
+            T[t] = (a1, be, C)
+            T.append((madd(Fd, al, a1, -1), be, C))
+        elif kind == 1:  # split beta
+            t = rng.randrange(len(T))
+            al, be, C = T[t]
+            b1 = mrand(Fd, 2, m, rng)
+            T[t] = (al, b1, C)
+            T.append((al, madd(Fd, be, b1, -1), C))
+        elif kind == 2:  # split C
+            t = rng.randrange(len(T))
+            al, be, C = T[t]
+            c1 = mrand(Fd, 3, m, rng)
+            T[t] = (al, be, c1)
+            T.append((al, be, madd(Fd, C, c1, -1)))
+        else:  # cancelling pair
+            al, be, C = mrand(Fd, 3, 2, rng), mrand(Fd, 2, m, rng), mrand(Fd, 3, m, rng)
+            T.append((al, be, C))
+            T.append((al, be, [[Fd.neg(x) for x in r] for r in C]))
+    return T
+
+
+def basis_change(Fd, T, S, Tm):
+    """V^{(S,T)}: alpha' = S^T alpha T^T, beta'(B)=beta(T^{-1}B) -> coeff (T^{-1})^T beta,
+    C' = S^{-1} C."""
+    Si, Ti = minv(Fd, S), minv(Fd, Tm)
+    out = []
+    for al, be, C in T:
+        out.append((mmul(Fd, mmul(Fd, mT(S), al), mT(Tm)),
+                    mmul(Fd, mT(Ti), be),
+                    mmul(Fd, Si, C)))
+    return out
+
+
+# ---------------------------------------------------------------- objects of 1.2
+class Obj:
+    pass
+
+
+def build(Fd, T, m):
+    o = Obj()
+    o.Fd, o.T, o.m, o.r = Fd, T, m, len(T)
+    r = o.r
+    alpha = lambda t, i, j: T[t][0][i][j]
+    o.a = {(i, j): [alpha(t, i, j) for t in range(r)] for i in range(3) for j in range(2)}
+    # B-matrix: columns indexed by (k,l) -> k*m+l, column = calB(e_kl)
+    o.Bcols = [[T[t][1][k][l] for t in range(r)] for k in range(2) for l in range(m)]
+    # W: r columns, each vec(C_t) of length 3m
+    o.Wcols = [[T[t][2][i][l] for i in range(3) for l in range(m)] for t in range(r)]
+    o.Wrows = transpose(o.Wcols, 3 * m)
+    diag = lambda d, v: [Fd.mul(x, y) for x, y in zip(d, v)]
+    o.diag = diag
+    o.f = {i: [diag(o.a[(i, 0)], col) for col in o.Bcols] for i in range(3)}
+    # g(x) = D(e01) B(x) - D(e00) B(e01^{2x2} x); e01 x: row0 <- row1 of x
+    gcols = []
+    for k in range(2):
+        for l in range(m):
+            first = diag(o.a[(0, 1)], o.Bcols[k * m + l])
+            if k == 1:
+                second = diag(o.a[(0, 0)], o.Bcols[0 * m + l])
+            else:
+                second = [Fd.c(0)] * r
+            gcols.append([Fd.sub(x, y) for x, y in zip(first, second)])
+    o.g = gcols
+    o.Uidx = [m + l for l in range(m)]  # row-1 coordinates
+    o.fU = {i: [o.f[i][j] for j in o.Uidx] for i in range(3)}
+    o.gU = [o.g[j] for j in o.Uidx]
+    o.Kp = nullspace(Fd, o.Wrows, r)
+    o.J = o.fU[0]
+    o.dJ = rank_cols(Fd, o.J, r)
+    o.dQ = len(o.Kp) - o.dJ
+    return o
+
+
+def sn1(o):
+    return all(not o.Fd.iszero(x) for x in o.a[(0, 0)])
+
+
+def sn2(o):
+    """(SN2) for all x != 0: f0(x), f1(x), f2(x) lin. indep.
+    Equivalent: for every c != 0 in K^3, the rows of B outside
+    Z_c = {t : c.a(t) = 0} have rank 2m.  Exact check via maximal flats."""
+    Fd, r, m = o.Fd, o.r, o.m
+    pts = [[o.a[(i, 0)][t] for i in range(3)] for t in range(r)]
+    Brows = transpose(o.Bcols, r)
+
+    def ok_on(Z):
+        rows = [Brows[t] for t in range(r) if t not in Z]
+        return rank_cols(Fd, rows, 2 * m) == 2 * m if rows else False
+
+    if rank_cols(Fd, pts, 3) <= 2:
+        return False  # some c kills all t, complement empty
+    planes = set()
+    for s in range(r):
+        for u in range(s + 1, r):
+            if rank_cols(Fd, [pts[s], pts[u]], 3) == 2:
+                Z = frozenset(t for t in range(r)
+                              if rank_cols(Fd, [pts[s], pts[u], pts[t]], 3) == 2)
+                planes.add(Z)
+    return all(ok_on(Z) for Z in planes)
+
+
+def sn2_bruteforce(o):
+    """Only for GF(p): enumerate all x != 0."""
+    Fd, m = o.Fd, o.m
+    for x in itertools.product(Fd.elements(), repeat=2 * m):
+        if all(v == 0 for v in x):
+            continue
+        vs = [matvec(Fd, o.f[i], list(x)) for i in range(3)]
+        if rank_cols(Fd, vs, o.r) < 3:
+            return False
+    return True
+
+
+def invariants(o):
+    Fd, r, m = o.Fd, o.r, o.m
+    J, dJ = o.J, o.dJ
+    F1, F2 = o.fU[1], o.fU[2]
+    o.rkL = rank_cols(Fd, F1 + F2 + J, r) - dJ
+    # H : U -> Q x Q, x -> (F2 x, -F1 x)
+    Hcols = [F2[j] + [Fd.neg(x) for x in F1[j]] for j in range(m)]
+    J2 = [v + [Fd.c(0)] * r for v in J] + [[Fd.c(0)] * r + v for v in J]
+    o.rkH = rank_cols(Fd, Hcols + J2, 2 * r) - 2 * dJ
+    o.Ncoords = kernel_mod(Fd, Hcols, J2, 2 * r)  # coords in U
+    o.dimN = len(o.Ncoords)
+    o.Delta = 2 * o.rkH - o.rkL
+    # S-hat
+    f0N = [matvec(Fd, o.fU[0], c) for c in o.Ncoords]
+    o.f0N = f0N
+    if o.Ncoords:
+        f1N = [matvec(Fd, F1, c) for c in o.Ncoords]
+        f2N = [matvec(Fd, F2, c) for c in o.Ncoords]
+        stacked = [a + b for a, b in zip(f1N, f2N)]
+        sub = [v + [Fd.c(0)] * r for v in f0N] + [[Fd.c(0)] * r + v for v in f0N]
+        sc = kernel_mod(Fd, stacked, sub, 2 * r)
+        o.Shat = [matvec(Fd, [list(c) for c in o.Ncoords], s) for s in sc]
+    else:
+        o.Shat = []
+    o.dimShat = len(o.Shat)
+    # rho
+    def rk_pencil(g1, g2):
+        cols = [[Fd.add(Fd.mul(g1, x), Fd.mul(g2, y)) for x, y in zip(F1[j], F2[j])]
+                for j in range(m)]
+        return rank_cols(Fd, cols + J, r) - dJ
+    if Fd.finite:
+        o.rho = max(rk_pencil(g1, g2) for g1 in Fd.elements() for g2 in Fd.elements())
+    else:
+        # exact generic rank: a nonzero minor of the pencil (1,t) has degree <= m,
+        # so among m+2 values of t at least one attains the generic rank.
+        vals = [rk_pencil(Fd.c(1), Fd.c(t)) for t in range(m + 2)] + [rk_pencil(Fd.c(0), Fd.c(1))]
+        o.rho = max(vals)
+    o.rkF1 = rk_pencil(Fd.c(1), Fd.c(0))
+    o.rkF2 = rk_pencil(Fd.c(0), Fd.c(1))
+    o.rk_pencil = rk_pencil
+    return o
+
+
+def phi_kernel(o):
+    """ker Phi as subspace of U^3 (coords 3m)."""
+    Fd, r, m = o.Fd, o.r, o.m
+    F1, F2, G = o.fU[1], o.fU[2], o.gU
+    Z = [Fd.c(0)] * r
+    neg = lambda v: [Fd.neg(x) for x in v]
+    cols = []
+    for j in range(m):   # u1
+        cols.append(F1[j] + neg(G[j]) + Z)
+    for j in range(m):   # u2
+        cols.append(F2[j] + Z + neg(G[j]))
+    for j in range(m):   # x
+        cols.append(Z + F2[j] + neg(F1[j]))
+    sub = ([v + Z + Z for v in o.J] + [Z + v + Z for v in o.J] + [Z + Z + v for v in o.J])
+    return kernel_mod(Fd, cols, sub, 3 * r)
+
+
+def all_subspaces(Fd, n):
+    """All nonzero subspaces of GF(p)^n, enumerated as reduced row echelon forms."""
+    out = []
+    els = Fd.elements()
+    for d in range(1, n + 1):
+        for piv in itertools.combinations(range(n), d):
+            # free positions: row i, column c > piv[i], c not a pivot
+            free = [(i, c) for i in range(d) for c in range(piv[i] + 1, n) if c not in piv]
+            for vals in itertools.product(els, repeat=len(free)):
+                R = [[Fd.c(0)] * n for _ in range(d)]
+                for i in range(d):
+                    R[i][piv[i]] = Fd.c(1)
+                for (i, c), v in zip(free, vals):
+                    R[i][c] = v
+                out.append(R)
+    return out
+
+
+def count_subspaces(p, n):
+    tot = 0
+    for d in range(1, n + 1):
+        for piv in itertools.combinations(range(n), d):
+            free = sum(1 for i in range(d) for c in range(piv[i] + 1, n) if c not in piv)
+            tot += p ** free
+    return tot
+
+
+# ---------------------------------------------------------------- the checks
+STATS = {"schemes": 0, "fail": []}
+
+
+def fail(msg):
+    STATS["fail"].append(msg)
+    print("FAIL:", msg)
+
+
+def check_scheme(Fd, T, m, label, rng, exhaustive_X=False):
+    o = build(Fd, T, m)
+    r = o.r
+    assert brent_ok(Fd, T, m), "invalid scheme"
+    s1, s2 = sn1(o), sn2(o)
+    if Fd.finite and Fd.p ** (2 * m) <= 5000:
+        s2b = sn2_bruteforce(o)
+        if s2b != s2:
+            fail("%s: SN2 flat-check %s vs brute force %s" % (label, s2, s2b))
+    if not (s1 and s2):
+        return None
+    STATS["schemes"] += 1
+    invariants(o)
+    # ---- K-7 sanity used throughout
+    # (T5): W(f_i(x)) = e_{i0} x
+    for i in range(3):
+        for k in range(2):
+            for l in range(m):
+                w = matvec(Fd, o.Wcols, o.f[i][k * m + l])
+                exp = [Fd.c(0)] * (3 * m)
+                if k == 0:
+                    exp[i * m + l] = Fd.c(1)
+                if w != exp:
+                    fail("%s: T5" % label)
+    # ---- K-14
+    for i in range(3):
+        for v in o.fU[i]:
+            if matvec(Fd, o.Wcols, v) != [Fd.c(0)] * (3 * m):
+                fail("%s: K-14(i) f_%d(U) not in K'" % (label, i))
+    for v in o.gU:
+        if matvec(Fd, o.Wcols, v) != [Fd.c(0)] * (3 * m):
+            fail("%s: K-14(i) g(U) not in K'" % label)
+    if o.dJ != m:
+        fail("%s: K-14(i) dim J != m" % label)
+    if o.dQ != r - 4 * m:
+        fail("%s: K-14(i) dim Q != r-4m" % label)
+    for j in range(2 * m):  # (ii) and (iii)
+        lhs = [Fd.sub(Fd.mul(a, x), Fd.mul(b, y)) for a, x, b, y in
+               zip(o.a[(1, 0)], o.f[2][j], o.a[(2, 0)], o.f[1][j])]
+        if any(not Fd.iszero(z) for z in lhs):
+            fail("%s: K-14(ii)" % label)
+        for i in range(3):
+            l1 = o.diag(o.a[(i, 0)], o.f[0][j])
+            l2 = o.diag(o.a[(0, 0)], o.f[i][j])
+            if l1 != l2:
+                fail("%s: K-14(iii)" % label)
+    # ---- K-15
+    kp = phi_kernel(o)
+    if len(kp) != o.dimN:
+        fail("%s: K-15 dim ker Phi %d != dim N %d" % (label, len(kp), o.dimN))
+    for v in kp:
+        if any(not Fd.iszero(z) for z in v[:2 * m]):
+            fail("%s: K-15 kernel vector with u1/u2 != 0" % label)
+        if not in_span(Fd, v[2 * m:], [list(c) for c in o.Ncoords], m):
+            fail("%s: K-15 kernel x not in N" % label)
+    if o.dimN != m - o.rkH:
+        fail("%s: dim N != m - rk H" % label)
+    if not (2 * m + o.rkH <= o.rkL + 2 * o.dQ):
+        fail("%s: (G) violated" % label)
+    # ---- K-16
+    if not (o.dimShat >= o.dimN - o.Delta):
+        fail("%s: K-16 violated" % label)
+    # ---- K-17
+    if not (o.Delta >= min(2, o.dimN)):
+        fail("%s: K-17 violated" % label)
+    # the K-13 consequence used in K-17/K-19
+    if o.dimShat > 0 and not (o.dimShat + 2 <= o.dimN):
+        fail("%s: dim S^ + 2 <= dim N violated" % label)
+    # ---- K-13: subspaces X
+    n = 2 * m
+    if exhaustive_X:
+        Xs = all_subspaces(Fd, n)
+    else:
+        Xs = []
+        for _ in range(60):
+            d = rng.randint(1, n)
+            R, _ = rref(Fd, [[Fd.rand(rng) for _ in range(n)] for _ in range(d)], n)
+            if R:
+                Xs.append(R)
+    nX = 0
+    for X in Xs:
+        imgs = [matvec(Fd, o.f[i], x) for i in range(3) for x in X]
+        if rank_cols(Fd, imgs, r) < len(X) + 2:
+            fail("%s: K-13 violated for X of dim %d" % (label, len(X)))
+        nX += 1
+    # ---- K-20 (a)
+    if not (o.rkH >= o.rho and o.rkL <= 2 * o.rho):
+        fail("%s: K-20(a) violated" % label)
+    rec = dict(label=label, field=Fd.name, m=m, r=r, dQ=o.dQ, rkL=o.rkL, rkH=o.rkH,
+               dimN=o.dimN, Delta=o.Delta, dimS=o.dimShat, rho=o.rho, nX=nX,
+               eq20b=(o.rkL == 2 * o.rho), rho_eq_m=(o.rho == m))
+    return rec
+
+
+def make(Fd, base, m, rng, nmoves, tries=400):
+    T0 = base(m, Fd)
+    T1 = random_moves(Fd, T0, m, rng, nmoves)
+    assert brent_ok(Fd, T1, m)
+    for _ in range(tries):
+        S = mrand(Fd, 3, 3, rng)
+        Tm = mrand(Fd, 2, 2, rng)
+        if minv(Fd, S) is None or minv(Fd, Tm) is None:
+            continue
+        T2 = basis_change(Fd, T1, S, Tm)
+        o = build(Fd, T2, m)
+        if sn1(o) and sn2(o):
+            return T2
+    return None
+
+
+def main(seed=1):
+    rng = random.Random(seed)
+    recs = []
+    fields = [GF(2), GF(3), GF(5), GF(7), QQ()]
+    for Fd in fields:
+        for m in (1, 2, 3):
+            for base_name, base in (("naive", naive), ("strassen", strassen_block)):
+                for nm in (0, 1, 3, 6):
+                    T = make(Fd, base, m, rng, nm)
+                    if T is None:
+                        continue
+                    exh = Fd.finite and count_subspaces(Fd.p, 2 * m) <= 3000
+                    rec = check_scheme(Fd, T, m, "%s/%s/m=%d/moves=%d" % (Fd.name, base_name, m, nm),
+                                       rng, exhaustive_X=exh)
+                    if rec:
+                        recs.append(rec)
+    return recs
+
+
+def enumerate_cases(m, r):
+    """All integer (rkL, rkH, s) allowed by: rkL <= q, (G), K-17, K-16, K-13
+    (s >= 1 => s + 2 <= dim N), 0 <= s <= dim N, 0 <= rkH <= m."""
+    q = r - 4 * m
+    out = []
+    if q < 0:
+        return out
+    for rkL in range(0, q + 1):
+        for rkH in range(0, m + 1):
+            dimN = m - rkH
+            Delta = 2 * rkH - rkL
+            if not (2 * m + rkH <= rkL + 2 * q):
+                continue
+            if not (Delta >= min(2, dimN)):
+                continue
+            for s in range(0, dimN + 1):
+                if s < dimN - Delta:
+                    continue
+                if s >= 1 and s + 2 > dimN:
+                    continue
+                out.append((rkL, rkH, dimN, Delta, s))
+    return out
+
+
+if __name__ == "__main__":
+    seed = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+    print("== integer case analysis (K-18(a), K-19), m = 7 ==")
+    for r in range(28, 36):
+        print("r=%d q=%d cases (rkL,rkH,dimN,Delta,dimS):" % (r, r - 28), enumerate_cases(7, r))
+    print("== schemes ==")
+    recs = main(seed)
+    for rec in recs:
+        print(rec)
+    print("schemes checked:", STATS["schemes"], "failures:", len(STATS["fail"]))
+```
+
+### Anhang B: `synthetic.py`
+
+Aufruf: `python3 synthetic.py 2 (importiert check_k13_k20.py)`. SHA-256 `5c7cdca543dc32e4abc8b13bea50630deaaab9b1a55db8bbda560ab3f1981e91`.
+
+```python
+#!/usr/bin/env python3
+"""Synthetic models for K-13, K-16, K-17, K-20 with N != 0 and S^ != 0.
+
+These links use only: diagonal D(e_{i0}) with (SN1), an injective calB,
+U = {row 0 = 0}, J = f_0(U), and maps into K^r/J (ranks into Q = K'/J
+equal ranks into K^r/J because J <= K' <= K^r).  So we choose
+a_1, a_2 in K^r (a_0 = 1, i.e. normalised D(e_00) = Id) and calB freely,
+with q-vectors (calB on U) built as polynomial multiples of a vector v,
+which forces N != 0.  (SN2) is checked exactly.
+"""
+import random, sys, itertools
+sys.path.insert(0, '.')
+from check_k13_k20 import (GF, QQ, rank_cols, kernel_mod, matvec, rref,
+                           all_subspaces, count_subspaces, in_span)
+
+def mono_vectors(Fd, a1, a2, v, deg):
+    out = []
+    for d in range(deg + 1):
+        for i in range(d + 1):
+            j = d - i
+            w = list(v)
+            for _ in range(i):
+                w = [Fd.mul(x, y) for x, y in zip(a1, w)]
+            for _ in range(j):
+                w = [Fd.mul(x, y) for x, y in zip(a2, w)]
+            out.append(w)
+    return out
+
+class Model:
+    pass
+
+def make_model(Fd, rng, r, m, mode):
+    M = Model(); M.Fd, M.r, M.m = Fd, r, m
+    rnd = lambda: Fd.rand(rng)
+    if Fd.finite:
+        # few distinct a-points so that fibres are large (degenerate positions)
+        npts = rng.randint(2, min(Fd.p * Fd.p, 9))
+        pts = [(rnd(), rnd()) for _ in range(npts)]
+        lab = [rng.randrange(npts) for _ in range(r)]
+    else:
+        npts = rng.randint(2, 9)
+        pts = [(Fd.c(rng.randint(-3, 3)), Fd.c(rng.randint(-3, 3))) for _ in range(npts)]
+        lab = [rng.randrange(npts) for _ in range(r)]
+    M.a1 = [pts[l][0] for l in lab]
+    M.a2 = [pts[l][1] for l in lab]
+    v = [rnd() for _ in range(r)]
+    if mode == "P2":           # q-span = v * P_2 (+ random), forces S^ != 0
+        qs = mono_vectors(Fd, M.a1, M.a2, v, 2)[:m]
+    elif mode == "module":       # q-span = v * P_d (truncated), forces N != 0
+        qs = mono_vectors(Fd, M.a1, M.a2, v, 3)
+        rng.shuffle(qs)
+        qs = qs[:m]
+    elif mode == "two":       # two generators
+        w = [rnd() for _ in range(r)]
+        qs = mono_vectors(Fd, M.a1, M.a2, v, 1) + mono_vectors(Fd, M.a1, M.a2, w, 1)
+        qs = qs[:m]
+    else:                      # random
+        qs = [[rnd() for _ in range(r)] for _ in range(m)]
+    while len(qs) < m:
+        qs.append([rnd() for _ in range(r)])
+    ps = [[rnd() for _ in range(r)] for _ in range(m)]
+    M.Bcols = ps + qs               # columns: row-0 coords then row-1 coords (= U)
+    return M
+
+def objects(M):
+    Fd, r, m = M.Fd, M.r, M.m
+    if rank_cols(Fd, M.Bcols, r) != 2 * m:
+        return False
+    mul = lambda a, v: [Fd.mul(x, y) for x, y in zip(a, v)]
+    M.f = {0: M.Bcols, 1: [mul(M.a1, c) for c in M.Bcols], 2: [mul(M.a2, c) for c in M.Bcols]}
+    M.fU = {i: M.f[i][m:] for i in range(3)}
+    return True
+
+def sn2(M):
+    Fd, r, m = M.Fd, M.r, M.m
+    pts = [[Fd.c(1), M.a1[t], M.a2[t]] for t in range(r)]
+    Brows = [[c[t] for c in M.Bcols] for t in range(r)]
+    if rank_cols(Fd, pts, 3) <= 2:
+        return False
+    planes = set()
+    for s in range(r):
+        for u in range(s + 1, r):
+            if rank_cols(Fd, [pts[s], pts[u]], 3) == 2:
+                planes.add(frozenset(t for t in range(r)
+                                     if rank_cols(Fd, [pts[s], pts[u], pts[t]], 3) == 2))
+    for Z in planes:
+        rows = [Brows[t] for t in range(r) if t not in Z]
+        if not rows or rank_cols(Fd, rows, 2 * m) < 2 * m:
+            return False
+    return True
+
+def invariants(M):
+    Fd, r, m = M.Fd, M.r, M.m
+    J = M.fU[0]; dJ = rank_cols(Fd, J, r)
+    F1, F2 = M.fU[1], M.fU[2]
+    M.rkL = rank_cols(Fd, F1 + F2 + J, r) - dJ
+    neg = lambda v: [Fd.neg(x) for x in v]
+    Z = [Fd.c(0)] * r
+    Hcols = [F2[j] + neg(F1[j]) for j in range(m)]
+    J2 = [v + Z for v in J] + [Z + v for v in J]
+    M.rkH = rank_cols(Fd, Hcols + J2, 2 * r) - 2 * dJ
+    M.Nc = kernel_mod(Fd, Hcols, J2, 2 * r)
+    M.dimN = len(M.Nc)
+    M.Delta = 2 * M.rkH - M.rkL
+    f0N = [matvec(Fd, J, c) for c in M.Nc]
+    if M.Nc:
+        st = [matvec(Fd, F1, c) + matvec(Fd, F2, c) for c in M.Nc]
+        sub = [v + Z for v in f0N] + [Z + v for v in f0N]
+        sc = kernel_mod(Fd, st, sub, 2 * r)
+        M.Shat = [matvec(Fd, [list(c) for c in M.Nc], s) for s in sc]  # U-coords
+    else:
+        M.Shat = []
+    M.dimS = len(M.Shat)
+    def rkp(g1, g2):
+        cols = [[Fd.add(Fd.mul(g1, x), Fd.mul(g2, y)) for x, y in zip(F1[j], F2[j])] for j in range(m)]
+        return rank_cols(Fd, cols + J, r) - dJ
+    if Fd.finite:
+        M.rho = max(rkp(a, b) for a in Fd.elements() for b in Fd.elements())
+    else:
+        M.rho = max([rkp(Fd.c(1), Fd.c(t)) for t in range(m + 2)] + [rkp(Fd.c(0), Fd.c(1))])
+    M.rkF1, M.rkF2 = rkp(Fd.c(1), Fd.c(0)), rkp(Fd.c(0), Fd.c(1))
+    return M
+
+FAILS = []
+def check(M, label, rng, exhaustive):
+    Fd, r, m = M.Fd, M.r, M.m
+    if not (M.dimS >= M.dimN - M.Delta):
+        FAILS.append((label, "K-16"))
+    if not (M.Delta >= min(2, M.dimN)):
+        FAILS.append((label, "K-17"))
+    if M.dimS > 0 and not (M.dimS + 2 <= M.dimN):
+        FAILS.append((label, "K-17 step"))
+    if not (M.rkH >= M.rho and M.rkL <= 2 * M.rho):
+        FAILS.append((label, "K-20(a)"))
+    n = 2 * m
+    # K-13 on subspaces: exhaustive if small, else random + N + S^ (embedded in K^{2m})
+    if exhaustive:
+        Xs = all_subspaces(Fd, n)
+    else:
+        Xs = []
+        for _ in range(40):
+            d = rng.randint(1, n)
+            R, _ = rref(Fd, [[Fd.rand(rng) for _ in range(n)] for _ in range(d)], n)
+            if R: Xs.append(R)
+    emb = lambda u: [Fd.c(0)] * m + list(u)
+    for B in (M.Nc, M.Shat):
+        if B:
+            Xs.append([emb(u) for u in B])
+    for X in Xs:
+        imgs = [matvec(Fd, M.f[i], x) for i in range(3) for x in X]
+        if rank_cols(Fd, imgs, r) < len(X) + 2:
+            FAILS.append((label, "K-13 dim X=%d" % len(X)))
+    return len(Xs)
+
+def main(seed):
+    rng = random.Random(seed)
+    stats = {}
+    b_cases = []
+    for Fd in (GF(2), GF(3), GF(5), QQ()):
+        for m in (2, 3, 4, 6, 7):
+            for mode in ("P2", "module", "two", "random"):
+                for rep in range(4 if Fd.finite else 2):
+                    r = rng.randint(3 * m, 3 * m + 8)
+                    for attempt in range(200):
+                        M = make_model(Fd, rng, r, m, mode)
+                        if objects(M) and sn2(M):
+                            break
+                    else:
+                        continue
+                    invariants(M)
+                    exh = Fd.finite and count_subspaces(Fd.p, 2 * m) <= 300
+                    nX = check(M, "%s m=%d r=%d %s" % (Fd.name, m, r, mode), rng, exh)
+                    key = (Fd.name, M.dimN, M.dimS)
+                    stats[key] = stats.get(key, 0) + 1
+                    if M.rkL == 2 * M.rho:
+                        b_cases.append((Fd.name, m, r, mode, M.rho, M.dimN))
+                    if M.dimS > 0:
+                        print("  nontrivial:", Fd.name, "m=%d r=%d %s" % (m, r, mode), "rkL", M.rkL, "rkH", M.rkH, "dimN", M.dimN, "Delta", M.Delta, "dimS", M.dimS, "rho", M.rho, "nX", nX, flush=True)
+    return stats, b_cases
+
+if __name__ == "__main__":
+    seed = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+    stats, b_cases = main(seed)
+    print("histogram (field, dim N, dim S^) -> count")
+    for k in sorted(stats): print("  ", k, stats[k])
+    print("cases with rk L = 2 rho (K-20(b) premise), (field, m, r, mode, rho, dimN):")
+    for c in b_cases: print("  ", c, "rho==m" if c[4] == c[1] else "RHO != m")
+    print("number of K-20(b)-premise cases:", len(b_cases))
+    print("failures:", FAILS)
+```
+
+### Anhang C: `focused.py`
+
+Aufruf: `python3 focused.py 3 (importiert synthetic.py, check_k13_k20.py)`. SHA-256 `f3e57803251c113b5727e055daec8fd2e53540434e0a21799bddc8d009249967`.
+
+```python
+#!/usr/bin/env python3
+"""Focused synthetic runs with S^ != 0 (v * P_2 construction), incl. char 2 via GF(4)."""
+import random, sys
+sys.path.insert(0, '.')
+import synthetic as S
+from check_k13_k20 import GF, QQ
+
+class GF4:
+    """GF(4) = GF(2)[w]/(w^2+w+1); elements 0,1,2=w,3=w+1 as bit vectors."""
+    p = 4; name = "GF(4)"; finite = True
+    def c(self, x): return x & 3 if x >= 0 else (x % 2)   # integers map via char 2
+    def add(self, a, b): return a ^ b
+    def sub(self, a, b): return a ^ b
+    def neg(self, a): return a
+    def mul(self, a, b):
+        r = 0
+        for i in range(2):
+            if (b >> i) & 1: r ^= a << i
+        if r & 4: r ^= 0b111
+        return r
+    def inv(self, a):
+        assert a
+        for b in range(1, 4):
+            if self.mul(a, b) == 1: return b
+    def iszero(self, a): return a == 0
+    def rand(self, rng): return rng.randrange(4)
+    def elements(self): return [0, 1, 2, 3]
+
+# sanity of GF4 arithmetic
+F4 = GF4()
+for a in range(4):
+    for b in range(4):
+        for c in range(4):
+            assert F4.mul(a, F4.add(b, c)) == F4.add(F4.mul(a, b), F4.mul(a, c))
+            assert F4.mul(a, F4.mul(b, c)) == F4.mul(F4.mul(a, b), c)
+assert all(F4.mul(a, F4.inv(a)) == 1 for a in range(1, 4))
+
+def run(seed):
+    rng = random.Random(seed)
+    hist = {}
+    for Fd in (GF4(), GF(3), GF(5), GF(7), QQ()):
+        for m in (6, 7):
+            got = 0
+            for rep in range(40):
+                if got >= 4: break
+                r = rng.randint(3 * m, 3 * m + 6)
+                for attempt in range(300):
+                    M = S.make_model(Fd, rng, r, m, "P2")
+                    if S.objects(M) and S.sn2(M):
+                        break
+                else:
+                    continue
+                S.invariants(M)
+                nX = S.check(M, "%s m=%d r=%d P2" % (Fd.name, m, r), rng, False)
+                hist[(Fd.name, M.dimN, M.dimS)] = hist.get((Fd.name, M.dimN, M.dimS), 0) + 1
+                if M.dimS > 0:
+                    got += 1
+                    print("  nontrivial:", Fd.name, "m=%d r=%d" % (m, r), "rkL", M.rkL, "rkH", M.rkH,
+                          "dimN", M.dimN, "Delta", M.Delta, "dimS", M.dimS, "rho", M.rho,
+                          "rkF1", M.rkF1, "rkF2", M.rkF2, "subspaces X tested", nX, flush=True)
+    print("histogram:", sorted(hist.items()))
+    print("failures:", S.FAILS)
+
+if __name__ == "__main__":
+    run(int(sys.argv[1]) if len(sys.argv) > 1 else 3)
+```
+
+### Anhang D: `enum_variants.py`
+
+Aufruf: `python3 enum_variants.py`. SHA-256 `113bd6453a089c4595df1b175ca8d2581cb2090ad83c421f682649b092368361`.
+
+```python
+#!/usr/bin/env python3
+"""Integer case analysis for <3,2,7>: r = 28..35, and r = 34 with one condition dropped."""
+m = 7
+
+def cases(r, use17=True, use16=True, use13=True):
+    q = r - 4 * m
+    out = []
+    for rkL in range(q + 1):
+        for rkH in range(m + 1):
+            dimN = m - rkH
+            D = 2 * rkH - rkL
+            if not 2 * m + rkH <= rkL + 2 * q:          # (G), K-15
+                continue
+            if use17 and not D >= min(2, dimN):          # K-17
+                continue
+            for s in range(dimN + 1):
+                if use16 and s < dimN - D:               # K-16
+                    continue
+                if use13 and s >= 1 and s + 2 > dimN:    # K-13 with X = S^
+                    continue
+                out.append((rkL, rkH, dimN, D, s))
+    return out
+
+for r in range(28, 36):
+    c = cases(r)
+    print("r=%d: %d case(s)" % (r, len(c)), c if len(c) <= 13 else "")
+print("r=34 without K-17:", cases(34, use17=False))
+print("r=34 without K-16:", cases(34, use16=False))
+print("r=34 without K-13 step:", cases(34, use13=False))
+```
+
+### Anhang E: `char2.py`
+
+Aufruf: `python3 char2.py 5 (importiert synthetic.py, focused.py)`. SHA-256 `974b7958780b4af62d0da3da391399df0c3c54e35e4fb758be999bd3de876432`.
+
+```python
+#!/usr/bin/env python3
+"""Char-2 run (GF(4)) of the v*P_2 model with more coordinates and more a-points."""
+import random, sys
+sys.path.insert(0, '.')
+import synthetic as S
+from focused import GF4
+
+def make_model_wide(Fd, rng, r, m):
+    M = S.Model(); M.Fd, M.r, M.m = Fd, r, m
+    pts = [(a, b) for a in Fd.elements() for b in Fd.elements()]
+    rng.shuffle(pts)
+    pts = pts[:rng.randint(8, 16)]
+    lab = [rng.randrange(len(pts)) for _ in range(r)]
+    M.a1 = [pts[l][0] for l in lab]; M.a2 = [pts[l][1] for l in lab]
+    v = [Fd.rand(rng) for _ in range(r)]
+    qs = S.mono_vectors(Fd, M.a1, M.a2, v, 2)[:m]
+    while len(qs) < m:
+        qs.append([Fd.rand(rng) for _ in range(r)])
+    ps = [[Fd.rand(rng) for _ in range(r)] for _ in range(m)]
+    M.Bcols = ps + qs
+    return M
+
+rng = random.Random(int(sys.argv[1]) if len(sys.argv) > 1 else 5)
+F = GF4()
+hist = {}
+for m in (6, 7):
+    got = 0
+    for rep in range(30):
+        if got >= 3: break
+        r = rng.randint(30, 40)
+        for attempt in range(100):
+            M = make_model_wide(F, rng, r, m)
+            if S.objects(M) and S.sn2(M):
+                break
+        else:
+            continue
+        S.invariants(M)
+        nX = S.check(M, "GF(4) m=%d r=%d P2" % (m, r), rng, False)
+        hist[(M.dimN, M.dimS)] = hist.get((M.dimN, M.dimS), 0) + 1
+        if M.dimS > 0:
+            got += 1
+            print("  nontrivial: GF(4) m=%d r=%d" % (m, r), "rkL", M.rkL, "rkH", M.rkH, "dimN", M.dimN,
+                  "Delta", M.Delta, "dimS", M.dimS, "rho", M.rho, "subspaces X tested", nX, flush=True)
+print("histogram GF(4):", sorted(hist.items()))
+print("failures:", S.FAILS)
+```
+
