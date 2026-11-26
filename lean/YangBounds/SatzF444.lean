@@ -443,7 +443,6 @@ theorem satzF_kern [IsAlgClosed K] {r : ℕ} (a b : Fin r → Fin 4 → K)
     have := hw t
     have := hpA t
     field_simp
-    ring
   have hx : ∀ t, x t = qB.eval (y t) / pB.eval (y t) := fun t => by
     show (b t ⬝ᵥ w1) / (b t ⬝ᵥ w0) = _
     rw [hB0 t, hB1 t]
@@ -451,7 +450,6 @@ theorem satzF_kern [IsAlgClosed K] {r : ℕ} (a b : Fin r → Fin 4 → K)
     have := hu t
     have := hpB t
     field_simp
-    ring
   -- the chart forms of `a_t` and `b_t`
   have haC : ∀ t, a t = (ca t * (b t ⬝ᵥ w0) ^ 3) • Na *ᵥ mom 1 (x t) := fun t => by
     conv_lhs => rw [ha t]
@@ -485,7 +483,6 @@ theorem satzF_kern [IsAlgClosed K] {r : ℕ} (a b : Fin r → Fin 4 → K)
     have := hpB' t
     rw [hxy]
     field_simp
-    ring
   -- the parameters `x_t`, `t ∈ T`, are pairwise distinct
   have hinj : Set.InjOn x T := by
     intro s hs t ht hst
@@ -635,7 +632,6 @@ theorem kubik_seite [IsAlgClosed K] {r : ℕ} (x z : Fin r → Fin 4 → K)
         rw [mulVec_mulVec, nonsing_inv_mul _ hV, one_mulVec]
     _ = _ := by
         rw [hchain, mulVec_smul]
-        simp only [hVz]
 
 end Seite
 

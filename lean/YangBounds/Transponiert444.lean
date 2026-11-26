@@ -351,10 +351,10 @@ theorem transNF_SN2 (hT2 : TransN2 alg) : SN2 (d := 3) (transNF alg R hR) := by
   intro v hv
   rw [Fintype.linearIndependent_iff]
   intro g hg
-  have hX : vᵀ * Mrot' ≠ 0 := by
+  have hX : vᵀ * (Mrot' : Matrix (Fin 2) (Fin 2) L) ≠ 0 := by
     intro h0
     apply hv
-    have h1 := congrArg (· * Mrot) h0
+    have h1 := congrArg (· * (Mrot : Matrix (Fin 2) (Fin 2) L)) h0
     simp only [Matrix.mul_assoc, Mrot'_mul_Mrot, Matrix.mul_one, Matrix.zero_mul] at h1
     exact Matrix.transpose_eq_zero.mp h1
   have hRg : R *ᵥ g = 0 := by
@@ -560,6 +560,7 @@ theorem Mrot_prowL :
       add_zero]
     rw [← map_mul, ← map_neg]
     field_simp
+    simp
 
 set_option synthInstance.maxHeartbeats 400000 in
 set_option maxHeartbeats 800000 in

@@ -413,7 +413,8 @@ theorem genInjL (w : Matrix (Fin 2) (Fin 4) (GBar K)) (hw : w ≠ 0) :
       (N (fun j => x (Sum.inr (0, j)))).submatrix f id := by
     intro x
     ext i a
-    simp only [RingHom.mapMatrix_apply, Matrix.map_apply, Matrix.submatrix_apply, id, Npoly, N]
+    change evB x (Npoly i a) = N (fun j => x (Sum.inr (0, j))) (f i) a
+    simp only [Npoly, N]
     split_ifs with hb
     · rw [evB_polyForm, halgL]
       have hU : (fun i' => evB x (if a = i' then 1 else 0)) = basisVec a := by

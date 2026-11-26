@@ -79,6 +79,11 @@ def entryForm {a b : ℕ} (i : Fin a) (j : Fin b) : Matrix (Fin a) (Fin b) K →
   map_add' _ _ := rfl
   map_smul' _ _ := rfl
 
+/-- Evaluation of `entryForm` (added in S5-14: with the module system `simp [entryForm]` no
+longer reduces the application). -/
+theorem entryForm_apply {a b : ℕ} (i : Fin a) (j : Fin b) (M : Matrix (Fin a) (Fin b) K) :
+    entryForm i j M = M i j := rfl
+
 /-- The matrix unit with a `1` at position `(i, j)`. -/
 def unitMatrix {a b : ℕ} (i : Fin a) (j : Fin b) : Matrix (Fin a) (Fin b) K :=
   Matrix.of fun i' j' => if i' = i ∧ j' = j then 1 else 0
@@ -101,7 +106,7 @@ noncomputable def standardAlgorithm (K : Type u) [Field K] (n l m : ℕ) :
     · apply Finset.sum_congr rfl
       intro k _
       rw [Finset.sum_eq_single b]
-      · simp
+      · simp only [ite_true, and_self]; rfl
       · intro j _ hj
         simp [Ne.symm hj]
       · simp

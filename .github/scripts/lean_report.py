@@ -85,7 +85,16 @@ MAIN_THEOREMS = [
     ("Lemma I: rk L + min(2, dim N) <= 2 rk H (YangN3Teil3.lean)", "YangBounds.YangN3Teil3.lemma_I"),
     # S4-18: conditional exclusion S4-07-D (B-021 D, first sentence), named hypotheses.
     ("S4-07-D <3,2,7>, length 34: setting of S4-07-C with (INJ5) is impossible (S4BedingterAusschluss.lean)", "YangBounds.S4BedingterAusschluss.s4_07_D"),
+    # S5-14: the Palomar Solution (lean/MatMulRank/Solution.lean) and its bridge to the project.
+    ("Palomar Solution: R<4,2,4> >= 26 with the Challenge definitions (MatMulRank/Solution.lean)", "MatMulRank.rank_four_two_four_ge_26"),
+    ("Palomar Solution: Challenge tensorRank = project tensorRank (MatMulRank/Solution.lean)", "MatMulRank.tensorRank_eq_yangBounds"),
 ]
+# S5-14: the Challenge contains one deliberate `sorry` (the theorem Palomar asks to prove,
+# CONTRIBUTING.md: "Deliberate holes in Challenge declarations are allowed"). It is listed
+# separately and not counted as an open proof. The Challenge is not imported by the axiom
+# check because it declares the same theorem name as the Solution.
+CHALLENGE_FILE = "MatMulRank/Challenge.lean"
+SOLUTION_MODULES = ["MatMulRank.Definitions", "MatMulRank.Solution"]
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 
 
@@ -103,7 +112,7 @@ def modules(lean_dir: Path) -> list[str]:
     for p in sorted((lean_dir / "YangBounds").rglob("*.lean")):
         rel = p.relative_to(lean_dir).with_suffix("")
         mods.append(".".join(rel.parts))
-    return mods
+    return mods + SOLUTION_MODULES
 
 
 def gen_check(lean_dir: Path, out: Path) -> None:
@@ -155,25 +164,33 @@ def strip_comments(src: str) -> str:
 
 def sorry_report(lean_dir: Path, build_log: Path) -> None:
     log = build_log.read_text(encoding="utf-8", errors="replace")
-    warns = []
+    warns, intended = [], []
     for line in log.splitlines():
-        if "declaration uses 'sorry'" in line:
+        if "declaration uses 'sorry'" in line or "declaration uses `sorry`" in line:
             m = re.search(r"([\w./-]+\.lean):(\d+):(\d+)", line)
             loc = f"lean/{os.path.normpath(m.group(1))}:{m.group(2)}" if m else line.strip()
-            if loc not in warns:
-                warns.append(loc)
-    tokens = []
-    for p in sorted(list(lean_dir.glob("*.lean")) + list((lean_dir / "YangBounds").rglob("*.lean"))):
+            target = intended if loc.startswith(f"lean/{CHALLENGE_FILE}:") else warns
+            if loc not in target:
+                target.append(loc)
+    tokens, intended_tokens = [], []
+    files = (list(lean_dir.glob("*.lean")) + list((lean_dir / "YangBounds").rglob("*.lean"))
+             + list((lean_dir / "MatMulRank").rglob("*.lean")))
+    for p in sorted(files):
         code = strip_comments(p.read_text(encoding="utf-8"))
+        rel = p.relative_to(lean_dir).as_posix()
         for k, line in enumerate(code.splitlines(), 1):
             if re.search(r"(?<![\w.'])sorry(?![\w'])", line):
-                tokens.append(f"lean/{p.relative_to(lean_dir)}:{k}")
+                (intended_tokens if rel == CHALLENGE_FILE else tokens).append(f"lean/{rel}:{k}")
     print("=" * 72)
     print(f"SORRY: {len(warns)} declaration(s) with 'declaration uses sorry' in the build log")
     for w in warns:
         print(f"  {w}")
     print(f"SORRY: {len(tokens)} 'sorry' token(s) in the sources outside comments")
     for t in tokens:
+        print(f"  {t}")
+    print(f"INTENDED: {len(intended)} declaration(s) and {len(intended_tokens)} token(s) in the "
+          f"Palomar Challenge ({CHALLENGE_FILE}), deliberate hole, not counted above")
+    for t in intended + intended_tokens:
         print(f"  {t}")
     print("=" * 72)
     for w in warns:
@@ -183,6 +200,8 @@ def sorry_report(lean_dir: Path, build_log: Path) -> None:
         md += ["Build warnings `declaration uses 'sorry'`:", ""] + [f"- `{w}`" for w in warns] + [""]
     if tokens:
         md += ["`sorry` in sources (outside comments):", ""] + [f"- `{t}`" for t in tokens] + [""]
+    md += [f"Deliberate hole of the Palomar Challenge (`lean/{CHALLENGE_FILE}`), not counted: "
+           f"{len(intended)} declaration(s), {len(intended_tokens)} token(s).", ""]
     summary("\n".join(md))
 
 

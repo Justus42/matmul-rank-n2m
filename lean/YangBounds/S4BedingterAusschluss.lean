@@ -427,9 +427,9 @@ theorem rep20_le (hJ : Jspace alg = mulP (aVec alg 1) (aVec alg 2) w 2 ⊔ K ∙
   rw [hJ]
   refine Submodule.add_mem _ (Submodule.mem_sup_left (mem_mulP.mpr ⟨F, hF, rfl⟩))
     (Submodule.mem_sup_right ?_)
-  have hG0 : G = C (coeff 0 G) := totalDegree_eq_zero_iff_eq_C.mp (Nat.le_zero.mp hG)
+  have hG0 : G = C (G.coeff 0) := totalDegree_eq_zero_iff_eq_C.mp (Nat.le_zero.mp hG)
   rw [hG0, Submodule.mem_span_singleton]
-  refine ⟨coeff 0 G, ?_⟩
+  refine ⟨G.coeff 0, ?_⟩
   ext t
   simp [ev, mul_comm]
 

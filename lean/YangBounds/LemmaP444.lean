@@ -443,7 +443,7 @@ theorem pencil_bound {K : Type u} [Field K] {Q : Type v} [AddCommGroup Q] [Modul
     exact LinearMap.ker_eq_bot.1 (Submodule.finrank_eq_zero.1 hk0)
   let e : Z ≃ₗ[K] E := LinearEquiv.ofBijective f₁ ⟨hf₁inj, hf₁surj⟩
   let Tm : Module.End K E := f₂ ∘ₗ e.symm.toLinearMap
-  have hmaps : Set.MapsTo (fun t => b t / a t) S Tm.HasEigenvalue := by
+  have hmaps : Set.MapsTo (fun t => b t / a t) S {μ | Tm.HasEigenvalue μ} := by
     intro t ht
     have hz : (a t • k t, b t • k t) ∈ Z := by
       show Φ _ = 0
@@ -754,7 +754,7 @@ theorem main [Infinite K] [FiniteDimensional K Q] (H : Hyp F) :
   have hWle : finrank K W ≤ m - 1 := by omega
   -- Step 9: `m ≤ 3`
   have hm3 : m ≤ 3 := by
-    rcases le_or_lt m 3 with h | h
+    rcases le_or_gt m 3 with h | h
     · exact h
     exfalso
     have h4 : m ≤ 4 := by

@@ -63,7 +63,7 @@ noncomputable def extendForm {a b : ℕ} (f : Matrix (Fin a) (Fin b) K →ₗ[K]
 theorem extendForm_apply {a b : ℕ} (f : Matrix (Fin a) (Fin b) K →ₗ[K] K)
     (A : Matrix (Fin a) (Fin b) L) :
     extendForm (L := L) f A = ∑ i : Fin a, ∑ j : Fin b, algebraMap K L (f (unitMatrix i j)) * A i j := by
-  simp [extendForm, LinearMap.coeFn_sum, Finset.sum_apply, entryForm, Algebra.smul_def]
+  simp [extendForm, FunLike.coe_sum, Finset.sum_apply, entryForm_apply, Algebra.smul_def]
 
 /-- On matrices with entries from `K`, the extended form is the image of the original one. -/
 theorem extendForm_map {a b : ℕ} (f : Matrix (Fin a) (Fin b) K →ₗ[K] K)
