@@ -1,6 +1,6 @@
 # Status
 
-Zuletzt geändert: 26.11.2026 (Stufe 5 von Justus um 14:32 UTC gestartet, Protokoll 0.7; noch kein Auftrag vergeben. Zuerst Abschluss Auflage 7: Zweitlauf-Prüfer A7-Z läuft)
+Zuletzt geändert: 26.11.2026 (Stufe 5 von Justus um 14:32 UTC gestartet, Protokoll 0.7; noch kein Auftrag einer Runde vergeben. Auflage 7: Zweitlauf A7-Z erledigt, Textänderung A7-T und Literaturwache S5-LW laufen)
 
 ## Aktuelle Stufe
 
@@ -226,7 +226,9 @@ Für alle: Aufträge hängen nicht voneinander ab. Rechenblöcke höchstens 30 M
 | S4-33 | Prüfer B-029, unabhängig von S4-32 | Prüfer | `lean/prosa/s4_327_bericht_s4-33.md` | erledigt in Runde 6, PR #138. B, C, D erster Satz bestätigt (bedingt); D zweiter Satz nur in einer Lesart |
 | S4-34 | Prüfer B-028 (S4-28-A, B, C) | Prüfer | `lean/prosa/s4_327_bericht_s4-34.md` | erledigt in Runde 6, PR #141. A, B, C bestätigt; Zusatz „dicht und offen“ nur unter S4-21-A |
 | S4-35 | Unabhängiger Sucher (nicht blind) | Unabhängiger Sucher (nicht blind) | `versuche/s4-unabhaengig-r6.md` | erledigt, PR #142 (Merge f43f265). Rang nicht bestimmt; B-032 angelegt, behauptet |
-| A7-Z | Zweitlauf-Prüfer Auflage 7 (wiederholter Lauf, nur Beweiskörper gegenüber `main` geändert) | Prüfer | `lean/prosa/a7_zweitlauf_bericht.md` | vergeben etwa 13:54 UTC, außerhalb von Stufe 4 |
+| A7-Z | Zweitlauf-Prüfer Auflage 7 (wiederholter Lauf, nur Beweiskörper gegenüber `main` geändert) | Prüfer | `lean/prosa/a7_zweitlauf_bericht.md` | erledigt, PR #143 (Merge 7a5c077). Lauf 45833618872, Job 139956567190 auf 62c3dc6. B-016 bleibt geprüft |
+| A7-T | Textänderung README und `ergebnisse/rang-444.md` (Abschluss Auflage 7) | Schreiber | `lean/prosa/a7_textaenderung.md` | vergeben etwa 14:36 UTC, außerhalb der Runden von Stufe 5 |
+| S5-LW | Literaturwache vor Stufe 5 (Abschnitt 7, mit Palomar) | Literaturwächter | `lit/WACHE-2026-11-26-S5.md` | vergeben etwa 14:36 UTC, außerhalb der Runden |
 
 ## Stufe 3: abgeschlossen
 

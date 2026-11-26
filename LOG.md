@@ -2848,3 +2848,8 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - Damit ist Protokoll 0.7 (Commit 1c15770) von Justus bestätigt. Stufe 5 ist gestartet (Spur P: Portierung für Palomar, Spur K: Kette zu 3×2×7 ohne Lean); Budget nach Abschnitt 6: 6 Runden mit je bis zu 6 Subagenten, höchstens 4 Fremdmodell-Anfragen.
 - Reihenfolge laut Orchestrator: erst Abschluss von Auflage 7 (Zweitlauf A7-Z läuft noch, danach Textänderung in README und `ergebnisse/rang-444.md`), dann Literaturwache, dann Stufe 5 mit beiden Spuren. Noch kein Auftrag der Stufe 5 vergeben.
 - Schreibhand: PROTOKOLL.md 0.7 und CLAUDE.md neu gelesen. Ab jetzt gilt 11.1 auch für die Commit-Betreffe der Schreibhand (keine Zählerstände, Fristen, Budgets, Statuswörter oder Urteile).
+
+**Auflage 7: Zweitlauf A7-Z geliefert, A7-T und S5-LW vergeben (außerhalb der Runden von Stufe 5)**
+
+- A7-Z: PR #143, Commit 0300578 (14:34:39 UTC), Merge 7a5c077 (14:34:53 UTC), Bericht `lean/prosa/a7_zweitlauf_bericht.md`. Lauf 45833618872, Job 139956567190 auf 62c3dc6 (13:54 bis 14:14:26 UTC), von der Schreibhand am Job-Log nachgesehen. Zweitlauf, „nur Beweiskörper geändert“ und Importkette ohne `mm325_proof` laut Bericht bestätigt. B-016 bleibt geprüft (Orchestrator); Zweitlauf auf dem Stand 62c3dc6 wiederholt. Einzelheiten und Offenlegung im Wortlaut in `pruefvermerke/B-016.md`. 0 Fremdmodell-Anfragen.
+- Vergeben etwa 14:36 UTC, beide außerhalb der Runden von Stufe 5: A7-T (Textänderung README und `ergebnisse/rang-444.md`, Bericht `lean/prosa/a7_textaenderung.md`) und S5-LW (Literaturwache vor Stufe 5 nach Abschnitt 7 mit Palomar, `lit/WACHE-2026-11-26-S5.md`).
