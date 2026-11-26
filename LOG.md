@@ -3168,3 +3168,20 @@ Wortlaut Justus (26.11.2026, 14:32:59 UTC, über den Orchestrator weitergereicht
 - Letzte Runde im Budget, 1 Subagent, kein Fremdmodell.
 - S5-22: Merge von `portierung` (f75d77c) nach `main` mit Merge-Commit, beide Workflows auf `main` grün, Bericht `lean/prosa/s5_merge_s5-22.md`. Der Merge darf `STATUS.md`, `LOG.md`, `pruefvermerke/`, `behauptungen/`, `README.md` und `ergebnisse/` nicht verändern.
 - **Lesart (p) (Orchestrator):** „Zweitlauf dort wiederholt“ heißt der Lauf von `zweitlauf.yml` auf dem Merge-Commit von `main`, von der Schreibhand am Job-Log nachgesehen; ein eigener Prüfer dafür hinge vom Merge ab und passt nicht mehr in dieselbe Runde.
+
+
+## 26.11.2026 · Entscheidung von Justus zur Einreichung (17:31:34 UTC, Projektchat, Wortlaut)
+
+> Entscheidungen zur Einreichung, einzuarbeiten in Runde 6:
+>
+> 1. Autor und verantwortlicher Betreuer in formalization.yaml, genau so: Justus Jeserigk, GitHub-Login Justus42. Sonst niemand.
+> 2. Herkunft: original (Fassung A). Die Quelle Yang bekommt background.
+> 3. P-13: Benenne versuche/s2-19-abgleich/Check.lean in Check.lean.txt um, Inhalt unverändert, mit einer Zeile Erklärung im selben Verzeichnis.
+> 4. Beschreibung: „The lower bound 26 is new" wird zu „To our knowledge, the lower bound 26 is new", mit Verweis auf die Literatursuche unter lit/.
+> 5. review.notes: Der Abgleich der Aussage „= 26" durch Prüfer und Fremdmodell ist erledigt und wird so eingetragen.
+> 6. Modellnamen unter automation nur, soweit sie im Logbuch belegt sind. Was nicht belegt ist, wird allgemein benannt.
+>
+> Nach dem Merge nach main und dem Zweitlauf nennst du mir den vollen Commit-SHA für die Einreichung und hältst an.
+
+- Orchestrator: Damit sind die Fragen von 16:11 UTC beantwortet (P-13: Umbenennen in `Check.lean.txt`; Autor, Betreuer, original). Ausführung: Der Auftrag S5-22 ist um 17:32 UTC um diese sechs Punkte erweitert, kein weiterer Subagent; Änderungen über `portierung`, danach erneuter Merge nach `main`, beide Workflows auf dem letzten Commit grün. Der Merge fc7d9e1 ist damit nicht der Stand der Einreichung. Runde 6 bleibt offen. Nach dem Zweitlauf nennt der Orchestrator Justus den vollen SHA und hält an.
+- Schreibhand (aus Git): Der erste Merge von S5-22, fc7d9e1 (PR #167, 17:21:48 UTC, Eltern a496be6 und f75d77c), steht auf `main`; er ändert 53 Dateien, keine unter `STATUS.md`, `LOG.md`, `pruefvermerke/`, `behauptungen/`, `README.md`, `ergebnisse/`, `PROTOKOLL.md`, `CLAUDE.md`.
