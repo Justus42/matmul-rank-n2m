@@ -2591,3 +2591,10 @@ Wortlaut Justus (26.11.2026, 11:55:55 UTC):
 - 0 Fremdmodell-Anfragen.
 - Status (Orchestrator): B-021 D bleibt behauptet. Punkte 1, 2 und 4 von 5.1 liegen mit diesem Job vor. Punkt 3 (Aussagen-Abgleich durch zwei Prüfer, die einander nicht sehen) läuft in Runde 5 nach Lesart (g).
 - Fundstelle (Schreibhand, ohne Wertung): Der Kopfkommentar der Lean-Datei nennt den Prüferbericht S4-12 und die Sol-Antwort zu D mit Pfad (Zeilen 47 bis 51).
+
+**Nachtrag 26.11.2026, Runde 4: Entscheidung des Orchestrators zum Kopfkommentar von S4-18**
+
+- Die Kommentarstelle in `lean/YangBounds/S4BedingterAusschluss.lean`, die den Prüferbericht S4-12 und die Sol-Antwort zu D nennt, wird noch in Runde 4 entfernt. S4-18 streicht alle Verweise auf Prüfberichte, Fremdmodell-Antworten und Urteile, nur Kommentare, kein Lean-Code, eigener PR, neuer grüner Lauf auf main.
+- Nacharbeit desselben Subagenten, kein siebter Platz.
+- Maßgeblich für 5.1 Punkte 1, 2 und 4 wird dann die neue Job-Nummer (Meldung folgt). Job 139886382749 bleibt als Nachweis für Commit fb7f197 stehen.
+- Positivliste der beiden Abgleich-Prüfer in Runde 5: `CLAUDE.md`, `PROTOKOLL.md` nur Abschnitt 5, `behauptungen/B-021.md`, `lean/YangBounds/S4BedingterAusschluss.lean` ganz, `lean/YangBounds/Basic.lean` nur `BilinearAlgorithm` und `unitMatrix`, `lean/prosa/s4_327_spurA_r2_bau.md` nur Abschnitte 1 und 3.1 (ohne Abschnitt 0), dazu Lauf und Job der neuen Fassung.
