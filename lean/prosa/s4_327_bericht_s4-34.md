@@ -61,7 +61,7 @@ Wörtlich so übernommen, wie sie in den genannten Dateien stehen:
 5. **Aus B-030:** Lemma F (Aussage), die Formeln a′(t) = Sᵀα_tpᵀ, b′(t) = Sᵀα_tp′ᵀ aus Abschnitt 3 von S4-21, und für den Zusatz in S4-28-C die Aussage S4-21-A. Satz G (S4-21-B) wird nicht gebraucht.
 6. Die untere Schranke R(⟨3,2,7⟩) ≥ 34 (damit kein α_t die Nullform ist). Sie steht in den gelesenen Dateien als Voraussetzung von S4-07 und E2-B.
 
-Lemma F und die Formeln aus Abschnitt 3 von S4-21 habe ich zusätzlich selbst nachgeprüft (Abschnitt 5). Alles andere in dieser Liste habe ich nicht geprüft.
+Lemma F und die Formeln aus Abschnitt 3 von S4-21 habe ich zusätzlich selbst nachgeprüft (Abschnitt 4.1). Alles andere in dieser Liste habe ich nicht geprüft.
 
 **Braucht der Beweis mehr, als dort wörtlich steht?**
 
