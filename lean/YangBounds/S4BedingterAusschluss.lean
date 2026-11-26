@@ -4,6 +4,7 @@ public import YangBounds.Basic
 public import Mathlib.RingTheory.MvPolynomial.Basic
 public import Mathlib.Algebra.MvPolynomial.CommRing
 public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Tactic.LinearCombination
 
 @[expose] public section
 

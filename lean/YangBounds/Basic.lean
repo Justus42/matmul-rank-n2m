@@ -1,33 +1,11 @@
 module
 
-public import Mathlib.Data.Matrix.Mul
-public import Mathlib.Data.Nat.Find
-public import Mathlib.Algebra.BigOperators.Fin
-public import Mathlib.Logic.Equiv.Fin.Basic
--- S4-26 (condition 7): the Mathlib modules below are exactly the Mathlib imports of the
--- former dependency module `MatrixMultiplicationLowerBound25` that this file no longer
--- imports, so that every downstream file sees the same Mathlib environment as before.
-public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-public import Mathlib.Tactic.FinCases
-public import Mathlib.Tactic.Ring
-public import Mathlib.LinearAlgebra.Quotient.Basic
-public import Mathlib.Tactic.Abel
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-public import Mathlib.Algebra.Module.Submodule.Lattice
-public import Mathlib.Algebra.Module.Pi
-public import Mathlib.Algebra.Field.Basic
-public import Mathlib.LinearAlgebra.Dual.Lemmas
-public import Mathlib.LinearAlgebra.Pi
-public import Mathlib.Algebra.Polynomial.Roots
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.Tactic.LinearCombination
-public import Mathlib.Tactic.FieldSimp
-public import Mathlib.Tactic.Push
-public import Mathlib.LinearAlgebra.Basis.Prod
-public import Mathlib.LinearAlgebra.StdBasis
-public import Mathlib.LinearAlgebra.BilinearMap
-public import Mathlib.FieldTheory.RatFunc.Basic
-public import Mathlib.Tactic.NormNum
+-- Task N-06 (26.11.2026): the imports of this file were determined from this project's own
+-- build (`lake build` of all targets, Lean 4.36.0, the Mathlib pinned in `lake-manifest.json`),
+-- not from any other project. `Mathlib.Data.Matrix.Basic` is the only import this file needs.
+-- All downstream files build with it; `YangBounds.S4BedingterAusschluss` now imports
+-- `Mathlib.Tactic.LinearCombination` itself.
+public import Mathlib.Data.Matrix.Basic
 
 @[expose] public section
 
